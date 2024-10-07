@@ -27,7 +27,10 @@ export default function DonationSelectors({ data }) {
 
     const handleSelectOneTimeAmount = (amount, amountIndex) => setActive(prevState => ( { ...prevState, amountSelector: { amount, amountIndex } }));
 
-    const handleDonate = async () => {
+    const handleDonate = async (e) => {
+        e.preventDefault();
+        
+        setActive(prevState => ({ ...prevState, loading: true }));
         
         const cashFreeResponse = await createCashFreeOrder(active.amountSelector.amount);
 
