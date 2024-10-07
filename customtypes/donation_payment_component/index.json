@@ -1,0 +1,80 @@
+{
+  "format": "custom",
+  "id": "donation_payment_component",
+  "label": "Donation Payment Component",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "slice_identifier": {
+        "type": "Text",
+        "config": {
+          "label": "Slice Identifier",
+          "placeholder": ""
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "one_time_amounts": {
+        "type": "Group",
+        "config": {
+          "label": "One Time Amounts",
+          "repeat": true,
+          "fields": {
+            "one_time_amount": {
+              "type": "Text",
+              "config": {
+                "label": "One Time Amount",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "recurring_amounts": {
+        "type": "Group",
+        "config": {
+          "label": "Recurring Amounts",
+          "repeat": true,
+          "fields": {
+            "recurring_amount": {
+              "type": "Text",
+              "config": {
+                "label": "Recurring Amount",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "cta_text": {
+        "type": "Text",
+        "config": {
+          "label": "CTA Text",
+          "placeholder": ""
+        }
+      },
+      "cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "CTA Link",
+          "placeholder": "",
+          "select": null
+        }
+      }
+    }
+  }
+}

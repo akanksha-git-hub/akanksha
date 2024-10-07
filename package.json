@@ -1,0 +1,37 @@
+{
+  "name": "akanksha",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine"
+  },
+  "dependencies": {
+    "@cashfreepayments/cashfree-js": "^1.0.5",
+    "@prismicio/client": "^7.8.0",
+    "@prismicio/next": "^1.6.0",
+    "@prismicio/react": "^2.8.0",
+    "cashfree-pg": "^4.2.3",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.13",
+    "lodash.debounce": "^4.0.8",
+    "lottie-react": "^2.4.0",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "swiper": "^11.1.9",
+    "tailwind-merge": "^2.5.2"
+  },
+  "devDependencies": {
+    "@slicemachine/adapter-next": "^0.3.45",
+    "@types/react": "^18.3.4",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8",
+    "slice-machine-ui": "^2.4.1",
+    "tailwindcss": "^3.4.1"
+  }
+}

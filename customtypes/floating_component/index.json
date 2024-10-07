@@ -1,0 +1,40 @@
+{
+  "format": "custom",
+  "id": "floating_component",
+  "label": "Floating Component",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "text": {
+        "type": "Text",
+        "config": {
+          "label": "Text",
+          "placeholder": ""
+        }
+      },
+      "text_yes": {
+        "type": "Text",
+        "config": {
+          "label": "Text Yes",
+          "placeholder": ""
+        }
+      },
+      "text_no": {
+        "type": "Text",
+        "config": {
+          "label": "Text No",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

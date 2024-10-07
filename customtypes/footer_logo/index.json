@@ -1,0 +1,19 @@
+{
+  "format": "custom",
+  "id": "footer_logo",
+  "label": "Footer Logo",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "footer_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Footer Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

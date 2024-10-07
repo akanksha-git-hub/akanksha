@@ -1,0 +1,27 @@
+{
+  "format": "custom",
+  "id": "footer_items_title",
+  "label": "Footer Items Title",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "footer_items_title": {
+        "type": "Group",
+        "config": {
+          "label": "Footer Items Title",
+          "repeat": true,
+          "fields": {
+            "items_title": {
+              "type": "Text",
+              "config": {
+                "label": "Items Title",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

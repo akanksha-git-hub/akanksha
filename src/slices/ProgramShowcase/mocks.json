@@ -1,0 +1,125 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"program_showcase_content": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "turn",
+									"type": "Text"
+								}
+							],
+							[
+								"short_content",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "equally",
+									"type": "Text"
+								}
+							],
+							[
+								"program_name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "break",
+									"type": "Text"
+								}
+							],
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
+										"width": 5000,
+										"height": 4613
+									},
+									"url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
+									"width": 5000,
+									"height": 4613,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"quote",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "shelter",
+									"type": "Text"
+								}
+							],
+							[
+								"quote_by",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "owner",
+									"type": "Text"
+								}
+							],
+							[
+								"read_story_link",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "fewer",
+									"type": "Text"
+								}
+							],
+							[
+								"stat_a_description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "quiet",
+									"type": "Text"
+								}
+							],
+							[
+								"stat_a_number",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "deep",
+									"type": "Text"
+								}
+							],
+							[
+								"stat_b_description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "account",
+									"type": "Text"
+								}
+							],
+							[
+								"stat_b_number",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "hat",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

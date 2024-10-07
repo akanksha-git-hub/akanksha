@@ -1,0 +1,43 @@
+{
+  "format": "custom",
+  "id": "footer_items_content",
+  "label": "Footer Items Content",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "footer_list_items": {
+        "type": "Group",
+        "config": {
+          "label": "Footer List Items",
+          "repeat": true,
+          "fields": {
+            "footer_item_title_identifier": {
+              "type": "Text",
+              "config": {
+                "label": "Footer Item Title Identifier",
+                "placeholder": ""
+              }
+            },
+            "footer_item": {
+              "type": "Text",
+              "config": {
+                "label": "Footer Item",
+                "placeholder": ""
+              }
+            },
+            "footer_item_link": {
+              "type": "Link",
+              "config": {
+                "label": "Footer Item Link",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

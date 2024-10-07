@@ -1,0 +1,48 @@
+{
+  "format": "custom",
+  "id": "footer_bottom_texts",
+  "label": "Footer Bottom Texts",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "privacy_page_cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "Privacy Page CTA Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "privacy_page_cta_text": {
+        "type": "Text",
+        "config": {
+          "label": "Privacy Page CTA Text",
+          "placeholder": ""
+        }
+      },
+      "terms_and_condition_page_cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "Terms and Condition Page CTA Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "terms_and_condition_page_cta_text": {
+        "type": "Text",
+        "config": {
+          "label": "Terms and Condition Page CTA Text",
+          "placeholder": ""
+        }
+      },
+      "akanksha_tag": {
+        "type": "Text",
+        "config": {
+          "label": "Akanksha Tag",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

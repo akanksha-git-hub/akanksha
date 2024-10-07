@@ -1,0 +1,50 @@
+{
+  "id": "donor_hero",
+  "type": "SharedSlice",
+  "name": "DonorHero",
+  "description": "DonorHero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "points_image": {
+          "type": "Image",
+          "config": {
+            "label": "Points Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "points": {
+          "type": "Group",
+          "config": {
+            "label": "Points",
+            "repeat": true,
+            "fields": {
+              "point": {
+                "type": "Text",
+                "config": {
+                  "label": "Point",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

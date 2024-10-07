@@ -1,0 +1,43 @@
+{
+  "id": "partners_showcase",
+  "type": "SharedSlice",
+  "name": "PartnersShowcase",
+  "description": "PartnersShowcase",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "partner_logos": {
+          "type": "Group",
+          "config": {
+            "label": "Partner Logos",
+            "repeat": true,
+            "fields": {
+              "partner_logo": {
+                "type": "Image",
+                "config": {
+                  "label": "Partner Logo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

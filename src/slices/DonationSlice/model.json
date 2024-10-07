@@ -1,0 +1,18 @@
+{
+  "id": "donation_slice",
+  "type": "SharedSlice",
+  "name": "DonationSlice",
+  "description": "DonationSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

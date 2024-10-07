@@ -1,0 +1,25 @@
+{
+  "format": "custom",
+  "id": "footer_form_title",
+  "label": "Footer Form Title",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title_top": {
+        "type": "Text",
+        "config": {
+          "label": "Title Top",
+          "placeholder": ""
+        }
+      },
+      "title_bottom": {
+        "type": "Text",
+        "config": {
+          "label": "Title Bottom",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "id": "initiative_showcase",
+  "type": "SharedSlice",
+  "name": "InitiativeShowcase",
+  "description": "InitiativeShowcase",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "initiative_content_a_title": {
+          "type": "Text",
+          "config": {
+            "label": "Initiative Content A Title",
+            "placeholder": ""
+          }
+        },
+        "initiative_content_a_short_summary": {
+          "type": "Text",
+          "config": {
+            "label": "Initiative Content A Short Summary",
+            "placeholder": ""
+          }
+        },
+        "initiative_content_a_description": {
+          "type": "Text",
+          "config": {
+            "label": "Initiative Content A Description",
+            "placeholder": ""
+          }
+        },
+        "initiative_content_a_image_a": {
+          "type": "Image",
+          "config": {
+            "label": "Initiative Content A Image A",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "initiative_content_a_image_b": {
+          "type": "Image",
+          "config": {
+            "label": "Initiative Content A Image B",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "initiative_content_b_title": {
+          "type": "Text",
+          "config": {
+            "label": "Initiative Content B Title",
+            "placeholder": ""
+          }
+        },
+        "initiative_content_b_short_summary": {
+          "type": "Text",
+          "config": {
+            "label": "Initiative Content B Short Summary",
+            "placeholder": ""
+          }
+        },
+        "initiative_content_b_description": {
+          "type": "Text",
+          "config": {
+            "label": "Initiative Content B Description",
+            "placeholder": ""
+          }
+        },
+        "initiative_content_b_image_a": {
+          "type": "Image",
+          "config": {
+            "label": "Initiative Content B Image A",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "initiative_content_b_image_b": {
+          "type": "Image",
+          "config": {
+            "label": "Initiative Content B Image B",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "initiative_content_c_title": {
+          "type": "Text",
+          "config": {
+            "label": "Initiative Content C Title",
+            "placeholder": ""
+          }
+        },
+        "initiative_content_c_short_summary": {
+          "type": "Text",
+          "config": {
+            "label": "Initiative Content C Short Summary",
+            "placeholder": ""
+          }
+        },
+        "initiative_content_c_description": {
+          "type": "Text",
+          "config": {
+            "label": "Initiative Content C Description",
+            "placeholder": ""
+          }
+        },
+        "initiative_content_c_image_a": {
+          "type": "Image",
+          "config": {
+            "label": "Initiative Content C Image A",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "initiative_content_c_image_b": {
+          "type": "Image",
+          "config": {
+            "label": "Initiative Content C Image B",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "format": "custom",
+  "id": "footer_quality_education_logo",
+  "label": "Footer Quality Education Logo",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

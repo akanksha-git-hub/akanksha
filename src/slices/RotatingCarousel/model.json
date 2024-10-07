@@ -1,0 +1,50 @@
+{
+  "id": "rotating_carousel",
+  "type": "SharedSlice",
+  "name": "RotatingCarousel",
+  "description": "RotatingCarousel",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "carousel_items": {
+          "type": "Group",
+          "config": {
+            "label": "Carousel Items",
+            "repeat": true,
+            "fields": {
+              "carousel_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Carousel Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "carousel_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Carousel Title",
+                  "placeholder": ""
+                }
+              },
+              "carousel_description": {
+                "type": "Text",
+                "config": {
+                  "label": "Carousel Description",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

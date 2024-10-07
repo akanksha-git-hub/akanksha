@@ -1,0 +1,106 @@
+{
+  "id": "program_showcase",
+  "type": "SharedSlice",
+  "name": "ProgramShowcase",
+  "description": "ProgramShowcase",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "program_showcase_content": {
+          "type": "Group",
+          "config": {
+            "label": "Program Showcase Content",
+            "repeat": true,
+            "fields": {
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": ""
+                }
+              },
+              "short_content": {
+                "type": "Text",
+                "config": {
+                  "label": "Short Content",
+                  "placeholder": ""
+                }
+              },
+              "program_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Program name",
+                  "placeholder": ""
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "quote": {
+                "type": "Text",
+                "config": {
+                  "label": "Quote",
+                  "placeholder": ""
+                }
+              },
+              "quote_by": {
+                "type": "Text",
+                "config": {
+                  "label": "Quote by",
+                  "placeholder": ""
+                }
+              },
+              "read_story_link": {
+                "type": "Text",
+                "config": {
+                  "label": "Read Story Link",
+                  "placeholder": ""
+                }
+              },
+              "stat_a_description": {
+                "type": "Text",
+                "config": {
+                  "label": "Stat A Description",
+                  "placeholder": ""
+                }
+              },
+              "stat_a_number": {
+                "type": "Text",
+                "config": {
+                  "label": "Stat A Number",
+                  "placeholder": ""
+                }
+              },
+              "stat_b_description": {
+                "type": "Text",
+                "config": {
+                  "label": "Stat B Description",
+                  "placeholder": ""
+                }
+              },
+              "stat_b_number": {
+                "type": "Text",
+                "config": {
+                  "label": "Stat B Number",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
