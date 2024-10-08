@@ -3,7 +3,7 @@
 export const createCashFreeOrder = async (payload) => {
 
     const baseURL = process.env.NODE_ENV === 'development' ? 
-                    process.env.LOCAL_HOST_URL : process.env.NEXT_PUBLIC_URL;
+                    process.env.LOCAL_HOST_URL : process.env.NEXT_PUBLIC_PROD_URL;
     const endpoint = process.env.CREATE_ORDER_API_URL;
 
     try {

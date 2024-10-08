@@ -11,6 +11,10 @@ export async function POST(req) {
     
     const { payload: amount } = await body;
 
+    const baseURL = process.env.NODE_ENV === 'development' ? 
+                    process.env.LOCAL_HOST_URL : process.env.NEXT_PUBLIC_PROD_URL;
+    const endpoint = process.env.PAYMENT_STATUS_ENDPOINT;
+
     let request = {
         "order_amount": amount,
         "order_currency": "INR",
@@ -21,7 +25,7 @@ export async function POST(req) {
           "customer_phone": `1234567890`,
         },
         "order_meta": {
-          "return_url": "http://localhost:3000/payment-status?order_id={order_id}",
+          "return_url": `${baseURL}${endpoint}?order_id={order_id}`,
           "payment_methods" : "cc, dc, upi"
         },
         "order_note": ""
