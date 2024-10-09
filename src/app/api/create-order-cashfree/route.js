@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import { Cashfree } from "cashfree-pg";
 
 Cashfree.XClientId= process.env.CASH_FREE_CLIENT_ID;
-Cashfree.XClientSecret= process.env.CASH_FREE_SECRET_KEY
-Cashfree.Environment= Cashfree.Environment.SANDBOX
+Cashfree.XClientSecret= process.env.CASH_FREE_SECRET_KEY;
+Cashfree.Environment= Cashfree.Environment.SANDBOX;
 
 export async function POST(req) {
 
@@ -39,13 +39,14 @@ export async function POST(req) {
         payment_session_id
         order_status
     */
+
     if(createOrder) {
         const orderResponse = {
-            cfOrderId: createOrder?.data?.cf_order_id,
-            paymentSessionId: createOrder?.data?.payment_session_id,
-            paymentMethod: createOrder?.data?.order_meta?.payment_methods,
-            orderStatus: createOrder?.data?.order_status,
-            order_id: createOrder?.data?.order_id
+            cfOrderId: createOrder.data.cf_order_id,
+            paymentSessionId: createOrder.data.payment_session_id,
+            paymentMethod: createOrder.data.order_meta.payment_methods,
+            orderStatus: createOrder.data.order_status,
+            order_id: createOrder.data.order_id
         }
 
         return NextResponse.json({ message: 'Order Created!', orderResponse });

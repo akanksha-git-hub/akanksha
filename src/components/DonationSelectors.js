@@ -1,13 +1,17 @@
 'use client'
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import RichText from "./Texts/RichText";
 import Link from "next/link";
 import CTA from "./UI/Button/CTA";
-import { createCashFreeOrder } from "@/services/cashfree/action";
+import { createCashFreeOrder, createSubscription } from "@/services/cashfree/action";
 import { load } from "@cashfreepayments/cashfree-js";
+import { useRouter } from "next/navigation";
 
 const INITIAL_STATE = {
-    oneTime: 0,
+    type: {
+        index: 0,
+        isOneTime: true
+    },
     amountSelector: {
         amount: null,
         amountIndex: null
@@ -16,18 +20,56 @@ const INITIAL_STATE = {
 
 }
 
-const types = ['One Time', 'Monthly']
+const types = ['One Time', 'Monthly'];
 
 export default function DonationSelectors({ data }) {
 
+    const router = useRouter();
     const [active, setActive] = useState(INITIAL_STATE);
     const isDisabled= active.amountSelector.amount === null;
 
-    const handleSelectType = (index) => setActive(prevState => ({ ...prevState, oneTime: index }));
+    let oneTimeAmountSelectors = data.one_time_amounts && (
+        <ul className="flex flex-wrap justify-between mt-2">
+            {data.one_time_amounts.map((amount, index) => {
+                return(
+                    <li 
+                        key={amount.one_time_amount}
+                        onClick={() => handleSelectAmount(amount.one_time_amount, index)} 
+                        className={`cursor-pointer w-[45%] md:w-[120px] 2xl:w-[153.3px] mb-3 h-[53px] grid place-items-center hover:opacity-90 active:scale-95 rounded-md custom-bezier ${active.amountSelector.amountIndex === index ? 'bg-bright-yellow' : 'border border-black'}`} 
+                    >
+                        <p className="text-deep-green text-base font-ambit-regular">₹ {formatNumber(amount.one_time_amount)}</p>
+                    </li>
+                )
+            })}
+        </ul>
+    );
 
-    const handleSelectOneTimeAmount = (amount, amountIndex) => setActive(prevState => ( { ...prevState, amountSelector: { amount, amountIndex } }));
+    const handleSelectType = (index, type) => {
 
-    const handleDonate = async (e) => {
+        setActive((prevState) => {
+
+            let isOneTime = false;
+
+            if(type === 'One Time') isOneTime = true;
+
+            return {
+                ...prevState,
+                type: {
+                    index,
+                    isOneTime
+                },
+                amountSelector: {
+                    amount: null,
+                    amountIndex: null
+                }
+            }
+        });
+
+    }
+
+    const handleSelectAmount = (amount, amountIndex) => setActive(prevState => ( { ...prevState, amountSelector: { amount, amountIndex } }));
+
+    const handleDonateOneTime = useCallback(async (e) => {
         e.preventDefault();
         
         setActive(prevState => ({ ...prevState, loading: true }));
@@ -70,7 +112,22 @@ export default function DonationSelectors({ data }) {
 
         console.log(cashFreeResponse, "CLIENT RESPONSE");
 
-    }
+    }, []);
+
+
+    const handleDonateMonthly = useCallback(async (e) => {
+        e.preventDefault();
+
+        setActive((prevState) => ({ ...prevState, loading: true }));
+
+
+        // trigger server function
+        const response = await createSubscription(100);
+        if(response) {
+            router.push(response.data.authLink);
+        }
+
+    }, []);
 
   return (
     <div className="donation-component bg-cream rounded-[4px] w-full xl:w-2/4 2xl:w-[40%] xl:scale-[1.05] z-20 flex flex-col items-center justify-center pb-6 custom-shadow h-auto 3xl:h-[800px]">
@@ -84,8 +141,11 @@ export default function DonationSelectors({ data }) {
             <ul className="flex items-center space-y-4 md:space-y-0 md:gap-2 justify-between flex-wrap pb-6 w-full border-b border-gray-300">
                 {types.map((type, index) => {
                     return(
-                        <li key={type} onClick={() => handleSelectType(index)} className={`flex cursor-pointer items-center justify-center w-full md:w-[48%] gap-2 px-4 py-3 rounded-md ${active.oneTime === index ? 'bg-bright-yellow' : 'border border-black'} custom-bezier`}>
-                            <div className={`${active.oneTime === index ? 'bg-white' : 'bg-[#D9D9D9]'} custom-bezier h-10 w-10 rounded-full`}></div>
+                        <li 
+                            key={type} 
+                            onClick={() => handleSelectType(index, type)} 
+                            className={`flex cursor-pointer items-center justify-center w-full md:w-[48%] gap-2 px-4 py-3 rounded-md ${active.type.index === index ? 'bg-bright-yellow' : 'border border-black'} custom-bezier`}>
+                            <div className={`${active.type.index === index ? 'bg-white' : 'bg-[#D9D9D9]'} custom-bezier h-10 w-10 rounded-full`}></div>
                             <RichText 
                                 text={type}
                                 className="font-ambit text-deep-green text-xl"
@@ -101,21 +161,20 @@ export default function DonationSelectors({ data }) {
                     className="font-ambit-regular text-[#929292] text-base"
                 />
                 {/* Amount Selector */}
-                {data.one_time_amounts && (
+                {active.type.isOneTime ? 
+                    oneTimeAmountSelectors 
+                    : 
                     <ul className="flex flex-wrap justify-between mt-2">
-                        {data.one_time_amounts.map((amount, index) => {
-                            return(
-                                <li 
-                                    key={amount.one_time_amount}
-                                    onClick={() => handleSelectOneTimeAmount(amount.one_time_amount, index)} 
-                                    className={`cursor-pointer w-[45%] md:w-[120px] 2xl:w-[153.3px] mb-3 h-[53px] grid place-items-center hover:opacity-90 active:scale-95 rounded-md custom-bezier ${active.amountSelector.amountIndex === index ? 'bg-bright-yellow' : 'border border-black'}`} 
-                                >
-                                    <p className="text-deep-green text-base font-ambit-regular">₹ {formatNumber(amount.one_time_amount)}</p>
-                                </li>
-                            )
-                        })}
+                        <li
+                            onClick={() => handleSelectAmount(100, null)}
+                            className={`cursor-pointer w-[45%] md:w-[120px] 2xl:w-[153.3px] mb-3 h-[53px] grid place-items-center hover:opacity-90 active:scale-95 rounded-md custom-bezier bg-bright-yellow`} 
+                        >
+                            <p className="text-deep-green text-base font-ambit-regular">
+                                ₹{formatNumber(100)}
+                            </p>
+                        </li>
                     </ul>
-                )}
+                }
             </div>
             {/* Amount Display */}
             <div className="border-2 rounded-[4px] border-[#DADCDB] w-full py-4 px-10 flex items-center justify-between">
@@ -130,7 +189,9 @@ export default function DonationSelectors({ data }) {
                 text={active.loading ? 'Loading...' : "Donate and Support"}
                 className={`w-full !text-xl !py-6 mt-6 font-ambit-regular ${isDisabled && ('hover:opacity-60 hover:bg-deep-green hover:text-cream hover:!scale-100 active:scale-95 opacity-60')}`}
                 disabled={isDisabled}
-                onClick={handleDonate}
+                onClick={
+                    active.type.isOneTime ? handleDonateOneTime : handleDonateMonthly
+                }
             />
             <div className="mt-2">
                 <Link href="">
