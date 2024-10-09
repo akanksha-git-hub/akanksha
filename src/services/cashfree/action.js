@@ -54,6 +54,7 @@ export const createSubscription = async (payload) => {
             returnUrl: null,
             authAmount: 10,
             expiresOn: "2024-12-02 00:00:00",
+            firstChargeDate: "2024-12-02",
             linkExpiry: 5,
             notificationChannels: ["EMAIL","SMS"]
         }
