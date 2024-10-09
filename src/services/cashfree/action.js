@@ -53,8 +53,7 @@ export const createSubscription = async (payload) => {
             customerEmail: 'abhilash@gradical.xyz',
             returnUrl: null,
             authAmount: 10,
-            expiresOn: "2024-12-02 00:00:00",
-            firstChargeDate: "2024-12-02",
+            expiresOn: "2026-12-02 00:00:00",
             linkExpiry: 5,
             notificationChannels: ["EMAIL","SMS"]
         }
