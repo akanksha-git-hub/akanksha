@@ -53,12 +53,21 @@ const TiltedCards = ({ slice }) => {
         text={slice.primary.slice_identifier}
       />
       <div className="flex flex-col items-center justify-center mt-12">
-        <MixedText 
-          index={1}
-          texts={slice.primary.title}
-          className="text-deep-green flex items-center justify-center font-ambit-regular text-7xl text-center w-full lg:w-[10ch]"
-          spanPosition="top-2 sm:top-3"
-        />
+        {slice.variation === 'tiltedCardsB' ? 
+          <div className="w-full">
+            <RichText 
+              text={slice.primary.title}
+              className="text-deep-green font-ambit-regular text-7xl text-left w-full lg:w-[12ch] leading-[100%]"
+            />
+          </div>
+          :
+          <MixedText 
+            index={1}
+            texts={slice.primary.title}
+            className="text-deep-green flex items-center justify-center font-ambit-regular text-7xl text-center w-full lg:w-[10ch]"
+            spanPosition="top-2 sm:top-3"
+          />
+        }
         {tiltedCard && (
           <ul className="mt-12 sm:mt-20 flex flex-wrap items-center justify-center gap-4 relative">
             {tiltedCard.map((item, index) => (

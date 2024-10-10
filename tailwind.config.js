@@ -47,7 +47,8 @@ export const theme = {
     screens: {
       '3xl': '1740px',
       "mid": '1048px',
-      "1000pixel": "1000px"
+      "1000pixel": "1000px",
+      "950px":"950px"
     }
   },
 };

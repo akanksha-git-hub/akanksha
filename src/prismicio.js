@@ -25,6 +25,10 @@ const routes = [
   {
     type: "donor_page",
     path: '/donate'
+  },
+  {
+    type: 'vision_mission',
+    path: '/about/vision-mission'
   }
   // {
   // 	type: "page",

@@ -111,6 +111,11 @@ gap: 1rem; */
   background: -webkit-linear-gradient(180deg, rgba(0,0,0,0.053658963585434205) 0%, rgba(0,0,0,0.8) 100%);
   background: linear-gradient(180deg, rgba(0,0,0,0.053658963585434205) 0%, rgba(0,0,0,0.8) 100%);
 }
+.single-test-bg {
+  background: linear-gradient(180deg, #FBDA1D 0%, rgba(213, 65, 33, 0.515) 48.5%, rgba(149, 129, 17, 0) 100%);
+  z-index: 10;
+  filter: blur(150px);
+}
 .custom-shadow {
   box-shadow: 0px 4px 75px 8px #0000001A;
 }

@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "donor_page",
-  "label": "donor page",
+  "id": "vision_mission",
+  "label": "Vision_Mission",
   "repeatable": false,
   "status": true,
   "json": {
@@ -11,16 +11,16 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "mission_vision": {
+            "testimonial": {
+              "type": "SharedSlice"
+            },
+            "mission_vision_showcase": {
               "type": "SharedSlice"
             },
             "tilted_cards": {
               "type": "SharedSlice"
             },
-            "donation_slice": {
-              "type": "SharedSlice"
-            },
-            "donor_hero": {
+            "mission_vision": {
               "type": "SharedSlice"
             }
           }

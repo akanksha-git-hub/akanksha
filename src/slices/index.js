@@ -12,11 +12,13 @@ export const components = {
   initiative_showcase: dynamic(() => import("./InitiativeShowcase")),
   magic_section: dynamic(() => import("./MagicSection")),
   mission_vision: dynamic(() => import("./MissionVision")),
+  mission_vision_showcase: dynamic(() => import("./MissionVisionShowcase")),
   our_partners: dynamic(() => import("./OurPartners")),
   our_team: dynamic(() => import("./OurTeam")),
   partners_showcase: dynamic(() => import("./PartnersShowcase")),
   program_showcase: dynamic(() => import("./ProgramShowcase")),
   rotating_carousel: dynamic(() => import("./RotatingCarousel")),
+  testimonial: dynamic(() => import("./Testimonial")),
   text_showcase: dynamic(() => import("./TextShowcase")),
   tilted_cards: dynamic(() => import("./TiltedCards")),
 };

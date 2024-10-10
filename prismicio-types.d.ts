@@ -139,7 +139,6 @@ export type DonationPaymentComponentDocument<Lang extends string = string> =
 type DonorPageDocumentDataSlicesSlice =
   | MissionVisionSlice
   | TiltedCardsSlice
-  | RotatingCarouselSlice
   | DonationSliceSlice
   | DonorHeroSlice;
 
@@ -790,6 +789,75 @@ export type NotificationBarDocument<Lang extends string = string> =
     Lang
   >;
 
+type VisionMissionDocumentDataSlicesSlice =
+  | TestimonialSlice
+  | MissionVisionShowcaseSlice
+  | TiltedCardsSlice
+  | MissionVisionSlice;
+
+/**
+ * Content for Vision_Mission documents
+ */
+interface VisionMissionDocumentData {
+  /**
+   * Slice Zone field in *Vision_Mission*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vision_mission.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<VisionMissionDocumentDataSlicesSlice> /**
+   * Meta Title field in *Vision_Mission*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: vision_mission.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Vision_Mission*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: vision_mission.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Vision_Mission*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: vision_mission.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Vision_Mission document from Prismic
+ *
+ * - **API ID**: `vision_mission`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type VisionMissionDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<VisionMissionDocumentData>,
+    "vision_mission",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | DonationPaymentComponentDocument
   | DonorPageDocument
@@ -802,7 +870,8 @@ export type AllDocumentTypes =
   | FooterQualityEducationLogoDocument
   | HeaderDocument
   | HomeDocument
-  | NotificationBarDocument;
+  | NotificationBarDocument
+  | VisionMissionDocument;
 
 /**
  * Default variation for DonationSlice Slice
@@ -1694,6 +1763,101 @@ export type MissionVisionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *MissionVisionShowcase → Default → Primary*
+ */
+export interface MissionVisionShowcaseSliceDefaultPrimary {
+  /**
+   * Text A field in *MissionVisionShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision_showcase.default.primary.text_a
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text_a: prismic.KeyTextField;
+
+  /**
+   * Image A field in *MissionVisionShowcase → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision_showcase.default.primary.image_a
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_a: prismic.ImageField<never>;
+
+  /**
+   * Text B field in *MissionVisionShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision_showcase.default.primary.text_b
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text_b: prismic.KeyTextField;
+
+  /**
+   * Image B field in *MissionVisionShowcase → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision_showcase.default.primary.image_b
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_b: prismic.ImageField<never>;
+
+  /**
+   * Title field in *MissionVisionShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision_showcase.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *MissionVisionShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision_showcase.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for MissionVisionShowcase Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MissionVisionShowcaseSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MissionVisionShowcaseSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MissionVisionShowcase*
+ */
+type MissionVisionShowcaseSliceVariation = MissionVisionShowcaseSliceDefault;
+
+/**
+ * MissionVisionShowcase Shared Slice
+ *
+ * - **API ID**: `mission_vision_showcase`
+ * - **Description**: MissionVisionShowcase
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MissionVisionShowcaseSlice = prismic.SharedSlice<
+  "mission_vision_showcase",
+  MissionVisionShowcaseSliceVariation
+>;
+
+/**
  * Item in *OurPartners → Default → Primary → Partner Logos*
  */
 export interface OurPartnersSliceDefaultPrimaryPartnerLogosItem {
@@ -2224,6 +2388,96 @@ export type RotatingCarouselSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Default variation for Testimonial Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Primary content in *Testimonial → Single → Primary*
+ */
+export interface TestimonialSliceSinglePrimary {
+  /**
+   * Slice Identifier field in *Testimonial → Single → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.single.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Image field in *Testimonial → Single → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.single.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Quote field in *Testimonial → Single → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.single.primary.quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField;
+
+  /**
+   * Name field in *Testimonial → Single → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.single.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+}
+
+/**
+ * Single variation for Testimonial Slice
+ *
+ * - **API ID**: `single`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialSliceSingle = prismic.SharedSliceVariation<
+  "single",
+  Simplify<TestimonialSliceSinglePrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Testimonial*
+ */
+type TestimonialSliceVariation =
+  | TestimonialSliceDefault
+  | TestimonialSliceSingle;
+
+/**
+ * Testimonial Shared Slice
+ *
+ * - **API ID**: `testimonial`
+ * - **Description**: Testimonial
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialSlice = prismic.SharedSlice<
+  "testimonial",
+  TestimonialSliceVariation
+>;
+
+/**
  * Primary content in *TextShowcase → Default → Primary*
  */
 export interface TextShowcaseSliceDefaultPrimary {
@@ -2397,9 +2651,139 @@ export type TiltedCardsSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *TiltedCards → tilted_cards_b → Primary*
+ */
+export interface TiltedCardsSliceTiltedCardsBPrimary {
+  /**
+   * Slice Identifier field in *TiltedCards → tilted_cards_b → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsB.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *TiltedCards → tilted_cards_b → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsB.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Card A Stat Number field in *TiltedCards → tilted_cards_b → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsB.primary.card_a_stat_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_stat_number: prismic.KeyTextField;
+
+  /**
+   * Card A Stat Description field in *TiltedCards → tilted_cards_b → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsB.primary.card_a_stat_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_stat_description: prismic.KeyTextField;
+
+  /**
+   * Card A Image field in *TiltedCards → tilted_cards_b → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsB.primary.card_a_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_a_image: prismic.ImageField<never>;
+
+  /**
+   * Card B Stat Number field in *TiltedCards → tilted_cards_b → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsB.primary.card_b_stat_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_stat_number: prismic.KeyTextField;
+
+  /**
+   * Card B Stat Description field in *TiltedCards → tilted_cards_b → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsB.primary.card_b_stat_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_stat_description: prismic.KeyTextField;
+
+  /**
+   * Card B Image field in *TiltedCards → tilted_cards_b → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsB.primary.card_b_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_b_image: prismic.ImageField<never>;
+
+  /**
+   * Card C Stat Number field in *TiltedCards → tilted_cards_b → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsB.primary.card_c_stat_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_c_stat_number: prismic.KeyTextField;
+
+  /**
+   * Card C Stat Description field in *TiltedCards → tilted_cards_b → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsB.primary.card_c_stat_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_c_stat_description: prismic.KeyTextField;
+
+  /**
+   * Card C Image field in *TiltedCards → tilted_cards_b → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsB.primary.card_c_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_c_image: prismic.ImageField<never>;
+}
+
+/**
+ * tilted_cards_b variation for TiltedCards Slice
+ *
+ * - **API ID**: `tiltedCardsB`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TiltedCardsSliceTiltedCardsB = prismic.SharedSliceVariation<
+  "tiltedCardsB",
+  Simplify<TiltedCardsSliceTiltedCardsBPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *TiltedCards*
  */
-type TiltedCardsSliceVariation = TiltedCardsSliceDefault;
+type TiltedCardsSliceVariation =
+  | TiltedCardsSliceDefault
+  | TiltedCardsSliceTiltedCardsB;
 
 /**
  * TiltedCards Shared Slice
@@ -2454,6 +2838,9 @@ declare module "@prismicio/client" {
       HomeDocumentDataSlicesSlice,
       NotificationBarDocument,
       NotificationBarDocumentData,
+      VisionMissionDocument,
+      VisionMissionDocumentData,
+      VisionMissionDocumentDataSlicesSlice,
       AllDocumentTypes,
       DonationSliceSlice,
       DonationSliceSliceVariation,
@@ -2490,6 +2877,10 @@ declare module "@prismicio/client" {
       MissionVisionSliceVariation,
       MissionVisionSliceDefault,
       MissionVisionSliceReverseVideoComponet,
+      MissionVisionShowcaseSlice,
+      MissionVisionShowcaseSliceDefaultPrimary,
+      MissionVisionShowcaseSliceVariation,
+      MissionVisionShowcaseSliceDefault,
       OurPartnersSlice,
       OurPartnersSliceDefaultPrimaryPartnerLogosItem,
       OurPartnersSliceDefaultPrimary,
@@ -2515,14 +2906,21 @@ declare module "@prismicio/client" {
       RotatingCarouselSliceDefaultPrimary,
       RotatingCarouselSliceVariation,
       RotatingCarouselSliceDefault,
+      TestimonialSlice,
+      TestimonialSliceSinglePrimary,
+      TestimonialSliceVariation,
+      TestimonialSliceDefault,
+      TestimonialSliceSingle,
       TextShowcaseSlice,
       TextShowcaseSliceDefaultPrimary,
       TextShowcaseSliceVariation,
       TextShowcaseSliceDefault,
       TiltedCardsSlice,
       TiltedCardsSliceDefaultPrimary,
+      TiltedCardsSliceTiltedCardsBPrimary,
       TiltedCardsSliceVariation,
       TiltedCardsSliceDefault,
+      TiltedCardsSliceTiltedCardsB,
     };
   }
 }

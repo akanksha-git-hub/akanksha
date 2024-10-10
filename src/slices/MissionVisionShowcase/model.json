@@ -1,0 +1,63 @@
+{
+  "id": "mission_vision_showcase",
+  "type": "SharedSlice",
+  "name": "MissionVisionShowcase",
+  "description": "MissionVisionShowcase",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "text_a": {
+          "type": "Text",
+          "config": {
+            "label": "Text A",
+            "placeholder": ""
+          }
+        },
+        "image_a": {
+          "type": "Image",
+          "config": {
+            "label": "Image A",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "text_b": {
+          "type": "Text",
+          "config": {
+            "label": "Text B",
+            "placeholder": ""
+          }
+        },
+        "image_b": {
+          "type": "Image",
+          "config": {
+            "label": "Image B",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

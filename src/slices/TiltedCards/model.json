@@ -94,6 +94,97 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "tiltedCardsB",
+      "name": "tilted_cards_b",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "card_a_stat_number": {
+          "type": "Text",
+          "config": {
+            "label": "Card A Stat Number",
+            "placeholder": ""
+          }
+        },
+        "card_a_stat_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card A Stat Description",
+            "placeholder": ""
+          }
+        },
+        "card_a_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card A Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_b_stat_number": {
+          "type": "Text",
+          "config": {
+            "label": "Card B Stat Number",
+            "placeholder": ""
+          }
+        },
+        "card_b_stat_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card B Stat Description",
+            "placeholder": ""
+          }
+        },
+        "card_b_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card B Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_c_stat_number": {
+          "type": "Text",
+          "config": {
+            "label": "Card C Stat Number",
+            "placeholder": ""
+          }
+        },
+        "card_c_stat_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card C Stat Description",
+            "placeholder": ""
+          }
+        },
+        "card_c_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card C Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
