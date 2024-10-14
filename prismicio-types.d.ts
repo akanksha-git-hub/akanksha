@@ -789,6 +789,93 @@ export type NotificationBarDocument<Lang extends string = string> =
     Lang
   >;
 
+type TimelineDocumentDataSlicesSlice = TimelineScrollerSlice;
+
+/**
+ * Content for Timeline documents
+ */
+interface TimelineDocumentData {
+  /**
+   * Title field in *Timeline*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Descriptions field in *Timeline*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.descriptions
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  descriptions: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Timeline*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<TimelineDocumentDataSlicesSlice> /**
+   * Meta Title field in *Timeline*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: timeline.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Timeline*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: timeline.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Timeline*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Timeline document from Prismic
+ *
+ * - **API ID**: `timeline`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TimelineDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<TimelineDocumentData>,
+    "timeline",
+    Lang
+  >;
+
 type VisionMissionDocumentDataSlicesSlice =
   | TestimonialSlice
   | MissionVisionShowcaseSlice
@@ -871,6 +958,7 @@ export type AllDocumentTypes =
   | HeaderDocument
   | HomeDocument
   | NotificationBarDocument
+  | TimelineDocument
   | VisionMissionDocument;
 
 /**
@@ -2797,6 +2885,88 @@ export type TiltedCardsSlice = prismic.SharedSlice<
   TiltedCardsSliceVariation
 >;
 
+/**
+ * Item in *TimelineScroller → Default → Primary → Items*
+ */
+export interface TimelineScrollerSliceDefaultPrimaryItemsItem {
+  /**
+   * Image field in *TimelineScroller → Default → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_scroller.default.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Year field in *TimelineScroller → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_scroller.default.primary.items[].year
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year: prismic.KeyTextField;
+
+  /**
+   * Description field in *TimelineScroller → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_scroller.default.primary.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *TimelineScroller → Default → Primary*
+ */
+export interface TimelineScrollerSliceDefaultPrimary {
+  /**
+   * Items field in *TimelineScroller → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_scroller.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<TimelineScrollerSliceDefaultPrimaryItemsItem>
+  >;
+}
+
+/**
+ * Default variation for TimelineScroller Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TimelineScrollerSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TimelineScrollerSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TimelineScroller*
+ */
+type TimelineScrollerSliceVariation = TimelineScrollerSliceDefault;
+
+/**
+ * TimelineScroller Shared Slice
+ *
+ * - **API ID**: `timeline_scroller`
+ * - **Description**: TimelineScroller
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TimelineScrollerSlice = prismic.SharedSlice<
+  "timeline_scroller",
+  TimelineScrollerSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -2838,6 +3008,9 @@ declare module "@prismicio/client" {
       HomeDocumentDataSlicesSlice,
       NotificationBarDocument,
       NotificationBarDocumentData,
+      TimelineDocument,
+      TimelineDocumentData,
+      TimelineDocumentDataSlicesSlice,
       VisionMissionDocument,
       VisionMissionDocumentData,
       VisionMissionDocumentDataSlicesSlice,
@@ -2921,6 +3094,11 @@ declare module "@prismicio/client" {
       TiltedCardsSliceVariation,
       TiltedCardsSliceDefault,
       TiltedCardsSliceTiltedCardsB,
+      TimelineScrollerSlice,
+      TimelineScrollerSliceDefaultPrimaryItemsItem,
+      TimelineScrollerSliceDefaultPrimary,
+      TimelineScrollerSliceVariation,
+      TimelineScrollerSliceDefault,
     };
   }
 }

@@ -29,7 +29,11 @@ const routes = [
   {
     type: 'vision_mission',
     path: '/about/vision-mission'
-  }
+  },
+  {
+    type: 'timeline',
+    path: '/about/timeline'
+  },
   // {
   // 	type: "page",
   // 	path: "/:uid",

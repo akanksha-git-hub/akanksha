@@ -21,4 +21,5 @@ export const components = {
   testimonial: dynamic(() => import("./Testimonial")),
   text_showcase: dynamic(() => import("./TextShowcase")),
   tilted_cards: dynamic(() => import("./TiltedCards")),
+  timeline_scroller: dynamic(() => import("./TimelineScroller")),
 };
