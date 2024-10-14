@@ -16,7 +16,7 @@ export default async function Page() {
             <div className="flex flex-col items-center justify-center my-12 universal-padding">
                 <RichText 
                     text={page.data.title}
-                    className='text-deep-green font-ambit-regular text-7xl w-[10ch] text-center mb-24'
+                    className='text-deep-green font-ambit-regular text-7xl w-full 950px:w-[10ch] text-center mb-24'
                 />
                 <div className="text-deep-green font-ambit-regular text-xl text-center w-full 950px:w-[90%] 950px:max-w-[1400px]">
                     <PrismicRichText 

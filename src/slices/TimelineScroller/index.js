@@ -91,7 +91,7 @@ const TimelineScroller = ({ slice }) => {
     timeline.current = gsap.timeline({
       scrollTrigger: {
         trigger: root.current,
-        start: `-74px top`,
+        start: `-24px top`,
         end: `${totalSlides * 400}px`,
         scrub: 0.15,
         pin: true,
@@ -126,10 +126,10 @@ const TimelineScroller = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mb-52 mt-36"
+      className="mb-52 mt-36 950px:h-[1000px] 950px:overflow-hidden pt-12"
       ref={root}
     >
-      <div className="w-full relative h-[600px]">
+      <div className="w-full relative 950px:h-[600px]">
         <div 
           className="w-1 hidden 1000pixel:block bg-[#D2D1CD] h-[554px] absolute right-12 xl:right-24 3xl:top-0 z-20 rounded-full"
         >
@@ -163,7 +163,7 @@ const TimelineScroller = ({ slice }) => {
           </div>
         </div>
         <Swiper 
-          className="rotate-[20deg] relative bottom-0 right-0 1000pixel:right-36 xl:right-28 3xl:-bottom-24"
+          className="rotate-0 950px:rotate-[20deg] relative bottom-0 right-0 1000pixel:right-36 xl:right-28 3xl:-bottom-24"
           ref={swiperRef}
           onSlideChange={(e) => handleUpdateSlideIndex(e.activeIndex)}
           breakpoints={{
@@ -183,9 +183,14 @@ const TimelineScroller = ({ slice }) => {
               slidesPerView: 3.2,
               slidesOffsetBefore: 450
             },
-            500: {
+            950: {
               slidesPerView: 2.9,
               slidesOffsetBefore: 300
+            },
+            100: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+              slidesOffsetBefore: 0
             }
           }}
         >
@@ -194,7 +199,7 @@ const TimelineScroller = ({ slice }) => {
               return (
                 <SwiperSlide 
                   key={item.year}
-                  className="rotate-[-20deg] !flex !items-center !justify-center py-24"
+                  className="rotate-0 950px:rotate-[-20deg] !flex !items-center !justify-center py-24"
                 >
                   <div className={
                     `${slideIndex.current === i ? 
@@ -202,13 +207,15 @@ const TimelineScroller = ({ slice }) => {
                       3xl:h-[33.13rem] 3xl:w-[50rem]
                       xl:h-[28rem] xl:w-[44rem]
                       lg:h-[24rem] lg:w-[39rem]
-                      h-[24rem] w-[48rem]
+                      950px:h-[24rem] 950px:w-[48rem]
+                      w-[90%] h-[50vh]
                       `
                       : 
                       `transition-all rounded-md
                       3xl:h-[21.8rem] 3xl:w-[16.1rem]
                       xl:h-[16rem] xl:w-[10rem]
-                      h-[14rem] w-[10rem]
+                      950px:h-[14rem] 950px:w-[10rem]
+                      w-[90%] h-[50vh]
                       `
                     } 
                       mx-auto transition-all overflow-hidden relative`
