@@ -44,8 +44,8 @@ export default function TabContainer({ slice }) {
                         <PartnerLogo 
                             image={image.image}
                             key={index}
-                            imageClassName="h-[70%] w-[70%] object-contain"
-                            className="flex items-center justify-center border border-[#DCDCDC] sm:mb-0 h-[4rem] w-2/4 sm:h-[8rem] md:w-[30%] lg:w-[20%]"              
+                            imageClassName="h-[80%] w-[80%] object-contain"
+                            className="flex items-center justify-center border border-[#DCDCDC] sm:mb-0 h-[12rem] w-full sm:h-[8rem] md:w-[30%] lg:w-[20%]"              
                         />
                     ))}
                 </ul>
