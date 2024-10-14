@@ -23,7 +23,7 @@ export default function Tabs({ slice, handleClick, tabState }) {
     ]
 
     return(
-        <ul className="flex md:flex-wrap gap-12 text-nowrap whitespace-nowrap overflow-x-scroll md:overflow-x-hidden">
+        <ul className="flex md:flex-wrap gap-24 text-nowrap whitespace-nowrap overflow-x-scroll md:overflow-x-hidden">
             {TABS.map((item) => (
                 <li 
                     onClick={() => handleClick({ text: item.text, description: item.description })}

@@ -15,7 +15,7 @@ const TabSlice = ({ slice }) => {
     >
       <RichText 
         text={slice.primary.title}
-        className='text-deep-green font-ambit-regular text-5xl md:text-7xl text-left mt-14'
+        className='text-deep-green font-ambit-regular text-5xl md:text-7xl text-left mt-24'
       />
       <TabContainer 
         slice={slice}

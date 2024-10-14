@@ -13,7 +13,7 @@ export default async function Page() {
     return(
         <main className={`${maxwidth} universal-padding`}>
             <RichText 
-                className='text-deep-green font-ambit-regular text-left text-5xl md:text-7xl'
+                className='text-deep-green font-ambit-regular text-left text-5xl md:text-7xl mt-24 mb-12'
                 text={page.data.title}
             />
             <SliceZone 
