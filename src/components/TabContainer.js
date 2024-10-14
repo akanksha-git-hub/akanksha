@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
-import Tabs from "./Tabs";
 import { PrismicRichText } from "@prismicio/react";
+import Tabs from "./Tabs";
 import PartnerLogo from "./PartnerLogo";
 
 export default function TabContainer({ slice }) {

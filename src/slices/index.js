@@ -9,6 +9,7 @@ export const components = {
     () => import("./FrequentlyAskedQuestions"),
   ),
   hero: dynamic(() => import("./Hero")),
+  image_showcase: dynamic(() => import("./ImageShowcase")),
   initiative_showcase: dynamic(() => import("./InitiativeShowcase")),
   magic_section: dynamic(() => import("./MagicSection")),
   mission_vision: dynamic(() => import("./MissionVision")),

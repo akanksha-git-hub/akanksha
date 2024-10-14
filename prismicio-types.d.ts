@@ -789,6 +789,82 @@ export type NotificationBarDocument<Lang extends string = string> =
     Lang
   >;
 
+type OurdonorsDocumentDataSlicesSlice = ImageShowcaseSlice;
+
+/**
+ * Content for OurDonors documents
+ */
+interface OurdonorsDocumentData {
+  /**
+   * Title field in *OurDonors*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ourdonors.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *OurDonors*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ourdonors.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<OurdonorsDocumentDataSlicesSlice> /**
+   * Meta Title field in *OurDonors*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: ourdonors.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *OurDonors*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: ourdonors.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *OurDonors*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ourdonors.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * OurDonors document from Prismic
+ *
+ * - **API ID**: `ourdonors`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type OurdonorsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<OurdonorsDocumentData>,
+    "ourdonors",
+    Lang
+  >;
+
 type PartnershipsDocumentDataSlicesSlice = TabSliceSlice;
 
 /**
@@ -1023,6 +1099,7 @@ export type AllDocumentTypes =
   | HeaderDocument
   | HomeDocument
   | NotificationBarDocument
+  | OurdonorsDocument
   | PartnershipsDocument
   | TimelineDocument
   | VisionMissionDocument;
@@ -1402,6 +1479,68 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Item in *ImageShowcase → Default → Primary → Images*
+ */
+export interface ImageShowcaseSliceDefaultPrimaryImagesItem {
+  /**
+   * Image field in *ImageShowcase → Default → Primary → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_showcase.default.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ImageShowcase → Default → Primary*
+ */
+export interface ImageShowcaseSliceDefaultPrimary {
+  /**
+   * Images field in *ImageShowcase → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_showcase.default.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<
+    Simplify<ImageShowcaseSliceDefaultPrimaryImagesItem>
+  >;
+}
+
+/**
+ * Default variation for ImageShowcase Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageShowcaseSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageShowcaseSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageShowcase*
+ */
+type ImageShowcaseSliceVariation = ImageShowcaseSliceDefault;
+
+/**
+ * ImageShowcase Shared Slice
+ *
+ * - **API ID**: `image_showcase`
+ * - **Description**: ImageShowcase
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageShowcaseSlice = prismic.SharedSlice<
+  "image_showcase",
+  ImageShowcaseSliceVariation
+>;
 
 /**
  * Primary content in *InitiativeShowcase → Default → Primary*
@@ -3244,6 +3383,9 @@ declare module "@prismicio/client" {
       HomeDocumentDataSlicesSlice,
       NotificationBarDocument,
       NotificationBarDocumentData,
+      OurdonorsDocument,
+      OurdonorsDocumentData,
+      OurdonorsDocumentDataSlicesSlice,
       PartnershipsDocument,
       PartnershipsDocumentData,
       PartnershipsDocumentDataSlicesSlice,
@@ -3274,6 +3416,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      ImageShowcaseSlice,
+      ImageShowcaseSliceDefaultPrimaryImagesItem,
+      ImageShowcaseSliceDefaultPrimary,
+      ImageShowcaseSliceVariation,
+      ImageShowcaseSliceDefault,
       InitiativeShowcaseSlice,
       InitiativeShowcaseSliceDefaultPrimary,
       InitiativeShowcaseSliceVariation,

@@ -37,6 +37,10 @@ const routes = [
   {
     type: 'partnerships',
     path: '/about/partnerships'
+  },
+  {
+    type: 'ourdonors',
+    path: '/about/our-donors'
   }
   // {
   // 	type: "page",
