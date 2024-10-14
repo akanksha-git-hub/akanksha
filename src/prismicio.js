@@ -34,6 +34,10 @@ const routes = [
     type: 'timeline',
     path: '/about/timeline'
   },
+  {
+    type: 'partnerships',
+    path: '/about/partnerships'
+  }
   // {
   // 	type: "page",
   // 	path: "/:uid",

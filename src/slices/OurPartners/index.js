@@ -69,10 +69,10 @@ const OurPartners = ({ slice }) => {
         text={slice.primary.slice_identifier}
       />
       <div 
-        className="mt-12"
+        className="mt-12 flex flex-col"
       >
         <WeirdText 
-          className="mt-6"
+          className="mt-6 flex flex-col"
           texts={slice.primary.title}
         />
       </div>

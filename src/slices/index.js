@@ -18,6 +18,7 @@ export const components = {
   partners_showcase: dynamic(() => import("./PartnersShowcase")),
   program_showcase: dynamic(() => import("./ProgramShowcase")),
   rotating_carousel: dynamic(() => import("./RotatingCarousel")),
+  tab_slice: dynamic(() => import("./TabSlice")),
   testimonial: dynamic(() => import("./Testimonial")),
   text_showcase: dynamic(() => import("./TextShowcase")),
   tilted_cards: dynamic(() => import("./TiltedCards")),

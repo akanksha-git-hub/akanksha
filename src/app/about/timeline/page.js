@@ -11,8 +11,8 @@ export default async function Page() {
     if(!page) return <p>No page data!</p>
 
     return(
-        <main className={`${maxwidth}`}>
-
+        <main className={`${maxwidth} relative`}>
+            <div className="orange-gradient absolute -top-28 left-0 h-96 w-full -z-10" />
             <div className="flex flex-col items-center justify-center my-12 universal-padding">
                 <RichText 
                     text={page.data.title}

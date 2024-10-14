@@ -789,6 +789,71 @@ export type NotificationBarDocument<Lang extends string = string> =
     Lang
   >;
 
+type PartnershipsDocumentDataSlicesSlice = TabSliceSlice;
+
+/**
+ * Content for Partnerships documents
+ */
+interface PartnershipsDocumentData {
+  /**
+   * Slice Zone field in *Partnerships*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partnerships.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PartnershipsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Partnerships*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: partnerships.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Partnerships*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: partnerships.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Partnerships*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partnerships.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Partnerships document from Prismic
+ *
+ * - **API ID**: `partnerships`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PartnershipsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<PartnershipsDocumentData>,
+    "partnerships",
+    Lang
+  >;
+
 type TimelineDocumentDataSlicesSlice = TimelineScrollerSlice;
 
 /**
@@ -958,6 +1023,7 @@ export type AllDocumentTypes =
   | HeaderDocument
   | HomeDocument
   | NotificationBarDocument
+  | PartnershipsDocument
   | TimelineDocument
   | VisionMissionDocument;
 
@@ -2476,6 +2542,176 @@ export type RotatingCarouselSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *TabSlice → Default → Primary → Images*
+ */
+export interface TabSliceSliceDefaultPrimaryImagesItem {
+  /**
+   * image field in *TabSlice → Default → Primary → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * TabIdentifier field in *TabSlice → Default → Primary → Images*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.images[].tabidentifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tabidentifier: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *TabSlice → Default → Primary*
+ */
+export interface TabSliceSliceDefaultPrimary {
+  /**
+   * Title field in *TabSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Tab A Icon field in *TabSlice → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.tab_a_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  tab_a_icon: prismic.ImageField<never>;
+
+  /**
+   * Tab A Text field in *TabSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.tab_a_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tab_a_text: prismic.KeyTextField;
+
+  /**
+   * Tab A Description field in *TabSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.tab_a_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tab_a_description: prismic.RichTextField;
+
+  /**
+   * Tab B Icon field in *TabSlice → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.tab_b_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  tab_b_icon: prismic.ImageField<never>;
+
+  /**
+   * Tab B Text field in *TabSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.tab_b_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tab_b_text: prismic.KeyTextField;
+
+  /**
+   * Tab B Description field in *TabSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.tab_b_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tab_b_description: prismic.RichTextField;
+
+  /**
+   * Tab C Icon field in *TabSlice → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.tab_c_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  tab_c_icon: prismic.ImageField<never>;
+
+  /**
+   * Tab C Text field in *TabSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.tab_c_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tab_c_text: prismic.KeyTextField;
+
+  /**
+   * Tab C Description field in *TabSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.tab_c_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tab_c_description: prismic.RichTextField;
+
+  /**
+   * Images field in *TabSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<Simplify<TabSliceSliceDefaultPrimaryImagesItem>>;
+}
+
+/**
+ * Default variation for TabSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TabSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TabSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TabSlice*
+ */
+type TabSliceSliceVariation = TabSliceSliceDefault;
+
+/**
+ * TabSlice Shared Slice
+ *
+ * - **API ID**: `tab_slice`
+ * - **Description**: TabSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TabSliceSlice = prismic.SharedSlice<
+  "tab_slice",
+  TabSliceSliceVariation
+>;
+
+/**
  * Default variation for Testimonial Slice
  *
  * - **API ID**: `default`
@@ -3008,6 +3244,9 @@ declare module "@prismicio/client" {
       HomeDocumentDataSlicesSlice,
       NotificationBarDocument,
       NotificationBarDocumentData,
+      PartnershipsDocument,
+      PartnershipsDocumentData,
+      PartnershipsDocumentDataSlicesSlice,
       TimelineDocument,
       TimelineDocumentData,
       TimelineDocumentDataSlicesSlice,
@@ -3079,6 +3318,11 @@ declare module "@prismicio/client" {
       RotatingCarouselSliceDefaultPrimary,
       RotatingCarouselSliceVariation,
       RotatingCarouselSliceDefault,
+      TabSliceSlice,
+      TabSliceSliceDefaultPrimaryImagesItem,
+      TabSliceSliceDefaultPrimary,
+      TabSliceSliceVariation,
+      TabSliceSliceDefault,
       TestimonialSlice,
       TestimonialSliceSinglePrimary,
       TestimonialSliceVariation,

@@ -10,7 +10,7 @@ export default function WeirdText({ texts, className }) {
     const textA = splitText.slice(0, 2).map(item => <span key={item}>{item}&nbsp;</span>);
     const textB = splitText.slice(2, texts.length).map(item => <span key={item}>{item}&nbsp;</span>);
     
-    let commonClassName = "font-ambit-regular text-deep-green text-6xl lg:text-7xl xl:text-8xl";
+    let commonClassName = "flex flex-wrap lg:block font-ambit-regular text-deep-green text-7xl lg:text-7xl xl:text-8xl";
 
   return (
     <div className={`${className}`}>
@@ -29,7 +29,7 @@ export default function WeirdText({ texts, className }) {
         className={`${commonClassName} pl-0 md:pl-16 lg:pl-36 xl:pl-56`}
       /> */}
       <RichText 
-        className={`${commonClassName}`}
+        className={`flex flex-wrap font-ambit-regular text-deep-green text-7xl lg:text-7xl xl:text-8xl`}
         text={textA}
       />
       <RichText 
