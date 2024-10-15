@@ -10,7 +10,7 @@ export default function TestimonialSingle({ slice }) {
             <div className="single-test-bg absolute top-[60%] -translate-y-2/4 left-2/4 -translate-x-2/4 h-[400px] rounded-full w-full" />
             <div 
                 className="
-                    bg-white py-4 px-8 rounded-[20px] min-h-[28rem] max-w-[24rem] relative bottom-24 -left-52 -rotate-[2deg] z-20"
+                    bg-white py-4 px-4 scale-75 lg:scale-100 lg:px-8 rounded-[20px] min-h-[28rem] w-[350px] lg:max-w-[24rem] relative bottom-24 -left-12 sm:-left-24 lg:-left-52 -rotate-[2deg] z-20"
             >
                 <div className="min-h-[28rem] flex flex-col justify-between ">
                     <div>
@@ -27,11 +27,11 @@ export default function TestimonialSingle({ slice }) {
                     </div>
                     <RichText 
                         text={slice.primary.name}
-                        className='text-deep-green font-ambit-regular text-2xl'
+                        className='text-deep-green font-ambit-regular text-2xl w-[50%] sm:w-full'
                     />
                 </div>
             </div>
-            <div className="max-w-[24rem] h-[32rem] absolute left-[53%] -translate-x-1/4 top-[30%] rotate-[4deg] z-20">
+            <div className="scale-50 sm:scale-75 lg:scale-100 w-[350px] lg:max-w-[24rem] h-[32rem] absolute left-[53%] -translate-x-1/4 top-[30%] rotate-[4deg] z-20">
                 <PrismicNextImage 
                     field={slice.primary.image}
                     alt=""
