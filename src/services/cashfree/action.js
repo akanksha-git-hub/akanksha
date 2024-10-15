@@ -7,6 +7,8 @@ export const createCashFreeOrder = async (payload) => {
                     process.env.LOCAL_HOST_URL : process.env.NEXT_PUBLIC_PROD_URL;
     const endpoint = process.env.CREATE_ORDER_API_URL;
 
+    console.log(payload, 'PAYLOAD');
+
     try {
 
         const options = {

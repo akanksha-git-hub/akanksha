@@ -17,7 +17,6 @@ const INITIAL_STATE = {
         amountIndex: null
     },
     loading: false
-
 }
 
 const types = ['One Time', 'Monthly'];
@@ -28,21 +27,11 @@ export default function DonationSelectors({ data }) {
     const [active, setActive] = useState(INITIAL_STATE);
     const isDisabled= active.amountSelector.amount === null;
 
-    let oneTimeAmountSelectors = data.one_time_amounts && (
-        <ul className="flex flex-wrap justify-between mt-2">
-            {data.one_time_amounts.map((amount, index) => {
-                return(
-                    <li 
-                        key={amount.one_time_amount}
-                        onClick={() => handleSelectAmount(amount.one_time_amount, index)} 
-                        className={`cursor-pointer w-[45%] md:w-[120px] 2xl:w-[153.3px] mb-3 h-[53px] grid place-items-center hover:opacity-90 active:scale-95 rounded-md custom-bezier ${active.amountSelector.amountIndex === index ? 'bg-bright-yellow' : 'border border-black'}`} 
-                    >
-                        <p className="text-deep-green text-base font-ambit-regular">₹ {formatNumber(amount.one_time_amount)}</p>
-                    </li>
-                )
-            })}
-        </ul>
-    );
+
+    const handleSelectAmount = (amount, amountIndex) => {
+        console.log(amount, 'AMOUNT');
+        setActive(prevState => ( { ...prevState, amountSelector: { amount: amount, amountIndex: amountIndex } }))
+    }
 
     const handleSelectType = (index, type) => {
 
@@ -67,13 +56,12 @@ export default function DonationSelectors({ data }) {
 
     }
 
-    const handleSelectAmount = (amount, amountIndex) => setActive(prevState => ( { ...prevState, amountSelector: { amount, amountIndex } }));
-
     const handleDonateOneTime = useCallback(async (e) => {
         e.preventDefault();
+
         
-        setActive(prevState => ({ ...prevState, loading: true }));
-        
+        // setActive(prevState => ({ ...prevState, loading: true }));
+        console.log(active, 'CLIENT AMOUNT')
         const cashFreeResponse = await createCashFreeOrder(active.amountSelector.amount);
 
         if(cashFreeResponse) {
@@ -109,8 +97,6 @@ export default function DonationSelectors({ data }) {
             });
 
         }
-
-        console.log(cashFreeResponse, "CLIENT RESPONSE");
 
     }, []);
 
@@ -162,7 +148,21 @@ export default function DonationSelectors({ data }) {
                 />
                 {/* Amount Selector */}
                 {active.type.isOneTime ? 
-                    oneTimeAmountSelectors 
+                    data.one_time_amounts && (
+                        <ul className="flex flex-wrap justify-between mt-2">
+                            {data.one_time_amounts.map((amount, index) => {
+                                return(
+                                    <li 
+                                        key={amount.one_time_amount}
+                                        onClick={() => handleSelectAmount(amount.one_time_amount, index)} 
+                                        className={`cursor-pointer w-[45%] md:w-[120px] 2xl:w-[153.3px] mb-3 h-[53px] grid place-items-center hover:opacity-90 active:scale-95 rounded-md custom-bezier ${active.amountSelector.amountIndex === index ? 'bg-bright-yellow' : 'border border-black'}`} 
+                                    >
+                                        <p className="text-deep-green text-base font-ambit-regular">₹ {formatNumber(amount.one_time_amount)}</p>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    )
                     : 
                     <ul className="flex flex-wrap justify-between mt-2">
                         <li
