@@ -4,6 +4,71 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type CoreValuesDocumentDataSlicesSlice = IconShowcaseSlice | PageTitleSlice;
+
+/**
+ * Content for Core Values documents
+ */
+interface CoreValuesDocumentData {
+  /**
+   * Slice Zone field in *Core Values*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: core_values.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CoreValuesDocumentDataSlicesSlice> /**
+   * Meta Title field in *Core Values*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: core_values.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Core Values*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: core_values.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Core Values*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: core_values.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Core Values document from Prismic
+ *
+ * - **API ID**: `core_values`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CoreValuesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CoreValuesDocumentData>,
+    "core_values",
+    Lang
+  >;
+
 /**
  * Item in *Donation Payment Component → One Time Amounts*
  */
@@ -1087,6 +1152,7 @@ export type VisionMissionDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | CoreValuesDocument
   | DonationPaymentComponentDocument
   | DonorPageDocument
   | FloatingComponentDocument
@@ -1479,6 +1545,86 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Item in *IconShowcase → Default → Primary → Data*
+ */
+export interface IconShowcaseSliceDefaultPrimaryDataItem {
+  /**
+   * Icon field in *IconShowcase → Default → Primary → Data*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.default.primary.data[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *IconShowcase → Default → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.default.primary.data[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *IconShowcase → Default → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.default.primary.data[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *IconShowcase → Default → Primary*
+ */
+export interface IconShowcaseSliceDefaultPrimary {
+  /**
+   * Data field in *IconShowcase → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.default.primary.data[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  data: prismic.GroupField<Simplify<IconShowcaseSliceDefaultPrimaryDataItem>>;
+}
+
+/**
+ * Default variation for IconShowcase Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconShowcaseSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<IconShowcaseSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *IconShowcase*
+ */
+type IconShowcaseSliceVariation = IconShowcaseSliceDefault;
+
+/**
+ * IconShowcase Shared Slice
+ *
+ * - **API ID**: `icon_showcase`
+ * - **Description**: IconShowcase
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconShowcaseSlice = prismic.SharedSlice<
+  "icon_showcase",
+  IconShowcaseSliceVariation
+>;
 
 /**
  * Item in *ImageShowcase → Default → Primary → Images*
@@ -2362,6 +2508,84 @@ type OurTeamSliceVariation = OurTeamSliceDefault;
 export type OurTeamSlice = prismic.SharedSlice<
   "our_team",
   OurTeamSliceVariation
+>;
+
+/**
+ * Default variation for PageTitle Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PageTitleSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Primary content in *PageTitle → Sparkle → Primary*
+ */
+export interface PageTitleSliceSparklePrimary {
+  /**
+   * Title field in *PageTitle → Sparkle → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.sparkle.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *PageTitle → Sparkle → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.sparkle.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Image field in *PageTitle → Sparkle → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.sparkle.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Sparkle variation for PageTitle Slice
+ *
+ * - **API ID**: `sparkle`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PageTitleSliceSparkle = prismic.SharedSliceVariation<
+  "sparkle",
+  Simplify<PageTitleSliceSparklePrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PageTitle*
+ */
+type PageTitleSliceVariation = PageTitleSliceDefault | PageTitleSliceSparkle;
+
+/**
+ * PageTitle Shared Slice
+ *
+ * - **API ID**: `page_title`
+ * - **Description**: PageTitle
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PageTitleSlice = prismic.SharedSlice<
+  "page_title",
+  PageTitleSliceVariation
 >;
 
 /**
@@ -3352,6 +3576,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      CoreValuesDocument,
+      CoreValuesDocumentData,
+      CoreValuesDocumentDataSlicesSlice,
       DonationPaymentComponentDocument,
       DonationPaymentComponentDocumentData,
       DonationPaymentComponentDocumentDataOneTimeAmountsItem,
@@ -3416,6 +3643,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      IconShowcaseSlice,
+      IconShowcaseSliceDefaultPrimaryDataItem,
+      IconShowcaseSliceDefaultPrimary,
+      IconShowcaseSliceVariation,
+      IconShowcaseSliceDefault,
       ImageShowcaseSlice,
       ImageShowcaseSliceDefaultPrimaryImagesItem,
       ImageShowcaseSliceDefaultPrimary,
@@ -3450,6 +3682,11 @@ declare module "@prismicio/client" {
       OurTeamSliceDefaultPrimary,
       OurTeamSliceVariation,
       OurTeamSliceDefault,
+      PageTitleSlice,
+      PageTitleSliceSparklePrimary,
+      PageTitleSliceVariation,
+      PageTitleSliceDefault,
+      PageTitleSliceSparkle,
       PartnersShowcaseSlice,
       PartnersShowcaseSliceDefaultPrimaryPartnerLogosItem,
       PartnersShowcaseSliceDefaultPrimary,
