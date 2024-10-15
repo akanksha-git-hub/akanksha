@@ -28,46 +28,36 @@ export default function DonationSelectors({ data }) {
     const isDisabled= active.amountSelector.amount === null;
 
 
-    const handleSelectAmount = (amount, amountIndex) => {
-        console.log(amount, 'AMOUNT');
-        setActive(prevState => ( { ...prevState, amountSelector: { amount: amount, amountIndex: amountIndex } }))
-    }
+    // Memoized amount selector
+    const handleSelectAmount = useCallback((amount, amountIndex) => {
+        setActive(prevState => ({
+            ...prevState,
+            amountSelector: { amount, amountIndex }
+        }));
+    }, []);
 
-    const handleSelectType = (index, type) => {
-
+    // Memoized type selector
+    const handleSelectType = useCallback((index, type) => {
         setActive((prevState) => {
-
-            let isOneTime = false;
-
-            if(type === 'One Time') isOneTime = true;
-
+            let isOneTime = type === 'One Time';
             return {
                 ...prevState,
-                type: {
-                    index,
-                    isOneTime
-                },
-                amountSelector: {
-                    amount: null,
-                    amountIndex: null
-                }
+                type: { index, isOneTime },
+                amountSelector: { amount: null, amountIndex: null } // Reset amount when type changes
             }
         });
+    }, []);
 
-    }
-
+    // One-time donation handler
     const handleDonateOneTime = useCallback(async (e) => {
         e.preventDefault();
-
         
-        // setActive(prevState => ({ ...prevState, loading: true }));
-        console.log(active, 'CLIENT AMOUNT')
+        if (active.amountSelector.amount === null) return; // Handle null amount
+        
         const cashFreeResponse = await createCashFreeOrder(active.amountSelector.amount);
 
-        if(cashFreeResponse) {
-            const cashfree = await load({
-                mode: 'sandbox'
-            });
+        if (cashFreeResponse) {
+            const cashfree = await load({ mode: 'sandbox' });
 
             let checkoutOptions = {
                 paymentSessionId: cashFreeResponse.paymentSessionId,
@@ -95,25 +85,17 @@ export default function DonationSelectors({ data }) {
                     console.log(result.paymentDetails.paymentMessage);
                 }
             });
-
         }
+    }, [active.amountSelector.amount]);
 
-    }, []);
-
-
+    // Monthly donation handler
     const handleDonateMonthly = useCallback(async (e) => {
         e.preventDefault();
-
         setActive((prevState) => ({ ...prevState, loading: true }));
 
-
-        // trigger server function
-        const response = await createSubscription(100);
-        if(response) {
-            router.push(response.data.authLink);
-        }
-
-    }, []);
+        const response = await createSubscription(100); // Default to ₹100 for monthly
+        if (response) router.push(response.data.authLink);
+    }, [router]);
 
   return (
     <div className="donation-component bg-cream rounded-[4px] w-full xl:w-2/4 2xl:w-[40%] xl:scale-[1.05] z-20 flex flex-col items-center justify-center pb-6 custom-shadow h-auto 3xl:h-[800px]">
