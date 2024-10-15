@@ -27,7 +27,7 @@ body {
   transition: all var(--magic-bezier) 0.7s;
 }
 .green-gradient {
-  background: linear-gradient(180.03deg, rgba(55, 71, 60, 0) 0.03%, #37473C 106.61%);
+  background: linear-gradient(180.03deg, rgba(55, 71, 60, 0) -20%, #37473C 95.61%);
 }
 .orange-gradient {
   background: linear-gradient(180deg, #D54121 -2%, #FFEF62 48.5%, #FFFFFF 100%);

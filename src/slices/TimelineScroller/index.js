@@ -222,14 +222,14 @@ const TimelineScroller = ({ slice }) => {
                     }
                   >
                     {slideIndex.current === i && (
-                      <div className="h-full p-6 flex flex-col justify-between z-20 opacity-reveal">
+                      <div className="h-full p-6 flex flex-col justify-end gap-2 z-20 opacity-reveal">
                         <RichText 
                           text={item.year}
                           className='font-ambit-regular text-[#FFFBF1] text-5xl xl:text-7xl z-20'
                           />
                         <RichText 
                           text={item.description}
-                          className='font-ambit-regular text-[#FFFBF1] xl:text-xl z-20'
+                          className='font-ambit-regular text-[#FFFBF1] xl:text-2xl z-20'
                         />
                       </div>
                     )}
