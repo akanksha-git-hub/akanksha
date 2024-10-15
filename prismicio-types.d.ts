@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type CoreValuesDocumentDataSlicesSlice = IconShowcaseSlice | PageTitleSlice;
+type CoreValuesDocumentDataSlicesSlice =
+  | SwirlImageSlice
+  | IconShowcaseSlice
+  | PageTitleSlice;
 
 /**
  * Content for Core Values documents
@@ -2905,6 +2908,51 @@ export type RotatingCarouselSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *SwirlImage → Default → Primary*
+ */
+export interface SwirlImageSliceDefaultPrimary {
+  /**
+   * Image field in *SwirlImage → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: swirl_image.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for SwirlImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SwirlImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SwirlImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SwirlImage*
+ */
+type SwirlImageSliceVariation = SwirlImageSliceDefault;
+
+/**
+ * SwirlImage Shared Slice
+ *
+ * - **API ID**: `swirl_image`
+ * - **Description**: SwirlImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SwirlImageSlice = prismic.SharedSlice<
+  "swirl_image",
+  SwirlImageSliceVariation
+>;
+
+/**
  * Item in *TabSlice → Default → Primary → Images*
  */
 export interface TabSliceSliceDefaultPrimaryImagesItem {
@@ -3702,6 +3750,10 @@ declare module "@prismicio/client" {
       RotatingCarouselSliceDefaultPrimary,
       RotatingCarouselSliceVariation,
       RotatingCarouselSliceDefault,
+      SwirlImageSlice,
+      SwirlImageSliceDefaultPrimary,
+      SwirlImageSliceVariation,
+      SwirlImageSliceDefault,
       TabSliceSlice,
       TabSliceSliceDefaultPrimaryImagesItem,
       TabSliceSliceDefaultPrimary,

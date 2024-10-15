@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "swirl_image": {
+              "type": "SharedSlice"
+            },
             "icon_showcase": {
               "type": "SharedSlice"
             },
