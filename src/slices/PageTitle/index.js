@@ -30,7 +30,7 @@ const PageTitle = ({ slice }) => {
           className='text-deep-green font-ambit-regular text-7xl text-left md:text-center'
         />
         <div
-          className="text-deep-green font-ambit-regular text-lg text-left md:text-center w-full 2xl:w-[120ch]"
+          className="text-deep-green font-ambit-regular text-lg text-left md:text-center w-full lg:w-[80%] 3xl:w-[110ch]"
         >
           <PrismicRichText 
             field={slice.primary.description}
