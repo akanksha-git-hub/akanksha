@@ -119,13 +119,13 @@ const SliderShowcase = ({ slice }) => {
               500: {
                 slidesPerView: 1.7,
                 slidesOffsetBefore: 80,
-                slidesOffsetAfter: 120,
+                slidesOffsetAfter: 80,
                 spaceBetween: 50
               },
               10:{
                 slidesPerView: 1.2,
                 slidesOffsetBefore: 80,
-                slidesOffsetAfter: 120,
+                slidesOffsetAfter: 80,
                 spaceBetween: 10
               }
             }}
@@ -142,7 +142,7 @@ const SliderShowcase = ({ slice }) => {
                   <SwiperClick className="absolute opacity-0" isPrev text="Prev" ref={sliderBPrevRef} />
                   <div 
                     className={
-                      `${sliderBIndex === index ? 'bg-bright-yellow p-4 lg:p-8 scale-100' : 'scale-90'} 
+                      `${sliderBIndex === index ? 'bg-bright-yellow p-4 lg:p-8 scale-100' : 'scale-100 sm:scale-90'} 
                       transition-all w-[16rem] sm:w-[16rem] lg:w-[33rem] rounded-md`
                     }
                   >
