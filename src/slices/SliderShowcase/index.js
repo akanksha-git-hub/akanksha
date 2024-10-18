@@ -142,7 +142,7 @@ const SliderShowcase = ({ slice }) => {
                   <SwiperClick className="absolute opacity-0" isPrev text="Prev" ref={sliderBPrevRef} />
                   <div 
                     className={
-                      `${sliderBIndex === index ? 'bg-bright-yellow p-4 lg:p-8 scale-100' : 'scale-100 md:scale-90'} 
+                      `${sliderBIndex === index ? 'bg-bright-yellow p-4 lg:p-8 scale-100' : 'p-4 lg:p-8 scale-90'} 
                       transition-all w-[16rem] sm:w-[16rem] lg:w-[33rem] rounded-md`
                     }
                   >
