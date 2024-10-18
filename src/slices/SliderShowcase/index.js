@@ -106,16 +106,27 @@ const SliderShowcase = ({ slice }) => {
         <div className="pb-12">
           <Swiper
             breakpoints={{
-              1000: {
+              1400: {
                 slidesPerView: 2.2,
                 slidesOffsetBefore: 500,
                 slidesOffsetAfter: 200,
               },
-              100: {
-                slidesPerView: 2,
+              1000: {
+                slidesOffsetBefore: 350,
+                slidesOffsetAfter: 200,
+                slidesPerView: 2
+              },
+              500: {
+                slidesPerView: 1.7,
                 slidesOffsetBefore: 80,
                 slidesOffsetAfter: 120,
                 spaceBetween: 50
+              },
+              10:{
+                slidesPerView: 1.2,
+                slidesOffsetBefore: 80,
+                slidesOffsetAfter: 120,
+                spaceBetween: 10
               }
             }}
             onSlideChange={(e) => setSliderBIndex(() => e.activeIndex)}
