@@ -3054,6 +3054,31 @@ export interface SliderShowcaseSliceDefaultPrimaryItemsItem {
 }
 
 /**
+ * Item in *SliderShowcase → SliderB → Primary → Items*
+ */
+export interface SliderShowcaseSliceSliderBPrimaryItemsItem {
+  /**
+   * Image field in *SliderShowcase → SliderB → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderB.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Description field in *SliderShowcase → SliderB → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderB.primary.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *SliderShowcase → Default → Primary*
  */
 export interface SliderShowcaseSliceDefaultPrimary {
@@ -3084,9 +3109,51 @@ export type SliderShowcaseSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *SliderShowcase → SliderB → Primary*
+ */
+export interface SliderShowcaseSliceSliderBPrimary {
+  /**
+   * Title field in *SliderShowcase → SliderB → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderB.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Items field in *SliderShowcase → SliderB → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderB.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<SliderShowcaseSliceSliderBPrimaryItemsItem>
+  >;
+}
+
+/**
+ * SliderB variation for SliderShowcase Slice
+ *
+ * - **API ID**: `sliderB`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SliderShowcaseSliceSliderB = prismic.SharedSliceVariation<
+  "sliderB",
+  Simplify<SliderShowcaseSliceSliderBPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *SliderShowcase*
  */
-type SliderShowcaseSliceVariation = SliderShowcaseSliceDefault;
+type SliderShowcaseSliceVariation =
+  | SliderShowcaseSliceDefault
+  | SliderShowcaseSliceSliderB;
 
 /**
  * SliderShowcase Shared Slice
@@ -3950,8 +4017,11 @@ declare module "@prismicio/client" {
       SliderShowcaseSlice,
       SliderShowcaseSliceDefaultPrimaryItemsItem,
       SliderShowcaseSliceDefaultPrimary,
+      SliderShowcaseSliceSliderBPrimaryItemsItem,
+      SliderShowcaseSliceSliderBPrimary,
       SliderShowcaseSliceVariation,
       SliderShowcaseSliceDefault,
+      SliderShowcaseSliceSliderB,
       SwirlImageSlice,
       SwirlImageSliceDefaultPrimary,
       SwirlImageSliceVariation,

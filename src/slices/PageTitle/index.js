@@ -29,7 +29,7 @@ const PageTitle = ({ slice }) => {
       <div className={`flex flex-col items-center ${slice.variation === 'sparkle' && ('universal-padding')} !pt-0 space-y-8`}>
         <RichText 
           text={slice.primary.title}
-          className='text-deep-green font-ambit-regular text-7xl text-left md:text-center w-full sm:w-[70%]'
+          className={`text-deep-green font-ambit-regular text-7xl ${slice.variation === 'sparkle' ? 'text-left' : 'text-center'} md:text-center w-full sm:w-[70%]`}
         />
         <div
           className={`text-deep-green font-ambit-regular text-lg text-left md:text-center ${slice.variation === 'default' ? 'w-full lg:w-[70%] xl:w-[70ch]' : 'w-full lg:w-[80%] 3xl:w-[110ch]'}`}
