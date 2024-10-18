@@ -857,6 +857,71 @@ export type NotificationBarDocument<Lang extends string = string> =
     Lang
   >;
 
+type OurApproachDocumentDataSlicesSlice = SliderShowcaseSlice | PageTitleSlice;
+
+/**
+ * Content for Our Approach documents
+ */
+interface OurApproachDocumentData {
+  /**
+   * Slice Zone field in *Our Approach*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_approach.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<OurApproachDocumentDataSlicesSlice> /**
+   * Meta Title field in *Our Approach*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: our_approach.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Our Approach*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: our_approach.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Our Approach*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_approach.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Our Approach document from Prismic
+ *
+ * - **API ID**: `our_approach`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type OurApproachDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<OurApproachDocumentData>,
+    "our_approach",
+    Lang
+  >;
+
 type OurdonorsDocumentDataSlicesSlice = ImageShowcaseSlice;
 
 /**
@@ -1168,6 +1233,7 @@ export type AllDocumentTypes =
   | HeaderDocument
   | HomeDocument
   | NotificationBarDocument
+  | OurApproachDocument
   | OurdonorsDocument
   | PartnershipsDocument
   | TimelineDocument
@@ -2514,6 +2580,31 @@ export type OurTeamSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *PageTitle → Default → Primary*
+ */
+export interface PageTitleSliceDefaultPrimary {
+  /**
+   * Title field in *PageTitle → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *PageTitle → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
  * Default variation for PageTitle Slice
  *
  * - **API ID**: `default`
@@ -2522,7 +2613,7 @@ export type OurTeamSlice = prismic.SharedSlice<
  */
 export type PageTitleSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<PageTitleSliceDefaultPrimary>,
   never
 >;
 
@@ -2905,6 +2996,108 @@ type RotatingCarouselSliceVariation = RotatingCarouselSliceDefault;
 export type RotatingCarouselSlice = prismic.SharedSlice<
   "rotating_carousel",
   RotatingCarouselSliceVariation
+>;
+
+/**
+ * Item in *SliderShowcase → Default → Primary → Items*
+ */
+export interface SliderShowcaseSliceDefaultPrimaryItemsItem {
+  /**
+   * Image field in *SliderShowcase → Default → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.default.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *SliderShowcase → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.default.primary.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *SliderShowcase → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.default.primary.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * CTA Text field in *SliderShowcase → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.default.primary.items[].cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *SliderShowcase → Default → Primary → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.default.primary.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *SliderShowcase → Default → Primary*
+ */
+export interface SliderShowcaseSliceDefaultPrimary {
+  /**
+   * Items field in *SliderShowcase → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<SliderShowcaseSliceDefaultPrimaryItemsItem>
+  >;
+}
+
+/**
+ * Default variation for SliderShowcase Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SliderShowcaseSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SliderShowcaseSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SliderShowcase*
+ */
+type SliderShowcaseSliceVariation = SliderShowcaseSliceDefault;
+
+/**
+ * SliderShowcase Shared Slice
+ *
+ * - **API ID**: `slider_showcase`
+ * - **Description**: SliderShowcase
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SliderShowcaseSlice = prismic.SharedSlice<
+  "slider_showcase",
+  SliderShowcaseSliceVariation
 >;
 
 /**
@@ -3658,6 +3851,9 @@ declare module "@prismicio/client" {
       HomeDocumentDataSlicesSlice,
       NotificationBarDocument,
       NotificationBarDocumentData,
+      OurApproachDocument,
+      OurApproachDocumentData,
+      OurApproachDocumentDataSlicesSlice,
       OurdonorsDocument,
       OurdonorsDocumentData,
       OurdonorsDocumentDataSlicesSlice,
@@ -3731,6 +3927,7 @@ declare module "@prismicio/client" {
       OurTeamSliceVariation,
       OurTeamSliceDefault,
       PageTitleSlice,
+      PageTitleSliceDefaultPrimary,
       PageTitleSliceSparklePrimary,
       PageTitleSliceVariation,
       PageTitleSliceDefault,
@@ -3750,6 +3947,11 @@ declare module "@prismicio/client" {
       RotatingCarouselSliceDefaultPrimary,
       RotatingCarouselSliceVariation,
       RotatingCarouselSliceDefault,
+      SliderShowcaseSlice,
+      SliderShowcaseSliceDefaultPrimaryItemsItem,
+      SliderShowcaseSliceDefaultPrimary,
+      SliderShowcaseSliceVariation,
+      SliderShowcaseSliceDefault,
       SwirlImageSlice,
       SwirlImageSliceDefaultPrimary,
       SwirlImageSliceVariation,

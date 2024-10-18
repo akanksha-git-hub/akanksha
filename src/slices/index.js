@@ -21,6 +21,7 @@ export const components = {
   partners_showcase: dynamic(() => import("./PartnersShowcase")),
   program_showcase: dynamic(() => import("./ProgramShowcase")),
   rotating_carousel: dynamic(() => import("./RotatingCarousel")),
+  slider_showcase: dynamic(() => import("./SliderShowcase")),
   swirl_image: dynamic(() => import("./SwirlImage")),
   tab_slice: dynamic(() => import("./TabSlice")),
   testimonial: dynamic(() => import("./Testimonial")),

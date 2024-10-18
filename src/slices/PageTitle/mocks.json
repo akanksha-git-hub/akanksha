@@ -2,7 +2,24 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "age",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint aute enim ad irure minim aute in Lorem. Nostrud irure dolore cupidatat sint fugiat laborum ea fugiat cillum. Officia consectetur non in excepteur commodo occaecat incididunt aliquip commodo culpa labore enim veniam Lorem sit."
+						}
+					}
+				]
+			}
+		},
 		"items": []
 	},
 	{

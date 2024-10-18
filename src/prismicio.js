@@ -32,7 +32,7 @@ const routes = [
   },
   {
     type: 'timeline',
-    path: '/about/timeline'
+    path: '/about/timeline',
   },
   {
     type: 'partnerships',
@@ -46,6 +46,10 @@ const routes = [
     type: 'core_values',
     path: '/about/core-values'
   },
+  {
+    type: 'our_approach',
+    path: '/about/our-approach'
+  }
   // {
   // 	type: "page",
   // 	path: "/:uid",
