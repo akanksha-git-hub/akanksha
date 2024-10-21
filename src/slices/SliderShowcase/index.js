@@ -5,6 +5,7 @@ import RichText from "@/components/Texts/RichText";
 import PrimaryCTA from "@/components/UI/Button/PrimaryCTA";
 import SwiperArrow from "@/components/UI/SwiperArrow";
 import { PrismicNextImage } from "@prismicio/next";
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -37,8 +38,15 @@ const SliderShowcase = ({ slice }) => {
       <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="py-12 flex items-center justify-center"
+      className="py-12 flex items-center justify-center relative"
     >
+      <PrismicNextImage
+        field={slice.primary.background_image} 
+        alt=""
+        className="absolute top-3/4 -translate-y-2/4 right-0 -z-10"
+        height={200}
+        width={200}
+      />
       <div
         className="bg-white rounded-lg flex flex-col lg:flex-row items-end justify-center gap-2 w-[90%] lg:w-[80%] p-6 lg:p-12"
       >

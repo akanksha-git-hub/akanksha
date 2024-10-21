@@ -3083,6 +3083,16 @@ export interface SliderShowcaseSliceSliderBPrimaryItemsItem {
  */
 export interface SliderShowcaseSliceDefaultPrimary {
   /**
+   * Background Image field in *SliderShowcase → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
    * Items field in *SliderShowcase → Default → Primary*
    *
    * - **Field Type**: Group
