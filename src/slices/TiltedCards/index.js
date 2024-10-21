@@ -3,6 +3,7 @@ import SliceIdentifier from "@/components/SliceIdentifier";
 import MixedText from "@/components/Texts/MixedText";
 import RichText from "@/components/Texts/RichText";
 import useDebouncedResize from "@/hooks/useDebouncedResize";
+import { PrismicNextImage } from "@prismicio/next";
 import { useState } from "react";
 
 
@@ -15,17 +16,17 @@ const TiltedCards = ({ slice }) => {
 
   const tiltedCard = [
     {
-      image: '',
+      image: slice.primary.card_a_image,
       stat_number: slice.primary.card_a_stat_number,
       stat_description: slice.primary.card_a_stat_description
     },
     {
-      image: '',
+      image: slice.primary.card_b_image,
       stat_number: slice.primary.card_b_stat_number,
       stat_description: slice.primary.card_b_stat_description
     },
     {
-      image: '',
+      image: slice.primary.card_c_image,
       stat_number: slice.primary.card_c_stat_number,
       stat_description: slice.primary.card_c_stat_description
     },
@@ -82,7 +83,14 @@ const TiltedCards = ({ slice }) => {
                   ${(index === 1) && (cardBClassName)}
                 `}
               >
-                <div className="h-[80px] w-[80px] xl:h-[120px] xl:w-[120px] rounded-full bg-[#D9D9D9]" />
+                <div className="h-[80px] w-[80px] xl:h-[120px] xl:w-[120px] flex items-center justify-center bg-gray-400 border border-black rounded-full">
+                  <PrismicNextImage 
+                    field={item.image}
+                    className="h-full w-full z-20 rounded-full object-cover"
+                    height={100}
+                    width={100}
+                  />
+                </div>
                 <div className="grid place-items-center place-content-center space-y-3">
                   <RichText 
                     text={item.stat_number}
