@@ -33,7 +33,9 @@ const TimelineScroller = ({ slice }) => {
 
   if(slice.primary.items) {
     for(i; i < slice.primary.items.length; i++) {
-      plotPoints[i] = "";
+      plotPoints[i] = {
+        milestone: slice.primary.items[i].milestone
+      };
     }
   }
 
@@ -215,11 +217,12 @@ const TimelineScroller = ({ slice }) => {
       >
         <div className="w-full relative 950px:h-[600px]">
           <div 
-            className="w-1 hidden 1000pixel:block bg-[#D2D1CD] h-[554px] absolute right-12 xl:right-24 3xl:top-0 z-20 rounded-full"
+            className="w-1 hidden 1000pixel:block bg-[#D2D1CD] h-[664px] absolute right-12 xl:right-24 3xl:top-0 z-20 rounded-full"
           >
             <div 
               className={`w-full rounded-full custom-bezier relative h-full`}
             >
+              <p className="text-deep-green text-base font-ambit-regular absolute -left-[94%] -translate-x-2/4 -top-8">1991</p>
               <div 
                 className={`bg-deep-green w-full custom-bezier relative h-full rounded-full`}
                 style={{
@@ -228,22 +231,51 @@ const TimelineScroller = ({ slice }) => {
               />
               {slice.primary.items.length > 0 && (
                 <ul className="absolute top-0 left-0 h-full w-full flex flex-col items-center justify-between">
-                  {plotPoints.map((_, i) => (
-                    <li 
-                      key={i} 
-                      onClick={() => handleUpdateActiveIndex(i)} 
-                      className={`${ i <= slideIndex.plotPoints ? 'bg-deep-green' : 'bg-[#CFCFCF]'} rounded-full !h-[14px] !w-[14px] slow-bezier cursor-pointer relative`} 
-                    >
-                      <span className={`
-                          absolute bottom-[50%] translate-y-2/4 -left-[130%] translate-x-2/4 h-[180%] w-[180%] 
-                          border-[2px] ${ i <= slideIndex.plotPoints ? 'border-[#FBDA1D]' : 'border-[#B6B6B6]'} 
-                          rounded-full slow-bezier
-                        `} 
-                      />
-                    </li>
-                  ))}
+                  {plotPoints.map((point, i) => {
+
+                    if(point.milestone) {
+                      return(
+                        <li 
+                        key={i} 
+                        onClick={() => handleUpdateActiveIndex(i)} 
+                        className={`rounded-full !h-[14px] !w-[14px] slow-bezier cursor-pointer relative bg-bright-yellow`} 
+                      >
+                        <span className={`
+                            absolute bottom-[50%] translate-y-2/4 -left-[120%] translate-x-2/4 h-[170%] w-[170%] 
+                            border-[2.4px] border-[#FBDA1D] 
+                            rounded-full slow-bezier
+                          `} 
+                        />
+                        <span className={`
+                            absolute bottom-[50%] translate-y-2/4 -left-[200%] translate-x-2/4 h-[250%] w-[250%] 
+                            border-[2px] border-[#FBDA1D] ${i <= slideIndex.plotPoints ? 'opacity-100' : 'opacity-40'}
+                            rounded-full slow-bezier
+                          `} 
+                        />
+                      </li>
+                      )
+                    }
+
+                    return (
+                      <li 
+                        key={i} 
+                        onClick={() => handleUpdateActiveIndex(i)} 
+                        className={`${ i <= slideIndex.plotPoints ? 'bg-deep-green' : 'bg-[#CFCFCF]'} rounded-full !h-[14px] !w-[14px] slow-bezier cursor-pointer relative`} 
+                      >
+                        <span className={`
+                            absolute bottom-[50%] translate-y-2/4 -left-[130%] translate-x-2/4 h-[180%] w-[180%] 
+                            border-[2px] ${ i <= slideIndex.plotPoints ? 'border-[#FBDA1D]' : 'border-[#B6B6B6]'} 
+                            rounded-full slow-bezier
+                          `} 
+                        />
+                      </li>
+                    )
+
+                  }  
+                  )}
                 </ul>
               )}
+            <p className="text-deep-green text-base font-ambit-regular absolute -left-[94%] -translate-x-2/4 -bottom-8">2024</p>
             </div>
           </div>
           <Swiper 
@@ -345,7 +377,7 @@ const TimelineScroller = ({ slice }) => {
         className="mb-52 1000pixel:hidden mt-24 pt-12"
       >
       <div className="relative">
-        <div className="absolute -bottom-12 left-2/4 -translate-x-2/4 w-[70%] md:w-[80%] h-2 rounded-full z-20 bg-[#D2D1CD]">
+        <div className="absolute -bottom-12 left-2/4 -translate-x-2/4 w-[76%] md:w-[80%] h-2 rounded-full z-20 bg-[#D2D1CD]">
           <p className="text-deep-green text-base font-ambit-regular absolute -left-12 bottom-2/4 translate-y-[58%]">1991</p>
           <div className="w-full h-full rounded-full custom-bezier relative">
             <div 
@@ -356,23 +388,50 @@ const TimelineScroller = ({ slice }) => {
             />
             {slice.primary.items.length > 0 && (
                 <ul className="absolute top-0 left-0 h-full w-full flex items-center justify-between">
-                  {plotPoints.map((_, i) => (
-                    <li 
+                  {plotPoints.map((point, i) => {
+
+                  if(point.milestone) {
+                    return(
+                      <li 
                       key={i} 
                       onClick={() => handleMobileUpdateActiveIndex(i)} 
-                      className={`${ i <= slideIndex.plotPoints ? 'bg-deep-green' : 'bg-[#CFCFCF]'} rounded-full !h-[10px] !w-[10px] slow-bezier cursor-pointer relative`} 
+                      className={`rounded-full !h-[12px] !w-[12px] slow-bezier cursor-pointer relative bg-bright-yellow`} 
                     >
                       <span className={`
-                          absolute bottom-[50%] translate-y-2/4 -left-[130%] translate-x-2/4 h-[180%] w-[180%] scale-105 
-                          border-[2px] ${ i <= slideIndex.plotPoints ? 'border-[#FBDA1D]' : 'border-[#B6B6B6]'} 
+                          absolute bottom-[50%] translate-y-2/4 -left-[130%] translate-x-2/4 h-[180%] w-[180%] 
+                          border-[2.4px] border-[#FBDA1D] 
+                          rounded-full slow-bezier
+                        `} 
+                      />
+                      <span className={`
+                          absolute bottom-[50%] translate-y-2/4 -left-[200%] translate-x-2/4 h-[140%] w-[140%] 
+                          border-[2px] border-[#FBDA1D] ${i <= slideIndex.plotPoints ? 'opacity-0' : 'opacity-0'}
                           rounded-full slow-bezier
                         `} 
                       />
                     </li>
-                  ))}
+                    )
+                  }
+
+                    return(
+                        <li 
+                          key={i} 
+                          onClick={() => handleMobileUpdateActiveIndex(i)} 
+                          className={`${ i <= slideIndex.plotPoints ? 'bg-deep-green' : 'bg-[#CFCFCF]'} rounded-full !h-[12px] !w-[12px] slow-bezier cursor-pointer relative`} 
+                        >
+                          <span className={`
+                              absolute bottom-[50%] translate-y-2/4 -left-[130%] translate-x-2/4 h-[180%] w-[180%] scale-105 
+                              border-[2px] ${ i <= slideIndex.plotPoints ? 'border-[#FBDA1D]' : 'border-[#B6B6B6]'} 
+                              rounded-full slow-bezier
+                            `} 
+                          />
+                        </li>
+                    )
+                  }
+                  )}
                 </ul>
               )}
-          <p className="text-deep-green text-base font-ambit-regular absolute -right-12 bottom-2/4 translate-y-[58%]">2021</p>
+          <p className="text-deep-green text-base font-ambit-regular absolute -right-12 bottom-2/4 translate-y-[58%]">2024</p>
           </div>
         </div>
         <Swiper

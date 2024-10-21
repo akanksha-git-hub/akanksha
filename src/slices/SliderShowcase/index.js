@@ -120,7 +120,7 @@ const SliderShowcase = ({ slice }) => {
                 slidesPerView: 1.7,
                 slidesOffsetBefore: 80,
                 slidesOffsetAfter: 70,
-                spaceBetween: 50
+                spaceBetween: 30
               },
               10:{
                 slidesPerView: 1.2,
@@ -132,11 +132,9 @@ const SliderShowcase = ({ slice }) => {
             onSlideChange={(e) => setSliderBIndex(() => e.activeIndex)}
           >
             {slice.primary.items.map((item, index) => {
-
               return(
                 <SwiperSlide
                   key={item.description}
-                  className=""
                 >
                   <SwiperClick className="absolute opacity-0" text="Next" ref={sliderBNextRef} />
                   <SwiperClick className="absolute opacity-0" isPrev text="Prev" ref={sliderBPrevRef} />

@@ -39,6 +39,15 @@
                   "label": "Description",
                   "placeholder": ""
                 }
+              },
+              "milestone": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Milestone",
+                  "default_value": false,
+                  "placeholder_true": "true",
+                  "placeholder_false": "false"
+                }
               }
             }
           }

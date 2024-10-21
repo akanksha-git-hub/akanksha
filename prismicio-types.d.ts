@@ -3825,6 +3825,17 @@ export interface TimelineScrollerSliceDefaultPrimaryItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Milestone field in *TimelineScroller → Default → Primary → Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: timeline_scroller.default.primary.items[].milestone
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  milestone: prismic.BooleanField;
 }
 
 /**
