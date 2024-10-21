@@ -55,13 +55,13 @@ export default function SparkleText({ slice, isRight }) {
                             className='absolute hidden 950px:block top-2/4 -translate-y-2/4 950px:-left-[28%] 2xl:-left-40'
                         />
                         <SparkleSmall 
-                            className='absolute -top-16 right-24 950px:top-0 2xl:top-1/4 -translate-y-2/4 950px:-left-[40%] 2xl:-left-44'
+                            className='absolute -top-16 left-12 950px:top-0 2xl:top-1/4 -translate-y-2/4 950px:-left-[40%] 2xl:-left-44'
                         />
                     </div>
                     }
                 <RichText 
                     text={slice.text_b}
-                    className='font-playfair-display italic text-7xl text-deep-green'
+                    className='font-playfair-display italic text-7xl text-deep-green flex justify-end md:justify-normal'
                 />
             </>
     }
