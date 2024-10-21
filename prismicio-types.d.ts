@@ -662,6 +662,52 @@ export interface HeaderDocumentDataHeaderLinkItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   cta_text: prismic.KeyTextField;
+
+  /**
+   * Dropdown field in *Header → Header Link Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: header.header_link_items[].dropdown
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  dropdown: prismic.BooleanField;
+}
+
+/**
+ * Item in *Header → Drop down items*
+ */
+export interface HeaderDocumentDataDropDownItemsItem {
+  /**
+   * Identifier field in *Header → Drop down items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.drop_down_items[].identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  identifier: prismic.KeyTextField;
+
+  /**
+   * CTA Text field in *Header → Drop down items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.drop_down_items[].cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *Header → Drop down items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.drop_down_items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
 }
 
 /**
@@ -712,6 +758,19 @@ interface HeaderDocumentData {
    */
   header_link_items: prismic.GroupField<
     Simplify<HeaderDocumentDataHeaderLinkItemsItem>
+  >;
+
+  /**
+   * Drop down items field in *Header*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.drop_down_items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  drop_down_items: prismic.GroupField<
+    Simplify<HeaderDocumentDataDropDownItemsItem>
   >;
 }
 
@@ -3934,6 +3993,7 @@ declare module "@prismicio/client" {
       HeaderDocument,
       HeaderDocumentData,
       HeaderDocumentDataHeaderLinkItemsItem,
+      HeaderDocumentDataDropDownItemsItem,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,

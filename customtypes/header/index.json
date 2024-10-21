@@ -49,6 +49,46 @@
                 "label": "CTA Text",
                 "placeholder": ""
               }
+            },
+            "dropdown": {
+              "type": "Boolean",
+              "config": {
+                "label": "Dropdown",
+                "default_value": false,
+                "placeholder_true": "true",
+                "placeholder_false": "false"
+              }
+            }
+          }
+        }
+      },
+      "drop_down_items": {
+        "type": "Group",
+        "config": {
+          "label": "Drop down items",
+          "repeat": true,
+          "fields": {
+            "identifier": {
+              "type": "Text",
+              "config": {
+                "label": "Identifier",
+                "placeholder": ""
+              }
+            },
+            "cta_text": {
+              "type": "Text",
+              "config": {
+                "label": "CTA Text",
+                "placeholder": ""
+              }
+            },
+            "cta_link": {
+              "type": "Link",
+              "config": {
+                "label": "CTA Link",
+                "placeholder": "",
+                "select": null
+              }
             }
           }
         }
