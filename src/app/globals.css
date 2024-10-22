@@ -493,7 +493,6 @@ gap: 1rem; */
   display: block;
   animation: fade-reveal var(--magic-bezier) 0.3s;
 }
-.drop-down:hov
 /* Nav hover items end */
 /* Our Schools Grid Items */
 .our-schools-grid {
