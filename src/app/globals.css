@@ -485,6 +485,15 @@ gap: 1rem; */
   transition: all 0.3s ease;
 }
 /* Nav hover items end */
+/* Our Schools Grid Items */
+.our-schools-grid {
+  border-bottom: 0.25px solid var(--deep-green);
+}
+.our-schools-grid:nth-child(odd) {
+  border-left: none;
+  border-right: 0.25px solid var(--deep-green);
+}
+/* Our Schools Grid Items End */
 @keyframes fade-reveal {
   from {
     opacity: 0;
@@ -540,6 +549,19 @@ gap: 1rem; */
 @media(max-width: 1280px) {
   .final-horizontal-load-state {
     width: 34.1rem;
+  }
+  .our-schools-grid {
+    border: 0.25px solid var(--deep-green);
+  }
+  .our-schools-grid:nth-child(odd) {
+    border: 0.25px solid var(--deep-green);
+    border-top: none;
+  }
+  .our-schools-grid:nth-child(1) {
+    border-top: 0.25px solid var(--deep-green);
+  }
+  .our-schools-grid:nth-child(even) {
+    border-top: none;
   }
 }
 @media(min-width: 1050px) {

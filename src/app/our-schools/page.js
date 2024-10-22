@@ -20,13 +20,18 @@ export default async function Page() {
         return { originalValue, lowerCaseValue };
     }))];
 
+    const data = page.data.tab_content;
+
     return(
         <main className={`${maxwidth} universal-padding`}>
             <RichText 
                 text={page.data.title}
                 className='text-deep-green text-7xl font-ambit-regular flex items-center justify-center mt-12 pb-8'
             />
-            <TabContainer values={uniqueSet}>
+            <TabContainer 
+                tabValues={uniqueSet}
+                data={data}
+            >
             </TabContainer>
         </main>
     )
