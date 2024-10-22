@@ -1,3 +1,5 @@
+"use server"
+import GridA from "@/components/grid-A";
 import TabContainer from "@/components/Tab/tab-container";
 // import TabContent from "@/components/Tab/tab-content";
 // import TabSelectors from "@/components/Tab/tab-selectors";
@@ -31,6 +33,7 @@ export default async function Page() {
             <TabContainer 
                 tabValues={uniqueSet}
                 data={data}
+                RenderElement={GridA}
             >
             </TabContainer>
         </main>

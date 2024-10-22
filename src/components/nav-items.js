@@ -1,15 +1,8 @@
-'use client'
 import { PrismicNextLink } from "@prismicio/next";
 import TextCTA from "./UI/Button/TextCTA";
 import RichText from "./Texts/RichText";
-import { useState } from "react";
 
 export default function NavItems({ header_link_items, drop_down_items }) {
-
-    const [detectMouse, setDetectMouse] = useState(false);
-
-    const handleMouseEnter = () => setDetectMouse(() => true);
-    const handleMouseLeave = () => setDetectMouse(() => false);
 
     return(
         <>
@@ -28,13 +21,12 @@ export default function NavItems({ header_link_items, drop_down_items }) {
                       uniqueIdentifier.map((item, index) => (
                         
                         <li key={index} className="relative">
-                          <RichText 
-                            text={item}
-                            onMouseEnter={handleMouseEnter}
-                            className="text-deep-green text-base font-inter hover:opacity-55 transition-all active:scale-95 relative cursor-pointer"
-                          />
-                          {detectMouse && (
-                            <div onMouseLeave={handleMouseLeave} className="py-4 space-y-4 absolute -left-2/4 top-[120%] z-20 bg-cream border border-deep-green rounded min-w-[200px]">
+                          <div className="drop-down">
+                            <RichText 
+                              text={item}
+                              className="text-deep-green text-base font-inter hover:opacity-55 transition-all active:scale-95 relative cursor-pointer"
+                            />
+                            <div className="py-4 space-y-4 z-20 bg-cream border border-deep-green rounded min-w-[200px] drop-down-container">
                               {drop_down_items
                                 .filter((data) => {
                                     const lowerCaseValue = item.toLowerCase();
@@ -55,13 +47,10 @@ export default function NavItems({ header_link_items, drop_down_items }) {
                                 })
                               }
                           </div>
-                          )}
+                          </div>
                         </li>
-    
                       ))
-              
                   )
-                  
                 } else {
                   return <TextCTA className="text-deep-green text-base font-inter hover:opacity-55 transition-all active:scale-95" key={item.cta_text} text={item.cta_text} link={item.cta_link} />
                 }

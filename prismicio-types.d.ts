@@ -982,6 +982,82 @@ export type OurApproachDocument<Lang extends string = string> =
     Lang
   >;
 
+type OurPeopleDocumentDataSlicesSlice = PictureTabSliceSlice;
+
+/**
+ * Content for Our people documents
+ */
+interface OurPeopleDocumentData {
+  /**
+   * Title field in *Our people*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_people.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Our people*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_people.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<OurPeopleDocumentDataSlicesSlice> /**
+   * Meta Title field in *Our people*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: our_people.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Our people*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: our_people.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Our people*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_people.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Our people document from Prismic
+ *
+ * - **API ID**: `our_people`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type OurPeopleDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<OurPeopleDocumentData>,
+    "our_people",
+    Lang
+  >;
+
 /**
  * Item in *Our schools → Tab Value*
  */
@@ -1464,6 +1540,7 @@ export type AllDocumentTypes =
   | HomeDocument
   | NotificationBarDocument
   | OurApproachDocument
+  | OurPeopleDocument
   | OurSchoolsDocument
   | OurdonorsDocument
   | PartnershipsDocument
@@ -2986,6 +3063,136 @@ export type PartnersShowcaseSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *PictureTabSlice → Default → Primary → Tab Values*
+ */
+export interface PictureTabSliceSliceDefaultPrimaryTabValuesItem {
+  /**
+   * Value field in *PictureTabSlice → Default → Primary → Tab Values*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: picture_tab_slice.default.primary.tab_values[].value
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  value: prismic.KeyTextField;
+}
+
+/**
+ * Item in *PictureTabSlice → Default → Primary → Tab Content*
+ */
+export interface PictureTabSliceSliceDefaultPrimaryTabContentItem {
+  /**
+   * Identifier field in *PictureTabSlice → Default → Primary → Tab Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: picture_tab_slice.default.primary.tab_content[].identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  identifier: prismic.KeyTextField;
+
+  /**
+   * Image field in *PictureTabSlice → Default → Primary → Tab Content*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: picture_tab_slice.default.primary.tab_content[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Name field in *PictureTabSlice → Default → Primary → Tab Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: picture_tab_slice.default.primary.tab_content[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Position field in *PictureTabSlice → Default → Primary → Tab Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: picture_tab_slice.default.primary.tab_content[].position
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  position: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *PictureTabSlice → Default → Primary*
+ */
+export interface PictureTabSliceSliceDefaultPrimary {
+  /**
+   * Enable Tabs field in *PictureTabSlice → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: picture_tab_slice.default.primary.enable_tabs
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  enable_tabs: prismic.BooleanField;
+
+  /**
+   * Tab Values field in *PictureTabSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: picture_tab_slice.default.primary.tab_values[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  tab_values: prismic.GroupField<
+    Simplify<PictureTabSliceSliceDefaultPrimaryTabValuesItem>
+  >;
+
+  /**
+   * Tab Content field in *PictureTabSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: picture_tab_slice.default.primary.tab_content[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  tab_content: prismic.GroupField<
+    Simplify<PictureTabSliceSliceDefaultPrimaryTabContentItem>
+  >;
+}
+
+/**
+ * Default variation for PictureTabSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PictureTabSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PictureTabSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PictureTabSlice*
+ */
+type PictureTabSliceSliceVariation = PictureTabSliceSliceDefault;
+
+/**
+ * PictureTabSlice Shared Slice
+ *
+ * - **API ID**: `picture_tab_slice`
+ * - **Description**: PictureTabSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PictureTabSliceSlice = prismic.SharedSlice<
+  "picture_tab_slice",
+  PictureTabSliceSliceVariation
+>;
+
+/**
  * Item in *ProgramShowcase → Default → Primary → Program Showcase Content*
  */
 export interface ProgramShowcaseSliceDefaultPrimaryProgramShowcaseContentItem {
@@ -4313,6 +4520,9 @@ declare module "@prismicio/client" {
       OurApproachDocument,
       OurApproachDocumentData,
       OurApproachDocumentDataSlicesSlice,
+      OurPeopleDocument,
+      OurPeopleDocumentData,
+      OurPeopleDocumentDataSlicesSlice,
       OurSchoolsDocument,
       OurSchoolsDocumentData,
       OurSchoolsDocumentDataTabValueItem,
@@ -4401,6 +4611,12 @@ declare module "@prismicio/client" {
       PartnersShowcaseSliceDefaultPrimary,
       PartnersShowcaseSliceVariation,
       PartnersShowcaseSliceDefault,
+      PictureTabSliceSlice,
+      PictureTabSliceSliceDefaultPrimaryTabValuesItem,
+      PictureTabSliceSliceDefaultPrimaryTabContentItem,
+      PictureTabSliceSliceDefaultPrimary,
+      PictureTabSliceSliceVariation,
+      PictureTabSliceSliceDefault,
       ProgramShowcaseSlice,
       ProgramShowcaseSliceDefaultPrimaryProgramShowcaseContentItem,
       ProgramShowcaseSliceDefaultPrimary,

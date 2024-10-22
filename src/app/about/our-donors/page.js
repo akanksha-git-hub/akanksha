@@ -41,3 +41,13 @@ export default async function Page() {
     )
 
 }
+
+export async function generateMetadata() {
+    const client = createClient();
+    const page = await client.getSingle("ourdonors");
+  
+    return {
+      title: page.data.meta_title,
+      description: page.data.meta_description,
+    };
+  }

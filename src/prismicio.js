@@ -53,6 +53,10 @@ const routes = [
   {
     type: 'our_schools',
     path: '/our-schools'
+  },
+  {
+    type: 'our_people',
+    path: '/our-people/:uid'
   }
   // {
   // 	type: "page",

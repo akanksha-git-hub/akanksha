@@ -29,6 +29,10 @@ body {
 .green-gradient {
   background: linear-gradient(180.03deg, rgba(55, 71, 60, 0) -20%, #37473C 95.61%);
 }
+.green-gradient-B {
+  background: linear-gradient(180.03deg, rgba(55, 71, 60, 0) -20%, #37473C 130.61%);
+  transition: all 0.3s var(--magic-bezier);
+}
 .orange-gradient {
   background: linear-gradient(180deg, #D54121 -2%, #FFEF62 48.5%, #FFFFFF 100%);
   filter: blur(120px);
@@ -476,14 +480,20 @@ gap: 1rem; */
   animation: fade-reveal var(--magic-bezier) 1.3s;
 }
 /* Nav hover items */
-.nav-drop-down {
-  opacity: 0;
-  transition: all 0.3s ease;
+.drop-down {
 }
-.hover-nav-item:hover + .nav-drop-down  {
-  opacity: 1;
-  transition: all 0.3s ease;
+.drop-down-container {
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  display: none;
+  transition: all 0.3s var(--magic-bezier);
 }
+.drop-down:hover .drop-down-container {
+  display: block;
+  animation: fade-reveal var(--magic-bezier) 0.3s;
+}
+.drop-down:hov
 /* Nav hover items end */
 /* Our Schools Grid Items */
 .our-schools-grid {
@@ -494,12 +504,53 @@ gap: 1rem; */
   border-right: 0.25px solid var(--deep-green);
 }
 /* Our Schools Grid Items End */
+/* Flip card */
+.flip-card-inner {
+  transition: all 0.3s linear;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+}
+.flip-image {
+  opacity: 1;
+  transition: all 0.3s var(--magic-bezier);
+}
+.flip-title {
+  color: var(--bright-yellow);
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.2s var(--magic-bezier);
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  background-color: var(--bright-yellow);
+}
+.flip-card:hover .flip-card-inner .flip-image {
+  opacity: 0;
+}
+.flip-card:hover .flip-card-inner .green-gradient-B {
+  opacity: 0;
+}
+.flip-card:hover .flip-title {
+  color: var(--deep-green);
+  bottom: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* Flip card end */
 @keyframes fade-reveal {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0%, 100% {
+    opacity: 0;
+    display: none;
   }
 }
 @keyframes reveal {
