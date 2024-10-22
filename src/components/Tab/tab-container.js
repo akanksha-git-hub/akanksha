@@ -20,7 +20,7 @@ const TabContainer = memo(function TabContainer({ children, tabValues, data }) {
         <ul 
             className="flex items-center justify-center 
                 md:flex-wrap gap-24 text-nowrap whitespace-nowrap 
-                overflow-x-scroll md:overflow-x-hidden mt-12 border border-red-500 pl-12"
+                overflow-x-scroll md:overflow-x-hidden mt-12 pl-12"
         >
             <TabSelectors 
                 values={tabValues}
