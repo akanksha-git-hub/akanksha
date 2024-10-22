@@ -7,8 +7,8 @@ export default function PrimaryCTA({ link, className, text, ...props }) {
     <PrismicLink
       field={link}  
     >
-      <button 
-        type='button'
+      <p
+        // type='button'
         className={
           `bg-deep-green text-cream border border-black transition-all hover:bg-bright-yellow hover:text-deep-green hover:scale-95
           hover:border-black hover:border-solid
@@ -16,7 +16,7 @@ export default function PrimaryCTA({ link, className, text, ...props }) {
         {...props}
       >
         {text}
-      </button>
+      </p>
     </PrismicLink>
   )
 }

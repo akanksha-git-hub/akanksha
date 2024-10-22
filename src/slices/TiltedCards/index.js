@@ -2,6 +2,7 @@
 import SliceIdentifier from "@/components/SliceIdentifier";
 import MixedText from "@/components/Texts/MixedText";
 import RichText from "@/components/Texts/RichText";
+import PrimaryCTA from "@/components/UI/Button/PrimaryCTA";
 import useDebouncedResize from "@/hooks/useDebouncedResize";
 import { PrismicNextImage } from "@prismicio/next";
 import { useState } from "react";
@@ -44,6 +45,10 @@ const TiltedCards = ({ slice }) => {
   let cardBClassName = "1000pixel:rotate-[4deg]";
   let cardCClassName = "1000pixel:absolute 1000pixel:-top-12 1000pixel:-right-[320px] xl:-right-[400px] 1000pixel:rotate-[-6deg]";
 
+  const defaultVariation = slice.variation === 'default';
+  const variationB = slice.variation === 'tiltedCardsB';
+  const variationC = slice.variation === 'tiltedCardsNoTitle';
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -54,21 +59,22 @@ const TiltedCards = ({ slice }) => {
         text={slice.primary.slice_identifier}
       />
       <div className="flex flex-col items-center justify-center mt-12">
-        {slice.variation === 'tiltedCardsB' ? 
+        {variationB &&
           <div className="w-full">
             <RichText 
               text={slice.primary.title}
               className="text-deep-green font-ambit-regular text-7xl text-left w-full lg:w-[12ch] leading-[100%]"
             />
           </div>
-          :
+        }
+        {defaultVariation&& (
           <MixedText 
             index={1}
             texts={slice.primary.title}
             className="text-deep-green flex items-center justify-center font-ambit-regular text-7xl text-center w-full lg:w-[10ch]"
             spanPosition="top-2 sm:top-3"
           />
-        }
+        )}
         {tiltedCard && (
           <ul className="mt-12 sm:mt-20 flex flex-wrap items-center justify-center gap-4 relative">
             {tiltedCard.map((item, index) => (
@@ -105,6 +111,7 @@ const TiltedCards = ({ slice }) => {
             ))}
           </ul>
         )}
+        {variationC && ( <PrimaryCTA className='mt-16' link={slice.primary.cta_link} text={slice.primary.cta_text} />)}
       </div>
     </section>
   );

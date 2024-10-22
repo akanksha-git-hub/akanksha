@@ -70,7 +70,7 @@ const Hero = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding relative flex flex-col-reverse h-auto 2xl:h-[45rem] 3xl:h-[55rem] lg:flex-col pb-[1000px] items-center justify-center lg:items-baseline lg:justify-normal"
+      className="universal-padding relative flex flex-col-reverse h-auto 2xl:min-h-[45rem] 3xl:min-h-[55rem] lg:flex-col pb-[1000px] items-center justify-center lg:items-baseline lg:justify-normal"
     >
       <div className="mt-6 lg:mt-12 w-full lg:w-auto">
         {/* TODO add gradient to right for fade effect */}

@@ -42,9 +42,6 @@ export default function NavItems({ header_link_items, drop_down_items }) {
                                     return matchData;
                                 })
                                 .map((drop_down, i) => {
-                                  
-                                  console.log(drop_down, 'HALO')
-
                                   return(
                                     <p className="px-4 hover:opacity-55 transition-all active:scale-95" key={i}>
                                       <PrismicNextLink

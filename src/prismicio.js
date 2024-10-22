@@ -49,6 +49,10 @@ const routes = [
   {
     type: 'our_approach',
     path: '/about/our-approach'
+  },
+  {
+    type: 'our_schools',
+    path: '/our-schools'
   }
   // {
   // 	type: "page",

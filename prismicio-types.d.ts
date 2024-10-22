@@ -791,6 +791,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomeDocumentDataSlicesSlice =
+  | TiltedCardsSlice
   | DonationSliceSlice
   | MagicSectionSlice
   | OurPartnersSlice
@@ -978,6 +979,176 @@ export type OurApproachDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
     Simplify<OurApproachDocumentData>,
     "our_approach",
+    Lang
+  >;
+
+/**
+ * Item in *Our schools → Tab Value*
+ */
+export interface OurSchoolsDocumentDataTabValueItem {
+  /**
+   * value field in *Our schools → Tab Value*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_schools.tab_value[].value
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  value: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Our schools → Tab Content*
+ */
+export interface OurSchoolsDocumentDataTabContentItem {
+  /**
+   * Identifier field in *Our schools → Tab Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_schools.tab_content[].identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  identifier: prismic.KeyTextField;
+
+  /**
+   * Body name field in *Our schools → Tab Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_schools.tab_content[].body_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  body_name: prismic.KeyTextField;
+
+  /**
+   * Location field in *Our schools → Tab Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_schools.tab_content[].location
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  location: prismic.KeyTextField;
+
+  /**
+   * Position field in *Our schools → Tab Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_schools.tab_content[].position
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  position: prismic.KeyTextField;
+
+  /**
+   * Name field in *Our schools → Tab Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_schools.tab_content[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+}
+
+type OurSchoolsDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Our schools documents
+ */
+interface OurSchoolsDocumentData {
+  /**
+   * Title field in *Our schools*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_schools.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Tab Value field in *Our schools*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_schools.tab_value[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  tab_value: prismic.GroupField<Simplify<OurSchoolsDocumentDataTabValueItem>>;
+
+  /**
+   * Tab Content field in *Our schools*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_schools.tab_content[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  tab_content: prismic.GroupField<
+    Simplify<OurSchoolsDocumentDataTabContentItem>
+  >;
+
+  /**
+   * Slice Zone field in *Our schools*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_schools.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<OurSchoolsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Our schools*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: our_schools.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Our schools*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: our_schools.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Our schools*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_schools.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Our schools document from Prismic
+ *
+ * - **API ID**: `our_schools`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type OurSchoolsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<OurSchoolsDocumentData>,
+    "our_schools",
     Lang
   >;
 
@@ -1293,6 +1464,7 @@ export type AllDocumentTypes =
   | HomeDocument
   | NotificationBarDocument
   | OurApproachDocument
+  | OurSchoolsDocument
   | OurdonorsDocument
   | PartnershipsDocument
   | TimelineDocument
@@ -3843,11 +4015,150 @@ export type TiltedCardsSliceTiltedCardsB = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *TiltedCards → Tilted Cards No Title → Primary*
+ */
+export interface TiltedCardsSliceTiltedCardsNoTitlePrimary {
+  /**
+   * Slice Identifier field in *TiltedCards → Tilted Cards No Title → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsNoTitle.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Card A Stat Number field in *TiltedCards → Tilted Cards No Title → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsNoTitle.primary.card_a_stat_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_stat_number: prismic.KeyTextField;
+
+  /**
+   * Card A Stat Description field in *TiltedCards → Tilted Cards No Title → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsNoTitle.primary.card_a_stat_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_stat_description: prismic.KeyTextField;
+
+  /**
+   * Card A Image field in *TiltedCards → Tilted Cards No Title → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsNoTitle.primary.card_a_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_a_image: prismic.ImageField<never>;
+
+  /**
+   * Card B Stat Number field in *TiltedCards → Tilted Cards No Title → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsNoTitle.primary.card_b_stat_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_stat_number: prismic.KeyTextField;
+
+  /**
+   * Card B Stat Description field in *TiltedCards → Tilted Cards No Title → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsNoTitle.primary.card_b_stat_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_stat_description: prismic.KeyTextField;
+
+  /**
+   * Card B Image field in *TiltedCards → Tilted Cards No Title → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsNoTitle.primary.card_b_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_b_image: prismic.ImageField<never>;
+
+  /**
+   * Card C Stat Number field in *TiltedCards → Tilted Cards No Title → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsNoTitle.primary.card_c_stat_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_c_stat_number: prismic.KeyTextField;
+
+  /**
+   * Card C Stat Description field in *TiltedCards → Tilted Cards No Title → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsNoTitle.primary.card_c_stat_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_c_stat_description: prismic.KeyTextField;
+
+  /**
+   * Card C Image field in *TiltedCards → Tilted Cards No Title → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsNoTitle.primary.card_c_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_c_image: prismic.ImageField<never>;
+
+  /**
+   * CTA Text field in *TiltedCards → Tilted Cards No Title → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsNoTitle.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *TiltedCards → Tilted Cards No Title → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tilted_cards.tiltedCardsNoTitle.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+}
+
+/**
+ * Tilted Cards No Title variation for TiltedCards Slice
+ *
+ * - **API ID**: `tiltedCardsNoTitle`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TiltedCardsSliceTiltedCardsNoTitle = prismic.SharedSliceVariation<
+  "tiltedCardsNoTitle",
+  Simplify<TiltedCardsSliceTiltedCardsNoTitlePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *TiltedCards*
  */
 type TiltedCardsSliceVariation =
   | TiltedCardsSliceDefault
-  | TiltedCardsSliceTiltedCardsB;
+  | TiltedCardsSliceTiltedCardsB
+  | TiltedCardsSliceTiltedCardsNoTitle;
 
 /**
  * TiltedCards Shared Slice
@@ -4002,6 +4313,11 @@ declare module "@prismicio/client" {
       OurApproachDocument,
       OurApproachDocumentData,
       OurApproachDocumentDataSlicesSlice,
+      OurSchoolsDocument,
+      OurSchoolsDocumentData,
+      OurSchoolsDocumentDataTabValueItem,
+      OurSchoolsDocumentDataTabContentItem,
+      OurSchoolsDocumentDataSlicesSlice,
       OurdonorsDocument,
       OurdonorsDocumentData,
       OurdonorsDocumentDataSlicesSlice,
@@ -4124,9 +4440,11 @@ declare module "@prismicio/client" {
       TiltedCardsSlice,
       TiltedCardsSliceDefaultPrimary,
       TiltedCardsSliceTiltedCardsBPrimary,
+      TiltedCardsSliceTiltedCardsNoTitlePrimary,
       TiltedCardsSliceVariation,
       TiltedCardsSliceDefault,
       TiltedCardsSliceTiltedCardsB,
+      TiltedCardsSliceTiltedCardsNoTitle,
       TimelineScrollerSlice,
       TimelineScrollerSliceDefaultPrimaryItemsItem,
       TimelineScrollerSliceDefaultPrimary,
