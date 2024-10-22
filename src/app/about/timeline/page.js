@@ -34,12 +34,12 @@ export default async function Page() {
 
 }
 
-export async function generateMetadata() {
-    const client = createClient();
-    const page = await client.getSingle("timeline");
+// export async function generateMetadata() {
+//     const client = createClient();
+//     const page = await client.getSingle("timeline");
   
-    return {
-      title: page.data.meta_title,
-      description: page.data.meta_description,
-    };
-  }
+//     return {
+//       title: page.data.meta_title,
+//       description: page.data.meta_description,
+//     };
+//   }

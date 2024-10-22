@@ -23,12 +23,12 @@ export default async function Page() {
 
 }
 
-export async function generateMetadata() {
-    const client = createClient();
-    const page = await client.getSingle("core_values");
+// export async function generateMetadata() {
+//     const client = createClient();
+//     const page = await client.getSingle("core_values");
   
-    return {
-      title: page.data.meta_title,
-      description: page.data.meta_description,
-    };
-  }
+//     return {
+//       title: page.data.meta_title,
+//       description: page.data.meta_description,
+//     };
+//   }

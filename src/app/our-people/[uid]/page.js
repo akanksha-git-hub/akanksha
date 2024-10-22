@@ -23,23 +23,23 @@ export default async function Page({ params }) {
   );
 }
 
-export async function generateMetadata({ params }) {
-  const client = createClient();
-  const page = await client
-    .getByUID("our_people", params.uid)
-    .catch(() => notFound());
+// export async function generateMetadata({ params }) {
+//   const client = createClient();
+//   const page = await client
+//     .getByUID("our_people", params.uid)
+//     .catch(() => notFound());
 
-  return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
-  };
-}
+//   return {
+//     title: page.data.meta_title,
+//     description: page.data.meta_description,
+//   };
+// }
 
-export async function generateStaticParams() {
-  const client = createClient();
-  const pages = await client.getAllByType("our_people");
+// export async function generateStaticParams() {
+//   const client = createClient();
+//   const pages = await client.getAllByType("our_people");
 
-  return pages.map((page) => {
-    return { uid: page.uid };
-  });
-}
+//   return pages.map((page) => {
+//     return { uid: page.uid };
+//   });
+// }

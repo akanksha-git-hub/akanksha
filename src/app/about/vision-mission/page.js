@@ -22,12 +22,12 @@ export default async function Page() {
 
 }
 
-export async function generateMetadata() {
-    const client = createClient();
-    const page = await client.getSingle("vision_mission");
+// export async function generateMetadata() {
+//     const client = createClient();
+//     const page = await client.getSingle("vision_mission");
   
-    return {
-      title: page.data.meta_title,
-      description: page.data.meta_description,
-    };
-  }
+//     return {
+//       title: page.data.meta_title,
+//       description: page.data.meta_description,
+//     };
+//   }
