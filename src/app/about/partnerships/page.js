@@ -1,6 +1,7 @@
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
 import { components } from "@/slices";
 import { maxwidth } from "@/utils/helperClasses";
+import { createClient } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 
 

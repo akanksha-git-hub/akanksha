@@ -2,6 +2,7 @@ import RichText from "@/components/Texts/RichText";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
 import { components } from "@/slices";
 import { maxwidth } from "@/utils/helperClasses";
+import { createClient } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 import Image from "next/image";
 
