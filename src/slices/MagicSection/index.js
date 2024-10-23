@@ -21,7 +21,7 @@ const MagicSection = ({ slice }) => {
       />
       <RichText 
         text={slice.primary.text_showcase}
-        className="text-deep-green text-8xl max-w-[10ch] font-ambit-regular my-12"
+        className="text-deep-green text-6xl lg:text-8xl max-w-[10ch] font-ambit-regular my-12"
       />
       <PrismicNextImage 
         field={slice.primary.images[1].image}
