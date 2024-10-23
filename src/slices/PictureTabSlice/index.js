@@ -26,7 +26,7 @@ const PictureTabSlice = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex flex-col items-center justify-center"
+      className="flex flex-col items-center justify-center relative"
     >
       {isTab ? 
         <TabContainer
