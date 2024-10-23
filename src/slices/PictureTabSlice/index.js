@@ -11,11 +11,15 @@ const PictureTabSlice = ({ slice }) => {
 
   const isTab = slice.primary.enable_tabs;
 
-  const uniqueValues = slice.primary.tab_values.map(item => {
-    const originalValue = item.value;
-    const lowerCaseValue = item.value.toLowerCase();
-    return { originalValue, lowerCaseValue }; 
-  });
+  let uniqueValues;
+
+  if(isTab) {
+    uniqueValues = slice.primary.tab_values.map(item => {
+      const originalValue = item.value;
+      const lowerCaseValue = item.value.toLowerCase();
+      return { originalValue, lowerCaseValue }; 
+    });
+  }
 
   
   return(
