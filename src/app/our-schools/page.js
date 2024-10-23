@@ -34,6 +34,7 @@ export default async function Page() {
                 tabValues={uniqueSet}
                 data={data}
                 RenderElement={GridA}
+                className="flex xl:border-t xl:border-deep-green flex-wrap mt-12"
             >
             </TabContainer>
         </main>

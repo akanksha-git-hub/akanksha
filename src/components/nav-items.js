@@ -74,7 +74,6 @@ export default function NavItems({ header_link_items, drop_down_items }) {
                           </div>
                         </li>
                         )
-
                     })
                 )
 

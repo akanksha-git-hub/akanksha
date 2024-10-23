@@ -4,7 +4,7 @@ import TabContent from "./tab-content";
 import TabSelectors from "./tab-selectors";
 import Image from "next/image";
 
-const TabContainer = memo(function TabContainer({ tabValues, data, RenderElement }) {
+const TabContainer = memo(function TabContainer({ tabValues, data, RenderElement, className }) {
 
     const [grabValue, setGrabValue] = useState({ index: 0, value: tabValues[0].lowerCaseValue });
 
@@ -26,11 +26,11 @@ const TabContainer = memo(function TabContainer({ tabValues, data, RenderElement
                 index={grabValue.index}
             />
         </ul>
-        <TabContent className="flex xl:border-t xl:border-deep-green flex-wrap mt-12">
+        <TabContent className={className}>
            {tabContent && (
             tabContent.map((item, i) => {
                 return React.cloneElement(<RenderElement />, { item, i })
-            })
+             })
            )}
         </TabContent>
         </>

@@ -114,15 +114,30 @@ const SliderShowcase = ({ slice }) => {
         <div className="pb-12">
           <Swiper
             breakpoints={{
+              1900: {
+                slidesPerView: 2.4,
+                slidesOffsetBefore: 710,
+                slidesOffsetAfter: 400
+              },
+              1700: {
+                slidesPerView: 2.4,
+                slidesOffsetBefore: 680,
+                slidesOffsetAfter: 400
+              },
               1400: {
                 slidesPerView: 2.2,
                 slidesOffsetBefore: 500,
-                slidesOffsetAfter: 200,
+                slidesOffsetAfter: 300,
               },
               1000: {
                 slidesOffsetBefore: 350,
                 slidesOffsetAfter: 200,
                 slidesPerView: 2
+              },
+              800: {
+                slidesPerView: 2,
+                slidesOffsetBefore: 250,
+                slidesOffsetAfter: 100
               },
               500: {
                 slidesPerView: 1.7,
@@ -149,11 +164,11 @@ const SliderShowcase = ({ slice }) => {
                   <div 
                     className={
                       `${sliderBIndex === index ? 'bg-bright-yellow p-4 lg:p-8 scale-100' : 'p-4 lg:p-8 scale-90'} 
-                      transition-all w-[16rem] sm:w-[16rem] lg:w-[33rem] rounded-md`
+                      transition-all w-[16rem] sm:w-[24rem] lg:w-[33rem] rounded-md`
                     }
                   >
                     <div
-                      className="w-full h-[14rem] sm:h-[18rem] lg:h-[30rem] rounded-md overflow-hidden"
+                      className="w-full h-[14rem] sm:min-h-[18rem] lg:min-h-[24rem] rounded-md overflow-hidden"
                     >
                       <PrismicNextImage className="h-full w-full object-cover" field={item.image} />
                     </div>

@@ -1,11 +1,10 @@
 'use client'
 
-import { memo, useState } from "react";
-
+import { memo } from "react";
 
     const TabSelectors = memo(function TabSelectors({ values, setValue, index }) {
         const selectors = values;
-
+        console.log(selectors, 'SCHOOL')
         const handleClick = (i, text) => setValue(prevState => ({ ...prevState, index: i, value: text }));
 
         if(selectors) {
@@ -18,8 +17,7 @@ import { memo, useState } from "react";
                             key={item.originalValue}
                             className={`
                                 text-deep-green font-ambit-regular text-3xl cursor-pointer transition-all
-                                ${index === i ? 'opacity-100' : 'opacity-45'}
-                                `}
+                                ${index === i ? 'opacity-100' : 'opacity-45'}`}
                         >
                             {item.originalValue}
                         </li>
