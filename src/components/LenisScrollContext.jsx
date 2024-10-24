@@ -36,8 +36,13 @@ export default function LenisScrollContext({ children }) {
 
     }, []);
 
+    const stopScroll = () => {
+        console.log(lenisRef, 'lenis ref');
+        lenisRef.stop();
+    }
+
   return (
-    <SmoothScrollerContext.Provider value={lenisRef}>
+    <SmoothScrollerContext.Provider value={{lenisRef, stopScroll}}>
         {children}
     </SmoothScrollerContext.Provider>
   )

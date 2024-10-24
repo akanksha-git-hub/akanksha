@@ -6,6 +6,9 @@ import CTA from "./UI/Button/CTA";
 import { createCashFreeOrder, createSubscription } from "@/services/cashfree/action";
 import { load } from "@cashfreepayments/cashfree-js";
 import { useRouter } from "next/navigation";
+import { Modal } from "./modal";
+import MultiStepForm from "./Multi-StepForm/multi-step-form";
+import { useSmoothScroller } from "./LenisScrollContext";
 
 const INITIAL_STATE = {
     type: {
@@ -23,9 +26,21 @@ const types = ['One Time', 'Monthly'];
 
 export default function DonationSelectors({ data }) {
 
-    const router = useRouter();
+    // const router = useRouter();
+    const { stopScroll } = useSmoothScroller();
     const [active, setActive] = useState(INITIAL_STATE);
+    const [open, setOpen] = useState(false);
     const isDisabled= active.amountSelector.amount === null;
+
+    const openModal = () => {
+        setOpen(() => true);
+        document.body.style.overflow = 'hidden';
+        stopScroll();
+    }
+    const closeModal = () => {
+        setOpen(() => false);
+        document.body.style.overflow = 'none';
+    }
 
 
     // Memoized amount selector
@@ -49,55 +64,56 @@ export default function DonationSelectors({ data }) {
     }, []);
 
     // One-time donation handler
-    const handleDonateOneTime = useCallback(async (e) => {
-        e.preventDefault();
+    // const handleDonateOneTime = useCallback(async (e) => {
+    //     e.preventDefault();
         
-        if (active.amountSelector.amount === null) return; // Handle null amount
+    //     if (active.amountSelector.amount === null) return; // Handle null amount
         
-        const cashFreeResponse = await createCashFreeOrder(active.amountSelector.amount);
+    //     const cashFreeResponse = await createCashFreeOrder(active.amountSelector.amount);
 
-        if (cashFreeResponse) {
-            const cashfree = await load({ mode: 'sandbox' });
+    //     if (cashFreeResponse) {
+    //         const cashfree = await load({ mode: 'sandbox' });
 
-            let checkoutOptions = {
-                paymentSessionId: cashFreeResponse.paymentSessionId,
-                redirectTarget: '_blank',
-                paymentMethod: cashFreeResponse.paymentMethod
-            }
+    //         let checkoutOptions = {
+    //             paymentSessionId: cashFreeResponse.paymentSessionId,
+    //             redirectTarget: '_blank',
+    //             paymentMethod: cashFreeResponse.paymentMethod
+    //         }
 
-            cashfree.checkout(checkoutOptions).then((result) => {
-                if(result.error){
-                    // This will be true whenever user clicks on close icon inside the modal or any error happens during the payment
-                    console.log("User has closed the popup or there is some payment error, Check for Payment Status");
-                    console.log(result.error);
-                }
-                if(result.redirect){
-                    // This will be true when the payment redirection page couldnt be opened in the same window
-                    // This is an exceptional case only when the page is opened inside an inAppBrowser
-                    // In this case the customer will be redirected to return url once payment is completed
-                    console.log("Payment will be redirected");
-                }
-                if(result.paymentDetails){
-                    // This will be called whenever the payment is completed irrespective of transaction status
+    //         cashfree.checkout(checkoutOptions).then((result) => {
+    //             if(result.error){
+    //                 // This will be true whenever user clicks on close icon inside the modal or any error happens during the payment
+    //                 console.log("User has closed the popup or there is some payment error, Check for Payment Status");
+    //                 console.log(result.error);
+    //             }
+    //             if(result.redirect){
+    //                 // This will be true when the payment redirection page couldnt be opened in the same window
+    //                 // This is an exceptional case only when the page is opened inside an inAppBrowser
+    //                 // In this case the customer will be redirected to return url once payment is completed
+    //                 console.log("Payment will be redirected");
+    //             }
+    //             if(result.paymentDetails){
+    //                 // This will be called whenever the payment is completed irrespective of transaction status
 
-                    // router.push(`${cashFreeOrderData.returnUrl}?order_id=${cashFreeOrderData?.orderId}`);
-                    console.log("Payment has been completed, Check for Payment Status");
-                    console.log(result.paymentDetails.paymentMessage);
-                }
-            });
-        }
-    }, [active.amountSelector.amount]);
+    //                 // router.push(`${cashFreeOrderData.returnUrl}?order_id=${cashFreeOrderData?.orderId}`);
+    //                 console.log("Payment has been completed, Check for Payment Status");
+    //                 console.log(result.paymentDetails.paymentMessage);
+    //             }
+    //         });
+    //     }
+    // }, [active.amountSelector.amount]);
 
-    // Monthly donation handler
-    const handleDonateMonthly = useCallback(async (e) => {
-        e.preventDefault();
-        setActive((prevState) => ({ ...prevState, loading: true }));
+    // // Monthly donation handler
+    // const handleDonateMonthly = useCallback(async (e) => {
+    //     e.preventDefault();
+    //     setActive((prevState) => ({ ...prevState, loading: true }));
 
-        const response = await createSubscription(100); // Default to ₹100 for monthly
-        if (response) router.push(response.data.authLink);
-    }, [router]);
+    //     const response = await createSubscription(100); // Default to ₹100 for monthly
+    //     if (response) router.push(response.data.authLink);
+    // }, [router]);
 
   return (
+    <>
     <div className="donation-component bg-cream rounded-[4px] w-full xl:w-2/4 2xl:w-[40%] xl:scale-[1.05] z-20 flex flex-col items-center justify-center pb-6 custom-shadow h-auto 3xl:h-[800px]">
         <div className="w-[90%]">
             {/* Title */}
@@ -171,9 +187,10 @@ export default function DonationSelectors({ data }) {
                 text={active.loading ? 'Loading...' : "Donate and Support"}
                 className={`w-full !text-xl !py-6 mt-6 font-ambit-regular ${isDisabled && ('hover:opacity-60 hover:bg-deep-green hover:text-cream hover:!scale-100 active:scale-95 opacity-60')}`}
                 disabled={isDisabled}
-                onClick={
-                    active.type.isOneTime ? handleDonateOneTime : handleDonateMonthly
-                }
+                // onClick={
+                //     active.type.isOneTime ? handleDonateOneTime : handleDonateMonthly
+                // }
+                onClick={openModal}
             />
             <div className="mt-2">
                 <Link href="">
@@ -184,6 +201,10 @@ export default function DonationSelectors({ data }) {
             </div>
         </div>
     </div>
+    <Modal open={open}  className='bg-cream'>
+        <MultiStepForm closeModal={closeModal} />
+    </Modal>
+    </>
   )
 }
 
