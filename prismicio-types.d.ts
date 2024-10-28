@@ -1525,6 +1525,129 @@ export type VisionMissionDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Volunteer with us → Items*
+ */
+export interface VolunteerWithUsDocumentDataItemsItem {
+  /**
+   * Image field in *Volunteer with us → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: volunteer_with_us.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Text field in *Volunteer with us → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: volunteer_with_us.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+type VolunteerWithUsDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Volunteer with us documents
+ */
+interface VolunteerWithUsDocumentData {
+  /**
+   * Title field in *Volunteer with us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: volunteer_with_us.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Sub Title field in *Volunteer with us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: volunteer_with_us.sub_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sub_title: prismic.KeyTextField;
+
+  /**
+   * Items field in *Volunteer with us*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: volunteer_with_us.items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<Simplify<VolunteerWithUsDocumentDataItemsItem>>;
+
+  /**
+   * Slice Zone field in *Volunteer with us*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: volunteer_with_us.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<VolunteerWithUsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Volunteer with us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: volunteer_with_us.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Volunteer with us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: volunteer_with_us.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Volunteer with us*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: volunteer_with_us.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Volunteer with us document from Prismic
+ *
+ * - **API ID**: `volunteer_with_us`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type VolunteerWithUsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<VolunteerWithUsDocumentData>,
+    "volunteer_with_us",
+    Lang
+  >;
+
 type WorkWithUsDocumentDataSlicesSlice =
   | SliderShowcaseSlice
   | MissionVisionSlice;
@@ -1613,6 +1736,7 @@ export type AllDocumentTypes =
   | PartnershipsDocument
   | TimelineDocument
   | VisionMissionDocument
+  | VolunteerWithUsDocument
   | WorkWithUsDocument;
 
 /**
@@ -4727,6 +4851,10 @@ declare module "@prismicio/client" {
       VisionMissionDocument,
       VisionMissionDocumentData,
       VisionMissionDocumentDataSlicesSlice,
+      VolunteerWithUsDocument,
+      VolunteerWithUsDocumentData,
+      VolunteerWithUsDocumentDataItemsItem,
+      VolunteerWithUsDocumentDataSlicesSlice,
       WorkWithUsDocument,
       WorkWithUsDocumentData,
       WorkWithUsDocumentDataSlicesSlice,
