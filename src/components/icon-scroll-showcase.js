@@ -68,17 +68,14 @@ export default function IconScrollShowcase({ data }) {
                 },
             });
             
-        })
-
-
-
+        });
 
     }, [onMount]);
 
     return(
         <ul className="flex flex-col items-center space-y-44 justify-center my-24">
             {data.map((item, i) => (
-                <li key={item.text} className="icon-container custom-bezier h-[20rem] w-[20rem] rounded-full bg-bright-yellow flex items-center justify-center relative">
+                <li key={item.text} className="icon-container custom-bezier h-[8rem] w-[8rem] sm:h-[10rem] sm:w-[10rem] md:h-[14rem] md:w-[14rem] xl:h-[20rem] xl:w-[20rem] rounded-full bg-bright-yellow flex items-center justify-center relative">
                     <div  
                         className="outer-ring-C custom-bezier border-[5px] border-bright-yellow h-0 w-0 rounded-full absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4"
                     />
@@ -89,7 +86,7 @@ export default function IconScrollShowcase({ data }) {
                         className="outer-ring-A !delay-[200ms] custom-bezier border-[2px] border-[#ebd97f] h-0 w-0 rounded-full absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4"
                     />
                     <div className={
-                        `absolute -bottom-3/4 left-2/4 -translate-x-2/4 h-[300px] w-[4px] -z-10 bg-[#ebd97f] ${i === length && ('hidden')}`
+                        `absolute -bottom-[150%] lg:-bottom-full left-2/4 -translate-x-2/4 h-[200px] sm:h-[400px] w-[4px] -z-10 bg-[#ebd97f] ${i === length && ('hidden')}`
                     }>
                         <div className="h-full w-full relative">
                             <div className="inner-progress-line transition-all bg-bright-yellow w-full h-full" />
@@ -104,15 +101,15 @@ export default function IconScrollShowcase({ data }) {
                             width={100}
                         />
                     </div>
-                    <div className={`absolute top-2/4 ${i % 2 === 0 ? '-translate-y-2/4 left-[90%]' : 'translate-y-2/4 right-[90%]'} w-full`}>
-                        <div className={`w-full flex ${i % 2 == 0 ? 'flex-row' : 'flex-row-reverse'} gap-4`}>
+                    <div className={`absolute top-2/4 ${i % 2 === 0 ? '-translate-y-2/4 left-[90%]' : '-translate-y-2/4 right-[90%] md:right-[120%] xl:right-[90%]'} w-full`}>
+                        <div className={`w-full md:w-[300px] xl:w-full flex ${i % 2 == 0 ? 'flex-row' : 'flex-row-reverse'} gap-0 md:gap-4`}>
                             <div className={`flex ${i % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-center`}>
                                 <div className="h-3 w-3 relative rounded-full bg-deep-green" />
-                                <div className="h-[2px] w-[120px] bg-deep-green" />
+                                <div className="h-[2px] w-[14px] md:w-[80px] lg:w-[120px] bg-deep-green" />
                             </div>
                             <RichText 
                                 text={item.text}
-                                className='text-deep-green text-nowrap font-ambit-regular text-xl'
+                                className='text-deep-green text-centerw-auto xl:w-auto xl:text-nowrap font-ambit-regular text-xl'
                             />
                         </div>
                     </div>
