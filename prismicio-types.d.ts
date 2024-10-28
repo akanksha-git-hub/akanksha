@@ -1525,6 +1525,73 @@ export type VisionMissionDocument<Lang extends string = string> =
     Lang
   >;
 
+type WorkWithUsDocumentDataSlicesSlice =
+  | SliderShowcaseSlice
+  | MissionVisionSlice;
+
+/**
+ * Content for Work with us documents
+ */
+interface WorkWithUsDocumentData {
+  /**
+   * Slice Zone field in *Work with us*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work_with_us.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<WorkWithUsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Work with us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: work_with_us.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Work with us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: work_with_us.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Work with us*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work_with_us.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Work with us document from Prismic
+ *
+ * - **API ID**: `work_with_us`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type WorkWithUsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<WorkWithUsDocumentData>,
+    "work_with_us",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | CoreValuesDocument
   | DonationPaymentComponentDocument
@@ -1545,7 +1612,8 @@ export type AllDocumentTypes =
   | OurdonorsDocument
   | PartnershipsDocument
   | TimelineDocument
-  | VisionMissionDocument;
+  | VisionMissionDocument
+  | WorkWithUsDocument;
 
 /**
  * Default variation for DonationSlice Slice
@@ -2560,11 +2628,130 @@ export type MissionVisionSliceReverseVideoComponet =
   >;
 
 /**
+ * Primary content in *MissionVision → Double CTA Component → Primary*
+ */
+export interface MissionVisionSliceDoubleCtaComponentPrimary {
+  /**
+   * Video Thumbnail Image field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.video_thumbnail_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  video_thumbnail_image: prismic.ImageField<never>;
+
+  /**
+   * Video Thumbnail Title field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.video_thumbnail_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  video_thumbnail_title: prismic.KeyTextField;
+
+  /**
+   * Title field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * CTA Text field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * CTA B Text field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.cta_b_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_b_text: prismic.KeyTextField;
+
+  /**
+   * CTA B Link field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.cta_b_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_b_link: prismic.LinkField;
+
+  /**
+   * Slice Identifier field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Video Link field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.video_link
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  video_link: prismic.KeyTextField;
+}
+
+/**
+ * Double CTA Component variation for MissionVision Slice
+ *
+ * - **API ID**: `doubleCtaComponent`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MissionVisionSliceDoubleCtaComponent = prismic.SharedSliceVariation<
+  "doubleCtaComponent",
+  Simplify<MissionVisionSliceDoubleCtaComponentPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *MissionVision*
  */
 type MissionVisionSliceVariation =
   | MissionVisionSliceDefault
-  | MissionVisionSliceReverseVideoComponet;
+  | MissionVisionSliceReverseVideoComponet
+  | MissionVisionSliceDoubleCtaComponent;
 
 /**
  * MissionVision Shared Slice
@@ -4540,6 +4727,9 @@ declare module "@prismicio/client" {
       VisionMissionDocument,
       VisionMissionDocumentData,
       VisionMissionDocumentDataSlicesSlice,
+      WorkWithUsDocument,
+      WorkWithUsDocumentData,
+      WorkWithUsDocumentDataSlicesSlice,
       AllDocumentTypes,
       DonationSliceSlice,
       DonationSliceSliceVariation,
@@ -4583,9 +4773,11 @@ declare module "@prismicio/client" {
       MissionVisionSlice,
       MissionVisionSliceDefaultPrimary,
       MissionVisionSliceReverseVideoComponetPrimary,
+      MissionVisionSliceDoubleCtaComponentPrimary,
       MissionVisionSliceVariation,
       MissionVisionSliceDefault,
       MissionVisionSliceReverseVideoComponet,
+      MissionVisionSliceDoubleCtaComponent,
       MissionVisionShowcaseSlice,
       MissionVisionShowcaseSliceDefaultPrimary,
       MissionVisionShowcaseSliceVariation,

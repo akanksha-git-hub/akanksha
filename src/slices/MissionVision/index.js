@@ -15,11 +15,13 @@ const MissionVision = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding mt-6"
+      className={`universal-padding mt-6 ${slice.variation === 'doubleCtaComponent' && 'mb-36'}`}
     >
-      <SliceIdentifier 
-        text={slice.primary.slice_identifier}
-      />
+      {!slice.variation === 'doubleCtaComponent' && (
+        <SliceIdentifier 
+          text={slice.primary.slice_identifier}
+        />
+      )}
       <div className={`flex flex-col items-end gap-12 mt-12 lg:mt-16 ${slice.variation === "reverseVideoComponet" ? 'lg:flex-row-reverse':'lg:flex-row'}`}>
         <VideoModal className="hidden lg:flex" slice={slice} />
         <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-2/4">
@@ -56,11 +58,18 @@ const MissionVision = ({ slice }) => {
             className="font-inter text-deep-green text-center lg:text-left text-sm 3xl:text-lg w-[90%] mt-8"
             text={slice.primary.description}
           />
-          <PrimaryCTA 
-            className="mt-6 xl:mt-10 3xl:mt-14"
-            link={slice.primary.cta_link}
-            text={slice.primary.cta_text}
-          />
+          <div className="flex flex-wrap gap-4 w-full mt-6 xl:mt-10 3xl:mt-14">
+            <PrimaryCTA 
+              link={slice.primary.cta_link}
+              text={slice.primary.cta_text}
+            />
+            {slice.variation === 'doubleCtaComponent' && (
+              <PrimaryCTA 
+                link={slice.primary.cta_b_link}
+                text={slice.primary.cta_b_text}
+              />
+            )}
+          </div>
         </div>
       </div>
     </section>

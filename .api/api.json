@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "apis": [
+    {
+      "identifier": "billdesk",
+      "source": "@billdesk/v1.0.1#buzo2rm0nj6jiu",
+      "integrity": "sha512-XZX9ToSr75KY7LjLPC3fW9e85/0aDSoGjL05hihvMt184mEhLJDEBHt4Yq2XnFgaL7Bhfr2CCjlUyqFhJWaHtQ==",
+      "installerVersion": "6.1.2"
+    }
+  ]
+}

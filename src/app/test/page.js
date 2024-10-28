@@ -1,9 +1,10 @@
+import Dummy from '@/components/dummy';
+export default async function Page() {
 
-
-export default function Page() {
     return(
-        <main>
-            Testing
+        <main className="h-screen flex items-center justify-center">
+            <Dummy 
+            />
         </main>
     )
 }

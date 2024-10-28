@@ -57,6 +57,10 @@ const routes = [
   {
     type: 'our_people',
     path: '/our-people/:uid'
+  },
+  {
+    type: 'work_with_us',
+    path: '/join-us/work-with-us'
   }
   // {
   // 	type: "page",

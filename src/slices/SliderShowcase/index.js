@@ -109,7 +109,7 @@ const SliderShowcase = ({ slice }) => {
       <section>
         <RichText 
           text={slice.primary.title}
-          className='text-deep-green text-6xl font-ambit-regular text-center flex items-center justify-center my-8'
+          className='text-deep-green text-6xl font-ambit-regular text-center flex items-center justify-center my-24'
         />
         <div className="pb-12">
           <Swiper
