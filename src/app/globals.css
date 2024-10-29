@@ -562,7 +562,6 @@ gap: 1rem; */
 /* .modal::backdrop {
   background: blue;
 } */
-
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -585,7 +584,6 @@ gap: 1rem; */
   margin-inline: auto;
   margin-block: auto;
 }
-
 /* modal end */
 @keyframes fade-reveal {
   from {

@@ -2,7 +2,6 @@
 
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 import RichText from "./Texts/RichText";
 import { PrismicNextImage } from "@prismicio/next";
 import { useEffect, useState } from "react";

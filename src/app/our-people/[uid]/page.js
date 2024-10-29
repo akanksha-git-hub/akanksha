@@ -14,7 +14,7 @@ export default async function Page({ params }) {
     .catch(() => notFound());
 
   return (
-    <main className={`${maxwidth} universal-padding space-y-12 mb-12 relative`}>
+    <main className={`${maxwidth} universal-padding space-y-12 mb-12 relative overflow-hidden`}>
       <Image 
         src='/sparkle_big_right.svg'
         alt=""
