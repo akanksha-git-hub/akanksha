@@ -27,7 +27,7 @@ const types = ['One Time', 'Monthly'];
 export default function DonationSelectors({ data }) {
 
     // const router = useRouter();
-    const { stopScroll } = useSmoothScroller();
+    const { stopScroll, startScroll } = useSmoothScroller();
     const [active, setActive] = useState(INITIAL_STATE);
     const [open, setOpen] = useState(false);
     const isDisabled= active.amountSelector.amount === null;
@@ -39,6 +39,7 @@ export default function DonationSelectors({ data }) {
     }
     const closeModal = () => {
         setOpen(() => false);
+        startScroll();
         document.body.style.overflow = 'none';
     }
 
