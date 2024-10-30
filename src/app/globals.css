@@ -20,6 +20,13 @@ body {
   background: #fff;
   overflow-x: hidden;
 }
+.blur-bg {
+  background-color: rgba(70, 70, 70, 0.8);
+  backdrop-filter: blur(15.2px);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;
+  filter: none;
+  border: none;
+}
 .custom-bezier {
   transition: all var(--magic-bezier) 0.3s;
 }
@@ -496,6 +503,9 @@ gap: 1rem; */
 .opacity-anim {
   animation: fade-in var(--magic-bezier) forwards 0.3s;
 }
+.opacity-anim-b {
+  animation: fade-in-bottom var(--magic-bezier) forwards 0.3s;
+}
 .opacity-reveal {
   animation: fade-reveal var(--magic-bezier) 1.3s;
 }
@@ -571,7 +581,7 @@ gap: 1rem; */
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--cream);
+  /* background: var(--cream); */
   z-index: 100;
   overflow: auto;
   animation: fade-in var(--magic-bezier) forwards 0.3s;
@@ -660,6 +670,16 @@ gap: 1rem; */
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes fade-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
   }
 }
 @layer utilities {

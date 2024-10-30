@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react"
 import Arrow from "../Arrow";
 import StepA from "./step-A";
-import StepB from "./step-B";
 import StepC from "./step-C";
 import Image from "next/image";
 
@@ -33,7 +32,8 @@ export default function MultiStepForm({ closeModal }) {
         }
         
         if(step === 1) {
-            console.log('1')
+            // console.log('1')
+            // todo....
             return;
         }
 
@@ -62,8 +62,9 @@ export default function MultiStepForm({ closeModal }) {
             </div>
         )}
         {error && (
-            <div className="opacity-anim flex items-center justify-center w-full h-full">
-                <div className="relative p-24 bg-white rounded-3xl">
+            <div data-lenis-prevent className="flex items-center justify-center w-full h-full z-50 relative">
+                <div className="blur-bg absolute top-0 left-0 h-full w-full" />
+                <div className="relative opacity-anim-b py-24 w-[90%] sm:w-auto sm:p-24 bg-white rounded-3xl z-50 flex items-center justify-center">
                     <Image 
                         onClick={closeModal}
                         className="absolute top-6 right-6 cursor-pointer z-50 transition-all hover:opacity-55 active:scale-90"

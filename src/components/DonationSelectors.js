@@ -35,16 +35,13 @@ export default function DonationSelectors({ data }) {
     const openModal = () => {
         setOpen(() => true);
         document.body.style.overflow = 'hidden';
-        // stopScroll();
-        lenisRef.stop();
+        stopScroll();
     }
     const closeModal = () => {
         setOpen(() => false);
-        if(lenisRef) lenisRef.start();
-        // startScroll();
+        if(lenisRef) startScroll();
         document.body.style.overflow = 'none';
     }
-
 
     // Memoized amount selector
     const handleSelectAmount = useCallback((amount, amountIndex) => {

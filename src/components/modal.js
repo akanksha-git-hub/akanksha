@@ -1,6 +1,5 @@
 export const Modal = ({ open, children, className }) => {
 
-
     if(!open) return null
 
     return open && (
