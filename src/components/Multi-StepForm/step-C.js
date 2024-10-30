@@ -1,16 +1,24 @@
 'use client'
+import { useState } from "react";
 import RichText from "../Texts/RichText";
 import Input from "./input";
+import Data from '../../../countries.json'
 
 export default function StepC({}) {
+
+    const [location, setLocation] = useState();
+    const [isDisabled, setIsDisabled] = useState(false);
+
+    const heardData = ['Social Media', 'Website', 'Friends', 'Other'];
+    const jsonData = Data || [];
+    const stateData = jsonData.filter(({ name }) => name === location) || null;
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         const fdObject = Object.fromEntries(formData.entries()); 
+        console.log(fdObject)
     }
-
-    const isDisabled = true;
 
     return(
         <div className="flex flex-col items-center h-full w-full mt-24">
@@ -61,16 +69,11 @@ export default function StepC({}) {
                                     <label className="font-ambit-regular text-lg label-state">
                                         Select your Country*
                                     </label>
-                                    <select className="input-state" name="country">
-                                        <option className="!text-[#A9AEB6]">
+                                    <select onChange={(e) => setLocation(() => e.target.value)} className="input-state" name="country">
+                                        <option value={null} className="!text-[#A9AEB6]">
                                             Country
                                         </option>
-                                        <option>
-                                            A
-                                        </option>
-                                        <option>
-                                            B
-                                        </option>
+                                        {jsonData.map(({ name }) => <option value={name} key={name}>{name}</option>)}
                                     </select>
                                 </p>
                                 <p className="input-parent-state flex flex-col space-y-1 w-full sm:w-[48%]">
@@ -81,18 +84,17 @@ export default function StepC({}) {
                                         <option className="!text-[#A9AEB6]">
                                             State
                                         </option>
-                                        <option>
-                                            A
-                                        </option>
-                                        <option>
-                                            B
-                                        </option>
+                                        {stateData && (
+                                            stateData.map(item => (
+                                                item.states.map(({ name }) => <option key={name} value={name}>{name}</option>)
+                                            ))
+                                        )}
                                     </select>
                                 </p>
                             </div>
                             <div className="flex flex-wrap items-center justify-between space-y-6 sm:space-y-0">
                                 <Input 
-                                    label='Enter your City'
+                                    label='Enter your City*'
                                     name='city' placeholder='City'
                                     className='w-full sm:w-[48%]'
                                     />
@@ -104,7 +106,7 @@ export default function StepC({}) {
                             </div>
                             <div className="flex flex-wrap items-center justify-between space-y-6 sm:space-y-0">
                                 <Input 
-                                    label='Enter your Pincode'
+                                    label='Enter your Pincode*'
                                     name='pincode' placeholder='XX-XXX-XX'
                                     className='w-full sm:w-[48%]'
                                     />
@@ -120,15 +122,12 @@ export default function StepC({}) {
                                 <label className="font-ambit-regular text-lg label-state">
                                     {`We'd love to know who you are donating to`}
                                 </label>
-                                <select className="input-state" name="state">
-                                    <option className="!text-[#A9AEB6]">
+                                <select className="input-state" name="donate_to">
+                                    <option disabled selected value className="!text-[#A9AEB6]">
                                         {`I'm donating to..`}
                                     </option>
                                     <option>
-                                        A
-                                    </option>
-                                    <option>
-                                        B
+                                        Uninterrupted learning for students and alumni
                                     </option>
                                 </select>
                             </p>
@@ -138,16 +137,11 @@ export default function StepC({}) {
                                 <label className="font-ambit-regular text-lg label-state">
                                     {`How did you hear about Akanksha?`}
                                 </label>
-                                <select className="input-state" name="state">
-                                    <option className="!text-[#A9AEB6]">
+                                <select className="input-state" name="heard_from">
+                                    <option disabled selected value className="!text-[#A9AEB6]">
                                         {`Others..`}
                                     </option>
-                                    <option>
-                                        A
-                                    </option>
-                                    <option>
-                                        B
-                                    </option>
+                                    {heardData.map(item => <option key={item}>{item}</option>)}
                                 </select>
                             </p>
                         </div>

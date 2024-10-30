@@ -39,7 +39,7 @@ export default function DonationSelectors({ data }) {
     }
     const closeModal = () => {
         setOpen(() => false);
-        startScroll();
+        // startScroll();
         document.body.style.overflow = 'none';
     }
 
