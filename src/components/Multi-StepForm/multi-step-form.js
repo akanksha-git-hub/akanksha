@@ -47,7 +47,7 @@ export default function MultiStepForm({ closeModal }) {
     return(
         <>
         {!error && (
-            <div key={error} data-lenis-prevent className={`opacity-anim h-full w-full bg-cream flex flex-col items-center justify-between z-50 relative`}>
+            <div key={error} data-lenis-prevent-touch className={`opacity-anim h-full w-full bg-cream flex flex-col items-center justify-between z-50 relative`}>
                 <Image 
                     onClick={closeModal}
                     className="absolute top-12 right-12 cursor-pointer z-50 transition-all hover:opacity-55 active:scale-90"
