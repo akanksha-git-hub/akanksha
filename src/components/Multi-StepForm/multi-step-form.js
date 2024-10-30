@@ -73,7 +73,7 @@ export default function MultiStepForm({ closeModal }) {
                         width={20}
                         alt="Close"
                     />
-                    <p className="text-[#C80707] font-ambit-semibold text-lg text-center w-[30ch] leading-5">
+                    <p className="text-[#C80707] font-ambit-semibold text-lg text-center w-11/12 sm:w-[30ch] leading-5">
                         <span>Non-Indian citizens can write to</span>
                         <a href="mailto:fundraise@akanksha.org" className="text-deep-green underline">&nbsp;fundraise@akanksha.org</a> <span>for donations.</span>
                     </p>
