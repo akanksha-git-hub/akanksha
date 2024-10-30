@@ -3,18 +3,13 @@ import Arrow from "../Arrow";
 import StepA from "./step-A";
 import StepB from "./step-B";
 import StepC from "./step-C";
-import { useSmoothScroller } from "../LenisScrollContext";
+import Image from "next/image";
 
 const INITIAL_STATE = {
     stepA: {
         isIndian: null
     },
-    stepB: {
-        referralSource: []
-    },
-    stepC: {
-
-    }
+    stepB: { }
 }
 
 export default function MultiStepForm({ closeModal }) {
@@ -23,27 +18,11 @@ export default function MultiStepForm({ closeModal }) {
     const [stepData, setStepData] = useState(INITIAL_STATE);
     const [error, setError] = useState(false);
 
-    const handleBack = useCallback(() => {
-        if(step <= 0) {
-            setStepData(INITIAL_STATE);
-            closeModal();
-            return;
-        }
-        if(step === 1) {
-            setStep(prevState => prevState - 1);
-            setStepData(INITIAL_STATE);
-            return;
-        }
-
-        setStep(prevState => prevState - 1);
-    }, [step])
-
-    const handleNext = () => setStep(prevState => prevState + 1);
+    let component;
 
     const handleStepProgression = useCallback((value) => {
-        console.log(value, 'VALUE')
+
         if(step === 0) {
-            console.log('0')
             if(!value) {
                 setError(() => true);
                 return;
@@ -55,46 +34,52 @@ export default function MultiStepForm({ closeModal }) {
         
         if(step === 1) {
             console.log('1')
-            setStepData(prevState => ({ ...prevState, stepB: { referralSource: [...value] } }))
             return;
         }
 
-        setError(false);
+        setError(() => false);
     }, [step]);
 
-    let component;
+    if(step === 0) component = <StepA handleStepProgression={handleStepProgression} />
 
-    if(step === 0) component = <StepA handleStepProgression={handleStepProgression} error={error} />
-
-    if(step === 1) component = <StepB data={stepData.stepB.referralSource} handleStepProgression={handleStepProgression} />
-    if(step === 2) component = <StepC />
+    if(step === 1) component = <StepC />
  
     return(
-        <div data-lenis-prevent className={`h-full w-full bg-cream flex flex-col items-center justify-between z-50`}>
-           <div key={step} className={`opacity-anim h-full w-full flex items-center justify-center ${step === 2 && ('overflow-y-scroll green-scroll-bar')}`}>
-                {component}
-           </div>
-           <div className="flex items-center justify-between w-full p-[2rem]">
-             <button
-                onClick={handleBack} 
-                className="bg-deep-green text-[#FFFBF1] border border-black transition-all hover:bg-bright-yellow hover:text-deep-green hover:scale-95
-                            hover:border-black hover:border-solid
-                            w-[140px] text-lg rounded-full py-3 px-2 flex items-center justify-center gap-2 primary-btn"
-             >
-                <Arrow className="arrow-hovered transition-all rotate-180" dimension={20} /> Back
-             </button>
-             {stepData.stepB.referralSource.length > 0 && step !== 2 && (
-                <button
-                    onClick={handleNext} 
-                    className="bg-deep-green text-[#FFFBF1] border border-black transition-all hover:bg-bright-yellow hover:text-deep-green hover:scale-95
-                                hover:border-black hover:border-solid
-                                w-[140px] text-lg rounded-full py-3 px-2 flex items-center justify-center gap-2 primary-btn"
-                >
-                    Next <Arrow className="arrow-hovered transition-all" dimension={20} /> 
-                </button>
-             )}
-           </div>
-        </div>
+        <>
+        {!error && (
+            <div key={error} data-lenis-prevent className={`opacity-anim h-full w-full bg-cream flex flex-col items-center justify-between z-50 relative`}>
+                <Image 
+                    onClick={closeModal}
+                    className="absolute top-12 right-12 cursor-pointer z-50 transition-all hover:opacity-55 active:scale-90"
+                    src='/close.svg'
+                    height={30}
+                    width={30}
+                    alt="Close"
+                />
+                <div key={step} className={`opacity-anim h-full w-full flex items-center justify-center overflow-y-auto green-scroll-bar`}>
+                    {component}
+                </div>
+            </div>
+        )}
+        {error && (
+            <div className="opacity-anim flex items-center justify-center w-full h-full">
+                <div className="relative p-24 bg-white rounded-3xl">
+                    <Image 
+                        onClick={closeModal}
+                        className="absolute top-6 right-6 cursor-pointer z-50 transition-all hover:opacity-55 active:scale-90"
+                        src='/close.svg'
+                        height={20}
+                        width={20}
+                        alt="Close"
+                    />
+                    <p className="text-[#C80707] font-ambit-semibold text-lg text-center w-[30ch] leading-5">
+                        <span>Non-Indian citizens can write to</span>
+                        <a href="mailto:fundraise@akanksha.org" className="text-deep-green underline">&nbsp;fundraise@akanksha.org</a> <span>for donations.</span>
+                    </p>
+                </div>
+            </div>
+        )}
+        </>
     )
 }
 

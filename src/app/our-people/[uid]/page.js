@@ -38,7 +38,7 @@ export default async function Page({ params }) {
       />
       <RichText 
         text={page.data.title}
-        className="flex items-center md:justify-center text-deep-green text-7xl mt-16"
+        className="flex items-center md:justify-center text-deep-green text-7xl !mt-[5rem] !mb-12"
       />
       <SliceZone slices={page.data.slices} components={components} />
     </main>

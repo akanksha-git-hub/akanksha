@@ -12,7 +12,7 @@ export default async function Page() {
 
     return (
         <main 
-            className={`${maxwidth}`}
+            className={`${maxwidth} mb-24`}
         >
             <SliceZone 
                 slices={page.data.slices}

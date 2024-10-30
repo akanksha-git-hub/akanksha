@@ -8,7 +8,6 @@ import Image from "next/image";
  * @param {TabSliceProps}
  */
 const TabSlice = ({ slice }) => {
-
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -17,7 +16,7 @@ const TabSlice = ({ slice }) => {
       <div className="w-fit relative">
         <RichText 
           text={slice.primary.title}
-          className='text-deep-green font-ambit-regular text-5xl md:text-7xl text-left mt-24'
+          className='text-deep-green font-ambit-regular text-5xl md:text-7xl text-left mt-28'
         />
         <Image 
           src='/sparkle_small.svg'

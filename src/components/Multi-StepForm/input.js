@@ -1,10 +1,13 @@
 
 
-export default function Input({ className, ...props}) {
+export default function Input({ className, label, ...props}) {
     return(
-        <input 
-            className={`py-4 px-4 border-2 text-deep-green font-ambit-semibold border-deep-green focus:rounded-none focus:outline-none bg-cream ${className}`}
-            {...props}
-        />
+        <p className={`input-parent-state flex flex-col space-y-1 ${className}`}>
+            <label className="font-ambit-regular text-lg label-state">{label}</label>
+            <input 
+                className={`input-state font-ambit-regular w-full`}
+                {...props}
+            />
+        </p>
     )       
 }

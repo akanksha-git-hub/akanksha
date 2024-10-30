@@ -10,7 +10,6 @@ export default async function Page() {
     const page = await fetchPrismicSingleDocument('partnerships');
     if(!page) return <p>No page data!</p>
 
-
     return(
         <main className={`${maxwidth} universal-padding`}>
             <SliceZone 

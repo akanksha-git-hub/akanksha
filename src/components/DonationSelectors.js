@@ -201,7 +201,7 @@ export default function DonationSelectors({ data }) {
             </div>
         </div>
     </div>
-    <Modal open={open}  className='bg-cream'>
+    <Modal open={open}>
         <MultiStepForm closeModal={closeModal} />
     </Modal>
     </>

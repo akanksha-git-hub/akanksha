@@ -585,6 +585,37 @@ gap: 1rem; */
   margin-block: auto;
 }
 /* modal end */
+
+/* input focus */
+.input-parent-state {
+  transition: all 1.5s var(--magic-bezier);
+}
+.input-state {
+  border: 1px #A29D9D solid;
+  background: #FFFFFF;
+  outline: none;
+  transition: all 0.3s linear;
+  padding: 1rem;
+  border-radius: 10px;
+  color: var(--deep-green);
+} 
+.label-state {
+  color: #A29D9D;
+  transition: all 0.3s var(--magic-bezier);
+}
+.input-state:focus {
+  border: 1px var(--deep-green) solid;
+  outline: none;
+  background: #FFFFFF;
+  transition: all 0.3s linear;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.input-parent-state:focus-within .label-state {
+  color: var(--deep-green);
+  transition: all 0.3s var(--magic-bezier);
+}
+/* input focus end */
 @keyframes fade-reveal {
   from {
     opacity: 0;
