@@ -28,7 +28,7 @@ const routes = [
   },
   {
     type: 'vision_mission',
-    path: '/about/vision-mission'
+    path: '/about/vision_mission'
   },
   {
     type: 'timeline',
@@ -66,10 +66,6 @@ const routes = [
     type: 'volunteer_with_us',
     path: '/join-us/volunteer-with-us'
   }
-  // {
-  // 	type: "page",
-  // 	path: "/:uid",
-  // },
 ];
 
 /**

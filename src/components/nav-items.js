@@ -1,6 +1,8 @@
+'use client'
 import { PrismicNextLink } from "@prismicio/next";
 import TextCTA from "./UI/Button/TextCTA";
 import RichText from "./Texts/RichText";
+import { usePathname } from "next/navigation";
 
 export default function NavItems({ header_link_items, drop_down_items }) {
 
@@ -9,6 +11,11 @@ export default function NavItems({ header_link_items, drop_down_items }) {
     const lowerCaseValue = originalCaseValue.toLowerCase();
     return lowerCaseValue;
   }))];
+
+  const pathName = usePathname();
+  const currentPath = pathName.split('/')[2];
+
+  console.log(currentPath, 'CURRENT PATH')
 
   return(
       <>
@@ -50,7 +57,7 @@ export default function NavItems({ header_link_items, drop_down_items }) {
                               text={finalWord}
                               className="text-deep-green text-base font-inter hover:opacity-55 transition-all active:scale-95 relative cursor-pointer"
                             />
-                            <div className="py-4 space-y-4 z-20 bg-cream border border-deep-green rounded min-w-[200px] drop-down-container">
+                            <div className="py-4 z-20 bg-cream border border-deep-green rounded-[10px] min-w-[200px] drop-down-container">
                               {drop_down_items
                                 .filter((data) => {
                                     const lowerCaseValue = item.toLowerCase();
@@ -58,9 +65,21 @@ export default function NavItems({ header_link_items, drop_down_items }) {
                                     return matchData;
                                 })
                                 .map((drop_down, i) => {
+
+                                  const slug = drop_down.cta_link.slug;
+                                  const isActive = slug.localeCompare(currentPath);
+                                  console.log(drop_down.cta_link.slug, 'slug');
+
                                   return(
-                                    <p className="px-4 hover:opacity-55 transition-all active:scale-95" key={i}>
+                                    <p 
+                                      key={i}
+                                      className={`
+                                          mx-2 rounded-[10px] transition-all active:scale-95 hover:bg-white text-right flex items-end justify-end w-fit place-self-end
+                                          ${isActive === 0 && ('bg-white')}
+                                        `} 
+                                    >
                                       <PrismicNextLink
+                                        className="py-2 pl-4 pr-2"
                                         field={drop_down.cta_link}>
                                         <span className="text-deep-green text-base font-inter">
                                           {drop_down.cta_text}

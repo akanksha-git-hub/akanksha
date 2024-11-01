@@ -1231,11 +1231,11 @@ export type OurSchoolsDocument<Lang extends string = string> =
 type OurdonorsDocumentDataSlicesSlice = ImageShowcaseSlice;
 
 /**
- * Content for OurDonors documents
+ * Content for Our Donors documents
  */
 interface OurdonorsDocumentData {
   /**
-   * Title field in *OurDonors*
+   * Title field in *Our Donors*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -1246,7 +1246,7 @@ interface OurdonorsDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * Slice Zone field in *OurDonors*
+   * Slice Zone field in *Our Donors*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -1255,7 +1255,7 @@ interface OurdonorsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<OurdonorsDocumentDataSlicesSlice> /**
-   * Meta Title field in *OurDonors*
+   * Meta Title field in *Our Donors*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
@@ -1266,7 +1266,7 @@ interface OurdonorsDocumentData {
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *OurDonors*
+   * Meta Description field in *Our Donors*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
@@ -1277,7 +1277,7 @@ interface OurdonorsDocumentData {
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *OurDonors*
+   * Meta Image field in *Our Donors*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -1289,7 +1289,7 @@ interface OurdonorsDocumentData {
 }
 
 /**
- * OurDonors document from Prismic
+ * Our Donors document from Prismic
  *
  * - **API ID**: `ourdonors`
  * - **Repeatable**: `false`
@@ -1463,11 +1463,11 @@ type VisionMissionDocumentDataSlicesSlice =
   | MissionVisionSlice;
 
 /**
- * Content for Vision_Mission documents
+ * Content for Vision Mission documents
  */
 interface VisionMissionDocumentData {
   /**
-   * Slice Zone field in *Vision_Mission*
+   * Slice Zone field in *Vision Mission*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -1476,7 +1476,7 @@ interface VisionMissionDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<VisionMissionDocumentDataSlicesSlice> /**
-   * Meta Title field in *Vision_Mission*
+   * Meta Title field in *Vision Mission*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
@@ -1487,7 +1487,7 @@ interface VisionMissionDocumentData {
   meta_title: prismic.KeyTextField;
 
   /**
-   * Meta Description field in *Vision_Mission*
+   * Meta Description field in *Vision Mission*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
@@ -1498,7 +1498,7 @@ interface VisionMissionDocumentData {
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Vision_Mission*
+   * Meta Image field in *Vision Mission*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -1510,7 +1510,7 @@ interface VisionMissionDocumentData {
 }
 
 /**
- * Vision_Mission document from Prismic
+ * Vision Mission document from Prismic
  *
  * - **API ID**: `vision_mission`
  * - **Repeatable**: `false`

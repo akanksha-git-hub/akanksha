@@ -1,10 +1,8 @@
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import PrimaryCTA from "./UI/Button/PrimaryCTA";
 import { maxwidth } from "@/utils/helperClasses";
-import TextCTA from "./UI/Button/TextCTA";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
 import Link from "next/link";
-import RichText from "./Texts/RichText";
 import NavItems from "./nav-items";
 
 export default async function Header() {

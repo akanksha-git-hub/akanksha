@@ -67,8 +67,6 @@ export default function StepC({}) {
         
         const testNumber = indianNumberRegex.test(formData.number)
         const testNumberIsAlphabet = alphabetRegex.test(formData.number)
-        console.log(testNumber, 'TESTING NUMBER');
-        console.log(testNumberIsAlphabet, 'TESTING NUMBER ALPHABET');
 
         if(!alphabetRegex.test(formData.first_name)) {
             error.first_name = 'Only Alphabets required';
