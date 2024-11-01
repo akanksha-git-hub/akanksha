@@ -609,6 +609,15 @@ gap: 1rem; */
   border-radius: 10px;
   color: var(--deep-green);
 } 
+.input-error {
+  border: 1px red solid !important;
+  background: #FFFFFF;
+  outline: none;
+  transition: all 0.3s linear;
+  padding: 1rem;
+  border-radius: 10px;
+  color: red;
+}
 .label-state {
   color: #A29D9D;
   transition: all 0.3s var(--magic-bezier);
