@@ -15,8 +15,6 @@ export default function NavItems({ header_link_items, drop_down_items }) {
   const pathName = usePathname();
   const currentPath = pathName.split('/')[2];
 
-  console.log(currentPath, 'CURRENT PATH')
-
   return(
       <>
       {header_link_items.length > 0 && (
@@ -41,7 +39,6 @@ export default function NavItems({ header_link_items, drop_down_items }) {
                 } else {
                   finalWord = upperCaseValue;
                 }
-
                 return(
                   header_link_items
                     .filter((filtered_item, index) => {
@@ -65,11 +62,8 @@ export default function NavItems({ header_link_items, drop_down_items }) {
                                     return matchData;
                                 })
                                 .map((drop_down, i) => {
-
                                   const slug = drop_down.cta_link.slug;
                                   const isActive = slug.localeCompare(currentPath);
-                                  console.log(drop_down.cta_link.slug, 'slug');
-
                                   return(
                                     <p 
                                       key={i}

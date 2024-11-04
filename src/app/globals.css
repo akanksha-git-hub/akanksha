@@ -524,6 +524,31 @@ gap: 1rem; */
   animation: fade-reveal var(--magic-bezier) 0.3s;
 }
 /* Nav hover items end */
+/* Hamburger */
+.hb-icon {
+  position: absolute;
+  height: 4px;
+  border-radius: 10px;
+  width: 100%;
+  background: var(--deep-green);
+  transition: all 0.2s var(--magic-bezier);
+}
+.hb-icon-inactive {
+  top: 46%;
+  transform: translateY(-50%);
+}
+.hb-icon-inactive:nth-child(even) {
+  top: 60%;
+}
+.hb-icon-active {
+  top: 50%;
+  transform: translateY(-50%) rotate(40deg);
+}
+.hb-icon-active:nth-child(even) {
+  top: 50%;
+  transform: translateY(-50%) rotate(-40deg);
+}
+/* Hamburger end */
 /* Our Schools Grid Items */
 .our-schools-grid {
   border-bottom: 0.25px solid var(--deep-green);
