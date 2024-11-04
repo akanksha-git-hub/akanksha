@@ -1,12 +1,13 @@
-import { PrismicNextImage } from "@prismicio/next";
 import PrimaryCTA from "./UI/Button/PrimaryCTA";
 import { maxwidth } from "@/utils/helperClasses";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
-import Link from "next/link";
 import NavItems from "./nav-items";
 import Hamburger from "./HamburgerMenu/Hamburger";
 import HamburgerContent from "./HamburgerMenu/HamburgerContent";
 import HamburgerIcon from "./HamburgerMenu/HamburgerIcon";
+import HeaderHomeLogo from "./HeaderHomeLogo";
+import Link from "next/link";
+import { PrismicNextImage } from "@prismicio/next";
 
 export default async function Header() {
 
@@ -23,15 +24,18 @@ export default async function Header() {
     <Hamburger>
       <header className="bg-cream px-6 py-2 border-b border-black relative">
         <div className={`flex items-center justify-between max-w-[2200px] mx-auto ${maxwidth}`}>
-          <Link href="/" className="h-[2.7rem] w-[4.6rem]">
+          <HeaderHomeLogo
+            image={logo_image} 
+          />
+          <Link href="/" className="h-[2.7rem] w-[4.6rem] hidden lg:block">
             <PrismicNextImage 
-              field={logo_image}
-              alt=""
-              className="h-full w-full"
-              height={200}
-              width={200}
+                field={logo_image}
+                alt=""
+                className="h-full w-full"
+                height={200}
+                width={200}
             />
-          </Link>
+          </Link>  
           {/* MID-ITEMS */}
           <div className="flex items-center gap-12">
             <NavItems 
