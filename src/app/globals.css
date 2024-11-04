@@ -771,6 +771,12 @@ gap: 1rem; */
   }
 }
 
+@media(max-width: 420px) {
+  .hb-icon {
+    width: 64%;
+  }
+}
+
 .custom-cursor {
   cursor: url("/assets/story_A.webp"), auto;
 }

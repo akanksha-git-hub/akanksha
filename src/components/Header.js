@@ -4,7 +4,6 @@ import { maxwidth } from "@/utils/helperClasses";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
 import Link from "next/link";
 import NavItems from "./nav-items";
-import HamburgerWrapper from "./HamburgerMenu/HamburgerWrapper";
 import Hamburger from "./HamburgerMenu/Hamburger";
 import HamburgerContent from "./HamburgerMenu/HamburgerContent";
 import HamburgerIcon from "./HamburgerMenu/HamburgerIcon";
@@ -13,6 +12,12 @@ export default async function Header() {
 
   const header = await fetchPrismicSingleDocument("header");
   const { cta_link, cta_text, logo_image, header_link_items, drop_down_items } = header.data;
+
+  const uniqueIdentifier = [...new Set(drop_down_items.map(item => {
+    const originalCaseValue = item.identifier;
+    const lowerCaseValue = originalCaseValue.toLowerCase();
+    return lowerCaseValue;
+  }))];
 
   return (
     <Hamburger>
@@ -30,6 +35,7 @@ export default async function Header() {
           {/* MID-ITEMS */}
           <div className="flex items-center gap-12">
             <NavItems 
+              uniqueIdentifier={uniqueIdentifier}
               header_link_items={header_link_items}
               drop_down_items={drop_down_items}
             />
@@ -52,9 +58,11 @@ export default async function Header() {
               absolute z-50 top-full left-0 w-full h-auto lg:hidden
             `}
         >
-          <HamburgerContent>
-            Hello there
-          </HamburgerContent>
+          <HamburgerContent 
+            uniqueIdentifier={uniqueIdentifier}
+            header_link_items={header_link_items}
+            drop_down_items={drop_down_items}
+          />
         </div>
       </header>
     </Hamburger>

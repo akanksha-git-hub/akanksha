@@ -4,13 +4,8 @@ import TextCTA from "./UI/Button/TextCTA";
 import RichText from "./Texts/RichText";
 import { usePathname } from "next/navigation";
 
-export default function NavItems({ header_link_items, drop_down_items }) {
+export default function NavItems({ header_link_items, drop_down_items, uniqueIdentifier }) {
 
-  const uniqueIdentifier = [...new Set(drop_down_items.map(item => {
-    const originalCaseValue = item.identifier;
-    const lowerCaseValue = originalCaseValue.toLowerCase();
-    return lowerCaseValue;
-  }))];
 
   const pathName = usePathname();
   const currentPath = pathName.split('/')[2];
