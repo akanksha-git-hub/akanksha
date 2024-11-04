@@ -14,7 +14,7 @@ export default function Page() {
             <div className="relative w-fit md:mx-auto">
                 <RichText 
                     text={'Financials'}
-                    className={`text-deep-green font-ambit-regular text-5xl md:text-7xl text-left md:text-center w-full pt-24`}
+                    className={`text-deep-green font-ambit-regular text-7xl text-left md:text-center w-full pt-24`}
                 />
                 <RichText 
                     text={desc}
