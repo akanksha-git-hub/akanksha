@@ -1,0 +1,114 @@
+{
+  "format": "page",
+  "id": "financials",
+  "label": "Financials",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "Description",
+          "placeholder": ""
+        }
+      },
+      "year_groups": {
+        "type": "Group",
+        "config": {
+          "label": "Year Groups",
+          "repeat": true,
+          "fields": {
+            "year": {
+              "type": "Text",
+              "config": {
+                "label": "Year",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "fcra_document_link": {
+        "type": "Group",
+        "config": {
+          "label": "FCRA Document Link",
+          "repeat": true,
+          "fields": {
+            "title": {
+              "type": "Text",
+              "config": {
+                "label": "Title",
+                "placeholder": ""
+              }
+            },
+            "file_link": {
+              "type": "Text",
+              "config": {
+                "label": "File Link",
+                "placeholder": ""
+              }
+            },
+            "is_fcra_financials": {
+              "type": "Boolean",
+              "config": {
+                "label": "Is FCRA Financials",
+                "default_value": false,
+                "placeholder_true": "true",
+                "placeholder_false": "false"
+              }
+            },
+            "year_identifier": {
+              "type": "Text",
+              "config": {
+                "label": "Year identifier",
+                "placeholder": "Enter the end year to identify which year it is categorized under"
+              }
+            }
+          }
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  }
+}

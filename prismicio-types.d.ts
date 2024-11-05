@@ -274,6 +274,180 @@ export type DonorPageDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *Financials → Year Groups*
+ */
+export interface FinancialsDocumentDataYearGroupsItem {
+  /**
+   * Year field in *Financials → Year Groups*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: financials.year_groups[].year
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Financials → FCRA Document Link*
+ */
+export interface FinancialsDocumentDataFcraDocumentLinkItem {
+  /**
+   * Title field in *Financials → FCRA Document Link*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: financials.fcra_document_link[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * File Link field in *Financials → FCRA Document Link*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: financials.fcra_document_link[].file_link
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  file_link: prismic.KeyTextField;
+
+  /**
+   * Is FCRA Financials field in *Financials → FCRA Document Link*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: financials.fcra_document_link[].is_fcra_financials
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  is_fcra_financials: prismic.BooleanField;
+
+  /**
+   * Year identifier field in *Financials → FCRA Document Link*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Enter the end year to identify which year it is categorized under
+   * - **API ID Path**: financials.fcra_document_link[].year_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_identifier: prismic.KeyTextField;
+}
+
+type FinancialsDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Financials documents
+ */
+interface FinancialsDocumentData {
+  /**
+   * Title field in *Financials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: financials.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Financials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: financials.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Year Groups field in *Financials*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: financials.year_groups[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  year_groups: prismic.GroupField<
+    Simplify<FinancialsDocumentDataYearGroupsItem>
+  >;
+
+  /**
+   * FCRA Document Link field in *Financials*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: financials.fcra_document_link[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  fcra_document_link: prismic.GroupField<
+    Simplify<FinancialsDocumentDataFcraDocumentLinkItem>
+  >;
+
+  /**
+   * Slice Zone field in *Financials*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: financials.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FinancialsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Financials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: financials.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Financials*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: financials.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Financials*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: financials.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Financials document from Prismic
+ *
+ * - **API ID**: `financials`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FinancialsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FinancialsDocumentData>,
+    "financials",
+    Lang
+  >;
+
+/**
  * Content for Floating Component documents
  */
 interface FloatingComponentDocumentData {
@@ -1719,6 +1893,7 @@ export type AllDocumentTypes =
   | CoreValuesDocument
   | DonationPaymentComponentDocument
   | DonorPageDocument
+  | FinancialsDocument
   | FloatingComponentDocument
   | FooterBottomTextsDocument
   | FooterFormTitleDocument
@@ -4803,6 +4978,11 @@ declare module "@prismicio/client" {
       DonorPageDocument,
       DonorPageDocumentData,
       DonorPageDocumentDataSlicesSlice,
+      FinancialsDocument,
+      FinancialsDocumentData,
+      FinancialsDocumentDataYearGroupsItem,
+      FinancialsDocumentDataFcraDocumentLinkItem,
+      FinancialsDocumentDataSlicesSlice,
       FloatingComponentDocument,
       FloatingComponentDocumentData,
       FooterBottomTextsDocument,
