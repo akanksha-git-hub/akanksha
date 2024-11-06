@@ -63,7 +63,7 @@ export default function Page() {
                 />
             </div>
             <div className="mt-12">
-                <ul className="grid grid-cols-2 gap-x-12">
+                <ul className="grid grid-cols-1 place-content-center gap-x-12 md:grid-cols-2 w-full lg:w-[880px] 3xl:w-[1000px] lg:mx-auto">
                     {DATA.map((item, index) => {
 
                         const lastItem = index === totalLength;

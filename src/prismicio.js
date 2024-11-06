@@ -69,6 +69,10 @@ const routes = [
   {
     type: 'financials',
     path: '/resources/financials'
+  },
+  {
+    type: 'privacy_policy',
+    path: '/privacy-policy'
   }
 ];
 
