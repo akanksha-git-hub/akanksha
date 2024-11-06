@@ -273,6 +273,89 @@ export type DonorPageDocument<Lang extends string = string> =
     Lang
   >;
 
+type FilmsDocumentDataSlicesSlice = VideoLinkCardsSlice;
+
+/**
+ * Content for Films documents
+ */
+interface FilmsDocumentData {
+  /**
+   * Title field in *Films*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: films.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Sub Title field in *Films*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: films.sub_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sub_title: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Films*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: films.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FilmsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Films*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: films.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Films*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: films.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Films*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: films.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Films document from Prismic
+ *
+ * - **API ID**: `films`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FilmsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<FilmsDocumentData>, "films", Lang>;
+
 /**
  * Item in *Financials → Year Groups*
  */
@@ -1986,6 +2069,7 @@ export type AllDocumentTypes =
   | CoreValuesDocument
   | DonationPaymentComponentDocument
   | DonorPageDocument
+  | FilmsDocument
   | FinancialsDocument
   | FloatingComponentDocument
   | FooterBottomTextsDocument
@@ -5052,6 +5136,108 @@ export type TimelineScrollerSlice = prismic.SharedSlice<
   TimelineScrollerSliceVariation
 >;
 
+/**
+ * Item in *VideoLinkCards → Default → Primary → Card Items*
+ */
+export interface VideoLinkCardsSliceDefaultPrimaryCardItemsItem {
+  /**
+   * Image field in *VideoLinkCards → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_link_cards.default.primary.card_items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *VideoLinkCards → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_link_cards.default.primary.card_items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Sub Title field in *VideoLinkCards → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_link_cards.default.primary.card_items[].sub_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sub_title: prismic.KeyTextField;
+
+  /**
+   * Date field in *VideoLinkCards → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_link_cards.default.primary.card_items[].date
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * CTA Link field in *VideoLinkCards → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_link_cards.default.primary.card_items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *VideoLinkCards → Default → Primary*
+ */
+export interface VideoLinkCardsSliceDefaultPrimary {
+  /**
+   * Card Items field in *VideoLinkCards → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_link_cards.default.primary.card_items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card_items: prismic.GroupField<
+    Simplify<VideoLinkCardsSliceDefaultPrimaryCardItemsItem>
+  >;
+}
+
+/**
+ * Default variation for VideoLinkCards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoLinkCardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<VideoLinkCardsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *VideoLinkCards*
+ */
+type VideoLinkCardsSliceVariation = VideoLinkCardsSliceDefault;
+
+/**
+ * VideoLinkCards Shared Slice
+ *
+ * - **API ID**: `video_link_cards`
+ * - **Description**: VideoLinkCards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoLinkCardsSlice = prismic.SharedSlice<
+  "video_link_cards",
+  VideoLinkCardsSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -5072,6 +5258,9 @@ declare module "@prismicio/client" {
       DonorPageDocument,
       DonorPageDocumentData,
       DonorPageDocumentDataSlicesSlice,
+      FilmsDocument,
+      FilmsDocumentData,
+      FilmsDocumentDataSlicesSlice,
       FinancialsDocument,
       FinancialsDocumentData,
       FinancialsDocumentDataYearGroupsItem,
@@ -5264,6 +5453,11 @@ declare module "@prismicio/client" {
       TimelineScrollerSliceDefaultPrimary,
       TimelineScrollerSliceVariation,
       TimelineScrollerSliceDefault,
+      VideoLinkCardsSlice,
+      VideoLinkCardsSliceDefaultPrimaryCardItemsItem,
+      VideoLinkCardsSliceDefaultPrimary,
+      VideoLinkCardsSliceVariation,
+      VideoLinkCardsSliceDefault,
     };
   }
 }

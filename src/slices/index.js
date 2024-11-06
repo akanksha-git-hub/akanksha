@@ -29,4 +29,5 @@ export const components = {
   text_showcase: dynamic(() => import("./TextShowcase")),
   tilted_cards: dynamic(() => import("./TiltedCards")),
   timeline_scroller: dynamic(() => import("./TimelineScroller")),
+  video_link_cards: dynamic(() => import("./VideoLinkCards")),
 };

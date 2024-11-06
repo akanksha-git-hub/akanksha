@@ -1,14 +1,11 @@
 import RichText from "@/components/Texts/RichText";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
 import { maxwidth } from "@/utils/helperClasses";
-import { PrismicRichText } from "@prismicio/react";
-
 
 export default async function Page() {
 
     const page = await fetchPrismicSingleDocument('privacy_policy');
     if(!page) return <p>No page data!</p>;
-
 
     return(
         <main className={`${maxwidth} universal-padding space-y-16 relative`}>
