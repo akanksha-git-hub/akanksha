@@ -12,7 +12,7 @@ export default async function Page() {
 
     return(
         <main className={`${maxwidth}`}>
-            <p>Easter egg</p>
+            {/* <p>Easter egg</p> */}
             <SliceZone 
                 slices={page.data.slices}
                 components={components}
