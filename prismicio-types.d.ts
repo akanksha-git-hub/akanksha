@@ -4,6 +4,123 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *Blog Showcase page → Categories*
+ */
+export interface BlogShowcasePageDocumentDataCategoriesItem {
+  /**
+   * Category field in *Blog Showcase page → Categories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_showcase_page.categories[].category
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  category: prismic.KeyTextField;
+}
+
+type BlogShowcasePageDocumentDataSlicesSlice =
+  | BlogCategoryItemSlice
+  | BlogHighlightSlice;
+
+/**
+ * Content for Blog Showcase page documents
+ */
+interface BlogShowcasePageDocumentData {
+  /**
+   * Title field in *Blog Showcase page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_showcase_page.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Blog Showcase page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_showcase_page.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Categories field in *Blog Showcase page*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_showcase_page.categories[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  categories: prismic.GroupField<
+    Simplify<BlogShowcasePageDocumentDataCategoriesItem>
+  >;
+
+  /**
+   * Slice Zone field in *Blog Showcase page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_showcase_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BlogShowcasePageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Blog Showcase page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog_showcase_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Blog Showcase page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog_showcase_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog Showcase page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_showcase_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Blog Showcase page document from Prismic
+ *
+ * - **API ID**: `blog_showcase_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogShowcasePageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BlogShowcasePageDocumentData>,
+    "blog_showcase_page",
+    Lang
+  >;
+
 type CoreValuesDocumentDataSlicesSlice =
   | SwirlImageSlice
   | IconShowcaseSlice
@@ -2066,6 +2183,7 @@ export type WorkWithUsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | BlogShowcasePageDocument
   | CoreValuesDocument
   | DonationPaymentComponentDocument
   | DonorPageDocument
@@ -2091,6 +2209,66 @@ export type AllDocumentTypes =
   | VisionMissionDocument
   | VolunteerWithUsDocument
   | WorkWithUsDocument;
+
+/**
+ * Default variation for BlogCategoryItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogCategoryItemSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogCategoryItem*
+ */
+type BlogCategoryItemSliceVariation = BlogCategoryItemSliceDefault;
+
+/**
+ * BlogCategoryItem Shared Slice
+ *
+ * - **API ID**: `blog_category_item`
+ * - **Description**: BlogCategoryItem
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogCategoryItemSlice = prismic.SharedSlice<
+  "blog_category_item",
+  BlogCategoryItemSliceVariation
+>;
+
+/**
+ * Default variation for BlogHighlight Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogHighlightSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogHighlight*
+ */
+type BlogHighlightSliceVariation = BlogHighlightSliceDefault;
+
+/**
+ * BlogHighlight Shared Slice
+ *
+ * - **API ID**: `blog_highlight`
+ * - **Description**: BlogHighlight
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogHighlightSlice = prismic.SharedSlice<
+  "blog_highlight",
+  BlogHighlightSliceVariation
+>;
 
 /**
  * Default variation for DonationSlice Slice
@@ -5137,11 +5315,11 @@ export type TimelineScrollerSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *VideoLinkCards → Default → Primary → Card Items*
+ * Item in *LinkCards → Default → Primary → Card Items*
  */
 export interface VideoLinkCardsSliceDefaultPrimaryCardItemsItem {
   /**
-   * Image field in *VideoLinkCards → Default → Primary → Card Items*
+   * Image field in *LinkCards → Default → Primary → Card Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -5151,7 +5329,7 @@ export interface VideoLinkCardsSliceDefaultPrimaryCardItemsItem {
   image: prismic.ImageField<never>;
 
   /**
-   * Title field in *VideoLinkCards → Default → Primary → Card Items*
+   * Title field in *LinkCards → Default → Primary → Card Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -5161,7 +5339,7 @@ export interface VideoLinkCardsSliceDefaultPrimaryCardItemsItem {
   title: prismic.KeyTextField;
 
   /**
-   * Sub Title field in *VideoLinkCards → Default → Primary → Card Items*
+   * Sub Title field in *LinkCards → Default → Primary → Card Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -5171,7 +5349,7 @@ export interface VideoLinkCardsSliceDefaultPrimaryCardItemsItem {
   sub_title: prismic.KeyTextField;
 
   /**
-   * Date field in *VideoLinkCards → Default → Primary → Card Items*
+   * Date field in *LinkCards → Default → Primary → Card Items*
    *
    * - **Field Type**: Date
    * - **Placeholder**: *None*
@@ -5181,7 +5359,7 @@ export interface VideoLinkCardsSliceDefaultPrimaryCardItemsItem {
   date: prismic.DateField;
 
   /**
-   * CTA Link field in *VideoLinkCards → Default → Primary → Card Items*
+   * CTA Link field in *LinkCards → Default → Primary → Card Items*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -5192,11 +5370,11 @@ export interface VideoLinkCardsSliceDefaultPrimaryCardItemsItem {
 }
 
 /**
- * Primary content in *VideoLinkCards → Default → Primary*
+ * Primary content in *LinkCards → Default → Primary*
  */
 export interface VideoLinkCardsSliceDefaultPrimary {
   /**
-   * Card Items field in *VideoLinkCards → Default → Primary*
+   * Card Items field in *LinkCards → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -5209,7 +5387,7 @@ export interface VideoLinkCardsSliceDefaultPrimary {
 }
 
 /**
- * Default variation for VideoLinkCards Slice
+ * Default variation for LinkCards Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -5222,12 +5400,12 @@ export type VideoLinkCardsSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *VideoLinkCards*
+ * Slice variation for *LinkCards*
  */
 type VideoLinkCardsSliceVariation = VideoLinkCardsSliceDefault;
 
 /**
- * VideoLinkCards Shared Slice
+ * LinkCards Shared Slice
  *
  * - **API ID**: `video_link_cards`
  * - **Description**: VideoLinkCards
@@ -5248,6 +5426,10 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BlogShowcasePageDocument,
+      BlogShowcasePageDocumentData,
+      BlogShowcasePageDocumentDataCategoriesItem,
+      BlogShowcasePageDocumentDataSlicesSlice,
       CoreValuesDocument,
       CoreValuesDocumentData,
       CoreValuesDocumentDataSlicesSlice,
@@ -5326,6 +5508,12 @@ declare module "@prismicio/client" {
       WorkWithUsDocumentData,
       WorkWithUsDocumentDataSlicesSlice,
       AllDocumentTypes,
+      BlogCategoryItemSlice,
+      BlogCategoryItemSliceVariation,
+      BlogCategoryItemSliceDefault,
+      BlogHighlightSlice,
+      BlogHighlightSliceVariation,
+      BlogHighlightSliceDefault,
       DonationSliceSlice,
       DonationSliceSliceVariation,
       DonationSliceSliceDefault,

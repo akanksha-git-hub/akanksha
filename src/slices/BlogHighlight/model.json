@@ -1,0 +1,16 @@
+{
+  "id": "blog_highlight",
+  "type": "SharedSlice",
+  "name": "BlogHighlight",
+  "description": "BlogHighlight",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

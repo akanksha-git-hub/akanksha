@@ -1,0 +1,16 @@
+{
+  "id": "blog_category_item",
+  "type": "SharedSlice",
+  "name": "BlogCategoryItem",
+  "description": "BlogCategoryItem",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

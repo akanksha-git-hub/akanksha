@@ -1,7 +1,7 @@
 {
   "id": "video_link_cards",
   "type": "SharedSlice",
-  "name": "VideoLinkCards",
+  "name": "LinkCards",
   "description": "VideoLinkCards",
   "variations": [
     {

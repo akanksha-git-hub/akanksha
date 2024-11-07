@@ -3,6 +3,8 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  blog_category_item: dynamic(() => import("./BlogCategoryItem")),
+  blog_highlight: dynamic(() => import("./BlogHighlight")),
   donation_slice: dynamic(() => import("./DonationSlice")),
   donor_hero: dynamic(() => import("./DonorHero")),
   frequently_asked_questions: dynamic(
@@ -29,5 +31,5 @@ export const components = {
   text_showcase: dynamic(() => import("./TextShowcase")),
   tilted_cards: dynamic(() => import("./TiltedCards")),
   timeline_scroller: dynamic(() => import("./TimelineScroller")),
-  video_link_cards: dynamic(() => import("./VideoLinkCards")),
+  video_link_cards: dynamic(() => import("./LinkCards")),
 };

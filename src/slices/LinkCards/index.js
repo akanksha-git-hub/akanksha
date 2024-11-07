@@ -8,6 +8,22 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
  * @param {VideoLinkCardsProps}
  */
 const VideoLinkCards = ({ slice }) => {
+
+  const sortedData = slice.primary.card_items.sort((a, b) => {
+
+    const timeA = new Date(a.date);
+    const timeB = new Date(b.date);
+
+    const timeC =  timeB - timeA;
+    return timeC;
+  });
+
+  const options = {
+    month: 'short',
+    day: '2-digit',
+    year: 'numeric'
+  }
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -15,8 +31,10 @@ const VideoLinkCards = ({ slice }) => {
       className="mt-12"
     >
       <VideoLinkCardWrapper className='grid lg:grid-cols-2 gap-x-6 2xl:gap-x-0 gap-12 xl:grid-cols-3 place-items-center'>
-        {slice.primary.card_items.map((card_item, index) => {
-          const date = new Date(card_item.date).toLocaleString('default', { month: 'short', day: '2-digit', year: 'numeric' });
+        {sortedData.map((card_item, index) => {
+
+          const date = new Date(card_item.date).toLocaleString('default', options);
+
           return(
             <VideoLinkCardWrapper.CardItem 
               key={index}
@@ -33,7 +51,7 @@ const VideoLinkCards = ({ slice }) => {
                   />
                     <p className="video-link-card-message">
                       <span className="bg-bright-yellow text-deep-green font-ambit-regular text-center py-2 px-4 text-base rounded-full">
-                        View in Youtube
+                        View
                       </span>
                     </p>
                 </PrismicNextLink>
@@ -53,8 +71,7 @@ const VideoLinkCards = ({ slice }) => {
                 />
               </div>
             </VideoLinkCardWrapper.CardItem>
-          )
-        })}
+          )})}
       </VideoLinkCardWrapper>
     </section>
   );
