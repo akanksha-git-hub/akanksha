@@ -16,6 +16,7 @@ export const repositoryName =
  * @type {prismic.ClientConfig["routes"]}
  */
 // T-1797 Update the routes array to match your project's route structure.
+
 const routes = [
   // Examples:
   {
@@ -77,6 +78,10 @@ const routes = [
   {
     type: 'blog_showcase_page',
     path: '/resources/blogs'
+  },
+  {
+    type: 'blog_child_page',
+    path: '/resources/blogs/:uid'
   },
   {
     type: 'privacy_policy',
