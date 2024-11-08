@@ -3,7 +3,22 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"items": {
+			"category_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "related",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "frozen",
+				"type": "Text"
+			},
+			"cta_text": {
+				"__TYPE__": "FieldContent",
+				"value": "chamber",
+				"type": "Text"
+			},
+			"card_items": {
 				"__TYPE__": "GroupContentType",
 				"value": [
 					{
@@ -14,13 +29,13 @@
 								{
 									"origin": {
 										"id": "main",
-										"url": "https://images.unsplash.com/photo-1560762484-813fc97650a0",
-										"width": 3344,
-										"height": 2509
+										"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+										"width": 2747,
+										"height": 4120
 									},
-									"url": "https://images.unsplash.com/photo-1560762484-813fc97650a0",
-									"width": 3344,
-									"height": 2509,
+									"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
+									"width": 2747,
+									"height": 4120,
 									"edit": {
 										"zoom": 1,
 										"crop": {
@@ -36,18 +51,10 @@
 								}
 							],
 							[
-								"date",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Date",
-									"value": "2016-12-16"
-								}
-							],
-							[
 								"title",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "clothes",
+									"value": "occasionally",
 									"type": "Text"
 								}
 							],
@@ -55,8 +62,16 @@
 								"description",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "football",
+									"value": "mad",
 									"type": "Text"
+								}
+							],
+							[
+								"date",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Date",
+									"value": "2024-09-17"
 								}
 							],
 							[
@@ -65,23 +80,13 @@
 									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "ExternalLink",
-										"url": "https://prismic.io"
+										"url": "http://twitter.com"
 									}
 								}
 							]
 						]
 					}
 				]
-			},
-			"cta_text": {
-				"__TYPE__": "FieldContent",
-				"value": "wash",
-				"type": "Text"
-			},
-			"title": {
-				"__TYPE__": "FieldContent",
-				"value": "boy",
-				"type": "Text"
 			}
 		},
 		"items": []

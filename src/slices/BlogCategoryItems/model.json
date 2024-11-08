@@ -1,8 +1,8 @@
 {
-  "id": "blog_highlight",
+  "id": "blog_category_items",
   "type": "SharedSlice",
-  "name": "BlogHighlight",
-  "description": "BlogHighlight",
+  "name": "BlogCategoryItems",
+  "description": "BlogCategoryItems",
   "variations": [
     {
       "id": "default",
@@ -12,10 +12,31 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "items": {
+        "category_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Category Identifier",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "cta_text": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Text",
+            "placeholder": ""
+          }
+        },
+        "card_items": {
           "type": "Group",
           "config": {
-            "label": "Items",
+            "label": "Card Items",
             "repeat": true,
             "fields": {
               "image": {
@@ -24,13 +45,6 @@
                   "label": "Image",
                   "constraint": {},
                   "thumbnails": []
-                }
-              },
-              "date": {
-                "type": "Date",
-                "config": {
-                  "label": "Date",
-                  "placeholder": ""
                 }
               },
               "title": {
@@ -47,6 +61,13 @@
                   "placeholder": ""
                 }
               },
+              "date": {
+                "type": "Date",
+                "config": {
+                  "label": "Date",
+                  "placeholder": ""
+                }
+              },
               "cta_link": {
                 "type": "Link",
                 "config": {
@@ -56,20 +77,6 @@
                 }
               }
             }
-          }
-        },
-        "cta_text": {
-          "type": "Text",
-          "config": {
-            "label": "CTA Text",
-            "placeholder": ""
-          }
-        },
-        "title": {
-          "type": "Text",
-          "config": {
-            "label": "Title",
-            "placeholder": ""
           }
         }
       },

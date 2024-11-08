@@ -39,8 +39,19 @@ export default function LenisScrollContext({ children }) {
     const stopScroll = () => lenisRef.stop();
     const startScroll = () => lenisRef.start();
 
+    const scrollToOptions = { offset: -50, duration: 1.86 };
+
+    const lenisScrollTo = (id) => lenisRef.scrollTo(`#${id}`, scrollToOptions);
+
+    const ctxValues = {
+        lenisRef,
+        stopScroll,
+        startScroll,
+        lenisScrollTo
+    }
+
   return (
-    <SmoothScrollerContext.Provider value={{lenisRef, stopScroll, startScroll}}>
+    <SmoothScrollerContext.Provider value={ctxValues}>
         {children}
     </SmoothScrollerContext.Provider>
   )

@@ -75,6 +75,10 @@ const routes = [
     path: '/resources/films'
   },
   {
+    type: 'blog_showcase_page',
+    path: '/resources/blogs'
+  },
+  {
     type: 'privacy_policy',
     path: '/privacy-policy'
   }

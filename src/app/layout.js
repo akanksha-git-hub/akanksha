@@ -80,7 +80,7 @@ export default function RootLayout({ children }) {
           ${inter.variable} ${instrumentSans.variable} 
           ${playFairDisplay.variable} ${ambitRegular.variable}
           ${ambitBlack.variable} ${ambitBold.variable} ${ambitLight.variable}
-          ${ambitSemiBold.variable} ${ambitItalic.variable} bg-cream
+          ${ambitSemiBold.variable} ${ambitItalic.variable}
         `}
       >
         <LenisScrollContext>

@@ -14,7 +14,7 @@ export default async function Page() {
 
 
     return(
-        <main className={`${maxwidth} universal-padding mt-12`}>
+        <main className={`${maxwidth} universal-padding mt-12 bg-off-white`}>
             <div className="text-deep-green">
                 <RichText 
                     text={page.data.title}

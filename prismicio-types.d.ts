@@ -20,7 +20,7 @@ export interface BlogShowcasePageDocumentDataCategoriesItem {
 }
 
 type BlogShowcasePageDocumentDataSlicesSlice =
-  | BlogCategoryItemSlice
+  | BlogCategoryItemsSlice
   | BlogHighlightSlice;
 
 /**
@@ -2211,34 +2211,228 @@ export type AllDocumentTypes =
   | WorkWithUsDocument;
 
 /**
- * Default variation for BlogCategoryItem Slice
+ * Item in *BlogCategoryItems → Default → Primary → Card Items*
+ */
+export interface BlogCategoryItemsSliceDefaultPrimaryCardItemsItem {
+  /**
+   * Image field in *BlogCategoryItems → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.default.primary.card_items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *BlogCategoryItems → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.default.primary.card_items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *BlogCategoryItems → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.default.primary.card_items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Date field in *BlogCategoryItems → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.default.primary.card_items[].date
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * CTA Link field in *BlogCategoryItems → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.default.primary.card_items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *BlogCategoryItems → Default → Primary*
+ */
+export interface BlogCategoryItemsSliceDefaultPrimary {
+  /**
+   * Category Identifier field in *BlogCategoryItems → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.default.primary.category_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  category_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *BlogCategoryItems → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * CTA Text field in *BlogCategoryItems → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.default.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * Card Items field in *BlogCategoryItems → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.default.primary.card_items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card_items: prismic.GroupField<
+    Simplify<BlogCategoryItemsSliceDefaultPrimaryCardItemsItem>
+  >;
+}
+
+/**
+ * Default variation for BlogCategoryItems Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type BlogCategoryItemSliceDefault = prismic.SharedSliceVariation<
+export type BlogCategoryItemsSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<BlogCategoryItemsSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *BlogCategoryItem*
+ * Slice variation for *BlogCategoryItems*
  */
-type BlogCategoryItemSliceVariation = BlogCategoryItemSliceDefault;
+type BlogCategoryItemsSliceVariation = BlogCategoryItemsSliceDefault;
 
 /**
- * BlogCategoryItem Shared Slice
+ * BlogCategoryItems Shared Slice
  *
- * - **API ID**: `blog_category_item`
- * - **Description**: BlogCategoryItem
+ * - **API ID**: `blog_category_items`
+ * - **Description**: BlogCategoryItems
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type BlogCategoryItemSlice = prismic.SharedSlice<
-  "blog_category_item",
-  BlogCategoryItemSliceVariation
+export type BlogCategoryItemsSlice = prismic.SharedSlice<
+  "blog_category_items",
+  BlogCategoryItemsSliceVariation
 >;
+
+/**
+ * Item in *BlogHighlight → Default → Primary → Items*
+ */
+export interface BlogHighlightSliceDefaultPrimaryItemsItem {
+  /**
+   * Image field in *BlogHighlight → Default → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_highlight.default.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Date field in *BlogHighlight → Default → Primary → Items*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_highlight.default.primary.items[].date
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * Title field in *BlogHighlight → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_highlight.default.primary.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *BlogHighlight → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_highlight.default.primary.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *BlogHighlight → Default → Primary → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_highlight.default.primary.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *BlogHighlight → Default → Primary*
+ */
+export interface BlogHighlightSliceDefaultPrimary {
+  /**
+   * Items field in *BlogHighlight → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_highlight.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<BlogHighlightSliceDefaultPrimaryItemsItem>
+  >;
+
+  /**
+   * CTA Text field in *BlogHighlight → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_highlight.default.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * Title field in *BlogHighlight → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_highlight.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
 
 /**
  * Default variation for BlogHighlight Slice
@@ -2249,7 +2443,7 @@ export type BlogCategoryItemSlice = prismic.SharedSlice<
  */
 export type BlogHighlightSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<BlogHighlightSliceDefaultPrimary>,
   never
 >;
 
@@ -5508,10 +5702,14 @@ declare module "@prismicio/client" {
       WorkWithUsDocumentData,
       WorkWithUsDocumentDataSlicesSlice,
       AllDocumentTypes,
-      BlogCategoryItemSlice,
-      BlogCategoryItemSliceVariation,
-      BlogCategoryItemSliceDefault,
+      BlogCategoryItemsSlice,
+      BlogCategoryItemsSliceDefaultPrimaryCardItemsItem,
+      BlogCategoryItemsSliceDefaultPrimary,
+      BlogCategoryItemsSliceVariation,
+      BlogCategoryItemsSliceDefault,
       BlogHighlightSlice,
+      BlogHighlightSliceDefaultPrimaryItemsItem,
+      BlogHighlightSliceDefaultPrimary,
       BlogHighlightSliceVariation,
       BlogHighlightSliceDefault,
       DonationSliceSlice,
