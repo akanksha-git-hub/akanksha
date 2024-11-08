@@ -58,7 +58,7 @@ const BlogHighlight = ({ slice }) => {
                   slidesPerView: 3.4
                 },
                 300: {
-                  slidesPerView: 3.4
+                  slidesPerView: 2.4
                 },
                 10: {
                   slidesPerView: 2.4
