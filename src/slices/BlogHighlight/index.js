@@ -29,7 +29,7 @@ const BlogHighlight = ({ slice }) => {
     >
       <RichText 
         text={slice.primary.title}
-        className='text-deep-green font-ambit-semibold text-4xl w-[20ch]'
+        className='text-deep-green font-ambit-semibold text-4xl w-full xl:w-[20ch]'
       />
       <div 
         className="flex flex-col xl:flex-row justify-center"
@@ -40,7 +40,7 @@ const BlogHighlight = ({ slice }) => {
             field={slice.primary.items[activeIndex].image}
           />
         </div>
-        <div className="bg-white pl-12 pr-1 py-8 w-full xl:w-[45%]">
+        <div className="bg-white p-8 xl:pl-12 xl:pr-1 py-8 w-full xl:w-[45%]">
           {/* Selectors */}
           <ul>
             <Swiper  
