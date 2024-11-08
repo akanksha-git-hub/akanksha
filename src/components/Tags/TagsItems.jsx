@@ -19,9 +19,9 @@ export default function TagsItems({ tags, className }) {
     <div className={className}>
         <RichText 
             text='CATEGORY'
-            className='font-ambit-semibold text-deep-green text-xl grid place-content-center mb-6'
+            className='font-ambit-semibold text-deep-green text-xl grid md:place-content-center mb-6'
         />
-        <ul className="flex flex-wrap justify-center gap-6">
+        <ul className="flex flex-wrap md:justify-center gap-6">
             {tags.map(item => {
 
                 const lowerCase = item.category.split(" ").join('').toLowerCase();

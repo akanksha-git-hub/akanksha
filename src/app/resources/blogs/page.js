@@ -27,7 +27,7 @@ export default async function Page() {
                 />
             </div>
             <TagsContextWrapper className='mt-12'>
-                <TagsItems 
+                <TagsItems
                     tags={page.data.categories}
                 />
                 <ClientSliceZoneContext 
