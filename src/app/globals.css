@@ -63,6 +63,9 @@ body {
 .inline-padding {
   padding-inline: 5rem;
 }
+/* .contact-bg {
+  background: url('/contact-bg.png') no-repeat center center center;
+} */
 .story-circle {
   height: 6.6rem;
   width: 6.6rem;

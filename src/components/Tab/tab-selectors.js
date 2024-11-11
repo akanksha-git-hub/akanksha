@@ -4,7 +4,6 @@ import { memo } from "react";
 
     const TabSelectors = memo(function TabSelectors({ values, setValue, index }) {
         const selectors = values;
-        console.log(selectors, 'SCHOOL')
         const handleClick = (i, text) => setValue(prevState => ({ ...prevState, index: i, value: text }));
 
         if(selectors) {

@@ -1,8 +1,6 @@
 "use server"
 import GridA from "@/components/grid-A";
 import TabContainer from "@/components/Tab/tab-container";
-// import TabContent from "@/components/Tab/tab-content";
-// import TabSelectors from "@/components/Tab/tab-selectors";
 import RichText from "@/components/Texts/RichText";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb"
 import { maxwidth } from "@/utils/helperClasses";

@@ -68,6 +68,10 @@ const routes = [
     path: '/join-us/volunteer-with-us'
   },
   {
+    type: 'contact',
+    path: '/join-us/contact'
+  },
+  {
     type: 'financials',
     path: '/resources/financials'
   },
