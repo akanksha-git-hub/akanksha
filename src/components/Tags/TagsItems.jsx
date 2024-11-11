@@ -9,7 +9,6 @@ export default function TagsItems({ tags, className }) {
     const { handleTag, activeTag } = useTagContext();
     const { lenisScrollTo } = useSmoothScroller();
 
-
     function handleClick(id) {
         handleTag(id);
         lenisScrollTo(id);

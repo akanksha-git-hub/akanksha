@@ -1,9 +1,8 @@
+import BlogInfo from "@/components/BlogInfo";
 import RichText from "@/components/Texts/RichText";
 import { createClient } from "@/prismicio";
-import { components } from "@/slices";
 import { maxwidth } from "@/utils/helperClasses";
 import { PrismicNextImage } from "@prismicio/next";
-import { SliceZone } from "@prismicio/react";
 import { notFound } from "next/navigation";
 
 
@@ -12,7 +11,6 @@ export default async function Page({ params }) {
 
     const client =  createClient();
     const page = await client.getByUID("blog_child_page", params.uid).catch(() => notFound());
-
 
     return(
         <>
@@ -37,43 +35,11 @@ export default async function Page({ params }) {
                 </div>
             </div>
         </main>
-        <div className="mt-12 bg-off-white universal-padding">
-            {page.data.items.map((item, index) => {
-                console.log(item, 'BLOG CHILD')
-
-                const hasImage = item.image;
-
-                return(
-                    <div className="text-deep-green space-y-4 mb-12" key={index}>
-                        {item.rich_text.map((text, i) => {
-
-
-                            const heading = text.type !== 'paragraph';
-                            return(
-                                <div key={i}>
-                                    <RichText 
-                                        className='text-3xl sm:text-4xl font-ambit-semibold text-left md:text-center flex items-center justify-center w-[90%] md:w-[32ch] md:mx-auto'
-                                        text={heading && (text.text)}
-                                    />
-                                    <RichText 
-                                        className='font-ambit-regular text-base sm:text-lg text-justify'
-                                        text={!heading && (text.text)}
-                                    />
-                                </div>
-                            )
-                        })}
-                        {hasImage && (
-                            <PrismicNextImage 
-                                field={item.image}
-                            />
-                        )}
-                    </div>
-                )
-            })}
+        <div className="mt-12 bg-off-white px-6">
+            <BlogInfo data={page.data.items} />
         </div>
         </>
     )
-
 }
 
 
