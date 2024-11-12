@@ -11,12 +11,12 @@ export default async function NotificationBar() {
     <section className="bg-bright-yellow p-2 flex items-center justify-center gap-4">
       <RichText 
         text={notification_text}
-        className="font-ambit-regular text-base sm:text-xl md:text-3xl"
+        className="font-ambit-regular text-deep-green text-base sm:text-xl md:text-2xl"
       />
       <PrimaryCTA 
         text={cta_text}
         link={cta_link}
-        className="!py-2 !px-4 sm:!py-3 sm:!px-8"
+        className="!py-2 !px-4 sm:!py-2 sm:!px-8"
       />
     </section>
   )

@@ -6,7 +6,7 @@ export default function QuoteComponent({ quote, quote_by, storyLink }) {
   return (
 
     <div
-        className="rounded-lg bg-deep-green p-8 w-full xl:w-[46%] flex flex-col items-start justify-between"
+        className="rounded-lg rounded-tr-lg rounded-br-lg md:rounded-bl-none md:rounded-tl-none bg-deep-green p-8 w-full xl:w-[56%] flex flex-col items-start justify-between"
     >
         <div>
             <RichText 

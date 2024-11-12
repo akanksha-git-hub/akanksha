@@ -11,37 +11,67 @@ import { spanPosition } from "@/utils/helperClasses";
  */
 const MissionVision = ({ slice }) => {
 
+
+  if(slice.variation === 'optionD') {
+
+    return(
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="universal-padding mt-0"
+      >
+        <div className={`flex flex-col items-start gap-12 mt-12`}>
+          <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-[100%]">
+            <RichText 
+              className="font-ambit-regular text-deep-green uppercase"
+              text={slice.primary.slice_identifier}
+            />
+            <RichText 
+              text={slice.primary.title}
+              className="
+              text-deep-green font-ambit-regular text-center text-5xl w-full 
+                sm:w-3/4 justify-center
+                lg:text-left lg:items-start lg:justify-normal
+                md:w-full lg:w-3/4
+                xl:text-[58px] 
+                2xl:text-[60px]
+                3xl:text-8xl mt-6"
+            />
+            <VideoModal className="flex w-full mt-8 lg:h-[600px] 3xl:h-[800px]" slice={slice} />
+            <RichText 
+              className="font-inter text-deep-green text-center lg:text-left text-sm sm:text-lg w-[90%] mt-6"
+              text={slice.primary.description}
+            />
+            <div className="flex items-center justify-center lg:justify-normal w-full mt-6">
+              <PrimaryCTA 
+                link={slice.primary.cta_link}
+                text={slice.primary.cta_text}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`universal-padding mt-6 ${slice.variation === 'doubleCtaComponent' && 'mb-36'}`}
+      className={`universal-padding mt-0 ${slice.variation === 'doubleCtaComponent' && 'mb-36'}`}
     >
       {!slice.variation === 'doubleCtaComponent' && (
         <SliceIdentifier 
           text={slice.primary.slice_identifier}
         />
       )}
-      <div className={`flex flex-col items-end gap-12 mt-12 lg:mt-16 ${slice.variation === "reverseVideoComponet" ? 'lg:flex-row-reverse':'lg:flex-row'}`}>
+      <div className={`flex flex-col items-end gap-12 mt-12 lg:mt-8 ${slice.variation === "reverseVideoComponet" ? 'lg:flex-row-reverse':'lg:flex-row'}`}>
         <VideoModal className="hidden lg:flex" slice={slice} />
         <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-2/4">
           <RichText 
             className="font-ambit-regular text-deep-green uppercase"
             text={slice.primary.slice_identifier}
           />
-          {/* <MixedText 
-            className="
-            text-deep-green font-ambit-regular text-center leading-[1] text-5xl w-full 
-              sm:w-3/4 justify-center
-              lg:text-left lg:items-start lg:justify-normal
-              md:w-full lg:w-3/4
-              xl:text-[58px] 
-              2xl:text-[60px]
-              3xl:text-8xl 3xl:mt-2"
-            spanPosition={spanPosition}
-            texts={slice.primary.title}
-            index={1}
-          /> */}
           <RichText 
             text={slice.primary.title}
             className="

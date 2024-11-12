@@ -8,7 +8,7 @@ export default function HeaderHomeLogo({ image }) {
     const { toggleMenu } = useHamburgerContext();
 
   return (
-    <Link onClick={toggleMenu} href="/" className="h-[2.7rem] w-[4.6rem] lg:hidden">
+    <Link onClick={toggleMenu} href="/" className="h-[3.7rem] w-[6.6rem] lg:hidden">
         <PrismicNextImage 
             field={image}
             alt=""

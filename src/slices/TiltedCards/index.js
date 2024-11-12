@@ -83,7 +83,7 @@ const TiltedCards = ({ slice }) => {
                 onMouseEnter={() => handleMouseEnter(index)}
                 className={`
                   p-2 grid place-items-center place-content-center w-full min-h-[300px] gap-12 sm:w-[300px] sm:min-h-[300px] xl:w-[350px] xl:min-h-[350px] 2xl:w-[380px] 2xl:h-[380px] rounded-xl custom-bezier
-                  ${sizeCheck ? (`${active === index ? 'bg-bright-yellow' : undefined}`) : 'bg-bright-yellow'}
+                  ${sizeCheck ? (`${active === index ? 'bg-bright-yellow z-20' : 'border border-deep-green z-10'}`) : 'bg-bright-yellow'}
                   ${(index === 0) && (cardAClassName)}
                   ${(index === 2) && (cardCClassName)}
                   ${(index === 1) && (cardBClassName)}

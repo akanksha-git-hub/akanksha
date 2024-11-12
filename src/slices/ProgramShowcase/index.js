@@ -76,12 +76,14 @@ const ProgramShowcase = ({ slice }) => {
           onSlideChange={(i) => handleSlideChange(i.activeIndex)}
         >
           {slice.primary.program_showcase_content.map((item) => (
-            <SwiperSlide className="!flex flex-col gap-4 md:flex-row xl:flex-grow" key={item.name}>
+            <SwiperSlide className="!flex flex-col gap-2 md:flex-row" key={item.name}>
               <SwiperClick className="absolute opacity-0" text="Next" ref={nextRef} />
               <SwiperClick className="absolute opacity-0" isPrev text="Prev" ref={prevRef} />
-              <ImageComponent image={item.image} />
-              <QuoteComponent quote={item.quote} quote_by={item.quote_by} />
-              <div className="flex items-start gap-2 sm:gap-0 justify-between w-full sm:flex-col xl:mt-0 xl:w-[30%]">
+              <div className='flex gap-2 md:gap-0 flex-col md:flex-row'>
+                <ImageComponent image={item.image} />
+                <QuoteComponent quote={item.quote} quote_by={item.quote_by} />
+              </div>
+              <div className="flex items-start gap-2 sm:gap-0 justify-between w-full sm:flex-col xl:mt-0 xl:w-[40%]">
                 <StatsComponent 
                   description={item.stat_a_description} 
                   number={item.stat_a_number} 

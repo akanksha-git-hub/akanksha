@@ -27,13 +27,13 @@ export default async function Header() {
           <HeaderHomeLogo
             image={logo_image} 
           />
-          <Link href="/" className="h-[2.7rem] w-[4.6rem] hidden lg:block">
+          <Link href="/" className="h-[4.7rem] w-[8.6rem] hidden lg:block">
             <PrismicNextImage 
                 field={logo_image}
                 alt=""
                 className="h-full w-full"
-                height={200}
-                width={200}
+                height={1500}
+                width={1500}
             />
           </Link>  
           {/* MID-ITEMS */}
