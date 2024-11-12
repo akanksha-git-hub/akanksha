@@ -653,8 +653,15 @@ gap: 1rem; */
   border-radius: 10px;
   color: red;
 }
+.blog-child-short-title {
+  transition: all 0.1s var(--magic-bezier);
+}
 .label-state {
   color: #A29D9D;
+  transition: all 0.3s var(--magic-bezier);
+}
+.increase-opacity {
+  opacity: 1;
   transition: all 0.3s var(--magic-bezier);
 }
 .input-state:focus {

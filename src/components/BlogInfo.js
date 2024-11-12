@@ -3,9 +3,14 @@ import { PrismicNextImage } from "@prismicio/next";
 import RichText from "./Texts/RichText";
 import PrimaryCTA from "./UI/Button/PrimaryCTA";
 import { useSmoothScroller } from "./LenisScrollContext";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useState } from "react";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function BlogInfo({ data }) {
 
+    const [onMount, setOnMount] = useState(false);
 
     const { lenisScrollTo } = useSmoothScroller();
 
@@ -33,11 +38,46 @@ export default function BlogInfo({ data }) {
         finalData.push(...ourData[i]);
     }
 
+    
+    useEffect(() => {
+        
+        if(!onMount) {
+            setOnMount(() => true);
+            return;
+        }
+
+       const containers = document.querySelectorAll('.blog-child-title');
+       const texts = document.querySelectorAll('.blog-child-short-title');
+
+       gsap.set(texts, { opacity: 0.2 });
+
+       containers.forEach((container, index) => {
+
+        const increaseOpacity = () => gsap.to(texts[index], { opacity: 1 });
+        const reduceOpacity = () => gsap.to(texts[index], { opacity: 0.2 });
+        
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: container,
+                start: 'top 50%',
+                end: 'bottom 30%',
+                onEnter: increaseOpacity,
+                onLeave: reduceOpacity,
+                onLeaveBack: reduceOpacity,
+                onEnterBack: increaseOpacity
+            }
+        })
+
+       })
+
+
+    }, [onMount]);
+
   return (
-    <div className="flex items-start justify-center">
+    <div className="flex items-start">
         <div className="sticky top-12 left-0">
             {/* Sticky component */}    
-            <div className="relative -left-12 rounded-[10px] bg-white overflow-hidden max-w-[300px]">
+            <div className="relative hidden xl:block rounded-[10px] bg-white overflow-hidden max-w-[300px]">
                 <div className="p-4">
                     <p className="font-ambit-semibold text-deep-green">CONTENTS</p>
                     <ul className="px-4 space-y-3 mt-2">
@@ -46,7 +86,10 @@ export default function BlogInfo({ data }) {
                                 const targetSection = `b${index}`;
                                 const truncatedText = `${item.substring(0, 20)}...`
                                 return(
-                                    <li onClick={() => lenisScrollTo(targetSection)} key={item} className="relative text-deep-green cursor-pointer">
+                                    <li 
+                                        key={item} className="blog-child-short-title font-ambit-regular relative text-deep-green cursor-pointer"
+                                        onClick={() => lenisScrollTo(targetSection)} 
+                                    >
                                         {truncatedText}
                                         <span className="h-2 w-2 bg-deep-green rounded-full absolute -left-3 top-2/4 -translate-y-2/4"></span>
                                     </li>
@@ -73,7 +116,7 @@ export default function BlogInfo({ data }) {
             </div>
             {/*  */}
         </div>
-        <div className="w-[70%] relative 3xl:w-[1200px]">
+        <div className="w-full xl:w-[70%] relative 3xl:w-[1200px] xl:left-[2%] 3xl:left-[5%]">
             <ul>
                 {data.map((item, index) => {
 
@@ -81,7 +124,7 @@ export default function BlogInfo({ data }) {
                     const hasImage = Object.keys(image).length > 0;
 
                     return(
-                        <div className="text-deep-green space-y-4 mb-12" key={index}>
+                        <div className="blog-child-title text-deep-green space-y-4 mb-12" key={index}>
                             {item.rich_text.map((text, i) => {
 
                                 const heading = text.type !== 'paragraph';
@@ -106,7 +149,7 @@ export default function BlogInfo({ data }) {
                             {hasImage && (
                                 <div className={`w-full overflow-hidden`}>
                                     <PrismicNextImage 
-                                        className="h-[500px] w-full object-cover mx-auto"
+                                        className="h-[250px] xl:h-[500px] w-full object-cover mx-auto"
                                         field={item.image}
                                     />
                                 </div>
