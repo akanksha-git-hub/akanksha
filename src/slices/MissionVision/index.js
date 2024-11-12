@@ -21,7 +21,7 @@ const MissionVision = ({ slice }) => {
         className="universal-padding mt-0"
       >
         <div className={`flex flex-col items-start gap-12 mt-12`}>
-          <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-[100%]">
+          <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal">
             <RichText 
               className="font-ambit-regular text-deep-green uppercase"
               text={slice.primary.slice_identifier}
