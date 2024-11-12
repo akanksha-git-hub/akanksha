@@ -30,7 +30,7 @@ export default function ContactTabComponent({ data }) {
   return (
     <div>
         <ul
-            className="flex md:justify-center md:flex-wrap gap-24 2xl:gap-56 text-nowrap whitespace-nowrap overflow-x-scroll md:overflow-x-hidden mt-24"
+            className="flex md:justify-center md:flex-wrap gap-12 md:gap-24 2xl:gap-56 text-nowrap whitespace-nowrap overflow-x-scroll md:overflow-x-hidden mt-24"
         >
             {uniqueSet.map(item => (
                 <li 
