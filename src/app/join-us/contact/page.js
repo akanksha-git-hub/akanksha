@@ -16,8 +16,18 @@ export default async function Page() {
 
     return(
         <main
-            className={`${maxwidth} contact-bg universal-padding relative`}
+            className={`${maxwidth} universal-padding relative`}
         >
+            <div className="absolute top-0 left-0 h-[90%] -z-10">
+                <Image 
+                    src='/contact-bg.svg'
+                    alt="image"
+                    className="w-full h-full object-contain"
+                    height={1400}
+                    width={600 * 2.6}
+                />
+            </div>
+            <div className="bg-bright-yellow absolute top-0 right-0 w-full h-[1000px] md:h-[660px] -z-20" />
             <div>
                 <RichText 
                     text={page.data.title}

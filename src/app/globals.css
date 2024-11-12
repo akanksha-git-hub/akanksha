@@ -63,9 +63,7 @@ body {
 .inline-padding {
   padding-inline: 5rem;
 }
-/* .contact-bg {
-  background: url('/contact-bg.png') no-repeat center center center;
-} */
+
 .story-circle {
   height: 6.6rem;
   width: 6.6rem;
@@ -671,6 +669,12 @@ gap: 1rem; */
   color: var(--deep-green);
   transition: all 0.3s var(--magic-bezier);
 }
+.contact-input-state:focus {
+  transition: all 0.3s var(--magic-bezier);
+  border-bottom: 1px var(--deep-green) solid;
+  outline: none;
+}
+
 /* input focus end */
 @keyframes fade-reveal {
   from {
