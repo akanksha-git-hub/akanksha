@@ -89,7 +89,7 @@ export default async function Footer() {
             </div>
             {/* Render Footer Logo */}
             <div className="relative flex flex-col items-start lg:items-end lg:flex-row lg:justify-between mt-12 mid:pt-12">
-                <div className="h-auto w-[200px] mid:h-auto mid:w-[360px]">
+                <div className="h-auto w-[200px] mid:h-auto mid:w-[200px]">
                     <PrismicNextImage 
                         height={300}
                         width={300}

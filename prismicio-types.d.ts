@@ -3154,6 +3154,27 @@ export interface IconShowcaseSliceDefaultPrimaryDataItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * isAnimatedIcon field in *IconShowcase → Default → Primary → Data*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: icon_showcase.default.primary.data[].isanimatedicon
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  isanimatedicon: prismic.BooleanField;
+
+  /**
+   * Animated Icon JSON format field in *IconShowcase → Default → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.default.primary.data[].animated_icon_json_format
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  animated_icon_json_format: prismic.KeyTextField;
 }
 
 /**

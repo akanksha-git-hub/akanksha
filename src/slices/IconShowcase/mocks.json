@@ -50,6 +50,21 @@
 									"value": "speed",
 									"type": "Text"
 								}
+							],
+							[
+								"isanimatedicon",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							],
+							[
+								"animated_icon_json_format",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "rough",
+									"type": "Text"
+								}
 							]
 						]
 					}

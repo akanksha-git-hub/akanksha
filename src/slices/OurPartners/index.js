@@ -7,7 +7,6 @@ import WeirdText from "@/components/Texts/WeirdText";
 import Lottie from "lottie-react";
 import LottieData from "../../../public/akanksha_sun.lottie.json";
 // import TestLottieData from "../../../public/we-collaborate.lottie.json";
-import TestLottieData from "../../../public/lotties/give-respect.lottie.json"
 import { useEffect, useRef, useState } from "react";
 
 import gsap from "gsap";
