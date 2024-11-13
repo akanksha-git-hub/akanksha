@@ -119,7 +119,7 @@ export default function ContactTabComponent({ data }) {
                     className='flex items-center justify-start text-deep-green text-6xl font-ambit-regular mt-16'
                     text="Let's talk with us"
                 />
-                <div className="flex flex-col md:flex-row justify-between w-full mt-12 space-y-12">
+                <div className="flex flex-col md:flex-row justify-between w-full mt-12 space-y-12 md:space-y-0">
                     <ContactInput 
                         label='First Name'
                         className='w-full md:w-[45%]'
@@ -131,7 +131,7 @@ export default function ContactTabComponent({ data }) {
                         placeholder='Doe'
                     />
                 </div>
-                <div className="flex flex-col md:flex-row justify-between w-full mt-12 space-y-12">
+                <div className="flex flex-col md:flex-row justify-between w-full mt-12 space-y-12 md:space-y-0">
                     <ContactInput 
                         label='Email Id'
                         className='w-full md:w-[45%]'
