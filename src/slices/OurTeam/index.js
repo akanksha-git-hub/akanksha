@@ -31,12 +31,12 @@ const OurTeam = ({ slice }) => {
         />
       </div>
       <div className="universal-padding no-padding mt-8">
-        <MixedText 
+        {/* <MixedText 
           // texts={slice.primary.slice_identifier}
           texts="Our board"
           index={1}
           className="flex items-center justify-center text-8xl text-deep-green mb-12"
-          />
+          /> */}
         {/* <RichText 
           className="flex items-center justify-center text-8xl text-deep-green mb-12"
           text="Our board"

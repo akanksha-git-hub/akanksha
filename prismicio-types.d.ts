@@ -154,6 +154,7 @@ export interface BlogShowcasePageDocumentDataCategoriesItem {
 }
 
 type BlogShowcasePageDocumentDataSlicesSlice =
+  | BlogRecentsSlice
   | BlogCategoryItemsSlice
   | BlogHighlightSlice;
 
@@ -1552,6 +1553,18 @@ interface NotificationBarDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   cta_link: prismic.LinkField;
+
+  /**
+   * Hide Banner field in *Notification Bar*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: notification_bar.hide_banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  hide_banner: prismic.BooleanField;
 }
 
 /**
@@ -2743,6 +2756,128 @@ type BlogHighlightSliceVariation = BlogHighlightSliceDefault;
 export type BlogHighlightSlice = prismic.SharedSlice<
   "blog_highlight",
   BlogHighlightSliceVariation
+>;
+
+/**
+ * Item in *BlogRecents → Default → Primary → Card Items*
+ */
+export interface BlogRecentsSliceDefaultPrimaryCardItemsItem {
+  /**
+   * Image field in *BlogRecents → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.default.primary.card_items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *BlogRecents → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.default.primary.card_items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *BlogRecents → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.default.primary.card_items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Date field in *BlogRecents → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.default.primary.card_items[].date
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * CTA Link field in *BlogRecents → Default → Primary → Card Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.default.primary.card_items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *BlogRecents → Default → Primary*
+ */
+export interface BlogRecentsSliceDefaultPrimary {
+  /**
+   * Title field in *BlogRecents → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * CTA Text field in *BlogRecents → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.default.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * Card Items field in *BlogRecents → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.default.primary.card_items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card_items: prismic.GroupField<
+    Simplify<BlogRecentsSliceDefaultPrimaryCardItemsItem>
+  >;
+}
+
+/**
+ * Default variation for BlogRecents Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogRecentsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BlogRecentsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogRecents*
+ */
+type BlogRecentsSliceVariation = BlogRecentsSliceDefault;
+
+/**
+ * BlogRecents Shared Slice
+ *
+ * - **API ID**: `blog_recents`
+ * - **Description**: BlogRecents
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogRecentsSlice = prismic.SharedSlice<
+  "blog_recents",
+  BlogRecentsSliceVariation
 >;
 
 /**
@@ -6121,6 +6256,11 @@ declare module "@prismicio/client" {
       BlogHighlightSliceDefaultPrimary,
       BlogHighlightSliceVariation,
       BlogHighlightSliceDefault,
+      BlogRecentsSlice,
+      BlogRecentsSliceDefaultPrimaryCardItemsItem,
+      BlogRecentsSliceDefaultPrimary,
+      BlogRecentsSliceVariation,
+      BlogRecentsSliceDefault,
       DonationSliceSlice,
       DonationSliceSliceVariation,
       DonationSliceSliceDefault,

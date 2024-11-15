@@ -37,11 +37,11 @@ const MissionVision = ({ slice }) => {
                 2xl:text-[60px]
                 3xl:text-8xl mt-6"
             />
-            <VideoModal className="flex w-full mt-8 lg:h-[600px] 3xl:h-[800px]" slice={slice} />
-            <RichText 
+            <VideoModal descriptionText={slice.primary.description} className="flex w-full mt-8 lg:h-[600px] 3xl:h-[800px]" slice={slice} />
+            {/* <RichText 
               className="font-inter text-deep-green text-center lg:text-left text-sm sm:text-lg w-[90%] mt-6"
               text={slice.primary.description}
-            />
+            /> */}
             <div className="flex items-center justify-center lg:justify-normal w-full mt-6">
               <PrimaryCTA 
                 link={slice.primary.cta_link}

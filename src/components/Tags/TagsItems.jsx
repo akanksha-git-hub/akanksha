@@ -5,14 +5,21 @@ import RichText from "../Texts/RichText";
 import { useTagContext } from "./Tags";
 
 export default function TagsItems({ tags, className }) {
-
+    console.log(tags, 'TAGS');
     const { handleTag, activeTag } = useTagContext();
     const { lenisScrollTo } = useSmoothScroller();
 
     function handleClick(id) {
-        handleTag(id);
-        lenisScrollTo(id);
+
+        let filterId = null;
+
+        if(id !== 'Recent') filterId = id;
+
+        handleTag(filterId);
+        lenisScrollTo(id !== 'Recent' ? id : 'recent');
     }
+
+    const tagList = [{ category: 'Recent' }, ...tags ];
 
   return (
     <div className={className}>
@@ -21,7 +28,7 @@ export default function TagsItems({ tags, className }) {
             className='font-ambit-semibold text-deep-green text-xl grid md:place-content-center mb-6'
         />
         <ul className="flex flex-wrap md:justify-center gap-6">
-            {tags.map(item => {
+            {tagList.map(item => {
 
                 const lowerCase = item.category.split(" ").join('').toLowerCase();
 

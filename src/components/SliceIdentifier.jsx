@@ -7,7 +7,7 @@ export default function SliceIdentifier({ text, className }) {
   return (
     <div className={`border-b pb-3 border-deep-green ${className}`}>
       <RichText 
-        className="text-deep-green flex gap-1 font-inter font-bold items-center uppercase"
+        className="text-deep-green flex gap-1 font-inter font-bold items-center uppercase text-xl"
         text={Text}
       />
     </div>

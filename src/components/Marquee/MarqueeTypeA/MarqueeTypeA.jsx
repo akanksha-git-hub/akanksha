@@ -2,8 +2,8 @@ import MarqueeContainerTypeA from "./MarqueeContainerTypeA";
 
 
 
-export default function MarqueeTypeA({ items }) {
+export default function MarqueeTypeA({ items, direction }) {
 
-    return <MarqueeContainerTypeA items={items} />
+    return <MarqueeContainerTypeA items={items} direction={direction} />
 
 }

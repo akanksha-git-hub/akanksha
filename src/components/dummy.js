@@ -1,5 +1,4 @@
 'use client'
-
 import { createOrder } from "@/services/billdesk/action";
 
 export default function Dummy() {
@@ -20,6 +19,10 @@ export default function Dummy() {
 
         console.log(response, 'CLIENT RESPONSE');
     }
+
+    let utterance = new SpeechSynthesisUtterance('HI DAKSHINA');
+
+    speechSynthesis.speak(utterance);
 
     return(
         <form onSubmit={handleSubmit} className='grid place-items-center'>

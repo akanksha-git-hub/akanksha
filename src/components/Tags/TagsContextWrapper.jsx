@@ -1,5 +1,4 @@
 'use client'
-
 import TagsContext from "./Tags"
 
 export default function TagsContextWrapper({ children, className }) {

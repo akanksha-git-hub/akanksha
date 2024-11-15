@@ -1,5 +1,4 @@
 'use client'
-
 import { useEffect, useState, createContext, useContext } from "react"
 import Lenis from "lenis";
 
@@ -41,7 +40,11 @@ export default function LenisScrollContext({ children }) {
 
     const scrollToOptions = { offset: -50, duration: 1.86 };
 
-    const lenisScrollTo = (id) => lenisRef.scrollTo(`#${id}`, scrollToOptions);
+    const lenisScrollTo = (id) => {
+        setTimeout(() => {
+            lenisRef.scrollTo(`#${id}`, scrollToOptions);
+        }, 200);
+    }
 
     const ctxValues = {
         lenisRef,

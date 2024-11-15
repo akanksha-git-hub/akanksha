@@ -5,6 +5,7 @@ const INITIAL_VALUES = {
     activeTag: '',
     handleTag: () => {}
 }
+
 const TagContext = createContext(INITIAL_VALUES);
 
 
@@ -21,7 +22,7 @@ export function useTagContext() {
 
 export default function TagsContext({ children, className }) {
 
-    const [activeTag, setActiveTag] = useState('');
+    const [activeTag, setActiveTag] = useState('recent');
 
     function handleTag(id) {
         setActiveTag(()=>  id);

@@ -1,13 +1,12 @@
 import PartnerLogo from "@/components/PartnerLogo";
 
-export default function MarqueeContainerTypeA({ items }) {
-
+export default function MarqueeContainerTypeA({ items, direction }) {
 
     return(
         <div className="overflow-hidden py-2 whitespace-nowrap">
             <div className="marquee-container">
                 <div className="marquee-items">
-                    <div className="marquee-items-slide marquee-items-slide-left">
+                    <div className={`marquee-items-slide ${direction}`}>
                         {items.map((logo, index) => {
                             return(
                                 <PartnerLogo 
@@ -19,7 +18,7 @@ export default function MarqueeContainerTypeA({ items }) {
                             )
                         })}
                     </div>
-                    <div className="marquee-items-slide marquee-items-slide-left">
+                    <div className={`marquee-items-slide ${direction}`}>
                         {items.map((logo, index) => {
                             return(
                                 <PartnerLogo 

@@ -1,6 +1,7 @@
 import DragInteraction from "@/components/DragInteraction";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import RichText from "@/components/Texts/RichText";
+import PrimaryCTA from "@/components/UI/Button/PrimaryCTA";
 import { PrismicNextImage } from "@prismicio/next";
 
 /**
@@ -19,10 +20,16 @@ const MagicSection = ({ slice }) => {
         text={slice.primary.slice_identifier}
         className="mb-6"
       />
-      <RichText 
-        text={slice.primary.text_showcase}
-        className="text-deep-green text-6xl lg:text-8xl max-w-[10ch] font-ambit-regular my-12"
-      />
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-12 lg:mb-0">
+        <RichText 
+          text={slice.primary.text_showcase}
+          className="text-deep-green text-6xl lg:text-8xl max-w-[16ch] font-ambit-regular my-12"
+        />
+        <PrimaryCTA 
+          link={slice.primary.cta_link}
+          text={slice.primary.cta_text}
+        />
+      </div>
       <PrismicNextImage 
         field={slice.primary.images[1].image}
         alt=""

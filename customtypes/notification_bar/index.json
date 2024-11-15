@@ -27,6 +27,15 @@
           "placeholder": "",
           "select": null
         }
+      },
+      "hide_banner": {
+        "type": "Boolean",
+        "config": {
+          "label": "Hide Banner",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
       }
     }
   }

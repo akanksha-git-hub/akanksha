@@ -47,7 +47,7 @@ export default function NavItems({ header_link_items, drop_down_items, uniqueIde
                           <div className="drop-down">
                             <RichText 
                               text={finalWord}
-                              className="text-deep-green text-base font-inter hover:opacity-55 transition-all active:scale-95 relative cursor-pointer"
+                              className="text-deep-green text-lg font-inter hover:opacity-55 transition-all active:scale-95 relative cursor-pointer"
                             />
                             <div className="py-4 z-20 bg-cream border border-deep-green rounded-[10px] min-w-[200px] drop-down-container">
                               {drop_down_items
@@ -93,7 +93,7 @@ export default function NavItems({ header_link_items, drop_down_items, uniqueIde
               .filter(item => !item.dropdown)
               .map(item => (
                 <TextCTA 
-                  className="text-deep-green text-base font-inter hover:opacity-55 transition-all active:scale-95" 
+                  className="text-deep-green text-lg font-inter hover:opacity-55 transition-all active:scale-95" 
                   key={item.cta_text} 
                   text={item.cta_text} 
                   link={item.cta_link} 

@@ -30,3 +30,4 @@ export default async function Page() {
 //       description: page.data.meta_description,
 //     };
 //   }
+

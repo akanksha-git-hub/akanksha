@@ -41,6 +41,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "blog_recents": {
+              "type": "SharedSlice"
+            },
             "blog_category_items": {
               "type": "SharedSlice"
             },
