@@ -36,7 +36,6 @@ export function useResourcesCardContext () {
 
 }
 
-
 function reducer(state, action) {
 
   if(action.type === INCREMENT) {
@@ -77,12 +76,10 @@ function reducer(state, action) {
       }
     }
 
-
   }
 
   if(action.type === SHOW) {
     const dataLength = action.payload.data.length;
-    // get dataLength;
 
     if(dataLength > 3) {
       const balanceValue = dataLength - 6;
@@ -118,7 +115,7 @@ export default function ResourcesCard({ children, slice, className }) {
 
   function incrementPagination() {
     paginationIsLoading();
-    dispatch({ type: INCREMENT })
+    dispatch({ type: INCREMENT });
   }
 
   function decrementPagination() {
@@ -128,19 +125,23 @@ export default function ResourcesCard({ children, slice, className }) {
 
   function paginationIsLoading() {
     setIsLoading(prevState => !prevState);
-
     setTimeout(() => {
       setIsLoading(prevState => !prevState);
     }, 2000);
   }
 
-  function showAllReducer(e, data) {
-    e.preventDefault();
+  function showAllReducer(data) {
     dispatch({ type: SHOW, payload: { data } });
   }
 
-
-  const ctxValues = { slice, incrementPagination, decrementPagination, showAllReducer, state, isLoading }
+  const ctxValues = { 
+      slice, 
+      incrementPagination, 
+      decrementPagination, 
+      showAllReducer, 
+      state, 
+      isLoading 
+    }
 
   return (
     <ResourceCardContext.Provider value={ctxValues}>

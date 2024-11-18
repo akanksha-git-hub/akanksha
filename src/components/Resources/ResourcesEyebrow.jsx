@@ -14,7 +14,7 @@ export default function ResourcesEyebrow({ className }) {
                 className='text-deep-green font-ambit-semibold text-4xl w-full xl:w-[20ch]'
             />
             <CTA 
-                onClick={(e) => showAllReducer(e, slice.primary.card_items)}
+                onClick={() => showAllReducer(slice.primary.card_items)}
                 className='!py-2'
                 text={slice.primary.cta_text}
             />
