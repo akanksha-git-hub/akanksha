@@ -47,6 +47,12 @@ export default function LenisScrollContext({ children }) {
             lenisRef.scrollTo(`#${id}`, scrollToOptions);
         }, 200);
     }
+    
+    const viewAllScroll = () => {
+        const elem = document.querySelector(`#${storeTarget}`);
+        const targetElemRange = (elem.getBoundingClientRect().bottom / 100) * 95;
+        lenisRef.scrollTo(`#${storeTarget}`, { offset: targetElemRange });
+    }
 
     const paginationScrollTo = () => lenisRef.scrollTo(`#${storeTarget}`, { offset: -50 });
 
@@ -55,7 +61,8 @@ export default function LenisScrollContext({ children }) {
         stopScroll,
         startScroll,
         lenisScrollTo,
-        paginationScrollTo
+        paginationScrollTo,
+        viewAllScroll
     }
 
   return (

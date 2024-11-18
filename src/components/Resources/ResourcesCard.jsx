@@ -6,6 +6,7 @@ import ResourcesCardItemsContainer from "./ResourcesCardItemsContainer";
 import ResourcesCardItemA from "./ResourcesCardItemA";
 import ResourcesCardPaginationContainer from "./ResourcesCardPaginationContainer";
 import { DECREMENT, INCREMENT, SHOW } from "@/utils/helperClasses";
+import { useSmoothScroller } from "../LenisScrollContext";
 
 const INITIAL_REDUCER = {
   isShowAll: false,
@@ -113,6 +114,8 @@ export default function ResourcesCard({ children, slice, className }) {
   const [state, dispatch] = useReducer(reducer, INITIAL_REDUCER);
   const [isLoading, setIsLoading] = useState(false);
 
+  const { viewAllScroll } = useSmoothScroller();
+
   function incrementPagination() {
     paginationIsLoading();
     dispatch({ type: INCREMENT });
@@ -131,6 +134,7 @@ export default function ResourcesCard({ children, slice, className }) {
   }
 
   function showAllReducer(data) {
+    
     dispatch({ type: SHOW, payload: { data } });
   }
 
@@ -140,7 +144,8 @@ export default function ResourcesCard({ children, slice, className }) {
       decrementPagination, 
       showAllReducer, 
       state, 
-      isLoading 
+      isLoading,
+      viewAllScroll
     }
 
   return (
