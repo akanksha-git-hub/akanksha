@@ -210,7 +210,6 @@ const OurPartners = ({ slice }) => {
         />
     </section>
   )
-
 };
 
 export default OurPartners;

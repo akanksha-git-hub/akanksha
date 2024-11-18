@@ -1,21 +1,39 @@
-import React from 'react'
+import Skeleton from '../Skeleton';
 import { useResourcesCardContext } from './ResourcesCard'
 
-export default function ResourcesCardItemsContainer({ children, itemKeyFn}) {
+export default function ResourcesCardItemsContainer({ children, itemKeyFn }) {
 
-  const { slice } = useResourcesCardContext();
+  const { slice, state: { initial, final }, isLoading } = useResourcesCardContext();
 
-  let shaveSlice = slice.primary.card_items;
+  const sortedArray = slice.primary.card_items.sort((a, b) => {
 
-  if(shaveSlice.length > 3) shaveSlice = slice.primary.card_items.slice(0, 12);
+    const timeA = new Date(a.date);
+    const timeB = new Date(b.date);
+
+    const timeC = timeB - timeA;
+
+    return timeC;
+  });
+
+  let shaveSlice;
+
+  shaveSlice = sortedArray.slice(initial, final);
 
   return (
     <>
-      {shaveSlice.map(item => (
-        <li key={itemKeyFn(item)}>
-          {children(item)}
-        </li>
-      ))}
+      {
+        isLoading ? 
+        <Skeleton 
+          count={8}
+          itemClassName='!h-[120px]'
+        />
+        :
+        shaveSlice.map(item => (
+          <li key={itemKeyFn(item)}>
+            {children(item)}
+          </li>
+        ))
+      }
     </>
   )
 }

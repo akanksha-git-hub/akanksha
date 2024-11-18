@@ -10,6 +10,7 @@ export default function LenisScrollContext({ children }) {
 
     const [lenisRef, setLenisRef] = useState(null);
     const [rafState, setRafState] = useState(null);
+    const [storeTarget, setStoreTarget] = useState('recent');
 
     useEffect(() => {
 
@@ -41,16 +42,20 @@ export default function LenisScrollContext({ children }) {
     const scrollToOptions = { offset: -50, duration: 1.86 };
 
     const lenisScrollTo = (id) => {
+        setStoreTarget(() => id);
         setTimeout(() => {
             lenisRef.scrollTo(`#${id}`, scrollToOptions);
         }, 200);
     }
 
+    const paginationScrollTo = () => lenisRef.scrollTo(`#${storeTarget}`, { offset: -50 });
+
     const ctxValues = {
         lenisRef,
         stopScroll,
         startScroll,
-        lenisScrollTo
+        lenisScrollTo,
+        paginationScrollTo
     }
 
   return (

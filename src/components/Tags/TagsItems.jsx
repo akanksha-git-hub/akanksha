@@ -5,7 +5,6 @@ import RichText from "../Texts/RichText";
 import { useTagContext } from "./Tags";
 
 export default function TagsItems({ tags, className }) {
-    console.log(tags, 'TAGS');
     const { handleTag, activeTag } = useTagContext();
     const { lenisScrollTo } = useSmoothScroller();
 

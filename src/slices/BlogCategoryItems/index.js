@@ -22,7 +22,7 @@ const BlogCategoryItems = ({ slice, context }) => {
           <ResourcesCard.Eyebrow 
             className='mb-12' 
           />
-          <ResourcesCard.ItemsContainer itemKeyFn={(item) => item.title}>
+          <ResourcesCard.ItemsContainer itemKeyFn={(item) => item.date}>
             {(item) => <ResourcesCard.ItemA item={item} />}
           </ResourcesCard.ItemsContainer>
         </ResourcesCard>

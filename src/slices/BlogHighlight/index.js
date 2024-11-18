@@ -6,6 +6,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
+import { months } from "@/utils/months";
 
 
 /**
@@ -20,6 +21,10 @@ const BlogHighlight = ({ slice }) => {
   function handleClick(i) {
     setActiveIndex(() => i);
   }
+
+  const date = new Date(slice.primary.items[activeIndex].date);
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
 
   return (
     <section
@@ -86,7 +91,7 @@ const BlogHighlight = ({ slice }) => {
           <div className="flex flex-col space-y-6 mt-12">
             <div className="space-y-4">
               <RichText 
-                text={slice.primary.items[activeIndex].date}
+                text={`${month}-${year}`}
                 className='font-ambit-regular text-2xl text-deep-green'
               />
               <RichText 

@@ -7,7 +7,6 @@ export default async function NotificationBar() {
     const { notification_text, cta_link, cta_text, hide_banner } = data.data;
 
 
-    console.log()
 
   return (
     <>
