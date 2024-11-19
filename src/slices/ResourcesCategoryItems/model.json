@@ -84,12 +84,19 @@
     },
     {
       "id": "filmsVariation",
-      "name": "Films variation",
+      "name": "Tags variation",
       "docURL": "...",
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "category_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Category Identifier",
+            "placeholder": ""
+          }
+        },
         "cta_text": {
           "type": "Text",
           "config": {

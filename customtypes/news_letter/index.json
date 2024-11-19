@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "financials",
-  "label": "Financials",
+  "id": "news_letter",
+  "label": "News letter",
   "repeatable": false,
   "status": true,
   "json": {
@@ -20,57 +20,17 @@
           "placeholder": ""
         }
       },
-      "year_groups": {
+      "categories": {
         "type": "Group",
         "config": {
-          "label": "Year Groups",
+          "label": "Categories",
           "repeat": true,
           "fields": {
-            "year": {
+            "category": {
               "type": "Text",
               "config": {
-                "label": "Year",
+                "label": "Category",
                 "placeholder": ""
-              }
-            }
-          }
-        }
-      },
-      "fcra_document_link": {
-        "type": "Group",
-        "config": {
-          "label": "FCRA Document Link",
-          "repeat": true,
-          "fields": {
-            "title": {
-              "type": "Text",
-              "config": {
-                "label": "Title",
-                "placeholder": ""
-              }
-            },
-            "is_fcra_financials": {
-              "type": "Boolean",
-              "config": {
-                "label": "Is FCRA Financials",
-                "default_value": false,
-                "placeholder_true": "true",
-                "placeholder_false": "false"
-              }
-            },
-            "year_identifier": {
-              "type": "Text",
-              "config": {
-                "label": "Year identifier",
-                "placeholder": "Enter the end year to identify which year it is categorized under"
-              }
-            },
-            "cta_link": {
-              "type": "Link",
-              "config": {
-                "label": "CTA Link",
-                "placeholder": "",
-                "select": null
               }
             }
           }
@@ -80,7 +40,14 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "blog_category_items": {
+              "type": "SharedSlice"
+            },
+            "blog_recents": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

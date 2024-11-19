@@ -175,6 +175,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "fireplace",
 				"type": "Text"
+			},
+			"category_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "serious",
+				"type": "Text"
 			}
 		},
 		"items": [

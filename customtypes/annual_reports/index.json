@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "financials",
-  "label": "Financials",
+  "id": "annual_reports",
+  "label": "Annual Reports",
   "repeatable": false,
   "status": true,
   "json": {
@@ -13,17 +13,10 @@
           "placeholder": ""
         }
       },
-      "description": {
-        "type": "Text",
-        "config": {
-          "label": "Description",
-          "placeholder": ""
-        }
-      },
-      "year_groups": {
+      "items": {
         "type": "Group",
         "config": {
-          "label": "Year Groups",
+          "label": "Items",
           "repeat": true,
           "fields": {
             "year": {
@@ -31,38 +24,6 @@
               "config": {
                 "label": "Year",
                 "placeholder": ""
-              }
-            }
-          }
-        }
-      },
-      "fcra_document_link": {
-        "type": "Group",
-        "config": {
-          "label": "FCRA Document Link",
-          "repeat": true,
-          "fields": {
-            "title": {
-              "type": "Text",
-              "config": {
-                "label": "Title",
-                "placeholder": ""
-              }
-            },
-            "is_fcra_financials": {
-              "type": "Boolean",
-              "config": {
-                "label": "Is FCRA Financials",
-                "default_value": false,
-                "placeholder_true": "true",
-                "placeholder_false": "false"
-              }
-            },
-            "year_identifier": {
-              "type": "Text",
-              "config": {
-                "label": "Year identifier",
-                "placeholder": "Enter the end year to identify which year it is categorized under"
               }
             },
             "cta_link": {

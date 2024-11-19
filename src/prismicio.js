@@ -76,8 +76,16 @@ const routes = [
     path: '/resources/financials'
   },
   {
+    type: 'annual_reports',
+    path: '/resources/annual-reports'
+  },
+  {
     type: 'films',
     path: '/resources/films'
+  },
+  {
+    type: 'news_letter',
+    path: '/resources/news-letter'
   },
   {
     type: 'blog_showcase_page',

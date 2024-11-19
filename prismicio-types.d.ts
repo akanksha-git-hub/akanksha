@@ -5,6 +5,118 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
+ * Item in *Annual Reports → Items*
+ */
+export interface AnnualReportsDocumentDataItemsItem {
+  /**
+   * Year field in *Annual Reports → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: annual_reports.items[].year
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *Annual Reports → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: annual_reports.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+}
+
+type AnnualReportsDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Annual Reports documents
+ */
+interface AnnualReportsDocumentData {
+  /**
+   * Title field in *Annual Reports*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: annual_reports.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Items field in *Annual Reports*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: annual_reports.items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<Simplify<AnnualReportsDocumentDataItemsItem>>;
+
+  /**
+   * Slice Zone field in *Annual Reports*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: annual_reports.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AnnualReportsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Annual Reports*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: annual_reports.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Annual Reports*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: annual_reports.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Annual Reports*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: annual_reports.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Annual Reports document from Prismic
+ *
+ * - **API ID**: `annual_reports`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AnnualReportsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<AnnualReportsDocumentData>,
+    "annual_reports",
+    Lang
+  >;
+
+/**
  * Item in *Blog Child Page → Items*
  */
 export interface BlogChildPageDocumentDataItemsItem {
@@ -783,16 +895,6 @@ export interface FinancialsDocumentDataFcraDocumentLinkItem {
   title: prismic.KeyTextField;
 
   /**
-   * File Link field in *Financials → FCRA Document Link*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: financials.fcra_document_link[].file_link
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  file_link: prismic.KeyTextField;
-
-  /**
    * Is FCRA Financials field in *Financials → FCRA Document Link*
    *
    * - **Field Type**: Boolean
@@ -812,6 +914,16 @@ export interface FinancialsDocumentDataFcraDocumentLinkItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   year_identifier: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *Financials → FCRA Document Link*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: financials.fcra_document_link[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
 }
 
 type FinancialsDocumentDataSlicesSlice = never;
@@ -1516,6 +1628,123 @@ interface HomeDocumentData {
  */
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
+
+/**
+ * Item in *News letter → Categories*
+ */
+export interface NewsLetterDocumentDataCategoriesItem {
+  /**
+   * Category field in *News letter → Categories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: news_letter.categories[].category
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  category: prismic.KeyTextField;
+}
+
+type NewsLetterDocumentDataSlicesSlice =
+  | BlogCategoryItemsSlice
+  | BlogRecentsSlice;
+
+/**
+ * Content for News letter documents
+ */
+interface NewsLetterDocumentData {
+  /**
+   * Title field in *News letter*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: news_letter.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *News letter*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: news_letter.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Categories field in *News letter*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: news_letter.categories[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  categories: prismic.GroupField<
+    Simplify<NewsLetterDocumentDataCategoriesItem>
+  >;
+
+  /**
+   * Slice Zone field in *News letter*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: news_letter.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<NewsLetterDocumentDataSlicesSlice> /**
+   * Meta Title field in *News letter*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: news_letter.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *News letter*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: news_letter.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *News letter*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: news_letter.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * News letter document from Prismic
+ *
+ * - **API ID**: `news_letter`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NewsLetterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NewsLetterDocumentData>,
+    "news_letter",
+    Lang
+  >;
 
 /**
  * Content for Notification Bar documents
@@ -2475,6 +2704,7 @@ export type WorkWithUsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | AnnualReportsDocument
   | BlogChildPageDocument
   | BlogShowcasePageDocument
   | ContactDocument
@@ -2492,6 +2722,7 @@ export type AllDocumentTypes =
   | FooterQualityEducationLogoDocument
   | HeaderDocument
   | HomeDocument
+  | NewsLetterDocument
   | NotificationBarDocument
   | OurApproachDocument
   | OurPeopleDocument
@@ -2560,11 +2791,11 @@ export interface BlogCategoryItemsSliceDefaultPrimaryCardItemsItem {
 }
 
 /**
- * Item in *ResourcesCategoryItems → Films variation → Primary → Card Items*
+ * Item in *ResourcesCategoryItems → Tags variation → Primary → Card Items*
  */
 export interface BlogCategoryItemsSliceFilmsVariationPrimaryCardItemsItem {
   /**
-   * Image field in *ResourcesCategoryItems → Films variation → Primary → Card Items*
+   * Image field in *ResourcesCategoryItems → Tags variation → Primary → Card Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -2574,7 +2805,7 @@ export interface BlogCategoryItemsSliceFilmsVariationPrimaryCardItemsItem {
   image: prismic.ImageField<never>;
 
   /**
-   * Title field in *ResourcesCategoryItems → Films variation → Primary → Card Items*
+   * Title field in *ResourcesCategoryItems → Tags variation → Primary → Card Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2584,7 +2815,7 @@ export interface BlogCategoryItemsSliceFilmsVariationPrimaryCardItemsItem {
   title: prismic.KeyTextField;
 
   /**
-   * Date field in *ResourcesCategoryItems → Films variation → Primary → Card Items*
+   * Date field in *ResourcesCategoryItems → Tags variation → Primary → Card Items*
    *
    * - **Field Type**: Date
    * - **Placeholder**: *None*
@@ -2594,7 +2825,7 @@ export interface BlogCategoryItemsSliceFilmsVariationPrimaryCardItemsItem {
   date: prismic.DateField;
 
   /**
-   * CTA Link field in *ResourcesCategoryItems → Films variation → Primary → Card Items*
+   * CTA Link field in *ResourcesCategoryItems → Tags variation → Primary → Card Items*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -2604,7 +2835,7 @@ export interface BlogCategoryItemsSliceFilmsVariationPrimaryCardItemsItem {
   cta_link: prismic.LinkField;
 
   /**
-   * Rich Text Bullet Points field in *ResourcesCategoryItems → Films variation → Primary → Card Items*
+   * Rich Text Bullet Points field in *ResourcesCategoryItems → Tags variation → Primary → Card Items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -2675,11 +2906,21 @@ export type BlogCategoryItemsSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *ResourcesCategoryItems → Films variation → Primary*
+ * Primary content in *ResourcesCategoryItems → Tags variation → Primary*
  */
 export interface BlogCategoryItemsSliceFilmsVariationPrimary {
   /**
-   * CTA Text field in *ResourcesCategoryItems → Films variation → Primary*
+   * Category Identifier field in *ResourcesCategoryItems → Tags variation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.filmsVariation.primary.category_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  category_identifier: prismic.KeyTextField;
+
+  /**
+   * CTA Text field in *ResourcesCategoryItems → Tags variation → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2689,7 +2930,7 @@ export interface BlogCategoryItemsSliceFilmsVariationPrimary {
   cta_text: prismic.KeyTextField;
 
   /**
-   * Card Items field in *ResourcesCategoryItems → Films variation → Primary*
+   * Card Items field in *ResourcesCategoryItems → Tags variation → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -2702,7 +2943,7 @@ export interface BlogCategoryItemsSliceFilmsVariationPrimary {
 }
 
 /**
- * Films variation variation for ResourcesCategoryItems Slice
+ * Tags variation variation for ResourcesCategoryItems Slice
  *
  * - **API ID**: `filmsVariation`
  * - **Description**: Default
@@ -2911,6 +3152,61 @@ export interface BlogRecentsSliceDefaultPrimaryCardItemsItem {
 }
 
 /**
+ * Item in *ResourcesRecents → Tag variation → Primary → Card Items*
+ */
+export interface BlogRecentsSliceTagVariationPrimaryCardItemsItem {
+  /**
+   * Image field in *ResourcesRecents → Tag variation → Primary → Card Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.tagVariation.primary.card_items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ResourcesRecents → Tag variation → Primary → Card Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.tagVariation.primary.card_items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Date field in *ResourcesRecents → Tag variation → Primary → Card Items*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.tagVariation.primary.card_items[].date
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * CTA Link field in *ResourcesRecents → Tag variation → Primary → Card Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.tagVariation.primary.card_items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * Rich Text Bullet Points field in *ResourcesRecents → Tag variation → Primary → Card Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.tagVariation.primary.card_items[].rich_text_bullet_points
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rich_text_bullet_points: prismic.RichTextField;
+}
+
+/**
  * Primary content in *ResourcesRecents → Default → Primary*
  */
 export interface BlogRecentsSliceDefaultPrimary {
@@ -2961,9 +3257,61 @@ export type BlogRecentsSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ResourcesRecents → Tag variation → Primary*
+ */
+export interface BlogRecentsSliceTagVariationPrimary {
+  /**
+   * Title field in *ResourcesRecents → Tag variation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.tagVariation.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * CTA Text field in *ResourcesRecents → Tag variation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.tagVariation.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * Card Items field in *ResourcesRecents → Tag variation → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_recents.tagVariation.primary.card_items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card_items: prismic.GroupField<
+    Simplify<BlogRecentsSliceTagVariationPrimaryCardItemsItem>
+  >;
+}
+
+/**
+ * Tag variation variation for ResourcesRecents Slice
+ *
+ * - **API ID**: `tagVariation`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogRecentsSliceTagVariation = prismic.SharedSliceVariation<
+  "tagVariation",
+  Simplify<BlogRecentsSliceTagVariationPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *ResourcesRecents*
  */
-type BlogRecentsSliceVariation = BlogRecentsSliceDefault;
+type BlogRecentsSliceVariation =
+  | BlogRecentsSliceDefault
+  | BlogRecentsSliceTagVariation;
 
 /**
  * ResourcesRecents Shared Slice
@@ -6151,6 +6499,10 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AnnualReportsDocument,
+      AnnualReportsDocumentData,
+      AnnualReportsDocumentDataItemsItem,
+      AnnualReportsDocumentDataSlicesSlice,
       BlogChildPageDocument,
       BlogChildPageDocumentData,
       BlogChildPageDocumentDataItemsItem,
@@ -6204,6 +6556,10 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      NewsLetterDocument,
+      NewsLetterDocumentData,
+      NewsLetterDocumentDataCategoriesItem,
+      NewsLetterDocumentDataSlicesSlice,
       NotificationBarDocument,
       NotificationBarDocumentData,
       OurApproachDocument,
@@ -6257,8 +6613,11 @@ declare module "@prismicio/client" {
       BlogRecentsSlice,
       BlogRecentsSliceDefaultPrimaryCardItemsItem,
       BlogRecentsSliceDefaultPrimary,
+      BlogRecentsSliceTagVariationPrimaryCardItemsItem,
+      BlogRecentsSliceTagVariationPrimary,
       BlogRecentsSliceVariation,
       BlogRecentsSliceDefault,
+      BlogRecentsSliceTagVariation,
       DonationSliceSlice,
       DonationSliceSliceVariation,
       DonationSliceSliceDefault,

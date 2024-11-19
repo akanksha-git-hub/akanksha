@@ -2,7 +2,6 @@ import FinancialsAccordion from "@/components/financials-accordion";
 import RichText from "@/components/Texts/RichText";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
 import { maxwidth } from "@/utils/helperClasses";
-import Image from "next/image";
 
 
 export default async function Page() {
@@ -10,7 +9,6 @@ export default async function Page() {
     const page = await fetchPrismicSingleDocument('financials');
 
     if(!page) return <p>No page data</p>;
-
 
     return(
         <main
@@ -25,27 +23,6 @@ export default async function Page() {
                     text={page.data.description}
                     className='font-ambit-regular text-left md:text-center text-deep-green text-base md:text-lg md:leading-7 w-[90%] md:w-[80%] md:mx-auto mt-6'
                 />
-                {/* <Image 
-                    className="absolute -top-[11px] left-[2%]"
-                    height={60}
-                    width={60}
-                    src='/triangle.svg'
-                    alt="triangle"
-                />
-                <Image 
-                    className="absolute -top-[75px] right-0"
-                    height={144}
-                    width={144}
-                    src='/triangle.svg'
-                    alt="triangle"
-                />
-                <Image 
-                    className="absolute top-[106%] md:top-full left-[20%]"
-                    height={24}
-                    width={24}
-                    src='/triangle.svg'
-                    alt="triangle"
-                /> */}
             </div>
             <div className="mt-12">
                     <FinancialsAccordion 

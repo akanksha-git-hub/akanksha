@@ -5,6 +5,7 @@ import RichText from "../Texts/RichText";
 import { useTagContext } from "./Tags";
 
 export default function TagsItems({ tags, className }) {
+    
     const { handleTag, activeTag } = useTagContext();
     const { lenisScrollTo } = useSmoothScroller();
 
@@ -26,7 +27,7 @@ export default function TagsItems({ tags, className }) {
             text='CATEGORY'
             className='font-ambit-semibold text-deep-green text-xl grid md:place-content-center mb-6'
         />
-        <ul className="flex flex-wrap md:justify-center gap-6">
+        <ul className="flex flex-wrap md:justify-center gap-4 lg:gap-6 w-full lg:w-[80%] md:mx-auto">
             {tagList.map(item => {
 
                 const lowerCase = item.category.split(" ").join('').toLowerCase();

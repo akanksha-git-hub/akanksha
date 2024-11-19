@@ -1,37 +1,19 @@
 import { maxwidth } from "@/utils/helperClasses";
 import RichText from "@/components/Texts/RichText";
 import Image from "next/image";
+import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
+import { PrismicLink } from "@prismicio/react";
 
-export default function Page() {
+export default async function Page() {
 
-    const DATA = [
-        {
-            text: '2022-2023',
-            download_link: '/dummy.pdf'
-        },
-        {
-            text: '2022-2023',
-            download_link: '/dummy.pdf'
-        },
-        {
-            text: '2022-2023',
-            download_link: '/dummy.pdf'
-        },
-        {
-            text: '2022-2023',
-            download_link: '/dummy.pdf'
-        },
-        {
-            text: '2022-2023',
-            download_link: '/dummy.pdf'
-        },
-        {
-            text: '2022-2023',
-            download_link: '/dummy.pdf'
-        },
-    ];
 
-    const totalLength = DATA.length - 1;
+    const page = await fetchPrismicSingleDocument("annual_reports");
+
+    if(!page) return <p>No page data!</p>;
+
+    const pageData = page.data.items;
+
+    const totalLength = pageData.length - 1;
 
     return(
         <main className={`${maxwidth} universal-padding`}>
@@ -40,31 +22,10 @@ export default function Page() {
                     text={'Annual Reports'}
                     className={`text-deep-green font-ambit-regular text-7xl text-left md:text-center w-full pt-24`}
                 />
-                <Image 
-                    className="absolute -top-[11px] -left-[160px]"
-                    height={60}
-                    width={60}
-                    src='/triangle.svg'
-                    alt="triangle"
-                />
-                <Image 
-                    className="absolute -bottom-[11px] -right-[160px]"
-                    height={44}
-                    width={44}
-                    src='/triangle.svg'
-                    alt="triangle"
-                />
-                <Image 
-                    className="absolute -top-[11px] left-0"
-                    height={24}
-                    width={24}
-                    src='/triangle.svg'
-                    alt="triangle"
-                />
             </div>
             <div className="mt-12">
                 <ul className="grid grid-cols-1 place-content-center gap-x-12 md:grid-cols-2 w-full lg:w-[880px] 3xl:w-[1000px] lg:mx-auto">
-                    {DATA.map((item, index) => {
+                    {pageData.map((item, index) => {
 
                         const lastItem = index === totalLength;
                         const secondLastItem = index === (totalLength - 1);
@@ -74,12 +35,12 @@ export default function Page() {
                             key={index} 
                             className={`border border-[#DCDCDC] border-b-0 ${lastItem && ('!border-b')} ${secondLastItem && ('!border-b')}`}
                         >
-                            <a 
-                                download='ITEM'
+                            <PrismicLink 
                                 className="flex items-center justify-between p-4 opacity-55 transition-all hover:opacity-100"
-                                href={item.download_link}
+                                field={item.cta_link}
+                                target="_blank"
                             >
-                                <span className="font-ambit-semibold text-2xl text-deep-green hover:text-black transition-all">{item.text}</span>
+                                <span className="font-ambit-semibold text-2xl text-deep-green hover:text-black transition-all">{item.year}</span>
                                 <span>
                                     <Image  
                                         className=""
@@ -89,7 +50,7 @@ export default function Page() {
                                         alt="download"
                                     />
                                 </span>
-                            </a>
+                            </PrismicLink>
                         </li>
                     )})}
                 </ul>
