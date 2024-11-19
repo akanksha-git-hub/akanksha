@@ -16,7 +16,6 @@ export default function ResourcesCardItemB({ item }) {
     const monthYear = <>{month}<small className="text-xl">/{year}</small></>;
 
     const tags = item.rich_text_bullet_points;
-    console.log(tags, 'TAGS');
 
   return (
     <div className="grid space-y-6 xl:space-y-0 xl:grid-cols-3 xl:gap-12 3xl:gap-0 xl:place-content-between pb-12 border-b border-[#A3A19A] last:border-none">

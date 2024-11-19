@@ -52,7 +52,6 @@ export default function StepC({}) {
     const handleChange = useCallback((e) => {
         let name = e.target.name;
         let value = e.target.value;
-        console.log(name, value);
         setFormData(prevState => ({ ...prevState, [name]: value }));
     }, [formData]);
 

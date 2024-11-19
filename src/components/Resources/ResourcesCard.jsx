@@ -5,7 +5,7 @@ import ResourcesEyebrow from "./ResourcesEyebrow";
 import ResourcesCardItemsContainer from "./ResourcesCardItemsContainer";
 import ResourcesCardItemA from "./ResourcesCardItemA";
 import ResourcesCardPaginationContainer from "./ResourcesCardPaginationContainer";
-import { DECREMENT, INCREMENT, SHOW } from "@/utils/helperClasses";
+import { CHANGED, DECREMENT, INCREMENT, SHOW } from "@/utils/helperClasses";
 import { useSmoothScroller } from "../LenisScrollContext";
 import ResourcesCardItemB from "./ResourcesCardItemB";
 
@@ -19,11 +19,21 @@ const INITIAL_REDUCER = {
   loading: false
 }
 
+const FILTER_VALUES = {
+  month: null,
+  year: null
+}
+
 const ResourceCardContext = createContext({
   slice: [],
+  currentData: [],
+  handleSetCurrentData: (data) => {},
   showAllReducer: (data) => {},
   incrementPagination: () => {},
   decrementPagination: () => {},
+  handleSetMonth: (month) => {},
+  handleSetYear: (year) => {},
+  filterValues: FILTER_VALUES,
   isLoading: false,
   state: INITIAL_REDUCER
 });
@@ -80,6 +90,27 @@ function reducer(state, action) {
 
   }
 
+  if(action.type === CHANGED) {
+    const dataLength = action.payload.data.length;
+
+    if(dataLength > 3) {
+      const balanceValue = dataLength - 6;
+      let finalValue;
+      
+      if(balanceValue > 0) {
+        finalValue = state.incrementValue;
+      };
+      
+      return {
+        ...state,
+        isShowAll: true,
+        initial: 0,
+        final: finalValue,
+        totalLength: dataLength
+      }
+    }
+  }
+
   if(action.type === SHOW) {
     const dataLength = action.payload.data.length;
 
@@ -114,6 +145,8 @@ export default function ResourcesCard({ children, slice, className }) {
 
   const [state, dispatch] = useReducer(reducer, INITIAL_REDUCER);
   const [isLoading, setIsLoading] = useState(false);
+  const [filterValues, setFilterValues] = useState(FILTER_VALUES);
+  const [currentData, setCurrentData] = useState([]);
 
   const { viewAllScroll } = useSmoothScroller();
 
@@ -138,15 +171,32 @@ export default function ResourcesCard({ children, slice, className }) {
     dispatch({ type: SHOW, payload: { data } });
   }
 
+  function handleSetMonth(month) {
+    setFilterValues(prevState => ({ ...prevState, month }));
+  }
+
+  function handleSetYear(year) {
+    setFilterValues(prevState => ({ ...prevState, year }));
+  }
+
+  function handleSetCurrentData(data) {
+    setCurrentData(() => data);
+  }
+
   const ctxValues = { 
-      slice, 
-      incrementPagination, 
-      decrementPagination, 
-      showAllReducer, 
-      state, 
-      isLoading,
-      viewAllScroll
-    }
+    slice, 
+    incrementPagination, 
+    decrementPagination, 
+    showAllReducer, 
+    state, 
+    isLoading,
+    viewAllScroll,
+    handleSetMonth,
+    handleSetYear,
+    filterValues,
+    currentData,
+    handleSetCurrentData
+  }
 
   return (
     <ResourceCardContext.Provider value={ctxValues}>

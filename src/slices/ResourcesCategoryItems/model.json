@@ -97,6 +97,13 @@
             "placeholder": ""
           }
         },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
         "cta_text": {
           "type": "Text",
           "config": {

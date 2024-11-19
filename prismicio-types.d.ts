@@ -2920,6 +2920,16 @@ export interface BlogCategoryItemsSliceFilmsVariationPrimary {
   category_identifier: prismic.KeyTextField;
 
   /**
+   * Title field in *ResourcesCategoryItems → Tags variation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.filmsVariation.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
    * CTA Text field in *ResourcesCategoryItems → Tags variation → Primary*
    *
    * - **Field Type**: Text

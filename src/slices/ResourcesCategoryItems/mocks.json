@@ -180,6 +180,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "serious",
 				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "pressure",
+				"type": "Text"
 			}
 		},
 		"items": [
