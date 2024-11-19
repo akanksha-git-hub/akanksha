@@ -1,7 +1,7 @@
 {
   "id": "blog_highlight",
   "type": "SharedSlice",
-  "name": "BlogHighlight",
+  "name": "ResourcedHighlight",
   "description": "BlogHighlight",
   "variations": [
     {

@@ -3,18 +3,20 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { months } from "@/utils/months";
 import { useResourcesCardContext } from "./ResourcesCard";
 
-export default function ResourcesCardItemA({ item }) {
+export default function ResourcesCardItemB({ item }) {
 
-    const { slice } = useResourcesCardContext();
+
+    const { slice: { primary: { cta_text: text }} } = useResourcesCardContext();
 
     const date = new Date(item.date);
 
     const month = months[date.getMonth()];
     const year = date.getFullYear();
     const day = date.getDate();
-    const truncatedLength = (item.description.split(" ").length * 2.2);
-    const truncatedDescription = `${item.description.substring(0, truncatedLength)}...`;
     const monthYear = <>{month}<small className="text-xl">/{year}</small></>;
+
+    const tags = item.rich_text_bullet_points;
+    console.log(tags, 'TAGS');
 
   return (
     <div className="grid space-y-6 xl:space-y-0 xl:grid-cols-3 xl:gap-12 3xl:gap-0 xl:place-content-between pb-12 border-b border-[#A3A19A] last:border-none">
@@ -33,10 +35,17 @@ export default function ResourcesCardItemA({ item }) {
                 className="text-3xl w-[80%] text-deep-green font-ambit-semibold"
                 text={item.title} 
             />
-            <RichText 
-                className='text-gray-400 pr-4'
-                text={truncatedDescription}
-            />
+            <ul className="flex flex-wrap gap-2">
+                {tags.map(item => (
+                    <li 
+                        key={item.text}
+                        className={`w-fit py-2 px-4 cursor-pointer font-ambit-regular text-sm rounded-full transition-all
+                                    border border-deep-green hover:bg-deep-green hover:text-off-white `}
+                    >
+                        {item.text}
+                    </li>
+                ))}
+            </ul>
         </div>
         <div className="flex xl:justify-end">
             <PrismicNextLink
@@ -53,7 +62,7 @@ export default function ResourcesCardItemA({ item }) {
                     />
                 <div className="bg-black opacity-0 transition-all group-hover:opacity-35 absolute top-0 left-0 h-full w-full z-10" />
                     <p className="bg-bright-yellow text-deep-green font-ambit-regular text-center py-2 px-4 text-base rounded-full opacity-0 transition-all z-20 absolute top-2/4 -translate-y-2/4 left-2/4 -translate-x-2/4 group-hover:opacity-100">
-                    {slice.primary.cta_text}
+                        {text}
                     </p>
                 </div>
             </PrismicNextLink>

@@ -7,6 +7,7 @@ import ResourcesCardItemA from "./ResourcesCardItemA";
 import ResourcesCardPaginationContainer from "./ResourcesCardPaginationContainer";
 import { DECREMENT, INCREMENT, SHOW } from "@/utils/helperClasses";
 import { useSmoothScroller } from "../LenisScrollContext";
+import ResourcesCardItemB from "./ResourcesCardItemB";
 
 const INITIAL_REDUCER = {
   isShowAll: false,
@@ -134,7 +135,6 @@ export default function ResourcesCard({ children, slice, className }) {
   }
 
   function showAllReducer(data) {
-    
     dispatch({ type: SHOW, payload: { data } });
   }
 
@@ -160,6 +160,7 @@ export default function ResourcesCard({ children, slice, className }) {
 ResourcesCard.Eyebrow = ResourcesEyebrow;
 ResourcesCard.ItemsContainer = ResourcesCardItemsContainer;
 ResourcesCard.ItemA = ResourcesCardItemA;
+ResourcesCard.ItemB = ResourcesCardItemB;
 ResourcesCard.PaginationContainer = ResourcesCardPaginationContainer;
 
 

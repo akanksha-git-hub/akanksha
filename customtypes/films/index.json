@@ -25,7 +25,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "video_link_cards": {
+            "blog_category_items": {
               "type": "SharedSlice"
             }
           }

@@ -1,8 +1,8 @@
 {
-  "id": "video_link_cards",
+  "id": "blog_recents",
   "type": "SharedSlice",
-  "name": "LinkCards",
-  "description": "VideoLinkCards",
+  "name": "ResourcesRecents",
+  "description": "BlogRecents",
   "variations": [
     {
       "id": "default",
@@ -12,6 +12,20 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "cta_text": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Text",
+            "placeholder": ""
+          }
+        },
         "card_items": {
           "type": "Group",
           "config": {
@@ -33,10 +47,10 @@
                   "placeholder": ""
                 }
               },
-              "sub_title": {
+              "description": {
                 "type": "Text",
                 "config": {
-                  "label": "Sub Title",
+                  "label": "Description",
                   "placeholder": ""
                 }
               },

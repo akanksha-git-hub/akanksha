@@ -670,7 +670,7 @@ export type DonorPageDocument<Lang extends string = string> =
     Lang
   >;
 
-type FilmsDocumentDataSlicesSlice = VideoLinkCardsSlice;
+type FilmsDocumentDataSlicesSlice = BlogCategoryItemsSlice;
 
 /**
  * Content for Films documents
@@ -2505,11 +2505,11 @@ export type AllDocumentTypes =
   | WorkWithUsDocument;
 
 /**
- * Item in *BlogCategoryItems → Default → Primary → Card Items*
+ * Item in *ResourcesCategoryItems → Default → Primary → Card Items*
  */
 export interface BlogCategoryItemsSliceDefaultPrimaryCardItemsItem {
   /**
-   * Image field in *BlogCategoryItems → Default → Primary → Card Items*
+   * Image field in *ResourcesCategoryItems → Default → Primary → Card Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -2519,7 +2519,7 @@ export interface BlogCategoryItemsSliceDefaultPrimaryCardItemsItem {
   image: prismic.ImageField<never>;
 
   /**
-   * Title field in *BlogCategoryItems → Default → Primary → Card Items*
+   * Title field in *ResourcesCategoryItems → Default → Primary → Card Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2529,7 +2529,7 @@ export interface BlogCategoryItemsSliceDefaultPrimaryCardItemsItem {
   title: prismic.KeyTextField;
 
   /**
-   * Description field in *BlogCategoryItems → Default → Primary → Card Items*
+   * Description field in *ResourcesCategoryItems → Default → Primary → Card Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2539,7 +2539,7 @@ export interface BlogCategoryItemsSliceDefaultPrimaryCardItemsItem {
   description: prismic.KeyTextField;
 
   /**
-   * Date field in *BlogCategoryItems → Default → Primary → Card Items*
+   * Date field in *ResourcesCategoryItems → Default → Primary → Card Items*
    *
    * - **Field Type**: Date
    * - **Placeholder**: *None*
@@ -2549,7 +2549,7 @@ export interface BlogCategoryItemsSliceDefaultPrimaryCardItemsItem {
   date: prismic.DateField;
 
   /**
-   * CTA Link field in *BlogCategoryItems → Default → Primary → Card Items*
+   * CTA Link field in *ResourcesCategoryItems → Default → Primary → Card Items*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -2560,11 +2560,66 @@ export interface BlogCategoryItemsSliceDefaultPrimaryCardItemsItem {
 }
 
 /**
- * Primary content in *BlogCategoryItems → Default → Primary*
+ * Item in *ResourcesCategoryItems → Films variation → Primary → Card Items*
+ */
+export interface BlogCategoryItemsSliceFilmsVariationPrimaryCardItemsItem {
+  /**
+   * Image field in *ResourcesCategoryItems → Films variation → Primary → Card Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.filmsVariation.primary.card_items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ResourcesCategoryItems → Films variation → Primary → Card Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.filmsVariation.primary.card_items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Date field in *ResourcesCategoryItems → Films variation → Primary → Card Items*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.filmsVariation.primary.card_items[].date
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * CTA Link field in *ResourcesCategoryItems → Films variation → Primary → Card Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.filmsVariation.primary.card_items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * Rich Text Bullet Points field in *ResourcesCategoryItems → Films variation → Primary → Card Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.filmsVariation.primary.card_items[].rich_text_bullet_points
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rich_text_bullet_points: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ResourcesCategoryItems → Default → Primary*
  */
 export interface BlogCategoryItemsSliceDefaultPrimary {
   /**
-   * Category Identifier field in *BlogCategoryItems → Default → Primary*
+   * Category Identifier field in *ResourcesCategoryItems → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2574,7 +2629,7 @@ export interface BlogCategoryItemsSliceDefaultPrimary {
   category_identifier: prismic.KeyTextField;
 
   /**
-   * Title field in *BlogCategoryItems → Default → Primary*
+   * Title field in *ResourcesCategoryItems → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2584,7 +2639,7 @@ export interface BlogCategoryItemsSliceDefaultPrimary {
   title: prismic.KeyTextField;
 
   /**
-   * CTA Text field in *BlogCategoryItems → Default → Primary*
+   * CTA Text field in *ResourcesCategoryItems → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2594,7 +2649,7 @@ export interface BlogCategoryItemsSliceDefaultPrimary {
   cta_text: prismic.KeyTextField;
 
   /**
-   * Card Items field in *BlogCategoryItems → Default → Primary*
+   * Card Items field in *ResourcesCategoryItems → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -2607,7 +2662,7 @@ export interface BlogCategoryItemsSliceDefaultPrimary {
 }
 
 /**
- * Default variation for BlogCategoryItems Slice
+ * Default variation for ResourcesCategoryItems Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -2620,12 +2675,54 @@ export type BlogCategoryItemsSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *BlogCategoryItems*
+ * Primary content in *ResourcesCategoryItems → Films variation → Primary*
  */
-type BlogCategoryItemsSliceVariation = BlogCategoryItemsSliceDefault;
+export interface BlogCategoryItemsSliceFilmsVariationPrimary {
+  /**
+   * CTA Text field in *ResourcesCategoryItems → Films variation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.filmsVariation.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * Card Items field in *ResourcesCategoryItems → Films variation → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.filmsVariation.primary.card_items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card_items: prismic.GroupField<
+    Simplify<BlogCategoryItemsSliceFilmsVariationPrimaryCardItemsItem>
+  >;
+}
 
 /**
- * BlogCategoryItems Shared Slice
+ * Films variation variation for ResourcesCategoryItems Slice
+ *
+ * - **API ID**: `filmsVariation`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogCategoryItemsSliceFilmsVariation = prismic.SharedSliceVariation<
+  "filmsVariation",
+  Simplify<BlogCategoryItemsSliceFilmsVariationPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ResourcesCategoryItems*
+ */
+type BlogCategoryItemsSliceVariation =
+  | BlogCategoryItemsSliceDefault
+  | BlogCategoryItemsSliceFilmsVariation;
+
+/**
+ * ResourcesCategoryItems Shared Slice
  *
  * - **API ID**: `blog_category_items`
  * - **Description**: BlogCategoryItems
@@ -2637,11 +2734,11 @@ export type BlogCategoryItemsSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *BlogHighlight → Default → Primary → Items*
+ * Item in *ResourcedHighlight → Default → Primary → Items*
  */
 export interface BlogHighlightSliceDefaultPrimaryItemsItem {
   /**
-   * Image field in *BlogHighlight → Default → Primary → Items*
+   * Image field in *ResourcedHighlight → Default → Primary → Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -2651,7 +2748,7 @@ export interface BlogHighlightSliceDefaultPrimaryItemsItem {
   image: prismic.ImageField<never>;
 
   /**
-   * Date field in *BlogHighlight → Default → Primary → Items*
+   * Date field in *ResourcedHighlight → Default → Primary → Items*
    *
    * - **Field Type**: Date
    * - **Placeholder**: *None*
@@ -2661,7 +2758,7 @@ export interface BlogHighlightSliceDefaultPrimaryItemsItem {
   date: prismic.DateField;
 
   /**
-   * Title field in *BlogHighlight → Default → Primary → Items*
+   * Title field in *ResourcedHighlight → Default → Primary → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2671,7 +2768,7 @@ export interface BlogHighlightSliceDefaultPrimaryItemsItem {
   title: prismic.KeyTextField;
 
   /**
-   * Description field in *BlogHighlight → Default → Primary → Items*
+   * Description field in *ResourcedHighlight → Default → Primary → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2681,7 +2778,7 @@ export interface BlogHighlightSliceDefaultPrimaryItemsItem {
   description: prismic.KeyTextField;
 
   /**
-   * CTA Link field in *BlogHighlight → Default → Primary → Items*
+   * CTA Link field in *ResourcedHighlight → Default → Primary → Items*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -2692,11 +2789,11 @@ export interface BlogHighlightSliceDefaultPrimaryItemsItem {
 }
 
 /**
- * Primary content in *BlogHighlight → Default → Primary*
+ * Primary content in *ResourcedHighlight → Default → Primary*
  */
 export interface BlogHighlightSliceDefaultPrimary {
   /**
-   * Items field in *BlogHighlight → Default → Primary*
+   * Items field in *ResourcedHighlight → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -2708,7 +2805,7 @@ export interface BlogHighlightSliceDefaultPrimary {
   >;
 
   /**
-   * CTA Text field in *BlogHighlight → Default → Primary*
+   * CTA Text field in *ResourcedHighlight → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2718,7 +2815,7 @@ export interface BlogHighlightSliceDefaultPrimary {
   cta_text: prismic.KeyTextField;
 
   /**
-   * Title field in *BlogHighlight → Default → Primary*
+   * Title field in *ResourcedHighlight → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2729,7 +2826,7 @@ export interface BlogHighlightSliceDefaultPrimary {
 }
 
 /**
- * Default variation for BlogHighlight Slice
+ * Default variation for ResourcedHighlight Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -2742,12 +2839,12 @@ export type BlogHighlightSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *BlogHighlight*
+ * Slice variation for *ResourcedHighlight*
  */
 type BlogHighlightSliceVariation = BlogHighlightSliceDefault;
 
 /**
- * BlogHighlight Shared Slice
+ * ResourcedHighlight Shared Slice
  *
  * - **API ID**: `blog_highlight`
  * - **Description**: BlogHighlight
@@ -2759,11 +2856,11 @@ export type BlogHighlightSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *BlogRecents → Default → Primary → Card Items*
+ * Item in *ResourcesRecents → Default → Primary → Card Items*
  */
 export interface BlogRecentsSliceDefaultPrimaryCardItemsItem {
   /**
-   * Image field in *BlogRecents → Default → Primary → Card Items*
+   * Image field in *ResourcesRecents → Default → Primary → Card Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -2773,7 +2870,7 @@ export interface BlogRecentsSliceDefaultPrimaryCardItemsItem {
   image: prismic.ImageField<never>;
 
   /**
-   * Title field in *BlogRecents → Default → Primary → Card Items*
+   * Title field in *ResourcesRecents → Default → Primary → Card Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2783,7 +2880,7 @@ export interface BlogRecentsSliceDefaultPrimaryCardItemsItem {
   title: prismic.KeyTextField;
 
   /**
-   * Description field in *BlogRecents → Default → Primary → Card Items*
+   * Description field in *ResourcesRecents → Default → Primary → Card Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2793,7 +2890,7 @@ export interface BlogRecentsSliceDefaultPrimaryCardItemsItem {
   description: prismic.KeyTextField;
 
   /**
-   * Date field in *BlogRecents → Default → Primary → Card Items*
+   * Date field in *ResourcesRecents → Default → Primary → Card Items*
    *
    * - **Field Type**: Date
    * - **Placeholder**: *None*
@@ -2803,7 +2900,7 @@ export interface BlogRecentsSliceDefaultPrimaryCardItemsItem {
   date: prismic.DateField;
 
   /**
-   * CTA Link field in *BlogRecents → Default → Primary → Card Items*
+   * CTA Link field in *ResourcesRecents → Default → Primary → Card Items*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -2814,11 +2911,11 @@ export interface BlogRecentsSliceDefaultPrimaryCardItemsItem {
 }
 
 /**
- * Primary content in *BlogRecents → Default → Primary*
+ * Primary content in *ResourcesRecents → Default → Primary*
  */
 export interface BlogRecentsSliceDefaultPrimary {
   /**
-   * Title field in *BlogRecents → Default → Primary*
+   * Title field in *ResourcesRecents → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2828,7 +2925,7 @@ export interface BlogRecentsSliceDefaultPrimary {
   title: prismic.KeyTextField;
 
   /**
-   * CTA Text field in *BlogRecents → Default → Primary*
+   * CTA Text field in *ResourcesRecents → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2838,7 +2935,7 @@ export interface BlogRecentsSliceDefaultPrimary {
   cta_text: prismic.KeyTextField;
 
   /**
-   * Card Items field in *BlogRecents → Default → Primary*
+   * Card Items field in *ResourcesRecents → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -2851,7 +2948,7 @@ export interface BlogRecentsSliceDefaultPrimary {
 }
 
 /**
- * Default variation for BlogRecents Slice
+ * Default variation for ResourcesRecents Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -2864,12 +2961,12 @@ export type BlogRecentsSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *BlogRecents*
+ * Slice variation for *ResourcesRecents*
  */
 type BlogRecentsSliceVariation = BlogRecentsSliceDefault;
 
 /**
- * BlogRecents Shared Slice
+ * ResourcesRecents Shared Slice
  *
  * - **API ID**: `blog_recents`
  * - **Description**: BlogRecents
@@ -6044,108 +6141,6 @@ export type TimelineScrollerSlice = prismic.SharedSlice<
   TimelineScrollerSliceVariation
 >;
 
-/**
- * Item in *LinkCards → Default → Primary → Card Items*
- */
-export interface VideoLinkCardsSliceDefaultPrimaryCardItemsItem {
-  /**
-   * Image field in *LinkCards → Default → Primary → Card Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: video_link_cards.default.primary.card_items[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Title field in *LinkCards → Default → Primary → Card Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: video_link_cards.default.primary.card_items[].title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Sub Title field in *LinkCards → Default → Primary → Card Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: video_link_cards.default.primary.card_items[].sub_title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  sub_title: prismic.KeyTextField;
-
-  /**
-   * Date field in *LinkCards → Default → Primary → Card Items*
-   *
-   * - **Field Type**: Date
-   * - **Placeholder**: *None*
-   * - **API ID Path**: video_link_cards.default.primary.card_items[].date
-   * - **Documentation**: https://prismic.io/docs/field#date
-   */
-  date: prismic.DateField;
-
-  /**
-   * CTA Link field in *LinkCards → Default → Primary → Card Items*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: video_link_cards.default.primary.card_items[].cta_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  cta_link: prismic.LinkField;
-}
-
-/**
- * Primary content in *LinkCards → Default → Primary*
- */
-export interface VideoLinkCardsSliceDefaultPrimary {
-  /**
-   * Card Items field in *LinkCards → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: video_link_cards.default.primary.card_items[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  card_items: prismic.GroupField<
-    Simplify<VideoLinkCardsSliceDefaultPrimaryCardItemsItem>
-  >;
-}
-
-/**
- * Default variation for LinkCards Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type VideoLinkCardsSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<VideoLinkCardsSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *LinkCards*
- */
-type VideoLinkCardsSliceVariation = VideoLinkCardsSliceDefault;
-
-/**
- * LinkCards Shared Slice
- *
- * - **API ID**: `video_link_cards`
- * - **Description**: VideoLinkCards
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type VideoLinkCardsSlice = prismic.SharedSlice<
-  "video_link_cards",
-  VideoLinkCardsSliceVariation
->;
-
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -6249,8 +6244,11 @@ declare module "@prismicio/client" {
       BlogCategoryItemsSlice,
       BlogCategoryItemsSliceDefaultPrimaryCardItemsItem,
       BlogCategoryItemsSliceDefaultPrimary,
+      BlogCategoryItemsSliceFilmsVariationPrimaryCardItemsItem,
+      BlogCategoryItemsSliceFilmsVariationPrimary,
       BlogCategoryItemsSliceVariation,
       BlogCategoryItemsSliceDefault,
+      BlogCategoryItemsSliceFilmsVariation,
       BlogHighlightSlice,
       BlogHighlightSliceDefaultPrimaryItemsItem,
       BlogHighlightSliceDefaultPrimary,
@@ -6390,11 +6388,6 @@ declare module "@prismicio/client" {
       TimelineScrollerSliceDefaultPrimary,
       TimelineScrollerSliceVariation,
       TimelineScrollerSliceDefault,
-      VideoLinkCardsSlice,
-      VideoLinkCardsSliceDefaultPrimaryCardItemsItem,
-      VideoLinkCardsSliceDefaultPrimary,
-      VideoLinkCardsSliceVariation,
-      VideoLinkCardsSliceDefault,
     };
   }
 }
