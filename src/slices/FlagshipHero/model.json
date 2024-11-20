@@ -1,0 +1,93 @@
+{
+  "id": "flagship_hero",
+  "type": "SharedSlice",
+  "name": "FlagshipHero",
+  "description": "FlagshipHero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "main_title": {
+          "type": "Text",
+          "config": {
+            "label": "Main title",
+            "placeholder": ""
+          }
+        },
+        "sub_title": {
+          "type": "Text",
+          "config": {
+            "label": "Sub title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "isanimatedicon": {
+          "type": "Boolean",
+          "config": {
+            "label": "isAnimatedIcon",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "animated_icon_a_json_format": {
+          "type": "Text",
+          "config": {
+            "label": "Animated Icon A JSON format",
+            "placeholder": ""
+          }
+        },
+        "animated_icon_b_json_format": {
+          "type": "Text",
+          "config": {
+            "label": "Animated Icon B JSON format",
+            "placeholder": ""
+          }
+        },
+        "image_a": {
+          "type": "Image",
+          "config": {
+            "label": "Image A",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_b": {
+          "type": "Image",
+          "config": {
+            "label": "Image B",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card title",
+            "placeholder": ""
+          }
+        },
+        "card_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card description",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

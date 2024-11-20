@@ -8,6 +8,7 @@ export const components = {
   blog_recents: dynamic(() => import("./ResourcesRecents")),
   donation_slice: dynamic(() => import("./DonationSlice")),
   donor_hero: dynamic(() => import("./DonorHero")),
+  flagship_hero: dynamic(() => import("./FlagshipHero")),
   frequently_asked_questions: dynamic(
     () => import("./FrequentlyAskedQuestions"),
   ),

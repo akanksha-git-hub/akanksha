@@ -96,6 +96,18 @@ const routes = [
     path: '/resources/blogs/:uid'
   },
   {
+    type: 'project_setu',
+    path: '/flagship-programs/project-setu'
+  },
+  {
+    type: 'school_project',
+    path: '/flagship-programs/school-project'
+  },
+  {
+    type: 'ase',
+    path: '/flagship-programs/ase'
+  },
+  {
     type: 'privacy_policy',
     path: '/privacy-policy'
   }

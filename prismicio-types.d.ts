@@ -116,6 +116,67 @@ export type AnnualReportsDocument<Lang extends string = string> =
     Lang
   >;
 
+type AseDocumentDataSlicesSlice = FlagshipHeroSlice;
+
+/**
+ * Content for ASE documents
+ */
+interface AseDocumentData {
+  /**
+   * Slice Zone field in *ASE*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ase.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AseDocumentDataSlicesSlice> /**
+   * Meta Title field in *ASE*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: ase.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *ASE*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: ase.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *ASE*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ase.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * ASE document from Prismic
+ *
+ * - **API ID**: `ase`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AseDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<AseDocumentData>, "ase", Lang>;
+
 /**
  * Item in *Blog Child Page → Items*
  */
@@ -2357,6 +2418,136 @@ export type PrivacyPolicyDocument<Lang extends string = string> =
     Lang
   >;
 
+type ProjectSetuDocumentDataSlicesSlice = FlagshipHeroSlice;
+
+/**
+ * Content for Project Setu documents
+ */
+interface ProjectSetuDocumentData {
+  /**
+   * Slice Zone field in *Project Setu*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_setu.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProjectSetuDocumentDataSlicesSlice> /**
+   * Meta Title field in *Project Setu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: project_setu.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Project Setu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: project_setu.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Project Setu*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_setu.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Project Setu document from Prismic
+ *
+ * - **API ID**: `project_setu`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProjectSetuDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ProjectSetuDocumentData>,
+    "project_setu",
+    Lang
+  >;
+
+type SchoolProjectDocumentDataSlicesSlice = FlagshipHeroSlice;
+
+/**
+ * Content for School Project documents
+ */
+interface SchoolProjectDocumentData {
+  /**
+   * Slice Zone field in *School Project*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: school_project.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<SchoolProjectDocumentDataSlicesSlice> /**
+   * Meta Title field in *School Project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: school_project.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *School Project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: school_project.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *School Project*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: school_project.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * School Project document from Prismic
+ *
+ * - **API ID**: `school_project`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SchoolProjectDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SchoolProjectDocumentData>,
+    "school_project",
+    Lang
+  >;
+
 type TimelineDocumentDataSlicesSlice = TimelineScrollerSlice;
 
 /**
@@ -2705,6 +2896,7 @@ export type WorkWithUsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AnnualReportsDocument
+  | AseDocument
   | BlogChildPageDocument
   | BlogShowcasePageDocument
   | ContactDocument
@@ -2730,6 +2922,8 @@ export type AllDocumentTypes =
   | OurdonorsDocument
   | PartnershipsDocument
   | PrivacyPolicyDocument
+  | ProjectSetuDocument
+  | SchoolProjectDocument
   | TimelineDocument
   | VisionMissionDocument
   | VolunteerWithUsDocument
@@ -3540,6 +3734,142 @@ type DonorHeroSliceVariation = DonorHeroSliceDefault;
 export type DonorHeroSlice = prismic.SharedSlice<
   "donor_hero",
   DonorHeroSliceVariation
+>;
+
+/**
+ * Primary content in *FlagshipHero → Default → Primary*
+ */
+export interface FlagshipHeroSliceDefaultPrimary {
+  /**
+   * Main title field in *FlagshipHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.default.primary.main_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_title: prismic.KeyTextField;
+
+  /**
+   * Sub title field in *FlagshipHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.default.primary.sub_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sub_title: prismic.KeyTextField;
+
+  /**
+   * Description field in *FlagshipHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * isAnimatedIcon field in *FlagshipHero → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: flagship_hero.default.primary.isanimatedicon
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  isanimatedicon: prismic.BooleanField;
+
+  /**
+   * Animated Icon A JSON format field in *FlagshipHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.default.primary.animated_icon_a_json_format
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  animated_icon_a_json_format: prismic.KeyTextField;
+
+  /**
+   * Animated Icon B JSON format field in *FlagshipHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.default.primary.animated_icon_b_json_format
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  animated_icon_b_json_format: prismic.KeyTextField;
+
+  /**
+   * Image A field in *FlagshipHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.default.primary.image_a
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_a: prismic.ImageField<never>;
+
+  /**
+   * Image B field in *FlagshipHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.default.primary.image_b
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_b: prismic.ImageField<never>;
+
+  /**
+   * Card title field in *FlagshipHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.default.primary.card_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_title: prismic.KeyTextField;
+
+  /**
+   * Card description field in *FlagshipHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.default.primary.card_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_description: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for FlagshipHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlagshipHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FlagshipHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FlagshipHero*
+ */
+type FlagshipHeroSliceVariation = FlagshipHeroSliceDefault;
+
+/**
+ * FlagshipHero Shared Slice
+ *
+ * - **API ID**: `flagship_hero`
+ * - **Description**: FlagshipHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlagshipHeroSlice = prismic.SharedSlice<
+  "flagship_hero",
+  FlagshipHeroSliceVariation
 >;
 
 /**
@@ -6610,6 +6940,9 @@ declare module "@prismicio/client" {
       AnnualReportsDocumentData,
       AnnualReportsDocumentDataItemsItem,
       AnnualReportsDocumentDataSlicesSlice,
+      AseDocument,
+      AseDocumentData,
+      AseDocumentDataSlicesSlice,
       BlogChildPageDocument,
       BlogChildPageDocumentData,
       BlogChildPageDocumentDataItemsItem,
@@ -6690,6 +7023,12 @@ declare module "@prismicio/client" {
       PrivacyPolicyDocumentData,
       PrivacyPolicyDocumentDataRichTextEditorItem,
       PrivacyPolicyDocumentDataSlicesSlice,
+      ProjectSetuDocument,
+      ProjectSetuDocumentData,
+      ProjectSetuDocumentDataSlicesSlice,
+      SchoolProjectDocument,
+      SchoolProjectDocumentData,
+      SchoolProjectDocumentDataSlicesSlice,
       TimelineDocument,
       TimelineDocumentData,
       TimelineDocumentDataSlicesSlice,
@@ -6736,6 +7075,10 @@ declare module "@prismicio/client" {
       DonorHeroSliceDefaultPrimary,
       DonorHeroSliceVariation,
       DonorHeroSliceDefault,
+      FlagshipHeroSlice,
+      FlagshipHeroSliceDefaultPrimary,
+      FlagshipHeroSliceVariation,
+      FlagshipHeroSliceDefault,
       FrequentlyAskedQuestionsSlice,
       FrequentlyAskedQuestionsSliceDefaultPrimaryFaqItem,
       FrequentlyAskedQuestionsSliceDefaultPrimaryImagesItem,
