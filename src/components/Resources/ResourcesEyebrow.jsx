@@ -3,6 +3,8 @@ import { useResourcesCardContext } from './ResourcesCard';
 import RichText from '../Texts/RichText';
 import CTA from '../UI/Button/CTA';
 import { months, years } from '@/utils/months';
+import FilterSelector from './FilterSelector';
+import { useCallback } from 'react';
 
 export default function ResourcesEyebrow({ className, isFilter }) {
 
@@ -13,7 +15,8 @@ export default function ResourcesEyebrow({ className, isFilter }) {
         state: { isShowAll },
         handleSetMonth,
         handleSetYear,
-        currentData
+        currentData,
+        filterValues: { year, month }
     } = useResourcesCardContext();
 
     const viewAllFunction = () => {
@@ -21,18 +24,11 @@ export default function ResourcesEyebrow({ className, isFilter }) {
         showAllReducer(currentData);
     }
 
-    function handleChange(e) {
-
-        const name = e.target.name;
-        const value = e.target.value;
+    const handleChange = useCallback((name, value) => {
         if(name === "month") handleSetMonth(value);
         if(name === "year") handleSetYear(value);
-
         return;
-    }
-
-
-    console.log(currentData, 'CURRENT ACTIVE DATA');
+    }, []);
 
 
   return (
@@ -43,20 +39,10 @@ export default function ResourcesEyebrow({ className, isFilter }) {
             />
             <div className='flex items-center gap-12'>
                 {isFilter && (
-                    <>
-                        <select onChange={handleChange} name="month">
-                            <option disabled selected value className="!text-[#A9AEB6]">
-                                Month
-                            </option>
-                            {months.map(item => <option value={item} key={item}>{item}</option>)}
-                        </select>
-                        <select onChange={handleChange} name="year">
-                            <option disabled selected value className="!text-[#A9AEB6]">
-                                Year
-                            </option>
-                            {years.map(item => <option key={item} value={item}>{item}</option>)}
-                        </select>
-                    </>
+                    <FilterSelector 
+                        handleChange={handleChange}
+                        data={{months, years}}
+                    />
                 )}
                 <CTA 
                     disabled={isShowAll}

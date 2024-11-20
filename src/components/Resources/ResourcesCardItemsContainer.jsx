@@ -15,7 +15,6 @@ export default function ResourcesCardItemsContainer({ children, itemKeyFn, isFil
       },
     handleSetCurrentData,
     handleFilterChange,
-    currentData
   } = useResourcesCardContext();
 
   const parsedInt = parseInt(filteredYear);
