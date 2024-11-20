@@ -2846,6 +2846,61 @@ export interface BlogCategoryItemsSliceFilmsVariationPrimaryCardItemsItem {
 }
 
 /**
+ * Item in *ResourcesCategoryItems → No Title Tag Variation → Primary → Card Items*
+ */
+export interface BlogCategoryItemsSliceNoTitleTagVariationPrimaryCardItemsItem {
+  /**
+   * Image field in *ResourcesCategoryItems → No Title Tag Variation → Primary → Card Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.noTitleTagVariation.primary.card_items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ResourcesCategoryItems → No Title Tag Variation → Primary → Card Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.noTitleTagVariation.primary.card_items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Date field in *ResourcesCategoryItems → No Title Tag Variation → Primary → Card Items*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.noTitleTagVariation.primary.card_items[].date
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * CTA Link field in *ResourcesCategoryItems → No Title Tag Variation → Primary → Card Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.noTitleTagVariation.primary.card_items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * Rich Text Bullet Points field in *ResourcesCategoryItems → No Title Tag Variation → Primary → Card Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.noTitleTagVariation.primary.card_items[].rich_text_bullet_points
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rich_text_bullet_points: prismic.RichTextField;
+}
+
+/**
  * Primary content in *ResourcesCategoryItems → Default → Primary*
  */
 export interface BlogCategoryItemsSliceDefaultPrimary {
@@ -2966,11 +3021,53 @@ export type BlogCategoryItemsSliceFilmsVariation = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ResourcesCategoryItems → No Title Tag Variation → Primary*
+ */
+export interface BlogCategoryItemsSliceNoTitleTagVariationPrimary {
+  /**
+   * CTA Text field in *ResourcesCategoryItems → No Title Tag Variation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.noTitleTagVariation.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * Card Items field in *ResourcesCategoryItems → No Title Tag Variation → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_category_items.noTitleTagVariation.primary.card_items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card_items: prismic.GroupField<
+    Simplify<BlogCategoryItemsSliceNoTitleTagVariationPrimaryCardItemsItem>
+  >;
+}
+
+/**
+ * No Title Tag Variation variation for ResourcesCategoryItems Slice
+ *
+ * - **API ID**: `noTitleTagVariation`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogCategoryItemsSliceNoTitleTagVariation =
+  prismic.SharedSliceVariation<
+    "noTitleTagVariation",
+    Simplify<BlogCategoryItemsSliceNoTitleTagVariationPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *ResourcesCategoryItems*
  */
 type BlogCategoryItemsSliceVariation =
   | BlogCategoryItemsSliceDefault
-  | BlogCategoryItemsSliceFilmsVariation;
+  | BlogCategoryItemsSliceFilmsVariation
+  | BlogCategoryItemsSliceNoTitleTagVariation;
 
 /**
  * ResourcesCategoryItems Shared Slice
@@ -6612,9 +6709,12 @@ declare module "@prismicio/client" {
       BlogCategoryItemsSliceDefaultPrimary,
       BlogCategoryItemsSliceFilmsVariationPrimaryCardItemsItem,
       BlogCategoryItemsSliceFilmsVariationPrimary,
+      BlogCategoryItemsSliceNoTitleTagVariationPrimaryCardItemsItem,
+      BlogCategoryItemsSliceNoTitleTagVariationPrimary,
       BlogCategoryItemsSliceVariation,
       BlogCategoryItemsSliceDefault,
       BlogCategoryItemsSliceFilmsVariation,
+      BlogCategoryItemsSliceNoTitleTagVariation,
       BlogHighlightSlice,
       BlogHighlightSliceDefaultPrimaryItemsItem,
       BlogHighlightSliceDefaultPrimary,

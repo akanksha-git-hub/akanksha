@@ -8,10 +8,9 @@ import ResourcesCard from "@/components/Resources/ResourcesCard";
  */
 const BlogCategoryItems = ({ slice, context }) => {
 
-  let identifier = slice.primary.category_identifier.split(" ").join('').toLowerCase();
-
+  
   if(slice.variation === 'default') {
-
+    let identifier = slice.primary.category_identifier.split(" ").join('').toLowerCase();
     return (
       <>
       {identifier === context && (
@@ -37,7 +36,7 @@ const BlogCategoryItems = ({ slice, context }) => {
   }
 
   if(slice.variation === 'filmsVariation') {
-
+    let identifier = slice.primary.category_identifier.split(" ").join('').toLowerCase();
     return(
       <>
       {identifier === context && (
@@ -66,6 +65,27 @@ const BlogCategoryItems = ({ slice, context }) => {
     )
 
   }
+  
+  if(slice.variation === "noTitleTagVariation") {
+    return(
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="mt-24"
+      >
+        <ResourcesCard slice={slice}>
+          <ResourcesCard.ItemsContainer 
+            itemKeyFn={(item) => item.date}
+          >
+            {(item) => <ResourcesCard.ItemB item={item} />}
+          </ResourcesCard.ItemsContainer>
+          <ResourcesCard.PaginationContainer />
+        </ResourcesCard> 
+      </section>
+    )
+  }
+
+  // Make another for just single card without title/identifier;
 
   
 
