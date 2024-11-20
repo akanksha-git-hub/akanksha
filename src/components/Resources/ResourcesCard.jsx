@@ -28,6 +28,7 @@ const ResourceCardContext = createContext({
   slice: [],
   currentData: [],
   handleSetCurrentData: (data) => {},
+  handleFilterChange: (data) => {},
   showAllReducer: (data) => {},
   incrementPagination: () => {},
   decrementPagination: () => {},
@@ -108,6 +109,15 @@ function reducer(state, action) {
         final: finalValue,
         totalLength: dataLength
       }
+
+    }
+
+    return {
+      ...state,
+      isShowAll: true,
+      initial: 0,
+      final: dataLength,
+      totalLength: dataLength
     }
   }
 
@@ -115,6 +125,7 @@ function reducer(state, action) {
     const dataLength = action.payload.data.length;
 
     if(dataLength > 3) {
+
       const balanceValue = dataLength - 6;
       let finalValue;
       
@@ -183,6 +194,10 @@ export default function ResourcesCard({ children, slice, className }) {
     setCurrentData(() => data);
   }
 
+  function handleFilterChange(data) {
+    dispatch({ type: CHANGED, payload: { data }})
+  }
+
   const ctxValues = { 
     slice, 
     incrementPagination, 
@@ -195,7 +210,8 @@ export default function ResourcesCard({ children, slice, className }) {
     handleSetYear,
     filterValues,
     currentData,
-    handleSetCurrentData
+    handleSetCurrentData,
+    handleFilterChange
   }
 
   return (

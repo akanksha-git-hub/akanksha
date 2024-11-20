@@ -14,6 +14,7 @@ export default function ResourcesCardItemsContainer({ children, itemKeyFn, isFil
         year: filteredYear 
       },
     handleSetCurrentData,
+    handleFilterChange,
     currentData
   } = useResourcesCardContext();
 
@@ -135,7 +136,9 @@ export default function ResourcesCardItemsContainer({ children, itemKeyFn, isFil
 
     handleSetCurrentData(sortedArray);
 
-  }, []);
+    if(filteredMonth || filteredYear) handleFilterChange(sortedArray);
+
+  }, [filteredMonth, filteredYear]);
 
   return (
     <>
