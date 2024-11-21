@@ -10,6 +10,13 @@ import Lottie from "lottie-react";
  */
 const FlagshipHero = ({ slice }) => {
 
+
+  let LottieDataA = null;
+  let LottieDataB = null;
+
+  if(slice.primary.animated_icon_a_json_format) LottieDataA = JSON.parse(slice.primary.animated_icon_a_json_format);
+  if(slice.primary.animated_icon_b_json_format) LottieDataB = JSON.parse(slice.primary.animated_icon_b_json_format);
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -46,7 +53,7 @@ const FlagshipHero = ({ slice }) => {
             />
           )
         :
-        slice.primary.animated_icon_a_json_format ? <Lottie animationData={slice.primary.animated_icon_a_json_format} /> : null
+        slice.primary.animated_icon_a_json_format ? <Lottie animationData={LottieDataA} /> : null
         }
         </div>
       <div className="flex flex-col items-center justify-center space-y-6 py-44 sm:py-0">
@@ -71,7 +78,7 @@ const FlagshipHero = ({ slice }) => {
             />
           )
           :
-          slice.primary.animated_icon_b_json_format ? <Lottie animationData={slice.primary.animated_icon_b_json_format} /> : null
+          slice.primary.animated_icon_b_json_format ? <Lottie animationData={LottieDataB} /> : null
         }
         </div>
     </div>
