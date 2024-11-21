@@ -10,15 +10,14 @@ import Lottie from "lottie-react";
  */
 const IconShowcase = ({ slice }) => {
 
-
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding"
+      className="universal-padding my-12"
     >
       {slice.primary.data && (
-        <ul className="flex flex-wrap justify-center gap-8">
+        <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
           {slice.primary.data.map(item => {
 
             let LottieData = null;
@@ -28,7 +27,7 @@ const IconShowcase = ({ slice }) => {
             return (
               <li 
                 key={item.title}
-                className="flex flex-col items-start justify-start w-full sm:w-[500px] space-y-4"
+                className="flex flex-col items-start justify-start space-y-4"
               >
                 <div className="h-28 w-28 rounded-full bg-bright-yellow flex items-center justify-center">
                   {

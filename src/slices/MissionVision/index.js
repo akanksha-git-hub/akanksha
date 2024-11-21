@@ -54,6 +54,43 @@ const MissionVision = ({ slice }) => {
     )
   }
 
+  if(slice.variation === 'optionE') {
+
+    return(
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+      >
+      <div className={`flex flex-col items-end gap-12 mt-12 lg:mt-8 lg:flex-row`}>
+        <VideoModal className="hidden lg:flex" slice={slice} />
+        <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-2/4">
+          <RichText 
+            className="font-ambit-regular text-deep-green uppercase mb-4"
+            text={slice.primary.small_title}
+          />
+          <RichText 
+            text={slice.primary.title}
+            className="
+            text-deep-green font-ambit-regular text-center text-5xl w-full 
+              sm:w-3/4 justify-center
+              lg:text-left lg:items-start lg:justify-normal
+              md:w-full lg:w-3/4
+              xl:text-[58px] 
+              2xl:text-[60px]
+              3xl:text-8xl 3xl:mt-2"
+          />
+          <VideoModal className="flex w-full mt-8 lg:hidden" slice={slice} />
+          <RichText 
+            className="font-inter text-deep-green text-center lg:text-left text-sm 3xl:text-lg w-[90%] mt-8"
+            text={slice.primary.description}
+          />
+        </div>
+      </div>
+    </section>
+    )
+
+  }
+
   return (
     <section
       data-slice-type={slice.slice_type}

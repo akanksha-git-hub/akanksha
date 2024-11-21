@@ -11,6 +11,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "icon_showcase": {
+              "type": "SharedSlice"
+            },
+            "page_title": {
+              "type": "SharedSlice"
+            },
+            "mission_vision": {
+              "type": "SharedSlice"
+            },
             "flagship_hero": {
               "type": "SharedSlice"
             }

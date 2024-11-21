@@ -2483,7 +2483,11 @@ export type ProjectSetuDocument<Lang extends string = string> =
     Lang
   >;
 
-type SchoolProjectDocumentDataSlicesSlice = FlagshipHeroSlice;
+type SchoolProjectDocumentDataSlicesSlice =
+  | IconShowcaseSlice
+  | PageTitleSlice
+  | MissionVisionSlice
+  | FlagshipHeroSlice;
 
 /**
  * Content for School Project documents
@@ -4958,24 +4962,14 @@ export interface MissionVisionSliceOptionDPrimary {
   description: prismic.KeyTextField;
 
   /**
-   * CTA Link field in *MissionVision → Option D → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: mission_vision.optionD.primary.cta_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  cta_link: prismic.LinkField;
-
-  /**
-   * CTA Text field in *MissionVision → Option D → Primary*
+   * Video Link field in *MissionVision → Option D → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: mission_vision.optionD.primary.cta_text
+   * - **API ID Path**: mission_vision.optionD.primary.video_link
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  cta_text: prismic.KeyTextField;
+  video_link: prismic.KeyTextField;
 
   /**
    * Slice Identifier field in *MissionVision → Option D → Primary*
@@ -4988,14 +4982,24 @@ export interface MissionVisionSliceOptionDPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
-   * Video Link field in *MissionVision → Option D → Primary*
+   * CTA Text field in *MissionVision → Option D → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: mission_vision.optionD.primary.video_link
+   * - **API ID Path**: mission_vision.optionD.primary.cta_text
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  video_link: prismic.KeyTextField;
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *MissionVision → Option D → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.optionD.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
 }
 
 /**
@@ -5012,13 +5016,82 @@ export type MissionVisionSliceOptionD = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *MissionVision → Option E → Primary*
+ */
+export interface MissionVisionSliceOptionEPrimary {
+  /**
+   * Video Thumbnail Image field in *MissionVision → Option E → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.optionE.primary.video_thumbnail_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  video_thumbnail_image: prismic.ImageField<never>;
+
+  /**
+   * Video Thumbnail Title field in *MissionVision → Option E → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.optionE.primary.video_thumbnail_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  video_thumbnail_title: prismic.KeyTextField;
+
+  /**
+   * Small title field in *MissionVision → Option E → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.optionE.primary.small_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_title: prismic.KeyTextField;
+
+  /**
+   * Title field in *MissionVision → Option E → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.optionE.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *MissionVision → Option E → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.optionE.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Option E variation for MissionVision Slice
+ *
+ * - **API ID**: `optionE`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MissionVisionSliceOptionE = prismic.SharedSliceVariation<
+  "optionE",
+  Simplify<MissionVisionSliceOptionEPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *MissionVision*
  */
 type MissionVisionSliceVariation =
   | MissionVisionSliceDefault
   | MissionVisionSliceReverseVideoComponet
   | MissionVisionSliceDoubleCtaComponent
-  | MissionVisionSliceOptionD;
+  | MissionVisionSliceOptionD
+  | MissionVisionSliceOptionE;
 
 /**
  * MissionVision Shared Slice
@@ -5428,9 +5501,60 @@ export type PageTitleSliceSparkle = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *PageTitle → Option C → Primary*
+ */
+export interface PageTitleSliceOptionCPrimary {
+  /**
+   * Slice Identifier field in *PageTitle → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.optionC.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *PageTitle → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.optionC.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *PageTitle → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.optionC.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Option C variation for PageTitle Slice
+ *
+ * - **API ID**: `optionC`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PageTitleSliceOptionC = prismic.SharedSliceVariation<
+  "optionC",
+  Simplify<PageTitleSliceOptionCPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *PageTitle*
  */
-type PageTitleSliceVariation = PageTitleSliceDefault | PageTitleSliceSparkle;
+type PageTitleSliceVariation =
+  | PageTitleSliceDefault
+  | PageTitleSliceSparkle
+  | PageTitleSliceOptionC;
 
 /**
  * PageTitle Shared Slice
@@ -7115,11 +7239,13 @@ declare module "@prismicio/client" {
       MissionVisionSliceReverseVideoComponetPrimary,
       MissionVisionSliceDoubleCtaComponentPrimary,
       MissionVisionSliceOptionDPrimary,
+      MissionVisionSliceOptionEPrimary,
       MissionVisionSliceVariation,
       MissionVisionSliceDefault,
       MissionVisionSliceReverseVideoComponet,
       MissionVisionSliceDoubleCtaComponent,
       MissionVisionSliceOptionD,
+      MissionVisionSliceOptionE,
       MissionVisionShowcaseSlice,
       MissionVisionShowcaseSliceDefaultPrimary,
       MissionVisionShowcaseSliceVariation,
@@ -7137,9 +7263,11 @@ declare module "@prismicio/client" {
       PageTitleSlice,
       PageTitleSliceDefaultPrimary,
       PageTitleSliceSparklePrimary,
+      PageTitleSliceOptionCPrimary,
       PageTitleSliceVariation,
       PageTitleSliceDefault,
       PageTitleSliceSparkle,
+      PageTitleSliceOptionC,
       PartnersShowcaseSlice,
       PartnersShowcaseSliceDefaultPrimaryPartnerLogosItem,
       PartnersShowcaseSliceDefaultPrimary,

@@ -264,26 +264,81 @@
 				"value": "chest",
 				"type": "Text"
 			},
-			"cta_link": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "http://google.com"
-				}
-			},
-			"cta_text": {
+			"video_link": {
 				"__TYPE__": "FieldContent",
-				"value": "musical",
+				"value": "each",
 				"type": "Text"
 			},
 			"slice_identifier": {
 				"__TYPE__": "FieldContent",
-				"value": "brush",
+				"value": "carbon",
 				"type": "Text"
 			},
-			"video_link": {
+			"cta_text": {
 				"__TYPE__": "FieldContent",
-				"value": "each",
+				"value": "still",
+				"type": "Text"
+			},
+			"cta_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "optionE",
+		"primary": {
+			"video_thumbnail_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
+					"width": 3648,
+					"height": 4560
+				},
+				"url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
+				"width": 3648,
+				"height": 4560,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"video_thumbnail_title": {
+				"__TYPE__": "FieldContent",
+				"value": "railroad",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "forty",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "vote",
+				"type": "Text"
+			},
+			"small_title": {
+				"__TYPE__": "FieldContent",
+				"value": "drive",
 				"type": "Text"
 			}
 		},
