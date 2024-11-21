@@ -2484,6 +2484,7 @@ export type ProjectSetuDocument<Lang extends string = string> =
   >;
 
 type SchoolProjectDocumentDataSlicesSlice =
+  | TestimonialSlice
   | IconShowcaseSlice
   | PageTitleSlice
   | MissionVisionSlice
@@ -6480,11 +6481,80 @@ export type TestimonialSliceSingle = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Testimonial → Option C → Primary*
+ */
+export interface TestimonialSliceOptionCPrimary {
+  /**
+   * Slice Identifier field in *Testimonial → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.optionC.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Image field in *Testimonial → Option C → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.optionC.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Quote field in *Testimonial → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.optionC.primary.quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField;
+
+  /**
+   * Name field in *Testimonial → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.optionC.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Designation field in *Testimonial → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.optionC.primary.designation
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  designation: prismic.KeyTextField;
+}
+
+/**
+ * Option C variation for Testimonial Slice
+ *
+ * - **API ID**: `optionC`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialSliceOptionC = prismic.SharedSliceVariation<
+  "optionC",
+  Simplify<TestimonialSliceOptionCPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Testimonial*
  */
 type TestimonialSliceVariation =
   | TestimonialSliceDefault
-  | TestimonialSliceSingle;
+  | TestimonialSliceSingle
+  | TestimonialSliceOptionC;
 
 /**
  * Testimonial Shared Slice
@@ -7308,9 +7378,11 @@ declare module "@prismicio/client" {
       TabSliceSliceDefault,
       TestimonialSlice,
       TestimonialSliceSinglePrimary,
+      TestimonialSliceOptionCPrimary,
       TestimonialSliceVariation,
       TestimonialSliceDefault,
       TestimonialSliceSingle,
+      TestimonialSliceOptionC,
       TextShowcaseSlice,
       TextShowcaseSliceDefaultPrimary,
       TextShowcaseSliceVariation,

@@ -53,6 +53,53 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "optionC",
+      "name": "Option C",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "quote": {
+          "type": "Text",
+          "config": {
+            "label": "Quote",
+            "placeholder": ""
+          }
+        },
+        "name": {
+          "type": "Text",
+          "config": {
+            "label": "Name",
+            "placeholder": ""
+          }
+        },
+        "designation": {
+          "type": "Text",
+          "config": {
+            "label": "Designation",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
