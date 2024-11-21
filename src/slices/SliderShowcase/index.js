@@ -1,8 +1,10 @@
 'use client'
 
+import SliceIdentifier from "@/components/SliceIdentifier";
 import SwiperClick from "@/components/SwiperClick";
 import RichText from "@/components/Texts/RichText";
 import PrimaryCTA from "@/components/UI/Button/PrimaryCTA";
+import StoryCircle from "@/components/UI/Story/StoryCircle";
 import SwiperArrow from "@/components/UI/SwiperArrow";
 import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
@@ -30,7 +32,123 @@ const SliderShowcase = ({ slice }) => {
 
   const swipeNext = () => nextRef.current.click();
   const swipePrev = () => prevRef.current.click();
+  const storyRef = useRef(null);
+  const mainRef = useRef(null)
 
+  function handleStory(i) {
+    setCurrent(i);
+    mainRef.current.swiper.slideTo(i);
+  }
+
+
+  if(slice.variation === 'sliderC') {
+
+    return(
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="my-24"
+      >
+        <div>
+          <SliceIdentifier 
+            text={slice.primary.slice_identifier}
+          />
+          <RichText 
+            text={slice.primary.title}
+            className='font-ambit-regular text-deep-green py-20 md:text-center max-w-[30ch] text-5xl mx-auto'
+          />
+        </div>
+        <div
+          className="rounded-lg flex flex-col lg:flex-row items-center justify-center gap-16 w-full"
+        >
+          <div className="w-full lg:w-[50%] ">
+            <ul className="pb-2 flex items-start justify-start w-full lg:w-[400px] xl:w-[600px] mx-auto lg:mx-0 mb-6">
+              <Swiper 
+                ref={storyRef}
+                className="w-[90%] sm:w-screen flex items-start" 
+                breakpoints={{
+                  2500: {
+                    slidesPerView: 5.6
+                  },
+                  1200: {
+                    slidesPerView: 4.3
+                  },
+                  600: {
+                    slidesPerView: 3
+                  },
+                  10: {
+                    slidesPerView: 2.2
+                  }
+                }}
+              >
+                {slice.primary.items.map(({ image }, index) => (
+                  <SwiperSlide key={index}>
+                    <StoryCircle 
+                      className="story-circle" 
+                      height={105} width={105} key={index} 
+                      index={index} currentIndex={current} 
+                      image={image} onClick={() => handleStory(index)} 
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </ul>
+            <Swiper 
+                ref={mainRef}
+                className="w-full h-[400px] sm:h-[420px] 3xl:h-[500px] rounded-lg"
+                onActiveIndexChange={(swiper) => {
+                  setCurrent(current)
+                  storyRef.current.swiper.slideTo(current - 1)
+                }}
+                onSlideChange={(e) => setCurrent(() => e.activeIndex)}
+                >
+                {slice.primary.items.map((item, index) => {
+                  return(
+                    <SwiperSlide className="!h-full !w-full" key={index}>
+                      <SwiperClick className="absolute opacity-0" text="Next" ref={nextRef} />
+                      <SwiperClick className="absolute opacity-0" isPrev text="Prev" ref={prevRef} />
+                      <PrismicNextImage 
+                        className="h-full w-full object-cover"
+                        field={item.image}
+                      />
+                    </SwiperSlide>
+                  )
+                })}
+              </Swiper>
+          </div>
+        <div className="flex flex-col lg:mt-24 items-start justify-between h-full w-full lg:w-[40%] space-y-4 3xl:space-y-14">
+          <RichText 
+            className='text-deep-green font-ambit-regular text-3xl opacity-reveal'
+            key={slice.primary.items[current].title}
+            text={slice.primary.items[current].title}
+          />
+          <div className="flex flex-col gap-8">
+            <RichText 
+              className='text-[#9C9C9C] font-ambit-regular text-base w-full lg:w-[94%] opacity-reveal'
+              key={slice.primary.items[current].description}
+              text={slice.primary.items[current].description}
+            />
+            <div>
+              <div className="flex gap-2">
+                <SwiperArrow 
+                  strokeColor="#37473C" 
+                  className={`${current === 0 ? "bg-[#AFB3A9]" : "bg-bright-yellow"} rotate-180`} 
+                  onClick={swipePrev}
+                />
+                <SwiperArrow 
+                  strokeColor="#37473C" 
+                  className={`${current === slice.primary.items.length - 1 ? "bg-[#AFB3A9]" : "bg-bright-yellow"}`}
+                  onClick={swipeNext}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    )
+
+  }
 
   return(
     <>
