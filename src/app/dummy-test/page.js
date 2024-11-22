@@ -88,9 +88,13 @@ export default function Page() {
             // set Initial Value for cards not FIRST INDEX;
             cards.forEach((card, index) => {
                 if(index !== 0) {
-                    gsap.set(`#${card.id}`, { translateY: '10%', translateZ: '100px'});
+                    if(index === 1) {
+                        gsap.set(`#${card.id}`, { translateY: '10%', translateZ: '100px', scale: 0.9});
+                    } else {
+                        gsap.set(`#${card.id}`, { translateY: '10%', translateZ: '90px', scale: 0.9});
+                    }
                 } else {
-                    gsap.set(`#${card.id}`, { translateY: '0%', translateZ: '120px' })
+                    gsap.set(`#${card.id}`, { translateY: '0%', translateZ: '120px' });
                 }
             });
 
@@ -108,19 +112,23 @@ export default function Page() {
                     }
                 })
 
-                cards.forEach((card) => {
+                cards.forEach((card, i) => {
 
-                    tl.to(`#${card.id}`, { translateY: '-86%', translateZ: '120px', duration: 0.5 })
-                    .to(`#${card.id}`, { scale: 0.9 })
-                    .to(`#${card.id}`, { translateZ: '-100px', translateY: '10%'});
+                    const currentCard = i + 1;
+                    const cardLength = cards.length;
+
+                    tl.to(currentCard !== cardLength &&`#${card.id}`, { translateY: '-86%', translateZ: '120px', duration: 1.5, ease: 'power2.out' })
+                    .to(currentCard !== cardLength &&`#${card.id}`, { scale: 0.9, duration: 1.5, ease: 'power2.out' })
+                    .to(currentCard !== cardLength &&`#${card.id}`, { translateZ: '-100px' })
+                    .to((currentCard !== cardLength) && (currentCard <= cardLength) && `#card-${i + 2}`, { translateZ: '130px' })
+                    .to((currentCard !== cardLength) && (currentCard < cardLength) && `#card-${i + 3}`, { translateZ: '120px' })
+                    .to((currentCard !== cardLength) && (currentCard <= cardLength) && `#card-${i+ 2}`, { translateY: '10%', scale: 1, duration: 1.5, ease: 'power2.out' })
+                    .to((currentCard !== cardLength) &&`#${card.id}`, { translateY: '10%', duration: 1.5, scale: 0.9, ease: 'power2.out' })
 
                 });
 
             });
-
-
             return () => ctx.revert(); // cleanup fn
-
         }
 
     }, [secondMount])
@@ -132,7 +140,7 @@ export default function Page() {
             <p className="text-white font-ambit-regular">FIRST SECTION</p>
         </div>
         <ul ref={root} className="h-[200vh] bg-cream">
-            <div className="card-container">
+            <div className="card-container mx-auto">
                 {cards.map((item, index) => {
                     const randomNumber = Math.floor(Math.random() * 200);
                     return(
