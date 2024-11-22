@@ -11,8 +11,8 @@
   --inactive-story: #757575F0;
   --marquee-timing: 120s;
   --magic-bezier: cubic-bezier(0.83, 0, 0.17, 1);
-  --card-height: 320px;
-  --card-width: 60%;
+  --card-height: 420px;
+  --card-width: 80%;
 }
 *{
   margin: 0;
@@ -695,7 +695,7 @@ gap: 1rem; */
   transform-style: preserve-3d;
   /* transform: rotateX(20deg) rotateY(50deg); */
   /* transition: all 0.4s var(--magic-bezier); */
-  border: 1px black solid;
+  /* border: 1px black solid; */
 }
 .pers-cards {
   position: absolute;

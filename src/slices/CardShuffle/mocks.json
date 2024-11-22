@@ -1,0 +1,73 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"small_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "journey",
+									"type": "Text"
+								}
+							],
+							[
+								"main_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "wolf",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "angry",
+									"type": "Text"
+								}
+							],
+							[
+								"cta_link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"cta_text": {
+				"__TYPE__": "FieldContent",
+				"value": "cave",
+				"type": "Text"
+			},
+			"heading_small": {
+				"__TYPE__": "FieldContent",
+				"value": "leg",
+				"type": "Text"
+			},
+			"heading_big": {
+				"__TYPE__": "FieldContent",
+				"value": "pleasant",
+				"type": "Text"
+			},
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "mainly",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

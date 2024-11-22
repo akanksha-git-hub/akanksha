@@ -2418,7 +2418,7 @@ export type PrivacyPolicyDocument<Lang extends string = string> =
     Lang
   >;
 
-type ProjectSetuDocumentDataSlicesSlice = FlagshipHeroSlice;
+type ProjectSetuDocumentDataSlicesSlice = CardShuffleSlice | FlagshipHeroSlice;
 
 /**
  * Content for Project Setu documents
@@ -3630,6 +3630,136 @@ type BlogRecentsSliceVariation =
 export type BlogRecentsSlice = prismic.SharedSlice<
   "blog_recents",
   BlogRecentsSliceVariation
+>;
+
+/**
+ * Item in *CardShuffle → Default → Primary → Items*
+ */
+export interface CardShuffleSliceDefaultPrimaryItemsItem {
+  /**
+   * Small title field in *CardShuffle → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.default.primary.items[].small_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_title: prismic.KeyTextField;
+
+  /**
+   * Main title field in *CardShuffle → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.default.primary.items[].main_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_title: prismic.KeyTextField;
+
+  /**
+   * Description field in *CardShuffle → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.default.primary.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *CardShuffle → Default → Primary → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.default.primary.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *CardShuffle → Default → Primary*
+ */
+export interface CardShuffleSliceDefaultPrimary {
+  /**
+   * Slice Identifier field in *CardShuffle → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Heading small field in *CardShuffle → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.default.primary.heading_small
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading_small: prismic.KeyTextField;
+
+  /**
+   * Heading Big field in *CardShuffle → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.default.primary.heading_big
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading_big: prismic.KeyTextField;
+
+  /**
+   * Items field in *CardShuffle → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<Simplify<CardShuffleSliceDefaultPrimaryItemsItem>>;
+
+  /**
+   * CTA Text field in *CardShuffle → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.default.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for CardShuffle Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardShuffleSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CardShuffleSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CardShuffle*
+ */
+type CardShuffleSliceVariation = CardShuffleSliceDefault;
+
+/**
+ * CardShuffle Shared Slice
+ *
+ * - **API ID**: `card_shuffle`
+ * - **Description**: CardShuffle
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardShuffleSlice = prismic.SharedSlice<
+  "card_shuffle",
+  CardShuffleSliceVariation
 >;
 
 /**
@@ -7348,6 +7478,11 @@ declare module "@prismicio/client" {
       BlogRecentsSliceVariation,
       BlogRecentsSliceDefault,
       BlogRecentsSliceTagVariation,
+      CardShuffleSlice,
+      CardShuffleSliceDefaultPrimaryItemsItem,
+      CardShuffleSliceDefaultPrimary,
+      CardShuffleSliceVariation,
+      CardShuffleSliceDefault,
       DonationSliceSlice,
       DonationSliceSliceVariation,
       DonationSliceSliceDefault,

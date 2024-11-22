@@ -1,0 +1,85 @@
+{
+  "id": "card_shuffle",
+  "type": "SharedSlice",
+  "name": "CardShuffle",
+  "description": "CardShuffle",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "heading_small": {
+          "type": "Text",
+          "config": {
+            "label": "Heading small",
+            "placeholder": ""
+          }
+        },
+        "heading_big": {
+          "type": "Text",
+          "config": {
+            "label": "Heading Big",
+            "placeholder": ""
+          }
+        },
+        "items": {
+          "type": "Group",
+          "config": {
+            "label": "Items",
+            "repeat": true,
+            "fields": {
+              "small_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Small title",
+                  "placeholder": ""
+                }
+              },
+              "main_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Main title",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
+                }
+              },
+              "cta_link": {
+                "type": "Link",
+                "config": {
+                  "label": "CTA Link",
+                  "placeholder": "",
+                  "select": null
+                }
+              }
+            }
+          }
+        },
+        "cta_text": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

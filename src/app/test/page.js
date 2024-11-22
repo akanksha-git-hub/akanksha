@@ -38,7 +38,7 @@ export default function Page() {
                         className='front-side grid place-items-center'
                     >
                         FRONT SIDE
-                    </div>
+                    </div>  
                 </div> 
         </main>
     )
