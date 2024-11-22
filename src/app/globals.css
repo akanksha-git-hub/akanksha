@@ -11,6 +11,8 @@
   --inactive-story: #757575F0;
   --marquee-timing: 120s;
   --magic-bezier: cubic-bezier(0.83, 0, 0.17, 1);
+  --card-height: 320px;
+  --card-width: 60%;
 }
 *{
   margin: 0;
@@ -683,6 +685,85 @@ gap: 1rem; */
 }
 
 /* input focus end */
+
+/* perspective translate z */
+.card-container {
+  position: relative;
+  top: 150px;
+  height: var(--card-height);
+  width: var(--card-width);
+  transform-style: preserve-3d;
+  /* transform: rotateX(20deg) rotateY(50deg); */
+  /* transition: all 0.4s var(--magic-bezier); */
+  border: 1px black solid;
+}
+.pers-cards {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--card-height);
+  width: 100%;
+  /* transform: translateZ(100px) translateY(10%); */
+  /* transition: all 0.5s var(--magic-bezier); */
+}
+
+.pers-cards:first-child {
+  /* transform: translateZ(120px) translateY(0); */
+}
+.pers-cards:last-child {
+  /* transform: translateZ(0px); */
+}
+/* perspective translate z end */
+
+
+
+/* ------------------ */
+/* testing perspective */
+.cube {
+  transition: all 0.5s var(--magic-bezier);
+  transform: rotateX(20deg) rotateY(50deg);
+  transform-style: preserve-3d;
+  border: 1px black solid;
+}
+.front-side {
+  position: absolute;
+  height: 250px;
+  width: 250px;
+  border: 1px red solid;
+  background: rgb(23, 198, 233);
+  transform: translateZ(-100px);
+  transition: all 0.5s var(--magic-bezier);
+}
+.pers {
+  height: 100vh;
+  perspective: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.target {
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+.test-B {
+  transform: translateZ(5px) scale(1.5);
+}
+.test-z {
+  transform: translateZ(-2px) scale(1.2);
+}
+/* testing perspective end */
+
+
+@keyframes testing-scroll-anim {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes testing-scroll-anim-reverse {
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fade-reveal {
   from {
     opacity: 0;
