@@ -32,7 +32,7 @@ export default function Page() {
 
         //     </div>
         // </main>
-        <main> 
+        <main className='h-screen grid place-items-center'> 
              <div className='cube relative h-[250px] w-[250px] border border-white'>
                      <div 
                         className='front-side grid place-items-center'
