@@ -15,10 +15,10 @@ export default function CardsShuffleItemContainer({ children, itemKeyFn, itemCla
     const root = useRef(null);
 
 
-    const frameCount = 1000;
+    const frameCount = 1400;
 
     let travelPixel;
-    travelPixel = (cards.length * 512);
+    travelPixel = (cards.length * 542);
 
     useEffect(() => {
 
@@ -91,13 +91,13 @@ export default function CardsShuffleItemContainer({ children, itemKeyFn, itemCla
                     const currentCard = i + 1;
                     const cardLength = cards.length;
 
-                    tl.to(currentCard !== cardLength &&`#${card.id}`, { translateY: '-86%', translateZ: '120px', duration: 2.5, ease: 'power2.out' })
-                    .to(currentCard !== cardLength &&`#${card.id}`, { scale: 0.9, duration: 2.5, ease: 'power2.out' })
+                    tl.to(currentCard !== cardLength &&`#${card.id}`, { translateY: '-86%', translateZ: '120px', duration: 3.5, ease: 'sine.in' })
+                    .to(currentCard !== cardLength &&`#${card.id}`, { scale: 0.9, duration: 3.5, ease: 'sine.in' })
                     .to(currentCard !== cardLength &&`#${card.id}`, { translateZ: '-100px' })
                     .to((currentCard !== cardLength) && (currentCard <= cardLength) && `#card-${i + 2}`, { translateZ: '130px' })
                     .to((currentCard !== cardLength) && (currentCard < cardLength) && `#card-${i + 3}`, { translateZ: '120px' })
-                    .to((currentCard !== cardLength) && (currentCard <= cardLength) && `#card-${i+ 2}`, { translateY: '10%', scale: 1, duration: 1.5, ease: 'power2.out' })
-                    .to((currentCard !== cardLength) &&`#${card.id}`, { translateY: '10%', duration: 2.5, scale: 0.9, ease: 'power2.out' })
+                    .to((currentCard !== cardLength) && (currentCard <= cardLength) && `#card-${i+ 2}`, { translateY: '10%', scale: 1, duration: 3.5, ease: 'sine.in' })
+                    .to((currentCard !== cardLength) &&`#${card.id}`, { translateY: '10%', duration: 3.5, scale: 0.9, ease: 'sine.in' })
 
                 });
 

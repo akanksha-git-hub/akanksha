@@ -66,7 +66,9 @@ export default function LenisScrollContext({ children }) {
     }
 
   return (
-    <SmoothScrollerContext.Provider value={ctxValues}>
+    <SmoothScrollerContext.Provider 
+        value={ctxValues}
+    >
         {children}
     </SmoothScrollerContext.Provider>
   )

@@ -6,10 +6,10 @@ export default function Shuffle({ slice }) {
     <CardsShuffle slice={slice}>
         <CardsShuffle.ItemContainer 
             itemsContainerClassName="card-container mx-auto"
-            itemClassName="bg-deep-green pers-cards p-8 rounded-[10px]"
+            itemClassName='pers-cards'
             itemKeyFn={(item, index) => index}
         >
-            {(item, index) => <CardsShuffle.CardShuffleA item={item} index={index} />}
+            {(item) => <CardsShuffle.CardShuffleA item={item} />}
         </CardsShuffle.ItemContainer>
     </CardsShuffle>
   )
