@@ -7,6 +7,7 @@ export const components = {
   blog_highlight: dynamic(() => import("./ResourcedHighlight")),
   blog_recents: dynamic(() => import("./ResourcesRecents")),
   card_shuffle: dynamic(() => import("./CardShuffle")),
+  cards: dynamic(() => import("./Cards")),
   donation_slice: dynamic(() => import("./DonationSlice")),
   donor_hero: dynamic(() => import("./DonorHero")),
   flagship_hero: dynamic(() => import("./FlagshipHero")),

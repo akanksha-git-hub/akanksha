@@ -24,14 +24,14 @@ const IconScrollShowcase = ({ slice }) => {
       <SliceIdentifier 
         text={slice.primary.slice_identifier}
       />
-      <div className="mt-16 space-y-2 flex flex-col items-center justify-center">
+      <div className="mt-16 space-y-2 flex flex-col md:items-center md:justify-center">
         <RichText 
           text={slice.primary.small_title}
-          className='font-ambit-regular text-2xl text-deep-green uppercase max-w-[30ch] text-center'
+          className='font-ambit-regular text-2xl text-deep-green uppercase max-w-[30ch] md:text-center'
         />
         <RichText 
           text={slice.primary.main_title}
-          className='font-ambit-regular text-6xl text-deep-green max-w-[40ch] text-center'
+          className='font-ambit-regular text-6xl text-deep-green max-w-[40ch] md:text-center'
         />
       </div>
       {
@@ -53,8 +53,9 @@ const IconScrollShowcase = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for icon_scroll_showcase (variation:{" "}
-      {slice.variation}) Slices
+      <IconScrollShowcaseDefault 
+        data={slice.primary.items}
+      />
     </section>
   );
 };

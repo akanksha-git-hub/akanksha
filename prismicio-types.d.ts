@@ -2419,6 +2419,8 @@ export type PrivacyPolicyDocument<Lang extends string = string> =
   >;
 
 type ProjectSetuDocumentDataSlicesSlice =
+  | CardsSlice
+  | IconShowcaseSlice
   | IconScrollShowcaseSlice
   | CardShuffleSlice
   | FlagshipHeroSlice;
@@ -3776,6 +3778,158 @@ export type CardShuffleSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Cards → Default → Primary*
+ */
+export interface CardsSliceDefaultPrimary {
+  /**
+   * Slice Identifier field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Card A title field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.card_a_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_title: prismic.KeyTextField;
+
+  /**
+   * Card A description field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.card_a_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_description: prismic.KeyTextField;
+
+  /**
+   * Card A Image field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.card_a_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_a_image: prismic.ImageField<never>;
+
+  /**
+   * Card B Title field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.card_b_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_title: prismic.KeyTextField;
+
+  /**
+   * Card B description field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.card_b_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_description: prismic.KeyTextField;
+
+  /**
+   * Card B Image field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.card_b_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_b_image: prismic.ImageField<never>;
+
+  /**
+   * Card C title field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.card_c_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_c_title: prismic.KeyTextField;
+
+  /**
+   * Card C description field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.card_c_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_c_description: prismic.KeyTextField;
+
+  /**
+   * Card C Image field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.default.primary.card_c_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_c_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Cards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CardsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Cards*
+ */
+type CardsSliceVariation = CardsSliceDefault;
+
+/**
+ * Cards Shared Slice
+ *
+ * - **API ID**: `cards`
+ * - **Description**: Cards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSlice = prismic.SharedSlice<"cards", CardsSliceVariation>;
+
+/**
  * Default variation for DonationSlice Slice
  *
  * - **API ID**: `default`
@@ -4504,6 +4658,62 @@ export interface IconShowcaseSliceDefaultPrimaryDataItem {
 }
 
 /**
+ * Item in *IconShowcase → With Title → Primary → Data*
+ */
+export interface IconShowcaseSliceWithTitlePrimaryDataItem {
+  /**
+   * Icon field in *IconShowcase → With Title → Primary → Data*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.withTitle.primary.data[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *IconShowcase → With Title → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.withTitle.primary.data[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *IconShowcase → With Title → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.withTitle.primary.data[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * isAnimatedIcon field in *IconShowcase → With Title → Primary → Data*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: icon_showcase.withTitle.primary.data[].isanimatedicon
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  isanimatedicon: prismic.BooleanField;
+
+  /**
+   * Animated Icon JSON format field in *IconShowcase → With Title → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.withTitle.primary.data[].animated_icon_json_format
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  animated_icon_json_format: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *IconShowcase → Default → Primary*
  */
 export interface IconShowcaseSliceDefaultPrimary {
@@ -4532,9 +4742,59 @@ export type IconShowcaseSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *IconShowcase → With Title → Primary*
+ */
+export interface IconShowcaseSliceWithTitlePrimary {
+  /**
+   * Slice Identifier field in *IconShowcase → With Title → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.withTitle.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *IconShowcase → With Title → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.withTitle.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Data field in *IconShowcase → With Title → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.withTitle.primary.data[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  data: prismic.GroupField<Simplify<IconShowcaseSliceWithTitlePrimaryDataItem>>;
+}
+
+/**
+ * With Title variation for IconShowcase Slice
+ *
+ * - **API ID**: `withTitle`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconShowcaseSliceWithTitle = prismic.SharedSliceVariation<
+  "withTitle",
+  Simplify<IconShowcaseSliceWithTitlePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *IconShowcase*
  */
-type IconShowcaseSliceVariation = IconShowcaseSliceDefault;
+type IconShowcaseSliceVariation =
+  | IconShowcaseSliceDefault
+  | IconShowcaseSliceWithTitle;
 
 /**
  * IconShowcase Shared Slice
@@ -7656,6 +7916,10 @@ declare module "@prismicio/client" {
       CardShuffleSliceDefaultPrimary,
       CardShuffleSliceVariation,
       CardShuffleSliceDefault,
+      CardsSlice,
+      CardsSliceDefaultPrimary,
+      CardsSliceVariation,
+      CardsSliceDefault,
       DonationSliceSlice,
       DonationSliceSliceVariation,
       DonationSliceSliceDefault,
@@ -7691,8 +7955,11 @@ declare module "@prismicio/client" {
       IconShowcaseSlice,
       IconShowcaseSliceDefaultPrimaryDataItem,
       IconShowcaseSliceDefaultPrimary,
+      IconShowcaseSliceWithTitlePrimaryDataItem,
+      IconShowcaseSliceWithTitlePrimary,
       IconShowcaseSliceVariation,
       IconShowcaseSliceDefault,
+      IconShowcaseSliceWithTitle,
       ImageShowcaseSlice,
       ImageShowcaseSliceDefaultPrimaryImagesItem,
       ImageShowcaseSliceDefaultPrimary,
