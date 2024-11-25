@@ -13,14 +13,14 @@ const cardProps = [
     },
     {
         bg: '#FBDA1D',
-        smallTitle: '#37473C',
+        smallTitle: '#515753',
         mainTitle: '#37473C',
         description: '#37473C',
-        link: '#FFFBF1'
+        link: '#37473C'
     },
     {
         bg: '#55BBD3',
-        smallTitle: '#37473C',
+        smallTitle: '#515753',
         mainTitle: '#37473C',
         description: '#37473C',
         link: '#FFFBF1'
@@ -52,25 +52,19 @@ export default function CardShuffleA({ item, index }) {
                         text={item.main_title}
                     />
                 </div>
-                <div>
+                <div className="flex flex-col space-y-2">
                     <RichText 
                         className='font-ambit-regular text-sm lg:text-xl max-w-[28ch]'
                         style={{color: `${cardProps[selectIndex].description}`}}
                         text={item.description}
                     />
-                    {/* <PrismicLink 
-                        className="text-sm lg:text-base font-ambit-regular"
-                        style={{color: `${cardProps[selectIndex].link}`}}
-                    >
-                        Read Story
-                    </PrismicLink> */}
                     <TextCTA 
                         link={item.cta_link}
                         hasUnderLine
                         text='Read Story'
                         style={{color: `${cardProps[selectIndex].link}`}}
                         strokeColor={`${cardProps[selectIndex].link}`}
-                        bgColor={`${selectIndex === 0 ? 'bg-[#FBDA1D]' : selectIndex === 1 ? 'bg-[#FFFBF1]' : 'bg-[#FFFBF1]'}`}
+                        bgColor={`${selectIndex === 0 ? 'bg-[#FBDA1D]' : selectIndex === 1 ? 'bg-[#37473C]' : 'bg-[#FFFBF1]'}`}
                     />
                 </div>
             </div>
