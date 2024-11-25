@@ -1,42 +1,77 @@
 import { PrismicLink } from "@prismicio/react";
 import RichText from "../Texts/RichText";
 import { PrismicNextImage } from "@prismicio/next";
+import TextCTA from "../UI/Button/TextCTA";
+
+const cardProps = [
+    {
+        bg: '#37473C',
+        smallTitle: '#9E9E9E',
+        mainTitle: '#FFFBF1',
+        description: '#FFFBF1',
+        link: '#FBDA1D'
+    },
+    {
+        bg: '#FBDA1D',
+        smallTitle: '#37473C',
+        mainTitle: '#37473C',
+        description: '#37473C',
+        link: '#FFFBF1'
+    },
+    {
+        bg: '#55BBD3',
+        smallTitle: '#37473C',
+        mainTitle: '#37473C',
+        description: '#37473C',
+        link: '#FFFBF1'
+    },
+];
 
 export default function CardShuffleA({ item, index }) {
 
-    let trackIndex = 0;
-
-    if(index % 3 === 0) trackIndex = 0; 
+    let trackIndex = index;
+    const selectIndex = trackIndex % cardProps.length;
     
-    const bg = ['FBDA1D', '55BBD3', '37473C'];
-
   return (
     <div 
         className="bg-deep-green p-4 lg:p-8 h-full rounded-[10px]"
+        style={{background: `${cardProps[selectIndex].bg}`}}
     >
         <div 
             className="flex flex-col lg:flex-row items-start justify-between h-full relative">
             <div className="w-full lg:w-[52%] lg:h-full flex lg:flex-col justify-between">
                 <div className="font-ambit-regular space-y-1 lg:space-y-2">
                     <RichText 
-                        className='text-[#9E9E9E] text-base'
+                        className='text-base'
+                        style={{color: `${cardProps[selectIndex].smallTitle}`}}
                         text={item.small_title}
                     />
                     <RichText
-                        className='text-off-white leading-3 text-xl lg:text-5xl' 
+                        className='leading-3 text-xl lg:text-5xl' 
+                        style={{color: `${cardProps[selectIndex].mainTitle}`}}
                         text={item.main_title}
                     />
                 </div>
                 <div>
                     <RichText 
-                        className='font-ambit-regular text-off-white text-sm lg:text-xl max-w-[28ch]'
+                        className='font-ambit-regular text-sm lg:text-xl max-w-[28ch]'
+                        style={{color: `${cardProps[selectIndex].description}`}}
                         text={item.description}
                     />
-                    <PrismicLink 
-                        className="text-bright-yellow text-sm lg:text-base font-ambit-regular"
+                    {/* <PrismicLink 
+                        className="text-sm lg:text-base font-ambit-regular"
+                        style={{color: `${cardProps[selectIndex].link}`}}
                     >
                         Read Story
-                    </PrismicLink>
+                    </PrismicLink> */}
+                    <TextCTA 
+                        link={item.cta_link}
+                        hasUnderLine
+                        text='Read Story'
+                        style={{color: `${cardProps[selectIndex].link}`}}
+                        strokeColor={`${cardProps[selectIndex].link}`}
+                        bgColor={`${selectIndex === 0 ? 'bg-[#FBDA1D]' : selectIndex === 1 ? 'bg-[#FFFBF1]' : 'bg-[#FFFBF1]'}`}
+                    />
                 </div>
             </div>
             <div className="w-full h-[550px] mt-6 lg:mt-0 lg:w-[36%] md:h-full rounded overflow-hidden">

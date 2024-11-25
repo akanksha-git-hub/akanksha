@@ -9,7 +9,7 @@ export default function Shuffle({ slice }) {
             itemClassName='pers-cards'
             itemKeyFn={(item, index) => index}
         >
-            {(item) => <CardsShuffle.CardShuffleA item={item} />}
+            {(item, index) => <CardsShuffle.CardShuffleA item={item} index={index} />}
         </CardsShuffle.ItemContainer>
     </CardsShuffle>
   )
