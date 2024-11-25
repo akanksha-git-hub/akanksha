@@ -2,6 +2,7 @@
 import RichText from "@/components/Texts/RichText";
 import { PrismicNextImage } from "@prismicio/next";
 import Lottie from "lottie-react";
+import DUMMYLOTTIE from "../../../public/lotties/dummyTestLottie.json"
 
 /**
  * @typedef {import("@prismicio/client").Content.IconShowcaseSlice} IconShowcaseSlice
@@ -16,6 +17,9 @@ const IconShowcase = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="universal-padding my-12"
     >
+      {/* <div className="h-screen w-full border border-red-400">
+      <Lottie animationData={DUMMYLOTTIE} className="h-full w-full border border-green-500" />
+      </div> */}
       {slice.primary.data && (
         <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
           {slice.primary.data.map(item => {

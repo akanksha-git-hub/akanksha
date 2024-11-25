@@ -2418,7 +2418,10 @@ export type PrivacyPolicyDocument<Lang extends string = string> =
     Lang
   >;
 
-type ProjectSetuDocumentDataSlicesSlice = CardShuffleSlice | FlagshipHeroSlice;
+type ProjectSetuDocumentDataSlicesSlice =
+  | IconScrollShowcaseSlice
+  | CardShuffleSlice
+  | FlagshipHeroSlice;
 
 /**
  * Content for Project Setu documents
@@ -4283,6 +4286,166 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Item in *IconScrollShowcase → Default → Primary → items*
+ */
+export interface IconScrollShowcaseSliceDefaultPrimaryItemsItem {
+  /**
+   * image field in *IconScrollShowcase → Default → Primary → items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.default.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * text field in *IconScrollShowcase → Default → Primary → items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.default.primary.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Item in *IconScrollShowcase → Horizontal Variant → Primary → items*
+ */
+export interface IconScrollShowcaseSliceHorizontalVariantPrimaryItemsItem {
+  /**
+   * image field in *IconScrollShowcase → Horizontal Variant → Primary → items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.horizontalVariant.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * text field in *IconScrollShowcase → Horizontal Variant → Primary → items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.horizontalVariant.primary.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *IconScrollShowcase → Default → Primary*
+ */
+export interface IconScrollShowcaseSliceDefaultPrimary {
+  /**
+   * items field in *IconScrollShowcase → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<IconScrollShowcaseSliceDefaultPrimaryItemsItem>
+  >;
+}
+
+/**
+ * Default variation for IconScrollShowcase Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconScrollShowcaseSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<IconScrollShowcaseSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *IconScrollShowcase → Horizontal Variant → Primary*
+ */
+export interface IconScrollShowcaseSliceHorizontalVariantPrimary {
+  /**
+   * Slice Identifier field in *IconScrollShowcase → Horizontal Variant → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.horizontalVariant.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Small title field in *IconScrollShowcase → Horizontal Variant → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.horizontalVariant.primary.small_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_title: prismic.KeyTextField;
+
+  /**
+   * Main title field in *IconScrollShowcase → Horizontal Variant → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.horizontalVariant.primary.main_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_title: prismic.KeyTextField;
+
+  /**
+   * items field in *IconScrollShowcase → Horizontal Variant → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.horizontalVariant.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<IconScrollShowcaseSliceHorizontalVariantPrimaryItemsItem>
+  >;
+}
+
+/**
+ * Horizontal Variant variation for IconScrollShowcase Slice
+ *
+ * - **API ID**: `horizontalVariant`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconScrollShowcaseSliceHorizontalVariant =
+  prismic.SharedSliceVariation<
+    "horizontalVariant",
+    Simplify<IconScrollShowcaseSliceHorizontalVariantPrimary>,
+    never
+  >;
+
+/**
+ * Slice variation for *IconScrollShowcase*
+ */
+type IconScrollShowcaseSliceVariation =
+  | IconScrollShowcaseSliceDefault
+  | IconScrollShowcaseSliceHorizontalVariant;
+
+/**
+ * IconScrollShowcase Shared Slice
+ *
+ * - **API ID**: `icon_scroll_showcase`
+ * - **Description**: IconScrollShowcase
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconScrollShowcaseSlice = prismic.SharedSlice<
+  "icon_scroll_showcase",
+  IconScrollShowcaseSliceVariation
+>;
 
 /**
  * Item in *IconShowcase → Default → Primary → Data*
@@ -7517,6 +7680,14 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      IconScrollShowcaseSlice,
+      IconScrollShowcaseSliceDefaultPrimaryItemsItem,
+      IconScrollShowcaseSliceDefaultPrimary,
+      IconScrollShowcaseSliceHorizontalVariantPrimaryItemsItem,
+      IconScrollShowcaseSliceHorizontalVariantPrimary,
+      IconScrollShowcaseSliceVariation,
+      IconScrollShowcaseSliceDefault,
+      IconScrollShowcaseSliceHorizontalVariant,
       IconShowcaseSlice,
       IconShowcaseSliceDefaultPrimaryDataItem,
       IconShowcaseSliceDefaultPrimary,

@@ -42,7 +42,7 @@ export default function CardShuffleA({ item, index }) {
             <div className="w-full lg:w-[52%] lg:h-full flex lg:flex-col justify-between">
                 <div className="font-ambit-regular space-y-1 lg:space-y-2">
                     <RichText 
-                        className='text-base'
+                        className='text-xl'
                         style={{color: `${cardProps[selectIndex].smallTitle}`}}
                         text={item.small_title}
                     />

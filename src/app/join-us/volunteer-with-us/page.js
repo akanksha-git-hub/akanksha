@@ -1,4 +1,4 @@
-import IconScrollShowcase from "@/components/icon-scroll-showcase";
+import IconScrollShowcase from "@/components/IconScrollShowcaseVariants/IconScrollShowcaseDefault";
 import RichText from "@/components/Texts/RichText";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
 import { maxwidth } from "@/utils/helperClasses";

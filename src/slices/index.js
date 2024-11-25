@@ -14,6 +14,7 @@ export const components = {
     () => import("./FrequentlyAskedQuestions"),
   ),
   hero: dynamic(() => import("./Hero")),
+  icon_scroll_showcase: dynamic(() => import("./IconScrollShowcase")),
   icon_showcase: dynamic(() => import("./IconShowcase")),
   image_showcase: dynamic(() => import("./ImageShowcase")),
   initiative_showcase: dynamic(() => import("./InitiativeShowcase")),

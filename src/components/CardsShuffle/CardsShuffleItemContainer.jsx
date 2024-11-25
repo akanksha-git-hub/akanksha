@@ -58,6 +58,8 @@ export default function CardsShuffleItemContainer({ children, itemKeyFn, itemCla
         }
 
         if(onMount.secondMount) {
+            
+            gsap.set('.pin-wrapper', { height: 'auto' });
 
             // set Initial Value for cards not FIRST INDEX;
             cards.forEach((card, index) => {
@@ -79,10 +81,12 @@ export default function CardsShuffleItemContainer({ children, itemKeyFn, itemCla
                         trigger: root.current,
                         scrub: 2,
                         start: 'top top',
-                        end: `${travelPixel || 1000}px top`,
+                        end: `+=${travelPixel} bottom`,
                         pin: true,
                         pinSpacing: true,
-                        scroller: 'body'
+                        anticipatePin: 1,
+                        invalidateOnRefresh: true,
+                        scroller: 'body',
                     }
                 });
 
@@ -101,27 +105,33 @@ export default function CardsShuffleItemContainer({ children, itemKeyFn, itemCla
 
                 });
 
+                ScrollTrigger.refresh();
+
             });
+
             return () => ctx.revert(); // cleanup fn
 
         }
         
         
-    }, [onMount.firstMount, onMount.secondMount]);
+    }, [onMount.firstMount, onMount.secondMount, cards]);
+
 
   return (
-    <div ref={root} className={className}>
-        <ul className={itemsContainerClassName}>
-            {slice.map((item, index) => (
-                <li 
-                    className={itemClassName}
-                    key={itemKeyFn} 
-                    id={`card-${index + 1}`}
-                >
-                    {children(item, index)}
-                </li>
-            ))}
-        </ul>
+    <div className="pin-wrapper">
+        <div ref={root} className={`${className}`}>
+            <ul className={itemsContainerClassName}>
+                {slice.map((item, index) => (
+                    <li 
+                        className={itemClassName}
+                        key={itemKeyFn} 
+                        id={`card-${index + 1}`}
+                    >
+                        {children(item, index)}
+                    </li>
+                ))}
+            </ul>
+        </div>
     </div>
   )
 }

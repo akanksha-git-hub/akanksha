@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "icon_scroll_showcase": {
+              "type": "SharedSlice"
+            },
             "card_shuffle": {
               "type": "SharedSlice"
             },
