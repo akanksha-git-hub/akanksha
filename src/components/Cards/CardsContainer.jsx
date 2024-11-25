@@ -11,13 +11,13 @@ export default function CardsContainer({ cards }) {
   return (
     <>
     {
-        width > 100 ?
+        width > 1000 ?
         <CardsThreeDesktop 
-            cards={cards}
+          cards={cards}
         />
         :
         <CardsThreeMobile 
-            cards={cards}
+          cards={cards}
         />
     }
     </>
