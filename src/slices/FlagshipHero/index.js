@@ -21,7 +21,7 @@ const FlagshipHero = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative"
+      className="relative mb-24"
     >
     <div className="orange-gradient absolute -top-36 left-0 h-96 w-full -z-10" />
     <div className="flex flex-col items-center justify-center space-y-12 mt-40">

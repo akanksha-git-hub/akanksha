@@ -1,4 +1,5 @@
 'use client'
+import LottieContainer from "@/components/LottieContainer/LottieContainer";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import RichText from "@/components/Texts/RichText";
 import { PrismicNextImage } from "@prismicio/next";
@@ -10,12 +11,6 @@ import Lottie from "lottie-react";
  * @param {CardShowcaseProps}
  */
 const CardShowcase = ({ slice }) => {
-
-  let LottieData = null;
-
-  if(slice.primary.isanimatedicon && slice.primary.animated_icon_json_format) {
-    LottieData = JSON.parse(slice.primary.animated_icon_json_format);
-  }
 
   return (
     <section
@@ -39,9 +34,9 @@ const CardShowcase = ({ slice }) => {
         </div>
         <div className="h-[320px] md:h-[500px] w-full 1000pixel:h-[90%] 1000pixel:w-[50%] flex items-end">
           {slice.primary.isanimatedicon && (
-            <Lottie 
-              className="h-full lg:h-auto 2xl:h-full w-full"
-              animationData={LottieData}
+            <LottieContainer 
+              className='h-full lg:h-auto 2xl:h-full w-full'
+              lottieData={slice.primary.animated_icon_json_format}
             />
           )}
           {!slice.primary.isanimatedicon && (

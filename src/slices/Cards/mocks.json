@@ -224,5 +224,52 @@
 				"value": []
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "optionC",
+		"primary": {
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "gain",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "fighting",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "rock",
+				"type": "Text"
+			},
+			"card_a_title": {
+				"__TYPE__": "FieldContent",
+				"value": "vegetable",
+				"type": "Text"
+			},
+			"card_b_title": {
+				"__TYPE__": "FieldContent",
+				"value": "twice",
+				"type": "Text"
+			},
+			"card_a_description": {
+				"__TYPE__": "FieldContent",
+				"value": "mysterious",
+				"type": "Text"
+			},
+			"card_b_description": {
+				"__TYPE__": "FieldContent",
+				"value": "naturally",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

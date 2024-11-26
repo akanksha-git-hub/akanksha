@@ -116,7 +116,10 @@ export type AnnualReportsDocument<Lang extends string = string> =
     Lang
   >;
 
-type AseDocumentDataSlicesSlice = FlagshipHeroSlice;
+type AseDocumentDataSlicesSlice =
+  | CardsSlice
+  | TestimonialSlice
+  | FlagshipHeroSlice;
 
 /**
  * Content for ASE documents
@@ -4124,9 +4127,100 @@ export type CardsSliceOptionB = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Cards → Option C → Primary*
+ */
+export interface CardsSliceOptionCPrimary {
+  /**
+   * Slice Identifier field in *Cards → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionC.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *Cards → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionC.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Cards → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionC.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Card A title field in *Cards → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionC.primary.card_a_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_title: prismic.KeyTextField;
+
+  /**
+   * Card A description field in *Cards → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionC.primary.card_a_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_description: prismic.KeyTextField;
+
+  /**
+   * Card B Title field in *Cards → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionC.primary.card_b_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_title: prismic.KeyTextField;
+
+  /**
+   * Card B description field in *Cards → Option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionC.primary.card_b_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_description: prismic.KeyTextField;
+}
+
+/**
+ * Option C variation for Cards Slice
+ *
+ * - **API ID**: `optionC`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceOptionC = prismic.SharedSliceVariation<
+  "optionC",
+  Simplify<CardsSliceOptionCPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Cards*
  */
-type CardsSliceVariation = CardsSliceDefault | CardsSliceOptionB;
+type CardsSliceVariation =
+  | CardsSliceDefault
+  | CardsSliceOptionB
+  | CardsSliceOptionC;
 
 /**
  * Cards Shared Slice
@@ -8344,9 +8438,11 @@ declare module "@prismicio/client" {
       CardsSlice,
       CardsSliceDefaultPrimary,
       CardsSliceOptionBPrimary,
+      CardsSliceOptionCPrimary,
       CardsSliceVariation,
       CardsSliceDefault,
       CardsSliceOptionB,
+      CardsSliceOptionC,
       DonationSliceSlice,
       DonationSliceSliceVariation,
       DonationSliceSliceDefault,

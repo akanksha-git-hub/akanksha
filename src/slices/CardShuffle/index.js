@@ -12,7 +12,7 @@ const CardShuffle = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mt-24 mb-64"
+      className="mb-64"
     >
       <SliceIdentifier 
         text={slice.primary.slice_identifier}

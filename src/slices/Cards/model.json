@@ -181,6 +181,66 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "optionC",
+      "name": "Option C",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "card_a_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card A title",
+            "placeholder": ""
+          }
+        },
+        "card_a_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card A description",
+            "placeholder": ""
+          }
+        },
+        "card_b_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card B Title",
+            "placeholder": ""
+          }
+        },
+        "card_b_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card B description",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

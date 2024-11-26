@@ -1,5 +1,6 @@
 import CardsContainer from "@/components/Cards/CardsContainer";
 import CardsTwoContainer from "@/components/Cards/CardsTwoContainer";
+import CardsTwoContainerB from "@/components/Cards/CardsTwoContainerB";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import RichText from "@/components/Texts/RichText";
 
@@ -47,6 +48,19 @@ const Cards = ({ slice }) => {
     ]
   }
 
+  if(slice.variation === "optionC") {
+    cards = [
+      {
+        title: slice.primary.card_a_title,
+        desc: slice.primary.card_a_description
+      },
+      {
+        title: slice.primary.card_b_title,
+        desc: slice.primary.card_b_description
+      },
+    ]
+  }
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -73,6 +87,11 @@ const Cards = ({ slice }) => {
       )}
       {slice.variation === "optionB" && (
         <CardsTwoContainer 
+          data={cards}
+        />
+      )}
+      {slice.variation === "optionC" && (
+        <CardsTwoContainerB 
           data={cards}
         />
       )}
