@@ -14,7 +14,7 @@ export default function LenisScrollContext({ children }) {
 
     useEffect(() => {
 
-        const scroller = new Lenis({ syncTouch: true });
+        const scroller = new Lenis({ syncTouch: true, syncTouchLerp: 0.3 });
         let rf;
 
         function raf(time) {
