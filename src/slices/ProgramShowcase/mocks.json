@@ -121,5 +121,101 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "optionB",
+		"primary": {
+			"program_showcase_content": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
+										"width": 4000,
+										"height": 4000
+									},
+									"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
+									"width": 4000,
+									"height": 4000,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"short_content",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "seat",
+									"type": "Text"
+								}
+							],
+							[
+								"card_rich_text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Officia enim dolore consectetur tempor consequat nostrud incididunt magna non. Nulla do sit est officia commodo dolor proident fugiat aliquip esse Lorem aliqua nisi nulla dolor."
+											}
+										}
+									]
+								}
+							],
+							[
+								"start_date",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Date",
+									"value": "2012-04-22"
+								}
+							],
+							[
+								"end_date",
+								{
+									"__TYPE__": "FieldContent",
+									"type": "Date",
+									"value": "2021-04-11"
+								}
+							]
+						]
+					}
+				]
+			},
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "larger",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "till",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

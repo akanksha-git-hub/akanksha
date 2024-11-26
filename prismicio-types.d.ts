@@ -2419,6 +2419,7 @@ export type PrivacyPolicyDocument<Lang extends string = string> =
   >;
 
 type ProjectSetuDocumentDataSlicesSlice =
+  | ProgramShowcaseSlice
   | CardsSlice
   | IconShowcaseSlice
   | IconScrollShowcaseSlice
@@ -6451,6 +6452,61 @@ export interface ProgramShowcaseSliceDefaultPrimaryProgramShowcaseContentItem {
 }
 
 /**
+ * Item in *ProgramShowcase → Option B → Primary → Program Showcase Content*
+ */
+export interface ProgramShowcaseSliceOptionBPrimaryProgramShowcaseContentItem {
+  /**
+   * Short Content field in *ProgramShowcase → Option B → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionB.primary.program_showcase_content[].short_content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  short_content: prismic.KeyTextField;
+
+  /**
+   * Image field in *ProgramShowcase → Option B → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionB.primary.program_showcase_content[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Card Rich Text field in *ProgramShowcase → Option B → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionB.primary.program_showcase_content[].card_rich_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_rich_text: prismic.RichTextField;
+
+  /**
+   * Start Date field in *ProgramShowcase → Option B → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionB.primary.program_showcase_content[].start_date
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  start_date: prismic.DateField;
+
+  /**
+   * End Date field in *ProgramShowcase → Option B → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionB.primary.program_showcase_content[].end_date
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  end_date: prismic.DateField;
+}
+
+/**
  * Primary content in *ProgramShowcase → Default → Primary*
  */
 export interface ProgramShowcaseSliceDefaultPrimary {
@@ -6481,9 +6537,61 @@ export type ProgramShowcaseSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ProgramShowcase → Option B → Primary*
+ */
+export interface ProgramShowcaseSliceOptionBPrimary {
+  /**
+   * Slice Identifier field in *ProgramShowcase → Option B → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionB.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *ProgramShowcase → Option B → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionB.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Program Showcase Content field in *ProgramShowcase → Option B → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionB.primary.program_showcase_content[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  program_showcase_content: prismic.GroupField<
+    Simplify<ProgramShowcaseSliceOptionBPrimaryProgramShowcaseContentItem>
+  >;
+}
+
+/**
+ * Option B variation for ProgramShowcase Slice
+ *
+ * - **API ID**: `optionB`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProgramShowcaseSliceOptionB = prismic.SharedSliceVariation<
+  "optionB",
+  Simplify<ProgramShowcaseSliceOptionBPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *ProgramShowcase*
  */
-type ProgramShowcaseSliceVariation = ProgramShowcaseSliceDefault;
+type ProgramShowcaseSliceVariation =
+  | ProgramShowcaseSliceDefault
+  | ProgramShowcaseSliceOptionB;
 
 /**
  * ProgramShowcase Shared Slice
@@ -8022,8 +8130,11 @@ declare module "@prismicio/client" {
       ProgramShowcaseSlice,
       ProgramShowcaseSliceDefaultPrimaryProgramShowcaseContentItem,
       ProgramShowcaseSliceDefaultPrimary,
+      ProgramShowcaseSliceOptionBPrimaryProgramShowcaseContentItem,
+      ProgramShowcaseSliceOptionBPrimary,
       ProgramShowcaseSliceVariation,
       ProgramShowcaseSliceDefault,
+      ProgramShowcaseSliceOptionB,
       RotatingCarouselSlice,
       RotatingCarouselSliceDefaultPrimaryCarouselItemsItem,
       RotatingCarouselSliceDefaultPrimary,

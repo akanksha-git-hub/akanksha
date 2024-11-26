@@ -18,8 +18,8 @@ const useDebouncedResize = () => {
                 setSize({ width: window.innerWidth, height: window.innerHeight });
             }, 300);
     
-            window.addEventListener('resize', handleResize);
             handleResize();
+            window.addEventListener('resize', handleResize);
     
             return () => window.removeEventListener('resize', handleResize);        
         }

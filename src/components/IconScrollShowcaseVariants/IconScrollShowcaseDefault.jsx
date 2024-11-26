@@ -128,7 +128,7 @@ export default function IconScrollShowcase({ data }) {
                             </div>
                             <RichText 
                                 text={item.text}
-                                className='text-deep-green text-centerw-auto xl:w-auto xl:text-nowrap font-ambit-regular text-xl'
+                                className='text-deep-green text-center w-auto xl:w-auto xl:text-nowrap font-ambit-regular text-base md:text-xl'
                             />
                         </div>
                     </div>
