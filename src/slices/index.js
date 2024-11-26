@@ -6,6 +6,7 @@ export const components = {
   blog_category_items: dynamic(() => import("./ResourcesCategoryItems")),
   blog_highlight: dynamic(() => import("./ResourcedHighlight")),
   blog_recents: dynamic(() => import("./ResourcesRecents")),
+  card_showcase: dynamic(() => import("./CardShowcase")),
   card_shuffle: dynamic(() => import("./CardShuffle")),
   cards: dynamic(() => import("./Cards")),
   donation_slice: dynamic(() => import("./DonationSlice")),

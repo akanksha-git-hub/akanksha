@@ -2419,6 +2419,7 @@ export type PrivacyPolicyDocument<Lang extends string = string> =
   >;
 
 type ProjectSetuDocumentDataSlicesSlice =
+  | CardShowcaseSlice
   | ProgramShowcaseSlice
   | CardsSlice
   | IconShowcaseSlice
@@ -3636,6 +3637,102 @@ type BlogRecentsSliceVariation =
 export type BlogRecentsSlice = prismic.SharedSlice<
   "blog_recents",
   BlogRecentsSliceVariation
+>;
+
+/**
+ * Primary content in *CardShowcase → Default → Primary*
+ */
+export interface CardShowcaseSliceDefaultPrimary {
+  /**
+   * Slice Identifier field in *CardShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *CardShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *CardShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * isAnimatedIcon field in *CardShowcase → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: card_showcase.default.primary.isanimatedicon
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  isanimatedicon: prismic.BooleanField;
+
+  /**
+   * Animated Icon JSON format field in *CardShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.default.primary.animated_icon_json_format
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  animated_icon_json_format: prismic.KeyTextField;
+
+  /**
+   * Image field in *CardShowcase → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for CardShowcase Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardShowcaseSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CardShowcaseSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CardShowcase*
+ */
+type CardShowcaseSliceVariation = CardShowcaseSliceDefault;
+
+/**
+ * CardShowcase Shared Slice
+ *
+ * - **API ID**: `card_showcase`
+ * - **Description**: CardShowcase
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardShowcaseSlice = prismic.SharedSlice<
+  "card_showcase",
+  CardShowcaseSliceVariation
 >;
 
 /**
@@ -8127,6 +8224,10 @@ declare module "@prismicio/client" {
       BlogRecentsSliceVariation,
       BlogRecentsSliceDefault,
       BlogRecentsSliceTagVariation,
+      CardShowcaseSlice,
+      CardShowcaseSliceDefaultPrimary,
+      CardShowcaseSliceVariation,
+      CardShowcaseSliceDefault,
       CardShuffleSlice,
       CardShuffleSliceDefaultPrimaryItemsItem,
       CardShuffleSliceDefaultPrimary,
