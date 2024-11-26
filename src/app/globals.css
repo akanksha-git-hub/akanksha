@@ -75,6 +75,15 @@ body {
   border-radius: 50%;
   overflow: hidden;
 }
+.story-circle-B {
+  height: 4.6rem;
+  width: 4.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
 .cover-object {
   object-fit: cover;
   height: 95%;

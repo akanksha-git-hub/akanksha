@@ -41,6 +41,120 @@ const SliderShowcase = ({ slice }) => {
   }
 
 
+
+  if(slice.variation === "sliderD") {
+    return(
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="my-12"
+      >
+        <SliceIdentifier 
+          text={slice.primary.slice_identifier}
+        />
+        <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between my-12">
+          <div className="flex flex-col w-full xl:w-[42%] space-y-5">
+            <RichText 
+              text={slice.primary.title}
+              className='font-ambit-regular text-deep-green text-5xl w-full'
+              />
+            <RichText 
+              text={slice.primary.description}
+              className='font-ambit-regular text-deep-green text-xl w-full'
+            />
+          </div>
+          <div className="bg-white rounded-[10px] p-6 lg:p-12 min-h-[550px] w-full xl:w-[50%] mt-12 xl:mt-0">
+            <ul className="flex items-start justify-start w-full xl:w-[500px] mx-auto lg:mx-0 mb-6">
+              <Swiper 
+                ref={storyRef}
+                className="w-[100%] sm:w-screen flex items-start" 
+                breakpoints={{
+                  2500: {
+                    slidesPerView: 5.6
+                  },
+                  1400: {
+                    slidesPerView: 5.3
+                  },
+                  1000: {
+                    slidesPerView: 5.3
+                  },
+                  780: {
+                    slidesPerView: 5.2
+                  },
+                  600: {
+                    slidesPerView: 3.2
+                  },
+                  10: {
+                    slidesPerView: 3
+                  }
+                }}
+              >
+                {slice.primary.items.map(({ image }, index) => (
+                  <SwiperSlide key={index}>
+                    <StoryCircle 
+                      className="story-circle-B" 
+                      height={105} width={105} key={index} 
+                      index={index} currentIndex={current} 
+                      image={image} onClick={() => handleStory(index)} 
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </ul>
+            <Swiper 
+                ref={mainRef}
+                className="w-full h-[400px] xl:h-[240px] rounded-lg"
+                onActiveIndexChange={(swiper) => {
+                  setCurrent(current)
+                  storyRef.current.swiper.slideTo(current - 1)
+                }}
+                onSlideChange={(e) => setCurrent(() => e.activeIndex)}
+                >
+                {slice.primary.items.map((item, index) => {
+                  return(
+                    <SwiperSlide className="!h-full !w-full" key={index}>
+                      <SwiperClick className="absolute opacity-0" text="Next" ref={nextRef} />
+                      <SwiperClick className="absolute opacity-0" isPrev text="Prev" ref={prevRef} />
+                      <PrismicNextImage 
+                        className="h-full w-full object-cover"
+                        field={item.image}
+                      />
+                    </SwiperSlide>
+                  )
+                })}
+            </Swiper>
+            <div className="flex flex-col mt-8">
+              <div className="flex flex-col md:flex-row items-start justify-between">
+                <RichText 
+                  className='text-deep-green font-ambit-regular text-xl opacity-reveal w-full mb-6 md:mb-0 md:w-[80%]'
+                  key={slice.primary.items[current].text}
+                  text={slice.primary.items[current].text}
+                />
+                <div className="flex gap-2">
+                  <SwiperArrow 
+                    strokeColor="#37473C" 
+                    className={`${current === 0 ? "bg-[#AFB3A9]" : "bg-bright-yellow"} rotate-180 !h-[2.4rem] !w-[2.4rem]`} 
+                    onClick={swipePrev}
+                  />
+                  <SwiperArrow 
+                    strokeColor="#37473C" 
+                    className={`${current === slice.primary.items.length - 1 ? "bg-[#AFB3A9]" : "bg-bright-yellow"} !h-[2.4rem] !w-[2.4rem]`}
+                    onClick={swipeNext}
+                  />
+                </div>
+              </div>
+              <PrimaryCTA
+                className='mt-12'
+                text={slice.primary.cta_text} 
+                link={slice.primary.items[current].cta_link}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   if(slice.variation === 'sliderC') {
 
     return(

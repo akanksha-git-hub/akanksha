@@ -21,6 +21,7 @@ const CardShowcase = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="my-12"
     >
       <SliceIdentifier 
         text={slice.primary.slice_identifier}

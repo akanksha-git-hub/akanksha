@@ -2419,6 +2419,8 @@ export type PrivacyPolicyDocument<Lang extends string = string> =
   >;
 
 type ProjectSetuDocumentDataSlicesSlice =
+  | SliderShowcaseSlice
+  | TestimonialSlice
   | CardShowcaseSlice
   | ProgramShowcaseSlice
   | CardsSlice
@@ -7008,6 +7010,41 @@ export interface SliderShowcaseSliceSliderCPrimaryItemsItem {
 }
 
 /**
+ * Item in *SliderShowcase → Slider D → Primary → Items*
+ */
+export interface SliderShowcaseSliceSliderDPrimaryItemsItem {
+  /**
+   * Image field in *SliderShowcase → Slider D → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderD.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * text field in *SliderShowcase → Slider D → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderD.primary.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *SliderShowcase → Slider D → Primary → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderD.primary.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+}
+
+/**
  * Primary content in *SliderShowcase → Default → Primary*
  */
 export interface SliderShowcaseSliceDefaultPrimary {
@@ -7138,12 +7175,83 @@ export type SliderShowcaseSliceSliderC = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *SliderShowcase → Slider D → Primary*
+ */
+export interface SliderShowcaseSliceSliderDPrimary {
+  /**
+   * Slice Identifier field in *SliderShowcase → Slider D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderD.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *SliderShowcase → Slider D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderD.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *SliderShowcase → Slider D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderD.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * CTA Text field in *SliderShowcase → Slider D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderD.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * Items field in *SliderShowcase → Slider D → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderD.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<SliderShowcaseSliceSliderDPrimaryItemsItem>
+  >;
+}
+
+/**
+ * Slider D variation for SliderShowcase Slice
+ *
+ * - **API ID**: `sliderD`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SliderShowcaseSliceSliderD = prismic.SharedSliceVariation<
+  "sliderD",
+  Simplify<SliderShowcaseSliceSliderDPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *SliderShowcase*
  */
 type SliderShowcaseSliceVariation =
   | SliderShowcaseSliceDefault
   | SliderShowcaseSliceSliderB
-  | SliderShowcaseSliceSliderC;
+  | SliderShowcaseSliceSliderC
+  | SliderShowcaseSliceSliderD;
 
 /**
  * SliderShowcase Shared Slice
@@ -8358,10 +8466,13 @@ declare module "@prismicio/client" {
       SliderShowcaseSliceSliderBPrimary,
       SliderShowcaseSliceSliderCPrimaryItemsItem,
       SliderShowcaseSliceSliderCPrimary,
+      SliderShowcaseSliceSliderDPrimaryItemsItem,
+      SliderShowcaseSliceSliderDPrimary,
       SliderShowcaseSliceVariation,
       SliderShowcaseSliceDefault,
       SliderShowcaseSliceSliderB,
       SliderShowcaseSliceSliderC,
+      SliderShowcaseSliceSliderD,
       SwirlImageSlice,
       SwirlImageSliceDefaultPrimary,
       SwirlImageSliceVariation,
