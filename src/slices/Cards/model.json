@@ -101,6 +101,86 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "optionB",
+      "name": "Option B",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "card_a_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card A title",
+            "placeholder": ""
+          }
+        },
+        "card_a_richtext": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card A Richtext",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "card_a_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card A Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_b_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card B Title",
+            "placeholder": ""
+          }
+        },
+        "card_b_richtext": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card B Richtext",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "card_b_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card B Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

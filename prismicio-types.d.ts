@@ -3917,9 +3917,117 @@ export type CardsSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Cards → Option B → Primary*
+ */
+export interface CardsSliceOptionBPrimary {
+  /**
+   * Slice Identifier field in *Cards → Option B → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionB.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *Cards → Option B → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionB.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Cards → Option B → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionB.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Card A title field in *Cards → Option B → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionB.primary.card_a_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_title: prismic.KeyTextField;
+
+  /**
+   * Card A Richtext field in *Cards → Option B → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionB.primary.card_a_richtext
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_a_richtext: prismic.RichTextField;
+
+  /**
+   * Card A Image field in *Cards → Option B → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionB.primary.card_a_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_a_image: prismic.ImageField<never>;
+
+  /**
+   * Card B Title field in *Cards → Option B → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionB.primary.card_b_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_title: prismic.KeyTextField;
+
+  /**
+   * Card B Richtext field in *Cards → Option B → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionB.primary.card_b_richtext
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_b_richtext: prismic.RichTextField;
+
+  /**
+   * Card B Image field in *Cards → Option B → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionB.primary.card_b_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_b_image: prismic.ImageField<never>;
+}
+
+/**
+ * Option B variation for Cards Slice
+ *
+ * - **API ID**: `optionB`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceOptionB = prismic.SharedSliceVariation<
+  "optionB",
+  Simplify<CardsSliceOptionBPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Cards*
  */
-type CardsSliceVariation = CardsSliceDefault;
+type CardsSliceVariation = CardsSliceDefault | CardsSliceOptionB;
 
 /**
  * Cards Shared Slice
@@ -8026,8 +8134,10 @@ declare module "@prismicio/client" {
       CardShuffleSliceDefault,
       CardsSlice,
       CardsSliceDefaultPrimary,
+      CardsSliceOptionBPrimary,
       CardsSliceVariation,
       CardsSliceDefault,
+      CardsSliceOptionB,
       DonationSliceSlice,
       DonationSliceSliceVariation,
       DonationSliceSliceDefault,

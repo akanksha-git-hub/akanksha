@@ -1,4 +1,5 @@
 import CardsContainer from "@/components/Cards/CardsContainer";
+import CardsTwoContainer from "@/components/Cards/CardsTwoContainer";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import RichText from "@/components/Texts/RichText";
 
@@ -9,23 +10,42 @@ import RichText from "@/components/Texts/RichText";
  */
 const Cards = ({ slice }) => {
 
-  const cards = [
-    {
-      title: slice.primary.card_a_title,
-      desc: slice.primary.card_a_description,
-      image: slice.primary.card_a_image
-    },
-    {
-      title: slice.primary.card_b_title,
-      desc: slice.primary.card_b_description,
-      image: slice.primary.card_b_image
-    },
-    {
-      title: slice.primary.card_c_title,
-      desc: slice.primary.card_c_description,
-      image: slice.primary.card_c_image
-    }
-  ];
+  let cards = [];
+
+  if(slice.variation === 'default') {
+    cards = [
+      {
+        title: slice.primary.card_a_title,
+        desc: slice.primary.card_a_description,
+        image: slice.primary.card_a_image
+      },
+      {
+        title: slice.primary.card_b_title,
+        desc: slice.primary.card_b_description,
+        image: slice.primary.card_b_image
+      },
+      {
+        title: slice.primary.card_c_title,
+        desc: slice.primary.card_c_description,
+        image: slice.primary.card_c_image
+      }
+    ];
+  }
+
+  if(slice.variation === "optionB") {
+    cards = [
+      {
+        title: slice.primary.card_a_title,
+        rich_text: slice.primary.card_a_richtext,
+        image: slice.primary.card_a_image
+      },
+      {
+        title: slice.primary.card_b_title,
+        rich_text: slice.primary.card_b_richtext,
+        image: slice.primary.card_b_image
+      },
+    ]
+  }
 
   return (
     <section
@@ -43,12 +63,19 @@ const Cards = ({ slice }) => {
         />
         <RichText 
           text={slice.primary.description}
-          className='text-deep-green font-ambit-regular text-xl md:text-center'
+          className='text-deep-green font-ambit-regular text-xl md:text-center max-w-[50ch]'
         />
       </div>
-      <CardsContainer 
-        cards={cards}
-      />
+      {slice.variation === "default" && (
+        <CardsContainer 
+          cards={cards}
+        />
+      )}
+      {slice.variation === "optionB" && (
+        <CardsTwoContainer 
+          data={cards}
+        />
+      )}
     </section>
   );
 };
