@@ -1,4 +1,5 @@
 import Shuffle from "@/components/CardsShuffle/Shuffle";
+import ShuffleB from "@/components/CardsShuffle/ShuffleB";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import RichText from "@/components/Texts/RichText";
 
@@ -27,9 +28,16 @@ const CardShuffle = ({ slice }) => {
           className='text-deep-green text-6xl text-center mx-auto max-w-[36ch]'
         />
       </div>
-      <Shuffle 
-        slice={slice.primary.items}
-      />
+      {slice.variation === "default" && (
+        <Shuffle 
+          slice={slice.primary.items}
+        />
+      )}
+      {slice.variation === "optionB" && (
+        <ShuffleB 
+          slice={slice.primary.items}
+        />
+      )}
     </section>
   );
 };

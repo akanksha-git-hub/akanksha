@@ -1,31 +1,8 @@
-import { PrismicLink } from "@prismicio/react";
 import RichText from "../Texts/RichText";
 import { PrismicNextImage } from "@prismicio/next";
 import TextCTA from "../UI/Button/TextCTA";
+import { cardProps } from "@/utils/helperClasses";
 
-const cardProps = [
-    {
-        bg: '#37473C',
-        smallTitle: '#9E9E9E',
-        mainTitle: '#FFFBF1',
-        description: '#FFFBF1',
-        link: '#FBDA1D'
-    },
-    {
-        bg: '#FBDA1D',
-        smallTitle: '#515753',
-        mainTitle: '#37473C',
-        description: '#37473C',
-        link: '#37473C'
-    },
-    {
-        bg: '#55BBD3',
-        smallTitle: '#515753',
-        mainTitle: '#37473C',
-        description: '#37473C',
-        link: '#FFFBF1'
-    },
-];
 
 export default function CardShuffleA({ item, index }) {
 
@@ -39,7 +16,7 @@ export default function CardShuffleA({ item, index }) {
     >
         <div 
             className="flex flex-col lg:flex-row items-start justify-between h-full relative">
-            <div className="w-full lg:w-[52%] lg:h-full flex lg:flex-col justify-between">
+            <div className="w-full lg:w-[52%] lg:h-full flex flex-col justify-between">
                 <div className="font-ambit-regular space-y-1 lg:space-y-2">
                     <RichText 
                         className='text-xl'
@@ -52,7 +29,7 @@ export default function CardShuffleA({ item, index }) {
                         text={item.main_title}
                     />
                 </div>
-                <div className="flex flex-col space-y-2">
+                <div className="flex flex-col mt-4 lg:mt-0 space-y-2">
                     <RichText 
                         className='font-ambit-regular text-sm lg:text-xl max-w-[28ch]'
                         style={{color: `${cardProps[selectIndex].description}`}}

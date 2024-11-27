@@ -40,7 +40,108 @@ const SliderShowcase = ({ slice }) => {
     mainRef.current.swiper.slideTo(i);
   }
 
+  if(slice.variation === "sliderE") {
+    return(
+      <section>
+        <SliceIdentifier 
+          text={slice.primary.slice_identifier}
+        />
+        <RichText 
+          text={slice.primary.title}
+          className='text-deep-green text-6xl font-ambit-regular text-center flex items-center justify-center my-24'
+        />
+        <div className="pb-12">
+          <Swiper
+            initialSlide={1}
+            breakpoints={{
+              1900: {
+                slidesPerView: 2.4,
+                slidesOffsetBefore: 710,
+                slidesOffsetAfter: 400
+              },
+              1700: {
+                slidesPerView: 2.4,
+                slidesOffsetBefore: 680,
+                slidesOffsetAfter: 400
+              },
+              1400: {
+                slidesPerView: 2.2,
+                slidesOffsetBefore: 500,
+                slidesOffsetAfter: 300,
+              },
+              1000: {
+                slidesOffsetBefore: 350,
+                slidesOffsetAfter: 200,
+                slidesPerView: 2
+              },
+              800: {
+                slidesPerView: 2,
+                slidesOffsetBefore: 250,
+                slidesOffsetAfter: 100
+              },
+              500: {
+                slidesPerView: 1.7,
+                slidesOffsetBefore: 80,
+                slidesOffsetAfter: 70,
+                spaceBetween: 30
+              },
+              10:{
+                slidesPerView: 1.2,
+                slidesOffsetBefore: 80,
+                slidesOffsetAfter: 70,
+                spaceBetween: 10
+              }
+            }}
+            onSlideChange={(e) => setSliderBIndex(() => e.activeIndex)}
+          >
+            {slice.primary.items.map((item, index) => {
+              return(
+                <SwiperSlide
+                  key={item.description}
+                >
+                  <SwiperClick className="absolute opacity-0" text="Next" ref={sliderBNextRef} />
+                  <SwiperClick className="absolute opacity-0" isPrev text="Prev" ref={sliderBPrevRef} />
+                  <div 
+                    className={
+                      `${sliderBIndex === index ? 'bg-bright-yellow p-4 lg:p-8 scale-100' : 'p-4 lg:p-8 scale-90'} 
+                      transition-all w-[16rem] sm:w-[24rem] lg:w-[33rem] rounded-md`
+                    }
+                  >
+                    <div
+                      className="w-full h-[14rem] sm:min-h-[18rem] lg:min-h-[24rem] rounded-md overflow-hidden"
+                    >
+                      <PrismicNextImage className="h-full w-full object-cover" field={item.image} />
+                    </div>
+                    <RichText 
+                      className='text-deep-green font-ambit-bold text-lg mt-8'
+                      text={item.title}
+                    />
+                    <RichText 
+                      className='text-deep-green font-ambit-regular text-lg'
+                      text={item.description}
+                    />
+                  </div>
+                </SwiperSlide>
+              )
 
+            })}
+          </Swiper>
+          <div className="flex items-center justify-center gap-2 mt-2 w-full py-8">
+            <SwiperArrow 
+              strokeColor="#FBDA1D" 
+              className={`${sliderBIndex === 0 ? "bg-[#AFB3A9]" : "bg-deep-green"} rotate-180`} 
+              onClick={swipeSliderBPrev}
+            />
+            <SwiperArrow 
+              strokeColor="#FBDA1D" 
+              className={`${sliderBIndex === slice.primary.items.length - 1 ? "bg-[#AFB3A9]" : "bg-deep-green"}`}
+              onClick={swipeSliderBNext}
+            />
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   if(slice.variation === "sliderD") {
     return(
@@ -345,6 +446,7 @@ const SliderShowcase = ({ slice }) => {
         />
         <div className="pb-12">
           <Swiper
+            initialSlide={1}
             breakpoints={{
               1900: {
                 slidesPerView: 2.4,

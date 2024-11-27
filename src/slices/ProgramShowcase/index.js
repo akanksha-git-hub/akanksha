@@ -160,7 +160,7 @@ const ProgramShowcase = ({ slice }) => {
         >
           <div>
             <SlideSelector 
-              className="block w-3/4 lg:hidden"
+              className="block border w-[98%] sm:w-3/4 lg:hidden"
               date={date}
               isOptionB
               key={slice.primary.program_showcase_content[trackIndex].name}

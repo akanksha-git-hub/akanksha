@@ -117,6 +117,8 @@ export type AnnualReportsDocument<Lang extends string = string> =
   >;
 
 type AseDocumentDataSlicesSlice =
+  | CardShuffleSlice
+  | SliderShowcaseSlice
   | CardsSlice
   | TestimonialSlice
   | FlagshipHeroSlice;
@@ -3796,6 +3798,61 @@ export interface CardShuffleSliceDefaultPrimaryItemsItem {
 }
 
 /**
+ * Item in *CardShuffle → Option B → Primary → Items*
+ */
+export interface CardShuffleSliceOptionBPrimaryItemsItem {
+  /**
+   * Main title field in *CardShuffle → Option B → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.optionB.primary.items[].main_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_title: prismic.KeyTextField;
+
+  /**
+   * Small title field in *CardShuffle → Option B → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.optionB.primary.items[].small_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_title: prismic.KeyTextField;
+
+  /**
+   * Description field in *CardShuffle → Option B → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.optionB.primary.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *CardShuffle → Option B → Primary → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.optionB.primary.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * Animated Icon JSON format field in *CardShuffle → Option B → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.optionB.primary.items[].animated_icon_json_format
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  animated_icon_json_format: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *CardShuffle → Default → Primary*
  */
 export interface CardShuffleSliceDefaultPrimary {
@@ -3864,9 +3921,69 @@ export type CardShuffleSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *CardShuffle → Option B → Primary*
+ */
+export interface CardShuffleSliceOptionBPrimary {
+  /**
+   * Slice Identifier field in *CardShuffle → Option B → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.optionB.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Heading small field in *CardShuffle → Option B → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.optionB.primary.heading_small
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading_small: prismic.KeyTextField;
+
+  /**
+   * Heading Big field in *CardShuffle → Option B → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.optionB.primary.heading_big
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading_big: prismic.KeyTextField;
+
+  /**
+   * Items field in *CardShuffle → Option B → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.optionB.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<Simplify<CardShuffleSliceOptionBPrimaryItemsItem>>;
+}
+
+/**
+ * Option B variation for CardShuffle Slice
+ *
+ * - **API ID**: `optionB`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardShuffleSliceOptionB = prismic.SharedSliceVariation<
+  "optionB",
+  Simplify<CardShuffleSliceOptionBPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *CardShuffle*
  */
-type CardShuffleSliceVariation = CardShuffleSliceDefault;
+type CardShuffleSliceVariation =
+  | CardShuffleSliceDefault
+  | CardShuffleSliceOptionB;
 
 /**
  * CardShuffle Shared Slice
@@ -7139,6 +7256,41 @@ export interface SliderShowcaseSliceSliderDPrimaryItemsItem {
 }
 
 /**
+ * Item in *SliderShowcase → Slider E → Primary → Items*
+ */
+export interface SliderShowcaseSliceSliderEPrimaryItemsItem {
+  /**
+   * Image field in *SliderShowcase → Slider E → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderE.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *SliderShowcase → Slider E → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderE.primary.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *SliderShowcase → Slider E → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderE.primary.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *SliderShowcase → Default → Primary*
  */
 export interface SliderShowcaseSliceDefaultPrimary {
@@ -7339,13 +7491,64 @@ export type SliderShowcaseSliceSliderD = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *SliderShowcase → Slider E → Primary*
+ */
+export interface SliderShowcaseSliceSliderEPrimary {
+  /**
+   * Slice Identifier field in *SliderShowcase → Slider E → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderE.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *SliderShowcase → Slider E → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderE.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Items field in *SliderShowcase → Slider E → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderE.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<SliderShowcaseSliceSliderEPrimaryItemsItem>
+  >;
+}
+
+/**
+ * Slider E variation for SliderShowcase Slice
+ *
+ * - **API ID**: `sliderE`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SliderShowcaseSliceSliderE = prismic.SharedSliceVariation<
+  "sliderE",
+  Simplify<SliderShowcaseSliceSliderEPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *SliderShowcase*
  */
 type SliderShowcaseSliceVariation =
   | SliderShowcaseSliceDefault
   | SliderShowcaseSliceSliderB
   | SliderShowcaseSliceSliderC
-  | SliderShowcaseSliceSliderD;
+  | SliderShowcaseSliceSliderD
+  | SliderShowcaseSliceSliderE;
 
 /**
  * SliderShowcase Shared Slice
@@ -8433,8 +8636,11 @@ declare module "@prismicio/client" {
       CardShuffleSlice,
       CardShuffleSliceDefaultPrimaryItemsItem,
       CardShuffleSliceDefaultPrimary,
+      CardShuffleSliceOptionBPrimaryItemsItem,
+      CardShuffleSliceOptionBPrimary,
       CardShuffleSliceVariation,
       CardShuffleSliceDefault,
+      CardShuffleSliceOptionB,
       CardsSlice,
       CardsSliceDefaultPrimary,
       CardsSliceOptionBPrimary,
@@ -8564,11 +8770,14 @@ declare module "@prismicio/client" {
       SliderShowcaseSliceSliderCPrimary,
       SliderShowcaseSliceSliderDPrimaryItemsItem,
       SliderShowcaseSliceSliderDPrimary,
+      SliderShowcaseSliceSliderEPrimaryItemsItem,
+      SliderShowcaseSliceSliderEPrimary,
       SliderShowcaseSliceVariation,
       SliderShowcaseSliceDefault,
       SliderShowcaseSliceSliderB,
       SliderShowcaseSliceSliderC,
       SliderShowcaseSliceSliderD,
+      SliderShowcaseSliceSliderE,
       SwirlImageSlice,
       SwirlImageSliceDefaultPrimary,
       SwirlImageSliceVariation,

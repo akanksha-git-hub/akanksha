@@ -845,6 +845,14 @@ gap: 1rem; */
     width: var(--card-width);
     transform-style: preserve-3d;
   }
+  .pers-cards {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 420px;
+    max-height: 620px;
+    width: 100%;
+  }
   .final-horizontal-load-state {
     width: 34.1rem;
   }

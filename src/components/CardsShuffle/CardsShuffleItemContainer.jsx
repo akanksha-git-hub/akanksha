@@ -6,19 +6,35 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function CardsShuffleItemContainer({ children, itemKeyFn, itemClassName, itemsContainerClassName, className }) {
+export default function CardsShuffleItemContainer({ 
+    children, 
+    itemKeyFn, 
+    itemClassName, 
+    itemsContainerClassName, 
+    className,
+    isLottie
+}) {
 
-    const { slice } = useCardsShuffleContext();
+    const { slice, lottieRefs } = useCardsShuffleContext();
     const [onMount, setOnMount] = useState({ firstMount: false, secondMount: false });
     const [cards, setCards] = useState(slice);
 
     const root = useRef(null);
 
-
     const frameCount = 1400;
 
     let travelPixel;
     travelPixel = (cards.length * 542);
+
+
+    function lottieLogic() {
+        lottieRefs.current.forEach(ref => {
+            if(ref.current) {
+                ref.current.stop();
+                ref.current.setSpeed(0.7);
+            }
+        });
+    }
 
     useEffect(() => {
 
@@ -58,7 +74,7 @@ export default function CardsShuffleItemContainer({ children, itemKeyFn, itemCla
         }
 
         if(onMount.secondMount) {
-            
+
             gsap.set('.pin-wrapper', { height: 'auto' });
 
             // set Initial Value for cards not FIRST INDEX;
@@ -90,20 +106,52 @@ export default function CardsShuffleItemContainer({ children, itemKeyFn, itemCla
                     }
                 });
 
-                cards.forEach((card, i) => {
+                if(!isLottie) {
+                    cards.forEach((card, i) => {
 
-                    const currentCard = i + 1;
-                    const cardLength = cards.length;
+                        const currentCard = i + 1;
+                        const cardLength = cards.length;
+    
+                        tl.to(currentCard !== cardLength &&`#${card.id}`, { translateY: '-86%', translateZ: '120px', duration: 3.5, ease: 'sine.in' })
+                        .to(currentCard !== cardLength &&`#${card.id}`, { scale: 0.9, duration: 3.5, ease: 'sine.in' })
+                        .to(currentCard !== cardLength &&`#${card.id}`, { translateZ: '-100px' })
+                        .to((currentCard !== cardLength) && (currentCard <= cardLength) && `#card-${i + 2}`, { translateZ: '130px' })
+                        .to((currentCard !== cardLength) && (currentCard < cardLength) && `#card-${i + 3}`, { translateZ: '120px' })
+                        .to((currentCard !== cardLength) && (currentCard <= cardLength) && `#card-${i+ 2}`, { translateY: '10%', scale: 1, duration: 3.5, ease: 'sine.in' })
+                        .to((currentCard !== cardLength) &&`#${card.id}`, { translateY: '10%', duration: 3.5, scale: 0.9, ease: 'sine.in' })
+    
+                    });
+                } else {
 
-                    tl.to(currentCard !== cardLength &&`#${card.id}`, { translateY: '-86%', translateZ: '120px', duration: 3.5, ease: 'sine.in' })
-                    .to(currentCard !== cardLength &&`#${card.id}`, { scale: 0.9, duration: 3.5, ease: 'sine.in' })
-                    .to(currentCard !== cardLength &&`#${card.id}`, { translateZ: '-100px' })
-                    .to((currentCard !== cardLength) && (currentCard <= cardLength) && `#card-${i + 2}`, { translateZ: '130px' })
-                    .to((currentCard !== cardLength) && (currentCard < cardLength) && `#card-${i + 3}`, { translateZ: '120px' })
-                    .to((currentCard !== cardLength) && (currentCard <= cardLength) && `#card-${i+ 2}`, { translateY: '10%', scale: 1, duration: 3.5, ease: 'sine.in' })
-                    .to((currentCard !== cardLength) &&`#${card.id}`, { translateY: '10%', duration: 3.5, scale: 0.9, ease: 'sine.in' })
+                    lottieLogic();
 
-                });
+                    function triggerLottieCards(currentCard){
+                        lottieRefs.current[currentCard].current.play();
+                    }
+
+                    cards.forEach((card, i) => {
+
+                        const currentCard = i + 1;
+                        const cardLength = cards.length;
+    
+                        tl
+                        .call(() => {
+                            if(i === 0) {
+                                lottieRefs.current[i].current.play();
+                            }
+                        })
+                        .to(currentCard !== cardLength &&`#${card.id}`, { translateY: '-86%', translateZ: '120px', duration: 3.5, ease: 'sine.in' })
+                        .to(currentCard !== cardLength &&`#${card.id}`, { scale: 0.9, duration: 3.5, ease: 'sine.in' })
+                        .to(currentCard !== cardLength &&`#${card.id}`, { translateZ: '-100px' })
+                        .to((currentCard !== cardLength) && (currentCard <= cardLength) && `#card-${i + 2}`, { translateZ: '130px' })
+                        .add(() => triggerLottieCards(currentCard))
+                        .to((currentCard !== cardLength) && (currentCard < cardLength) && `#card-${i + 3}`, { translateZ: '120px' })
+                        .to((currentCard !== cardLength) && (currentCard <= cardLength) && `#card-${i+ 2}`, { translateY: '10%', scale: 1, duration: 3.5, ease: 'sine.in' })
+                        .to((currentCard !== cardLength) &&`#${card.id}`, { translateY: '10%', duration: 3.5, scale: 0.9, ease: 'sine.in' })
+    
+                    });
+
+                }   
 
                 ScrollTrigger.refresh();
 

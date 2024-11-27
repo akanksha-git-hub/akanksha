@@ -46,7 +46,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1504198070170-4ca53bb1c1fa",
@@ -64,6 +63,9 @@
 										},
 										"background": "transparent"
 									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
@@ -93,5 +95,84 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "optionB",
+		"primary": {
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "mail",
+				"type": "Text"
+			},
+			"heading_small": {
+				"__TYPE__": "FieldContent",
+				"value": "castle",
+				"type": "Text"
+			},
+			"heading_big": {
+				"__TYPE__": "FieldContent",
+				"value": "taste",
+				"type": "Text"
+			},
+			"items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"small_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "dog",
+									"type": "Text"
+								}
+							],
+							[
+								"main_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "coming",
+									"type": "Text"
+								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "negative",
+									"type": "Text"
+								}
+							],
+							[
+								"cta_link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev"
+									}
+								}
+							],
+							[
+								"animated_icon_json_format",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "women",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

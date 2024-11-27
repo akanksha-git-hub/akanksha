@@ -1,11 +1,12 @@
-import CardShuffle from "@/slices/CardShuffle";
-import { createContext, useContext, useRef } from "react"
+import { createContext, createRef, useContext, useRef } from "react"
 import CardsShuffleItemContainer from "./CardsShuffleItemContainer";
 import CardShuffleA from "./CardShuffleA";
+import CardShuffleB from "./CardShuffleB";
 
 
 const CardsShuffleContext = createContext({
-    slice: []
+    slice: [],
+    lottieRefs: {}
 });
 
 
@@ -19,9 +20,29 @@ export function useCardsShuffleContext() {
 
 }
 
-export default function CardsShuffle({ children, slice, className }) {
+export default function CardsShuffle({ children, slice, className, isLottie }) {
 
-    const ctxValue = { slice };
+    // if component has Lottie
+    let i = 0;
+    let lottieItemsArray = [];
+    let lottieRefs = useRef(lottieItemsArray);
+
+    if(isLottie) {
+
+        for(i; i<= slice.length; i++) {
+            lottieItemsArray.push(i);
+        }
+
+        lottieRefs.current = lottieItemsArray.map(
+            (ref, index) => lottieRefs.current[index] = createRef()
+        )
+
+    }
+
+
+
+    const ctxValue = { slice, lottieRefs };
+
 
   return (
     <CardsShuffleContext.Provider value={ctxValue}>
@@ -34,3 +55,4 @@ export default function CardsShuffle({ children, slice, className }) {
 
 CardsShuffle.ItemContainer = CardsShuffleItemContainer;
 CardsShuffle.CardShuffleA = CardShuffleA;
+CardsShuffle.CardShuffleB = CardShuffleB;

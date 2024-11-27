@@ -120,7 +120,7 @@ export default function IconScrollShowcase({ data }) {
                             width={100}
                         />
                     </div>
-                    <div className={`absolute top-2/4 ${i % 2 === 0 ? '-translate-y-2/4 left-[90%]' : '-translate-y-2/4 right-[90%] md:right-[120%] xl:right-[90%]'} w-full`}>
+                    <div className={`absolute top-2/4 ${i % 2 === 0 ? '-translate-y-2/4 left-[90%]' : '-translate-y-2/4 right-[68%] sm:right-[90%] md:right-[120%] xl:right-[90%]'} w-full`}>
                         <div className={`w-full md:w-[300px] xl:w-full flex ${i % 2 == 0 ? 'flex-row' : 'flex-row-reverse'} gap-0 md:gap-4`}>
                             <div className={`flex ${i % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-center`}>
                                 <div className="h-3 w-3 relative rounded-full bg-deep-green" />

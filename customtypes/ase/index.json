@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "card_shuffle": {
+              "type": "SharedSlice"
+            },
+            "slider_showcase": {
+              "type": "SharedSlice"
+            },
             "cards": {
               "type": "SharedSlice"
             },
