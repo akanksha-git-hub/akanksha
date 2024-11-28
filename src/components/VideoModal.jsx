@@ -4,14 +4,14 @@ import Image from 'next/image'
 import { PrismicNextImage } from '@prismicio/next'
 import PlayButtonLogo from "../../public/assets/play-symbol.svg"
 
-export default function VideoModal({ slice, className, descriptionText }) {
+export default function VideoModal({ slice, className, descriptionText, imageClassName }) {
   return (
     <div className={`w-2/4 relative ${className}`}>
         <PrismicNextImage 
             height={800}
             width={800}
             field={slice.primary.video_thumbnail_image}
-            className="w-full h-auto object-cover z-0 rounded-md overflow-hidden"
+            className={`w-full h-auto object-cover z-0 rounded-md overflow-hidden ${imageClassName}`}
             alt=""
         />
         <div className="absolute p-4 sm:p-8 flex items-end image-bg top-0 left-0 h-full w-full z-20 rounded-lg overflow-hidden cursor-pointer hover:opacity-85 transition-all">

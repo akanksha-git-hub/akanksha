@@ -12,6 +12,30 @@ import { spanPosition } from "@/utils/helperClasses";
 const MissionVision = ({ slice }) => {
 
 
+  if(slice.variation === "optionF") {
+    return(
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="my-24"
+      >
+        <SliceIdentifier 
+          text={slice.primary.slice_identifier}
+        />
+        <RichText 
+          text={slice.primary.title}
+          className='flex items-center justify-center text-deep-green text-5xl md:text-center mt-12'
+        />
+        <VideoModal 
+          slice={slice}
+          className='w-full xl:w-[90%] lg:h-[800px] xl:h-[700px] mx-auto mt-12'
+          imageClassName='h-full'
+        />
+      </section>
+    )
+  }
+
+
   if(slice.variation === 'optionD') {
 
     return(

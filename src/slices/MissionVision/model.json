@@ -341,6 +341,46 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "optionF",
+      "name": "Option F",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "video_thumbnail_image": {
+          "type": "Image",
+          "config": {
+            "label": "Video Thumbnail Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "video_thumbnail_title": {
+          "type": "Text",
+          "config": {
+            "label": "Video Thumbnail Title",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

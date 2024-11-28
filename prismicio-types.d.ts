@@ -117,6 +117,7 @@ export type AnnualReportsDocument<Lang extends string = string> =
   >;
 
 type AseDocumentDataSlicesSlice =
+  | MissionVisionSlice
   | CardShuffleSlice
   | SliderShowcaseSlice
   | CardsSlice
@@ -6068,6 +6069,64 @@ export type MissionVisionSliceOptionE = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *MissionVision → Option F → Primary*
+ */
+export interface MissionVisionSliceOptionFPrimary {
+  /**
+   * Slice Identifier field in *MissionVision → Option F → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.optionF.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Video Thumbnail Image field in *MissionVision → Option F → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.optionF.primary.video_thumbnail_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  video_thumbnail_image: prismic.ImageField<never>;
+
+  /**
+   * Video Thumbnail Title field in *MissionVision → Option F → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.optionF.primary.video_thumbnail_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  video_thumbnail_title: prismic.KeyTextField;
+
+  /**
+   * Title field in *MissionVision → Option F → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.optionF.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Option F variation for MissionVision Slice
+ *
+ * - **API ID**: `optionF`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MissionVisionSliceOptionF = prismic.SharedSliceVariation<
+  "optionF",
+  Simplify<MissionVisionSliceOptionFPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *MissionVision*
  */
 type MissionVisionSliceVariation =
@@ -6075,7 +6134,8 @@ type MissionVisionSliceVariation =
   | MissionVisionSliceReverseVideoComponet
   | MissionVisionSliceDoubleCtaComponent
   | MissionVisionSliceOptionD
-  | MissionVisionSliceOptionE;
+  | MissionVisionSliceOptionE
+  | MissionVisionSliceOptionF;
 
 /**
  * MissionVision Shared Slice
@@ -8709,12 +8769,14 @@ declare module "@prismicio/client" {
       MissionVisionSliceDoubleCtaComponentPrimary,
       MissionVisionSliceOptionDPrimary,
       MissionVisionSliceOptionEPrimary,
+      MissionVisionSliceOptionFPrimary,
       MissionVisionSliceVariation,
       MissionVisionSliceDefault,
       MissionVisionSliceReverseVideoComponet,
       MissionVisionSliceDoubleCtaComponent,
       MissionVisionSliceOptionD,
       MissionVisionSliceOptionE,
+      MissionVisionSliceOptionF,
       MissionVisionShowcaseSlice,
       MissionVisionShowcaseSliceDefaultPrimary,
       MissionVisionShowcaseSliceVariation,
