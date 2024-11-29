@@ -23,7 +23,7 @@ export default async function Header() {
   return (
     <Hamburger>
       <header className="bg-cream px-6 py-2 border-b border-black relative">
-        <div className={`flex items-center justify-between max-w-[2200px] mx-auto ${maxwidth}`}>
+        <div className={`flex items-center justify-between max-w-[2200px] mx-auto ${maxwidth} border border-red-500`}>
           <HeaderHomeLogo
             image={logo_image} 
           />
