@@ -28,7 +28,7 @@ const BlogCategoryItems = ({ slice, context }) => {
             </ResourcesCard.ItemsContainer>
             <ResourcesCard.PaginationContainer />
           </ResourcesCard>
-      </section>
+        </section>
       )}
       </>
     );

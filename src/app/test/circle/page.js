@@ -48,24 +48,59 @@ export default function Page() {
 
   // }, [circle.angle]);
 
+  const [test, setTest] = useState({ dia: 300, rotate: 360 });
 
   const { width } = useDebouncedResize();
 
-  const dummyData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 12, 13, 14, 22, 23, 24, 25, 26, 27, 28,27, 28,27, 28,27, 28,27, 28,27, 28,27, 28,];
-  let dia = 0;
+  let keyItems = 20;
+
+  let dummyData = [];
+
+  for(let j=0; j <= keyItems; j++) {
+    dummyData.push(j);
+  }
+
+  // let dia = 50;
   const n = dummyData.length;
 
-  if(width < 1000) dia = 0;
+  // if(width < 1000) dia = 0;
+  
+  useEffect(() => {
+
+    if(test.dia === 300) {
+      setTimeout(() => {
+        setTest(prevState => ({ ...prevState, rotate: 0, dia: 100 }));
+      }, 2200)
+    } else {
+      setTimeout(() => {
+        setTest(prevState => ({ ...prevState, rotate: 360, dia: 300 }));
+      }, 2200);
+    }
+
+  }, [test.dia]);
 
   return (
     <div className="h-screen w-full flex items-center justify-center">
-        <div className="border border-red-500 rounded-full"
+        <div className="border border-red-500 rounded-full h-[300px] w-[300px]"
           style={{
             position: 'relative', 
             transformOrigin: 'center', 
-            transition: 'all 1s ease', 
+            transition: 'all 2s ease', 
+            transform: `rotate(${test.rotate}deg)`
           }}
         >
+          <div 
+            className="absolute border border-red-500 top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-full"
+          />
+          <div 
+            className="absolute border border-red-500 top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 h-full"
+          />
+          <div 
+            className="absolute border border-red-500 top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 h-full rotate-45"
+          />
+          <div 
+            className="absolute border border-red-500 top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 h-full -rotate-45"
+          />
             {dummyData.map((item, index) => {
 
               const sectorAngle = 360 / n;
@@ -86,7 +121,7 @@ export default function Page() {
                 actual height to calc rad = 200/10;
               */
 
-              const diaCalc = dia/10;
+              const diaCalc = test.dia/10;
 
               const radius = (diaCalc * 50);
 
