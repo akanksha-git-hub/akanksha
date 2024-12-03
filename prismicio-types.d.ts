@@ -6154,7 +6154,7 @@ export type MissionVisionSlice = prismic.SharedSlice<
  */
 export interface MissionVisionShowcaseSliceDefaultPrimary {
   /**
-   * Text A field in *MissionVisionShowcase → Default → Primary*
+   * Mission Title field in *MissionVisionShowcase → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -6174,7 +6174,7 @@ export interface MissionVisionShowcaseSliceDefaultPrimary {
   image_a: prismic.ImageField<never>;
 
   /**
-   * Text B field in *MissionVisionShowcase → Default → Primary*
+   * Vision Title field in *MissionVisionShowcase → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -6194,24 +6194,24 @@ export interface MissionVisionShowcaseSliceDefaultPrimary {
   image_b: prismic.ImageField<never>;
 
   /**
-   * Title field in *MissionVisionShowcase → Default → Primary*
+   * Mission Description field in *MissionVisionShowcase → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: mission_vision_showcase.default.primary.title
+   * - **API ID Path**: mission_vision_showcase.default.primary.mission_description
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  title: prismic.KeyTextField;
+  mission_description: prismic.KeyTextField;
 
   /**
-   * Description field in *MissionVisionShowcase → Default → Primary*
+   * Vision Description field in *MissionVisionShowcase → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: mission_vision_showcase.default.primary.description
+   * - **API ID Path**: mission_vision_showcase.default.primary.vision_description
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  description: prismic.KeyTextField;
+  vision_description: prismic.KeyTextField;
 }
 
 /**

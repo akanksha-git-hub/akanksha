@@ -5,7 +5,7 @@
 		"primary": {
 			"text_a": {
 				"__TYPE__": "FieldContent",
-				"value": "was",
+				"value": "wheel",
 				"type": "Text"
 			},
 			"image_a": {
@@ -33,7 +33,7 @@
 			},
 			"text_b": {
 				"__TYPE__": "FieldContent",
-				"value": "importance",
+				"value": "zipper",
 				"type": "Text"
 			},
 			"image_b": {
@@ -59,14 +59,14 @@
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
-			"title": {
+			"mission_description": {
 				"__TYPE__": "FieldContent",
-				"value": "modern",
+				"value": "yard",
 				"type": "Text"
 			},
-			"description": {
+			"vision_description": {
 				"__TYPE__": "FieldContent",
-				"value": "judge",
+				"value": "born",
 				"type": "Text"
 			}
 		},
