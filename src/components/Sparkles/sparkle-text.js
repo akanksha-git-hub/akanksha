@@ -7,7 +7,7 @@ import SparkleSmall from "./sparkle-small";
 import RichText from "../Texts/RichText";
 import SparkleBig from "./sparkle-big";
 
-
+gsap.registerPlugin(ScrollTrigger);
 export default function SparkleText({ slice, isRight,onContentChange  }) {
 
     
