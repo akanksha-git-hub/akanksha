@@ -16,15 +16,18 @@ export default function SparkleText({ slice, isRight, onContentChange }) {
       ".image-1-trigger",
       { clipPath: "inset(100% 0 0 0)" },
       {
+        clipPath: "inset(0% 0 0 0)",
+        duration: 2,
+
+        ease: "power3.out",
+
         scrollTrigger: {
-          trigger: ".image-1-trigger",
+          trigger: ".image-2-trigger",
           top: "10%",
+
           bottom: "40%",
           toggleActions: "play pause resume none ",
         },
-        clipPath: "inset(0% 0 0 0)",
-        duration: 2,
-        ease: "power3.out",
       }
     );
     gsap.fromTo(
@@ -168,7 +171,7 @@ export default function SparkleText({ slice, isRight, onContentChange }) {
       {slice.image_a.url ? (
         <div className="w-full 950px:w-[40%] h-auto relative">
           <PrismicImage
-            className=" image-1-trigger rounded-2xl w-full h-full"
+            className=" image-1-trigger rounded-2xl w-full h-auto max-w-[90%] mx-auto 950px:max-w-none 950px:w-full "
             field={slice.image_a}
             imgixParams={{
               w: 400,
@@ -176,9 +179,9 @@ export default function SparkleText({ slice, isRight, onContentChange }) {
               fit: "crop",
             }}
           />
-          <SparkleBig className=" sparkle-big absolute hidden 950px:block top-2/4 -translate-y-2/4 -right-[30%] 2xl:-right-56 2xl:h-24" />
+          <SparkleBig className=" sparkle-big absolute hidden md:scale-90  950px:block top-2/4 -translate-y-2/4 -right-[30%] 2xl:-right-56 2xl:h-24" />
           <SparkleMedium className=" sparkle-medium absolute hidden 950px:block -top-8 h-12 -right-[26%] 2xl:-right-40" />
-          <SparkleSmall className="sparkle-small absolute bottom-44 right-12 950px:block 2xl:bottom-0 950px:-right-[22%] 2xl:-right-32" />
+          <SparkleSmall className="sparkle-small absolute -top-16 right-12 950px:top-auto 950px:bottom-44 950px:-right-[22%] 2xl:bottom-0 2xl:-right-32  " />
         </div>
       ) : (
         <div className="w-full 950px:w-[40%] h-auto relative">
@@ -229,7 +232,7 @@ export default function SparkleText({ slice, isRight, onContentChange }) {
         )}
         <RichText
           text={slice.text_b}
-          className=" text-description font-playfair-display italic text-7xl text-deep-green flex justify-end md:justify-normal hover:cursor-pointer hover:text-opacity-70"
+          className=" text-description font-playfair-display italic text-7xl text-deep-green flex justify-end hover:cursor-pointer hover:text-opacity-70"
           onClick={handleClick}
         />
       </>
@@ -238,7 +241,7 @@ export default function SparkleText({ slice, isRight, onContentChange }) {
 
   return (
     <div
-      className={`flex ${isRight ? "flex-col-reverse" : "flex-col"} 950px:flex-row 950px:justify-center 950px:items-center gap-8 w-full`}
+      className={`flex ${isRight ? "flex-col-reverse" : "flex-col"} 950px:flex-row 950px:justify-center 950px:items-center gap-8 w-full `}
     >
       {content}
     </div>
