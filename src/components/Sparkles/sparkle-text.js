@@ -181,7 +181,7 @@ export default function SparkleText({ slice, isRight, onContentChange }) {
           />
           <SparkleBig className=" sparkle-big absolute hidden md:scale-90  950px:block top-2/4 -translate-y-2/4 -right-[30%] 2xl:-right-56 2xl:h-24" />
           <SparkleMedium className=" sparkle-medium absolute hidden 950px:block -top-8 h-12 -right-[26%] 2xl:-right-40" />
-          <SparkleSmall className="sparkle-small absolute -top-16 sm:top-auto sm:bottom-44 right-12 950px:block 2xl:bottom-0 950px:-right-[22%] 2xl:-right-32    " />
+          <SparkleSmall className="sparkle-small absolute -top-16 right-12 950px:top-auto 950px:bottom-44 950px:-right-[22%] 2xl:bottom-0 2xl:-right-32  " />
         </div>
       ) : (
         <div className="w-full 950px:w-[40%] h-auto relative">
