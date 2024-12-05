@@ -15,7 +15,7 @@
         "text_a": {
           "type": "Text",
           "config": {
-            "label": "Text A",
+            "label": "Mission Title",
             "placeholder": ""
           }
         },
@@ -30,7 +30,7 @@
         "text_b": {
           "type": "Text",
           "config": {
-            "label": "Text B",
+            "label": "Vision Title",
             "placeholder": ""
           }
         },
@@ -42,17 +42,17 @@
             "thumbnails": []
           }
         },
-        "title": {
+        "mission_description": {
           "type": "Text",
           "config": {
-            "label": "Title",
+            "label": "Mission Description",
             "placeholder": ""
           }
         },
-        "description": {
+        "vision_description": {
           "type": "Text",
           "config": {
-            "label": "Description",
+            "label": "Vision Description",
             "placeholder": ""
           }
         }
