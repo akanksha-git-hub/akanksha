@@ -23,6 +23,11 @@ export const theme = {
       "olive-green": "#767632",
       "light-gray": "#C7C7C7",
       "soft-white": "#F5F4F1",
+      // version 2
+      "v2-white": "#ECF0F1",
+      "v2-orange": "#F6AC27",
+      "v2-blue": "#58BCD4",
+      "v2-yellow": "#FBDA1D",
     },
     backgroundColor: {
       "deep-green": "#37473C",

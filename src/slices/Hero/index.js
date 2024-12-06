@@ -1,11 +1,11 @@
 'use client'
 
-import PrimaryCTA from "@/components/UI/Button/PrimaryCTA";
 import RichText from "@/components/Texts/RichText";
 import StoryCircle from "@/components/UI/Story/StoryCircle";
 import { PrismicNextImage } from "@prismicio/next";
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Button from "@/components/v2-components/buttons/button";
 
 /**
  * @typedef {import("@prismicio/client").Content.HeroSlice} HeroSlice
@@ -132,12 +132,13 @@ const Hero = ({ slice }) => {
               2xl:w-[34rem] 3xl:text-2xl"
               text={slice.primary.hero_content[currentIndex].description}
             />
-            <PrimaryCTA 
+            <Button
+              prismicLink={slice.primary.hero_content[currentIndex].cta_link}
               key={slice.primary.hero_content[currentIndex].cta_link}
-              text={slice.primary.hero_content[currentIndex].cta_text}
-              link={slice.primary.hero_content[currentIndex].cta_link}
               className="mt-6"
-            />
+            >
+              {slice.primary.hero_content[currentIndex].cta_text}
+            </Button>
           </div>
         )}
       </div>
