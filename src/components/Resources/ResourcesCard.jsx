@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { createContext, useContext, useReducer, useState } from "react"
+import { createContext, useContext, useReducer, useState } from "react";
 import ResourcesEyebrow from "./ResourcesEyebrow";
 import ResourcesCardItemsContainer from "./ResourcesCardItemsContainer";
 import ResourcesCardItemA from "./ResourcesCardItemA";
@@ -16,13 +16,13 @@ const INITIAL_REDUCER = {
   final: 3,
   incrementValue: 6,
   balanceValue: null,
-  loading: false
-}
+  loading: false,
+};
 
 const FILTER_VALUES = {
   month: null,
-  year: null
-}
+  year: null,
+};
 
 const ResourceCardContext = createContext({
   slice: [],
@@ -36,80 +36,72 @@ const ResourceCardContext = createContext({
   handleSetYear: (year) => {},
   filterValues: FILTER_VALUES,
   isLoading: false,
-  state: INITIAL_REDUCER
+  state: INITIAL_REDUCER,
 });
 
-export function useResourcesCardContext () {
-
+export function useResourcesCardContext() {
   const ctx = useContext(ResourceCardContext);
 
-  if(!ctx) throw new Error('Can only be used under <ResourcesCard>');
+  if (!ctx) throw new Error("Can only be used under <ResourcesCard>");
 
   return ctx;
-
 }
 
 function reducer(state, action) {
-
-  if(action.type === INCREMENT) {
+  if (action.type === INCREMENT) {
     const balance = state.totalLength - state.final;
 
-    if(balance > 6) {
-
+    if (balance > 6) {
       return {
         ...state,
         initial: state.final,
-        final: state.final + state.incrementValue
-      }
-
+        final: state.final + state.incrementValue,
+      };
     } else {
       return {
         ...state,
         initial: state.final,
-        final: state.totalLength
-      }
+        final: state.totalLength,
+      };
     }
   }
 
-  if(action.type === DECREMENT) {
-
+  if (action.type === DECREMENT) {
     const initialValue = state.initial - state.incrementValue;
 
-    if(initialValue > 0) {
+    if (initialValue > 0) {
       return {
         ...state,
         initial: initialValue,
-        final: state.initial
-      }
+        final: state.initial,
+      };
     } else {
       return {
         ...state,
         initial: 0,
-        final: state.incrementValue
-      }
+        final: state.incrementValue,
+      };
     }
-
   }
 
-  if(action.type === CHANGED) {
+  if (action.type === CHANGED) {
     const dataLength = action.payload.data.length;
 
-    if(dataLength > 3) {
+    if (dataLength > 3) {
       const balanceValue = dataLength - 6;
       let finalValue;
-      
-      if(balanceValue > 0) {
+
+      if (balanceValue > 0) {
         finalValue = state.incrementValue;
-      };
-      
+      }
+
       return {
         ...state,
         isShowAll: true,
         initial: 0,
         final: finalValue,
-        totalLength: dataLength
-      }
-
+        totalLength: dataLength,
+      };
     }
 
     return {
@@ -117,43 +109,38 @@ function reducer(state, action) {
       isShowAll: true,
       initial: 0,
       final: dataLength,
-      totalLength: dataLength
-    }
+      totalLength: dataLength,
+    };
   }
 
-  if(action.type === SHOW) {
+  if (action.type === SHOW) {
     const dataLength = action.payload.data.length;
 
-    if(dataLength > 3) {
-
+    if (dataLength > 3) {
       const balanceValue = dataLength - 6;
       let finalValue;
-      
-      if(balanceValue > 0) {
 
+      if (balanceValue > 0) {
         finalValue = state.incrementValue;
-      };
-      
+      }
+
       return {
         ...state,
         isShowAll: true,
         initial: 0,
         final: finalValue,
-        totalLength: dataLength
-      }
-
+        totalLength: dataLength,
+      };
     }
     return {
       ...state,
       isShowAll: true,
-      final: dataLength
+      final: dataLength,
     };
   }
-
 }
 
 export default function ResourcesCard({ children, slice, className }) {
-
   const [state, dispatch] = useReducer(reducer, INITIAL_REDUCER);
   const [isLoading, setIsLoading] = useState(false);
   const [filterValues, setFilterValues] = useState(FILTER_VALUES);
@@ -172,9 +159,9 @@ export default function ResourcesCard({ children, slice, className }) {
   }
 
   function paginationIsLoading() {
-    setIsLoading(prevState => !prevState);
+    setIsLoading((prevState) => !prevState);
     setTimeout(() => {
-      setIsLoading(prevState => !prevState);
+      setIsLoading((prevState) => !prevState);
     }, 2000);
   }
 
@@ -183,11 +170,11 @@ export default function ResourcesCard({ children, slice, className }) {
   }
 
   function handleSetMonth(month) {
-    setFilterValues(prevState => ({ ...prevState, month }));
+    setFilterValues((prevState) => ({ ...prevState, month }));
   }
 
   function handleSetYear(year) {
-    setFilterValues(prevState => ({ ...prevState, year }));
+    setFilterValues((prevState) => ({ ...prevState, year }));
   }
 
   function handleSetCurrentData(data) {
@@ -195,15 +182,15 @@ export default function ResourcesCard({ children, slice, className }) {
   }
 
   function handleFilterChange(data) {
-    dispatch({ type: CHANGED, payload: { data }})
+    dispatch({ type: CHANGED, payload: { data } });
   }
 
-  const ctxValues = { 
-    slice, 
-    incrementPagination, 
-    decrementPagination, 
-    showAllReducer, 
-    state, 
+  const ctxValues = {
+    slice,
+    incrementPagination,
+    decrementPagination,
+    showAllReducer,
+    state,
     isLoading,
     viewAllScroll,
     handleSetMonth,
@@ -211,16 +198,14 @@ export default function ResourcesCard({ children, slice, className }) {
     filterValues,
     currentData,
     handleSetCurrentData,
-    handleFilterChange
-  }
+    handleFilterChange,
+  };
 
   return (
     <ResourceCardContext.Provider value={ctxValues}>
-      <ul className={`${className} space-y-12`}>
-        {children}
-      </ul>
+      <ul className={`${className} space-y-12`}>{children}</ul>
     </ResourceCardContext.Provider>
-  )
+  );
 }
 
 ResourcesCard.Eyebrow = ResourcesEyebrow;
@@ -228,7 +213,3 @@ ResourcesCard.ItemsContainer = ResourcesCardItemsContainer;
 ResourcesCard.ItemA = ResourcesCardItemA;
 ResourcesCard.ItemB = ResourcesCardItemB;
 ResourcesCard.PaginationContainer = ResourcesCardPaginationContainer;
-
-
-
-
