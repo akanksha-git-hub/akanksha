@@ -40,16 +40,18 @@ async function BlogData() {
     blogData = selectedSlice.primary.card_items.slice(0, 3);
   }
   return (
-    <div className="universal-padding flex flex-col space-y-12">
-      <div className="flex justify-start md:justify-end lg:justify-end pr-20">
+    <>
+      <div className="flex justify-start md:justify-end lg:justify-end pr-24">
         <PrimaryCTA
           text={"View All"}
           href="/resources/blogs"
           className="!px-12 !py-2 "
         />
       </div>
-      <ResourcesCardItemSingle data={blogData} />
-    </div>
+      <div className="universal-padding flex flex-col space-y-12">
+        <ResourcesCardItemSingle data={blogData} />
+      </div>
+    </>
   );
 }
 
