@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
-import PrimaryCTA from './UI/Button/PrimaryCTA'
 import RichText from './Texts/RichText'
+import Button from './v2-components/buttons/button';
 
 export default function NotificationBarWrapper({ notification_text, cta_text, cta_link }) {
 
@@ -16,11 +16,12 @@ export default function NotificationBarWrapper({ notification_text, cta_text, ct
             text={notification_text}
             className="font-ambit-regular text-deep-green text-base sm:text-xl md:text-2xl"
           />
-          <PrimaryCTA 
-            text={cta_text}
-            link={cta_link}
+          <Button
+            prismicLink={cta_link}
             className="!py-2 !px-4 sm:!py-2 sm:!px-8"
-          />
+          >
+            {cta_text}
+          </Button>
         </div>
         <div className='w-[5%] flex items-center justify-center'>
           <p className='cursor-pointer text-deep-green text-xl transition-all active:scale-95 hover:opacity-55' onClick={() => setClose(() => true)}>

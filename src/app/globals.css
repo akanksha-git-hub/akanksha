@@ -6,6 +6,7 @@
   --animation-timing: 1.66s;
   --bright-yellow: #FBDA1D;
   --cream: #F0EEDD;
+  --white: #FFFFFF;
   --off-white: #FFFBF1;
   --deep-green: #37473C;
   --inactive-story: #757575F0;
@@ -20,7 +21,7 @@
   box-sizing: border-box;
 }
 body {
-  background: var(--off-white);
+  background: var(--white);
   overflow-x: hidden;
 }
 .blur-bg {

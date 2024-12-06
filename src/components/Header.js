@@ -8,6 +8,7 @@ import HamburgerIcon from "./HamburgerMenu/HamburgerIcon";
 import HeaderHomeLogo from "./HeaderHomeLogo";
 import Link from "next/link";
 import { PrismicNextImage } from "@prismicio/next";
+import Button from "./v2-components/buttons/button";
 
 export default async function Header() {
 
@@ -20,9 +21,10 @@ export default async function Header() {
     return lowerCaseValue;
   }))];
 
+
   return (
     <Hamburger>
-      <header className="bg-cream px-6 py-2 border-b border-black relative">
+      <header className="px-6 py-2 relative">
         <div className={`flex items-center justify-between max-w-[2200px] mx-auto ${maxwidth}`}>
           <HeaderHomeLogo
             image={logo_image} 
@@ -44,11 +46,16 @@ export default async function Header() {
               drop_down_items={drop_down_items}
             />
             <div className="flex gap-4 lg:gap-0">
-              <PrimaryCTA 
+              {/* <PrimaryCTA 
                 link={cta_link}
                 text={cta_text}
                 className="!text-sm lg:text-xl font-inter"
-              />
+              /> */}
+              <Button
+                prismicLink={cta_link}
+              >
+                {cta_text}
+              </Button>
               <div 
                 className='block lg:hidden'
               >
