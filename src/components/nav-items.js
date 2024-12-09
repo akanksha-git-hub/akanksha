@@ -3,6 +3,7 @@ import { PrismicNextLink } from "@prismicio/next";
 import TextCTA from "./UI/Button/TextCTA";
 import RichText from "./Texts/RichText";
 import { usePathname } from "next/navigation";
+import NavItemDropDownText from "./v2-components/header/nav-item-dropdown-text";
 
 export default function NavItems({ header_link_items, drop_down_items, uniqueIdentifier }) {
 
@@ -45,9 +46,11 @@ export default function NavItems({ header_link_items, drop_down_items, uniqueIde
                       return(
                         <li key={_} className="relative">
                           <div className="drop-down">
-                            <RichText 
+                            <NavItemDropDownText 
                               text={finalWord}
-                              className="text-deep-green text-lg font-inter hover:opacity-55 transition-all active:scale-95 relative cursor-pointer"
+                              className={`
+                                  text-deep-green text-lg font-inter relative cursor-pointer
+                                `}
                             />
                             <div className="py-4 z-20 bg-cream border border-deep-green rounded-[10px] min-w-[200px] drop-down-container">
                               {drop_down_items
