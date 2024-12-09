@@ -15,18 +15,21 @@ import StoryCircle from "@/components/v2-components/story-circle/story-circle";
  * @typedef {import("@prismicio/react").SliceComponentProps<HeroSlice>} HeroProps
  * @param {HeroProps}
  */
+
+let timer = 5000;
+const INITIAL = {
+  currentIndex: 0,
+  remainingTime: timer
+}
 const Hero = ({ slice }) => {
   
-  let timer = 5000;
   const [loadingState, setLoadingState] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [intervalState, setIntervalState] = useState(INITIAL);
   const [onMount, setOnMount] = useState(false);
-  const [remainingTime, setRemainingTime] = useState(timer);
 
   function handleClick(i) {
-    if(i !== currentIndex) {
-      setCurrentIndex(i); 
-      setRemainingTime(timer);
+    if(i !== intervalState.currentIndex) {
+      setIntervalState(() => ({ currentIndex: i, remainingTime: timer }));
       setLoadingState(prevState => !prevState);
     } else {
       return;
@@ -36,7 +39,7 @@ const Hero = ({ slice }) => {
   function circleAnim() {
 
     let progress = document.querySelectorAll('.circle__progress--fill');
-    let radius = progress[currentIndex].r.baseVal.value;
+    let radius = progress[intervalState.currentIndex].r.baseVal.value;
 
     let circ = 2 * Math.PI * radius;
 
@@ -44,7 +47,7 @@ const Hero = ({ slice }) => {
       
       item.style.setProperty('--initialStroke', circ);
       
-      if(i === currentIndex) {
+      if(i === intervalState.currentIndex) {
         item.style.setProperty('--transitionDuration', `${timer}ms`);
         item.style.strokeDashoffset = circ;
       } else {
@@ -69,17 +72,17 @@ const Hero = ({ slice }) => {
 
       const interval = setInterval(() => {
 
-        setCurrentIndex(prevState => {
+        setIntervalState(prevState => {
 
-          if(prevState === slice.primary.hero_content.length - 1) return 0
+          if(prevState.currentIndex === slice.primary.hero_content.length - 1) return { ...prevState, currentIndex: 0 }
 
-          if(slice.primary.hero_content.length !== prevState) return prevState + 1
+          if(slice.primary.hero_content.length !== prevState.currentIndex) return { ...prevState, currentIndex: prevState.currentIndex + 1 } 
 
           return prevState;
 
         });
 
-      }, remainingTime);
+      }, intervalState.remainingTime)
 
       return () => clearInterval(interval);
 
@@ -95,7 +98,7 @@ const Hero = ({ slice }) => {
 
     circleAnim();
 
-  }, [onMount, currentIndex, loadingState]);
+  }, [onMount, intervalState.currentIndex, loadingState]);
 
   return (
     <section
@@ -106,7 +109,7 @@ const Hero = ({ slice }) => {
       <div className="mt-6 lg:mt-12 w-full lg:w-auto">
         {slice.primary.hero_content.length !== 0 && (
           <ul className=" pb-2 flex items-start justify-start w-full lg:w-[400px] xl:w-[500px] mx-auto lg:mx-0">
-            <Swiper className="w-[90%] sm:w-screen flex items-start !py-2 !pl-2" 
+            <Swiper className="w-[90%] sm:w-screen flex items-start !py-3 !pl-2" 
               breakpoints={{
                 2500: {
                   slidesPerView: 5.6
@@ -137,7 +140,7 @@ const Hero = ({ slice }) => {
         {slice.primary.hero_content.length !== 0 && (
           <div className="flex w-full mx-auto sm:w-auto items-center justify-center flex-col lg:items-baseline lg:justify-normal mt-6 lg:mt-2">
             <RichText 
-              key={slice.primary.hero_content[currentIndex].title}
+              key={slice.primary.hero_content[intervalState.currentIndex].title}
               className="font-ambit-regular opacity-anim text-deep-green 
               mt-6 w-full text-center
               text-4xl
@@ -145,26 +148,26 @@ const Hero = ({ slice }) => {
               xl:w-[46%] lg:text-left
               xl:text-7xl 
               3xl:w-[48rem] 3xl:text-8xl"
-              text={slice.primary.hero_content[currentIndex].title}
+              text={slice.primary.hero_content[intervalState.currentIndex].title}
             />
             <RichText 
-              key={slice.primary.hero_content[currentIndex].description}
+              key={slice.primary.hero_content[intervalState.currentIndex].description}
               className="font-inter opacity-anim font-normal text-deep-green 
               text-base leading-[20.2px]
               sm:text-xl mt-3 lg:mt-8 w-5/6 text-center 
               xl:w-[40%] lg:text-left
               2xl:w-[34rem] 3xl:text-2xl"
-              text={slice.primary.hero_content[currentIndex].description}
+              text={slice.primary.hero_content[intervalState.currentIndex].description}
             />
             <Button
-              prismicLink={slice.primary.hero_content[currentIndex].cta_link}
+              prismicLink={slice.primary.hero_content[intervalState.currentIndex].cta_link}
               className="mt-6"
               >
               <p
                 className="opacity-anim"
-                key={slice.primary.hero_content[currentIndex].cta_link}
+                key={slice.primary.hero_content[intervalState.currentIndex].cta_link}
               >
-                {slice.primary.hero_content[currentIndex].cta_text}
+                {slice.primary.hero_content[intervalState.currentIndex].cta_text}
               </p>
             </Button>
           </div>
@@ -187,14 +190,14 @@ const Hero = ({ slice }) => {
               className="absolute top-0 left-0 -z-10"
             />
             <div
-              key={slice.primary.hero_content[currentIndex].image.url}
+              key={slice.primary.hero_content[intervalState.currentIndex].image.url}
               className="opacity-anim transition-all h-[78%] w-[78%] lg:h-[80%] lg:w-[80%]"          
             >
               <PrismicNextImage 
                 height={500}
                 width={500}
                 loading="eager"
-                field={slice.primary.hero_content[currentIndex].image}
+                field={slice.primary.hero_content[intervalState.currentIndex].image}
                 className="h-full w-full object-cover"
                 alt=""
               />
