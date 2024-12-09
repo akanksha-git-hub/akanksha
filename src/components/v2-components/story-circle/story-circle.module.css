@@ -1,0 +1,23 @@
+
+  /* NEW */
+  .circle__progress {
+    fill: none;
+    stroke-width: 3;
+    stroke-opacity: 0.3;
+    stroke-linecap: round;
+    stroke: #AAFF00;
+  }
+.circle__progress--fill {
+    --initialStroke: 0;
+    --transitionDuration: 0;
+    stroke-opacity: 1;
+    stroke-dasharray: var(--initialStroke);
+    stroke-dashoffset: var(--initialStroke);
+    transition: stroke-dashoffset var(--transitionDuration) ease;
+  }
+
+  .circle__svg {
+    transform: rotate(90deg); /* change as required */
+    position: relative;
+  }
+  
