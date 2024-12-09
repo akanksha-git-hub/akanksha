@@ -24,33 +24,27 @@ export default async function Header() {
 
   return (
     <Hamburger>
-      <header className="px-6 py-2 relative">
+      <header className="px-6 py-4 relative">
         <div className={`flex items-center justify-between max-w-[2200px] mx-auto ${maxwidth}`}>
           <HeaderHomeLogo
             image={logo_image} 
           />
-          <Link href="/" className="h-[4.7rem] w-[8.6rem] hidden lg:block">
+          <Link href="/" className="relative h-[3.7rem] w-[8.6rem] hidden lg:block">
             <PrismicNextImage 
                 field={logo_image}
                 alt=""
                 className="h-full w-full"
-                height={1500}
-                width={1500}
+                fill
             />
           </Link>  
           {/* MID-ITEMS */}
-          <div className="flex items-center gap-12">
             <NavItems 
               uniqueIdentifier={uniqueIdentifier}
               header_link_items={header_link_items}
               drop_down_items={drop_down_items}
             />
+            {/*  */}
             <div className="flex gap-4 lg:gap-0">
-              {/* <PrimaryCTA 
-                link={cta_link}
-                text={cta_text}
-                className="!text-sm lg:text-xl font-inter"
-              /> */}
               <Button
                 prismicLink={cta_link}
               >
@@ -62,7 +56,6 @@ export default async function Header() {
                 <HamburgerIcon />
               </div>
             </div>
-          </div>
         </div>
         <div 
           className={`
