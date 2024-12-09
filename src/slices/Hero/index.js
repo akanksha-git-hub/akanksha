@@ -1,11 +1,14 @@
 'use client'
 
 import RichText from "@/components/Texts/RichText";
-import StoryCircle from "@/components/UI/Story/StoryCircle";
+// import StoryCircle from "@/components/UI/Story/StoryCircle";
 import { PrismicNextImage } from "@prismicio/next";
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Button from "@/components/v2-components/buttons/button";
+import Image from "next/image";
+import HeroHolderBg from "@/assets/hero-img-holder-bg.png";
+import StoryCircle from "@/components/v2-components/story-circle/story-circle";
 
 /**
  * @typedef {import("@prismicio/client").Content.HeroSlice} HeroSlice
@@ -17,72 +20,99 @@ const Hero = ({ slice }) => {
   let timer = 5000;
   const [loadingState, setLoadingState] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [onMount, setOnMount] = useState(false);
   const [remainingTime, setRemainingTime] = useState(timer);
-  const loaderA = useRef(null);
-  const loaderB = useRef(null);
-  const loaderC = useRef(null);
 
-  const checkPointA = Math.floor(timer - (timer / 3));
-  const checkPointB = Math.floor(checkPointA - (timer / 3));
+  function handleClick(i) {
+    if(i !== currentIndex) {
+      setCurrentIndex(i); 
+      setRemainingTime(timer);
+      setLoadingState(prevState => !prevState);
+    } else {
+      return;
+    }
+  }
 
-  if(remainingTime === 0) {
-    loaderA.current.classList.remove("final-load-state");
-    loaderB.current.classList.remove("final-horizontal-load-state");
-    loaderC.current.classList.remove("final-load-state");
-    setRemainingTime(timer);
-    setCurrentIndex(prevState => {
-      if(prevState === slice.primary.hero_content.length - 1) return 0;
+  function circleAnim() {
 
-      if(slice.primary.hero_content.length !== prevState) return prevState + 1;
+    let progress = document.querySelectorAll('.circle__progress--fill');
+    let radius = progress[currentIndex].r.baseVal.value;
+
+    let circ = 2 * Math.PI * radius;
+
+    progress.forEach((item, i) => {
+      
+      item.style.setProperty('--initialStroke', circ);
+      
+      if(i === currentIndex) {
+        item.style.setProperty('--transitionDuration', `${timer}ms`);
+        item.style.strokeDashoffset = circ;
+      } else {
+        item.style.strokeDashoffset = 0;
+        item.style.removeProperty('--transitionDuration');
+      }
+
     });
+      
   }
 
 
-  if((remainingTime < (timer - 10)) && (remainingTime > 0)) loaderA.current.classList.add("final-load-state");
-
-  if((remainingTime <= checkPointA) && (remainingTime > 0)) loaderB.current.classList.add("final-horizontal-load-state");
-
-  if((remainingTime <= checkPointB) && (remainingTime > 0)) loaderC.current.classList.add("final-load-state");
-
-  function handleStory(i) {
-    setCurrentIndex(i);
-    setRemainingTime(timer);
-    loaderA.current.classList.remove("final-load-state");
-    loaderB.current.classList.remove("final-horizontal-load-state");
-    loaderC.current.classList.remove("final-load-state");
-  }
+  useEffect(() => {
 
 
-  // useEffect(() => {
+    if(!onMount) {
+      setOnMount(() => true);
+      return;
+    }
 
-  //   setTimeout(() => setLoadingState(true), 1000);
+    if(slice.primary.hero_content.length >= 1) {
 
-  //   if((slice.primary.hero_content.length >= 1) && loadingState) {
-  //     const interval = setInterval(() => {
-  //       setRemainingTime(prevTime => prevTime - 100);
-  //     }, 100);
-  
-  //     return () => clearInterval(interval);
-  //   }
-  // }, [loadingState]);
+      const interval = setInterval(() => {
+
+        setCurrentIndex(prevState => {
+
+          if(prevState === slice.primary.hero_content.length - 1) return 0
+
+          if(slice.primary.hero_content.length !== prevState) return prevState + 1
+
+          return prevState;
+
+        });
+
+      }, remainingTime);
+
+      return () => clearInterval(interval);
+
+    }
+
+    return;
+
+  }, [onMount, loadingState]);
+
+  useEffect(() => {
+
+    if(!onMount) return setOnMount(() => true);
+
+    circleAnim();
+
+  }, [onMount, currentIndex, loadingState]);
 
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding relative flex flex-col-reverse h-auto 2xl:min-h-[45rem] 3xl:min-h-[55rem] lg:flex-col pb-[1000px] items-center justify-center lg:items-baseline lg:justify-normal"
+      className="universal-padding relative flex flex-col-reverse h-auto 2xl:min-h-[45rem] 3xl:min-h-[55rem] xl:flex-col pb-[1000px] items-center justify-center lg:items-baseline lg:justify-normal"
     >
       <div className="mt-6 lg:mt-12 w-full lg:w-auto">
-        {/* TODO add gradient to right for fade effect */}
         {slice.primary.hero_content.length !== 0 && (
-          <ul className="overflow-x-scroll pb-2 custom-scroll-bar flex items-start justify-start w-full lg:w-[400px] xl:w-[500px] mx-auto lg:mx-0">
-            <Swiper className="w-[90%] sm:w-screen flex items-start" 
+          <ul className=" pb-2 flex items-start justify-start w-full lg:w-[400px] xl:w-[500px] mx-auto lg:mx-0">
+            <Swiper className="w-[90%] sm:w-screen flex items-start !py-2 !pl-2" 
               breakpoints={{
                 2500: {
                   slidesPerView: 5.6
                 },
                 1200: {
-                  slidesPerView: 4.3
+                  slidesPerView: 3.3
                 },
                 600: {
                   slidesPerView: 3
@@ -95,49 +125,47 @@ const Hero = ({ slice }) => {
               {slice.primary.hero_content.map(({ image }, index) => (
                 <SwiperSlide key={index}>
                   <StoryCircle 
-                    className="story-circle" 
-                    height={105} width={105} key={index} 
-                    index={index} currentIndex={currentIndex} 
-                    image={image} onClick={() => handleStory(index)} 
+                    index={index} 
+                    onClick={handleClick} 
+                    image={image} 
                   />
                 </SwiperSlide>
-              ))}
+              ))} 
             </Swiper>
           </ul>
         )}
         {slice.primary.hero_content.length !== 0 && (
-          <div className="flex w-full mx-auto sm:w-auto items-center justify-center flex-col lg:items-baseline lg:justify-normal mt-6 lg:mt-12">
-            <RichText 
-              key={slice.primary.hero_content[currentIndex].story_name}
-              className="font-inter font-bold text-deep-green uppercase text-sm sm:text-xl xl:text-2xl"
-              text={slice.primary.hero_content[currentIndex].story_name}
-            />
+          <div className="flex w-full mx-auto sm:w-auto items-center justify-center flex-col lg:items-baseline lg:justify-normal mt-6 lg:mt-2">
             <RichText 
               key={slice.primary.hero_content[currentIndex].title}
-              className="font-ambit-regular text-deep-green 
+              className="font-ambit-regular opacity-anim text-deep-green 
               mt-6 w-full text-center
               text-4xl
               sm:text-6xl 
-              lg:w-[46%] lg:text-left
+              xl:w-[46%] lg:text-left
               xl:text-7xl 
               3xl:w-[48rem] 3xl:text-8xl"
               text={slice.primary.hero_content[currentIndex].title}
             />
             <RichText 
               key={slice.primary.hero_content[currentIndex].description}
-              className="font-inter font-normal text-deep-green 
+              className="font-inter opacity-anim font-normal text-deep-green 
               text-base leading-[20.2px]
               sm:text-xl mt-3 lg:mt-8 w-5/6 text-center 
-              lg:w-[40%] lg:text-left
+              xl:w-[40%] lg:text-left
               2xl:w-[34rem] 3xl:text-2xl"
               text={slice.primary.hero_content[currentIndex].description}
             />
             <Button
               prismicLink={slice.primary.hero_content[currentIndex].cta_link}
-              key={slice.primary.hero_content[currentIndex].cta_link}
               className="mt-6"
-            >
-              {slice.primary.hero_content[currentIndex].cta_text}
+              >
+              <p
+                className="opacity-anim"
+                key={slice.primary.hero_content[currentIndex].cta_link}
+              >
+                {slice.primary.hero_content[currentIndex].cta_text}
+              </p>
             </Button>
           </div>
         )}
@@ -145,24 +173,32 @@ const Hero = ({ slice }) => {
       {/* Render collection of image here */}
       {slice.primary.hero_content.length !== 0 && (
         <div 
-          className="lg:absolute lg:top-10 lg:-right-28 bg-bright-yellow
-          h-[56vh] w-full
-          sm:h-[34.1rem] sm:w-[40rem]
-          xl:h-[39.1rem] xl:w-[50rem] 
+          className="xl:absolute xl:top-20 xl:right-10 
+          h-[56vh] sm:h-[80vh] w-full
+          xl:h-[34.1rem] xl:w-[40rem] 
           3xl:h-[49.1rem] 3xl:w-[60rem]"
         >
+
           <div className="relative h-full w-full flex items-center justify-center">
-            <div ref={loaderA} className="bg-none lg:bg-none initial-load-state story-loader-A" />
-            <div ref={loaderB} className="bg-none lg:bg-none initial-load-state story-loader-B" />
-            <div ref={loaderC} className="bg-none lg:bg-none initial-load-state story-loader-C" />
-            <PrismicNextImage 
-              height={500}
-              width={500}
-              loading="eager"
-              field={slice.primary.hero_content[currentIndex].image}
-              className="h-[88%] w-[88%] lg:h-[95%] lg:w-[95%] object-cover"
-              alt=""
+            <Image 
+              src={HeroHolderBg}
+              alt="image"
+              fill
+              className="absolute top-0 left-0 -z-10"
             />
+            <div
+              key={slice.primary.hero_content[currentIndex].image.url}
+              className="opacity-anim transition-all h-[78%] w-[78%] lg:h-[80%] lg:w-[80%]"          
+            >
+              <PrismicNextImage 
+                height={500}
+                width={500}
+                loading="eager"
+                field={slice.primary.hero_content[currentIndex].image}
+                className="h-full w-full object-cover"
+                alt=""
+              />
+            </div>
           </div>
         </div>
       )}

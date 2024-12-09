@@ -14,6 +14,10 @@
   --magic-bezier: cubic-bezier(0.83, 0, 0.17, 1);
   --card-height: 420px;
   --card-width: 80%;
+
+
+  /* version 2 */
+  --v2-blue: #58BCD4;
 }
 *{
   margin: 0;
@@ -124,11 +128,33 @@ body {
   overflow-x: auto;
   overscroll-behavior-inline: contain;
 }
-/* display: grid;
-grid-row-start: auto;
-grid-auto-flow: column;
-grid-auto-columns: 12%;
-gap: 1rem; */
+
+
+/* New CIRCLE V2 */
+.circle__progress {
+  fill: none;
+  stroke-width: 10;
+  stroke-opacity: 0.3;
+  stroke-linecap: round;
+  stroke: var(--v2-blue);
+}
+.circle__progress--fill {
+  --initialStroke: 0;
+  --transitionDuration: 0;
+  stroke-opacity: 1;
+  stroke-dasharray: var(--initialStroke);
+  stroke-dashoffset: var(--initialStroke);
+  transition: stroke-dashoffset var(--transitionDuration) linear;
+}
+.circle-display {
+  height: 5.6rem;
+  width: 5.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+/* NEW CIRCLE V2 END */
 .snaps-inline {
   scroll-snap-type: inline mandatory;
   scroll-padding-inline: 24px;
@@ -523,7 +549,7 @@ gap: 1rem; */
 /* Scroll bar custom end */
 
 .opacity-anim {
-  animation: fade-in var(--magic-bezier) forwards 0.3s;
+  animation: fade-in var(--magic-bezier) forwards 0.8s;
 }
 .opacity-anim-b {
   animation: fade-in-bottom var(--magic-bezier) forwards 0.3s;
