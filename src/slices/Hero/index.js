@@ -82,7 +82,7 @@ const Hero = ({ slice }) => {
 
         });
 
-      }, intervalState.remainingTime);
+      }, intervalState.remainingTime)
 
       return () => clearInterval(interval);
 
