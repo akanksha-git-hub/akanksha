@@ -1,3 +1,4 @@
+import SliceIdentifier from "@/components/SliceIdentifier";
 import MixedText from "@/components/Texts/MixedText";
 import { spanPosition } from "@/utils/helperClasses";
 import Image from "next/image";
@@ -8,26 +9,38 @@ import Image from "next/image";
  * @param {TextShowcaseProps}
  */
 const TextShowcase = ({ slice }) => {
+  console.log(slice);
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-      className="universal-padding flex flex-col items-center justify-center sm:mt-14 w-fit mx-auto"
-    >
-      <MixedText 
-        texts={slice.primary.title}
-        index={1}
-        spanPosition={spanPosition}
-        className="font-ambit-regular w-full text-5xl sm:w-[30rem] sm:text-6xl lg:text-8xl lg:w-[50rem] text-deep-green justify-center"
+    <div className="universal-padding">
+      <SliceIdentifier
+        text={slice.primary.slice_identifier}
+        hasSpider={slice.primary.spider_image}
+        isVisible={slice.primary.add_image}
       />
-      <Image 
-        src="/vector_line.svg"
-        height={20}
-        width={20}
-        alt=""
-        className="w-[96%] sm:w-[70%] xl:w-[50%] mt-4"
-      />
-    </section>
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="universal-padding flex flex-col items-center justify-center sm:mt-14 w-fit mx-auto"
+      >
+        <MixedText
+          texts={slice.primary.title}
+          index={1}
+          spanPosition={spanPosition}
+          className="font-ambit-regular w-full text-5xl sm:w-[30rem] sm:text-6xl lg:text-8xl lg:w-[50rem] text-deep-green justify-center"
+        />
+        <Image
+          src="/vector_line.svg"
+          height={20}
+          width={20}
+          alt=""
+          className="w-[96%] sm:w-[70%] xl:w-[50%] mt-4  "
+          style={{
+            filter:
+              "brightness(0) saturate(100%) invert(68%) sepia(75%) saturate(330%) hue-rotate(151deg) brightness(88%) contrast(88%)",
+          }}
+        />
+      </section>
+    </div>
   );
 };
 
