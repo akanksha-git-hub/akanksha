@@ -381,6 +381,68 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "v2",
+      "name": "V2",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "video_thumbnail_image": {
+          "type": "Image",
+          "config": {
+            "label": "Video Thumbnail Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "video_link": {
+          "type": "Text",
+          "config": {
+            "label": "Video Link",
+            "placeholder": ""
+          }
+        },
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "cta_text": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Text",
+            "placeholder": ""
+          }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

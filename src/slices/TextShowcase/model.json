@@ -18,6 +18,30 @@
             "label": "Title",
             "placeholder": ""
           }
+        },
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "spider_image": {
+          "type": "Image",
+          "config": {
+            "label": "Spider Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "add_image": {
+          "type": "Boolean",
+          "config": {
+            "label": "add image",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
         }
       },
       "items": {}
