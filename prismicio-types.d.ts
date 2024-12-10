@@ -6127,6 +6127,94 @@ export type MissionVisionSliceOptionF = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *MissionVision → V2 → Primary*
+ */
+export interface MissionVisionSliceV2Primary {
+  /**
+   * Video Thumbnail Image field in *MissionVision → V2 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.v2.primary.video_thumbnail_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  video_thumbnail_image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *MissionVision → V2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.v2.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *MissionVision → V2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.v2.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Video Link field in *MissionVision → V2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.v2.primary.video_link
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  video_link: prismic.KeyTextField;
+
+  /**
+   * Slice Identifier field in *MissionVision → V2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.v2.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * CTA Text field in *MissionVision → V2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.v2.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *MissionVision → V2 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.v2.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+}
+
+/**
+ * V2 variation for MissionVision Slice
+ *
+ * - **API ID**: `v2`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MissionVisionSliceV2 = prismic.SharedSliceVariation<
+  "v2",
+  Simplify<MissionVisionSliceV2Primary>,
+  never
+>;
+
+/**
  * Slice variation for *MissionVision*
  */
 type MissionVisionSliceVariation =
@@ -6135,7 +6223,8 @@ type MissionVisionSliceVariation =
   | MissionVisionSliceDoubleCtaComponent
   | MissionVisionSliceOptionD
   | MissionVisionSliceOptionE
-  | MissionVisionSliceOptionF;
+  | MissionVisionSliceOptionF
+  | MissionVisionSliceV2;
 
 /**
  * MissionVision Shared Slice
@@ -8009,6 +8098,37 @@ export interface TextShowcaseSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * Slice Identifier field in *TextShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_showcase.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Spider Image field in *TextShowcase → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_showcase.default.primary.spider_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  spider_image: prismic.ImageField<never>;
+
+  /**
+   * add image field in *TextShowcase → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: text_showcase.default.primary.add_image
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  add_image: prismic.BooleanField;
 }
 
 /**
@@ -8770,6 +8890,7 @@ declare module "@prismicio/client" {
       MissionVisionSliceOptionDPrimary,
       MissionVisionSliceOptionEPrimary,
       MissionVisionSliceOptionFPrimary,
+      MissionVisionSliceV2Primary,
       MissionVisionSliceVariation,
       MissionVisionSliceDefault,
       MissionVisionSliceReverseVideoComponet,
@@ -8777,6 +8898,7 @@ declare module "@prismicio/client" {
       MissionVisionSliceOptionD,
       MissionVisionSliceOptionE,
       MissionVisionSliceOptionF,
+      MissionVisionSliceV2,
       MissionVisionShowcaseSlice,
       MissionVisionShowcaseSliceDefaultPrimary,
       MissionVisionShowcaseSliceVariation,
