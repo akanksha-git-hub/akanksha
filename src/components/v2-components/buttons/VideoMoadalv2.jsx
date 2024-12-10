@@ -1,11 +1,9 @@
 import React from "react";
-
-import RichText from "./Texts/RichText";
+import RichText from "@/components/Texts/RichText";
 import Image from "next/image";
 import { PrismicNextImage } from "@prismicio/next";
-import PlayButtonLogo from "../../public/assets/play-symbol.svg";
 
-export default function VideoModal({
+export default function VideoModalv2({
   slice,
   className,
   descriptionText,
@@ -33,15 +31,6 @@ export default function VideoModal({
                 text={descriptionText}
               />
             )}
-          </div>
-          <div className="bg-bright-yellow h-[50px] w-[50px] sm:h-[90px] sm:w-[90px] flex items-center justify-center rounded-full">
-            <Image
-              height={200}
-              width={200}
-              src={PlayButtonLogo}
-              alt=""
-              className="h-[50%] w-[50%] relative left-[2px] sm:left-1"
-            />
           </div>
         </div>
       </div>
