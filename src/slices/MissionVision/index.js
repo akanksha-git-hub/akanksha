@@ -89,7 +89,7 @@ const MissionVision = ({ slice }) => {
         <div className="flex flex-row  items-center justify-center mt-12">
           <div className="hidden lg:block">
             <Image
-              src="/Kumud - 8 - PKGEMS 2.png"
+              src="/arrowsectionvertical.png"
               alt="Left Decorative Arrow"
               className="mt-8"
               width={114}
