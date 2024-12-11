@@ -1,6 +1,8 @@
 import Faq from "@/components/Faq";
-import ImageSwiper from "@/components/ImageSwiper";
 import SliceIdentifier from "@/components/SliceIdentifier";
+import Image from "next/image";
+import Drawing from "@/assets/drawing-A.png";
+import { PrismicNextImage } from "@prismicio/next";
 
 /**
  * @typedef {import("@prismicio/client").Content.FrequentlyAskedQuestionsSlice} FrequentlyAskedQuestionsSlice
@@ -18,7 +20,6 @@ const FrequentlyAskedQuestions = ({ slice }) => {
         text={slice.primary.slice_identifier}
       />
       <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between mt-12 xl:mt-36">
-        {/* FAQ Content */}
         <div className="w-full xl:w-[45%]">
           <Faq 
             title={slice.primary.title}
@@ -28,10 +29,12 @@ const FrequentlyAskedQuestions = ({ slice }) => {
             titleClassName="text-deep-green text-left md:w-[28.3rem] text-7xl"
           />
         </div>
-        {/* Image Content [Interaction] */}
-        <div className="w-full mt-16 xl:mt-0 xl:w-[45%]">
-          <ImageSwiper 
-            data={slice.primary.images}
+        <div className="w-full mt-12 xl:mt-0 xl:w-[45%] relative h-[22rem] md:h-[40rem] xl:h-[36rem]">
+          <PrismicNextImage
+            field={slice.primary.image}
+            alt="drawing"
+            className="object-cover xl:object-contain"
+            fill
           />
         </div>
       </div>
