@@ -4621,21 +4621,6 @@ export interface FrequentlyAskedQuestionsSliceDefaultPrimaryFaqItem {
 }
 
 /**
- * Item in *FrequentlyAskedQuestions → Default → Primary → Images*
- */
-export interface FrequentlyAskedQuestionsSliceDefaultPrimaryImagesItem {
-  /**
-   * Image field in *FrequentlyAskedQuestions → Default → Primary → Images*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: frequently_asked_questions.default.primary.images[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
  * Primary content in *FrequentlyAskedQuestions → Default → Primary*
  */
 export interface FrequentlyAskedQuestionsSliceDefaultPrimary {
@@ -4672,16 +4657,14 @@ export interface FrequentlyAskedQuestionsSliceDefaultPrimary {
   >;
 
   /**
-   * Images field in *FrequentlyAskedQuestions → Default → Primary*
+   * Image field in *FrequentlyAskedQuestions → Default → Primary*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: frequently_asked_questions.default.primary.images[]
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **API ID Path**: frequently_asked_questions.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  images: prismic.GroupField<
-    Simplify<FrequentlyAskedQuestionsSliceDefaultPrimaryImagesItem>
-  >;
+  image: prismic.ImageField<never>;
 }
 
 /**
@@ -8843,7 +8826,6 @@ declare module "@prismicio/client" {
       FlagshipHeroSliceDefault,
       FrequentlyAskedQuestionsSlice,
       FrequentlyAskedQuestionsSliceDefaultPrimaryFaqItem,
-      FrequentlyAskedQuestionsSliceDefaultPrimaryImagesItem,
       FrequentlyAskedQuestionsSliceDefaultPrimary,
       FrequentlyAskedQuestionsSliceVariation,
       FrequentlyAskedQuestionsSliceDefault,
