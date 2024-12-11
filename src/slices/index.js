@@ -30,6 +30,7 @@ export const components = {
   picture_tab_slice: dynamic(() => import("./PictureTabSlice")),
   program_showcase: dynamic(() => import("./ProgramShowcase")),
   rotating_carousel: dynamic(() => import("./RotatingCarousel")),
+  showcase_v2: dynamic(() => import("./ShowcaseV2")),
   slider_showcase: dynamic(() => import("./SliderShowcase")),
   swirl_image: dynamic(() => import("./SwirlImage")),
   tab_slice: dynamic(() => import("./TabSlice")),
