@@ -3,7 +3,7 @@
 import { PrismicNextImage } from "@prismicio/next"
 import { useCallback, useEffect, useState } from "react";
 
-const imageClassName = "h-full w-full object-cover rounded-[5px]";
+const imageClassName = "h-full w-full overflow-hidden rounded-[5px]";
 const INITIAL_STATE = {
     imageAClassName: "absolute top-12 left-2/4 origin-bottom-left rotate-[-12deg] -translate-x-2/4",
     imageBClassName: "absolute top-0 left-2/4 -translate-x-2/4",
@@ -102,30 +102,39 @@ export default function ImageSwiper({ data }) {
     }, [switchClassName.timesClicked]);
 
   return (
-    <div onClick={handleImageSwiperClick} className="card-swiper relative scale-95 transition-all hover:scale-100 cursor-pointer h-[50vh] xl:h-[80vh]">
-        <div className={`card-swiper-A h-[40vh] sm:h-[50vh] xl:h-[70vh] w-[60%] ${imageAClassName}`}>
-            <PrismicNextImage
-                className={`${imageClassName}`}
-                field={data[A].image}    
-                loading="eager"
-                alt=""
-            />
+    <div onClick={handleImageSwiperClick} className="card-swiper relative scale-95 transition-all hover:scale-100 cursor-pointer h-[74vw] sm:h-[60vw] lg:h-[38vw]">
+        <div className={`card-swiper-A h-[100%] w-[60%] ${imageAClassName}`}>
+            <div className={`${imageClassName} bg-v2-blue`}>
+                <PrismicNextImage
+                    className={`h-full w-full object-cover opacity-anim`}
+                    field={data[A].image}
+                    key={switchClassName.timesClicked}
+                    loading="eager"
+                    alt=""
+                    />
+            </div>
         </div>
-        <div className={`card-swiper-B h-[40vh] sm:h-[50vh] xl:h-[70vh] w-[60%] ${imageBClassName}`}>
-            <PrismicNextImage 
-                className={`${imageClassName}`}
-                field={data[B].image}    
-                loading="eager"
-                alt=""
-            />
+        <div className={`card-swiper-B h-[100%] w-[60%] ${imageBClassName}`}>
+            <div className={`${imageClassName} bg-v2-yellow`}>
+                <PrismicNextImage 
+                    className={`h-full w-full object-cover opacity-anim`}
+                    field={data[B].image}    
+                    key={switchClassName.timesClicked}
+                    loading="eager"
+                    alt=""
+                    />
+            </div>
         </div>
-        <div className={`card-swiper-C h-[40vh] sm:h-[50vh] xl:h-[70vh] w-[60%] ${imageCClassName}`}>
-            <PrismicNextImage 
-                className={`${imageClassName}`}
-                field={data[C].image}    
-                loading="eager"
-                alt=""
-            />
+        <div className={`card-swiper-C h-[100%] w-[60%] ${imageCClassName}`}>
+            <div className={`${imageClassName} bg-v2-orange`}>
+                <PrismicNextImage 
+                    className={`h-full w-full object-cover opacity-anim`}
+                    field={data[C].image}    
+                    key={switchClassName.timesClicked}
+                    loading="eager"
+                    alt=""
+                />
+            </div>
         </div>
     </div>
   )
