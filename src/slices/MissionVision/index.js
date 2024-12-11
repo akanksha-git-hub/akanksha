@@ -86,60 +86,59 @@ const MissionVision = ({ slice }) => {
         className="universal-padding mt-0"
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
-        <div className="flex flex-row  items-center justify-center mt-12">
-          <div className="hidden lg:block">
+        <div className="flex flex-row items-stretch justify-center mt-12">
+          {/* Left Arrow Image */}
+          <div className="hidden lg:flex items-center">
             <Image
               src="/arrowsectionvertical.png"
               alt="Left Decorative Arrow"
-              className="mt-8"
+              layout="intrinsic"
               width={114}
               height={800}
+              className="h-full w-auto object-contain"
             />
           </div>
 
-          <div className="flex flex-col items-start gap-12  relative">
-            <VideoModalv2
-              className=" flex w-full mt-8 lg:h-[600px] 3xl:h-[800px] !rounded-none"
-              slice={slice}
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FBDA1D3D] via-transparent to-[#12121287] z-20 mt-8 lg:h-[600px] 3xl:h-[800px]">
+          {/* Main Video Card */}
+          <div className="relative flex-1">
+            <VideoModalv2 className="w-full h-auto" slice={slice} />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#FBDA1D3D] via-transparent to-[#12121287] z-20">
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-30">
                 <RichText
                   text={slice.primary.title}
-                  className="text-white text-5xl font-ambit-regular mb-4 xl:text-[58px]
-                2xl:text-[60px]
-                3xl:text-8xl"
+                  className="text-white text-3xl font-ambit-regular sm:text-2xl md:text-4xl lg:text-5xl mb-4 xl:text-[58px] 2xl:text-[60px] 3xl:text-8xl"
                 />
-                <div className="lg:w-[900px]">
+                <div className="!sm:w-[250px] md:w-[450px] lg:w-[1100px]">
                   <RichText
                     text={slice.primary.description}
-                    className="text-white !text-3xl !sm:text-sm  mb-6 break-words"
+                    className="px-6 py-3 text-white !text-3xl !sm:text-sm !md:text-lg mb-6 break-words"
                   />
                 </div>
                 <Button
                   prismiclink={slice.primary.cta_link}
-                  className="px-8 py-4 
-                !text-lg"
+                  className="px-8 py-4 !text-lg !sm:text-base !md:text-lg"
                 >
                   {slice.primary.cta_text}
                 </Button>
               </div>
             </div>
           </div>
-          <div className="hidden lg:block">
+
+          {/* Right Arrow Image */}
+          <div className="hidden lg:flex items-center">
             <Image
               src="/arrowsectionvertical.png"
-              alt="Left Decorative Arrow"
-              className="rotate-180 mt-8"
+              alt="Right Decorative Arrow"
+              layout="intrinsic"
               width={114}
-              height={800}
+              height={800} // Initial size, but height adapts via flexbox
+              className="h-full w-auto object-contain rotate-180"
             />
           </div>
         </div>
       </section>
     );
   }
-
   return (
     <section
       data-slice-type={slice.slice_type}

@@ -9,7 +9,6 @@ import Image from "next/image";
  * @param {TextShowcaseProps}
  */
 const TextShowcase = ({ slice }) => {
-  console.log(slice);
   return (
     <div className="universal-padding">
       <SliceIdentifier
