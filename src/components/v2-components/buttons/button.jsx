@@ -13,7 +13,7 @@ const Button = forwardRef(function Button({ children, prismicLink, href, classNa
                     ${className}`;
 
     const BaseButton = () => (
-        <div className="relative group active:scale-95">
+        <div className="relative group active:scale-95 w-fit">
             <button 
                 className={`${baseClass}`}
                 {...props}

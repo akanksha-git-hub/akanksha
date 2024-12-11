@@ -1624,6 +1624,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomeDocumentDataSlicesSlice =
+  | ShowcaseV2Slice
   | TiltedCardsSlice
   | DonationSliceSlice
   | MagicSectionSlice
@@ -7238,6 +7239,106 @@ export type RotatingCarouselSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *ShowcaseV2 → Default → Primary → Images*
+ */
+export interface ShowcaseV2SliceDefaultPrimaryImagesItem {
+  /**
+   * Image field in *ShowcaseV2 → Default → Primary → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase_v2.default.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ShowcaseV2 → Default → Primary*
+ */
+export interface ShowcaseV2SliceDefaultPrimary {
+  /**
+   * Slice Identifier field in *ShowcaseV2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase_v2.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *ShowcaseV2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase_v2.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Images field in *ShowcaseV2 → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase_v2.default.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<Simplify<ShowcaseV2SliceDefaultPrimaryImagesItem>>;
+
+  /**
+   * CTA Text field in *ShowcaseV2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase_v2.default.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *ShowcaseV2 → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase_v2.default.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+}
+
+/**
+ * Default variation for ShowcaseV2 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ShowcaseV2SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ShowcaseV2SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ShowcaseV2*
+ */
+type ShowcaseV2SliceVariation = ShowcaseV2SliceDefault;
+
+/**
+ * ShowcaseV2 Shared Slice
+ *
+ * - **API ID**: `showcase_v2`
+ * - **Description**: ShowcaseV2
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ShowcaseV2Slice = prismic.SharedSlice<
+  "showcase_v2",
+  ShowcaseV2SliceVariation
+>;
+
+/**
  * Item in *SliderShowcase → Default → Primary → Items*
  */
 export interface SliderShowcaseSliceDefaultPrimaryItemsItem {
@@ -8927,6 +9028,11 @@ declare module "@prismicio/client" {
       RotatingCarouselSliceDefaultPrimary,
       RotatingCarouselSliceVariation,
       RotatingCarouselSliceDefault,
+      ShowcaseV2Slice,
+      ShowcaseV2SliceDefaultPrimaryImagesItem,
+      ShowcaseV2SliceDefaultPrimary,
+      ShowcaseV2SliceVariation,
+      ShowcaseV2SliceDefault,
       SliderShowcaseSlice,
       SliderShowcaseSliceDefaultPrimaryItemsItem,
       SliderShowcaseSliceDefaultPrimary,
