@@ -12,7 +12,6 @@ function CardShowcaseBCard({ item }) {
             className="
                     bg-[#ECF0F1] transition-all hover:bg-v2-yellow
                 overflow-hidden pl-8 pt-6 group relative h-full"                            
-                key={i}
         >
             <div 
                 className="absolute top-0 left-0 h-full w-4"
