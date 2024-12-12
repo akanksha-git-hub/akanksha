@@ -20,16 +20,16 @@ export default function VideoModalv2({
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#FBDA1D3D] via-transparent to-[#12121287] z-20">
         <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-8">
-          <div className="flex flex-col items-center justify-center text-center max-w-[70%] sm:max-w-[900px]">
+          <div className="flex flex-col items-center justify-center text-center max-w-[90%] sm:max-w-[900px]">
             {/* Title */}
             <RichText
-              className="text-white text-[2.2em] sm:text-[4em] md:text-[6.25em] lg:text-[6.5em] font-ambit-regular "
+              className="text-white text-[2.2em] sm:text-[3.2em] md:text-[6.25em] lg:text-[6.5em] font-ambit-regular "
               text={slice.primary.title}
             />
             {/* Description */}
             <RichText
               text={slice.primary.description}
-              className="text-white text-[0.8em] lg:-mt-4 sm:text-[1em] md:text-[1.25em] lg:text-[1.5em] mb-6 md:mb-8  break-words "
+              className="text-white text-[0.8em] lg:-mt-4 sm:text-[1.125em] md:text-[1.25em] lg:text-[1.5em] mb-6 md:mb-8  break-words "
             />
             <div className="w-full flex justify-center">
               <Button
