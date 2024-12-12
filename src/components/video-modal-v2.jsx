@@ -6,39 +6,38 @@ import Button from "@/components/v2-components/buttons/button";
 export default function VideoModalv2({
   slice,
   className,
-  descriptionText,
+
   imageClassName,
 }) {
   return (
-    <div className={`w-2/4 relative ${className}`}>
+    <div className={` w-full relative  ${className}`}>
       <PrismicNextImage
         height={800}
         width={800}
         field={slice.primary.video_thumbnail_image}
-        className={`w-full h-auto object-cover z-0 rounded-md overflow-hidden ${imageClassName}`}
+        className={`absolute w-full h-full object-cover z-0  rounded-md lg:rounded-none overflow-hidden ${imageClassName}`}
         alt=""
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#FBDA1D3D] via-transparent to-[#12121287] z-20">
-        <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-8">
-          <div className="flex flex-col items-center justify-center text-center max-w-[90%] sm:max-w-[900px]">
-            {/* Title */}
-            <RichText
-              className="text-white text-[2.2em] sm:text-[3.2em] md:text-[6.25em] lg:text-[6.5em] font-ambit-regular "
-              text={slice.primary.title}
-            />
-            {/* Description */}
-            <RichText
-              text={slice.primary.description}
-              className="text-white text-[0.8em] lg:-mt-4 sm:text-[1.125em] md:text-[1.25em] lg:text-[1.5em] mb-6 md:mb-8  break-words "
-            />
-            <div className="w-full flex justify-center">
-              <Button
-                prismiclink={slice.primary.cta_link}
-                className="px-3 py-2 md:px-4 md:py-3 lg:px-6 lg:py-4 !text-xs md:!text-sm lg:!text-base"
-              >
-                {slice.primary.cta_text}
-              </Button>
-            </div>
+      <div className="  bg-gradient-to-b from-[#FBDA1D3D] via-transparent to-[#12121287] z-20 flex items-center justify-center w-full ">
+        <div className="flex flex-col space-y-2 items-center justify-center text-center w-full p-4  py-9 sm:p-8">
+          {/* Title */}
+          <RichText
+            className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-[104px] font-ambit-regular flex items-center justify-center"
+            text={slice.primary.title}
+          />
+          {/* Description */}
+          <RichText
+            text={slice.primary.description}
+            className="text-white text-base sm:text-lg md:text-xl lg:text-2xl    max-w-[40ch] "
+          />
+          {/* Button */}
+          <div className="w-full flex justify-center">
+            <Button
+              prismiclink={slice.primary.cta_link}
+              className="px-2 py-1   sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-6 lg:py-4 !text-xs sm:!text-sm md:!text-base"
+            >
+              {slice.primary.cta_text}
+            </Button>
           </div>
         </div>
       </div>
