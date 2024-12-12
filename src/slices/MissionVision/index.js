@@ -7,7 +7,7 @@ import { spanPosition } from "@/utils/helperClasses";
 import Button from "@/components/v2-components/buttons/button";
 import { PrismicImage } from "@prismicio/react";
 import Image from "next/image";
-import VideoModalv2 from "@/components/v2-components/buttons/VideoMoadalv2";
+import VideoModalv2 from "@/components/video-modal-v2";
 /**
  * @typedef {import("@prismicio/client").Content.MissionVisionSlice} MissionVisionSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<MissionVisionSlice>} MissionVisionProps
