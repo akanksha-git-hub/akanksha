@@ -29,7 +29,7 @@ export default function SliceIdentifier({
           field={hasSpider}
           width={150}
           height={150}
-          className="hidden lg:block absolute lg:ml-[1650px]"
+          className="hidden xl:block absolute right-4 top-10 z-[-1]"
         />
       )}
     </div>
