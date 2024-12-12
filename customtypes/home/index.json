@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "card_showcase": {
+              "type": "SharedSlice"
+            },
             "showcase_v2": {
               "type": "SharedSlice"
             },
