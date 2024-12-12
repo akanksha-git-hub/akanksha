@@ -2,6 +2,7 @@
 import LottieContainer from "@/components/LottieContainer/LottieContainer";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import RichText from "@/components/Texts/RichText";
+import CardsShowcaseB from "@/components/v2-components/cards-showcase-b";
 import { PrismicNextImage } from "@prismicio/next";
 import Lottie from "lottie-react";
 
@@ -11,6 +12,9 @@ import Lottie from "lottie-react";
  * @param {CardShowcaseProps}
  */
 const CardShowcase = ({ slice }) => {
+
+
+  if(slice.variation === "cardsShowcaseB") return <CardsShowcaseB  data={slice.primary} />
 
   return (
     <section
