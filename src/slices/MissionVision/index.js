@@ -86,27 +86,31 @@ const MissionVision = ({ slice }) => {
         className="universal-padding mt-0"
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
-        <div className="grid grid-cols-[auto,1fr,auto] items-center mt-12">
+        <div className="lg:grid lg:grid-cols-[auto,1fr,auto]  items-center mt-24">
           <div className="hidden lg:block h-full">
-            <img
+            <Image
               src="/arrowsectionvertical.png"
               alt="Left Decorative Arrow"
-              className="mt-8 object-contain  sm:h-[380px] lg:h-[600px] 3xl:h-[800px] "
+              width={100}
+              height={100}
+              className=" object-cover  sm:h-[380px] lg:h-[600px] 3xl:h-[800px] "
             />
           </div>
 
           {/* Video Modal */}
-          <div className="flex flex-col items-center relative">
+          <div className="flex flex-col items-center relative  ">
             <VideoModalv2
-              className="flex w-full mt-8 lg:h-[600px] 3xl:h-[800px] !rounded-none"
+              className="flex  lg:h-[600px] 3xl:h-[800px]"
               slice={slice}
             />
           </div>
           <div className="hidden lg:block h-full">
-            <img
+            <Image
               src="/arrowsectionvertical.png"
               alt="Right Decorative Arrow"
-              className="rotate-180 mt-8 object-contain sm:h-[380px] lg:h-[600px] 3xl:h-[800px] "
+              width={100}
+              height={100}
+              className="rotate-180  object-cover sm:h-[380px] lg:h-[600px] 3xl:h-[800px]  "
             />
           </div>
         </div>
