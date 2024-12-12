@@ -86,60 +86,33 @@ const MissionVision = ({ slice }) => {
         className="universal-padding mt-0"
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
-        <div className="flex flex-row  items-center justify-center mt-12">
-          <div className="hidden lg:block">
-            <Image
+        <div className="grid grid-cols-[auto,1fr,auto] items-center mt-12">
+          <div className="hidden lg:block h-full">
+            <img
               src="/arrowsectionvertical.png"
               alt="Left Decorative Arrow"
-              className="mt-8"
-              width={114}
-              height={800}
+              className="mt-8 object-contain  sm:h-[380px] lg:h-[600px] 3xl:h-[800px] "
             />
           </div>
 
-          <div className="flex flex-col items-start gap-12  relative">
+          {/* Video Modal */}
+          <div className="flex flex-col items-center relative">
             <VideoModalv2
-              className=" flex w-full mt-8 lg:h-[600px] 3xl:h-[800px] !rounded-none"
+              className="flex w-full mt-8 lg:h-[600px] 3xl:h-[800px] !rounded-none"
               slice={slice}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FBDA1D3D] via-transparent to-[#12121287] z-20 mt-8 lg:h-[600px] 3xl:h-[800px]">
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-30">
-                <RichText
-                  text={slice.primary.title}
-                  className="text-white text-5xl font-ambit-regular mb-4 xl:text-[58px]
-                2xl:text-[60px]
-                3xl:text-8xl"
-                />
-                <div className="lg:w-[900px]">
-                  <RichText
-                    text={slice.primary.description}
-                    className="text-white !text-3xl !sm:text-sm  mb-6 break-words"
-                  />
-                </div>
-                <Button
-                  prismiclink={slice.primary.cta_link}
-                  className="px-8 py-4 
-                !text-lg"
-                >
-                  {slice.primary.cta_text}
-                </Button>
-              </div>
-            </div>
           </div>
-          <div className="hidden lg:block">
-            <Image
+          <div className="hidden lg:block h-full">
+            <img
               src="/arrowsectionvertical.png"
-              alt="Left Decorative Arrow"
-              className="rotate-180 mt-8"
-              width={114}
-              height={800}
+              alt="Right Decorative Arrow"
+              className="rotate-180 mt-8 object-contain sm:h-[380px] lg:h-[600px] 3xl:h-[800px] "
             />
           </div>
         </div>
       </section>
     );
   }
-
   return (
     <section
       data-slice-type={slice.slice_type}
