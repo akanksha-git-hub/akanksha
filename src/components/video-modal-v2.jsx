@@ -1,7 +1,9 @@
 import React from "react";
 import RichText from "@/components/Texts/RichText";
+
+import Image from "next/image";
 import { PrismicNextImage } from "@prismicio/next";
-import Button from "@/components/v2-components/buttons/button";
+import Button from "./v2-components/buttons/button";
 
 export default function VideoModalv2({
   slice,
