@@ -1624,6 +1624,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomeDocumentDataSlicesSlice =
+  | CardShowcaseSlice
   | ShowcaseV2Slice
   | TiltedCardsSlice
   | DonationSliceSlice
@@ -3649,6 +3650,61 @@ export type BlogRecentsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *CardShowcase → Cards showcase B → Primary → Items*
+ */
+export interface CardShowcaseSliceCardsShowcaseBPrimaryItemsItem {
+  /**
+   * Big Text field in *CardShowcase → Cards showcase B → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.cardsShowcaseB.primary.items[].big_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  big_text: prismic.KeyTextField;
+
+  /**
+   * Small Text field in *CardShowcase → Cards showcase B → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.cardsShowcaseB.primary.items[].small_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_text: prismic.KeyTextField;
+
+  /**
+   * CTA Text field in *CardShowcase → Cards showcase B → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.cardsShowcaseB.primary.items[].cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *CardShowcase → Cards showcase B → Primary → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.cardsShowcaseB.primary.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * Image field in *CardShowcase → Cards showcase B → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.cardsShowcaseB.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *CardShowcase → Default → Primary*
  */
 export interface CardShowcaseSliceDefaultPrimary {
@@ -3728,9 +3784,51 @@ export type CardShowcaseSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *CardShowcase → Cards showcase B → Primary*
+ */
+export interface CardShowcaseSliceCardsShowcaseBPrimary {
+  /**
+   * Slice Identifier field in *CardShowcase → Cards showcase B → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.cardsShowcaseB.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Items field in *CardShowcase → Cards showcase B → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.cardsShowcaseB.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<CardShowcaseSliceCardsShowcaseBPrimaryItemsItem>
+  >;
+}
+
+/**
+ * Cards showcase B variation for CardShowcase Slice
+ *
+ * - **API ID**: `cardsShowcaseB`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardShowcaseSliceCardsShowcaseB = prismic.SharedSliceVariation<
+  "cardsShowcaseB",
+  Simplify<CardShowcaseSliceCardsShowcaseBPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *CardShowcase*
  */
-type CardShowcaseSliceVariation = CardShowcaseSliceDefault;
+type CardShowcaseSliceVariation =
+  | CardShowcaseSliceDefault
+  | CardShowcaseSliceCardsShowcaseB;
 
 /**
  * CardShowcase Shared Slice
@@ -8895,8 +8993,11 @@ declare module "@prismicio/client" {
       BlogRecentsSliceTagVariation,
       CardShowcaseSlice,
       CardShowcaseSliceDefaultPrimary,
+      CardShowcaseSliceCardsShowcaseBPrimaryItemsItem,
+      CardShowcaseSliceCardsShowcaseBPrimary,
       CardShowcaseSliceVariation,
       CardShowcaseSliceDefault,
+      CardShowcaseSliceCardsShowcaseB,
       CardShuffleSlice,
       CardShuffleSliceDefaultPrimaryItemsItem,
       CardShuffleSliceDefaultPrimary,
