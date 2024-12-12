@@ -1,5 +1,6 @@
 import React from "react";
 import RichText from "@/components/Texts/RichText";
+
 import Image from "next/image";
 import { PrismicNextImage } from "@prismicio/next";
 import Button from "./v2-components/buttons/button";
