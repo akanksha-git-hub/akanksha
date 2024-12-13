@@ -12,6 +12,7 @@ import SliceIdentifier from "@/components/SliceIdentifier";
 import RichText from "@/components/Texts/RichText";
 import { monthsShort } from "@/utils/months";
 import QuoteComponentB from "@/components/ProgramShowcase/QuoteComponentB";
+import Image from "next/image";
 
 /**
  * @typedef {import("@prismicio/client").Content.ProgramShowcaseSlice} ProgramShowcaseSlice
@@ -69,6 +70,7 @@ const ProgramShowcase = ({ slice }) => {
           className="text-deep-green font-ambit-regular text-6xl md:text-center flex md:items-center md:justify-center max-w-[40ch] mt-16"
         />
         {/* Swiper Component Container */}
+
         <div className="h-auto lg:h-[32.4rem] flex gap-12 mt-16">
           <ul className="h-full hidden lg:block w-[20%] lg:w-[25%]">
             <Swiper
@@ -213,8 +215,8 @@ const ProgramShowcase = ({ slice }) => {
       className="universal-padding"
     >
       {/* Swiper Component Container */}
-      <div className="h-auto lg:h-[32.4rem] flex gap-12">
-        <ul className="h-full hidden lg:block w-[20%] lg:w-[25%]">
+      <div className="h-auto lg:h-[32.4rem] flex gap-12 ">
+        <ul className="h-full hidden lg:block w-[20%] lg:w-[25%] ">
           <Swiper
             direction="vertical"
             className="h-full"
@@ -239,49 +241,58 @@ const ProgramShowcase = ({ slice }) => {
           </Swiper>
         </ul>
         {/* Swiper Component */}
-        <Swiper
-          ref={swiperRef}
-          className="w-full lg:w-[80%] xl:w-[80%] h-full cursor-grab"
-          slidesPerView={1.04}
-          spaceBetween={20}
-          onSlideChange={(i) => handleSlideChange(i.activeIndex)}
-        >
-          {slice.primary.program_showcase_content.map((item) => (
-            <SwiperSlide
-              className="!flex flex-col gap-2 md:flex-row"
-              key={item.name}
-            >
-              <SwiperClick
-                className="absolute opacity-0"
-                text="Next"
-                ref={nextRef}
-              />
-              <SwiperClick
-                className="absolute opacity-0"
-                isPrev
-                text="Prev"
-                ref={prevRef}
-              />
-              <div className="flex gap-2 md:gap-0 flex-col md:flex-row">
-                <ImageComponent
-                  className="w-full xl:w-[42%]"
-                  image={item.image}
+        <div className="relative w-full lg:w-[80%] xl:w-[80%] h-full cursor-grab ">
+          <div className="absolute h-[120%] w-[80%] -top-8 -left-8 ">
+            <div className="relative h-full w-full">
+              <Image src="/bg-page.png" fill />
+            </div>
+          </div>
+
+          <Swiper
+            ref={swiperRef}
+            className="w-full  h-full cursor-grab"
+            slidesPerView={1.04}
+            spaceBetween={20}
+            onSlideChange={(i) => handleSlideChange(i.activeIndex)}
+          >
+            {slice.primary.program_showcase_content.map((item) => (
+              <SwiperSlide
+                className="!flex flex-col gap-2 md:flex-row"
+                key={item.name}
+              >
+                <SwiperClick
+                  className="absolute opacity-0"
+                  text="Next"
+                  ref={nextRef}
                 />
-                <QuoteComponent quote={item.quote} quote_by={item.quote_by} />
-              </div>
-              <div className="flex items-start gap-2 sm:gap-0 justify-between w-full sm:flex-col xl:mt-0 xl:w-[40%]">
-                <StatsComponent
-                  description={item.stat_a_description}
-                  number={item.stat_a_number}
+                <SwiperClick
+                  className="absolute opacity-0"
+                  isPrev
+                  text="Prev"
+                  ref={prevRef}
                 />
-                <StatsComponent
-                  description={item.stat_b_description}
-                  number={item.stat_b_number}
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+
+                <div className="flex gap-2 md:gap-0 flex-col md:flex-row">
+                  <ImageComponent
+                    className="w-full xl:w-[42%]"
+                    image={item.image}
+                  />
+                  <QuoteComponent quote={item.quote} quote_by={item.quote_by} />
+                </div>
+                <div className="flex items-start gap-2 sm:gap-0 justify-between w-full sm:flex-col xl:mt-0 xl:w-[40%]">
+                  <StatsComponent
+                    description={item.stat_a_description}
+                    number={item.stat_a_number}
+                  />
+                  <StatsComponent
+                    description={item.stat_b_description}
+                    number={item.stat_b_number}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
       <div
         className="
