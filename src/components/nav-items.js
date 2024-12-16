@@ -1,15 +1,10 @@
-'use client'
-import { PrismicNextLink } from "@prismicio/next";
 import TextCTA from "./UI/Button/TextCTA";
-import RichText from "./Texts/RichText";
-import { usePathname } from "next/navigation";
 import NavItemDropDownText from "./v2-components/header/nav-item-dropdown-text";
+import { useHeaderDropDownContext } from "./v2-components/header/header";
 
-export default function NavItems({ header_link_items, drop_down_items, uniqueIdentifier }) {
+export default function NavItems({ header_link_items, uniqueIdentifier }) {
 
-
-  const pathName = usePathname();
-  const currentPath = pathName.split('/')[2];
+  const { setDropdownId } = useHeaderDropDownContext();
 
   return(
       <>
@@ -37,51 +32,25 @@ export default function NavItems({ header_link_items, drop_down_items, uniqueIde
                 }
                 return(
                   header_link_items
-                    .filter((filtered_item, index) => {
+                    .filter((filtered_item) => {
                       const lowerCaseText = filtered_item.cta_text.toLowerCase();
                       const matchData = lowerCaseText === item;
                       return matchData;
                     })
                     .map((_, __) => {
+
+                      const uid = finalWord.toLowerCase();
+
                       return(
                         <li key={_} className="relative">
                           <div className="drop-down">
                             <NavItemDropDownText 
                               text={finalWord}
                               className={`
-                                  text-deep-green text-lg font-inter relative cursor-pointer
+                                text-deep-green text-lg font-inter relative cursor-pointer
                                 `}
+                              onClick={() => setDropdownId(uid)}
                             />
-                            <div className="py-4 z-20 bg-cream border border-deep-green rounded-[10px] min-w-[200px] drop-down-container">
-                              {drop_down_items
-                                .filter((data) => {
-                                    const lowerCaseValue = item.toLowerCase();
-                                    const matchData = lowerCaseValue === data.identifier.toLowerCase();
-                                    return matchData;
-                                })
-                                .map((drop_down, i) => {
-                                  const slug = drop_down.cta_link.slug;
-                                  const isActive = slug.localeCompare(currentPath);
-                                  return(
-                                    <p 
-                                      key={i}
-                                      className={`
-                                          mx-2 rounded-[10px] transition-all active:scale-95 hover:bg-white text-right flex items-end justify-end w-fit place-self-end
-                                          ${isActive === 0 && ('bg-white')}
-                                        `} 
-                                    >
-                                      <PrismicNextLink
-                                        className="py-2 pl-4 pr-2"
-                                        field={drop_down.cta_link}>
-                                        <span className="text-deep-green text-base font-inter">
-                                          {drop_down.cta_text}
-                                        </span>
-                                      </PrismicNextLink>
-                                    </p>
-                                  )
-                                })
-                              }
-                          </div>
                           </div>
                         </li>
                         )
