@@ -15,7 +15,7 @@ export default function FooterContact() {
                 placeholder="Your email"
                 className=" md:w-[40%] md:min-w-[250px] py-4 focus:ring-v2-blue text-deep-green"
             />
-            <div className="relative group active:scale-95flex items-center justify-center">
+            <div className="relative group active:scale-95 flex items-center justify-center">
                 <button
                     className="bg-v2-orange transition-all right-0 
                     flex items-center font-inter font-bold 
