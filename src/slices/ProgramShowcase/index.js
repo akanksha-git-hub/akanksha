@@ -72,7 +72,7 @@ const ProgramShowcase = ({ slice }) => {
         {/* Swiper Component Container */}
 
         <div className="h-auto lg:h-[32.4rem] flex gap-12 mt-16">
-          <ul className="h-full hidden lg:block w-[20%] lg:w-[25%]">
+          <ul className="h-full hidden lg:block w-[20%] lg:w-[25%] border-red-400">
             <Swiper
               direction="vertical"
               className="h-full"
@@ -134,14 +134,14 @@ const ProgramShowcase = ({ slice }) => {
           {/* Swiper Component */}
           <Swiper
             ref={swiperRef}
-            className="w-full lg:w-[80%] xl:w-[80%] h-full cursor-grab"
+            className="w-full lg:w-[80%] xl:w-[80%] h-full cursor-grab "
             slidesPerView={1}
             spaceBetween={20}
             onSlideChange={(i) => handleSlideChange(i.activeIndex)}
           >
             {slice.primary.program_showcase_content.map((item) => (
               <SwiperSlide
-                className="!flex flex-col md:flex-row"
+                className="!flex flex-col md:flex-row border- "
                 key={item.name}
               >
                 <SwiperClick
@@ -172,25 +172,24 @@ const ProgramShowcase = ({ slice }) => {
         <div
           className="
           flex items-start mt-6 justify-between
-          xl:mt-0 xl:justify-normal"
+          xl:mt-0 xl:justify-normal "
         >
-          <div>
-            <SlideSelector
-              className="block border w-[98%] sm:w-3/4 lg:hidden"
-              date={date}
-              isOptionB
-              key={slice.primary.program_showcase_content[trackIndex].name}
-              name={slice.primary.program_showcase_content[trackIndex].name}
-              short_content={
-                slice.primary.program_showcase_content[trackIndex].short_content
-              }
-              program_name={
-                slice.primary.program_showcase_content[trackIndex].program_name
-              }
-              trackIndex={trackIndex}
-              index={trackIndex}
-            />
-          </div>
+          <SlideSelector
+            className="block border w-[98%] sm:w-3/4 lg:hidden "
+            date={date}
+            isOptionB
+            key={slice.primary.program_showcase_content[trackIndex].name}
+            name={slice.primary.program_showcase_content[trackIndex].name}
+            short_content={
+              slice.primary.program_showcase_content[trackIndex].short_content
+            }
+            program_name={
+              slice.primary.program_showcase_content[trackIndex].program_name
+            }
+            trackIndex={trackIndex}
+            index={trackIndex}
+          />
+
           <div className="flex gap-2 mt-2">
             <SwiperArrow
               strokeColor="#37473C"
@@ -215,8 +214,8 @@ const ProgramShowcase = ({ slice }) => {
       className="universal-padding"
     >
       {/* Swiper Component Container */}
-      <div className="h-auto lg:h-[32.4rem] flex gap-12 ">
-        <ul className="h-full hidden lg:block w-[20%] lg:w-[25%] ">
+      <div className="h-auto xl:h-[32.4rem] flex gap-12  ">
+        <ul className="h-full hidden xl:block w-[20%] xl:w-[25%] ">
           <Swiper
             direction="vertical"
             className="h-full"
@@ -241,13 +240,12 @@ const ProgramShowcase = ({ slice }) => {
           </Swiper>
         </ul>
         {/* Swiper Component */}
-        <div className="relative w-full lg:w-[80%] xl:w-[80%] h-full cursor-grab ">
-          <div className="absolute h-[120%] w-[80%] -top-8 -left-8 ">
+        <div className="relative w-full xl:w-[70%]  h-full cursor-grab  ">
+          <div className="absolute h-[120%] w-full -top-8 -left-8 hidden xl:block">
             <div className="relative h-full w-full">
               <Image src="/bg-page.png" fill />
             </div>
           </div>
-
           <Swiper
             ref={swiperRef}
             className="w-full  h-full cursor-grab"
@@ -257,7 +255,7 @@ const ProgramShowcase = ({ slice }) => {
           >
             {slice.primary.program_showcase_content.map((item) => (
               <SwiperSlide
-                className="!flex flex-col gap-2 md:flex-row"
+                className="!flex flex-col gap-2 xl:flex-row"
                 key={item.name}
               >
                 <SwiperClick
@@ -272,14 +270,14 @@ const ProgramShowcase = ({ slice }) => {
                   ref={prevRef}
                 />
 
-                <div className="flex gap-2 md:gap-0 flex-col md:flex-row">
+                <div className="flex gap-2 xl:gap-0 flex-col xl:flex-row ">
                   <ImageComponent
                     className="w-full xl:w-[42%]"
                     image={item.image}
                   />
                   <QuoteComponent quote={item.quote} quote_by={item.quote_by} />
                 </div>
-                <div className="flex items-start gap-2 sm:gap-0 justify-between w-full sm:flex-col xl:mt-0 xl:w-[40%]">
+                <div className="flex items-start gap-2 xl:gap-0 justify-between w-full xl:flex-col xl:mt-0 xl:w-[40%] ">
                   <StatsComponent
                     description={item.stat_a_description}
                     number={item.stat_a_number}
@@ -297,10 +295,10 @@ const ProgramShowcase = ({ slice }) => {
       <div
         className="
         flex items-start mt-6 justify-between
-        xl:mt-0 xl:justify-normal"
+        xl:mt-0 xl:justify-normal "
       >
         <SlideSelector
-          className="block w-3/4 lg:hidden"
+          className="block w-3/4 xl:hidden"
           key={slice.primary.program_showcase_content[trackIndex].name}
           name={slice.primary.program_showcase_content[trackIndex].name}
           short_content={
