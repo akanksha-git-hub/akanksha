@@ -1,9 +1,11 @@
 'use client'
+import Image from "next/image";
 import { PrismicNextImage } from "@prismicio/next";
+import PencilShadingB from "@/assets/pencil-shading-b.svg";
 
 export default function MarqueeItem({ mouseEnter, mouseLeave, trackIndex, trackIndexValue, index, item, noHoverEffect }) {
 
-    let textBoxClassName = "absolute opacity-0 top-0 left-0 h-full w-full bg-bright-yellow transition-all flex flex-col items-center justify-center";
+    let textBoxClassName = "absolute opacity-0 top-0 left-0 h-full w-full bg-v2-blue transition-all flex flex-col items-center justify-center";
 
   return (
     <>
@@ -23,17 +25,26 @@ export default function MarqueeItem({ mouseEnter, mouseLeave, trackIndex, trackI
         <div
           onMouseEnter={() => mouseEnter(`${trackIndexValue}`, index)}
           onMouseLeave={mouseLeave}
-          className={`relative rounded-sm overflow-hidden marquee-item ${trackIndex === index && "marquee-item-expand"}`}
+          className={`relative group rounded-sm overflow-hidden marquee-item ${trackIndex === index && "marquee-item-expand"} z-50`}
           key={index}
         >
+          <div className="absolute top-[12%] left-0 w-full h-[30px] opacity-0 group-hover:opacity-100 z-20">
+            <div className="relative h-full w-full">
+              <Image
+                src={PencilShadingB}
+                alt="" 
+                fill
+              />
+            </div>
+          </div>
           <PrismicNextImage
-            className={`h-full w-full object-cover`}
+            className={`h-full w-full object-cover z-50`}
             key={item.team_member_name}
             field={item.team_member_image}
             alt=""
           />
           <div
-            className={`${textBoxClassName} ${trackIndex === index && "!opacity-100"} flex flex-col items-center justify-center`}
+            className={`${textBoxClassName} ${trackIndex === index && "!opacity-100"}  flex flex-col items-center justify-center`}
           >
             <p className="text-deep-green font-inter text-2xl">
               {item.team_member_name}
