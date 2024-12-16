@@ -1,10 +1,9 @@
 import { Inter, Playfair_Display, Instrument_Sans } from "next/font/google";
 import LocalFont from "next/font/local"
 import "./globals.css";
-import Header from "@/components/Header";
 import LenisScrollContext from "@/components/LenisScrollContext";
-import Footer from "@/components/v2-components/footer/footer";
 import FooterMain from "@/components/v2-components/footer/footer-main";
+import HeaderDataLayer from "@/components/v2-components/header/header-data-layer";
 
 const inter = Inter({ 
   variable: '--font-inter',
@@ -73,6 +72,8 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
+  
   return (
     <html lang="en">
       <body 
@@ -84,7 +85,7 @@ export default function RootLayout({ children }) {
         `}
       >
         <LenisScrollContext>
-          <Header />
+          <HeaderDataLayer />
           {children}
           <FooterMain />
         </LenisScrollContext>

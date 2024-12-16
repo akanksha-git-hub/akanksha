@@ -532,6 +532,18 @@ body {
   -webkit-box-shadow: inset 0 0 1px var(--deep-green);
   background: var(--deep-green);
 }
+.dropdown-scroll-bar::-webkit-scrollbar {
+  height: 8px;
+  width: 100%;
+  background-color: var(--cream);
+  padding-bottom: 1rem;
+}
+
+.dropdown-scroll-bar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 1px var(--deep-green);
+  background: var(--deep-green);
+}
 .green-scroll-bar::-webkit-scrollbar-track {
   -webkit-box-shadow: var(--cream);
   background-color: var(--cream);
@@ -776,6 +788,15 @@ body {
 }
 /* testing perspective end */
 
+
+@keyframes height-active {
+  0% {
+    max-height: 0px;
+  }
+  100% {
+    max-height: 1000px;
+  }
+}
 
 @keyframes testing-scroll-anim {
   to {
