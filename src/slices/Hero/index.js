@@ -60,45 +60,45 @@ const Hero = ({ slice }) => {
   }
 
 
-  // useEffect(() => {
+  useEffect(() => {
 
 
-  //   if(!onMount) {
-  //     setOnMount(() => true);
-  //     return;
-  //   }
+    if(!onMount) {
+      setOnMount(() => true);
+      return;
+    }
 
-  //   if(slice.primary.hero_content.length >= 1) {
+    if(slice.primary.hero_content.length >= 1) {
 
-  //     const interval = setInterval(() => {
+      const interval = setInterval(() => {
 
-  //       setIntervalState(prevState => {
+        setIntervalState(prevState => {
 
-  //         if(prevState.currentIndex === slice.primary.hero_content.length - 1) return { ...prevState, currentIndex: 0 }
+          if(prevState.currentIndex === slice.primary.hero_content.length - 1) return { ...prevState, currentIndex: 0 }
 
-  //         if(slice.primary.hero_content.length !== prevState.currentIndex) return { ...prevState, currentIndex: prevState.currentIndex + 1 } 
+          if(slice.primary.hero_content.length !== prevState.currentIndex) return { ...prevState, currentIndex: prevState.currentIndex + 1 } 
 
-  //         return prevState;
+          return prevState;
 
-  //       });
+        });
 
-  //     }, intervalState.remainingTime)
+      }, intervalState.remainingTime)
 
-  //     return () => clearInterval(interval);
+      return () => clearInterval(interval);
 
-  //   }
+    }
 
-  //   return;
+    return;
 
-  // }, [onMount, loadingState]);
+  }, [onMount, loadingState]);
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   if(!onMount) return setOnMount(() => true);
+    if(!onMount) return setOnMount(() => true);
 
-  //   circleAnim();
+    circleAnim();
 
-  // }, [onMount, intervalState.currentIndex, loadingState]);
+  }, [onMount, intervalState.currentIndex, loadingState]);
 
   return (
     <section
