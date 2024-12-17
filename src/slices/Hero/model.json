@@ -26,6 +26,14 @@
                   "thumbnails": []
                 }
               },
+              "bg_image": {
+                "type": "Image",
+                "config": {
+                  "label": "bg_image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
               "story_name": {
                 "type": "Text",
                 "config": {
