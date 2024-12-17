@@ -4812,6 +4812,16 @@ export interface HeroSliceDefaultPrimaryHeroContentItem {
   image: prismic.ImageField<never>;
 
   /**
+   * bg_image field in *Hero → Default → Primary → Hero Content*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.hero_content[].bg_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bg_image: prismic.ImageField<never>;
+
+  /**
    * Story name field in *Hero → Default → Primary → Hero Content*
    *
    * - **Field Type**: Text
