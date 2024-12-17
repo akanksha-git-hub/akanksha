@@ -153,11 +153,11 @@ const MissionVision = ({ slice }) => {
                 />
               </div>
               <div className="flex-1 bg-black text-white flex flex-col items-center justify-center p-4">
-                <h2 className="text-4xl md:text-7xl font-semibold mb-4">
+                <h2 className=" font-ambit-regular text-4xl md:text-7xl font-semibold mb-4">
                   {slice.primary.title}
                 </h2>
 
-                <p className="text-center text-sm md:text-lg mb-6 md:mb-12 w-full md:w-[40ch]">
+                <p className="text-center text-sm md:text-lg mb-6 md:mb-12 w-full md:w-[30ch] font-ambit-regular">
                   {slice.primary.description}
                 </p>
 
