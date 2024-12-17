@@ -1,6 +1,7 @@
 import React from "react";
 import RichText from "../Texts/RichText";
 import TextCTA from "../UI/Button/TextCTA";
+import Image from "next/image";
 
 export default function QuoteComponent({ quote, quote_by, storyLink }) {
   return (
