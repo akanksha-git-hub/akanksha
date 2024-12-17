@@ -1,7 +1,7 @@
 import React from "react";
 import RichText from "../Texts/RichText";
 import TextCTA from "../UI/Button/TextCTA";
-
+import Image from "next/image";
 export default function QuoteComponent({ quote, quote_by, storyLink }) {
   return (
     <div className="relative  rounded-lg rounded-tr-lg rounded-br-lg md:rounded-bl-none md:rounded-tl-none bg-[#58BCD4] p-8 w-full xl:w-[56%] flex flex-col items-start justify-between">
