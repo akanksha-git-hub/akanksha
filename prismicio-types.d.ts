@@ -6297,6 +6297,114 @@ export type MissionVisionSliceV2 = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *MissionVision → Project-Rise → Primary*
+ */
+export interface MissionVisionSliceProjectRisePrimary {
+  /**
+   * Slice Identifier field in *MissionVision → Project-Rise → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.projectRise.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * bg_image field in *MissionVision → Project-Rise → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.projectRise.primary.bg_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bg_image: prismic.ImageField<never>;
+
+  /**
+   * left_image field in *MissionVision → Project-Rise → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.projectRise.primary.left_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_image: prismic.ImageField<never>;
+
+  /**
+   * right_image field in *MissionVision → Project-Rise → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.projectRise.primary.right_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_image: prismic.ImageField<never>;
+
+  /**
+   * center_image_1 field in *MissionVision → Project-Rise → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.projectRise.primary.center_image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  center_image_1: prismic.ImageField<never>;
+
+  /**
+   * title field in *MissionVision → Project-Rise → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.projectRise.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * description field in *MissionVision → Project-Rise → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.projectRise.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * CTA_1 field in *MissionVision → Project-Rise → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.projectRise.primary.cta_1
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_1: prismic.LinkField;
+
+  /**
+   * CTA_2 field in *MissionVision → Project-Rise → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.projectRise.primary.cta_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_2: prismic.LinkField;
+}
+
+/**
+ * Project-Rise variation for MissionVision Slice
+ *
+ * - **API ID**: `projectRise`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MissionVisionSliceProjectRise = prismic.SharedSliceVariation<
+  "projectRise",
+  Simplify<MissionVisionSliceProjectRisePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *MissionVision*
  */
 type MissionVisionSliceVariation =
@@ -6306,7 +6414,8 @@ type MissionVisionSliceVariation =
   | MissionVisionSliceOptionD
   | MissionVisionSliceOptionE
   | MissionVisionSliceOptionF
-  | MissionVisionSliceV2;
+  | MissionVisionSliceV2
+  | MissionVisionSliceProjectRise;
 
 /**
  * MissionVision Shared Slice
@@ -9075,6 +9184,7 @@ declare module "@prismicio/client" {
       MissionVisionSliceOptionEPrimary,
       MissionVisionSliceOptionFPrimary,
       MissionVisionSliceV2Primary,
+      MissionVisionSliceProjectRisePrimary,
       MissionVisionSliceVariation,
       MissionVisionSliceDefault,
       MissionVisionSliceReverseVideoComponet,
@@ -9083,6 +9193,7 @@ declare module "@prismicio/client" {
       MissionVisionSliceOptionE,
       MissionVisionSliceOptionF,
       MissionVisionSliceV2,
+      MissionVisionSliceProjectRise,
       MissionVisionShowcaseSlice,
       MissionVisionShowcaseSliceDefaultPrimary,
       MissionVisionShowcaseSliceVariation,
