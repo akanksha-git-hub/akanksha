@@ -443,6 +443,86 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "projectRise",
+      "name": "Project-Rise",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "bg_image": {
+          "type": "Image",
+          "config": {
+            "label": "bg_image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "left_image": {
+          "type": "Image",
+          "config": {
+            "label": "left_image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "right_image": {
+          "type": "Image",
+          "config": {
+            "label": "right_image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "center_image_1": {
+          "type": "Image",
+          "config": {
+            "label": "center_image_1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "description",
+            "placeholder": ""
+          }
+        },
+        "cta_1": {
+          "type": "Link",
+          "config": {
+            "label": "CTA_1",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "cta_2": {
+          "type": "Link",
+          "config": {
+            "label": "CTA_2",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
