@@ -22,11 +22,14 @@ export default function HeaderDropDown({ drop_down_items, uniqueIdentifier }) {
             key={item}
         >
             <div className="p-8 w-full h-full border-t border-b border-[#B3B3B3]">
-                <ul
+                {/* <ul
                     className="flex gap-4 whitespace-nowrap overflow-x-auto h-full w-full dropdown-scroll-bar py-2"
                     style={{
                         scrollBehavior: 'smooth', // Optional for smooth scrolling
                     }}
+                > */}
+                <ul 
+                    className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-2"
                 >
                     {drop_down_items
                         .filter((data) => {
@@ -40,7 +43,7 @@ export default function HeaderDropDown({ drop_down_items, uniqueIdentifier }) {
                                     key={i}
                                 >
                                     <div
-                                        className="min-w-[260px] transition-all rounded
+                                        className=" transition-all rounded
                                         flex flex-col relative z-[1]" // Use `min-w` for consistent width
                                     >
                                         <PrismicNextLink
