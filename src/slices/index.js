@@ -19,6 +19,7 @@ export const components = {
   icon_scroll_showcase: dynamic(() => import("./IconScrollShowcase")),
   icon_showcase: dynamic(() => import("./IconShowcase")),
   image_showcase: dynamic(() => import("./ImageShowcase")),
+  impact_hero: dynamic(() => import("./ImpactHero")),
   initiative_showcase: dynamic(() => import("./InitiativeShowcase")),
   magic_section: dynamic(() => import("./MagicSection")),
   mission_vision: dynamic(() => import("./MissionVision")),
