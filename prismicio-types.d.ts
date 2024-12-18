@@ -1698,6 +1698,71 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
+type ImpactDocumentDataSlicesSlice = ImpactHeroSlice;
+
+/**
+ * Content for impact documents
+ */
+interface ImpactDocumentData {
+  /**
+   * Slice Zone field in *impact*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ImpactDocumentDataSlicesSlice> /**
+   * Meta Title field in *impact*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: impact.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *impact*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: impact.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *impact*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * impact document from Prismic
+ *
+ * - **API ID**: `impact`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ImpactDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ImpactDocumentData>,
+    "impact",
+    Lang
+  >;
+
 /**
  * Item in *News letter → Categories*
  */
@@ -2937,6 +3002,7 @@ export type AllDocumentTypes =
   | FooterQualityEducationLogoDocument
   | HeaderDocument
   | HomeDocument
+  | ImpactDocument
   | NewsLetterDocument
   | NotificationBarDocument
   | OurApproachDocument
@@ -5380,6 +5446,106 @@ type ImageShowcaseSliceVariation = ImageShowcaseSliceDefault;
 export type ImageShowcaseSlice = prismic.SharedSlice<
   "image_showcase",
   ImageShowcaseSliceVariation
+>;
+
+/**
+ * Item in *ImpactHero → Default → Primary → Stats*
+ */
+export interface ImpactHeroSliceDefaultPrimaryStatsItem {
+  /**
+   * number field in *ImpactHero → Default → Primary → Stats*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_hero.default.primary.stats[].number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  number: prismic.KeyTextField;
+
+  /**
+   * field field in *ImpactHero → Default → Primary → Stats*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_hero.default.primary.stats[].field
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  field: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ImpactHero → Default → Primary*
+ */
+export interface ImpactHeroSliceDefaultPrimary {
+  /**
+   * left_image field in *ImpactHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_hero.default.primary.left_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ImpactHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_hero.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * right_image field in *ImpactHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_hero.default.primary.right_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_image: prismic.ImageField<never>;
+
+  /**
+   * Stats field in *ImpactHero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_hero.default.primary.stats[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  stats: prismic.GroupField<Simplify<ImpactHeroSliceDefaultPrimaryStatsItem>>;
+}
+
+/**
+ * Default variation for ImpactHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImpactHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImpactHero*
+ */
+type ImpactHeroSliceVariation = ImpactHeroSliceDefault;
+
+/**
+ * ImpactHero Shared Slice
+ *
+ * - **API ID**: `impact_hero`
+ * - **Description**: ImpactHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactHeroSlice = prismic.SharedSlice<
+  "impact_hero",
+  ImpactHeroSliceVariation
 >;
 
 /**
@@ -9039,6 +9205,9 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      ImpactDocument,
+      ImpactDocumentData,
+      ImpactDocumentDataSlicesSlice,
       NewsLetterDocument,
       NewsLetterDocumentData,
       NewsLetterDocumentDataCategoriesItem,
@@ -9177,6 +9346,11 @@ declare module "@prismicio/client" {
       ImageShowcaseSliceDefaultPrimary,
       ImageShowcaseSliceVariation,
       ImageShowcaseSliceDefault,
+      ImpactHeroSlice,
+      ImpactHeroSliceDefaultPrimaryStatsItem,
+      ImpactHeroSliceDefaultPrimary,
+      ImpactHeroSliceVariation,
+      ImpactHeroSliceDefault,
       InitiativeShowcaseSlice,
       InitiativeShowcaseSliceDefaultPrimary,
       InitiativeShowcaseSliceVariation,
