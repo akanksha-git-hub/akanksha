@@ -42,7 +42,7 @@ export default function NavItems({ header_link_items, uniqueIdentifier }) {
                       const uid = finalWord.toLowerCase();
 
                       return(
-                        <li key={_} className="relative">
+                        <li key={_} className="relative group">
                           <div className="drop-down">
                             <NavItemDropDownText 
                               text={finalWord}
@@ -52,6 +52,7 @@ export default function NavItems({ header_link_items, uniqueIdentifier }) {
                               onClick={() => setDropdownId(uid)}
                             />
                           </div>
+
                         </li>
                         )
                     })
