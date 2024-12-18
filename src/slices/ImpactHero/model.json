@@ -1,0 +1,65 @@
+{
+  "id": "impact_hero",
+  "type": "SharedSlice",
+  "name": "ImpactHero",
+  "description": "ImpactHero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "left_image": {
+          "type": "Image",
+          "config": {
+            "label": "left_image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "right_image": {
+          "type": "Image",
+          "config": {
+            "label": "right_image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "stats": {
+          "type": "Group",
+          "config": {
+            "label": "Stats",
+            "repeat": true,
+            "fields": {
+              "number": {
+                "type": "Text",
+                "config": {
+                  "label": "number",
+                  "placeholder": ""
+                }
+              },
+              "field": {
+                "type": "Text",
+                "config": {
+                  "label": "field",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
