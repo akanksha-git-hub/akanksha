@@ -39,7 +39,6 @@ export default function HeaderMain({ header }) {
                     <NavItems 
                         uniqueIdentifier={uniqueIdentifier}
                         header_link_items={header.header_link_items}
-                        drop_down_items={header.drop_down_items}
                     />
                 </Header.NavList>
                 <Header.CTA>
