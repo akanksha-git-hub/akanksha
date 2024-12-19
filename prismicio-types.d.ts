@@ -1698,6 +1698,8 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
+
+type ImpactDocumentDataSlicesSlice = ImpactKeyStageSlice | ImpactHeroSlice;
 /**
  * Content for Horizontal Scroll Card A documents
  */
@@ -5713,6 +5715,101 @@ export type ImpactHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ImpactKeyStage → Default → Primary*
+ */
+export interface ImpactKeyStageSliceDefaultPrimary {
+  /**
+   * heading1 field in *ImpactKeyStage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_key_stage.default.primary.heading1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading1: prismic.KeyTextField;
+
+  /**
+   * heading2 field in *ImpactKeyStage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_key_stage.default.primary.heading2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading2: prismic.KeyTextField;
+
+  /**
+   * subheading1 field in *ImpactKeyStage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_key_stage.default.primary.subheading1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheading1: prismic.KeyTextField;
+
+  /**
+   * subheading2 field in *ImpactKeyStage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_key_stage.default.primary.subheading2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheading2: prismic.KeyTextField;
+
+  /**
+   * desciption1 field in *ImpactKeyStage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_key_stage.default.primary.desciption1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  desciption1: prismic.KeyTextField;
+
+  /**
+   * desciption2 field in *ImpactKeyStage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_key_stage.default.primary.desciption2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  desciption2: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ImpactKeyStage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactKeyStageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImpactKeyStageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImpactKeyStage*
+ */
+type ImpactKeyStageSliceVariation = ImpactKeyStageSliceDefault;
+
+/**
+ * ImpactKeyStage Shared Slice
+ *
+ * - **API ID**: `impact_key_stage`
+ * - **Description**: ImpactKeyStage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactKeyStageSlice = prismic.SharedSlice<
+  "impact_key_stage",
+  ImpactKeyStageSliceVariation
+>;
+
+/**
  * Primary content in *InitiativeShowcase → Default → Primary*
  */
 export interface InitiativeShowcaseSliceDefaultPrimary {
@@ -9525,6 +9622,10 @@ declare module "@prismicio/client" {
       ImpactHeroSliceDefaultPrimary,
       ImpactHeroSliceVariation,
       ImpactHeroSliceDefault,
+      ImpactKeyStageSlice,
+      ImpactKeyStageSliceDefaultPrimary,
+      ImpactKeyStageSliceVariation,
+      ImpactKeyStageSliceDefault,
       InitiativeShowcaseSlice,
       InitiativeShowcaseSliceDefaultPrimary,
       InitiativeShowcaseSliceVariation,
