@@ -20,97 +20,101 @@ export const repositoryName =
 const routes = [
   // Examples:
   {
-  	type: "home",
-  	path: "/",
+    type: "home",
+    path: "/",
   },
   {
     type: "donor_page",
-    path: '/donate'
+    path: "/donate",
   },
   {
-    type: 'vision_mission',
-    path: '/about/vision_mission'
+    type: "vision_mission",
+    path: "/about/vision_mission",
   },
   {
-    type: 'timeline',
-    path: '/about/timeline',
+    type: "timeline",
+    path: "/about/timeline",
   },
   {
-    type: 'partnerships',
-    path: '/about/partnerships'
+    type: "partnerships",
+    path: "/about/partnerships",
   },
   {
-    type: 'ourdonors',
-    path: '/about/our-donors'
+    type: "ourdonors",
+    path: "/about/our-donors",
   },
   {
-    type: 'core_values',
-    path: '/about/core-values'
+    type: "core_values",
+    path: "/about/core-values",
   },
   {
-    type: 'our_approach',
-    path: '/about/our-approach'
+    type: "our_approach",
+    path: "/about/our-approach",
   },
   {
-    type: 'our_schools',
-    path: '/our-schools'
+    type: "our_schools",
+    path: "/our-schools",
   },
   {
-    type: 'our_people',
-    path: '/our-people/:uid'
+    type: "our_people",
+    path: "/our-people/:uid",
   },
   {
-    type: 'work_with_us',
-    path: '/join-us/work-with-us'
+    type: "work_with_us",
+    path: "/join-us/work-with-us",
   },
   {
-    type: 'volunteer_with_us',
-    path: '/join-us/volunteer-with-us'
+    type: "volunteer_with_us",
+    path: "/join-us/volunteer-with-us",
   },
   {
-    type: 'contact',
-    path: '/join-us/contact'
+    type: "contact",
+    path: "/join-us/contact",
   },
   {
-    type: 'financials',
-    path: '/resources/financials'
+    type: "financials",
+    path: "/resources/financials",
   },
   {
-    type: 'annual_reports',
-    path: '/resources/annual-reports'
+    type: "annual_reports",
+    path: "/resources/annual-reports",
   },
   {
-    type: 'films',
-    path: '/resources/films'
+    type: "films",
+    path: "/resources/films",
   },
   {
-    type: 'news_letter',
-    path: '/resources/news-letter'
+    type: "news_letter",
+    path: "/resources/news-letter",
   },
   {
-    type: 'blog_showcase_page',
-    path: '/resources/blogs'
+    type: "blog_showcase_page",
+    path: "/resources/blogs",
   },
   {
-    type: 'blog_child_page',
-    path: '/resources/blogs/:uid'
+    type: "blog_child_page",
+    path: "/resources/blogs/:uid",
   },
   {
-    type: 'project_setu',
-    path: '/flagship-programs/project-setu'
+    type: "project_setu",
+    path: "/flagship-programs/project-setu",
   },
   {
-    type: 'school_project',
-    path: '/flagship-programs/school-project'
+    type: "school_project",
+    path: "/flagship-programs/school-project",
   },
   {
-    type: 'ase',
-    path: '/flagship-programs/ase'
+    type: "ase",
+    path: "/flagship-programs/ase",
   },
   {
-    type: 'privacy_policy',
-    path: '/privacy-policy'
-  }
+    type: "privacy_policy",
+    path: "/privacy-policy",
+  },
+  {
+    type: "impact",
+    path: "/impact",
+  },
 ];
 
 /**

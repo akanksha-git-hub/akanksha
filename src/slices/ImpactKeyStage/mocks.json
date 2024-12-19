@@ -1,0 +1,39 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading1": {
+				"__TYPE__": "FieldContent",
+				"value": "clean",
+				"type": "Text"
+			},
+			"heading2": {
+				"__TYPE__": "FieldContent",
+				"value": "angle",
+				"type": "Text"
+			},
+			"subheading1": {
+				"__TYPE__": "FieldContent",
+				"value": "surprise",
+				"type": "Text"
+			},
+			"subheading2": {
+				"__TYPE__": "FieldContent",
+				"value": "adjective",
+				"type": "Text"
+			},
+			"desciption1": {
+				"__TYPE__": "FieldContent",
+				"value": "recognize",
+				"type": "Text"
+			},
+			"desciption2": {
+				"__TYPE__": "FieldContent",
+				"value": "flame",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
