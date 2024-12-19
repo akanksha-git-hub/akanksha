@@ -1,0 +1,41 @@
+{
+  "id": "horizontal_scroll_slice",
+  "type": "SharedSlice",
+  "name": "HorizontalScrollSlice",
+  "description": "HorizontalScrollSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "small_title": {
+          "type": "Text",
+          "config": {
+            "label": "Small title",
+            "placeholder": ""
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
