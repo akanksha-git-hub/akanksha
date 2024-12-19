@@ -16,6 +16,7 @@ export const components = {
     () => import("./FrequentlyAskedQuestions"),
   ),
   hero: dynamic(() => import("./Hero")),
+  horizontal_scroll_slice: dynamic(() => import("./HorizontalScrollSlice")),
   icon_scroll_showcase: dynamic(() => import("./IconScrollShowcase")),
   icon_showcase: dynamic(() => import("./IconShowcase")),
   image_showcase: dynamic(() => import("./ImageShowcase")),
