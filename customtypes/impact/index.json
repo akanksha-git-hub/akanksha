@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "impact_key_stage": {
+              "type": "SharedSlice"
+            },
             "impact_hero": {
               "type": "SharedSlice"
             }
