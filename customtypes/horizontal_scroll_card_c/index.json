@@ -1,0 +1,18 @@
+{
+  "format": "custom",
+  "id": "horizontal_scroll_card_c",
+  "label": "Horizontal Scroll Card C",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
