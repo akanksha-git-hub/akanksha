@@ -1,0 +1,61 @@
+{
+  "id": "impact_key_stage",
+  "type": "SharedSlice",
+  "name": "ImpactKeyStage",
+  "description": "ImpactKeyStage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading1": {
+          "type": "Text",
+          "config": {
+            "label": "heading1",
+            "placeholder": ""
+          }
+        },
+        "heading2": {
+          "type": "Text",
+          "config": {
+            "label": "heading2",
+            "placeholder": ""
+          }
+        },
+        "subheading1": {
+          "type": "Text",
+          "config": {
+            "label": "subheading1",
+            "placeholder": ""
+          }
+        },
+        "subheading2": {
+          "type": "Text",
+          "config": {
+            "label": "subheading2",
+            "placeholder": ""
+          }
+        },
+        "desciption1": {
+          "type": "Text",
+          "config": {
+            "label": "desciption1",
+            "placeholder": ""
+          }
+        },
+        "desciption2": {
+          "type": "Text",
+          "config": {
+            "label": "desciption2",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
