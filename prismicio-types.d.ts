@@ -1698,7 +1698,105 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
+
 type ImpactDocumentDataSlicesSlice = ImpactKeyStageSlice | ImpactHeroSlice;
+/**
+ * Content for Horizontal Scroll Card A documents
+ */
+interface HorizontalScrollCardADocumentData {
+  /**
+   * Title field in *Horizontal Scroll Card A*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_a.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Horizontal Scroll Card A document from Prismic
+ *
+ * - **API ID**: `horizontal_scroll_card_a`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HorizontalScrollCardADocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HorizontalScrollCardADocumentData>,
+    "horizontal_scroll_card_a",
+    Lang
+  >;
+
+/**
+ * Content for Horizontal Scroll Card B documents
+ */
+interface HorizontalScrollCardBDocumentData {
+  /**
+   * Title field in *Horizontal Scroll Card B*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_b.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Horizontal Scroll Card B document from Prismic
+ *
+ * - **API ID**: `horizontal_scroll_card_b`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HorizontalScrollCardBDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HorizontalScrollCardBDocumentData>,
+    "horizontal_scroll_card_b",
+    Lang
+  >;
+
+/**
+ * Content for Horizontal Scroll Card C documents
+ */
+interface HorizontalScrollCardCDocumentData {
+  /**
+   * Title field in *Horizontal Scroll Card C*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_c.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Horizontal Scroll Card C document from Prismic
+ *
+ * - **API ID**: `horizontal_scroll_card_c`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HorizontalScrollCardCDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HorizontalScrollCardCDocumentData>,
+    "horizontal_scroll_card_c",
+    Lang
+  >;
+
+type ImpactDocumentDataSlicesSlice = ImpactHeroSlice;
 
 /**
  * Content for impact documents
@@ -3002,6 +3100,9 @@ export type AllDocumentTypes =
   | FooterQualityEducationLogoDocument
   | HeaderDocument
   | HomeDocument
+  | HorizontalScrollCardADocument
+  | HorizontalScrollCardBDocument
+  | HorizontalScrollCardCDocument
   | ImpactDocument
   | NewsLetterDocument
   | NotificationBarDocument
@@ -5018,6 +5119,71 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *HorizontalScrollSlice → Default → Primary*
+ */
+export interface HorizontalScrollSliceSliceDefaultPrimary {
+  /**
+   * Title field in *HorizontalScrollSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_slice.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Small title field in *HorizontalScrollSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_slice.default.primary.small_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_title: prismic.KeyTextField;
+
+  /**
+   * Image field in *HorizontalScrollSlice → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_slice.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for HorizontalScrollSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HorizontalScrollSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HorizontalScrollSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HorizontalScrollSlice*
+ */
+type HorizontalScrollSliceSliceVariation = HorizontalScrollSliceSliceDefault;
+
+/**
+ * HorizontalScrollSlice Shared Slice
+ *
+ * - **API ID**: `horizontal_scroll_slice`
+ * - **Description**: HorizontalScrollSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HorizontalScrollSliceSlice = prismic.SharedSlice<
+  "horizontal_scroll_slice",
+  HorizontalScrollSliceSliceVariation
+>;
 
 /**
  * Item in *IconScrollShowcase → Default → Primary → items*
@@ -9300,6 +9466,12 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      HorizontalScrollCardADocument,
+      HorizontalScrollCardADocumentData,
+      HorizontalScrollCardBDocument,
+      HorizontalScrollCardBDocumentData,
+      HorizontalScrollCardCDocument,
+      HorizontalScrollCardCDocumentData,
       ImpactDocument,
       ImpactDocumentData,
       ImpactDocumentDataSlicesSlice,
@@ -9420,6 +9592,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HorizontalScrollSliceSlice,
+      HorizontalScrollSliceSliceDefaultPrimary,
+      HorizontalScrollSliceSliceVariation,
+      HorizontalScrollSliceSliceDefault,
       IconScrollShowcaseSlice,
       IconScrollShowcaseSliceDefaultPrimaryItemsItem,
       IconScrollShowcaseSliceDefaultPrimary,
