@@ -31,12 +31,9 @@ const ImpactHero = ({ slice }) => {
             {slice.primary.title}
           </h1>
 
-          <div className="mt-24 flex flex-wrap md:justify-center justify-start w-full  ">
+          <div className="mt-24 flex flex-wrap md:justify-center justify-start w-full  gap-12">
             {slice.primary.stats.map((stat, index) => (
-              <div
-                key={index}
-                className="flex flex-col md:items-center py-2 px-6"
-              >
+              <div key={index} className="flex flex-col md:items-center py-2">
                 <p className="text-5xl font-ambit-regular">{stat.number}</p>
                 <p className="text-lg font-ambit-regular mt-2 ">{stat.field}</p>
               </div>
