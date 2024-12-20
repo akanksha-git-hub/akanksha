@@ -1698,8 +1698,6 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-
-type ImpactDocumentDataSlicesSlice = ImpactKeyStageSlice | ImpactHeroSlice;
 /**
  * Content for Horizontal Scroll Card A documents
  */
@@ -1796,7 +1794,10 @@ export type HorizontalScrollCardCDocument<Lang extends string = string> =
     Lang
   >;
 
-type ImpactDocumentDataSlicesSlice = ImpactHeroSlice;
+type ImpactDocumentDataSlicesSlice =
+  | HorizontalScrollSliceSlice
+  | ImpactKeyStageSlice
+  | ImpactHeroSlice;
 
 /**
  * Content for impact documents
