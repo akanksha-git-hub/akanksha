@@ -21,7 +21,7 @@ export default function HorizontalScrollCardC() {
         {/* White Section */}
         <div className="group bg-white w-[550px] h-[150px] hover:h-[350px] flex items-center justify-center relative cursor-pointer transition-all duration-300">
           <p className="text-3xl absolute top-1/2 left-4 transform -translate-y-1/2 font-ambit-regular group-hover:top-12 transition-all duration-300 w-[7ch]">
-            Year 2023-24'
+            Year 2023-24&apos;
           </p>
 
           <div className="absolute bottom-4 right-4 bg-white text-black text-8xl font-ambit-semibold opacity-0 group-hover:opacity-100 transition-opacity">
@@ -32,7 +32,7 @@ export default function HorizontalScrollCardC() {
         {/* Yellow Section */}
         <div className="group bg-[#F6AC27] w-[550px] h-[150px] hover:h-[350px] flex items-center justify-center relative cursor-pointer transition-all duration-300">
           <p className="text-3xl absolute top-1/2 left-4 transform -translate-y-1/2 font-ambit-regular group-hover:top-8 transition-all ">
-            Year 2022-23'
+            Year 2022-23&apos;
           </p>
 
           <div className="absolute bottom-4 right-4  text-black text-8xl font-ambit-semibold opacity-0 group-hover:opacity-100 transition-opacity">
@@ -43,7 +43,7 @@ export default function HorizontalScrollCardC() {
         {/* Blue Section */}
         <div className="group bg-[#58BCD4]  w-[550px] h-[150px] hover:h-[350px] flex items-center justify-center relative cursor-pointer transition-all duration-300">
           <p className="text-3xl absolute top-1/2 left-4 transform -translate-y-1/2 font-ambit-regular group-hover:top-8 transition-all ">
-            Year 2021-22'
+            Year 2021-22&apos;
           </p>
 
           <div className="absolute bottom-4 right-4  text-white text-8xl font-ambit-semibold opacity-0 group-hover:opacity-100 transition-opacity">
