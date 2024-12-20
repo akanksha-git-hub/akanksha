@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "horizontal_scroll_slice": {
+              "type": "SharedSlice"
+            },
             "impact_key_stage": {
               "type": "SharedSlice"
             },
