@@ -18,17 +18,19 @@ export default function HorizontalScrollCardB() {
   );
 
   return (
-    <div className="flex flex-col lg:flex-row bg-[#FFFBF1] rounded-lg overflow-hidden w-full max-w-[1500px] h-[700px]  mx-auto">
+    <div className="flex flex-col lg:flex-row bg-[#FFFBF1] rounded-lg overflow-hidden w-full max-w-[1500px]  h-full max-h-[700px] mx-auto">
       {/* Left Section */}
       <div className="p-16 flex flex-col justify-around flex-1">
         {/* Top Text */}
         <div>
-          <h2 className="text-8xl text-black font-ambit-regular">73%</h2>
-          <p className="text-2xl text-black mt-2 font-ambit-regular">
+          <h2 className="text-5xl lg:text-7xl text-black font-ambit-regular">
+            73%
+          </h2>
+          <p className="text-xl lg:text-2xl text-black mt-2 font-ambit-regular">
             Distinction
           </p>
           {/* State Selector */}
-          <div className="mt-4 flex space-x-2">
+          <div className="mt-4 flex space-x-2 overflow-x-auto scrollbar-hide">
             {sortedYears.map((year) => (
               <button
                 key={year}
@@ -47,21 +49,21 @@ export default function HorizontalScrollCardB() {
 
         {/* Bottom Text */}
         <div className="mt-4 ">
-          <p className="text-lg md:text-2xl lg:text-4xl text-black font-ambit-light lg:w-[29ch]">
+          <p className="text-sm md:text-xl lg:text-2xl text-black font-ambit-light lg:w-[29ch]">
             {yearData[selectedYear]}
           </p>
         </div>
       </div>
 
       {/* Right Section */}
-      <div className="lg:w-1/2  h-full flex items-center justify-center ">
-        <div className=" h-[200px] w-[200px] lg:h-[450px] lg:w-[450px]">
+      <div className="xl:w-1/2 h-full flex items-center justify-center ">
+        <div className="relative h-[180px] w-[180px] md:h-[300px] md:w-[300px] lg:h-[250px] lg:w-[250px] xl:h-[450px] xl:w-[450px]">
           <Image
             src="/circles.png"
             alt="Card image"
-            width={450}
-            height={450}
-            objectFit="cover"
+            layout="fill" /* Ensures image fills the parent container */
+            objectFit="cover" /* Maintains aspect ratio while covering */
+            className="rounded-full" /* Optional: Add additional styles */
           />
         </div>
       </div>
