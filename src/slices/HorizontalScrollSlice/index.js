@@ -21,10 +21,12 @@ const HorizontalScrollSlice = async ({ slice }) => {
       data-slice-variation={slice.variation}
       className="relative "
     >
-      <div className="relative flex flex-col items-center text-center universal-padding ">
-        <h1 className="text-8xl font-ambit-regular">{slice.primary.title}</h1>
+      <div className="relative flex flex-col items-start md:items-center text-center universal-padding ">
+        <h1 className="text-5xl text-left md:text-8xl  font-ambit-regular">
+          {slice.primary.title}
+        </h1>
 
-        <p className="font-ambit text-3xl font-ambit-regular mt-4">
+        <p className="font-ambit text-2xl  font-ambit-regular mt-4 ">
           {slice.primary.small_title}
         </p>
       </div>
