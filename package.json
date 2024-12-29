@@ -25,6 +25,7 @@
     "react-dom": "^18",
     "swiper": "^11.1.9",
     "tailwind-merge": "^2.5.2",
+    "tailwind-scrollbar-hide": "^2.0.0",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
