@@ -77,7 +77,7 @@ export default function HorizontalScroll({ data }) {
 
             return (
               <li
-                className=" scroll-section flex-shrink-0 w-screen p-16 "
+                className=" scroll-section flex-shrink-0 w-screen p-12  "
                 key={i}
               >
                 {component}
