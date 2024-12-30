@@ -1795,6 +1795,8 @@ export type HorizontalScrollCardCDocument<Lang extends string = string> =
   >;
 
 type ImpactDocumentDataSlicesSlice =
+  | Alumini2Slice
+  | AluminiSlice
   | HorizontalScrollSliceSlice
   | ImpactKeyStageSlice
   | ImpactHeroSlice;
@@ -3119,6 +3121,366 @@ export type AllDocumentTypes =
   | VisionMissionDocument
   | VolunteerWithUsDocument
   | WorkWithUsDocument;
+
+/**
+ * Primary content in *Alumini → Default → Primary*
+ */
+export interface AluminiSliceDefaultPrimary {
+  /**
+   * Heading field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * card1_heading field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.card1_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card1_heading: prismic.KeyTextField;
+
+  /**
+   * card1_descriptiion field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.card1_descriptiion
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card1_descriptiion: prismic.KeyTextField;
+
+  /**
+   * year_1 field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.year_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_1: prismic.KeyTextField;
+
+  /**
+   * year_1_percentage field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.year_1_percentage
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_1_percentage: prismic.KeyTextField;
+
+  /**
+   * year_2 field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.year_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_2: prismic.KeyTextField;
+
+  /**
+   * year_2_percentage field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.year_2_percentage
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_2_percentage: prismic.KeyTextField;
+
+  /**
+   * year_3 field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.year_3
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_3: prismic.KeyTextField;
+
+  /**
+   * year_3_percentage field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.year_3_percentage
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_3_percentage: prismic.KeyTextField;
+
+  /**
+   * card2_heading field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.card2_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card2_heading: prismic.KeyTextField;
+
+  /**
+   * card2_description field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.card2_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card2_description: prismic.KeyTextField;
+
+  /**
+   * card2_img1 field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.card2_img1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card2_img1: prismic.ImageField<never>;
+
+  /**
+   * card2_img2 field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.card2_img2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card2_img2: prismic.ImageField<never>;
+
+  /**
+   * card2_img3 field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.card2_img3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card2_img3: prismic.ImageField<never>;
+
+  /**
+   * card3_fulltime_percentage field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.card3_fulltime_percentage
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card3_fulltime_percentage: prismic.KeyTextField;
+
+  /**
+   * card3_fulltime_title field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.card3_fulltime_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card3_fulltime_title: prismic.KeyTextField;
+
+  /**
+   * card3_parttime_percentage field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.card3_parttime_percentage
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card3_parttime_percentage: prismic.KeyTextField;
+
+  /**
+   * card3_parttime_title field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.card3_parttime_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card3_parttime_title: prismic.KeyTextField;
+
+  /**
+   * card3_description field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.card3_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card3_description: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Alumini Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AluminiSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AluminiSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Alumini*
+ */
+type AluminiSliceVariation = AluminiSliceDefault;
+
+/**
+ * Alumini Shared Slice
+ *
+ * - **API ID**: `alumini`
+ * - **Description**: Alumini
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AluminiSlice = prismic.SharedSlice<
+  "alumini",
+  AluminiSliceVariation
+>;
+
+/**
+ * Primary content in *Alumini2 → Default → Primary*
+ */
+export interface Alumini2SliceDefaultPrimary {
+  /**
+   * akanksha_average field in *Alumini2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.default.primary.akanksha_average
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  akanksha_average: prismic.KeyTextField;
+
+  /**
+   * akanksha_alumini field in *Alumini2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.default.primary.akanksha_alumini
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  akanksha_alumini: prismic.KeyTextField;
+
+  /**
+   * national_average field in *Alumini2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.default.primary.national_average
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  national_average: prismic.KeyTextField;
+
+  /**
+   * national_average_text field in *Alumini2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.default.primary.national_average_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  national_average_text: prismic.KeyTextField;
+
+  /**
+   * contribution1_percentaege field in *Alumini2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.default.primary.contribution1_percentaege
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contribution1_percentaege: prismic.KeyTextField;
+
+  /**
+   * contribution1_desc field in *Alumini2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.default.primary.contribution1_desc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contribution1_desc: prismic.KeyTextField;
+
+  /**
+   * contribution2_percentaege field in *Alumini2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.default.primary.contribution2_percentaege
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contribution2_percentaege: prismic.KeyTextField;
+
+  /**
+   * contribution2_desc field in *Alumini2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.default.primary.contribution2_desc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contribution2_desc: prismic.KeyTextField;
+
+  /**
+   * image field in *Alumini2 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * stats field in *Alumini2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.default.primary.stats
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  stats: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Alumini2 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Alumini2SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<Alumini2SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Alumini2*
+ */
+type Alumini2SliceVariation = Alumini2SliceDefault;
+
+/**
+ * Alumini2 Shared Slice
+ *
+ * - **API ID**: `alumini2`
+ * - **Description**: Alumini2
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Alumini2Slice = prismic.SharedSlice<
+  "alumini2",
+  Alumini2SliceVariation
+>;
 
 /**
  * Item in *ResourcesCategoryItems → Default → Primary → Card Items*
@@ -9523,6 +9885,14 @@ declare module "@prismicio/client" {
       WorkWithUsDocumentData,
       WorkWithUsDocumentDataSlicesSlice,
       AllDocumentTypes,
+      AluminiSlice,
+      AluminiSliceDefaultPrimary,
+      AluminiSliceVariation,
+      AluminiSliceDefault,
+      Alumini2Slice,
+      Alumini2SliceDefaultPrimary,
+      Alumini2SliceVariation,
+      Alumini2SliceDefault,
       BlogCategoryItemsSlice,
       BlogCategoryItemsSliceDefaultPrimaryCardItemsItem,
       BlogCategoryItemsSliceDefaultPrimary,

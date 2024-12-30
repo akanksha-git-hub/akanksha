@@ -1,0 +1,90 @@
+{
+  "id": "alumini2",
+  "type": "SharedSlice",
+  "name": "Alumini2",
+  "description": "Alumini2",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "akanksha_average": {
+          "type": "Text",
+          "config": {
+            "label": "akanksha_average",
+            "placeholder": ""
+          }
+        },
+        "akanksha_alumini": {
+          "type": "Text",
+          "config": {
+            "label": "akanksha_alumini",
+            "placeholder": ""
+          }
+        },
+        "national_average": {
+          "type": "Text",
+          "config": {
+            "label": "national_average",
+            "placeholder": ""
+          }
+        },
+        "national_average_text": {
+          "type": "Text",
+          "config": {
+            "label": "national_average_text",
+            "placeholder": ""
+          }
+        },
+        "contribution1_percentaege": {
+          "type": "Text",
+          "config": {
+            "label": "contribution1_percentaege",
+            "placeholder": ""
+          }
+        },
+        "contribution1_desc": {
+          "type": "Text",
+          "config": {
+            "label": "contribution1_desc",
+            "placeholder": ""
+          }
+        },
+        "contribution2_percentaege": {
+          "type": "Text",
+          "config": {
+            "label": "contribution2_percentaege",
+            "placeholder": ""
+          }
+        },
+        "contribution2_desc": {
+          "type": "Text",
+          "config": {
+            "label": "contribution2_desc",
+            "placeholder": ""
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "stats": {
+          "type": "Text",
+          "config": {
+            "label": "stats",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

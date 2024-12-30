@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "alumini2": {
+              "type": "SharedSlice"
+            },
+            "alumini": {
+              "type": "SharedSlice"
+            },
             "horizontal_scroll_slice": {
               "type": "SharedSlice"
             },

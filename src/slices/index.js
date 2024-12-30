@@ -3,6 +3,8 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  alumini: dynamic(() => import("./Alumini")),
+  alumini2: dynamic(() => import("./Alumini2")),
   blog_category_items: dynamic(() => import("./ResourcesCategoryItems")),
   blog_highlight: dynamic(() => import("./ResourcedHighlight")),
   blog_recents: dynamic(() => import("./ResourcesRecents")),
