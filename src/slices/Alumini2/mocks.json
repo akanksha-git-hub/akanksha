@@ -1,0 +1,77 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"akanksha_average": {
+				"__TYPE__": "FieldContent",
+				"value": "energy",
+				"type": "Text"
+			},
+			"national_average": {
+				"__TYPE__": "FieldContent",
+				"value": "writing",
+				"type": "Text"
+			},
+			"contribution1_percentaege": {
+				"__TYPE__": "FieldContent",
+				"value": "fed",
+				"type": "Text"
+			},
+			"contribution2_percentaege": {
+				"__TYPE__": "FieldContent",
+				"value": "heart",
+				"type": "Text"
+			},
+			"contribution1_desc": {
+				"__TYPE__": "FieldContent",
+				"value": "took",
+				"type": "Text"
+			},
+			"contribution2_desc": {
+				"__TYPE__": "FieldContent",
+				"value": "planet",
+				"type": "Text"
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+					"width": 4000,
+					"height": 6000
+				},
+				"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+				"width": 4000,
+				"height": 6000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"stats": {
+				"__TYPE__": "FieldContent",
+				"value": "dirt",
+				"type": "Text"
+			},
+			"akanksha_alumini": {
+				"__TYPE__": "FieldContent",
+				"value": "mathematics",
+				"type": "Text"
+			},
+			"national_average_text": {
+				"__TYPE__": "FieldContent",
+				"value": "equipment",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
