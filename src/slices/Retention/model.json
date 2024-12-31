@@ -1,0 +1,68 @@
+{
+  "id": "retention",
+  "type": "SharedSlice",
+  "name": "Retention",
+  "description": "Retention",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "student_retention_perc": {
+          "type": "Text",
+          "config": {
+            "label": "student retention perc",
+            "placeholder": ""
+          }
+        },
+        "student_retention_desc": {
+          "type": "Text",
+          "config": {
+            "label": "student retention_desc",
+            "placeholder": ""
+          }
+        },
+        "teacher_retention_perc": {
+          "type": "Text",
+          "config": {
+            "label": "teacher_retention_perc",
+            "placeholder": ""
+          }
+        },
+        "teacher_retention_desc": {
+          "type": "Text",
+          "config": {
+            "label": "teacher_retention_desc",
+            "placeholder": ""
+          }
+        },
+        "leadership_retention_prec": {
+          "type": "Text",
+          "config": {
+            "label": "leadership_retention_prec",
+            "placeholder": ""
+          }
+        },
+        "leadership_retention_desc": {
+          "type": "Text",
+          "config": {
+            "label": "leadership_retention_desc",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

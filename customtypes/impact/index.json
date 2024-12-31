@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "testimonial": {
+              "type": "SharedSlice"
+            },
+            "retention": {
+              "type": "SharedSlice"
+            },
             "alumini2": {
               "type": "SharedSlice"
             },
