@@ -1795,6 +1795,8 @@ export type HorizontalScrollCardCDocument<Lang extends string = string> =
   >;
 
 type ImpactDocumentDataSlicesSlice =
+  | TestimonialSlice
+  | RetentionSlice
   | Alumini2Slice
   | AluminiSlice
   | HorizontalScrollSliceSlice
@@ -8164,6 +8166,111 @@ export type ProgramShowcaseSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Retention → Default → Primary*
+ */
+export interface RetentionSliceDefaultPrimary {
+  /**
+   * title field in *Retention → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: retention.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * student retention perc field in *Retention → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: retention.default.primary.student_retention_perc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  student_retention_perc: prismic.KeyTextField;
+
+  /**
+   * student retention_desc field in *Retention → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: retention.default.primary.student_retention_desc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  student_retention_desc: prismic.KeyTextField;
+
+  /**
+   * teacher_retention_perc field in *Retention → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: retention.default.primary.teacher_retention_perc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  teacher_retention_perc: prismic.KeyTextField;
+
+  /**
+   * teacher_retention_desc field in *Retention → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: retention.default.primary.teacher_retention_desc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  teacher_retention_desc: prismic.KeyTextField;
+
+  /**
+   * leadership_retention_prec field in *Retention → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: retention.default.primary.leadership_retention_prec
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  leadership_retention_prec: prismic.KeyTextField;
+
+  /**
+   * leadership_retention_desc field in *Retention → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: retention.default.primary.leadership_retention_desc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  leadership_retention_desc: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Retention Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RetentionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RetentionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Retention*
+ */
+type RetentionSliceVariation = RetentionSliceDefault;
+
+/**
+ * Retention Shared Slice
+ *
+ * - **API ID**: `retention`
+ * - **Description**: Retention
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RetentionSlice = prismic.SharedSlice<
+  "retention",
+  RetentionSliceVariation
+>;
+
+/**
  * Item in *RotatingCarousel → Default → Primary → Carousel Items*
  */
 export interface RotatingCarouselSliceDefaultPrimaryCarouselItemsItem {
@@ -9157,12 +9264,71 @@ export type TestimonialSliceOptionC = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Testimonial → option D → Primary*
+ */
+export interface TestimonialSliceOptionDPrimary {
+  /**
+   * title field in *Testimonial → option D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.optionD.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Image field in *Testimonial → option D → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.optionD.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Quote field in *Testimonial → option D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.optionD.primary.quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField;
+
+  /**
+   * Name field in *Testimonial → option D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.optionD.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+}
+
+/**
+ * option D variation for Testimonial Slice
+ *
+ * - **API ID**: `optionD`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialSliceOptionD = prismic.SharedSliceVariation<
+  "optionD",
+  Simplify<TestimonialSliceOptionDPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Testimonial*
  */
 type TestimonialSliceVariation =
   | TestimonialSliceDefault
   | TestimonialSliceSingle
-  | TestimonialSliceOptionC;
+  | TestimonialSliceOptionC
+  | TestimonialSliceOptionD;
 
 /**
  * Testimonial Shared Slice
@@ -10065,6 +10231,10 @@ declare module "@prismicio/client" {
       ProgramShowcaseSliceVariation,
       ProgramShowcaseSliceDefault,
       ProgramShowcaseSliceOptionB,
+      RetentionSlice,
+      RetentionSliceDefaultPrimary,
+      RetentionSliceVariation,
+      RetentionSliceDefault,
       RotatingCarouselSlice,
       RotatingCarouselSliceDefaultPrimaryCarouselItemsItem,
       RotatingCarouselSliceDefaultPrimary,
@@ -10104,10 +10274,12 @@ declare module "@prismicio/client" {
       TestimonialSlice,
       TestimonialSliceSinglePrimary,
       TestimonialSliceOptionCPrimary,
+      TestimonialSliceOptionDPrimary,
       TestimonialSliceVariation,
       TestimonialSliceDefault,
       TestimonialSliceSingle,
       TestimonialSliceOptionC,
+      TestimonialSliceOptionD,
       TextShowcaseSlice,
       TextShowcaseSliceDefaultPrimary,
       TextShowcaseSliceVariation,
