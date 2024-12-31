@@ -1,0 +1,44 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "burst",
+				"type": "Text"
+			},
+			"student_retention_perc": {
+				"__TYPE__": "FieldContent",
+				"value": "bigger",
+				"type": "Text"
+			},
+			"student_retention_desc": {
+				"__TYPE__": "FieldContent",
+				"value": "quietly",
+				"type": "Text"
+			},
+			"teacher_retention_perc": {
+				"__TYPE__": "FieldContent",
+				"value": "crack",
+				"type": "Text"
+			},
+			"teacher_retention_desc": {
+				"__TYPE__": "FieldContent",
+				"value": "seems",
+				"type": "Text"
+			},
+			"leadership_retention_prec": {
+				"__TYPE__": "FieldContent",
+				"value": "band",
+				"type": "Text"
+			},
+			"leadership_retention_desc": {
+				"__TYPE__": "FieldContent",
+				"value": "ago",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
