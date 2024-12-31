@@ -1,3 +1,4 @@
+import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
 
 /**
@@ -14,15 +15,15 @@ const Alumini2 = ({ slice }) => {
     >
       <div class="flex flex-col xl:flex-row ">
         {/* <!-- Section 1: Charts --> */}
-        <div className="xl:w-1/2 flex flex-row justify-center items-end gap-8 p-4 border h-[600px] relative">
+        <div className="xl:w-1/2 flex flex-row justify-center items-end gap-8 p-4  h-[500px] relative">
           {/* <!-- Blue Section --> */}
 
-          <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black rounded-t-full p-6 h-[80%] w-[40%]">
-            <div className="absolute  transform  translate-x-[75%] translate-y-[-35%] rotate-45 bg-black text-white font-bold px-10 py-4 rounded-full text-3xl font-ambit-light">
+          <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black rounded-t-full p-6 h-[100%] w-[40%]">
+            <div className="absolute  transform  translate-x-[75%] translate-y-[-35%] rotate-45 bg-black text-white font-bold px-8 py-4 rounded-full text-3xl font-ambit-light">
               2x
             </div>
-            <p class="text-4xl md:text-6xl font-ambit-semibold pt-16">24,778</p>
-            <p class="text-lg font-ambit-semibold">Akanksha Alumni</p>
+            <p class="text-4xl md:text-6xl font-ambit-semibold pt-16">{slice.primary.akanksha_average}</p>
+            <p class="text-lg font-ambit-semibold">{slice.primary.akanksha_alumini}</p>
           </div>
 
           {/* Dotted Line */}
@@ -37,16 +38,48 @@ const Alumini2 = ({ slice }) => {
           </div>
           {/* <!-- Orange Section --> */}
           <div class="flex flex-col items-center justify-center bg-[#F6AC27] text-black rounded-t-[6rem] p-6 h-[45%] w-[40%]">
-            <p class="text-4xl md:text-6xl font-ambit-semibold pt-10">10,780</p>
-            <p class="text-lg font-ambit-semibold">National Average</p>
+            <p class="text-4xl md:text-6xl font-ambit-semibold pt-10">{slice.primary.national_average}</p>
+          <p class="text-lg font-ambit-semibold">{slice.primary.national_average_text}</p>
           </div>
         </div>
 
         {/* 
   <!-- Section 2: Placeholder for Future Content --> */}
-        <div class="xl:w-1/2 flex-1 p-4 border border-gray-300 m-2">
-          <p>section 2.</p>
-        </div>
+        <div class="xl:w-1/2 flex flex-row p-4  h-[500px]">
+  {/* <!-- Left Half: Two Percentage Sections --> */}
+  <div class="flex flex-col justify-between w-1/2 p-4">
+    {/* <!-- First Percentage Section --> */}
+    <div class="flex flex-col space-y-2">
+  <div class="text-5xl md:text-8xl font-ambit-regular text-black">
+    75%
+  </div>
+  <div class="text-lg md:text-xl font-ambit-regular text-gray-500">
+    Akanksha alumni contribution to their households.
+  </div>
+</div>
+
+
+    {/* <!-- Second Percentage Section --> */}
+    <div class="mt-8">
+      <div class="text-5xl md:text-8xl font-ambit-regular text- ">
+        50%
+      </div>
+      <div class="text-lg md:text-xl font-ambit-regular text-gray-500 self-start">
+        Akanksha alumni engaged in community activities.
+      </div>
+    </div>
+  </div>
+
+  {/* <!-- Right Half: Image Section --> */}
+  <div class="w-1/2 relative">
+    <PrismicNextImage
+      field={slice.primary.image}
+      alt="Akanksha Alumni Image"
+      className="object-cover absolute inset-0 w-full h-full"
+    />
+  </div>
+</div>
+
       </div>
     </section>
   );
