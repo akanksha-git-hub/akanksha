@@ -1,11 +1,11 @@
 "use client";
 import RichText from "@/components/Texts/RichText";
 import SliceIdentifier from "@/components/SliceIdentifier";
-import PrimaryCTA from "@/components/UI/Button/PrimaryCTA";
 import StoryCircle from "@/components/UI/Story/StoryCircle";
 import { PrismicNextImage } from "@prismicio/next";
 import { useState } from "react";
 import Button from "@/components/v2-components/buttons/button";
+
 /**
  * @typedef {import("@prismicio/client").Content.InitiativeShowcaseSlice} InitiativeShowcaseSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<InitiativeShowcaseSlice>} InitiativeShowcaseProps
@@ -18,11 +18,12 @@ const InitiativeShowcase = ({ slice }) => {
     summary: slice.primary.initiative_content_a_short_summary,
     image: slice.primary.initiative_content_a_image_b,
     description: slice.primary.initiative_content_a_description,
+    bgColor: "bg-bright-yellow", // Default background color
   });
 
   const handleTrackIndex = (i) => {
     setTrackIndex((prevState) => {
-      let title, summary, image, description;
+      let title, summary, image, description, bgColor;
 
       switch (i) {
         case 0:
@@ -30,18 +31,21 @@ const InitiativeShowcase = ({ slice }) => {
           summary = slice.primary.initiative_content_a_short_summary;
           image = slice.primary.initiative_content_a_image_b;
           description = slice.primary.initiative_content_a_description;
+          bgColor = "bg-bright-yellow";
           break;
         case 1:
           title = slice.primary.initiative_content_b_title;
           summary = slice.primary.initiative_content_b_short_summary;
           image = slice.primary.initiative_content_b_image_b;
           description = slice.primary.initiative_content_b_description;
+          bgColor = "bg-[#55BBD3]";
           break;
         case 2:
           title = slice.primary.initiative_content_c_title;
           summary = slice.primary.initiative_content_c_short_summary;
           image = slice.primary.initiative_content_c_image_b;
           description = slice.primary.initiative_content_c_description;
+          bgColor = "bg-[#37473C]";
           break;
         default:
           break;
@@ -54,6 +58,7 @@ const InitiativeShowcase = ({ slice }) => {
         summary,
         image,
         description,
+        bgColor,
       };
     });
   };
@@ -103,13 +108,17 @@ const InitiativeShowcase = ({ slice }) => {
         </ul>
 
         {/* Right Content */}
-        <div className="w-full mt-12 xl:mt-0 xl:w-2/4 bg-bright-yellow rounded-xl p-6 lg:p-12">
+        <div className={`w-full mt-12 xl:mt-0 xl:w-2/4 rounded-xl p-6 lg:p-12 ${trackIndex.bgColor}`}>
           <RichText
-            className="font-playfair-display italic text-deep-green text-4xl lg:text-5xl mb-4"
+            className={`font-playfair-display text-4xl lg:text-5xl mb-4 ${
+              trackIndex.index === 2 ? "text-white" : "text-deep-green"
+            }`}
             text={trackIndex.title}
           />
           <RichText
-            className="font-ambit-regular text-[#767632] text-3xl lg:text-5xl w-[80%] 3xl:w-[60%]"
+            className={`font-ambit-regular text-3xl lg:text-5xl w-[80%] 3xl:w-[60%] ${
+              trackIndex.index === 1 || trackIndex.index === 2  ? "text-bright-yellow" : "text-[#767632]"
+            }`}
             text={trackIndex.summary}
           />
           <div className="h-[14rem] md:h-[18rem] lg:h-[24rem] xl:h-[16rem] 2xl:h-[20rem] 3xl:h-[28rem] w-full rounded-lg mt-6 sm:mt-12">
@@ -120,7 +129,9 @@ const InitiativeShowcase = ({ slice }) => {
             />
           </div>
           <RichText
-            className="mt-6 sm:mt-12 font-inter text-deep-green text-lg sm:text-xl lg:text-2xl leading-[26px] sm:leading-[30px] w-full lg:w-[90%]"
+            className={`mt-6 sm:mt-12 font-inter text-lg sm:text-xl lg:text-2xl leading-[26px] sm:leading-[30px] w-full lg:w-[90%] ${
+              trackIndex.index === 2 ? "text-white" : "text-deep-green"
+            }`}
             text={trackIndex.description}
           />
           <div className="flex gap-2 mt-12 sm:mt-20 2xl:mt-32">
