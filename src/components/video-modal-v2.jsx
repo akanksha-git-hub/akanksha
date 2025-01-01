@@ -20,7 +20,7 @@ export default function VideoModalv2({
         className={`absolute w-full h-full object-cover z-0  rounded-md lg:rounded-none overflow-hidden ${imageClassName}`}
         alt=""
       />
-      <div className="  bg-gradient-to-b from-[#FBDA1D3D] via-transparent to-[#12121287] z-20 flex items-center justify-center w-full ">
+      <div className="  bg-gradient-to-b from-[#FBDA1D80] via-[#FBDA1D4D] to-[#121212C0] z-20 flex items-center justify-center w-full ">
         <div className="flex flex-col space-y-2 items-center justify-center text-center w-full p-4  py-9 sm:p-8">
           {/* Title */}
           <RichText

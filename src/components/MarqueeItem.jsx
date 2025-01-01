@@ -28,7 +28,7 @@ export default function MarqueeItem({ mouseEnter, mouseLeave, trackIndex, trackI
           className={`relative group rounded-sm overflow-hidden marquee-item ${trackIndex === index && "marquee-item-expand"} z-50`}
           key={index}
         >
-          <div className="absolute top-[12%] left-0 w-full h-[30px] opacity-0 group-hover:opacity-100 z-20">
+          <div className="absolute top-[0] left-0 w-full h-[20px] opacity-0 group-hover:opacity-100 z-20">
             <div className="relative h-full w-full">
               <Image
                 src={PencilShadingB}

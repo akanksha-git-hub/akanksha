@@ -1,10 +1,19 @@
 'use client'
 import { PrismicNextImage } from '@prismicio/next'
 export default function StoryCircle({ index, onClick, image, currentIndex, className, height, width }) {
+  const activeColors = [
+    'bg-bright-yellow', // Bright yellow for the first story
+    'bg-[#55BBD3]',      // Blue for the second story
+    'bg-[#37473C]',    // Deep Green for the third story
+  ];
   return (
     <li 
-      className={`${className} ${currentIndex === index ? 'active-story' : 'in-active-story'} cursor-pointer rounded-full flex items-center justify-center`} 
-      onClick={() => onClick(index)}
+    className={`${className} ${
+      currentIndex === index
+        ? `${activeColors[index]} ` // Apply active story class + custom active color
+        : 'in-active-story'                   // Default inactive story class
+    } cursor-pointer rounded-full flex items-center justify-center transition-all duration-300`}
+    onClick={() => onClick(index)}
     >
       <PrismicNextImage 
         field={image}

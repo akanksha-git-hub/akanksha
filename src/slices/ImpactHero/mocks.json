@@ -79,6 +79,11 @@
 						]
 					}
 				]
+			},
+			"editable_description": {
+				"__TYPE__": "FieldContent",
+				"value": "headed",
+				"type": "Text"
 			}
 		},
 		"items": []
