@@ -15,7 +15,7 @@ const PartnersShowcase = ({ slice }) => {
     >
       <RichText 
         text={slice.primary.title}
-        className="select-none text-deep-green font-ambit-italic text-6xl sm:text-6xl md:text-8xl w-full text-center lg:text-left flex items-center justify-center lg:w-[400px]"
+        className="select-none text-deep-green font-ambit-regular text-6xl sm:text-6xl md:text-8xl w-full text-center lg:text-left flex items-center justify-center lg:w-[400px]"
       />
       {slice.primary.partner_logos.length > 0 && (
         <ul className="flex items-center justify-center sm:justify-center lg:justify-end flex-wrap gap-2 w-full lg:w-[60%] mt-12 lg:mt-0">

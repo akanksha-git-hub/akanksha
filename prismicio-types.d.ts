@@ -6029,6 +6029,16 @@ export interface ImpactHeroSliceDefaultPrimary {
   title: prismic.KeyTextField;
 
   /**
+   * editable_description field in *ImpactHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_hero.default.primary.editable_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  editable_description: prismic.KeyTextField;
+
+  /**
    * right_image field in *ImpactHero → Default → Primary*
    *
    * - **Field Type**: Image

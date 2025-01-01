@@ -243,7 +243,7 @@ const ProgramShowcase = ({ slice }) => {
         <div className="relative w-full xl:w-[70%]  h-full cursor-grab  ">
           <div className="absolute h-[120%] w-full -top-8 -left-8 hidden xl:block">
             <div className="relative h-full w-full">
-              <Image src="/bg-page.png" fill className="mix-blend-hard-light" />
+              {/* <Image src="/bg-page.png" fill className="mix-blend-hard-light" /> */}
             </div>
           </div>
           <Swiper
