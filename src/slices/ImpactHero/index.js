@@ -12,6 +12,8 @@ const ImpactHero = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="universal-padding mt-0"
     >
+     
+      
       {/* Left Butterfly Image */}
       <PrismicNextImage
         field={slice.primary.left_image}
@@ -30,6 +32,12 @@ const ImpactHero = ({ slice }) => {
           <h1 className="md:text-9xl text-8xl font-ambit-regular text-[#333333] md:mx-auto w-[5ch] mx-0 ">
             {slice.primary.title}
           </h1>
+          <p className="md:text-2xl text-xl font-ambit-regular text-[#333333] md:mx-auto w-[32ch] mx-0 mt-12">
+          {slice.primary.editable_description}
+          {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. */}
+
+
+          </p>
 
           <div className="mt-24 flex flex-wrap md:justify-center justify-start w-full  gap-12">
             {slice.primary.stats.map((stat, index) => (

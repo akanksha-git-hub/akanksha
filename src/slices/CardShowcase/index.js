@@ -22,6 +22,7 @@ const CardShowcase = ({ slice }) => {
       className="my-12"
     >
       <SliceIdentifier text={slice.primary.slice_identifier} />
+      
       <div className="flex flex-col 1000pixel:flex-row items-end justify-between bg-white w-full shadow-lg 1000pixel:h-[600px] mt-12 sm:mt-24 pt-8 pr-8 pl-8">
         <div className="w-full 1000pixel:h-[90%] 1000pixel:w-[40%] flex flex-col justify-between pb-8 space-y-6 1000pixel:space-y-0">
           <RichText

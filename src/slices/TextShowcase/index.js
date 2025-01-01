@@ -13,7 +13,7 @@ const TextShowcase = ({ slice }) => {
     <div className="universal-padding">
       <SliceIdentifier
         text={slice.primary.slice_identifier}
-        hasSpider={slice.primary.spider_image}
+        // hasSpider={slice.primary.spider_image}
         isVisible={slice.primary.add_image}
       />
       <section

@@ -27,6 +27,13 @@
             "placeholder": ""
           }
         },
+        "editable_description": {
+          "type": "Text",
+          "config": {
+            "label": "editable_description",
+            "placeholder": ""
+          }
+        },
         "right_image": {
           "type": "Image",
           "config": {
