@@ -4,6 +4,9 @@ import { components } from "@/slices";
 import { maxwidth } from "@/utils/helperClasses";
 import { createClient } from "@prismicio/client";
 import { PrismicRichText, SliceZone } from "@prismicio/react";
+import Image from "next/image";
+import Boat from "@/assets/boat.svg";
+import SunCrow from "@/assets/sun-crow.svg";
 
 export default async function Page() {
 
@@ -13,13 +16,21 @@ export default async function Page() {
 
     return(
         <main className={`${maxwidth} relative`}>
-            <div className="orange-gradient absolute -top-28 left-0 h-96 w-full -z-10" />
+            {/* <div className="orange-gradient absolute -top-28 left-0 h-96 w-full -z-10" /> */}
             <div className="flex flex-col items-center justify-center my-12 universal-padding">
                 <RichText 
                     text={page.data.title}
                     className='text-deep-green font-ambit-regular text-7xl w-full 950px:w-[10ch] text-center mb-24 mt-6'
                 />
-                <div className="text-deep-green font-ambit-regular text-xl text-center w-full 950px:w-[90%] 950px:max-w-[1400px]">
+                <TempFillImageComponent 
+                    src={Boat}
+                    className="absolute top-[8%] left-0 md:top-0 md:left-[76%] h-44 w-44 -z-10"
+                />
+                <TempFillImageComponent 
+                    src={SunCrow}
+                    className="absolute -top-28 md:top-0 md:left-[6%] h-44 w-44 -z-10"
+                />
+                <div className="text-deep-green font-ambit-regular text-xl text-center w-full 950px:w-[90%] 950px:max-w-[1400px] relative">
                     <PrismicRichText 
                         field={page.data.descriptions}
                     />
@@ -32,6 +43,26 @@ export default async function Page() {
         </main>
     )
 }
+
+function TempFillImageComponent({ src, className }) {
+
+    /* 
+      TempFillImageComponent div must have absolute class to be used in relative to any other parent div 
+    */
+  
+    return(
+      <div className={className}>
+        <div className="relative h-full w-full">
+          <Image 
+            src={src}
+            fill
+            alt="image"
+          />
+        </div>
+      </div>
+    )
+  
+  } // TODO convert as required later
 
 // export async function generateMetadata() {
 //     const client = createClient();
