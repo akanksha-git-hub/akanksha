@@ -4,6 +4,7 @@ import RichText from "./Texts/RichText";
 import Image from "next/image";
 import { PrismicNextImage } from "@prismicio/next";
 import PlayButtonLogo from "../../public/assets/play-symbol.svg";
+import Button from "./v2-components/buttons/button";
 
 export default function VideoModal({
   slice,
@@ -12,7 +13,7 @@ export default function VideoModal({
   imageClassName,
 }) {
   return (
-    <div className={`w-2/4 relative ${className}`}>
+    <div className={`w-2/4 relative ${className} group`}>
       <PrismicNextImage
         height={800}
         width={800}
@@ -20,9 +21,15 @@ export default function VideoModal({
         className={`w-full h-auto object-cover z-0 rounded-md overflow-hidden ${imageClassName}`}
         alt=""
       />
-      <div className="absolute p-4 sm:p-8 flex items-end image-bg top-0 left-0 h-full w-full z-20 rounded-lg overflow-hidden cursor-pointer hover:opacity-85 transition-all">
-        <div className="flex items-center w-full justify-between">
-          <div className="w-[70%]">
+      <div className="absolute p-4 sm:p-8 flex items-center image-bg top-0 left-0 h-full w-full z-20 rounded-lg overflow-hidden cursor-pointer transition-all">
+        <div className="flex items-center justify-center w-full">
+        <Button  
+          className="z-20 transition-all"
+          isVideo
+        >
+          Play
+        </Button>
+          {/* <div className="w-[70%]">
             <RichText
               className="text-white text-3xl 2xl:text-6xl w-[100%] font-ambit-regular"
               text={slice.primary.video_thumbnail_title}
@@ -42,7 +49,7 @@ export default function VideoModal({
               alt=""
               className="h-[50%] w-[50%] relative left-[2px] sm:left-1"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

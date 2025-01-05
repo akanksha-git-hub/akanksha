@@ -1,10 +1,11 @@
 import { forwardRef } from "react";
 import Arrow from "@/assets/button-arrow.svg";
+import PlayVector from "@/assets/play-vector.svg";
 import PencilShading from "@/assets/pencil-shading.svg";
 import Image from "next/image";
 import { PrismicLink } from "@prismicio/react";
 
-const Button = forwardRef(function Button({ children, prismicLink, href, className, ...props }, ref) {
+const Button = forwardRef(function Button({ children, isVideo, prismicLink, href, className, ...props }, ref) {
 
     let baseClass = `bg-v2-orange text-black border border-black transition-all right-0 
                     flex items-center gap-1 font-inter font-bold 
@@ -23,7 +24,7 @@ const Button = forwardRef(function Button({ children, prismicLink, href, classNa
                 <span className="relative top-[1px] h-4 w-6">
                     <Image 
                         alt="arrow"
-                        src={Arrow}
+                        src={isVideo ? PlayVector : Arrow}
                         fill 
                     />
                 </span>
