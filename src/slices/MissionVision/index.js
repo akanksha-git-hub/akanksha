@@ -192,7 +192,7 @@ const MissionVision = ({ slice }) => {
       data-slice-variation={slice.variation}
       className={`universal-padding mt-0 ${slice.variation === "doubleCtaComponent" && "mb-36"}`}
     >
-      {!slice.variation === "doubleCtaComponent" && (
+      {slice.variation !== "doubleCtaComponent" && (
         <SliceIdentifier text={slice.primary.slice_identifier} />
       )}
       <div
@@ -221,10 +221,13 @@ const MissionVision = ({ slice }) => {
             text={slice.primary.description}
           />
           <div className="flex flex-wrap gap-4 w-full mt-6 xl:mt-10 3xl:mt-14">
-            <PrimaryCTA
+            {/* <PrimaryCTA
               link={slice.primary.cta_link}
               text={slice.primary.cta_text}
-            />
+            /> */}
+            <Button prismiclink={slice.primary.cta_link}>
+              {slice.primary.cta_text}
+            </Button>
             {slice.variation === "doubleCtaComponent" && (
               <PrimaryCTA
                 link={slice.primary.cta_b_link}
