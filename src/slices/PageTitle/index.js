@@ -4,6 +4,9 @@ import RichText from "@/components/Texts/RichText";
 import { spanPosition } from "@/utils/helperClasses";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
+import Image from "next/image";
+import PinkHeart from "@/assets/pink-heart.svg";
+import SparkleMedium from "@/components/Sparkles/sparkle-medium";
 
 /**
  * @typedef {import("@prismicio/client").Content.PageTitleSlice} PageTitleSlice
@@ -45,9 +48,9 @@ const PageTitle = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`flex flex-col items-center ${slice.variation === 'default' && ('universal-padding mt-24')}`}
+      className={`flex flex-col items-center ${slice.variation === 'default' && ('universal-padding mt-24')} pt-28`}
     >
-      {slice.variation === 'sparkle' && (
+      {/* {slice.variation === 'sparkle' && (
         <div 
           className="flex items-center justify-center w-full md:w-[50vw] max-w-[650px] relative left-0 md:left-16"
         >
@@ -58,15 +61,34 @@ const PageTitle = ({ slice }) => {
             className="h-full w-full"
           />
         </div>
-      )}
+      )} */}
       <div className={`flex flex-col items-center ${slice.variation === 'sparkle' && ('universal-padding')} !pt-0 space-y-8`}>
-        <RichText 
-          text={slice.primary.title}
-          className={`text-deep-green font-ambit-regular text-7xl ${slice.variation === 'sparkle' ? 'text-left' : 'text-center'} md:text-center w-full sm:w-[70%]`}
-        />
+        <div className="space-y-2 w-full flex flex-col md:items-center relative">
+          <RichText 
+            text={slice.primary.title}
+            className={`text-deep-green font-ambit-regular text-7xl ${slice.variation === 'sparkle' ? 'text-left' : 'text-center'} md:text-center w-full sm:w-[70%]`}
+          />
+          <SparkleMedium 
+            className="absolute -z-10 -top-[70%] md:-top-32 -left-1/4 w-full h-full scale-[0.2] md:scale-[0.4]"
+          />
+          <SparkleMedium 
+            className="absolute -z-10 -top-32 -right-44 w-full h-full scale-[0.2]"
+          />
+          <SparkleMedium 
+            className="absolute -z-10 top-0 -right-[20%] w-full h-full scale-[0.2]"
+          />
+          {/* TODO Change Heart Image to prismic later */}
+          <Image 
+            src={PinkHeart}
+            height={100}
+            width={100}
+            alt="heart"
+          />
+        </div>
         <div
-          className={`text-deep-green font-ambit-regular text-lg text-left md:text-center ${slice.variation === 'default' ? 'w-full lg:w-[70%] xl:w-[70ch]' : 'w-full lg:w-[80%] 3xl:w-[110ch]'}`}
+          className={`relative text-deep-green font-ambit-regular text-lg text-left md:text-center ${slice.variation === 'default' ? 'w-full lg:w-[70%] xl:w-[70ch]' : 'w-full lg:w-[80%] 3xl:w-[110ch]'}`}
         >
+          <div className="orange-gradient absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 -z-20 h-full w-full"></div>
           <PrismicRichText 
             field={slice.primary.description}
           />
