@@ -7,14 +7,19 @@ import { PrismicNextImage } from "@prismicio/next";
 import PencilShading from "@/assets/shading-side.svg";
 
 function CardShowcaseBCard({ item, isHighlighted, onHover }) {
+
   return (
+    
     <li
       className={`bg-[#ECF0F1] transition-all ${
-        isHighlighted ? "bg-v2-yellow" : "hover:bg-v2-yellow"
-      } overflow-hidden pt-6 group relative h-full`}
+        isHighlighted && "bg-v2-yellow"
+      }  pt-6 group relative h-full`}
       onMouseEnter={onHover}
       onMouseLeave={onHover}
     >
+<div className="absolute -z-20 h-full w-full bg-gradient-to-tr from-amber-200 via-amber-200 to-red-400"> </div>
+
+      
       <div className="absolute top-0 left-0 h-full w-4">
         <div className="relative h-full w-full z-10">
           <Image src={PencilShading} alt="image" className="" fill />
@@ -60,6 +65,7 @@ export default function CardsShowcaseB({ data }) {
   return (
     <div className="universal-padding space-y-20">
       <SliceIdentifier text={data.slice_identifier} />
+      
       <ul className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 md:px-24">
         {data.items.map((item, i) => (
           <CardShowcaseBCard

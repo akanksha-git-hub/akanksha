@@ -18,8 +18,8 @@ const Alumini2 = ({ slice }) => {
         <div className="xl:w-1/2 flex flex-row justify-center items-end gap-8 p-4  h-[500px] relative">
           {/* <!-- Blue Section --> */}
 
-          <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black rounded-t-full p-6 h-[100%] w-[40%]">
-            <div className="absolute  transform  translate-x-[75%] translate-y-[-35%] rotate-45 bg-black text-white font-bold px-8 py-4 rounded-full text-3xl font-ambit-light">
+          <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black  p-6 h-[100%] w-[40%]">
+            <div className="absolute  transform  translate-x-[50%] translate-y-[-85%] rotate-[25deg] bg-black text-white font-bold px-8 py-4 rounded-full text-3xl font-ambit-light">
               2x
             </div>
             <p class="text-4xl md:text-6xl font-ambit-semibold pt-16">{slice.primary.akanksha_average}</p>
@@ -37,7 +37,7 @@ const Alumini2 = ({ slice }) => {
             />
           </div>
           {/* <!-- Orange Section --> */}
-          <div class="flex flex-col items-center justify-center bg-[#F6AC27] text-black rounded-t-[6rem] p-6 h-[45%] w-[40%]">
+          <div class="flex flex-col items-center justify-center bg-[#F6AC27] text-black  p-6 h-[45%] w-[40%]">
             <p class="text-4xl md:text-6xl font-ambit-semibold pt-10">{slice.primary.national_average}</p>
           <p class="text-lg font-ambit-semibold">{slice.primary.national_average_text}</p>
           </div>

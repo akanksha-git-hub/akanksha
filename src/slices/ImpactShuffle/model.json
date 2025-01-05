@@ -1,0 +1,33 @@
+{
+  "id": "impact_shuffle",
+  "type": "SharedSlice",
+  "name": "ImpactShuffle",
+  "description": "ImpactShuffle",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "small_title": {
+          "type": "Text",
+          "config": {
+            "label": "Small title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

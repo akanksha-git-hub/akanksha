@@ -108,7 +108,7 @@ const InitiativeShowcase = ({ slice }) => {
         </ul>
 
         {/* Right Content */}
-        <div className={`w-full mt-12 xl:mt-0 xl:w-2/4 rounded-xl p-6 lg:p-12 ${trackIndex.bgColor}`}>
+        <div className={`w-full mt-12 xl:mt-0 xl:w-2/4 rounded-sm p-6 lg:p-12 ${trackIndex.bgColor}`}>
           <RichText
             className={`font-playfair-display text-4xl lg:text-5xl mb-4 ${
               trackIndex.index === 2 ? "text-white" : "text-deep-green"
@@ -136,7 +136,7 @@ const InitiativeShowcase = ({ slice }) => {
           />
           <div className="flex gap-2 mt-12 sm:mt-20 2xl:mt-32">
             <Button>Know More</Button>
-            <Button>Donate</Button>
+          
           </div>
         </div>
       </div>
