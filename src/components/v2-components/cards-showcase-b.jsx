@@ -17,7 +17,9 @@ function CardShowcaseBCard({ item, isHighlighted, onHover }) {
       onMouseEnter={onHover}
       onMouseLeave={onHover}
     >
-<div className="absolute -z-20 h-full w-full bg-gradient-to-tr from-amber-200 via-amber-200 to-red-400"> </div>
+{isHighlighted && (
+        <div className="absolute -z-10 top-1/3 h-full w-full orange-gradient"></div>
+      )}
 
       
       <div className="absolute top-0 left-0 h-full w-4">
