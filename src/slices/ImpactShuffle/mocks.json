@@ -1,0 +1,19 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "related",
+				"type": "Text"
+			},
+			"small_title": {
+				"__TYPE__": "FieldContent",
+				"value": "writer",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

@@ -738,7 +738,7 @@ body {
 .card-container {
   position: relative;
   top: 150px;
-  height: var(--card-height);
+  min-height: var(--card-height);
   width: var(--card-width);
   transform-style: preserve-3d;
 }

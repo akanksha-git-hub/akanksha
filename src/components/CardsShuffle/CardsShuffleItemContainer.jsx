@@ -103,6 +103,7 @@ export default function CardsShuffleItemContainer({
                         anticipatePin: 1,
                         invalidateOnRefresh: true,
                         scroller: 'body',
+                       
                     }
                 });
 

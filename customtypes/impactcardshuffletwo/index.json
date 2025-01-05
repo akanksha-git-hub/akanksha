@@ -1,0 +1,18 @@
+{
+  "format": "custom",
+  "id": "impactcardshuffletwo",
+  "label": "ImpactCardShuffleTwo",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
