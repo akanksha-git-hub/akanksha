@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SmallArrow from '@/assets/button-arrow-small.svg';
+// import SmallArrow from '@/assets/newArrow.svg'
 import { useHeaderDropDownContext } from "./header";
 
 export default function NavItemDropDownText({ className, text, ...props }) {
@@ -19,7 +19,7 @@ export default function NavItemDropDownText({ className, text, ...props }) {
                     ${(id === targetText) && isActive && 'rotate-180'}
                 `}>
                 <Image 
-                    src={SmallArrow}
+                    src="/newArrow.svg"
                     fill
                     alt="arrow"
                 />    

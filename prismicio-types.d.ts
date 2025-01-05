@@ -1795,6 +1795,7 @@ export type HorizontalScrollCardCDocument<Lang extends string = string> =
   >;
 
 type ImpactDocumentDataSlicesSlice =
+  | ImpactShuffleSlice
   | TestimonialSlice
   | RetentionSlice
   | Alumini2Slice
@@ -1863,6 +1864,70 @@ export type ImpactDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
     Simplify<ImpactDocumentData>,
     "impact",
+    Lang
+  >;
+
+/**
+ * Content for ImpactCardShuffleOne documents
+ */
+interface ImpactcardshuffleoneDocumentData {
+  /**
+   * Title field in *ImpactCardShuffleOne*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffleone.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * ImpactCardShuffleOne document from Prismic
+ *
+ * - **API ID**: `impactcardshuffleone`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ImpactcardshuffleoneDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ImpactcardshuffleoneDocumentData>,
+    "impactcardshuffleone",
+    Lang
+  >;
+
+/**
+ * Content for ImpactCardShuffleTwo documents
+ */
+interface ImpactcardshuffletwoDocumentData {
+  /**
+   * Title field in *ImpactCardShuffleTwo*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * ImpactCardShuffleTwo document from Prismic
+ *
+ * - **API ID**: `impactcardshuffletwo`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ImpactcardshuffletwoDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ImpactcardshuffletwoDocumentData>,
+    "impactcardshuffletwo",
     Lang
   >;
 
@@ -3109,6 +3174,8 @@ export type AllDocumentTypes =
   | HorizontalScrollCardBDocument
   | HorizontalScrollCardCDocument
   | ImpactDocument
+  | ImpactcardshuffleoneDocument
+  | ImpactcardshuffletwoDocument
   | NewsLetterDocument
   | NotificationBarDocument
   | OurApproachDocument
@@ -6182,6 +6249,61 @@ type ImpactKeyStageSliceVariation = ImpactKeyStageSliceDefault;
 export type ImpactKeyStageSlice = prismic.SharedSlice<
   "impact_key_stage",
   ImpactKeyStageSliceVariation
+>;
+
+/**
+ * Primary content in *ImpactShuffle → Default → Primary*
+ */
+export interface ImpactShuffleSliceDefaultPrimary {
+  /**
+   * Title field in *ImpactShuffle → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_shuffle.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Small title field in *ImpactShuffle → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_shuffle.default.primary.small_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_title: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ImpactShuffle Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactShuffleSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImpactShuffleSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImpactShuffle*
+ */
+type ImpactShuffleSliceVariation = ImpactShuffleSliceDefault;
+
+/**
+ * ImpactShuffle Shared Slice
+ *
+ * - **API ID**: `impact_shuffle`
+ * - **Description**: ImpactShuffle
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactShuffleSlice = prismic.SharedSlice<
+  "impact_shuffle",
+  ImpactShuffleSliceVariation
 >;
 
 /**
@@ -10014,6 +10136,10 @@ declare module "@prismicio/client" {
       ImpactDocument,
       ImpactDocumentData,
       ImpactDocumentDataSlicesSlice,
+      ImpactcardshuffleoneDocument,
+      ImpactcardshuffleoneDocumentData,
+      ImpactcardshuffletwoDocument,
+      ImpactcardshuffletwoDocumentData,
       NewsLetterDocument,
       NewsLetterDocumentData,
       NewsLetterDocumentDataCategoriesItem,
@@ -10173,6 +10299,10 @@ declare module "@prismicio/client" {
       ImpactKeyStageSliceDefaultPrimary,
       ImpactKeyStageSliceVariation,
       ImpactKeyStageSliceDefault,
+      ImpactShuffleSlice,
+      ImpactShuffleSliceDefaultPrimary,
+      ImpactShuffleSliceVariation,
+      ImpactShuffleSliceDefault,
       InitiativeShowcaseSlice,
       InitiativeShowcaseSliceDefaultPrimary,
       InitiativeShowcaseSliceVariation,

@@ -76,7 +76,7 @@ const Testimonial = ({ slice }) => {
               <div className="min-h-[28rem] flex flex-col justify-between ">
                 <div>
                   <Image 
-                      src='/quote.svg'
+                      src='/quotes-new.png'
                       alt=""
                       height={80}
                       width={80}
@@ -85,10 +85,12 @@ const Testimonial = ({ slice }) => {
                     text={slice.primary.quote}
                     className='font-ambit-regular text-4xl text-deep-green mt-12'
                   />
+               
                 </div>
-                <p className="flex w-[50%] sm:w-full">
+               <p className="flex w-[50%] sm:w-full">
                   <span className="text-deep-green font-ambit-regular text-lg">{slice.primary.name}</span>,<br /><span className="text-[#9DA59F] font-ambit-regular text-lg">{slice.primary.designation}</span>
                 </p>
+               
               </div>
             </div>
             <div className="scale-50 sm:scale-75 lg:scale-100 w-[350px] lg:max-w-[24rem] h-[32rem] absolute left-[53%] -translate-x-1/4 top-[30%] rotate-[4deg] z-20">
