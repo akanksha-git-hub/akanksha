@@ -4,7 +4,8 @@ import { PrismicNextImage } from "@prismicio/next";
 import Lottie from "lottie-react";
 import DUMMYLOTTIE from "../../../public/lotties/dummyTestLottie.json"
 import SliceIdentifier from "@/components/SliceIdentifier";
-
+import Image from "next/image";
+import PencilShading from "@/assets/shading-side.svg";
 /**
  * @typedef {import("@prismicio/client").Content.IconShowcaseSlice} IconShowcaseSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<IconShowcaseSlice>} IconShowcaseProps
@@ -87,19 +88,33 @@ const IconShowcase = ({ slice }) => {
       className="universal-padding my-12"
     >
       {slice.primary.data && (
-        <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-          {slice.primary.data.map(item => {
+        <ul className="grid md:grid-cols-2 xl:grid-cols-3">
+          {slice.primary.data.map((item, index) => {
 
             let LottieData = null;
 
             if(item.animated_icon_json_format) LottieData = JSON.parse(item.animated_icon_json_format);
+
+            let currentItem = index;
             
             return (
               <li 
                 key={item.title}
-                className="flex flex-col items-start justify-start space-y-4"
+                className={`
+                  flex flex-col items-start justify-start space-y-4 border rounded-3xl p-8 
+                  ${currentItem % 2 === 0 && ("bg-v2-yellow")} group relative overflow-hidden
+                `}
               >
-                <div className="h-28 w-28 rounded-full bg-bright-yellow flex items-center justify-center">
+                <div className="absolute top-0 -left-6 group-hover:left-0 h-full w-4 transition-all">
+                  <div className="h-full w-full">
+                    <Image
+                      src={PencilShading}
+                      alt="img" 
+                      fill
+                    />
+                  </div>
+                </div>
+                <div className="h-28 w-28 rounded-full flex items-center justify-center place-self-end">
                   {
                     item.isanimatedicon ? 
                     <div className="h-[80%] w-[80%]">
