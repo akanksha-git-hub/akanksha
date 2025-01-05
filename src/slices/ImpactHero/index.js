@@ -24,12 +24,12 @@ const ImpactHero = ({ slice }) => {
       <PrismicNextImage
         field={slice.primary.right_image}
         alt=""
-        className="absolute top-40 right-96 w-32 h-32 hidden xl:block"
+        className="absolute top-36 right-44 w-32 h-32 hidden xl:block"
       />
       <div className="w-[80%] mt-12 md:mx-auto ">
         <div className="w-full  md:text-center text-start ">
           {/* Title */}
-          <h1 className="md:text-9xl text-8xl font-ambit-regular text-[#333333] md:mx-auto w-[5ch] mx-0 ">
+          <h1 className="md:text-9xl text-8xl font-ambit-regular text-[#333333] md:mx-auto  mx-0 ">
             {slice.primary.title}
           </h1>
           <p className="md:text-2xl text-xl font-ambit-regular text-[#333333] md:mx-auto w-[32ch] mx-0 mt-12">

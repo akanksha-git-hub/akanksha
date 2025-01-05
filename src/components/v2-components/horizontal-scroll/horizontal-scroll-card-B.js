@@ -30,21 +30,20 @@ export default function HorizontalScrollCardB() {
             Distinction
           </p>
           {/* State Selector */}
-          <div className="mt-4 flex space-x-2 overflow-x-auto scrollbar-hide">
-            {sortedYears.map((year) => (
-              <button
-                key={year}
-                onClick={() => setSelectedYear(year)}
-                className={` text-xs md:text-lg  font-ambit-regular px-6 py-2 rounded-full ${
-                  selectedYear === year
-                    ? "bg-[#FE6600] text-white"
-                    : "text-gray"
-                }`}
-              >
-                {year}
-              </button>
-            ))}
-          </div>
+          <div className="mt-4 grid grid-cols-2 gap-2 md:flex md:space-x-2">
+  {sortedYears.map((year) => (
+    <button
+      key={year}
+      onClick={() => setSelectedYear(year)}
+      className={`text-xs md:text-lg font-ambit-regular px-6 py-2 rounded-full ${
+        selectedYear === year ? "bg-[#FE6600] text-white" : "text-gray"
+      }`}
+    >
+      {year}
+    </button>
+  ))}
+</div>
+
         </div>
 
         {/* Bottom Text */}
