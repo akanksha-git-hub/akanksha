@@ -12,6 +12,36 @@
           "label": "Title",
           "placeholder": ""
         }
+      },
+      "subtitle": {
+        "type": "Text",
+        "config": {
+          "label": "subtitle",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "description",
+          "placeholder": ""
+        }
+      },
+      "ellipse": {
+        "type": "Image",
+        "config": {
+          "label": "ellipse",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "book": {
+        "type": "Image",
+        "config": {
+          "label": "book",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }

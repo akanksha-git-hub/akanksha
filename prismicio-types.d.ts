@@ -1712,6 +1712,50 @@ interface HorizontalScrollCardADocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * subtitle field in *Horizontal Scroll Card A*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_a.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * description field in *Horizontal Scroll Card A*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_a.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * ellipse field in *Horizontal Scroll Card A*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_a.ellipse
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  ellipse: prismic.ImageField<never>;
+
+  /**
+   * book field in *Horizontal Scroll Card A*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_a.book
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  book: prismic.ImageField<never>;
 }
 
 /**
@@ -1731,6 +1775,31 @@ export type HorizontalScrollCardADocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *Horizontal Scroll Card B → year_data*
+ */
+export interface HorizontalScrollCardBDocumentDataYearDataItem {
+  /**
+   * year field in *Horizontal Scroll Card B → year_data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_b.year_data[].year
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year: prismic.KeyTextField;
+
+  /**
+   * data field in *Horizontal Scroll Card B → year_data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_b.year_data[].data
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  data: prismic.KeyTextField;
+}
+
+/**
  * Content for Horizontal Scroll Card B documents
  */
 interface HorizontalScrollCardBDocumentData {
@@ -1744,6 +1813,41 @@ interface HorizontalScrollCardBDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * subtitle field in *Horizontal Scroll Card B*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_b.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * year_data field in *Horizontal Scroll Card B*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_b.year_data[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  year_data: prismic.GroupField<
+    Simplify<HorizontalScrollCardBDocumentDataYearDataItem>
+  >;
+
+  /**
+   * cirlce field in *Horizontal Scroll Card B*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_b.cirlce
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  cirlce: prismic.ImageField<never>;
 }
 
 /**
@@ -1763,6 +1867,31 @@ export type HorizontalScrollCardBDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *Horizontal Scroll Card C → year_performance*
+ */
+export interface HorizontalScrollCardCDocumentDataYearPerformanceItem {
+  /**
+   * Year 2023-24' field in *Horizontal Scroll Card C → year_performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_c.year_performance[].year_202324
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_202324: prismic.KeyTextField;
+
+  /**
+   * percentage field in *Horizontal Scroll Card C → year_performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_c.year_performance[].percentage
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  percentage: prismic.KeyTextField;
+}
+
+/**
  * Content for Horizontal Scroll Card C documents
  */
 interface HorizontalScrollCardCDocumentData {
@@ -1776,6 +1905,30 @@ interface HorizontalScrollCardCDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * description field in *Horizontal Scroll Card C*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_c.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * year_performance field in *Horizontal Scroll Card C*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_c.year_performance[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  year_performance: prismic.GroupField<
+    Simplify<HorizontalScrollCardCDocumentDataYearPerformanceItem>
+  >;
 }
 
 /**
@@ -1881,6 +2034,28 @@ interface ImpactcardshuffleoneDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * subtitle field in *ImpactCardShuffleOne*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffleone.subtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle: prismic.KeyTextField;
+
+  /**
+   * description field in *ImpactCardShuffleOne*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffleone.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
 }
 
 /**
@@ -1913,6 +2088,94 @@ interface ImpactcardshuffletwoDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * description field in *ImpactCardShuffleTwo*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Year 2023_24 field in *ImpactCardShuffleTwo*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.year_2023_24
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_2023_24: prismic.KeyTextField;
+
+  /**
+   * 24_image field in *ImpactCardShuffleTwo*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.24_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  "24_image": prismic.ImageField<never>;
+
+  /**
+   * 24_data field in *ImpactCardShuffleTwo*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.24_data
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  "24_data": prismic.KeyTextField;
+
+  /**
+   * Year 2022_23 field in *ImpactCardShuffleTwo*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.year_2022_23
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_2022_23: prismic.KeyTextField;
+
+  /**
+   * 23_data field in *ImpactCardShuffleTwo*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.23_data
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  "23_data": prismic.KeyTextField;
+
+  /**
+   * Year 2021_22 field in *ImpactCardShuffleTwo*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.year_2021_22
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_2021_22: prismic.KeyTextField;
+
+  /**
+   * 22_data field in *ImpactCardShuffleTwo*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.22_data
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  "22_data": prismic.KeyTextField;
 }
 
 /**
@@ -10131,8 +10394,10 @@ declare module "@prismicio/client" {
       HorizontalScrollCardADocumentData,
       HorizontalScrollCardBDocument,
       HorizontalScrollCardBDocumentData,
+      HorizontalScrollCardBDocumentDataYearDataItem,
       HorizontalScrollCardCDocument,
       HorizontalScrollCardCDocumentData,
+      HorizontalScrollCardCDocumentDataYearPerformanceItem,
       ImpactDocument,
       ImpactDocumentData,
       ImpactDocumentDataSlicesSlice,
