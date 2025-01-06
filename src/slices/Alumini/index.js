@@ -12,100 +12,125 @@ import { useState } from "react";
 
 const Alumini = ({ slice }) => {
   const [activeSection, setActiveSection] = useState("fulltime");
+  const [hoveredSection, setHoveredSection] = useState("year_1");
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding  mt-96 lg:px-44 "
+      className="universal-padding  mt-96 "
     >
       <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl text-center ">
         {slice.primary.heading}
       </h1>
-      <div className="flex flex-col xl:flex-row bg-[#ECF0F1] rounded-lg p-16 mt-8 xl:h-[600px]">
-        <div className="flex-1 flex flex-col justify-between  ">
-          <h1 className="font-ambit-regular text-3xl md:text-6xl lg:text-8xl w-[2ch] ">
+      <div className="flex flex-col lg:flex-row bg-[#ECF0F1] rounded-lg p-8 mt-8 xl:max-h-[600px] w-full">
+
+        <div className="w-[100%] lg:w-[50%] flex flex-col">
+          <h1 className="font-ambit-regular text-[#37473C] text-3xl md:text-6xl lg:text-7xl xl:text-8xl w-[2ch] ">
             {slice.primary.card1_heading}
           </h1>
-          <p className="font-ambit-regular md:text-3xl w-[24ch] mt-auto">
+          <p className="font-ambit-regular text-lg  md:text-3xl w-[24ch] mt-auto">
             {slice.primary.card1_descriptiion}
           </p>
         </div>
         {/* Pass Percentage  section*/}
-        <div className=" flex-1  flex flex-col xl:items-end justify-start mt-4 xl:mt-0">
-          <div className="bg-[#FBDA1D] w-full h-[80px] md:h-[140px] flex items-center justify-around rounded-full md:w-[60%] transition-all md:hover:h-[260px] md:group-hover:py-6  hover:flex-col group">
-            {/* Text */}
-            <p className=" md:text-lg lg:text-2xl font-ambit-regular md:group-hover:translate-y-[-1px] md:group-hover:text-3xl md:group-hover:mb-2">
-              {slice.primary.year_1}
-            </p>
-
-            {/* Percentage and Image */}
-            <div className="relative flex items-center justify-center space-x-3">
-              <div className="flex items-center">
-                <p className="text-xl lg:text-2xl font-ambit-regular md:group-hover:text-7xl  md:group-hover:font-ambit-semibold   md:group-hover:-mt-2 inline-flex">
-                  {slice.primary.year_1_percentage}
-                </p>
-
-                <Image
-                  src="/hover-3.png"
-                  alt="Hovered Image"
-                  width={16}
-                  height={16}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity  w-3 h-6 md:w-4 md:h-12 ml-2 md:-mt-8 md:ml-2"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Yellow Section */}
-          <div className="bg-[#F6AC27] w-full h-[80px] md:h-[140px] flex items-center justify-around rounded-full md:w-[60%] transition-all hover:h-[260px] hover:py-6 hover:flex-col group">
-            {/* Text */}
-            <p className="text-xl lg:text-3xl font-ambit-regular group-hover:translate-y-[-1px] group-hover:text-3xl group-hover:mb-2">
-              {slice.primary.year_2}
-            </p>
-
-            {/* Percentage and Image */}
-            <div className="relative flex items-center justify-center space-x-3">
-              <div className="flex items-center">
-                <p className="text-xl lg:text-3xl font-ambit-regular group-hover:text-5xl md:group-hover:text-8xl group-hover:font-ambit-semibold group-hover:-mt-8   md:group-hover:-mt-2 inline-flex">
-                  {slice.primary.year_2_percentage}
-                </p>
-
-                <Image
-                  src="/hover-3.png"
-                  alt="Hovered Image"
-                  width={16}
-                  height={16}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity  -mt-8 ml-2"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Blue Section */}
-          <div className="bg-[#58BCD4] w-full h-[80px] md:h-[140px] flex items-center justify-around rounded-full md:w-[60%] transition-all hover:h-[260px] hover:py-6 hover:flex-col group ">
-            {/* Text */}
-            <p className="text-xl lg:text-3xl font-ambit-regular group-hover:translate-y-[-1px] group-hover:text-3xl group-hover:mb-2">
-              {slice.primary.year_3}
-            </p>
-
-            {/* Percentage and Image */}
-            <div className="relative flex items-center justify-center space-x-3">
-              <div className="flex items-center">
-                <p className="text-xl lg:text-3xl font-ambit-regular group-hover:text-5xl md:group-hover:text-8xl md:group-hover:-mt-2 group-hover:-mt-8  inline-flex">
-                  {slice.primary.year_3_percentage}
-                </p>
-
-                <Image
-                  src="/hover-3.png"
-                  alt=""
-                  width={16}
-                  height={16}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-100 -mt-8 ml-2"
-                />
-              </div>
-            </div>
+         <div className="w-[100%] lg:ml-auto lg:w-[35%] flex flex-col justify-center lg:items-end mt-8 lg:mt-0 ">
+      {/* FBDA1D Section */}
+      <div
+        className={`bg-[#FBDA1D] flex items-center w-full justify-around rounded-full transition-all ${
+          hoveredSection === "year_1" ? "flex-col" : ""
+        } group lg:p-10 p-6`}
+        onMouseEnter={() => setHoveredSection("year_1")}
+      >
+        <p className="text-xl lg:text-3xl font-ambit-regular">
+          {slice.primary.year_1}
+        </p>
+        <div className="pl-4 lg:pl-8 relative flex items-center justify-center space-x-3">
+          <div className="flex items-center">
+          <p
+  className={`${
+    hoveredSection === "year_1" ? "text-8xl font-ambit-semibold -mt-1" : "text-2xl lg:text-3xl"
+  } font-ambit-regular`}
+>
+      {slice.primary.year_1_percentage}
+    </p>
+    <Image
+      src="/hover-3.png"
+      alt="Hovered Image"
+      width={16}
+      height={16}
+      className={`transition-opacity w-3 h-6 md:w-4 md:h-12 ml-2 ${
+        hoveredSection === "year_1" ? "opacity-100" : "opacity-0"
+      }`}
+    />
           </div>
         </div>
+      </div>
+
+      {/* Orange Section */}
+      <div
+        className={`bg-[#F6AC27] flex items-center w-full justify-around rounded-full transition-all ${
+          hoveredSection === "year_2" ? "flex-col" : ""
+        } group lg:p-10 p-6`}
+        onMouseEnter={() => setHoveredSection("year_2")}
+      >
+        <p className="text-xl lg:text-3xl font-ambit-regular">
+          {slice.primary.year_2}
+        </p>
+        <div className="pl-4 lg:pl-16 relative flex items-center justify-center space-x-3">
+          <div className="flex items-center">
+          <p
+  className={`${
+    hoveredSection === "year_2" ? "text-8xl font-ambit-semibold -mt-2" : "text-2xl lg:text-3xl"
+  } font-ambit-regular`}
+>
+      {slice.primary.year_2_percentage}
+    </p>
+    <Image
+      src="/hover-3.png"
+      alt="Hovered Image"
+      width={16}
+      height={16}
+      className={`transition-opacity w-3 h-6 md:w-4 md:h-12 ml-2 ${
+        hoveredSection === "year_2" ? "opacity-100" : "opacity-0"
+      }`}
+    />
+          </div>
+        </div>
+      </div>
+
+      {/* Blue Section */}
+      <div
+        className={`bg-[#58BCD4] flex items-center w-full justify-around rounded-full transition-all ${
+          hoveredSection === "year_3" ? "flex-col" : ""
+        } group lg:p-10 p-6`}
+        onMouseEnter={() => setHoveredSection("year_3")}
+      >
+        <p className="text-xl lg:text-3xl font-ambit-regular">
+          {slice.primary.year_3}
+        </p>
+        <div className="pl-4 lg:pl-16 relative flex items-center justify-center space-x-3">
+  <div className="flex items-center">
+  <p
+  className={`${
+    hoveredSection === "year_3" ? "text-8xl font-ambit-semibold -mt-2" : "text-2xl lg:text-3xl"
+  } font-ambit-regular`}
+>
+      {slice.primary.year_3_percentage}
+    </p>
+    <Image
+      src="/hover-3.png"
+      alt="Hovered Image"
+      width={16}
+      height={16}
+      className={`transition-opacity w-3 h-6 md:w-4 md:h-12 ml-2 ${
+        hoveredSection === "year_3" ? "opacity-100" : "opacity-0"
+      }`}
+    />
+  </div>
+</div>
+
+      </div>
+    </div>
       </div>
 
       {/* Parent container for Alumni and Percentage sections */}
@@ -147,11 +172,12 @@ const Alumini = ({ slice }) => {
           <div>
             {/* Fulltime Percentage Section */}
             <div
-              className={`flex flex-col mt-4 ${
-                activeSection === "fulltime"
-                  ? "hover:border-solid bg-[#FBDA1D] w-full"
-                  : "border border-black border-dashed w-[80%] xl:w-[75%]"
-              } transition-all duration-300`}
+            className={`flex flex-col mt-4 ${
+              activeSection === "fulltime"
+                ? "hover:border-solid border border-black bg-[#FBDA1D] w-full"
+                : "border border-black border-dashed w-[80%] xl:w-[75%]"
+            } transition-all `}
+            
               onMouseEnter={() => setActiveSection("fulltime")}
             >
               <div className="flex justify-start items-center h-[80px] xl:h-[120px] p-4 space-x-2">
@@ -168,9 +194,9 @@ const Alumini = ({ slice }) => {
             <div
               className={`flex flex-col mt-4 ${
                 activeSection === "parttime"
-                  ? "hover:border-solid bg-[#FBDA1D] w-full"
+                  ? "hover:border-solid border border-black bg-[#FBDA1D] w-full"
                   : "border border-black border-dashed w-[80%] xl:w-[75%]"
-              } transition-all duration-300`}
+              } transition-all `}
               onMouseEnter={() => setActiveSection("parttime")}
             >
               <div className="flex justify-start items-center h-[80px] xl:h-[120px] p-4 space-x-2">

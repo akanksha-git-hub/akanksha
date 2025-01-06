@@ -12,6 +12,44 @@
           "label": "Title",
           "placeholder": ""
         }
+      },
+      "subtitle": {
+        "type": "Text",
+        "config": {
+          "label": "subtitle",
+          "placeholder": ""
+        }
+      },
+      "year_data": {
+        "type": "Group",
+        "config": {
+          "label": "year_data",
+          "repeat": true,
+          "fields": {
+            "year": {
+              "type": "Text",
+              "config": {
+                "label": "year",
+                "placeholder": ""
+              }
+            },
+            "data": {
+              "type": "Text",
+              "config": {
+                "label": "data",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "cirlce": {
+        "type": "Image",
+        "config": {
+          "label": "cirlce",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }

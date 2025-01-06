@@ -12,6 +12,36 @@
           "label": "Title",
           "placeholder": ""
         }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "description",
+          "placeholder": ""
+        }
+      },
+      "year_performance": {
+        "type": "Group",
+        "config": {
+          "label": "year_performance",
+          "repeat": true,
+          "fields": {
+            "year_202324": {
+              "type": "Text",
+              "config": {
+                "label": "Year 2023-24'",
+                "placeholder": ""
+              }
+            },
+            "percentage": {
+              "type": "Text",
+              "config": {
+                "label": "percentage",
+                "placeholder": ""
+              }
+            }
+          }
+        }
       }
     }
   }

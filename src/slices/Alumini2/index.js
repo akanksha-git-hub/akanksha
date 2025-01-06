@@ -11,19 +11,19 @@ const Alumini2 = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding   mt-8 lg:px-44"
+      className="universal-padding   mt-8"
     >
       <div class="flex flex-col xl:flex-row ">
         {/* <!-- Section 1: Charts --> */}
         <div className="xl:w-1/2 flex flex-row justify-center items-end gap-8 p-4  h-[500px] relative">
           {/* <!-- Blue Section --> */}
 
-          <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black  p-6 h-[100%] w-[40%]">
+          <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black  p-6 h-[100%] ">
             <div className="absolute  transform  translate-x-[50%] translate-y-[-85%] rotate-[25deg] bg-black text-white font-bold px-8 py-4 rounded-full text-3xl font-ambit-light">
               2x
             </div>
             <p class="text-4xl md:text-6xl font-ambit-semibold pt-16">{slice.primary.akanksha_average}</p>
-            <p class="text-lg font-ambit-semibold">{slice.primary.akanksha_alumini}</p>
+            <p class="text-sm lg:text-lg font-ambit-semibold text-center">{slice.primary.akanksha_alumini}</p>
           </div>
 
           {/* Dotted Line */}
@@ -37,15 +37,17 @@ const Alumini2 = ({ slice }) => {
             />
           </div>
           {/* <!-- Orange Section --> */}
-          <div class="flex flex-col items-center justify-center bg-[#F6AC27] text-black  p-6 h-[45%] w-[40%]">
-            <p class="text-4xl md:text-6xl font-ambit-semibold pt-10">{slice.primary.national_average}</p>
-          <p class="text-lg font-ambit-semibold">{slice.primary.national_average_text}</p>
+          <div class="flex flex-col items-center justify-center bg-[#F6AC27] text-black  p-6 h-[45%] ">
+            <p class="text-4xl xl:text-6xl font-ambit-semibold pt-10">{slice.primary.national_average}</p>
+          <p class="text-sm  lg:text-lg font-ambit-semibold text-center">{slice.primary.national_average_text}</p>
           </div>
+          <p className="absolute left-[12%] bottom-[-18%] sm:bottom-[-18%] w-[50%] text-left text-sm  text-gray-700">
+    Akanksha alumni earn an average monthly income of Rs. 24,778. This is higher than the national average of Rs. 10,780 for individuals aged 25 to 34.
+  </p>
         </div>
 
-        {/* 
-  <!-- Section 2: Placeholder for Future Content --> */}
-        <div class="xl:w-1/2 flex flex-row p-4  h-[500px]">
+   
+        <div class="xl:w-1/2 flex flex-row p-4 mt-20 xl:mt-0 h-[500px]">
   {/* <!-- Left Half: Two Percentage Sections --> */}
   <div class="flex flex-col justify-between w-1/2 p-4">
     {/* <!-- First Percentage Section --> */}
@@ -61,7 +63,7 @@ const Alumini2 = ({ slice }) => {
 
     {/* <!-- Second Percentage Section --> */}
     <div class="mt-8">
-      <div class="text-5xl md:text-8xl font-ambit-regular text- ">
+      <div class="text-5xl md:text-7xl lg:text-8xl  font-ambit-regular text-black ">
         50%
       </div>
       <div class="text-lg md:text-xl font-ambit-regular text-gray-500 self-start">

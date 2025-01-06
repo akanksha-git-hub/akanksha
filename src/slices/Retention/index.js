@@ -10,7 +10,7 @@ const Retention = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
      <section class="py-12">
-  <div class=" mx-auto px-4 mt-4 max-w-[1200px]">
+  <div class=" mx-auto px-4 mt-12 max-w-[1200px]">
    
   <h2 class="text-7xl text-center font-ambit-regular w-[6ch] mx-auto mb-20">
  {slice.primary.title}
