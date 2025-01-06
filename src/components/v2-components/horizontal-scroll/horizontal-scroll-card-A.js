@@ -18,6 +18,7 @@ export default function HorizontalScrollCardA({item}) {
 
         <p className="text-sm md:text-2xl lg:text-3xl text-white font-ambit-light mt-4    ">
        {item.data.description}
+
         </p>
       </div>
 

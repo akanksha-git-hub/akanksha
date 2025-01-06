@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function CardB({item}) {
     console.log(item);
     
@@ -25,22 +27,58 @@ export default function CardB({item}) {
     {/* Rotated Container */}
     <div className=" flex flex-col justify-evenly  w-full h-full ">
         {/* First Chart */}
-        <div className="bg-[#FBDA1D] w-full flex justify-between items-center ">
-            <div className="p-4 text-sm md:text-2xl font-ambit-regular">Year 2023-24</div>
-            <div className="py-4 text-xl md:text-7xl font-ambit-regular ">95%</div>
-            </div>
+
+        <div className="bg-[#FBDA1D] w-full flex items-center justify-between p-4">
+  {/* Text */}
+  <div className="font-ambit-regular text-sm sm:text-lg md:text-xl lg:text-2xl">
+    Year 2023-24
+  </div>
+
+  {/* Image and Percentage Container */}
+  <div className="flex items-center justify-end">
+    {/* Image */}
+    <Image
+      src="/hover-3.png"
+      alt="Hovered Image"
+      width={12} 
+      height={12} 
+    />
+
+    {/* Percentage */}
+    <div className="font-ambit-regular text-xl sm:text-2xl md:text-3xl lg:text-6xl ml-2">
+      99.4%
+    </div>
+  </div>
+</div>
+
+
         {/* Second Chart */}
-        <div className="bg-[#F6AC27] ml-auto w-[60%] flex justify-between items-center ">
-            <div className="p-4 text-sm md:text-2xl font-ambit-regular">Year 2022-23</div>
-            <div className="py-4 text-xl md:text-7xl font-ambit-regular">91%</div>
-            </div>
-    
+        <div className="bg-[#F6AC27] ml-auto w-[60%] flex items-center justify-between p-4">
+  {/* Text */}
+  <div className="font-ambit-regular text-sm sm:text-lg md:text-xl lg:text-2xl">
+    Year 2023-24
+  </div>
+
+  {/* Percentage */}
+  <div className="font-ambit-regular text-xl sm:text-2xl md:text-3xl lg:text-6xl">
+    99.4%
+  </div>
+</div>
+
         {/* Third Chart */}
-        <div className="bg-[#ECF0F1] ml-auto w-[80%] flex justify-between items-center ">
-            <div className="p-4 text-sm md:text-2xl font-ambit-regular">Year 2021-22</div>
-            <div className="py-4 text-xl md:text-7xl font-ambit-regular">93%</div>
-            </div>
-      
+        <div className="bg-[#ECF0F1] ml-auto w-[80%] flex items-center justify-between p-4">
+  {/* Text */}
+  <div className="font-ambit-regular text-sm sm:text-lg md:text-xl lg:text-2xl">
+    Year 2023-24
+  </div>
+
+  {/* Percentage */}
+   <div className="font-ambit-regular text-xl sm:text-2xl md:text-3xl lg:text-6xl">
+    99.4%
+  </div>
+</div>
+
+
     </div>
 </div>
 
