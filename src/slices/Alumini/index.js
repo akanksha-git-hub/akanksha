@@ -1,13 +1,17 @@
+'use client'
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicImage } from "@prismicio/react";
 import Image from "next/image";
+import { useState } from "react";
 
 /**
  * @typedef {import("@prismicio/client").Content.AluminiSlice} AluminiSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<AluminiSlice>} AluminiProps
  * @param {AluminiProps}
  */
+
 const Alumini = ({ slice }) => {
+  const [activeSection, setActiveSection] = useState("fulltime");
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -142,30 +146,40 @@ const Alumini = ({ slice }) => {
         <div className="flex-1 w-full h-[300px] lg:h-[600px] bg-white  flex flex-col justify-between p-4">
           <div>
             {/* Fulltime Percentage Section */}
-            <div className="flex flex-col mt-4">
-              <div className="border border-black border-dashed w-[80%] xl:w-[75%] transition-all duration-300 hover:border-solid hover:bg-[#FBDA1D] hover:w-full">
-                <div className="flex justify-start items-center h-[80px] xl:h-[120px] p-4 space-x-2">
-                  <p className="font-ambit-regular text-5xl xl:text-8xl">
-                    {slice.primary.card3_fulltime_percentage}
-                  </p>
-                  <p className="font-ambit-regular text-xl xl:text-3xl">
-                    {slice.primary.card3_fulltime_title}
-                  </p>
-                </div>
+            <div
+              className={`flex flex-col mt-4 ${
+                activeSection === "fulltime"
+                  ? "hover:border-solid bg-[#FBDA1D] w-full"
+                  : "border border-black border-dashed w-[80%] xl:w-[75%]"
+              } transition-all duration-300`}
+              onMouseEnter={() => setActiveSection("fulltime")}
+            >
+              <div className="flex justify-start items-center h-[80px] xl:h-[120px] p-4 space-x-2">
+                <p className="font-ambit-regular text-5xl xl:text-8xl">
+                  {slice.primary.card3_fulltime_percentage}
+                </p>
+                <p className="font-ambit-regular text-xl xl:text-3xl">
+                  {slice.primary.card3_fulltime_title}
+                </p>
               </div>
             </div>
 
             {/* Parttime Percentage Section */}
-            <div className="flex flex-col mt-4">
-              <div className="border border-black border-dashed w-[80%] xl:w-[75%] transition-all duration-300 hover:border-solid hover:bg-[#FBDA1D] hover:w-full">
-                <div className="flex justify-start items-center h-[80px] xl:h-[120px] p-4 space-x-2 ">
-                  <p className="font-ambit-regular text-5xl xl:text-8xl">
-                    {slice.primary.card3_parttime_percentage}
-                  </p>
-                  <p className="font-ambit-regular text-xl xl:text-3xl">
-                    {slice.primary.card3_parttime_title}
-                  </p>
-                </div>
+            <div
+              className={`flex flex-col mt-4 ${
+                activeSection === "parttime"
+                  ? "hover:border-solid bg-[#FBDA1D] w-full"
+                  : "border border-black border-dashed w-[80%] xl:w-[75%]"
+              } transition-all duration-300`}
+              onMouseEnter={() => setActiveSection("parttime")}
+            >
+              <div className="flex justify-start items-center h-[80px] xl:h-[120px] p-4 space-x-2">
+                <p className="font-ambit-regular text-5xl xl:text-8xl">
+                  {slice.primary.card3_parttime_percentage}
+                </p>
+                <p className="font-ambit-regular text-xl xl:text-3xl">
+                  {slice.primary.card3_parttime_title}
+                </p>
               </div>
             </div>
           </div>

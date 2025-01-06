@@ -13,7 +13,7 @@ export default function HorizontalScrollCardA() {
           </p>
         </div>
 
-        <p className="text-sm md:text-2xl lg:text-4xl text-white font-ambit-light mt-4    ">
+        <p className="text-lg md:text-xl lg:text-2xl xl:4xl text-white font-ambit-light mt-4    ">
           In AY 2023-24, 663 students from Akanksha appeared for the SSC exams,
           with an overall pass percentage of 99.4%, the highest in 5 years.
         </p>

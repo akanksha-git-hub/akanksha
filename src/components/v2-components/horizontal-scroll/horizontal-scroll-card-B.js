@@ -20,7 +20,7 @@ export default function HorizontalScrollCardB() {
   return (
     <div className="flex flex-col lg:flex-row bg-[#FFFBF1] rounded-lg overflow-hidden w-full max-w-[1500px]  h-full max-h-[700px] mx-auto">
       {/* Left Section */}
-      <div className="p-16 flex flex-col justify-around flex-1">
+      <div className="p-16 flex flex-col justify-around w-full lg:w-[50%]">
         {/* Top Text */}
         <div>
           <h2 className="text-5xl lg:text-7xl text-black font-ambit-regular">
@@ -55,8 +55,8 @@ export default function HorizontalScrollCardB() {
       </div>
 
       {/* Right Section */}
-      <div className="xl:w-1/2 h-full flex items-center justify-center ">
-        <div className="relative h-[180px] w-[180px] md:h-[300px] md:w-[300px] lg:h-[250px] lg:w-[250px] xl:h-[450px] xl:w-[450px]">
+      <div className="w-full xl:w-[50%] h-full flex md:items-center items-start   justify-center ">
+        <div className="relative h-[180px] w-[180px] md:h-[250px] md:w-[250px] lg:h-[350px] lg:w-[350px] xl:h-[450px] xl:w-[450px]">
           <Image
             src="/circles.png"
             alt="Card image"
