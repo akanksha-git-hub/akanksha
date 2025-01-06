@@ -216,6 +216,7 @@ const TimelineScroller = ({ slice }) => {
         ref={root}
       >
         <div className="w-full relative 950px:h-[600px]">
+          <div className="orange-gradient absolute top-[80%] left-2/4 -translate-x-2/4 -translate-y-2/4 -z-20 h-[80%] w-[80%]"></div>
           <div 
             className="w-1 hidden 1000pixel:block bg-[#D2D1CD] h-[664px] absolute right-12 xl:right-24 3xl:top-0 z-20 rounded-full"
           >
