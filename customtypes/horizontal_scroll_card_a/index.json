@@ -13,10 +13,12 @@
           "placeholder": ""
         }
       },
+s
       "subtitle": {
         "type": "Text",
         "config": {
           "label": "subtitle",
+
           "placeholder": ""
         }
       },
@@ -30,7 +32,9 @@
       "ellipse": {
         "type": "Image",
         "config": {
+
           "label": "ellipse",
+
           "constraint": {},
           "thumbnails": []
         }

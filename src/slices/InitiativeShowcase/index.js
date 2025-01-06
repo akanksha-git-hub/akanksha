@@ -72,6 +72,10 @@ const InitiativeShowcase = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="universal-padding"
     >
+     
+     
+     
+     
       <SliceIdentifier text={slice.primary.slice_identifier} />
       <div className="mt-12 flex flex-col xl:flex-row items-center justify-between">
         {/* Left Content */}
@@ -108,15 +112,18 @@ const InitiativeShowcase = ({ slice }) => {
         </ul>
 
         {/* Right Content */}
+       
+       
+       
         <div className={`w-full mt-12 xl:mt-0 xl:w-2/4 rounded-sm p-6 lg:p-12 ${trackIndex.bgColor}`}>
           <RichText
-            className={`font-playfair-display text-4xl lg:text-5xl mb-4 ${
+            className={`font-ambit-semibold text-4xl lg:text-5xl mb-4 ${
               trackIndex.index === 2 ? "text-white" : "text-deep-green"
             }`}
             text={trackIndex.title}
           />
           <RichText
-            className={`font-ambit-regular text-3xl lg:text-5xl w-[80%] 3xl:w-[60%] ${
+            className={`font-ambit-regular text-3xl lg:text-5xl w-[full]  ${
               trackIndex.index === 1 || trackIndex.index === 2  ? "text-bright-yellow" : "text-[#767632]"
             }`}
             text={trackIndex.summary}
