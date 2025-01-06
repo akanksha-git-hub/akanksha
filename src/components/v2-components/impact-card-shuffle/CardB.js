@@ -27,6 +27,7 @@ export default function CardB({item}) {
     {/* Rotated Container */}
     <div className=" flex flex-col justify-evenly  w-full h-full ">
         {/* First Chart */}
+
         <div className="bg-[#FBDA1D] w-full flex items-center justify-between p-4">
   {/* Text */}
   <div className="font-ambit-regular text-sm sm:text-lg md:text-xl lg:text-2xl">
@@ -76,6 +77,7 @@ export default function CardB({item}) {
     99.4%
   </div>
 </div>
+
 
     </div>
 </div>
