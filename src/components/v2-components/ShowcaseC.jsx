@@ -61,7 +61,7 @@ function CardShowcaseBCard({ item, isHighlighted, onHover }) {
   );
 }
 
-export default function CardsShowcaseB({ data }) {
+export default function ShowcaseC({ data }) {
   const [highlightedIndex, setHighlightedIndex] = useState(0);
 
   return (
