@@ -1714,6 +1714,7 @@ interface HorizontalScrollCardADocumentData {
   title: prismic.KeyTextField;
 
   /**
+
    * subtitle field in *Horizontal Scroll Card A*
    *
    * - **Field Type**: Text
@@ -1723,6 +1724,7 @@ interface HorizontalScrollCardADocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   subtitle: prismic.KeyTextField;
+
 
   /**
    * description field in *Horizontal Scroll Card A*
@@ -1736,7 +1738,9 @@ interface HorizontalScrollCardADocumentData {
   description: prismic.KeyTextField;
 
   /**
+
    * ellipse field in *Horizontal Scroll Card A*
+
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -8236,6 +8240,16 @@ export interface PartnersShowcaseSliceDefaultPrimaryPartnerLogosItem {
  * Primary content in *PartnersShowcase → Default → Primary*
  */
 export interface PartnersShowcaseSliceDefaultPrimary {
+  /**
+   * slice_identifier field in *PartnersShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners_showcase.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
   /**
    * Title field in *PartnersShowcase → Default → Primary*
    *
