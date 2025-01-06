@@ -21,15 +21,26 @@ export default function CardB({item}) {
             </div>
     
             {/* Section 2 */}
-            <div className="w-full md:w-2/4   border border-red-400">
+            <div className="w-full md:w-2/4 ">
     {/* Rotated Container */}
     <div className=" flex flex-col justify-evenly  w-full h-full ">
         {/* First Chart */}
-        <div className="bg-[#FBDA1D]  w-full"><div className="p-2">Year 2023-24</div></div>
+        <div className="bg-[#FBDA1D] w-full flex justify-between items-center ">
+            <div className="p-4 text-sm md:text-2xl font-ambit-regular">Year 2023-24</div>
+            <div className="py-4 text-xl md:text-7xl font-ambit-regular ">95%</div>
+            </div>
         {/* Second Chart */}
-        <div className="bg-[#F6AC27]  w-full">Year 2023-24</div>
+        <div className="bg-[#F6AC27] ml-auto w-[60%] flex justify-between items-center ">
+            <div className="p-4 text-sm md:text-2xl font-ambit-regular">Year 2022-23</div>
+            <div className="py-4 text-xl md:text-7xl font-ambit-regular">91%</div>
+            </div>
+    
         {/* Third Chart */}
-        <div className="bg-[#ECF0F1] w-full">Year 2023-24</div>
+        <div className="bg-[#ECF0F1] ml-auto w-[80%] flex justify-between items-center ">
+            <div className="p-4 text-sm md:text-2xl font-ambit-regular">Year 2021-22</div>
+            <div className="py-4 text-xl md:text-7xl font-ambit-regular">93%</div>
+            </div>
+      
     </div>
 </div>
 

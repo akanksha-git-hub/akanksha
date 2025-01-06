@@ -110,7 +110,7 @@ const InitiativeShowcase = ({ slice }) => {
         {/* Right Content */}
         <div className={`w-full mt-12 xl:mt-0 xl:w-2/4 rounded-sm p-6 lg:p-12 ${trackIndex.bgColor}`}>
           <RichText
-            className={`font-playfair-display text-4xl lg:text-5xl mb-4 ${
+            className={`font-ambit-regular text-4xl lg:text-5xl mb-4 ${
               trackIndex.index === 2 ? "text-white" : "text-deep-green"
             }`}
             text={trackIndex.title}

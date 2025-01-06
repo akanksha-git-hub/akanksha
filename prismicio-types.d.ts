@@ -1712,6 +1712,50 @@ interface HorizontalScrollCardADocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * subheading field in *Horizontal Scroll Card A*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_a.subheading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subheading: prismic.KeyTextField;
+
+  /**
+   * description field in *Horizontal Scroll Card A*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_a.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Ellipse field in *Horizontal Scroll Card A*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_a.ellipse
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  ellipse: prismic.ImageField<never>;
+
+  /**
+   * book field in *Horizontal Scroll Card A*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_a.book
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  book: prismic.ImageField<never>;
 }
 
 /**
@@ -7845,6 +7889,16 @@ export interface PartnersShowcaseSliceDefaultPrimaryPartnerLogosItem {
  * Primary content in *PartnersShowcase → Default → Primary*
  */
 export interface PartnersShowcaseSliceDefaultPrimary {
+  /**
+   * slice_identifier field in *PartnersShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners_showcase.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
   /**
    * Title field in *PartnersShowcase → Default → Primary*
    *
