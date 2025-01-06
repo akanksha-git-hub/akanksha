@@ -12,6 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "slice_identifier",
+            "placeholder": ""
+          }
+        },
         "title": {
           "type": "Text",
           "config": {
