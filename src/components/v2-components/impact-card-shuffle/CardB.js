@@ -52,7 +52,7 @@ export default function CardB({item}) {
 
 
         {/* Second Chart */}
-        <div className="bg-[#F6AC27] ml-auto w-[60%] flex items-center justify-between p-4">
+        <div className="bg-[#F6AC27] ml-auto w-[70%] flex items-center justify-between p-4">
   {/* Text */}
   <div className="font-ambit-regular text-sm sm:text-lg md:text-xl lg:text-2xl">
     Year 2023-24

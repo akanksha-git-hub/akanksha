@@ -12,6 +12,63 @@
           "label": "Title",
           "placeholder": ""
         }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "description",
+          "placeholder": ""
+        }
+      },
+      "year_2023_24": {
+        "type": "Text",
+        "config": {
+          "label": "Year 2023_24",
+          "placeholder": ""
+        }
+      },
+      "24_image": {
+        "type": "Image",
+        "config": {
+          "label": "24_image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "24_data": {
+        "type": "Text",
+        "config": {
+          "label": "24_data",
+          "placeholder": ""
+        }
+      },
+      "year_2022_23": {
+        "type": "Text",
+        "config": {
+          "label": "Year 2022_23",
+          "placeholder": ""
+        }
+      },
+      "23_data": {
+        "type": "Text",
+        "config": {
+          "label": "23_data",
+          "placeholder": ""
+        }
+      },
+      "year_2021_22": {
+        "type": "Text",
+        "config": {
+          "label": "Year 2021_22",
+          "placeholder": ""
+        }
+      },
+      "22_data": {
+        "type": "Text",
+        "config": {
+          "label": "22_data",
+          "placeholder": ""
+        }
       }
     }
   }
