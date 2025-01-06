@@ -39,6 +39,7 @@ export const components = {
   rotating_carousel: dynamic(() => import("./RotatingCarousel")),
   showcase_v2: dynamic(() => import("./ShowcaseV2")),
   slider_showcase: dynamic(() => import("./SliderShowcase")),
+  student_vision: dynamic(() => import("./StudentVision")),
   swirl_image: dynamic(() => import("./SwirlImage")),
   tab_slice: dynamic(() => import("./TabSlice")),
   testimonial: dynamic(() => import("./Testimonial")),

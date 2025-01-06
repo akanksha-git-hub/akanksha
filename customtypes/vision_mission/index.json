@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "student_vision": {
+              "type": "SharedSlice"
+            },
+            "card_showcase": {
+              "type": "SharedSlice"
+            },
             "testimonial": {
               "type": "SharedSlice"
             },
