@@ -5668,9 +5668,69 @@ export type FlagshipHeroSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *FlagshipHero → SectionHero → Primary*
+ */
+export interface FlagshipHeroSliceSectionHeroPrimary {
+  /**
+   * Main title field in *FlagshipHero → SectionHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.sectionHero.primary.main_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_title: prismic.KeyTextField;
+
+  /**
+   * Description field in *FlagshipHero → SectionHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.sectionHero.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Image A field in *FlagshipHero → SectionHero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.sectionHero.primary.image_a
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_a: prismic.ImageField<never>;
+
+  /**
+   * Image B field in *FlagshipHero → SectionHero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.sectionHero.primary.image_b
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_b: prismic.ImageField<never>;
+}
+
+/**
+ * SectionHero variation for FlagshipHero Slice
+ *
+ * - **API ID**: `sectionHero`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlagshipHeroSliceSectionHero = prismic.SharedSliceVariation<
+  "sectionHero",
+  Simplify<FlagshipHeroSliceSectionHeroPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *FlagshipHero*
  */
-type FlagshipHeroSliceVariation = FlagshipHeroSliceDefault;
+type FlagshipHeroSliceVariation =
+  | FlagshipHeroSliceDefault
+  | FlagshipHeroSliceSectionHero;
 
 /**
  * FlagshipHero Shared Slice
@@ -8198,12 +8258,61 @@ export type PageTitleSliceOptionC = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *PageTitle → optionD → Primary*
+ */
+export interface PageTitleSliceOptionDPrimary {
+  /**
+   * Slice Identifier field in *PageTitle → optionD → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.optionD.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *PageTitle → optionD → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.optionD.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *PageTitle → optionD → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.optionD.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * optionD variation for PageTitle Slice
+ *
+ * - **API ID**: `optionD`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PageTitleSliceOptionD = prismic.SharedSliceVariation<
+  "optionD",
+  Simplify<PageTitleSliceOptionDPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *PageTitle*
  */
 type PageTitleSliceVariation =
   | PageTitleSliceDefault
   | PageTitleSliceSparkle
-  | PageTitleSliceOptionC;
+  | PageTitleSliceOptionC
+  | PageTitleSliceOptionD;
 
 /**
  * PageTitle Shared Slice
@@ -9171,6 +9280,41 @@ export interface SliderShowcaseSliceSliderEPrimaryItemsItem {
 }
 
 /**
+ * Item in *SliderShowcase → sliderF → Primary → Items*
+ */
+export interface SliderShowcaseSliceSliderFPrimaryItemsItem {
+  /**
+   * Image field in *SliderShowcase → sliderF → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderF.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *SliderShowcase → sliderF → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderF.primary.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *SliderShowcase → sliderF → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderF.primary.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *SliderShowcase → Default → Primary*
  */
 export interface SliderShowcaseSliceDefaultPrimary {
@@ -9421,6 +9565,56 @@ export type SliderShowcaseSliceSliderE = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *SliderShowcase → sliderF → Primary*
+ */
+export interface SliderShowcaseSliceSliderFPrimary {
+  /**
+   * Slice Identifier field in *SliderShowcase → sliderF → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderF.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Items field in *SliderShowcase → sliderF → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderF.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<SliderShowcaseSliceSliderFPrimaryItemsItem>
+  >;
+
+  /**
+   * asset field in *SliderShowcase → sliderF → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderF.primary.asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
+}
+
+/**
+ * sliderF variation for SliderShowcase Slice
+ *
+ * - **API ID**: `sliderF`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SliderShowcaseSliceSliderF = prismic.SharedSliceVariation<
+  "sliderF",
+  Simplify<SliderShowcaseSliceSliderFPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *SliderShowcase*
  */
 type SliderShowcaseSliceVariation =
@@ -9428,7 +9622,8 @@ type SliderShowcaseSliceVariation =
   | SliderShowcaseSliceSliderB
   | SliderShowcaseSliceSliderC
   | SliderShowcaseSliceSliderD
-  | SliderShowcaseSliceSliderE;
+  | SliderShowcaseSliceSliderE
+  | SliderShowcaseSliceSliderF;
 
 /**
  * SliderShowcase Shared Slice
@@ -10750,8 +10945,10 @@ declare module "@prismicio/client" {
       DonorHeroSliceDefault,
       FlagshipHeroSlice,
       FlagshipHeroSliceDefaultPrimary,
+      FlagshipHeroSliceSectionHeroPrimary,
       FlagshipHeroSliceVariation,
       FlagshipHeroSliceDefault,
+      FlagshipHeroSliceSectionHero,
       FrequentlyAskedQuestionsSlice,
       FrequentlyAskedQuestionsSliceDefaultPrimaryFaqItem,
       FrequentlyAskedQuestionsSliceDefaultPrimary,
@@ -10846,10 +11043,12 @@ declare module "@prismicio/client" {
       PageTitleSliceDefaultPrimary,
       PageTitleSliceSparklePrimary,
       PageTitleSliceOptionCPrimary,
+      PageTitleSliceOptionDPrimary,
       PageTitleSliceVariation,
       PageTitleSliceDefault,
       PageTitleSliceSparkle,
       PageTitleSliceOptionC,
+      PageTitleSliceOptionD,
       PartnersShowcaseSlice,
       PartnersShowcaseSliceDefaultPrimaryPartnerLogosItem,
       PartnersShowcaseSliceDefaultPrimary,
@@ -10894,12 +11093,15 @@ declare module "@prismicio/client" {
       SliderShowcaseSliceSliderDPrimary,
       SliderShowcaseSliceSliderEPrimaryItemsItem,
       SliderShowcaseSliceSliderEPrimary,
+      SliderShowcaseSliceSliderFPrimaryItemsItem,
+      SliderShowcaseSliceSliderFPrimary,
       SliderShowcaseSliceVariation,
       SliderShowcaseSliceDefault,
       SliderShowcaseSliceSliderB,
       SliderShowcaseSliceSliderC,
       SliderShowcaseSliceSliderD,
       SliderShowcaseSliceSliderE,
+      SliderShowcaseSliceSliderF,
       StudentVisionSlice,
       StudentVisionSliceDefaultPrimaryDescriptionItem,
       StudentVisionSliceDefaultPrimary,
