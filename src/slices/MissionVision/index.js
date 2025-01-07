@@ -9,12 +9,13 @@ import { PrismicImage } from "@prismicio/react";
 import Image from "next/image";
 import VideoModalv2 from "@/components/video-modal-v2";
 import TextCTA from "@/components/UI/Button/TextCTA";
+import { PrismicNextImage } from "@prismicio/next";
 /**
  * @typedef {import("@prismicio/client").Content.MissionVisionSlice} MissionVisionSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<MissionVisionSlice>} MissionVisionProps
  * @param {MissionVisionProps}
  */
-const MissionVision = ({ slice }) => {
+const MissionVision = ({ slice,context }) => {
   if (slice.variation === "optionF") {
     return (
       <section
@@ -80,21 +81,26 @@ const MissionVision = ({ slice }) => {
     );
   }
   if (slice.variation === "v2") {
+    const { removePagePadding } = context;
     return (
       
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="universal-padding mt-0"
+        className={`${
+          removePagePadding ? " " : "universal-padding"
+        } mt-0`}
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <div className="lg:grid lg:grid-cols-[auto,1fr,auto]  items-center mt-24">
           <div className="hidden lg:block h-full">
-            <Image
-              src="/arrowsectionvertical.png"
+             
+            <PrismicNextImage
+             width={100}
+             height={100}
+              field={slice.primary.left_image}
               alt="Left Decorative Arrow"
-              width={100}
-              height={100}
+             
               className=" object-cover  sm:h-[380px] lg:h-[600px] 3xl:h-[800px] "
             />
           </div>
@@ -107,12 +113,12 @@ const MissionVision = ({ slice }) => {
             />
           </div>
           <div className="hidden lg:block h-full">
-            <Image
-              src="/arrowsectionvertical.png"
+            <PrismicNextImage
+              field={slice.primary.right_image}
               alt="Right Decorative Arrow"
               width={100}
               height={100}
-              className="rotate-180  object-cover sm:h-[380px] lg:h-[600px] 3xl:h-[800px]  "
+              className=" object-cover sm:h-[380px] lg:h-[600px] 3xl:h-[800px]  "
             />
           </div>
         </div>

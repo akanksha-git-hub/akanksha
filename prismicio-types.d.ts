@@ -6401,6 +6401,16 @@ export interface IconShowcaseSliceWithTitlePrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   data: prismic.GroupField<Simplify<IconShowcaseSliceWithTitlePrimaryDataItem>>;
+
+  /**
+   * asset field in *IconShowcase → With Title → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.withTitle.primary.asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
 }
 
 /**
@@ -7666,6 +7676,26 @@ export interface MissionVisionSliceV2Primary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   cta_link: prismic.LinkField;
+
+  /**
+   * left_image field in *MissionVision → V2 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.v2.primary.left_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_image: prismic.ImageField<never>;
+
+  /**
+   * right_image field in *MissionVision → V2 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.v2.primary.right_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_image: prismic.ImageField<never>;
 }
 
 /**
