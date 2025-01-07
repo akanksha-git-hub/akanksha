@@ -52,20 +52,15 @@ const StudentVision = ({ slice }) => {
         <div className="flex gap-2 mt-4">
           <SwiperArrow
             strokeColor="#37473C"
-            className={`${
-              trackIndex === 0 ? "bg-[#AFB3A9]" : "bg-bright-yellow"
-            } rotate-180`}
+            className="rotate-180"
             onClick={swipePrev}
+            isDisabled={trackIndex === 0}
           />
-          <SwiperArrow
-            strokeColor="#37473C"
-            className={`${
-              trackIndex === slice.primary.description.length - 1
-                ? "bg-[#AFB3A9]"
-                : "bg-bright-yellow"
-            }`}
-            onClick={swipeNext}
-          />
+         <SwiperArrow
+  strokeColor="#37473C"
+  onClick={swipeNext}
+  isDisabled={trackIndex === slice.primary.description.length - 1 ? true : false}
+/>
         </div>
       </div>
     </section>
