@@ -45,7 +45,7 @@ const InitiativeShowcase = ({ slice }) => {
           summary = slice.primary.initiative_content_c_short_summary;
           image = slice.primary.initiative_content_c_image_b;
           description = slice.primary.initiative_content_c_description;
-          bgColor = "bg-[#37473C]";
+          bgColor = "bg-[#F6AC27]";
           break;
         default:
           break;
@@ -117,14 +117,13 @@ const InitiativeShowcase = ({ slice }) => {
        
         <div className={`w-full mt-12 xl:mt-0 xl:w-2/4 rounded-sm p-6 lg:p-12 ${trackIndex.bgColor}`}>
           <RichText
-            className={`font-ambit-semibold text-4xl lg:text-5xl mb-4 ${
-              trackIndex.index === 2 ? "text-white" : "text-deep-green"
-            }`}
+            className="font-ambit-semibold text-4xl lg:text-5xl mb-4 text-deep-green"
+          
             text={trackIndex.title}
           />
           <RichText
-            className={`font-ambit-regular text-3xl lg:text-5xl w-[full]  ${
-              trackIndex.index === 1 || trackIndex.index === 2  ? "text-bright-yellow" : "text-[#767632]"
+            className={`font-ambit-regular text-3xl lg:text-5xl w-[full] lg:p-6 ${
+              trackIndex.index === 1  ? "text-bright-yellow" : "text-[#767632]"
             }`}
             text={trackIndex.summary}
           />
@@ -136,13 +135,16 @@ const InitiativeShowcase = ({ slice }) => {
             />
           </div>
           <RichText
-            className={`mt-6 sm:mt-12 font-inter text-lg sm:text-xl lg:text-2xl leading-[26px] sm:leading-[30px] w-full lg:w-[90%] ${
-              trackIndex.index === 2 ? "text-white" : "text-deep-green"
-            }`}
+            className="mt-6 sm:mt-12 font-inter text-lg sm:text-xl lg:text-2xl leading-[26px] sm:leading-[30px] w-full lg:w-[90%]  text-deep-green"
+        
             text={trackIndex.description}
           />
           <div className="flex gap-2 mt-12 sm:mt-20 2xl:mt-32">
-            <Button>Know More</Button>
+          <Button
+            className={`${ trackIndex.index === 2 ? "bg-yellow-500 text-black" : "bg-v2-orange text-black" }`}>
+           Know More
+          </Button>
+
           
           </div>
         </div>

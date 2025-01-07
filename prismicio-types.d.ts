@@ -1714,7 +1714,6 @@ interface HorizontalScrollCardADocumentData {
   title: prismic.KeyTextField;
 
   /**
-
    * subtitle field in *Horizontal Scroll Card A*
    *
    * - **Field Type**: Text
@@ -1724,7 +1723,6 @@ interface HorizontalScrollCardADocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   subtitle: prismic.KeyTextField;
-
 
   /**
    * description field in *Horizontal Scroll Card A*
@@ -1738,9 +1736,7 @@ interface HorizontalScrollCardADocumentData {
   description: prismic.KeyTextField;
 
   /**
-
    * ellipse field in *Horizontal Scroll Card A*
-
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
