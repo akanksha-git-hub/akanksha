@@ -23,8 +23,8 @@ const TextShowcase = ({ slice }) => {
       >
         <MixedText
           texts={slice.primary.title}
-          index={1}
-          spanPosition={spanPosition}
+          // index={1}
+          // spanPosition={spanPosition}
           className="font-ambit-regular w-full text-5xl sm:w-[30rem] sm:text-6xl lg:text-8xl lg:w-[50rem] text-deep-green justify-center"
         />
         <Image
