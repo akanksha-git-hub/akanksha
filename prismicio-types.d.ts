@@ -3159,6 +3159,8 @@ export type TimelineDocument<Lang extends string = string> =
   >;
 
 type VisionMissionDocumentDataSlicesSlice =
+  | StudentVisionSlice
+  | CardShowcaseSlice
   | TestimonialSlice
   | MissionVisionShowcaseSlice
   | TiltedCardsSlice
@@ -4571,6 +4573,61 @@ export interface CardShowcaseSliceCardsShowcaseBPrimaryItemsItem {
 }
 
 /**
+ * Item in *CardShowcase → Showcase C → Primary → Items*
+ */
+export interface CardShowcaseSliceShowcaseCPrimaryItemsItem {
+  /**
+   * Big Text field in *CardShowcase → Showcase C → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.showcaseC.primary.items[].big_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  big_text: prismic.KeyTextField;
+
+  /**
+   * Small Text field in *CardShowcase → Showcase C → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.showcaseC.primary.items[].small_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_text: prismic.KeyTextField;
+
+  /**
+   * CTA Text field in *CardShowcase → Showcase C → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.showcaseC.primary.items[].cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * CTA Link field in *CardShowcase → Showcase C → Primary → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.showcaseC.primary.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * Image field in *CardShowcase → Showcase C → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.showcaseC.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *CardShowcase → Default → Primary*
  */
 export interface CardShowcaseSliceDefaultPrimary {
@@ -4690,11 +4747,82 @@ export type CardShowcaseSliceCardsShowcaseB = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *CardShowcase → Showcase C → Primary*
+ */
+export interface CardShowcaseSliceShowcaseCPrimary {
+  /**
+   * Slice Identifier field in *CardShowcase → Showcase C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.showcaseC.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Heading field in *CardShowcase → Showcase C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.showcaseC.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * link text field in *CardShowcase → Showcase C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.showcaseC.primary.link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_text: prismic.KeyTextField;
+
+  /**
+   * View All field in *CardShowcase → Showcase C → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.showcaseC.primary.view_all
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  view_all: prismic.LinkField;
+
+  /**
+   * Items field in *CardShowcase → Showcase C → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_showcase.showcaseC.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<CardShowcaseSliceShowcaseCPrimaryItemsItem>
+  >;
+}
+
+/**
+ * Showcase C variation for CardShowcase Slice
+ *
+ * - **API ID**: `showcaseC`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardShowcaseSliceShowcaseC = prismic.SharedSliceVariation<
+  "showcaseC",
+  Simplify<CardShowcaseSliceShowcaseCPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *CardShowcase*
  */
 type CardShowcaseSliceVariation =
   | CardShowcaseSliceDefault
-  | CardShowcaseSliceCardsShowcaseB;
+  | CardShowcaseSliceCardsShowcaseB
+  | CardShowcaseSliceShowcaseC;
 
 /**
  * CardShowcase Shared Slice
@@ -9319,6 +9447,98 @@ export type SliderShowcaseSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *StudentVision → Default → Primary → description*
+ */
+export interface StudentVisionSliceDefaultPrimaryDescriptionItem {
+  /**
+   * desc field in *StudentVision → Default → Primary → description*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.default.primary.description[].desc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  desc: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *StudentVision → Default → Primary*
+ */
+export interface StudentVisionSliceDefaultPrimary {
+  /**
+   * Slice Identifier field in *StudentVision → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * title field in *StudentVision → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * image field in *StudentVision → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * description field in *StudentVision → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.default.primary.description[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  description: prismic.GroupField<
+    Simplify<StudentVisionSliceDefaultPrimaryDescriptionItem>
+  >;
+}
+
+/**
+ * Default variation for StudentVision Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StudentVisionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<StudentVisionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *StudentVision*
+ */
+type StudentVisionSliceVariation = StudentVisionSliceDefault;
+
+/**
+ * StudentVision Shared Slice
+ *
+ * - **API ID**: `student_vision`
+ * - **Description**: StudentVision
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StudentVisionSlice = prismic.SharedSlice<
+  "student_vision",
+  StudentVisionSliceVariation
+>;
+
+/**
  * Primary content in *SwirlImage → Default → Primary*
  */
 export interface SwirlImageSliceDefaultPrimary {
@@ -10502,9 +10722,12 @@ declare module "@prismicio/client" {
       CardShowcaseSliceDefaultPrimary,
       CardShowcaseSliceCardsShowcaseBPrimaryItemsItem,
       CardShowcaseSliceCardsShowcaseBPrimary,
+      CardShowcaseSliceShowcaseCPrimaryItemsItem,
+      CardShowcaseSliceShowcaseCPrimary,
       CardShowcaseSliceVariation,
       CardShowcaseSliceDefault,
       CardShowcaseSliceCardsShowcaseB,
+      CardShowcaseSliceShowcaseC,
       CardShuffleSlice,
       CardShuffleSliceDefaultPrimaryItemsItem,
       CardShuffleSliceDefaultPrimary,
@@ -10681,6 +10904,11 @@ declare module "@prismicio/client" {
       SliderShowcaseSliceSliderC,
       SliderShowcaseSliceSliderD,
       SliderShowcaseSliceSliderE,
+      StudentVisionSlice,
+      StudentVisionSliceDefaultPrimaryDescriptionItem,
+      StudentVisionSliceDefaultPrimary,
+      StudentVisionSliceVariation,
+      StudentVisionSliceDefault,
       SwirlImageSlice,
       SwirlImageSliceDefaultPrimary,
       SwirlImageSliceVariation,
