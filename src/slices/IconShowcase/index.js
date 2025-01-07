@@ -18,64 +18,75 @@ const IconShowcase = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="my-12"
+        className="my-12 relative"
       >
+     
+     <div
+  className="hidden xl:block absolute top-[150px] -left-[280px]  xl:h-[1000px] xl:w-[1000px] -z-10"
+>
+  <PrismicNextImage 
+    field={slice.primary.asset}
+    className="h-full w-full object-contain"
+    height={1800}
+    width={1800}
+  />
+</div>
         <div className="mb-24 space-y-20">
           <SliceIdentifier 
             text={slice.primary.slice_identifier}
           />
           <RichText 
             text={slice.primary.title}
-            className='font-ambit-regular text-deep-green text-5xl md:text-center flex md:items-center md:justify-center'
+            className='font-ambit-regular text-black text-8xl md:text-left flex md:items-center md:justify-left md:w-[5ch] md:mr-auto'
           />
         </div>
          {slice.primary.data && (
-        <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-          {slice.primary.data.map(item => {
-
-            let LottieData = null;
-
-            if(item.animated_icon_json_format) LottieData = JSON.parse(item.animated_icon_json_format);
-            
-            return (
-              <li 
-                key={item.title}
-                className="flex flex-col items-start justify-start space-y-4"
-              >
-                <div className="h-28 w-28 rounded-full bg-bright-yellow flex items-center justify-center">
-                  {
-                    item.isanimatedicon ? 
-                    <div className="h-[80%] w-[80%]">
-                      <Lottie 
-                        animationData={LottieData}
-                        className="h-full w-full"
-                      />
-                    </div>
-                    :
-                    <div className="h-[82%] w-[82%]">
-                      <PrismicNextImage 
-                        field={item.image}
-                        height={60}
-                        width={60}
-                        className="h-full w-full object-contain"
-                      />
-                    </div>
-                  }
+      <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-y-8">
+      {slice.primary.data.map((item,index) => {
+          const isFirstRow = index < 2;
+        let LottieData = null;
+      
+    
+        if (item.animated_icon_json_format) {
+          LottieData = JSON.parse(item.animated_icon_json_format);
+        }
+    
+        return (
+          <li
+            key={item.title}
+            className={`flex flex-col items-start justify-start space-y-4 w-full md:max-w-[300px]  ${isFirstRow ? index === 0? "xl:col-span-1 xl:col-start-2 " : "xl:col-start-3 xl:col-span-1" : ""} `}
+          >
+            <div className="h-28 w-28 rounded-full flex items-center justify-center">
+              {item.isanimatedicon ? (
+                <div className="h-[80%] w-[80%]">
+                  <Lottie animationData={LottieData} className="h-full w-full" />
                 </div>
-                <div className="space-y-2">
-                  <RichText 
-                    text={item.title}
-                    className='text-deep-green font-ambit-semibold text-2xl'
-                    />
-                  <RichText 
-                    text={item.description}
-                    className='text-deep-green font-ambit-regular text-lg'
+              ) : (
+                <div className="h-[82%] w-[82%]">
+                  <PrismicNextImage
+                    field={item.icon}
+                    height={60}
+                    width={60}
+                    className="h-full w-full object-contain"
                   />
                 </div>
-              </li>
-            )
-          })}
-        </ul>
+              )}
+            </div>
+            <div className="space-y-6 p-4">
+              <RichText
+                text={item.title}
+                className="text-black font-ambit-semibold text-4xl"
+              />
+              <RichText
+                text={item.description}
+                className="text-black font-ambit-regular text-lg"
+              />
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+    
       )}
       </section>
     )

@@ -440,6 +440,22 @@
             "placeholder": "",
             "select": null
           }
+        },
+        "left_image": {
+          "type": "Image",
+          "config": {
+            "label": "left_image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "right_image": {
+          "type": "Image",
+          "config": {
+            "label": "right_image",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}
