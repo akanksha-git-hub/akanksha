@@ -191,15 +191,17 @@ const ProgramShowcase = ({ slice }) => {
           />
 
           <div className="flex gap-2 mt-2">
-            <SwiperArrow
+           
+               <SwiperArrow
+                        strokeColor="#37473C"
+                        className="rotate-180"
+                        onClick={swipePrev}
+                        isDisabled={trackIndex === 0}
+                      />
+                     <SwiperArrow
               strokeColor="#37473C"
-              className={`${trackIndex === 0 ? "bg-[#AFB3A9]" : "bg-bright-yellow"} rotate-180`}
-              onClick={swipePrev}
-            />
-            <SwiperArrow
-              strokeColor="#37473C"
-              className={`${trackIndex === slice.primary.program_showcase_content.length - 1 ? "bg-[#AFB3A9]" : "bg-bright-yellow"}`}
               onClick={swipeNext}
+              isDisabled={trackIndex === slice.primary.program_showcase_content.length - 1 ? true : false}
             />
           </div>
         </div>
