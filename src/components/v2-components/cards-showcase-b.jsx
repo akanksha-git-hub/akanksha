@@ -22,7 +22,7 @@ function CardShowcaseBCard({ item, isHighlighted, onHover }) {
       )}
 
       
-      <div className="absolute top-0 left-0 h-full w-4">
+      <div className="absolute top-0 left-0 h-full w-5">
         <div className="relative h-full w-full z-10">
           <Image src={PencilShading} alt="image" className="" fill />
         </div>
@@ -46,7 +46,7 @@ function CardShowcaseBCard({ item, isHighlighted, onHover }) {
           <Button prismicLink={item.cta_link}>{item.cta_text}</Button>
         </div>
       </div>
-      <div className="flex justify-center items-center w-full h-48 mt-4 overflow-hidden relative group">
+      <div className="flex justify-center items-center w-full h-80 mt-4 overflow-hidden relative group">
         <div
           className={`relative w-full h-full transform transition-all duration-500 ${
             isHighlighted
@@ -68,16 +68,17 @@ export default function CardsShowcaseB({ data }) {
     <div className="universal-padding space-y-20">
       <SliceIdentifier text={data.slice_identifier} />
       
-      <ul className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 md:px-24">
-        {data.items.map((item, i) => (
-          <CardShowcaseBCard
-            key={i}
-            item={item}
-            isHighlighted={highlightedIndex === i}
-            onHover={() => setHighlightedIndex(i)}
-          />
-        ))}
-      </ul>
+        <ul className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 md:px-24   h-auto">
+          {data.items.map((item, i) => (
+            <CardShowcaseBCard
+              key={i}
+              item={item}
+              isHighlighted={highlightedIndex === i}
+              onHover={() => setHighlightedIndex(i)}
+              
+            />
+          ))}
+        </ul>
     </div>
   );
 }

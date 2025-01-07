@@ -19,7 +19,7 @@ const PartnersShowcase = ({ slice }) => {
         
          <SliceIdentifier text={slice.primary.slice_identifier} />
       
-      <div className="sm:mt-12 flex flex-col lg:flex-row items-center justify-between w-full ">
+      <div className="mt-12 flex flex-col lg:flex-row items-center justify-between w-full ">
       <RichText 
         text={slice.primary.title}
         className="select-none text-deep-green font-ambit-regular text-6xl sm:text-6xl md:text-7xl w-full text-center lg:text-left flex items-center justify-center lg:w-[400px]"
