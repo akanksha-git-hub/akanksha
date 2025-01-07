@@ -17,6 +17,54 @@ const FlagshipHero = ({ slice }) => {
   if(slice.primary.animated_icon_a_json_format) LottieDataA = JSON.parse(slice.primary.animated_icon_a_json_format);
   if(slice.primary.animated_icon_b_json_format) LottieDataB = JSON.parse(slice.primary.animated_icon_b_json_format);
 
+    if (slice.variation === "sectionHero") {
+      return (
+        <section
+          data-slice-type={slice.slice_type}
+          data-slice-variation={slice.variation}
+          className="relative mb-24"
+        >
+        
+        <div className="flex flex-col items-center justify-center space-y-12 mt-40">
+  <RichText 
+    text={slice.primary.main_title}
+    className="font-ambit-regular text-deep-green sm:text-center text-7xl max-w-[40ch]"
+  />
+  <RichText 
+    text={slice.primary.description}
+    className="font-ambit-regular text-deep-green sm:text-center text-lg w-full max-w-[60ch]"
+  />
+</div>
+
+{/* Top left image */}
+<div
+  className="hidden md:block absolute -top-[100px] -left-[80px]  md:h-[280px] md:w-[150px] lg:h-[350px] w-[200px]  lg:w-[200px] xl:lg:w-[300px] -z-10"
+>
+  <PrismicNextImage 
+    field={slice.primary.image_a}
+    className="h-full w-full object-contain"
+    height={1800}
+    width={1800}
+  />
+</div>
+
+{/* Bottom right image */}
+<div
+  className="hidden md:block absolute -bottom-[100px] -right-[190px]  md:h-[260px] md:w-[350px] lg:h-[400px] w-[300px]  lg:w-[500px] -z-10"
+>
+  <PrismicNextImage 
+    field={slice.primary.image_b}
+    className="h-full w-full object-contain"
+    height={1800}
+    width={1800}
+  />
+</div>
+
+      
+    
+        </section>
+      );
+    }
   return (
     <section
       data-slice-type={slice.slice_type}

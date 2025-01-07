@@ -43,7 +43,33 @@ const PageTitle = ({ slice }) => {
     )
 
   }
+  if(slice.variation === 'optionD') {
 
+    return(
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="my-12 space-y-16"
+      >
+        <SliceIdentifier 
+          text={slice.primary.slice_identifier}
+        />
+        <div className="space-y-6">
+          <MixedText 
+          
+            texts={slice.primary.title}
+            className='font-ambit-regular text-black text-5xl md:text-7xl text-left md:text-center max-w-[15ch]  md:justify-start'
+            
+          />
+          <RichText 
+            text={slice.primary.description}
+            className='font-ambit-regular text-black text-lg     '
+          />
+        </div>
+      </section>
+    )
+
+  }
   return (
     <section
       data-slice-type={slice.slice_type}

@@ -81,6 +81,7 @@ const MissionVision = ({ slice }) => {
   }
   if (slice.variation === "v2") {
     return (
+      
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
