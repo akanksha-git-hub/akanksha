@@ -127,16 +127,18 @@ const SliderShowcase = ({ slice }) => {
             })}
           </Swiper>
           <div className="flex items-center justify-center gap-2 mt-2 w-full py-8">
-            <SwiperArrow 
-              strokeColor="#FBDA1D" 
-              className={`${sliderBIndex === 0 ? "bg-[#AFB3A9]" : "bg-deep-green"} rotate-180`} 
-              onClick={swipeSliderBPrev}
-            />
-            <SwiperArrow 
-              strokeColor="#FBDA1D" 
-              className={`${sliderBIndex === slice.primary.items.length - 1 ? "bg-[#AFB3A9]" : "bg-deep-green"}`}
-              onClick={swipeSliderBNext}
-            />
+           
+              <SwiperArrow
+                            strokeColor="#37473C"
+                            className="rotate-180"
+                            onClick={swipeSliderBPrev}
+                            isDisabled={sliderBIndex === 0}
+                          />
+                         <SwiperArrow
+                  strokeColor="#37473C"
+                  onClick={swipeSliderBNext}
+                  isDisabled={sliderBIndex === slice.primary.items.length - 1 ? true : false}
+                />
           </div>
         </div>
       </section>
@@ -322,6 +324,7 @@ const SliderShowcase = ({ slice }) => {
                     <SwiperSlide className="!h-full !w-full" key={index}>
                       <SwiperClick className="absolute opacity-0" text="Next" ref={nextRef} />
                       <SwiperClick className="absolute opacity-0" isPrev text="Prev" ref={prevRef} />
+                      
                       <PrismicNextImage 
                         className="h-full w-full object-cover"
                         field={item.image}
@@ -345,16 +348,27 @@ const SliderShowcase = ({ slice }) => {
             />
             <div>
               <div className="flex gap-2">
-                <SwiperArrow 
-                  strokeColor="#37473C" 
-                  className={`${current === 0 ? "bg-[#AFB3A9]" : "bg-bright-yellow"} rotate-180`} 
-                  onClick={swipePrev}
-                />
-                <SwiperArrow 
-                  strokeColor="#37473C" 
-                  className={`${current === slice.primary.items.length - 1 ? "bg-[#AFB3A9]" : "bg-bright-yellow"}`}
+               
+
+                   <SwiperArrow
+                            strokeColor="#37473C"
+                            className="rotate-180"
+                            onClick={swipePrev}
+                            isDisabled={current === 0}
+                          />
+                         <SwiperArrow
+                  strokeColor="#37473C"
                   onClick={swipeNext}
+                  isDisabled={current === slice.primary.items.length - 1 ? true : false}
                 />
+
+
+
+
+
+
+
+                
               </div>
             </div>
           </div>
@@ -420,16 +434,18 @@ const SliderShowcase = ({ slice }) => {
                 link={slice.primary.items[current].cta_link}
               />
               <div className="flex gap-2 mt-2">
-                <SwiperArrow 
-                  strokeColor="#37473C" 
-                  className={`${current === 0 ? "bg-[#AFB3A9]" : "bg-bright-yellow"} rotate-180`} 
-                  onClick={swipePrev}
-                />
-                <SwiperArrow 
-                  strokeColor="#37473C" 
-                  className={`${current === slice.primary.items.length - 1 ? "bg-[#AFB3A9]" : "bg-bright-yellow"}`}
-                  onClick={swipeNext}
-                />
+                
+                 <SwiperArrow
+                                    strokeColor="#37473C"
+                                    className="rotate-180"
+                                    onClick={swipePrev}
+                                    isDisabled={current === 0}
+                                  />
+                                 <SwiperArrow
+                          strokeColor="#37473C"
+                          onClick={swipeNext}
+                          isDisabled={current === slice.primary.items.length - 1 ? true : false}
+                        />
               </div>
             </div>
           </div>
@@ -517,16 +533,18 @@ const SliderShowcase = ({ slice }) => {
             })}
           </Swiper>
           <div className="flex items-center justify-center gap-2 mt-2 w-full py-8">
-            <SwiperArrow 
-              strokeColor="#FBDA1D" 
-              className={`${sliderBIndex === 0 ? "bg-[#AFB3A9]" : "bg-deep-green"} rotate-180`} 
-              onClick={swipeSliderBPrev}
-            />
-            <SwiperArrow 
-              strokeColor="#FBDA1D" 
-              className={`${sliderBIndex === slice.primary.items.length - 1 ? "bg-[#AFB3A9]" : "bg-deep-green"}`}
-              onClick={swipeSliderBNext}
-            />
+           
+              <SwiperArrow
+                                    strokeColor="#37473C"
+                                    className="rotate-180"
+                                    onClick={swipeSliderBPrev}
+                                    isDisabled={sliderBIndex === 0}
+                                  />
+                                 <SwiperArrow
+                          strokeColor="#37473C"
+                          onClick={swipeSliderBNext}
+                          isDisabled={sliderBIndex === slice.primary.items.length - 1 ? true : false}
+                        />
           </div>
         </div>
       </section>
