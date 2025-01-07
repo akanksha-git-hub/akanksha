@@ -378,6 +378,115 @@ const SliderShowcase = ({ slice }) => {
     )
 
   }
+  if(slice.variation === 'sliderF') {
+
+    return(
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="my-24 relative"
+      >
+        <div>
+          <SliceIdentifier 
+            text={slice.primary.slice_identifier}
+          />
+        
+        </div>
+        <div
+          className="rounded-lg flex flex-col lg:flex-row items-center justify-center gap-16 w-full mt-20"
+        >
+          <div className="w-full lg:w-[50%] ">
+            <ul className="pb-2 flex items-start justify-start w-full lg:w-[400px] xl:w-[600px] mx-auto lg:mx-0 mb-6">
+              <Swiper 
+                ref={storyRef}
+                className="w-[90%] sm:w-screen flex items-start" 
+                breakpoints={{
+                  2500: {
+                    slidesPerView: 5.6
+                  },
+                  1200: {
+                    slidesPerView: 4.3
+                  },
+                  600: {
+                    slidesPerView: 3
+                  },
+                  10: {
+                    slidesPerView: 2.2
+                  }
+                }}
+              >
+              
+              </Swiper>
+            </ul>
+            <Swiper 
+                ref={mainRef}
+                className="w-full h-[400px] sm:h-[420px] 3xl:h-[500px] rounded-lg"
+                onActiveIndexChange={(swiper) => {
+                  setCurrent(current)
+                  storyRef.current.swiper.slideTo(current - 1)
+                }}
+                onSlideChange={(e) => setCurrent(() => e.activeIndex)}
+                >
+                {slice.primary.items.map((item, index) => {
+                  return(
+                    <SwiperSlide className="!h-full !w-full" key={index}>
+                      <SwiperClick className="absolute opacity-0" text="Next" ref={nextRef} />
+                      <SwiperClick className="absolute opacity-0" isPrev text="Prev" ref={prevRef} />
+                      
+                      <PrismicNextImage 
+                        className="h-full w-full object-cover"
+                        field={item.image}
+                      />
+                    </SwiperSlide>
+                  )
+                })}
+              </Swiper>
+          </div>
+        <div
+  className="flex flex-col items-start justify-between w-full lg:w-[40%] h-[400px] sm:h-[420px] 3xl:h-[500px] lg:mt-8 "
+>
+  {/* Title and Description Section */}
+  <div className="flex flex-col space-y-4">
+    <RichText
+      className="text-deep-green font-ambit-regular text-3xl opacity-reveal"
+      key={slice.primary.items[current].title}
+      text={slice.primary.items[current].title}
+    />
+    <RichText
+      className="text-[#9C9C9C] font-ambit-regular text-base w-full lg:w-[94%] opacity-reveal"
+      key={slice.primary.items[current].description}
+      text={slice.primary.items[current].description}
+    />
+  </div>
+
+  {/* Swiper Arrows at the Bottom */}
+  <div className="mt-auto flex gap-2">
+    <SwiperArrow
+      strokeColor="#37473C"
+      className="rotate-180"
+      onClick={swipePrev}
+      isDisabled={current === 0}
+    />
+    <SwiperArrow
+      strokeColor="#37473C"
+      onClick={swipeNext}
+      isDisabled={current === slice.primary.items.length - 1}
+    />
+  </div>
+</div>
+
+      </div>
+      <div  className="hidden lg:block absolute -bottom-[130px] -right-[50px]  lg:h-[400px] lg:w-[300px]  xl:w-[400px] -z-10">
+      <PrismicNextImage 
+                        className="h-full w-full object-cover"
+                        field={slice.primary.asset}
+                      />
+      </div>
+      
+    </section>
+    )
+
+  }
 
   return(
     <>
@@ -453,6 +562,7 @@ const SliderShowcase = ({ slice }) => {
       </div>
     </section>
     )}
+    
     {/* Default */}
     {slice.variation === 'sliderB' && (
       <section>
