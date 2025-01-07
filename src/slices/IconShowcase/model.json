@@ -130,6 +130,14 @@
               }
             }
           }
+        },
+        "asset": {
+          "type": "Image",
+          "config": {
+            "label": "asset",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}
