@@ -100,11 +100,6 @@
 				"value": "noted",
 				"type": "Text"
 			},
-			"description": {
-				"__TYPE__": "FieldContent",
-				"value": "three",
-				"type": "Text"
-			},
 			"image_a": {
 				"origin": {
 					"id": "main",
@@ -150,6 +145,16 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"description1": {
+				"__TYPE__": "FieldContent",
+				"value": "oldest",
+				"type": "Text"
+			},
+			"description2": {
+				"__TYPE__": "FieldContent",
+				"value": "right",
+				"type": "Text"
 			}
 		},
 		"items": [

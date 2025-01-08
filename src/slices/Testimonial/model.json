@@ -137,6 +137,14 @@
             "label": "Name",
             "placeholder": ""
           }
+        },
+        "asset": {
+          "type": "Image",
+          "config": {
+            "label": "asset",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}
