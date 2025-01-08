@@ -61,7 +61,7 @@ const Testimonial = ({ slice }) => {
     return(
       <section
         data-slice-type={slice.slice_type}
-        data-slice-variation={slice.variation}  className="mt-12"      
+        data-slice-variation={slice.variation}  className="mt-16"      
       >
        
        <h1 class="text-7xl text-center font-ambit-regular w-[8ch]  mx-auto">
@@ -74,9 +74,12 @@ const Testimonial = ({ slice }) => {
                 className="
                     bg-white py-4 px-4 scale-75 lg:scale-100 lg:px-8 rounded-[20px] min-h-[28rem] w-[350px] lg:max-w-[24rem] relative bottom-24 -left-12 sm:-left-24 lg:-left-52 -rotate-[2deg] z-20"
             >
-              <Image 
-  src='/band-testimonial.png'
-  alt=""
+              <div></div>
+
+
+             <PrismicNextImage 
+                    field={slice.primary.asset}
+                    alt=""
   height={80}
   width={80}
   className="absolute bottom-[18%] left-1/2 transform -translate-x-1/2 w-full"

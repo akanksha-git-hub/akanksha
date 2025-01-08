@@ -448,12 +448,12 @@ const SliderShowcase = ({ slice }) => {
   {/* Title and Description Section */}
   <div className="flex flex-col space-y-4">
     <RichText
-      className="text-deep-green font-ambit-regular text-3xl opacity-reveal"
+      className="text-black font-ambit-regular text-3xl opacity-reveal"
       key={slice.primary.items[current].title}
       text={slice.primary.items[current].title}
     />
     <RichText
-      className="text-[#9C9C9C] font-ambit-regular text-base w-full lg:w-[94%] opacity-reveal"
+      className="text-black font-ambit-regular text-base w-full lg:w-[94%] opacity-reveal"
       key={slice.primary.items[current].description}
       text={slice.primary.items[current].description}
     />
@@ -476,7 +476,7 @@ const SliderShowcase = ({ slice }) => {
 </div>
 
       </div>
-      <div  className="hidden lg:block absolute -bottom-[130px] -right-[50px]  lg:h-[400px] lg:w-[300px]  xl:w-[400px] -z-10">
+      <div  className="hidden lg:block absolute -bottom-[130px] -right-[50px]  lg:h-[400px] lg:w-[230px]  xl:w-[425px] -z-10">
       <PrismicNextImage 
                         className="h-full w-full object-cover"
                         field={slice.primary.asset}
