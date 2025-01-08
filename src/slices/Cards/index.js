@@ -3,6 +3,7 @@ import CardsTwoContainer from "@/components/Cards/CardsTwoContainer";
 import CardsTwoContainerB from "@/components/Cards/CardsTwoContainerB";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import RichText from "@/components/Texts/RichText";
+import { PrismicNextImage } from "@prismicio/next";
 
 /**
  * @typedef {import("@prismicio/client").Content.CardsSlice} CardsSlice
@@ -60,26 +61,48 @@ const Cards = ({ slice }) => {
       },
     ]
   }
+  if(slice.variation === "optionD") {
+    cards = [
+      {
+        title: slice.primary.card_a_title,
+        desc: slice.primary.card_a_description,
+        left_asset: slice.primary.left_asset,
+        left_shading : slice.primary.left_shading,
+        sparkles_left :slice.primary.sparkles_left,
+        card_image : slice.primary.card_a_image,
+       
+      },
+      {
+        title: slice.primary.card_b_title,
+        desc: slice.primary.card_b_description,
+        right_asset: slice.primary.left_asset,
+        right_shading : slice.primary.left_shading,
+        sparkles_right : slice.primary.sparkles_right,
+        card_image : slice.primary.card_b_image,
+      },
+    ]
+  }
 
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-    >
+   className="relative" >
       <SliceIdentifier 
         text={slice.primary.slice_identifier}
         className='mb-16'
       />
-      <div className="flex flex-col md:items-center md:justify-center space-y-2">
-        <RichText 
-          text={slice.primary.title}
-          className='text-deep-green font-ambit-regular text-5xl md:text-center'
-        />
-        <RichText 
-          text={slice.primary.description}
-          className='text-deep-green font-ambit-regular text-xl md:text-center max-w-[50ch]'
-        />
-      </div>
+      <div className="flex flex-col xl:flex-row xl:items-center   xl:justify-between space-y-2 xl:space-y-0 xl:space-x-4">
+  <RichText 
+    text={slice.primary.title}
+    className="text-black font-ambit-regular text-6xl md:text-center"
+  />
+  <RichText 
+    text={slice.primary.description}
+    className="text-black font-ambit-regular text-xl md:text-left max-w-[50ch]"
+  />
+</div>
+
       {slice.variation === "default" && (
         <CardsContainer 
           cards={cards}
@@ -94,6 +117,16 @@ const Cards = ({ slice }) => {
         <CardsTwoContainerB 
           data={cards}
         />
+        
+
+      )}
+        {slice.variation === "optionD" && (
+          <>
+          
+        <CardsTwoContainerB 
+          data={cards}
+        />
+        </>
       )}
     </section>
   );

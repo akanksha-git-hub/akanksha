@@ -28,21 +28,21 @@ const FlagshipHero = ({ slice }) => {
         <div className="flex flex-col items-center justify-center space-y-12 mt-32">
   <RichText 
     text={slice.primary.main_title}
-    className="font-ambit-regular text-black sm:text-center text-7xl max-w-[40ch]"
+    className="font-ambit-regular text-black sm:text-center text-7xl max-w-[15ch]"
   />
   <RichText 
     text={slice.primary.description1}
     className="font-ambit-regular text-black sm:text-center text-lg w-full max-w-[60ch]"
   />
    <RichText 
-    text={slice.primary.description1}
+    text={slice.primary.description2}
     className="font-ambit-regular text-black sm:text-center text-lg w-full max-w-[60ch]"
   />
 </div>
 
 {/* Top left image */}
 <div
-  className="hidden lg:block absolute top-[110px] -left-[80px]  md:h-[280px] md:w-[120px] lg:h-[350px] w-[200px]  lg:w-[200px] xl:w-[300px] -z-10"
+  className="hidden lg:block absolute top-[110px] -left-[100px]  md:h-[280px] md:w-[120px] lg:h-[350px] w-[200px]  lg:w-[200px] xl:w-[300px] -z-10"
 >
   <PrismicNextImage 
     field={slice.primary.image_a}
