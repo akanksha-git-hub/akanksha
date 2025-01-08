@@ -5682,14 +5682,24 @@ export interface FlagshipHeroSliceSectionHeroPrimary {
   main_title: prismic.KeyTextField;
 
   /**
-   * Description field in *FlagshipHero → SectionHero → Primary*
+   * Description1 field in *FlagshipHero → SectionHero → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: flagship_hero.sectionHero.primary.description
+   * - **API ID Path**: flagship_hero.sectionHero.primary.description1
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  description: prismic.KeyTextField;
+  description1: prismic.KeyTextField;
+
+  /**
+   * Description2 field in *FlagshipHero → SectionHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.sectionHero.primary.description2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description2: prismic.KeyTextField;
 
   /**
    * Image A field in *FlagshipHero → SectionHero → Primary*
@@ -10156,6 +10166,16 @@ export interface TestimonialSliceOptionDPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   name: prismic.KeyTextField;
+
+  /**
+   * asset field in *Testimonial → option D → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.optionD.primary.asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
 }
 
 /**

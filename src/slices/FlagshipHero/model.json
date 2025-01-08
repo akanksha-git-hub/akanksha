@@ -104,10 +104,17 @@
             "placeholder": ""
           }
         },
-        "description": {
+        "description1": {
           "type": "Text",
           "config": {
-            "label": "Description",
+            "label": "Description1",
+            "placeholder": ""
+          }
+        },
+        "description2": {
+          "type": "Text",
+          "config": {
+            "label": "Description2",
             "placeholder": ""
           }
         },
