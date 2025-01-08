@@ -117,6 +117,7 @@ export type AnnualReportsDocument<Lang extends string = string> =
   >;
 
 type AseDocumentDataSlicesSlice =
+  | ProgramShowcaseSlice
   | MissionVisionSlice
   | CardShuffleSlice
   | SliderShowcaseSlice
@@ -5422,12 +5423,181 @@ export type CardsSliceOptionC = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Cards → option D → Primary*
+ */
+export interface CardsSliceOptionDPrimary {
+  /**
+   * Slice Identifier field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Card A title field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.card_a_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_title: prismic.KeyTextField;
+
+  /**
+   * Card A description field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.card_a_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_description: prismic.KeyTextField;
+
+  /**
+   * Card B Title field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.card_b_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_title: prismic.KeyTextField;
+
+  /**
+   * Card B description field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.card_b_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_description: prismic.KeyTextField;
+
+  /**
+   * sparkles_left field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.sparkles_left
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  sparkles_left: prismic.ImageField<never>;
+
+  /**
+   * sparkles_right field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.sparkles_right
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  sparkles_right: prismic.ImageField<never>;
+
+  /**
+   * left_asset field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.left_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_asset: prismic.ImageField<never>;
+
+  /**
+   * right_asset field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.right_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_asset: prismic.ImageField<never>;
+
+  /**
+   * left_shading field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.left_shading
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_shading: prismic.ImageField<never>;
+
+  /**
+   * right_shading field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.right_shading
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_shading: prismic.ImageField<never>;
+
+  /**
+   * Card A Image field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.card_a_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_a_image: prismic.ImageField<never>;
+
+  /**
+   * Card B Image field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.optionD.primary.card_b_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_b_image: prismic.ImageField<never>;
+}
+
+/**
+ * option D variation for Cards Slice
+ *
+ * - **API ID**: `optionD`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceOptionD = prismic.SharedSliceVariation<
+  "optionD",
+  Simplify<CardsSliceOptionDPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Cards*
  */
 type CardsSliceVariation =
   | CardsSliceDefault
   | CardsSliceOptionB
-  | CardsSliceOptionC;
+  | CardsSliceOptionC
+  | CardsSliceOptionD;
 
 /**
  * Cards Shared Slice
@@ -8749,6 +8919,51 @@ export interface ProgramShowcaseSliceOptionBPrimaryProgramShowcaseContentItem {
 }
 
 /**
+ * Item in *ProgramShowcase → option C → Primary → Program Showcase Content*
+ */
+export interface ProgramShowcaseSliceOptionCPrimaryProgramShowcaseContentItem {
+  /**
+   * heading field in *ProgramShowcase → option C → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionC.primary.program_showcase_content[].heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Image field in *ProgramShowcase → option C → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionC.primary.program_showcase_content[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Quote field in *ProgramShowcase → option C → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionC.primary.program_showcase_content[].quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField;
+
+  /**
+   * Asset field in *ProgramShowcase → option C → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionC.primary.program_showcase_content[].asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *ProgramShowcase → Default → Primary*
  */
 export interface ProgramShowcaseSliceDefaultPrimary {
@@ -8829,11 +9044,72 @@ export type ProgramShowcaseSliceOptionB = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ProgramShowcase → option C → Primary*
+ */
+export interface ProgramShowcaseSliceOptionCPrimary {
+  /**
+   * title field in *ProgramShowcase → option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionC.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * description field in *ProgramShowcase → option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionC.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Program Showcase Content field in *ProgramShowcase → option C → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionC.primary.program_showcase_content[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  program_showcase_content: prismic.GroupField<
+    Simplify<ProgramShowcaseSliceOptionCPrimaryProgramShowcaseContentItem>
+  >;
+
+  /**
+   * Slice Identifier field in *ProgramShowcase → option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionC.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+}
+
+/**
+ * option C variation for ProgramShowcase Slice
+ *
+ * - **API ID**: `optionC`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProgramShowcaseSliceOptionC = prismic.SharedSliceVariation<
+  "optionC",
+  Simplify<ProgramShowcaseSliceOptionCPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *ProgramShowcase*
  */
 type ProgramShowcaseSliceVariation =
   | ProgramShowcaseSliceDefault
-  | ProgramShowcaseSliceOptionB;
+  | ProgramShowcaseSliceOptionB
+  | ProgramShowcaseSliceOptionC;
 
 /**
  * ProgramShowcase Shared Slice
@@ -10981,10 +11257,12 @@ declare module "@prismicio/client" {
       CardsSliceDefaultPrimary,
       CardsSliceOptionBPrimary,
       CardsSliceOptionCPrimary,
+      CardsSliceOptionDPrimary,
       CardsSliceVariation,
       CardsSliceDefault,
       CardsSliceOptionB,
       CardsSliceOptionC,
+      CardsSliceOptionD,
       DonationSliceSlice,
       DonationSliceSliceVariation,
       DonationSliceSliceDefault,
@@ -11115,9 +11393,12 @@ declare module "@prismicio/client" {
       ProgramShowcaseSliceDefaultPrimary,
       ProgramShowcaseSliceOptionBPrimaryProgramShowcaseContentItem,
       ProgramShowcaseSliceOptionBPrimary,
+      ProgramShowcaseSliceOptionCPrimaryProgramShowcaseContentItem,
+      ProgramShowcaseSliceOptionCPrimary,
       ProgramShowcaseSliceVariation,
       ProgramShowcaseSliceDefault,
       ProgramShowcaseSliceOptionB,
+      ProgramShowcaseSliceOptionC,
       RetentionSlice,
       RetentionSliceDefaultPrimary,
       RetentionSliceVariation,
