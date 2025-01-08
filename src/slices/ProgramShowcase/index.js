@@ -34,7 +34,11 @@ const ProgramShowcase = ({ slice }) => {
 
   const handleSlideChange = (activeIndex) => {
     setTrackIndex(activeIndex);
-    selectorRef.current.swiper.slideTo(activeIndex);
+    if (selectorRef.current?.swiper) {
+      selectorRef.current.swiper.slideTo(activeIndex);
+    } else {
+      console.error("Swiper instance is not ready.");
+    }
   };
 
   if (slice.variation === "optionB") {
@@ -208,6 +212,116 @@ const ProgramShowcase = ({ slice }) => {
       </section>
     );
   }
+
+
+
+  if (slice.variation === "optionC") {
+   
+
+    return (
+      <section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+      className="my-24 lg:mb-60 "
+    >
+      <SliceIdentifier text={slice.primary.slice_identifier} />
+      <div className="flex flex-col lg:flex-row items-start lg:items-end lg:mt-10">
+        {/* Title Section */}
+        <div className="w-full lg:w-[40%] text-left ">
+          
+          <RichText
+            text={slice.primary.title}
+            className="text-black font-ambit-regular text-5xl lg:text-6xl flex md:text-left max-w-[5ch] lg:mr-auto mt-16 lg:mt-0 "
+          />
+           <RichText
+            text={slice.primary.description}
+            className="text-black font-ambit-regular text-2xl flex md:text-left max-w-[35ch] lg:max-w-[15ch] lg:mr-auto mt-10 "
+          />
+        </div>
+    
+        {/* Swiper Section */}
+        <div className="w-full lg:w-[70%] h-auto flex flex-col xl:h-[32.4rem] gap-12 mt-10 md:mt-5">
+          {/* Swiper Component */}
+          <div className="relative w-full h-full cursor-grab">
+            <Swiper
+              ref={swiperRef}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+              className="w-full h-full"
+              slidesPerView={1}
+              spaceBetween={20}
+              onSlideChange={(i) => handleSlideChange(i.activeIndex)}
+            >
+              {slice.primary.program_showcase_content.map((item) => (
+                <SwiperSlide
+                  className="!flex flex-col gap-2 xl:flex-row"
+                  key={item.name}
+                >
+                  <SwiperClick
+                    className="absolute opacity-0"
+                    text="Next"
+                    ref={nextRef}
+                  />
+                  <SwiperClick
+                    className="absolute opacity-0"
+                    isPrev
+                    text="Prev"
+                    ref={prevRef}
+                  />
+    
+                  <div className="flex gap-2 md:gap-0 flex-col md:flex-row">
+                    <ImageComponent
+                      className="w-full md:w-[42%]"
+                      image={item.image}
+                    />
+                    <div className="relative rounded-lg bg-[#58BCD4] p-8 w-full xl:w-[56%] flex flex-col items-start justify-between">
+                      <div className="absolute top-0 right-0 w-full h-[1.25rem]">
+                        <div className="relative h-full w-full">
+                          <Image src="/quote-side-up.png" alt="Top Shading" fill />
+                        </div>
+                      </div>
+                      <div className="flex h-full flex-col items-start justify-start">
+                        <RichText
+                          className="text-black text-2xl xl:text-3xl 2xl:text-5xl font-ambit-regular w-[5ch]"
+                          text={item.heading}
+                        />
+                        <RichText
+                          className="text-black text-lg xl:text-xl 2xl:text-3xl font-ambit-regular leading-[30px] xl:leading-[48px] mt-8"
+                          text={item.quote}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+    
+          {/* Arrows */}
+          <div className="flex items-start mt-6 justify-between xl:mt-0 xl:justify-normal">
+            <div className="flex gap-2  mx-auto">
+              <SwiperArrow
+                isDisabled={trackIndex === 0}
+                className="rotate-180"
+                onClick={swipePrev}
+              />
+              <SwiperArrow
+                isDisabled={
+                  trackIndex ===
+                  slice.primary.program_showcase_content.length - 1
+                }
+                onClick={swipeNext}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    );
+  }
+  
 
   return (
     <section

@@ -173,6 +173,77 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "optionC",
+      "name": "option C",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "description",
+            "placeholder": ""
+          }
+        },
+        "program_showcase_content": {
+          "type": "Group",
+          "config": {
+            "label": "Program Showcase Content",
+            "repeat": true,
+            "fields": {
+              "heading": {
+                "type": "Text",
+                "config": {
+                  "label": "heading",
+                  "placeholder": ""
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "quote": {
+                "type": "Text",
+                "config": {
+                  "label": "Quote",
+                  "placeholder": ""
+                }
+              },
+              "asset": {
+                "type": "Image",
+                "config": {
+                  "label": "Asset",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
