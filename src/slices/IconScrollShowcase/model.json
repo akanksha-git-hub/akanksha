@@ -94,6 +94,55 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "modern",
+      "name": "Modern",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "main_title": {
+          "type": "Text",
+          "config": {
+            "label": "Main title",
+            "placeholder": ""
+          }
+        },
+        "items": {
+          "type": "Group",
+          "config": {
+            "label": "items",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "text": {
+                "type": "Text",
+                "config": {
+                  "label": "text",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

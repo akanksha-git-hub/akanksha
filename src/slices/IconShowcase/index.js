@@ -92,6 +92,92 @@ const IconShowcase = ({ slice }) => {
     )
   }
 
+  if(slice.variation === 'titleAndSubtitle') {
+    return(
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="my-12 relative"
+      >
+     
+        <div className="mb-24 md:space-y-14 space-y-8">
+          <SliceIdentifier 
+            text={slice.primary.slice_identifier}
+          />
+           <RichText 
+            text={slice.primary.small_title}
+            className='font-ambit-regular text-black text-xl md:text-center flex md:items-center md:justify-center md:w-[15ch] md:mx-auto'
+          />
+          <RichText 
+            text={slice.primary.title}
+            className='font-ambit-regular text-black text-7xl md:text-8xl md:text-center flex md:items-center md:justify-center md:w-[15ch] md:mx-auto'
+          />
+        </div>
+         {slice.primary.data && (
+      <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-y-8 justify-items-center">
+      {slice.primary.data.map((item,index) => {
+          
+        let LottieData = null;
+      
+    
+        if (item.animated_icon_json_format) {
+          LottieData = JSON.parse(item.animated_icon_json_format);
+        }
+    
+        return (
+          <li
+          key={item.title}
+          className="flex flex-col items-left justify-center space-y-4 w-full md:max-w-[300px] "
+        >
+        
+            <div className="h-28 w-28 rounded-full flex items-center justify-center">
+              {item.isanimatedicon ? (
+                <div className="h-[80%] w-[80%]">
+                  <Lottie animationData={LottieData} className="h-full w-full" />
+                </div>
+              ) : (
+                <div className="h-[82%] w-[82%]">
+                  <PrismicNextImage
+                    field={item.icon}
+                    height={60}
+                    width={60}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              )}
+            </div>
+            <div className="space-y-6 p-4">
+              <RichText
+                text={item.title}
+                className="text-black font-ambit-semibold text-4xl"
+              />
+              <RichText
+                text={item.description}
+                className="text-black font-ambit-regular text-lg"
+              />
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+    
+      )}
+      
+     <div
+  className="hidden xl:block absolute -bottom-44 -right-32  xl:h-[550px] xl:w-[550px] -z-10"
+>
+  <PrismicNextImage 
+    field={slice.primary.asset}
+    className="h-full w-full object-contain"
+    height={1800}
+    width={1800}
+  />
+</div>
+      </section>
+    )
+  }
+
+
   return (
     <section
       data-slice-type={slice.slice_type}

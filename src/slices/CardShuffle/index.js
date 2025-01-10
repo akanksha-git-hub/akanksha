@@ -21,11 +21,11 @@ const CardShuffle = ({ slice }) => {
       <div className="font-ambit-regular mt-12 space-y-4">
         <RichText 
           text={slice.primary.heading_small}
-          className='text-deep-green text-3xl text-center flex items-center justify-center'
+          className='text-black text-3xl text-center flex items-center justify-center'
           />
         <RichText 
           text={slice.primary.heading_big}
-          className='text-deep-green text-6xl text-center mx-auto max-w-[36ch]'
+          className='text-black  text-6xl text-center mx-auto max-w-[36ch]'
         />
       </div>
       {slice.variation === "default" && (

@@ -4,6 +4,8 @@ import IconScrollShowcaseDefault from "@/components/IconScrollShowcaseVariants/I
 import SliceIdentifier from "@/components/SliceIdentifier";
 import RichText from "@/components/Texts/RichText";
 import useDebouncedResize from "@/hooks/useDebouncedResize";
+import IconScrollShowcaseDefaultV2 from "@/components/IconScrollShowcaseVariants/IconScrollShowcaseDefaultV2";
+import IconScrollShowcaseModernV2 from "@/components/IconScrollShowcaseVariants/IconScrollShowcaseModernV2";
 
 /**
  * @typedef {import("@prismicio/client").Content.IconScrollShowcaseSlice} IconScrollShowcaseSlice
@@ -41,6 +43,35 @@ const IconScrollShowcase = ({ slice }) => {
         /> 
         :
         <IconScrollShowcaseDefault 
+          data={slice.primary.items}
+        />
+      }
+    </section>
+    )
+  }
+  if(slice.variation === 'modern') {
+    return(
+      <section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+    className="mt-16">
+      <SliceIdentifier 
+        text={slice.primary.slice_identifier}
+      />
+     
+       
+        <RichText 
+          text={slice.primary.main_title}
+          className='font-ambit-regular text-6xl text-black md:max-w-[40%] md:text-start mt-16'
+        />
+      
+      {
+        width > 1200 ?
+        <IconScrollShowcaseModernV2
+          data={slice.primary.items}
+        /> 
+        :
+        <IconScrollShowcaseDefaultV2 
           data={slice.primary.items}
         />
       }

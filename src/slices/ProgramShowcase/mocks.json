@@ -322,5 +322,117 @@
 				"value": []
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "withButton",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "firm",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "larger",
+				"type": "Text"
+			},
+			"program_showcase_content": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"heading",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "or",
+									"type": "Text"
+								}
+							],
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
+										"width": 6000,
+										"height": 4000
+									},
+									"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
+									"width": 6000,
+									"height": 4000,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"quote",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "common",
+									"type": "Text"
+								}
+							],
+							[
+								"asset",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+										"width": 4480,
+										"height": 4480
+									},
+									"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+									"width": 4480,
+									"height": 4480,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							]
+						]
+					}
+				]
+			},
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "chain",
+				"type": "Text"
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]
