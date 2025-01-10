@@ -365,6 +365,134 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "withUnderline",
+      "name": "withUnderline",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "card_a_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card A title",
+            "placeholder": ""
+          }
+        },
+        "card_b_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card B Title",
+            "placeholder": ""
+          }
+        },
+        "sparkles_left": {
+          "type": "Image",
+          "config": {
+            "label": "sparkles_left",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "sparkles_right": {
+          "type": "Image",
+          "config": {
+            "label": "sparkles_right",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "left_asset": {
+          "type": "Image",
+          "config": {
+            "label": "left_asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "right_asset": {
+          "type": "Image",
+          "config": {
+            "label": "right_asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "left_shading": {
+          "type": "Image",
+          "config": {
+            "label": "left_shading",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "right_shading": {
+          "type": "Image",
+          "config": {
+            "label": "right_shading",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_a_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card A Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_b_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card B Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_a_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "card_a_description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "card_b_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "card_b_description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

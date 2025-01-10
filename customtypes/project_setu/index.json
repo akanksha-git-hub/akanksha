@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "mission_vision": {
+              "type": "SharedSlice"
+            },
             "slider_showcase": {
               "type": "SharedSlice"
             },

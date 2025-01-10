@@ -141,6 +141,93 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "titleAndSubtitle",
+      "name": "Title and Subtitle",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "small_title": {
+          "type": "Text",
+          "config": {
+            "label": "Small Title",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "data": {
+          "type": "Group",
+          "config": {
+            "label": "Data",
+            "repeat": true,
+            "fields": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
+                }
+              },
+              "isanimatedicon": {
+                "type": "Boolean",
+                "config": {
+                  "label": "isAnimatedIcon",
+                  "default_value": false,
+                  "placeholder_true": "true",
+                  "placeholder_false": "false"
+                }
+              },
+              "animated_icon_json_format": {
+                "type": "Text",
+                "config": {
+                  "label": "Animated Icon JSON format",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "asset": {
+          "type": "Image",
+          "config": {
+            "label": "asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

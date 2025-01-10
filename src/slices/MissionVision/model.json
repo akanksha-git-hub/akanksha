@@ -539,6 +539,46 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "simpleVersion",
+      "name": "SimpleVersion",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
