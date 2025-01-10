@@ -2378,7 +2378,12 @@ export type NotificationBarDocument<Lang extends string = string> =
     Lang
   >;
 
-type OurApproachDocumentDataSlicesSlice = SliderShowcaseSlice | PageTitleSlice;
+type OurApproachDocumentDataSlicesSlice =
+  | ProgramShowcaseSlice
+  | CardShuffleSlice
+  | FlagshipHeroSlice
+  | SliderShowcaseSlice
+  | PageTitleSlice;
 
 /**
  * Content for Our Approach documents
@@ -6076,11 +6081,70 @@ export type FlagshipHeroSliceSectionHero = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *FlagshipHero → small description → Primary*
+ */
+export interface FlagshipHeroSliceSmallDescriptionPrimary {
+  /**
+   * Main title field in *FlagshipHero → small description → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.smallDescription.primary.main_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_title: prismic.KeyTextField;
+
+  /**
+   * Description1 field in *FlagshipHero → small description → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.smallDescription.primary.description1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description1: prismic.KeyTextField;
+
+  /**
+   * Image A field in *FlagshipHero → small description → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.smallDescription.primary.image_a
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_a: prismic.ImageField<never>;
+
+  /**
+   * Image B field in *FlagshipHero → small description → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.smallDescription.primary.image_b
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_b: prismic.ImageField<never>;
+}
+
+/**
+ * small description variation for FlagshipHero Slice
+ *
+ * - **API ID**: `smallDescription`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FlagshipHeroSliceSmallDescription = prismic.SharedSliceVariation<
+  "smallDescription",
+  Simplify<FlagshipHeroSliceSmallDescriptionPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *FlagshipHero*
  */
 type FlagshipHeroSliceVariation =
   | FlagshipHeroSliceDefault
-  | FlagshipHeroSliceSectionHero;
+  | FlagshipHeroSliceSectionHero
+  | FlagshipHeroSliceSmallDescription;
 
 /**
  * FlagshipHero Shared Slice
@@ -9441,6 +9505,41 @@ export interface ProgramShowcaseSliceWithButtonPrimaryProgramShowcaseContentItem
 }
 
 /**
+ * Item in *ProgramShowcase → our Approach Page → Primary → Program Showcase Content*
+ */
+export interface ProgramShowcaseSliceOurApproachPagePrimaryProgramShowcaseContentItem {
+  /**
+   * Image field in *ProgramShowcase → our Approach Page → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.ourApproachPage.primary.program_showcase_content[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Quote field in *ProgramShowcase → our Approach Page → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.ourApproachPage.primary.program_showcase_content[].quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField;
+
+  /**
+   * Asset field in *ProgramShowcase → our Approach Page → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.ourApproachPage.primary.program_showcase_content[].asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *ProgramShowcase → Default → Primary*
  */
 export interface ProgramShowcaseSliceDefaultPrimary {
@@ -9651,13 +9750,54 @@ export type ProgramShowcaseSliceWithButton = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ProgramShowcase → our Approach Page → Primary*
+ */
+export interface ProgramShowcaseSliceOurApproachPagePrimary {
+  /**
+   * title field in *ProgramShowcase → our Approach Page → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.ourApproachPage.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Program Showcase Content field in *ProgramShowcase → our Approach Page → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.ourApproachPage.primary.program_showcase_content[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  program_showcase_content: prismic.GroupField<
+    Simplify<ProgramShowcaseSliceOurApproachPagePrimaryProgramShowcaseContentItem>
+  >;
+}
+
+/**
+ * our Approach Page variation for ProgramShowcase Slice
+ *
+ * - **API ID**: `ourApproachPage`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProgramShowcaseSliceOurApproachPage = prismic.SharedSliceVariation<
+  "ourApproachPage",
+  Simplify<ProgramShowcaseSliceOurApproachPagePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *ProgramShowcase*
  */
 type ProgramShowcaseSliceVariation =
   | ProgramShowcaseSliceDefault
   | ProgramShowcaseSliceOptionB
   | ProgramShowcaseSliceOptionC
-  | ProgramShowcaseSliceWithButton;
+  | ProgramShowcaseSliceWithButton
+  | ProgramShowcaseSliceOurApproachPage;
 
 /**
  * ProgramShowcase Shared Slice
@@ -11824,9 +11964,11 @@ declare module "@prismicio/client" {
       FlagshipHeroSlice,
       FlagshipHeroSliceDefaultPrimary,
       FlagshipHeroSliceSectionHeroPrimary,
+      FlagshipHeroSliceSmallDescriptionPrimary,
       FlagshipHeroSliceVariation,
       FlagshipHeroSliceDefault,
       FlagshipHeroSliceSectionHero,
+      FlagshipHeroSliceSmallDescription,
       FrequentlyAskedQuestionsSlice,
       FrequentlyAskedQuestionsSliceDefaultPrimaryFaqItem,
       FrequentlyAskedQuestionsSliceDefaultPrimary,
@@ -11955,11 +12097,14 @@ declare module "@prismicio/client" {
       ProgramShowcaseSliceOptionCPrimary,
       ProgramShowcaseSliceWithButtonPrimaryProgramShowcaseContentItem,
       ProgramShowcaseSliceWithButtonPrimary,
+      ProgramShowcaseSliceOurApproachPagePrimaryProgramShowcaseContentItem,
+      ProgramShowcaseSliceOurApproachPagePrimary,
       ProgramShowcaseSliceVariation,
       ProgramShowcaseSliceDefault,
       ProgramShowcaseSliceOptionB,
       ProgramShowcaseSliceOptionC,
       ProgramShowcaseSliceWithButton,
+      ProgramShowcaseSliceOurApproachPage,
       RetentionSlice,
       RetentionSliceDefaultPrimary,
       RetentionSliceVariation,
