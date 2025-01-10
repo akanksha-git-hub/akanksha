@@ -15,18 +15,18 @@ const CardShuffle = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="mb-64"
     >
-      <SliceIdentifier 
-        text={slice.primary.slice_identifier}
-      />
+      {slice.primary.slice_identifier && (
+  <SliceIdentifier text={slice.primary.slice_identifier} />
+)}
       <div className="font-ambit-regular mt-12 space-y-4">
-        <RichText 
+      {slice.primary.heading_small && <RichText 
           text={slice.primary.heading_small}
           className='text-black text-3xl text-center flex items-center justify-center'
-          />
-        <RichText 
+          />}
+         {slice.primary.heading_big &&<RichText 
           text={slice.primary.heading_big}
           className='text-black  text-6xl text-center mx-auto max-w-[36ch]'
-        />
+        />}
       </div>
       {slice.variation === "default" && (
         <Shuffle 
