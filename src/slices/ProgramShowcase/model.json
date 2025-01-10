@@ -323,6 +323,56 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "ourApproachPage",
+      "name": "our Approach Page",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "program_showcase_content": {
+          "type": "Group",
+          "config": {
+            "label": "Program Showcase Content",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "quote": {
+                "type": "Text",
+                "config": {
+                  "label": "Quote",
+                  "placeholder": ""
+                }
+              },
+              "asset": {
+                "type": "Image",
+                "config": {
+                  "label": "Asset",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
