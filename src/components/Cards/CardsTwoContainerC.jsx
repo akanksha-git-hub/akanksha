@@ -3,20 +3,20 @@ import useDebouncedResize from "@/hooks/useDebouncedResize";
 import CardsTwoDesktopC from "./CardsTwoDesktopC";
 import CardsTwoMobileC from "./CardsTwoMobileC";
 
-export default function CardsTwoContainerC({ data }) {
+export default function CardsTwoContainerC({ cards }) {
 
     const { width } = useDebouncedResize();
 
   return (
     <>
     {
-        width > 1000 ?
+        width > 1400 ?
         <CardsTwoDesktopC
-            data={data}
+            cards={cards}
         />
         :
         <CardsTwoMobileC
-            data={data}
+            cards={cards}
         />
     }
     </>
