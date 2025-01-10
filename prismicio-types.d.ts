@@ -2924,6 +2924,7 @@ export type PrivacyPolicyDocument<Lang extends string = string> =
   >;
 
 type ProjectSetuDocumentDataSlicesSlice =
+  | MissionVisionSlice
   | SliderShowcaseSlice
   | TestimonialSlice
   | CardShowcaseSlice
@@ -5591,13 +5592,182 @@ export type CardsSliceOptionD = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Cards → withUnderline → Primary*
+ */
+export interface CardsSliceWithUnderlinePrimary {
+  /**
+   * Slice Identifier field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Card A title field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.card_a_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_title: prismic.KeyTextField;
+
+  /**
+   * Card B Title field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.card_b_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_title: prismic.KeyTextField;
+
+  /**
+   * sparkles_left field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.sparkles_left
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  sparkles_left: prismic.ImageField<never>;
+
+  /**
+   * sparkles_right field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.sparkles_right
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  sparkles_right: prismic.ImageField<never>;
+
+  /**
+   * left_asset field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.left_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_asset: prismic.ImageField<never>;
+
+  /**
+   * right_asset field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.right_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_asset: prismic.ImageField<never>;
+
+  /**
+   * left_shading field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.left_shading
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_shading: prismic.ImageField<never>;
+
+  /**
+   * right_shading field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.right_shading
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_shading: prismic.ImageField<never>;
+
+  /**
+   * Card A Image field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.card_a_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_a_image: prismic.ImageField<never>;
+
+  /**
+   * Card B Image field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.card_b_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_b_image: prismic.ImageField<never>;
+
+  /**
+   * card_a_description field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.card_a_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_a_description: prismic.RichTextField;
+
+  /**
+   * card_b_description field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.withUnderline.primary.card_b_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_b_description: prismic.RichTextField;
+}
+
+/**
+ * withUnderline variation for Cards Slice
+ *
+ * - **API ID**: `withUnderline`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceWithUnderline = prismic.SharedSliceVariation<
+  "withUnderline",
+  Simplify<CardsSliceWithUnderlinePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Cards*
  */
 type CardsSliceVariation =
   | CardsSliceDefault
   | CardsSliceOptionB
   | CardsSliceOptionC
-  | CardsSliceOptionD;
+  | CardsSliceOptionD
+  | CardsSliceWithUnderline;
 
 /**
  * Cards Shared Slice
@@ -6299,6 +6469,31 @@ export interface IconScrollShowcaseSliceHorizontalVariantPrimaryItemsItem {
 }
 
 /**
+ * Item in *IconScrollShowcase → Modern → Primary → items*
+ */
+export interface IconScrollShowcaseSliceModernPrimaryItemsItem {
+  /**
+   * image field in *IconScrollShowcase → Modern → Primary → items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.modern.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * text field in *IconScrollShowcase → Modern → Primary → items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.modern.primary.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *IconScrollShowcase → Default → Primary*
  */
 export interface IconScrollShowcaseSliceDefaultPrimary {
@@ -6390,11 +6585,62 @@ export type IconScrollShowcaseSliceHorizontalVariant =
   >;
 
 /**
+ * Primary content in *IconScrollShowcase → Modern → Primary*
+ */
+export interface IconScrollShowcaseSliceModernPrimary {
+  /**
+   * Slice Identifier field in *IconScrollShowcase → Modern → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.modern.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Main title field in *IconScrollShowcase → Modern → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.modern.primary.main_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_title: prismic.KeyTextField;
+
+  /**
+   * items field in *IconScrollShowcase → Modern → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.modern.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<IconScrollShowcaseSliceModernPrimaryItemsItem>
+  >;
+}
+
+/**
+ * Modern variation for IconScrollShowcase Slice
+ *
+ * - **API ID**: `modern`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconScrollShowcaseSliceModern = prismic.SharedSliceVariation<
+  "modern",
+  Simplify<IconScrollShowcaseSliceModernPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *IconScrollShowcase*
  */
 type IconScrollShowcaseSliceVariation =
   | IconScrollShowcaseSliceDefault
-  | IconScrollShowcaseSliceHorizontalVariant;
+  | IconScrollShowcaseSliceHorizontalVariant
+  | IconScrollShowcaseSliceModern;
 
 /**
  * IconScrollShowcase Shared Slice
@@ -6521,6 +6767,62 @@ export interface IconShowcaseSliceWithTitlePrimaryDataItem {
 }
 
 /**
+ * Item in *IconShowcase → Title and Subtitle → Primary → Data*
+ */
+export interface IconShowcaseSliceTitleAndSubtitlePrimaryDataItem {
+  /**
+   * Icon field in *IconShowcase → Title and Subtitle → Primary → Data*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.titleAndSubtitle.primary.data[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *IconShowcase → Title and Subtitle → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.titleAndSubtitle.primary.data[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *IconShowcase → Title and Subtitle → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.titleAndSubtitle.primary.data[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * isAnimatedIcon field in *IconShowcase → Title and Subtitle → Primary → Data*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: icon_showcase.titleAndSubtitle.primary.data[].isanimatedicon
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  isanimatedicon: prismic.BooleanField;
+
+  /**
+   * Animated Icon JSON format field in *IconShowcase → Title and Subtitle → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.titleAndSubtitle.primary.data[].animated_icon_json_format
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  animated_icon_json_format: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *IconShowcase → Default → Primary*
  */
 export interface IconShowcaseSliceDefaultPrimary {
@@ -6607,11 +6909,82 @@ export type IconShowcaseSliceWithTitle = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *IconShowcase → Title and Subtitle → Primary*
+ */
+export interface IconShowcaseSliceTitleAndSubtitlePrimary {
+  /**
+   * Slice Identifier field in *IconShowcase → Title and Subtitle → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.titleAndSubtitle.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Small Title field in *IconShowcase → Title and Subtitle → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.titleAndSubtitle.primary.small_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_title: prismic.KeyTextField;
+
+  /**
+   * Title field in *IconShowcase → Title and Subtitle → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.titleAndSubtitle.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Data field in *IconShowcase → Title and Subtitle → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.titleAndSubtitle.primary.data[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  data: prismic.GroupField<
+    Simplify<IconShowcaseSliceTitleAndSubtitlePrimaryDataItem>
+  >;
+
+  /**
+   * asset field in *IconShowcase → Title and Subtitle → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.titleAndSubtitle.primary.asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
+}
+
+/**
+ * Title and Subtitle variation for IconShowcase Slice
+ *
+ * - **API ID**: `titleAndSubtitle`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconShowcaseSliceTitleAndSubtitle = prismic.SharedSliceVariation<
+  "titleAndSubtitle",
+  Simplify<IconShowcaseSliceTitleAndSubtitlePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *IconShowcase*
  */
 type IconShowcaseSliceVariation =
   | IconShowcaseSliceDefault
-  | IconShowcaseSliceWithTitle;
+  | IconShowcaseSliceWithTitle
+  | IconShowcaseSliceTitleAndSubtitle;
 
 /**
  * IconShowcase Shared Slice
@@ -8000,6 +8373,64 @@ export type MissionVisionSliceProjectRise = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *MissionVision → SimpleVersion → Primary*
+ */
+export interface MissionVisionSliceSimpleVersionPrimary {
+  /**
+   * Slice Identifier field in *MissionVision → SimpleVersion → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.simpleVersion.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *MissionVision → SimpleVersion → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.simpleVersion.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *MissionVision → SimpleVersion → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.simpleVersion.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * image field in *MissionVision → SimpleVersion → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.simpleVersion.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * SimpleVersion variation for MissionVision Slice
+ *
+ * - **API ID**: `simpleVersion`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MissionVisionSliceSimpleVersion = prismic.SharedSliceVariation<
+  "simpleVersion",
+  Simplify<MissionVisionSliceSimpleVersionPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *MissionVision*
  */
 type MissionVisionSliceVariation =
@@ -8010,7 +8441,8 @@ type MissionVisionSliceVariation =
   | MissionVisionSliceOptionE
   | MissionVisionSliceOptionF
   | MissionVisionSliceV2
-  | MissionVisionSliceProjectRise;
+  | MissionVisionSliceProjectRise
+  | MissionVisionSliceSimpleVersion;
 
 /**
  * MissionVision Shared Slice
@@ -8964,6 +9396,51 @@ export interface ProgramShowcaseSliceOptionCPrimaryProgramShowcaseContentItem {
 }
 
 /**
+ * Item in *ProgramShowcase → with Button → Primary → Program Showcase Content*
+ */
+export interface ProgramShowcaseSliceWithButtonPrimaryProgramShowcaseContentItem {
+  /**
+   * heading field in *ProgramShowcase → with Button → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.withButton.primary.program_showcase_content[].heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Image field in *ProgramShowcase → with Button → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.withButton.primary.program_showcase_content[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Quote field in *ProgramShowcase → with Button → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.withButton.primary.program_showcase_content[].quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField;
+
+  /**
+   * Asset field in *ProgramShowcase → with Button → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.withButton.primary.program_showcase_content[].asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *ProgramShowcase → Default → Primary*
  */
 export interface ProgramShowcaseSliceDefaultPrimary {
@@ -9104,12 +9581,83 @@ export type ProgramShowcaseSliceOptionC = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ProgramShowcase → with Button → Primary*
+ */
+export interface ProgramShowcaseSliceWithButtonPrimary {
+  /**
+   * title field in *ProgramShowcase → with Button → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.withButton.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * description field in *ProgramShowcase → with Button → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.withButton.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Program Showcase Content field in *ProgramShowcase → with Button → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.withButton.primary.program_showcase_content[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  program_showcase_content: prismic.GroupField<
+    Simplify<ProgramShowcaseSliceWithButtonPrimaryProgramShowcaseContentItem>
+  >;
+
+  /**
+   * Slice Identifier field in *ProgramShowcase → with Button → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.withButton.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * link field in *ProgramShowcase → with Button → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.withButton.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * with Button variation for ProgramShowcase Slice
+ *
+ * - **API ID**: `withButton`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProgramShowcaseSliceWithButton = prismic.SharedSliceVariation<
+  "withButton",
+  Simplify<ProgramShowcaseSliceWithButtonPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *ProgramShowcase*
  */
 type ProgramShowcaseSliceVariation =
   | ProgramShowcaseSliceDefault
   | ProgramShowcaseSliceOptionB
-  | ProgramShowcaseSliceOptionC;
+  | ProgramShowcaseSliceOptionC
+  | ProgramShowcaseSliceWithButton;
 
 /**
  * ProgramShowcase Shared Slice
@@ -11258,11 +11806,13 @@ declare module "@prismicio/client" {
       CardsSliceOptionBPrimary,
       CardsSliceOptionCPrimary,
       CardsSliceOptionDPrimary,
+      CardsSliceWithUnderlinePrimary,
       CardsSliceVariation,
       CardsSliceDefault,
       CardsSliceOptionB,
       CardsSliceOptionC,
       CardsSliceOptionD,
+      CardsSliceWithUnderline,
       DonationSliceSlice,
       DonationSliceSliceVariation,
       DonationSliceSliceDefault,
@@ -11297,17 +11847,23 @@ declare module "@prismicio/client" {
       IconScrollShowcaseSliceDefaultPrimary,
       IconScrollShowcaseSliceHorizontalVariantPrimaryItemsItem,
       IconScrollShowcaseSliceHorizontalVariantPrimary,
+      IconScrollShowcaseSliceModernPrimaryItemsItem,
+      IconScrollShowcaseSliceModernPrimary,
       IconScrollShowcaseSliceVariation,
       IconScrollShowcaseSliceDefault,
       IconScrollShowcaseSliceHorizontalVariant,
+      IconScrollShowcaseSliceModern,
       IconShowcaseSlice,
       IconShowcaseSliceDefaultPrimaryDataItem,
       IconShowcaseSliceDefaultPrimary,
       IconShowcaseSliceWithTitlePrimaryDataItem,
       IconShowcaseSliceWithTitlePrimary,
+      IconShowcaseSliceTitleAndSubtitlePrimaryDataItem,
+      IconShowcaseSliceTitleAndSubtitlePrimary,
       IconShowcaseSliceVariation,
       IconShowcaseSliceDefault,
       IconShowcaseSliceWithTitle,
+      IconShowcaseSliceTitleAndSubtitle,
       ImageShowcaseSlice,
       ImageShowcaseSliceDefaultPrimaryImagesItem,
       ImageShowcaseSliceDefaultPrimary,
@@ -11344,6 +11900,7 @@ declare module "@prismicio/client" {
       MissionVisionSliceOptionFPrimary,
       MissionVisionSliceV2Primary,
       MissionVisionSliceProjectRisePrimary,
+      MissionVisionSliceSimpleVersionPrimary,
       MissionVisionSliceVariation,
       MissionVisionSliceDefault,
       MissionVisionSliceReverseVideoComponet,
@@ -11353,6 +11910,7 @@ declare module "@prismicio/client" {
       MissionVisionSliceOptionF,
       MissionVisionSliceV2,
       MissionVisionSliceProjectRise,
+      MissionVisionSliceSimpleVersion,
       MissionVisionShowcaseSlice,
       MissionVisionShowcaseSliceDefaultPrimary,
       MissionVisionShowcaseSliceVariation,
@@ -11395,10 +11953,13 @@ declare module "@prismicio/client" {
       ProgramShowcaseSliceOptionBPrimary,
       ProgramShowcaseSliceOptionCPrimaryProgramShowcaseContentItem,
       ProgramShowcaseSliceOptionCPrimary,
+      ProgramShowcaseSliceWithButtonPrimaryProgramShowcaseContentItem,
+      ProgramShowcaseSliceWithButtonPrimary,
       ProgramShowcaseSliceVariation,
       ProgramShowcaseSliceDefault,
       ProgramShowcaseSliceOptionB,
       ProgramShowcaseSliceOptionC,
+      ProgramShowcaseSliceWithButton,
       RetentionSlice,
       RetentionSliceDefaultPrimary,
       RetentionSliceVariation,
