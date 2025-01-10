@@ -69,6 +69,62 @@ const FlagshipHero = ({ slice }) => {
         </section>
       );
     }
+    if (slice.variation === "smallDescription") {
+      return (
+        <section
+          data-slice-type={slice.slice_type}
+          data-slice-variation={slice.variation}
+          className="relative mb-24"
+        >
+        
+        <div className="flex flex-col items-center justify-center space-y-12 mt-32">
+  <RichText 
+    text={slice.primary.main_title}
+    className="font-ambit-regular text-black sm:text-center text-7xl max-w-[20ch]"
+  />
+  <RichText 
+    text={slice.primary.description1}
+    className="font-ambit-regular text-black sm:text-center text-lg w-full max-w-[60ch]"
+  />
+   <RichText 
+    text={slice.primary.description2}
+    className="font-ambit-regular text-black sm:text-center text-lg w-full max-w-[60ch]"
+  />
+</div>
+
+{/* Top left image */}
+<div
+  className="hidden xl:block absolute -top-[50%] left-[10%]  md:h-[280px] md:w-[120px] lg:h-[350px] w-[200px]  lg:w-[200px] xl:w-[200px] -z-10"
+>
+  <PrismicNextImage 
+    field={slice.primary.image_a}
+    className="h-full w-full object-contain"
+    height={1800}
+    width={1800}
+  />
+</div>
+
+{/* Bottom right image */}
+<div
+  className="hidden xl:block absolute -bottom-[10px] -right-[20px]  md:h-[260px] md:w-[350px] lg:h-[400px] w-[300px]  lg:w-[200px] -z-10"
+>
+  <PrismicNextImage 
+    field={slice.primary.image_b}
+    className="h-full w-full object-contain"
+    height={1800}
+    width={1800}
+  />
+</div>
+
+      
+    
+        </section>
+      );
+    }
+
+
+
+
   return (
     <section
       data-slice-type={slice.slice_type}

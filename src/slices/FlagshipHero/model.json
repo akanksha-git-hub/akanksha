@@ -136,6 +136,47 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "smallDescription",
+      "name": "small description",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "main_title": {
+          "type": "Text",
+          "config": {
+            "label": "Main title",
+            "placeholder": ""
+          }
+        },
+        "description1": {
+          "type": "Text",
+          "config": {
+            "label": "Description1",
+            "placeholder": ""
+          }
+        },
+        "image_a": {
+          "type": "Image",
+          "config": {
+            "label": "Image A",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_b": {
+          "type": "Image",
+          "config": {
+            "label": "Image B",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
