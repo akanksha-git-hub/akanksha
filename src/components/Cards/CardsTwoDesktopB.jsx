@@ -9,6 +9,8 @@ export default function CardsTwoDesktopB({ data }) {
     const handleMouseHover = (i) => setActive(() => i)
 
   return (
+
+
     <ul className="flex items-center justify-center gap-4 xl:gap-4 my-24 relative  ">
           
         {data.map((item, i) => {
@@ -71,15 +73,19 @@ export default function CardsTwoDesktopB({ data }) {
                             </p>
                             
                         </div>
-                        <div className={`absolute  -bottom-[15px] ${i === 0 ? 'rotate-[4deg]' : 'rotate-[4deg]'} left-0`}>
-      {i === 0 && item.left_shading && (
-        <PrismicNextImage field={item.left_asset} />
-      )}
-      {i === 1 && item.right_shading && (
-        <PrismicNextImage field={item.right_asset} />
-      )}
-    </div>
-                    
+                        <div className={`absolute -bottom-[25px] ${i === 0 ? "rotate-[4deg]" : "rotate-[4deg]"} left-0`}>
+                        {console.log("Left Asset:", item.left_asset)}
+                        {i === 0 && (
+    <>
+      {console.log("Left Asset:", item.left_asset)} {/* Log for debugging */}
+      {item.left_asset && <PrismicNextImage field={item.left_asset} />}
+    </>
+  )}
+  {i === 1 && item.right_asset && (
+    <PrismicNextImage field={item.right_asset} />
+  )}
+</div>
+
                        
                     </div>
 

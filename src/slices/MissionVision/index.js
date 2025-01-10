@@ -193,6 +193,114 @@ const MissionVision = ({ slice,context }) => {
       </section>
     );
   }
+  if (slice.variation === "simpleVersion") {
+    const { removePagePadding } = context;
+    return (
+      
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        // className={`${
+        //   removePagePadding ? " " : "universal-padding"
+        // } mt-20`}
+        className=""
+      >
+        <SliceIdentifier text={slice.primary.slice_identifier} />
+        <div className="flex flex-col md:flex-row mt-20 items-center justify-between">
+        <div className="flex w-[100%] md:w-[50%]">
+
+              <PrismicImage
+                field={slice.primary.image}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="flex w-[100%] md:w-[50%]    ">
+              <div className="flex-col w-full h-full md:px-12 my-6 md:my-0" >
+                <p className="text-7xl w-[80%]" >
+                  {slice.primary.title}
+                </p>
+                <p className="text-2xl mt-6">
+                  {slice.primary.description}
+                </p>
+
+              </div>
+
+            </div>
+
+
+        </div>
+      </section>
+    );
+  }
+  if (slice.variation === "projectRise") {
+    return (
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="universal-padding mt-0"
+      >
+        <SliceIdentifier text={slice.primary.slice_identifier} />
+
+        <div className="relative w-full h-full p-6 md:p-14 mt-12 md:mt-24">
+          {/* Background Image */}
+          <PrismicImage
+            field={slice.primary.bg_image}
+            className="absolute inset-0 w-full h-full object-cover -z-10"
+          />
+
+          {/* Content Container */}
+          <div className="flex flex-col xl:flex-row h-full">
+            {/* Left Image (Hidden below 1300px) */}
+            <div className="flex-1 relative transform transition-transform duration-500 sm:rotate-0 rotate-12 xl:block hidden">
+              <PrismicImage
+                field={slice.primary.left_image}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Center Images */}
+            <div className="flex flex-col flex-1">
+              <div className="flex-1">
+                <PrismicImage
+                  field={slice.primary.center_image_1}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 bg-black text-white flex flex-col items-center justify-center p-4">
+                <h2 className=" font-ambit-regular text-4xl md:text-7xl font-semibold mb-4">
+                  {slice.primary.title}
+                </h2>
+
+                <p className="text-center text-sm md:text-lg mb-6 md:mb-12 w-full md:w-[30ch] font-ambit-regular">
+                  {slice.primary.description}
+                </p>
+
+                <div className="flex flex-col md:flex-row w-full justify-center items-center gap-6">
+                  <Button className="w-full md:w-auto">Learn More</Button>
+                  <TextCTA
+                    hasUnderLine
+                    className="font-inter text-sm md:text-base w-full md:w-auto"
+                    bgColor="bg-white"
+                    text="Donate"
+                    textColor="text-white"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Right Image (Hidden below 1300px) */}
+            <div className="flex-1 relative transform transition-transform duration-500 sm:rotate-0 -rotate-12 xl:block hidden">
+              <PrismicImage
+                field={slice.primary.right_image}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
   return (
     <section
       data-slice-type={slice.slice_type}

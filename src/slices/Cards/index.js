@@ -1,6 +1,7 @@
 import CardsContainer from "@/components/Cards/CardsContainer";
 import CardsTwoContainer from "@/components/Cards/CardsTwoContainer";
 import CardsTwoContainerB from "@/components/Cards/CardsTwoContainerB";
+import CardsTwoContainerC from "@/components/Cards/CardsTwoContainerC";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import RichText from "@/components/Texts/RichText";
 import { PrismicNextImage } from "@prismicio/next";
@@ -82,6 +83,24 @@ const Cards = ({ slice }) => {
       },
     ]
   }
+  if (slice.variation === "withUnderline") {
+  cards = [
+    {
+      title: slice.primary.card_a_title,
+      desc: slice.primary.card_a_description,
+      sparkles_left: slice.primary.sparkles_left,
+      left_shading: slice.primary.left_shading,
+      card_image: slice.primary.card_a_image,
+    },
+    {
+      title: slice.primary.card_b_title,
+      desc: slice.primary.card_b_description,
+      sparkles_right: slice.primary.sparkles_right,
+      right_shading: slice.primary.left_shading,
+      card_image: slice.primary.card_b_image,
+    },
+  ];
+  }
 
   return (
     <section
@@ -127,6 +146,14 @@ const Cards = ({ slice }) => {
           data={cards}
         />
         </>
+      )}
+
+       {slice.variation === "withUnderline" && (
+        <CardsTwoContainerC 
+          data={cards}
+        />
+        
+
       )}
     </section>
   );
