@@ -5,6 +5,7 @@ import CardsTwoContainerC from "@/components/Cards/CardsTwoContainerC";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import RichText from "@/components/Texts/RichText";
 import { PrismicNextImage } from "@prismicio/next";
+import Image from "next/image";
 
 /**
  * @typedef {import("@prismicio/client").Content.CardsSlice} CardsSlice
@@ -84,6 +85,7 @@ const Cards = ({ slice }) => {
     ]
   }
   if (slice.variation === "withUnderline") {
+    
   cards = [
     {
       title: slice.primary.card_a_title,
@@ -91,6 +93,7 @@ const Cards = ({ slice }) => {
       sparkles_left: slice.primary.sparkles_left,
       left_shading: slice.primary.left_shading,
       card_image: slice.primary.card_a_image,
+      left_asset: slice.primary.left_asset,
     },
     {
       title: slice.primary.card_b_title,
@@ -98,6 +101,7 @@ const Cards = ({ slice }) => {
       sparkles_right: slice.primary.sparkles_right,
       right_shading: slice.primary.left_shading,
       card_image: slice.primary.card_b_image,
+      right_asset: slice.primary.left_asset,
     },
   ];
   }
@@ -106,55 +110,60 @@ const Cards = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-   className="relative" >
-      <SliceIdentifier 
-        text={slice.primary.slice_identifier}
-        className='mb-16'
-      />
-      <div className="flex flex-col xl:flex-row xl:items-center   xl:justify-between space-y-2 xl:space-y-0 xl:space-x-4">
-  <RichText 
-    text={slice.primary.title}
-    className="text-black font-ambit-regular text-6xl md:text-center"
-  />
-  <RichText 
-    text={slice.primary.description}
-    className="text-black font-ambit-regular text-xl md:text-left max-w-[50ch]"
-  />
-</div>
+      className="relative"
+    >
+      <SliceIdentifier text={slice.primary.slice_identifier} className="mb-16" />
 
-      {slice.variation === "default" && (
-        <CardsContainer 
-          cards={cards}
-        />
-      )}
-      {slice.variation === "optionB" && (
-        <CardsTwoContainer 
-          data={cards}
-        />
-      )}
-      {slice.variation === "optionC" && (
-        <CardsTwoContainerB 
-          data={cards}
-        />
-        
-
-      )}
-        {slice.variation === "optionD" && (
-          <>
-          
-        <CardsTwoContainerB 
-          data={cards}
-        />
-        </>
+      {slice.variation !== "withUnderline" && (
+        <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between space-y-2 xl:space-y-0 xl:space-x-4">
+          <RichText
+            text={slice.primary.title}
+            className="text-black font-ambit-regular text-6xl md:text-center"
+          />
+          <RichText
+            text={slice.primary.description}
+            className="text-black font-ambit-regular text-xl md:text-left max-w-[50ch]"
+          />
+        </div>
       )}
 
-       {slice.variation === "withUnderline" && (
-        <CardsTwoContainerC 
-          data={cards}
-        />
-        
+      {slice.variation === "withUnderline" && (
+        <div className="flex flex-col xl:flex-row items-center space-y-6">
+          {/* Title and Description on the Left */}
+          <div className="w-full xl:w-[50%] space-y-6">
+            <RichText
+              text={slice.primary.title}
+              className="text-black font-ambit-regular text-8xl text-left xl:text-center"
+            />
+            <Image
+  src="/underline-orange.svg"
+  height={20}
+  width={20}
+  alt=""
+  className="w-[60%]  md:w-[40%] xl:w-full mt-4"
+  style={{
+    filter:
+      "brightness(0) saturate(100%) invert(54%) sepia(100%) saturate(900%) hue-rotate(-10deg) brightness(100%) contrast(95%)",
+  }}
+/>
 
+            <RichText
+              text={slice.primary.description}
+              className="text-black font-ambit-regular text-xl"
+            />
+          </div>
+
+          {/* Cards on the Right */}
+          <div className="w-full xl:w-[100%]">
+            <CardsTwoContainerC cards={cards} />
+          </div>
+        </div>
       )}
+
+      {slice.variation === "default" && <CardsContainer cards={cards} />}
+      {slice.variation === "optionB" && <CardsTwoContainer data={cards} />}
+      {slice.variation === "optionC" && <CardsTwoContainerB data={cards} />}
+      {slice.variation === "optionD" && <CardsTwoContainerB data={cards} />}
     </section>
   );
 };
