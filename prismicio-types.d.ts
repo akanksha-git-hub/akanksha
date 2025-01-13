@@ -2389,6 +2389,7 @@ export type NotificationBarDocument<Lang extends string = string> =
   >;
 
 type OurApproachDocumentDataSlicesSlice =
+  | StudentVisionSlice
   | ProgramShowcaseSlice
   | CardShuffleSlice
   | FlagshipHeroSlice
