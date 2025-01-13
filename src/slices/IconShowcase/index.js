@@ -163,9 +163,7 @@ const IconShowcase = ({ slice }) => {
     
       )}
       
-     <div
-  className="hidden xl:block absolute -bottom-44 -right-32  xl:h-[550px] xl:w-[550px] -z-10"
->
+     <div className="hidden xl:block absolute -bottom-64 -right-48  xl:h-[900px] xl:w-[900px] -z-10">
   <PrismicNextImage 
     field={slice.primary.asset}
     className="h-full w-full object-contain"
