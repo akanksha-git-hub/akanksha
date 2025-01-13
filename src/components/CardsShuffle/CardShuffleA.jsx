@@ -30,32 +30,32 @@ export default function CardShuffleA({ item, index }) {
               text={item.small_title}
             />
             <RichText
-              className="leading-3 text-xl lg:text-5xl"
+              className="leading-3 text-2xl lg:text-5xl"
               style={{ color: `${cardProps[selectIndex].mainTitle}` }}
               text={item.main_title}
             />
             <RichText
-              className="font-ambit-regular text-sm lg:text-xl max-w-[28ch]"
+              className="font-ambit-regular text-sm lg:text-xl max-w-full"
               style={{ color: `${cardProps[selectIndex].description}` }}
               text={item.description}
             />
           </div>
-          <div className="flex flex-col mt-4 lg:mt-0 space-y-2">
+          {/* <div className="flex flex-col mt-4 lg:mt-0 space-y-2">
             <Button  link={item.cta_link}
             
             strokeColor={`${cardProps[selectIndex].link}`}
             bgColor={`${selectIndex === 0 ? "bg-[#FBDA1D]" : selectIndex === 1 ? "bg-[#37473C]" : "bg-[#FFFBF1]"}`}>
            
           About Us</Button>
-            {/* <TextCTA
+            <TextCTA
               link={item.cta_link}
               hasUnderLine
               text="Read Story"
               style={{ color: `${cardProps[selectIndex].link}` }}
               strokeColor={`${cardProps[selectIndex].link}`}
               bgColor={`${selectIndex === 0 ? "bg-[#FBDA1D]" : selectIndex === 1 ? "bg-[#37473C]" : "bg-[#FFFBF1]"}`}
-            /> */}
-          </div>
+            />
+          </div> */}
         </div>
         <div className="w-full h-[550px] mt-6 lg:mt-0 lg:w-[36%] md:h-full rounded overflow-hidden">
           <PrismicNextImage

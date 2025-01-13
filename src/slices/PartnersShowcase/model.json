@@ -45,6 +45,41 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "wothoutSliceIdentifier",
+      "name": "wothout SliceIdentifier",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "partner_logos": {
+          "type": "Group",
+          "config": {
+            "label": "Partner Logos",
+            "repeat": true,
+            "fields": {
+              "partner_logo": {
+                "type": "Image",
+                "config": {
+                  "label": "Partner Logo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
