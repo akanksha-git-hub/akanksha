@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function CardShuffleB({ item, index }) {
 
-    const { lottieRefs } = useCardsShuffleContext();
+    // const { lottieRefs } = useCardsShuffleContext();
 
     let trackIndex = index;
     const selectIndex = trackIndex % cardProps.length;
@@ -37,18 +37,18 @@ export default function CardShuffleB({ item, index }) {
       />
     </div>
     <RichText
-      className="font-ambit-regular text-sm lg:text-xl max-w-[40ch]"
-      style={{ color: `${cardProps[selectIndex].description}` }}
+      className="font-ambit-regular text-sm lg:text-xl lg:max-w-[40ch]"
+      style={{ color: `${cardProps[selectIndex].description} ` }}
       text={item.description}
     />
   </div>
 
   {/* Right Image */}
-  <div className={`w-full lg:w-1/2 h-full flex lg:items-center justify-center ${index === 1 ? 'lg:pb-4' : 'lg:pr-4'}  border lg:border-none`}>
+  <div className={`w-full lg:w-1/2 h-full flex lg:items-center justify-center ${index === 1   ? 'lg:pb-4' : 'lg:pr-4'} `}>
     <PrismicImage
       field={item.chart_image}
       alt="Chart"
-      className="max-w-full max-h-full object-contain"
+      className="max-w-full max-h-full"
     />
   </div>
 </div>
