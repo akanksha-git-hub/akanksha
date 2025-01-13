@@ -29,13 +29,13 @@ export default function QuoteComponent({ quote, quote_by, storyLink }) {
           bgColor="bg-black"
           textColor="text-black"
         />
-        <TextCTA
+        {/* <TextCTA
           hasUnderLine
           className="font-inter text-sm xl:text-base "
           bgColor="bg-black"
           text="Donate"
           textColor="text-black"
-        />
+        /> */}
         <div className="absolute  bottom-0 left-0  w-full h-[1.25rem]">
           <div className="relative h-full w-full">
             <Image src="/quote-side-down.png" alt="Top Shading" fill />

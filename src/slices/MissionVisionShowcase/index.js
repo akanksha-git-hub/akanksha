@@ -47,10 +47,7 @@ const MissionVisionShowcase = ({ slice }) => {
         slice={slice.primary}
       />
       <div className="description-container  mt-12 space-y-2 flex flex-col 950px:items-center 950px:justify-center">
-        <RichText
-          className="text-left 950px:text-center uppercase text-xl font-ambit-regular text-deep-green"
-          text={activeContent.title}
-        />
+      
         <RichText
           className="text-left 950px:text-center text-deep-green font-ambit-regular text-2xl 950px:text-4xl w-full 950px:w-[80%]"
           text={activeContent.description}
