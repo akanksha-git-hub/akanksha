@@ -26,8 +26,8 @@ const OurTeam = ({ slice }) => {
     >
       <div className="inline-padding">
         <SliceIdentifier 
-          // text={slice.primary.slice_identifier}
-          text="Our board"
+          text={slice.primary.slice_identifier}
+        
         />
       </div>
       <div className="universal-padding no-padding mt-8">

@@ -1,6 +1,6 @@
 "use client"
 
-import { PrismicNextLink } from "@prismicio/next"
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next"
 import { useHeaderDropDownContext } from "./header"
 import Image from "next/image";
 import PencilShading from "@/assets/pencil-shading.svg";
@@ -52,7 +52,15 @@ export default function HeaderDropDown({ drop_down_items, uniqueIdentifier }) {
                                             onClick={() => setDropdownId(null)}
                                         >
                                             <div className="w-full relative right-0 bottom-0 min-h-[260px] rounded bg-[#D9D9D9] group-hover:right-[4px] group-hover:bottom-1 transition-all">
-                                                {/* Add image here */}
+                                           
+                                           
+                                           <PrismicNextImage
+                                                       
+                                                         field={drop_down.image}
+                                                         alt=""
+                                                        
+                                                        />
+                                           
                                             </div>
                                             <p className="mt-2 flex flex-col">
                                                 <span className="text-black group-hover:text-v2-orange text-base font-inter">
@@ -75,10 +83,15 @@ export default function HeaderDropDown({ drop_down_items, uniqueIdentifier }) {
                                             custom-bezier pointer-events-none
                                         "
                                     >
+                                        
+                                         
+                                        
+                                          
+                                        
                                         <div className="h-full w-full relative">
                                             <Image 
                                                 alt="pencil-shading"
-                                                className="object-cover"
+                                                className="object-cover border"
                                                 src={PencilShading}
                                                 fill
                                                 quality={100}

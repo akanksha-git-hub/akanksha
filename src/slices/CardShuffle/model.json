@@ -159,6 +159,14 @@
                   "label": "Animated Icon JSON format",
                   "placeholder": ""
                 }
+              },
+              "chart_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Chart Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
               }
             }
           }
