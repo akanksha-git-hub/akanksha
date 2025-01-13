@@ -63,6 +63,7 @@ const Testimonial = ({ slice }) => {
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}  className="mt-16"      
       >
+         <SliceIdentifier className='mb-12' text={slice.primary.slice_identifier} />
        
        <h1 class="text-7xl text-center font-ambit-regular w-[8ch]  mx-auto">
   {slice.primary.title}
