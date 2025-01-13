@@ -1542,6 +1542,16 @@ export interface HeaderDocumentDataDropDownItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   cta_link: prismic.LinkField;
+
+  /**
+   * image field in *Header → Drop down items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header.drop_down_items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**
@@ -4947,6 +4957,16 @@ export interface CardShuffleSliceOptionBPrimaryItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   animated_icon_json_format: prismic.KeyTextField;
+
+  /**
+   * Chart Image field in *CardShuffle → Option B → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.optionB.primary.items[].chart_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  chart_image: prismic.ImageField<never>;
 }
 
 /**
@@ -9048,6 +9068,21 @@ export interface PartnersShowcaseSliceDefaultPrimaryPartnerLogosItem {
 }
 
 /**
+ * Item in *PartnersShowcase → wothout SliceIdentifier → Primary → Partner Logos*
+ */
+export interface PartnersShowcaseSliceWothoutSliceIdentifierPrimaryPartnerLogosItem {
+  /**
+   * Partner Logo field in *PartnersShowcase → wothout SliceIdentifier → Primary → Partner Logos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners_showcase.wothoutSliceIdentifier.primary.partner_logos[].partner_logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  partner_logo: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *PartnersShowcase → Default → Primary*
  */
 export interface PartnersShowcaseSliceDefaultPrimary {
@@ -9098,9 +9133,52 @@ export type PartnersShowcaseSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *PartnersShowcase → wothout SliceIdentifier → Primary*
+ */
+export interface PartnersShowcaseSliceWothoutSliceIdentifierPrimary {
+  /**
+   * Title field in *PartnersShowcase → wothout SliceIdentifier → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners_showcase.wothoutSliceIdentifier.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Partner Logos field in *PartnersShowcase → wothout SliceIdentifier → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners_showcase.wothoutSliceIdentifier.primary.partner_logos[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  partner_logos: prismic.GroupField<
+    Simplify<PartnersShowcaseSliceWothoutSliceIdentifierPrimaryPartnerLogosItem>
+  >;
+}
+
+/**
+ * wothout SliceIdentifier variation for PartnersShowcase Slice
+ *
+ * - **API ID**: `wothoutSliceIdentifier`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PartnersShowcaseSliceWothoutSliceIdentifier =
+  prismic.SharedSliceVariation<
+    "wothoutSliceIdentifier",
+    Simplify<PartnersShowcaseSliceWothoutSliceIdentifierPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *PartnersShowcase*
  */
-type PartnersShowcaseSliceVariation = PartnersShowcaseSliceDefault;
+type PartnersShowcaseSliceVariation =
+  | PartnersShowcaseSliceDefault
+  | PartnersShowcaseSliceWothoutSliceIdentifier;
 
 /**
  * PartnersShowcase Shared Slice
@@ -12090,8 +12168,11 @@ declare module "@prismicio/client" {
       PartnersShowcaseSlice,
       PartnersShowcaseSliceDefaultPrimaryPartnerLogosItem,
       PartnersShowcaseSliceDefaultPrimary,
+      PartnersShowcaseSliceWothoutSliceIdentifierPrimaryPartnerLogosItem,
+      PartnersShowcaseSliceWothoutSliceIdentifierPrimary,
       PartnersShowcaseSliceVariation,
       PartnersShowcaseSliceDefault,
+      PartnersShowcaseSliceWothoutSliceIdentifier,
       PictureTabSliceSlice,
       PictureTabSliceSliceDefaultPrimaryTabValuesItem,
       PictureTabSliceSliceDefaultPrimaryTabContentItem,
