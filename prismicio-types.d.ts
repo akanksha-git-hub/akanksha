@@ -11092,6 +11092,16 @@ export type TestimonialSliceOptionC = prismic.SharedSliceVariation<
  */
 export interface TestimonialSliceOptionDPrimary {
   /**
+   * Slice Identifier field in *Testimonial → option D → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.optionD.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
    * title field in *Testimonial → option D → Primary*
    *
    * - **Field Type**: Text

@@ -109,6 +109,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
         "title": {
           "type": "Text",
           "config": {
