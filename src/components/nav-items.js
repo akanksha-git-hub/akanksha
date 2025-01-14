@@ -39,7 +39,7 @@ export default function NavItems({ header_link_items = [], uniqueIdentifier = []
           </div>
 
           {/* Middle Section: Non-dropdown items */}
-          <div className="flex items-center gap-8 mx-4 justify-center">
+          <div className="flex items-center gap-8 mx-8 justify-center">
             {nonDropdownItems.map((item) => (
               <TextCTA
                 className="text-deep-green text-lg font-inter hover:opacity-55 transition-all active:scale-95"
