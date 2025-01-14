@@ -9069,15 +9069,15 @@ export interface PartnersShowcaseSliceDefaultPrimaryPartnerLogosItem {
 }
 
 /**
- * Item in *PartnersShowcase → wothout SliceIdentifier → Primary → Partner Logos*
+ * Item in *PartnersShowcase → With Out SliceIdentifier → Primary → Partner Logos*
  */
-export interface PartnersShowcaseSliceWothoutSliceIdentifierPrimaryPartnerLogosItem {
+export interface PartnersShowcaseSliceWithOutSliceIdentifierPrimaryPartnerLogosItem {
   /**
-   * Partner Logo field in *PartnersShowcase → wothout SliceIdentifier → Primary → Partner Logos*
+   * Partner Logo field in *PartnersShowcase → With Out SliceIdentifier → Primary → Partner Logos*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: partners_showcase.wothoutSliceIdentifier.primary.partner_logos[].partner_logo
+   * - **API ID Path**: partners_showcase.withOutSliceIdentifier.primary.partner_logos[].partner_logo
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   partner_logo: prismic.ImageField<never>;
@@ -9134,43 +9134,43 @@ export type PartnersShowcaseSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *PartnersShowcase → wothout SliceIdentifier → Primary*
+ * Primary content in *PartnersShowcase → With Out SliceIdentifier → Primary*
  */
-export interface PartnersShowcaseSliceWothoutSliceIdentifierPrimary {
+export interface PartnersShowcaseSliceWithOutSliceIdentifierPrimary {
   /**
-   * Title field in *PartnersShowcase → wothout SliceIdentifier → Primary*
+   * Title field in *PartnersShowcase → With Out SliceIdentifier → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: partners_showcase.wothoutSliceIdentifier.primary.title
+   * - **API ID Path**: partners_showcase.withOutSliceIdentifier.primary.title
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
 
   /**
-   * Partner Logos field in *PartnersShowcase → wothout SliceIdentifier → Primary*
+   * Partner Logos field in *PartnersShowcase → With Out SliceIdentifier → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: partners_showcase.wothoutSliceIdentifier.primary.partner_logos[]
+   * - **API ID Path**: partners_showcase.withOutSliceIdentifier.primary.partner_logos[]
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   partner_logos: prismic.GroupField<
-    Simplify<PartnersShowcaseSliceWothoutSliceIdentifierPrimaryPartnerLogosItem>
+    Simplify<PartnersShowcaseSliceWithOutSliceIdentifierPrimaryPartnerLogosItem>
   >;
 }
 
 /**
- * wothout SliceIdentifier variation for PartnersShowcase Slice
+ * With Out SliceIdentifier variation for PartnersShowcase Slice
  *
- * - **API ID**: `wothoutSliceIdentifier`
+ * - **API ID**: `withOutSliceIdentifier`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type PartnersShowcaseSliceWothoutSliceIdentifier =
+export type PartnersShowcaseSliceWithOutSliceIdentifier =
   prismic.SharedSliceVariation<
-    "wothoutSliceIdentifier",
-    Simplify<PartnersShowcaseSliceWothoutSliceIdentifierPrimary>,
+    "withOutSliceIdentifier",
+    Simplify<PartnersShowcaseSliceWithOutSliceIdentifierPrimary>,
     never
   >;
 
@@ -9179,7 +9179,7 @@ export type PartnersShowcaseSliceWothoutSliceIdentifier =
  */
 type PartnersShowcaseSliceVariation =
   | PartnersShowcaseSliceDefault
-  | PartnersShowcaseSliceWothoutSliceIdentifier;
+  | PartnersShowcaseSliceWithOutSliceIdentifier;
 
 /**
  * PartnersShowcase Shared Slice
@@ -10736,6 +10736,21 @@ export interface StudentVisionSliceDefaultPrimaryDescriptionItem {
 }
 
 /**
+ * Item in *StudentVision → With BG Image → Primary → description*
+ */
+export interface StudentVisionSliceWithBgImagePrimaryDescriptionItem {
+  /**
+   * desc field in *StudentVision → With BG Image → Primary → description*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.withBgImage.primary.description[].desc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  desc: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *StudentVision → Default → Primary*
  */
 export interface StudentVisionSliceDefaultPrimary {
@@ -10796,9 +10811,81 @@ export type StudentVisionSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *StudentVision → With BG Image → Primary*
+ */
+export interface StudentVisionSliceWithBgImagePrimary {
+  /**
+   * Slice Identifier field in *StudentVision → With BG Image → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.withBgImage.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * title field in *StudentVision → With BG Image → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.withBgImage.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * BG Image field in *StudentVision → With BG Image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.withBgImage.primary.bg_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bg_image: prismic.ImageField<never>;
+
+  /**
+   * image field in *StudentVision → With BG Image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.withBgImage.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * description field in *StudentVision → With BG Image → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.withBgImage.primary.description[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  description: prismic.GroupField<
+    Simplify<StudentVisionSliceWithBgImagePrimaryDescriptionItem>
+  >;
+}
+
+/**
+ * With BG Image variation for StudentVision Slice
+ *
+ * - **API ID**: `withBgImage`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StudentVisionSliceWithBgImage = prismic.SharedSliceVariation<
+  "withBgImage",
+  Simplify<StudentVisionSliceWithBgImagePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *StudentVision*
  */
-type StudentVisionSliceVariation = StudentVisionSliceDefault;
+type StudentVisionSliceVariation =
+  | StudentVisionSliceDefault
+  | StudentVisionSliceWithBgImage;
 
 /**
  * StudentVision Shared Slice
@@ -12169,11 +12256,11 @@ declare module "@prismicio/client" {
       PartnersShowcaseSlice,
       PartnersShowcaseSliceDefaultPrimaryPartnerLogosItem,
       PartnersShowcaseSliceDefaultPrimary,
-      PartnersShowcaseSliceWothoutSliceIdentifierPrimaryPartnerLogosItem,
-      PartnersShowcaseSliceWothoutSliceIdentifierPrimary,
+      PartnersShowcaseSliceWithOutSliceIdentifierPrimaryPartnerLogosItem,
+      PartnersShowcaseSliceWithOutSliceIdentifierPrimary,
       PartnersShowcaseSliceVariation,
       PartnersShowcaseSliceDefault,
-      PartnersShowcaseSliceWothoutSliceIdentifier,
+      PartnersShowcaseSliceWithOutSliceIdentifier,
       PictureTabSliceSlice,
       PictureTabSliceSliceDefaultPrimaryTabValuesItem,
       PictureTabSliceSliceDefaultPrimaryTabContentItem,
@@ -12234,8 +12321,11 @@ declare module "@prismicio/client" {
       StudentVisionSlice,
       StudentVisionSliceDefaultPrimaryDescriptionItem,
       StudentVisionSliceDefaultPrimary,
+      StudentVisionSliceWithBgImagePrimaryDescriptionItem,
+      StudentVisionSliceWithBgImagePrimary,
       StudentVisionSliceVariation,
       StudentVisionSliceDefault,
+      StudentVisionSliceWithBgImage,
       SwirlImageSlice,
       SwirlImageSliceDefaultPrimary,
       SwirlImageSliceVariation,
