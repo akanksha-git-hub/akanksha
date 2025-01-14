@@ -147,7 +147,7 @@ const ProgramShowcase = ({ slice }) => {
           >
             {slice.primary.program_showcase_content.map((item) => (
               <SwiperSlide
-                className="!flex flex-col md:flex-row border- "
+                className="!flex flex-col md:flex-row  "
                 key={item.name}
               >
                 <SwiperClick

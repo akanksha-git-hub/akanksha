@@ -52,6 +52,63 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "withBgImage",
+      "name": "With BG Image",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "bg_image": {
+          "type": "Image",
+          "config": {
+            "label": "BG Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "description": {
+          "type": "Group",
+          "config": {
+            "label": "description",
+            "repeat": true,
+            "fields": {
+              "desc": {
+                "type": "Text",
+                "config": {
+                  "label": "desc",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
