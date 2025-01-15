@@ -11,10 +11,18 @@ export default function CardsTwoMobileB({ data }) {
                 className={`
                     border bg-bright-yellow border-transparent
                     rounded-[10px] px-8 pt-8 pb-16 space-y-2 w-[420px] h-[420px] flex items-center justify-center transition-all
-                    `} 
+                   relative `} 
                 key={i}
             >
                 <div className="space-y-6">
+                             <div className={`absolute w-full -top-[15px] ${i === 0 ? 'rotate-[4deg]' : 'rotate-[4deg]'} left-0 h-[18px]`}>
+                          {i === 0 && item.left_shading && (
+                            <PrismicNextImage field={item.left_shading} />
+                          )}
+                          {i === 1 && item.right_shading && (
+                            <PrismicNextImage field={item.right_shading} />
+                          )}
+                        </div>
                         <div className="flex items-center justify-center">
                                              <PrismicNextImage field={item.card_image} />
                                              </div>
@@ -29,8 +37,22 @@ export default function CardsTwoMobileB({ data }) {
                         >
                             {item.desc}
                         </p>
+                                                <div className={`absolute -bottom-[25px] ${i === 0 ? "rotate-[0deg]" : "rotate-[0deg]"} left-0`}>
+                                                
+                                                {i === 0 && (
+                            <>
+                            
+                              {item.left_asset && <PrismicNextImage field={item.left_asset} />}
+                            </>
+                          )}
+                          {i === 1 && item.right_asset && (
+                            <PrismicNextImage field={item.right_asset} />
+                          )}
+                        </div>
                     </div>
+                    
                 </div>
+
             </li>
         )
 

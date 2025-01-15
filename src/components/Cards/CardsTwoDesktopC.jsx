@@ -95,7 +95,7 @@ export default function CardsTwoDesktopC({ cards }) {
             )}
 
       
-            <div className={`absolute  -bottom-[15px] ${i === 0 ? 'rotate-[4deg]' : 'rotate-[4deg]'} left-0`}>
+            <div className={`absolute  -bottom-[15px] ${i === 0 ? 'rotate-[0deg]' : 'rotate-[0deg]'} left-0`}>
                 {i === 0 && item.left_shading && (
                     
 
