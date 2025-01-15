@@ -140,7 +140,7 @@ const Cards = ({ slice }) => {
   height={20}
   width={20}
   alt=""
-  className="w-[60%]  md:w-[40%] xl:w-full mt-4"
+  className="w-[80%]  md:w-[80%] lg:w-[50%] xl:w-full mt-4"
   style={{
     filter:
       "brightness(0) saturate(100%) invert(54%) sepia(100%) saturate(900%) hue-rotate(-10deg) brightness(100%) contrast(95%)",
