@@ -29,19 +29,25 @@ const CardShowcase = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="my-12"
+      className="my-12 relative"
     >
+      <PrismicNextImage
+              className="absolute hidden xl:block  -left-12  -top-7"
+              field={slice.primary.asset}
+            />
+      
       <SliceIdentifier text={slice.primary.slice_identifier} />
       
-      <div className="flex flex-col 1000pixel:flex-row items-end justify-between bg-white w-full shadow-lg 1000pixel:h-[600px] mt-12 sm:mt-24 pt-8 pr-8 pl-8">
-        <div className="w-full 1000pixel:h-[90%] 1000pixel:w-[40%] flex flex-col justify-between pb-8 space-y-6 1000pixel:space-y-0">
+      <div className="flex flex-col 1000pixel:flex-row items-end justify-between bg-white w-full  1000pixel:h-[600px] mt-12 sm:mt-24 pt-8 pr-8 pl-8 ">
+      
+        <div className="w-full 1000pixel:h-[90%] 1000pixel:w-[40%] flex flex-col justify-end pb-8 space-y-6 1000pixel:space-y-0">
           <RichText
             text={slice.primary.title}
-            className="font-ambit-regular text-deep-green text-5xl w-full"
+            className="font-ambit-regular text-black  text-5xl md:text-7xl w-full"
           />
           <RichText
             text={slice.primary.description}
-            className="font-ambit-regular text-deep-green text-xl w-full"
+            className="font-ambit-regular text-black text-xl w-full"
           />
         </div>
         <div className="h-[320px] md:h-[500px] w-full 1000pixel:h-[90%] 1000pixel:w-[50%] flex items-end">
