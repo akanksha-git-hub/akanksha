@@ -73,11 +73,11 @@ export default function CardsTwoDesktopB({ data }) {
                             </p>
                             
                         </div>
-                        <div className={`absolute -bottom-[25px] ${i === 0 ? "rotate-[4deg]" : "rotate-[4deg]"} left-0`}>
-                        {console.log("Left Asset:", item.left_asset)}
+                        <div className={`absolute -bottom-[25px] ${i === 0 ? "rotate-[0deg]" : "rotate-[0deg]"} left-0`}>
+                        
                         {i === 0 && (
     <>
-      {console.log("Left Asset:", item.left_asset)} {/* Log for debugging */}
+    
       {item.left_asset && <PrismicNextImage field={item.left_asset} />}
     </>
   )}
