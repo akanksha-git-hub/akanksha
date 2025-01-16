@@ -3015,6 +3015,7 @@ export type ProjectSetuDocument<Lang extends string = string> =
   >;
 
 type SchoolProjectDocumentDataSlicesSlice =
+  | StudentVisionSlice
   | SliderShowcaseSlice
   | TestimonialSlice
   | IconShowcaseSlice
@@ -3475,6 +3476,21 @@ export type AllDocumentTypes =
   | WorkWithUsDocument;
 
 /**
+ * Item in *Alumini → Default → Primary → Universities*
+ */
+export interface AluminiSliceDefaultPrimaryUniversitiesItem {
+  /**
+   * Card 2 image field in *Alumini → Default → Primary → Universities*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.universities[].card_2_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_2_image: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *Alumini → Default → Primary*
  */
 export interface AluminiSliceDefaultPrimary {
@@ -3589,36 +3605,6 @@ export interface AluminiSliceDefaultPrimary {
   card2_description: prismic.KeyTextField;
 
   /**
-   * card2_img1 field in *Alumini → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini.default.primary.card2_img1
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  card2_img1: prismic.ImageField<never>;
-
-  /**
-   * card2_img2 field in *Alumini → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini.default.primary.card2_img2
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  card2_img2: prismic.ImageField<never>;
-
-  /**
-   * card2_img3 field in *Alumini → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini.default.primary.card2_img3
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  card2_img3: prismic.ImageField<never>;
-
-  /**
    * card3_fulltime_percentage field in *Alumini → Default → Primary*
    *
    * - **Field Type**: Text
@@ -3667,6 +3653,18 @@ export interface AluminiSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   card3_description: prismic.KeyTextField;
+
+  /**
+   * Universities field in *Alumini → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini.default.primary.universities[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  universities: prismic.GroupField<
+    Simplify<AluminiSliceDefaultPrimaryUniversitiesItem>
+  >;
 }
 
 /**
@@ -12078,6 +12076,7 @@ declare module "@prismicio/client" {
       WorkWithUsDocumentDataSlicesSlice,
       AllDocumentTypes,
       AluminiSlice,
+      AluminiSliceDefaultPrimaryUniversitiesItem,
       AluminiSliceDefaultPrimary,
       AluminiSliceVariation,
       AluminiSliceDefault,

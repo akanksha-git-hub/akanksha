@@ -322,6 +322,28 @@ body {
 .marquee-item-expand {
   width: 36% !important;
 }
+/* Keyframes for seamless marquee animation */
+@keyframes marquee {
+ to{
+  transform: translateX(-50%);
+ }
+}
+.marquee-text {
+  overflow: clip;
+}
+
+/* Apply the animation */
+.animate-marquee {
+  
+  animation: marquee 10s linear infinite; /* Adjust duration for speed */
+  display: flex;
+
+  gap: 1rem; 
+  white-space: nowrap; 
+}
+.animate-marquee > * {
+  flex-shrink: 0; /* Prevent shrinking */
+}
 
 /* Magic section */
 .b-scene-frame {
