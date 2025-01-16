@@ -50,16 +50,16 @@ const CardShowcase = ({ slice }) => {
             className="font-ambit-regular text-black text-xl w-full"
           />
         </div>
-        <div className="h-[320px] md:h-[500px] w-full 1000pixel:h-[90%] 1000pixel:w-[50%] flex items-end">
-          {slice.primary.isanimatedicon && (
+        <div className="h-full  w-full  1000pixel:w-[50%] flex items-end ">
+          {/* {slice.primary.isanimatedicon && (
             <LottieContainer
               className="h-full lg:h-auto 2xl:h-full w-full"
               lottieData={slice.primary.animated_icon_json_format}
             />
-          )}
+          )} */}
           {!slice.primary.isanimatedicon && (
             <PrismicNextImage
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain"
               field={slice.primary.image}
             />
           )}

@@ -39,21 +39,25 @@ const StudentVision = ({ slice }) => {
       <div className="flex flex-col justify-center items-center">
         <h1 className="mt-8 text-7xl font-ambit-regular">{slice.primary.title}</h1>
         
-       <div className="relative  flex items-center justify-center">
+        <div className="relative h-full w-full flex items-center justify-center">
+          <div className="">
         <PrismicNextImage
-          height={800}
-          width={800}
-          field={slice.primary.image}
-          alt=""
-        />
-         <PrismicNextImage
               field={
                 slice.primary.bg_image
               }
               alt="bg-image"
+              
               fill
               className="absolute top-0 left-0 -z-10"
             />
+            </div>
+        <PrismicNextImage
+         height={500}
+         width={500}
+          field={slice.primary.image}
+          alt=""
+        />
+         
 </div>
         {/* Display current description */}
         <p className="text-center w-[50%] font-ambit-regular mt-4">
