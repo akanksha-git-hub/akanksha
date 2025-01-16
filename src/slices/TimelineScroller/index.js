@@ -212,7 +212,7 @@ const TimelineScroller = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="hidden 1000pixel:block mb-52 mt-36 950px:h-[1000px] 950px:overflow-hidden pt-12"
+        className="hidden 1000pixel:block mb-0 mt-36 950px:h-[1000px] 950px:overflow-hidden pt-12 "
         ref={root}
       >
         <div className="w-full relative 950px:h-[600px]">

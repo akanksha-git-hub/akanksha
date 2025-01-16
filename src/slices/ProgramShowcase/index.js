@@ -227,18 +227,15 @@ const ProgramShowcase = ({ slice }) => {
       className="my-24 lg:mb-60 "
     >
       <SliceIdentifier text={slice.primary.slice_identifier} />
-      <div className="flex flex-col xl:flex-row  xl:items-end lg:mt-10">
+      <div className="flex flex-col xl:flex-row  xl:items-center lg:mt-10">
         {/* Title Section */}
-        <div className="w-full xl:w-[40%] text-left ">
+        <div className="w-full xl:w-[40%]    ">
           
           <RichText
             text={slice.primary.title}
-            className="text-black font-ambit-regular text-5xl lg:text-6xl flex lg:text-left max-w-[5ch] lg:mr-auto mt-16 lg:mt-0 "
+            className="text-black font-ambit-regular text-5xl lg:text-6xl flex lg:text-left xl:max-w-[5ch] lg:mr-auto mt-16 lg:mt-0 "
           />
-           <RichText
-            text={slice.primary.description}
-            className="text-black font-ambit-regular text-2xl flex lg:text-left max-w-[35ch] xl:max-w-[15ch] lg:mr-auto mt-10 "
-          />
+          
         </div>
     
         {/* Swiper Section */}
