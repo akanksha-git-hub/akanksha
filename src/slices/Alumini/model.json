@@ -89,30 +89,6 @@
             "placeholder": ""
           }
         },
-        "card2_img1": {
-          "type": "Image",
-          "config": {
-            "label": "card2_img1",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "card2_img2": {
-          "type": "Image",
-          "config": {
-            "label": "card2_img2",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "card2_img3": {
-          "type": "Image",
-          "config": {
-            "label": "card2_img3",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
         "card3_fulltime_percentage": {
           "type": "Text",
           "config": {
@@ -146,6 +122,23 @@
           "config": {
             "label": "card3_description",
             "placeholder": ""
+          }
+        },
+        "universities": {
+          "type": "Group",
+          "config": {
+            "label": "Universities",
+            "repeat": true,
+            "fields": {
+              "card_2_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Card 2 image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
           }
         }
       },

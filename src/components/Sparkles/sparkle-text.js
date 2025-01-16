@@ -185,7 +185,8 @@ export default function SparkleText({ slice, isRight, onContentChange }) {
       {slice.image_a.url ? (
           <>
             <PrismicImage
-              className="image-1-trigger rounded-2xl w-full h-auto max-w-[90%] mx-auto 950px:max-w-none 950px:w-full"
+              className="image-1-trigger rounded-2xl w-full h-auto max-w-[90%] mx-auto 950px:max-w-none 950px:w-full active:scale-95 transition-all hover:cursor-pointer hover:scale-105"
+              onClick={handleClick}
               field={slice.image_a}
               imgixParams={{
                 w: 400,
@@ -218,7 +219,8 @@ export default function SparkleText({ slice, isRight, onContentChange }) {
         <div className="w-full 950px:w-[40%] h-auto relative">
           {slice.image_b.url ? (
             <PrismicImage
-              className="image-2-trigger rounded-2xl h-full w-full"
+              className="image-2-trigger rounded-2xl h-full w-full active:scale-95 transition-all hover:cursor-pointer hover:scale-105"
+              onClick={handleClick}
               field={slice.image_b}
               imgixParams={{
                 w: 400,

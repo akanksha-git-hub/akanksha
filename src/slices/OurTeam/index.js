@@ -13,6 +13,7 @@ import RichText from "@/components/Texts/RichText";
 
 const OurTeam = ({ slice }) => {
 
+
   const marqueeASliceEnd = Math.floor(slice.primary.team_content.length / 2);
 
   const feedMarqueeDataA = slice.primary.team_content.slice(0, marqueeASliceEnd);
@@ -24,6 +25,8 @@ const OurTeam = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="mt-12"
     >
+  
+
       <div className="inline-padding">
         <SliceIdentifier 
           text={slice.primary.slice_identifier}
