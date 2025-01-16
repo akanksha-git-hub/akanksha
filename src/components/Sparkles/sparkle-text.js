@@ -204,11 +204,11 @@ export default function SparkleText({ slice, isRight, onContentChange }) {
           width={200}
         />
       )}
-      <SparkleBig className="sparkle-big absolute hidden md:scale-90 950px:block -top-16 -left-40 2xl:h-24" />
+      {/* <SparkleBig className="sparkle-big absolute hidden md:scale-90 950px:block -top-16 -left-40 2xl:h-24" />
       <SparkleMedium className="sparkle-medium absolute -left-20 -bottom-4 scale-[0.4]" />
       <SparkleMedium className="sparkle-medium absolute -left-[300px] -bottom-4 scale-[0.4]" />
       <SparkleMedium className="sparkle-medium absolute left-3/4 -bottom-16 scale-[0.4]" />
-      <SparkleSmall className="sparkle-small absolute right-32 -top-2/4" />
+      <SparkleSmall className="sparkle-small absolute right-32 -top-2/4" /> */}
       </div>
     </>
   );
@@ -237,9 +237,9 @@ export default function SparkleText({ slice, isRight, onContentChange }) {
                 width={200}
               />            
           )}
-            <SparkleMedium 
+            {/* <SparkleMedium 
               className="sparkle-medium absolute hidden 950px:block top-2/4 -right-96 scale-[0.4]" 
-            />
+            /> */}
             {/* <SparkleSmall className=" sparkle-small absolute -top-16 left-12 950px:top-0 2xl:top-1/4 -translate-y-2/4 950px:-left-[40%] 2xl:-left-44" /> */}
             <TempFillImageComponent 
               src={ButterflyLineA}
