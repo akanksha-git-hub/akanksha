@@ -67,6 +67,40 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "stats",
+      "name": "Stats",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "stats": {
+          "type": "Group",
+          "config": {
+            "label": "Stats",
+            "repeat": true,
+            "fields": {
+              "number": {
+                "type": "Text",
+                "config": {
+                  "label": "number",
+                  "placeholder": ""
+                }
+              },
+              "field": {
+                "type": "Text",
+                "config": {
+                  "label": "field",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
