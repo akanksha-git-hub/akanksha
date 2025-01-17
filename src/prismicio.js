@@ -97,15 +97,15 @@ const routes = [
   },
   {
     type: "project_setu",
-    path: "/flagship-programs/project-setu",
+    path: "/key-programs/project-setu",
   },
   {
     type: "school_project",
-    path: "/flagship-programs/school-project",
+    path: "/key-programs/school-project",
   },
   {
     type: "ase",
-    path: "/flagship-programs/ase",
+    path: "/key-programs/ase",
   },
   {
     type: "privacy_policy",
