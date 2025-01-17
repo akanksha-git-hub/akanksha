@@ -15,7 +15,7 @@ import StoryCircle from "@/components/v2-components/story-circle/story-circle";
  * @param {HeroProps}
  */
 
-let timer = 5000;
+let timer = 8000;
 const INITIAL = {
   currentIndex: 0,
   remainingTime: timer,
