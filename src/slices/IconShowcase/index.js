@@ -262,10 +262,11 @@ const IconShowcase = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding my-12"
+      className="universal-padding "
     >
+       <SliceIdentifier text={slice.primary.slice_identifier}  />
       {slice.primary.data && (
-        <ul className="grid md:grid-cols-2 xl:grid-cols-3">
+        <ul className="grid md:grid-cols-2 xl:grid-cols-3 my-12">
           {slice.primary.data.map((item, index) => {
 
             let LottieData = null;

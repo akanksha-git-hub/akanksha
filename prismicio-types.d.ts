@@ -6981,6 +6981,16 @@ export interface IconShowcaseSliceWithTitleDefaultPrimaryDataItem {
  */
 export interface IconShowcaseSliceDefaultPrimary {
   /**
+   * Slice Identifier field in *IconShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
    * Data field in *IconShowcase → Default → Primary*
    *
    * - **Field Type**: Group
@@ -9086,6 +9096,16 @@ export type PageTitleSliceDefault = prismic.SharedSliceVariation<
  */
 export interface PageTitleSliceSparklePrimary {
   /**
+   * Slice Identifier field in *PageTitle → Sparkle → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.sparkle.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
    * Title field in *PageTitle → Sparkle → Primary*
    *
    * - **Field Type**: Text
@@ -11096,6 +11116,16 @@ export type StudentVisionSlice = prismic.SharedSlice<
  * Primary content in *SwirlImage → Default → Primary*
  */
 export interface SwirlImageSliceDefaultPrimary {
+  /**
+   * Slice Identifier field in *SwirlImage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: swirl_image.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
   /**
    * Image field in *SwirlImage → Default → Primary*
    *

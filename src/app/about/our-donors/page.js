@@ -19,7 +19,7 @@ export default async function Page() {
                     className='text-deep-green font-ambit-regular text-left text-5xl md:text-7xl mt-28 mb-12'
                     text={page.data.title}
                 />
-                <Image 
+                {/* <Image 
                     src='/sparkle_small.svg'
                     alt=""
                     height={30}
@@ -32,7 +32,7 @@ export default async function Page() {
                     height={100}
                     width={100}
                     className="absolute -right-44 md:-right-80 bottom-12 -translate-x-2/4"
-                />
+                /> */}
             </div>
             <SliceZone 
                 slices={page.data.slices}
