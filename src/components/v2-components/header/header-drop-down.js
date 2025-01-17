@@ -59,7 +59,7 @@ export default function HeaderDropDown({ drop_down_items, uniqueIdentifier }) {
                                                          field={drop_down.image}
                                                          alt=""
                                                         
-                                                        />
+                                                         className="object-contain w-full h-full"  />
                                            
                                             </div>
                                             <p className="mt-2 flex flex-col">
