@@ -11,6 +11,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "icon_showcase": {
+              "type": "SharedSlice"
+            },
+            "swirl_image": {
+              "type": "SharedSlice"
+            },
+            "page_title": {
+              "type": "SharedSlice"
+            },
             "student_vision": {
               "type": "SharedSlice"
             },

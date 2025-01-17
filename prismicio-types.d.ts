@@ -3176,6 +3176,9 @@ export type TimelineDocument<Lang extends string = string> =
   >;
 
 type VisionMissionDocumentDataSlicesSlice =
+  | IconShowcaseSlice
+  | SwirlImageSlice
+  | PageTitleSlice
   | StudentVisionSlice
   | CardShowcaseSlice
   | TestimonialSlice
