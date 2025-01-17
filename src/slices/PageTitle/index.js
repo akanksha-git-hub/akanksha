@@ -94,7 +94,7 @@ const PageTitle = ({ slice }) => {
             text={slice.primary.title}
             className={`text-deep-green font-ambit-regular text-7xl ${slice.variation === 'sparkle' ? 'text-left' : 'text-center'} md:text-center w-full sm:w-[70%]`}
           />
-          <SparkleMedium 
+          {/* <SparkleMedium 
             className="absolute -z-10 -top-[70%] md:-top-32 -left-1/4 w-full h-full scale-[0.2] md:scale-[0.4]"
           />
           <SparkleMedium 
@@ -102,7 +102,7 @@ const PageTitle = ({ slice }) => {
           />
           <SparkleMedium 
             className="absolute -z-10 top-0 -right-[20%] w-full h-full scale-[0.2]"
-          />
+          /> */}
           {/* TODO Change Heart Image to prismic later */}
           <Image 
             src={PinkHeart}
