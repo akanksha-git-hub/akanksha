@@ -37,8 +37,11 @@ const IconShowcase = ({ slice }) => {
           />
           <RichText 
             text={slice.primary.title}
-            className='font-ambit-regular text-black text-6xl md:text-8xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto'
-          />
+            className='font-ambit-regular text-black text-5xl md:text-7xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto'
+          />  <RichText 
+          text={slice.primary.description}
+          className='font-ambit-regular text-black text-xl md:text-2xl md:text-left flex md:items-center md:justify-left lg:w-[70%] '
+        />
         </div>
          {slice.primary.data && (
       <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-y-8">

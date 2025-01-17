@@ -32,6 +32,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "flame",
 				"type": "Text"
+			},
+			"main_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "balloon",
+				"type": "Text"
 			}
 		},
 		"items": []
