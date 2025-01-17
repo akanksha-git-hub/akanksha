@@ -6,6 +6,34 @@ import { PrismicNextImage } from "@prismicio/next";
  * @param {ImpactHeroProps}
  */
 const ImpactHero = ({ slice }) => {
+
+  if(slice.variation === 'stats') {
+    return (
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className=" "
+      >
+       
+        
+        
+        <div className="w-[80%]  md:mx-auto ">
+        
+  
+            <div className=" flex flex-wrap md:justify-center justify-start w-full  gap-12">
+              {slice.primary.stats.map((stat, index) => (
+                <div key={index} className="flex flex-col md:items-center py-2">
+                  <p className="text-5xl font-ambit-regular">{stat.number}</p>
+                  <p className="text-lg font-ambit-regular mt-2 ">{stat.field}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        
+      </section>
+    );
+
+  }
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -39,14 +67,14 @@ const ImpactHero = ({ slice }) => {
 
           </p>
 
-          <div className="mt-24 flex flex-wrap md:justify-center justify-start w-full  gap-12">
+          {/* <div className="mt-24 flex flex-wrap md:justify-center justify-start w-full  gap-12">
             {slice.primary.stats.map((stat, index) => (
               <div key={index} className="flex flex-col md:items-center py-2">
                 <p className="text-5xl font-ambit-regular">{stat.number}</p>
                 <p className="text-lg font-ambit-regular mt-2 ">{stat.field}</p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
