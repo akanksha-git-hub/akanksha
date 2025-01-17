@@ -18,7 +18,7 @@ const TabSlice = ({ slice }) => {
           text={slice.primary.title}
           className='text-deep-green font-ambit-regular text-5xl md:text-7xl text-left mt-28'
         />
-        <Image 
+        {/* <Image 
           src='/sparkle_small.svg'
           alt=""
           height={60}
@@ -31,7 +31,7 @@ const TabSlice = ({ slice }) => {
           height={80}
           width={80}
           className="absolute bottom-24 right-12 md:-right-52"
-        />
+        /> */}
       </div>
       <TabContainer 
         slice={slice}
