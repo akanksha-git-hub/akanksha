@@ -176,6 +176,11 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "gain",
+				"type": "Text"
 			}
 		},
 		"items": [

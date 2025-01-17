@@ -7025,6 +7025,16 @@ export interface IconShowcaseSliceWithTitlePrimary {
   title: prismic.KeyTextField;
 
   /**
+   * description field in *IconShowcase → With Title → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.withTitle.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
    * Data field in *IconShowcase → With Title → Primary*
    *
    * - **Field Type**: Group
@@ -7375,6 +7385,16 @@ export type ImpactHeroSlice = prismic.SharedSlice<
  * Primary content in *ImpactKeyStage → Default → Primary*
  */
 export interface ImpactKeyStageSliceDefaultPrimary {
+  /**
+   * Main Heading field in *ImpactKeyStage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_key_stage.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_heading: prismic.KeyTextField;
+
   /**
    * heading1 field in *ImpactKeyStage → Default → Primary*
    *

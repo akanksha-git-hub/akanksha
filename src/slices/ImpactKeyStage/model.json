@@ -12,6 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "main_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Main Heading",
+            "placeholder": ""
+          }
+        },
         "heading1": {
           "type": "Text",
           "config": {

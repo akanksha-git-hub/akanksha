@@ -84,6 +84,13 @@
             "placeholder": ""
           }
         },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "description",
+            "placeholder": ""
+          }
+        },
         "data": {
           "type": "Group",
           "config": {
