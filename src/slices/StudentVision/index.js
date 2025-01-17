@@ -88,7 +88,7 @@ const StudentVision = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding mt-8"
+      className=" mt-8"
     >
       <SliceIdentifier text={slice.primary.slice_identifier} />
 

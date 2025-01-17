@@ -3016,6 +3016,7 @@ export type ProjectSetuDocument<Lang extends string = string> =
   >;
 
 type SchoolProjectDocumentDataSlicesSlice =
+  | ImpactHeroSlice
   | StudentVisionSlice
   | SliderShowcaseSlice
   | TestimonialSlice
@@ -7297,6 +7298,31 @@ export interface ImpactHeroSliceDefaultPrimaryStatsItem {
 }
 
 /**
+ * Item in *ImpactHero → Stats → Primary → Stats*
+ */
+export interface ImpactHeroSliceStatsPrimaryStatsItem {
+  /**
+   * number field in *ImpactHero → Stats → Primary → Stats*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_hero.stats.primary.stats[].number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  number: prismic.KeyTextField;
+
+  /**
+   * field field in *ImpactHero → Stats → Primary → Stats*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_hero.stats.primary.stats[].field
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  field: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *ImpactHero → Default → Primary*
  */
 export interface ImpactHeroSliceDefaultPrimary {
@@ -7365,9 +7391,37 @@ export type ImpactHeroSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ImpactHero → Stats → Primary*
+ */
+export interface ImpactHeroSliceStatsPrimary {
+  /**
+   * Stats field in *ImpactHero → Stats → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_hero.stats.primary.stats[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  stats: prismic.GroupField<Simplify<ImpactHeroSliceStatsPrimaryStatsItem>>;
+}
+
+/**
+ * Stats variation for ImpactHero Slice
+ *
+ * - **API ID**: `stats`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactHeroSliceStats = prismic.SharedSliceVariation<
+  "stats",
+  Simplify<ImpactHeroSliceStatsPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *ImpactHero*
  */
-type ImpactHeroSliceVariation = ImpactHeroSliceDefault;
+type ImpactHeroSliceVariation = ImpactHeroSliceDefault | ImpactHeroSliceStats;
 
 /**
  * ImpactHero Shared Slice
@@ -12330,8 +12384,11 @@ declare module "@prismicio/client" {
       ImpactHeroSlice,
       ImpactHeroSliceDefaultPrimaryStatsItem,
       ImpactHeroSliceDefaultPrimary,
+      ImpactHeroSliceStatsPrimaryStatsItem,
+      ImpactHeroSliceStatsPrimary,
       ImpactHeroSliceVariation,
       ImpactHeroSliceDefault,
+      ImpactHeroSliceStats,
       ImpactKeyStageSlice,
       ImpactKeyStageSliceDefaultPrimary,
       ImpactKeyStageSliceVariation,
