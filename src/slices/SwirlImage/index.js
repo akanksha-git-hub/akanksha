@@ -1,3 +1,4 @@
+import SliceIdentifier from "@/components/SliceIdentifier";
 import { PrismicNextImage } from "@prismicio/next";
 
 /**
@@ -12,6 +13,7 @@ const SwirlImage = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="universal-padding"
     >
+       <SliceIdentifier text={slice.primary.slice_identifier}  />
       <div className="h-[600px] w-full">
         <PrismicNextImage 
           className="h-full w-full object-contain"

@@ -15,7 +15,8 @@ import ButterFlyB from "@/assets/butterfly-B.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function SparkleText({ slice, isRight, onContentChange }) {
+export default function SparkleText({ slice, isRight, onContentChange,isActive,
+ componentName, }) {
   // useEffect(() => {
   //   gsap.fromTo(
   //     ".image-1-trigger",
@@ -176,11 +177,11 @@ export default function SparkleText({ slice, isRight, onContentChange }) {
   
   let content = (
     <>
-      <RichText
-        text={slice.text_a}
-        className="font-ambit-regular text-7xl text-deep-green active:scale-90 transition-all hover:cursor-pointer hover:text-opacity-70"
-        onClick={handleClick}
-      />
+       <RichText
+          text={slice.text_a}
+          className="text-description active:scale-90 transition-all font-ambit-regular text-7xl text-deep-green flex justify-end hover:cursor-pointer hover:text-opacity-70"
+          onClick={handleClick} 
+        />
       <div className="w-full 950px:w-[40%] h-auto relative">
       {slice.image_a.url ? (
           <>

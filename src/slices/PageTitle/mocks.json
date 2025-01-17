@@ -64,6 +64,11 @@
 						}
 					}
 				]
+			},
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "hand",
+				"type": "Text"
 			}
 		},
 		"items": [
