@@ -16,9 +16,11 @@ const DonorHero = ({ slice }) => {
       className="universal-padding mb-64"
     >
       <ScrollText 
+      asset_1 = {slice.primary.asset_1}
+      asset_2 = {slice.primary.asset_2}
         title={slice.primary.title}
         prismicTexts={texts}
-        image={slice.primary.points_image} 
+        
       />
     </section>
   );

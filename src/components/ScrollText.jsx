@@ -8,7 +8,7 @@ import Skeleton from "./Skeleton";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ScrollText({ title, prismicTexts, image }) {
+export default function ScrollText({ title, prismicTexts, asset_2 ,asset_1 }) {
 
     const [onMount, setOnMount] = useState(false);
     const [secondMount, setSecondMount] = useState(false);
@@ -102,18 +102,38 @@ export default function ScrollText({ title, prismicTexts, image }) {
     }, [secondMount]);
 
     return (
-        <div ref={root} className="flex flex-col items-center mt-12">
+        <div ref={root} className="flex flex-col items-center mt-20   ">
            {secondMount ? 
             <>
+            <div className="flex flex-row  items-center">
+            <div className="hidden lg:block">
+        <PrismicNextImage
+            field={asset_1}
+            width={30}
+            height={30}
+            className=" lg:h-[300px] lg:w-[300px]"
+            alt=""
+        />
+    </div>
                 <p className="text-deep-green flex items-center justify-center flex-wrap text-center text-4xl lg:text-7xl w-full lg:w-[20ch]">
                     {title}
                 </p>
+                <div className="hidden lg:block">
+        <PrismicNextImage
+            field={asset_2}
+            width={30}
+            height={30}
+            className=" lg:h-[300px] lg:w-[300px]"
+            alt=""
+        />
+    </div>
+                </div>
                 {texts && texts.length > 0 && (
-                    <div className="relative w-full flex items-center justify-center mt-12">
+                    <div className="relative w-full flex items-center justify-center mt-10">
                         {texts.map((text, index) => (
                             <div className="flex items-start flex-col lg:flex-row lg:items-center w-full xl:w-[800px] gap-4 absolute top-0 left-2/4 -translate-x-2/4" key={index}>
                                 <PrismicNextImage 
-                                    field={image}
+                                    field={text.points_image}
                                     width={30}
                                     height={30}
                                     className="h-[120px] w-[120px] lg:h-[200px] lg:w-[200px]"
