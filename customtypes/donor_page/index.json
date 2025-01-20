@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "card_shuffle": {
+              "type": "SharedSlice"
+            },
             "mission_vision": {
               "type": "SharedSlice"
             },
