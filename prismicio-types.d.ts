@@ -782,6 +782,7 @@ export type DonationPaymentComponentDocument<Lang extends string = string> =
   >;
 
 type DonorPageDocumentDataSlicesSlice =
+  | CardShuffleSlice
   | MissionVisionSlice
   | TiltedCardsSlice
   | DonationSliceSlice
@@ -5860,6 +5861,16 @@ export interface DonorHeroSliceDefaultPrimaryPointsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   point: prismic.KeyTextField;
+
+  /**
+   * Points Image field in *DonorHero → Default → Primary → Points*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: donor_hero.default.primary.points[].points_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  points_image: prismic.ImageField<never>;
 }
 
 /**
@@ -5877,14 +5888,24 @@ export interface DonorHeroSliceDefaultPrimary {
   title: prismic.KeyTextField;
 
   /**
-   * Points Image field in *DonorHero → Default → Primary*
+   * Asset 1 field in *DonorHero → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: donor_hero.default.primary.points_image
+   * - **API ID Path**: donor_hero.default.primary.asset_1
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  points_image: prismic.ImageField<never>;
+  asset_1: prismic.ImageField<never>;
+
+  /**
+   * Asset 2 field in *DonorHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: donor_hero.default.primary.asset_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_2: prismic.ImageField<never>;
 
   /**
    * Points field in *DonorHero → Default → Primary*

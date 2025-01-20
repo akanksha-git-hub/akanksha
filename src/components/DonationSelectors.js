@@ -9,6 +9,9 @@ import { useRouter } from "next/navigation";
 import { Modal } from "./modal";
 import MultiStepForm from "./Multi-StepForm/multi-step-form";
 import { useSmoothScroller } from "./LenisScrollContext";
+import Button from "./v2-components/buttons/button";
+import { PrismicNextImage } from "@prismicio/next";
+import Image from "next/image";
 
 const INITIAL_STATE = {
     type: {
@@ -110,12 +113,22 @@ export default function DonationSelectors({ data }) {
 
     //     const response = await createSubscription(100); // Default to ₹100 for monthly
     //     if (response) router.push(response.data.authLink);
-    // }, [router]);
+    // }, [router]); 
 
   return (
     <>
-    <div className="donation-component bg-cream rounded-[4px] w-full xl:w-2/4 2xl:w-[40%] xl:scale-[1.05] z-20 flex flex-col items-center justify-center pb-6 custom-shadow h-auto 3xl:h-[800px]">
-        <div className="w-[90%]">
+   
+    <div className="donation-component bg-[#F7F7F7] rounded-[4px] w-full relative  z-20 flex flex-col lg:flex-row items-center justify-center p-6 custom-shadow h-auto  ">
+    <Image
+    className="w-full h-[15px] absolute top-0 "
+    src="/quote-side-up.png"
+    width={1200} // Replace with the actual width of the image in pixels
+    height={10} // Replace with the actual height of the image in pixels
+    alt="Quote side up"
+/>
+
+        <div className="flex flex-col items-center justify-center lg:w-[60%]">
+            <div className="w-[90%]">
             {/* Title */}
             <RichText 
                 text={data.title}
@@ -183,7 +196,7 @@ export default function DonationSelectors({ data }) {
                     INR
                 </p>
             </div>
-            <CTA 
+            {/* <CTA 
                 text={active.loading ? 'Loading...' : "Donate and Support"}
                 className={`w-full !text-xl !py-6 mt-6 font-ambit-regular ${isDisabled && ('hover:opacity-60 hover:bg-deep-green hover:text-cream hover:!scale-100 active:scale-95 opacity-60')}`}
                 disabled={isDisabled}
@@ -191,15 +204,28 @@ export default function DonationSelectors({ data }) {
                 //     active.type.isOneTime ? handleDonateOneTime : handleDonateMonthly
                 // }
                 onClick={openModal}
-            />
-            <div className="mt-2">
+            /> */}
+            
+            <Button className={`  !text-xl !py-6 mt-6  ${isDisabled && ('hover:opacity-60 hover:bg-deep-green hover:text-cream hover:!scale-100 active:scale-95  cursor-not-allowed ')}`} disabled={isDisabled} onClick={openModal}>{active.loading ? 'Loading...' : "Donate and Support"}</Button>
+            
+            {/* <div className="mt-2">
                 <Link href="">
                     <p className="relative text-[#9A9A9A] font-ambit-regular w-fit mx-auto flex items-center justify-center hover:opacity-85 custom-bezier active:scale-95">
                         <u>Are you a foreign citizen?</u>
                     </p>
                 </Link>
+                </div> */}
             </div>
         </div>
+        <div className="mt-10 lg:mt-0 lg:block lg:w-1/2 ">
+        <PrismicNextImage 
+                    field={data.image}
+                    alt=""
+                    height={1200}
+                    width={1200}
+                    className="h-full w-full object-cover z-0 rounded-md overflow-hidden"
+                    />
+    </div>
     </div>
     <Modal open={open}>
         <MultiStepForm closeModal={closeModal} />
