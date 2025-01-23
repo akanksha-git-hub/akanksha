@@ -31,11 +31,11 @@ const HorizontalScrollSlice = async ({ slice }) => {
         </p>
       </div>
 
-      <div className="relative h-[160px] mb-12">
+      <div className=" flex items-center justify-center -mb-28 md:-mb-40  ">
         <PrismicImage
           field={slice.primary.image}
           alt={slice.primary.image.alt || "Image"}
-          className="absolute top-0 left-1/2 transform -translate-x-1/2 max-w-[850px] "
+          className="  max-h-[480px]  "
         />
       </div>
       <HorizontalScroll data={data} />
