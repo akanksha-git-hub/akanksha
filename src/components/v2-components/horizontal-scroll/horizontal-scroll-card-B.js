@@ -39,7 +39,7 @@ export default function HorizontalScrollCardB({ item }) {
           {/* State Selector */}
           <div className="mt-4 grid grid-cols-2 gap-2 md:flex md:space-x-2">
             {sortedYears.map((year) => (
-              <div className="relative group active:scale-95 w-fit">
+              <div key={year} className="relative group active:scale-95 w-fit">
                 <button
                   key={year}
                   onClick={() => setSelectedYear(year)}
@@ -91,7 +91,7 @@ export default function HorizontalScrollCardB({ item }) {
             field={item.data.cirlce}
             alt="Card image"
             layout="fill"
-            objectFit=""
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>
