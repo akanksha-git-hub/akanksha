@@ -36,15 +36,14 @@ export default function HorizontalScrollCardC({ item }) {
               key={index}
               style={{ backgroundColor: bgColors[index] }} // Apply background color dynamically
               className={`group w-full h-[80px] sm:h-[120px] ${
-                isHovered ? "lg:h-[350px]  " : ""
+                isHovered ? "lg:h-[350px]" : ""
               } flex items-center justify-center relative cursor-pointer transition-all sm:pt-6 sm:pb-6`}
               onMouseEnter={() => setHoveredIndex(index)} // Update hovered index
-              onMouseLeave={() => setHoveredIndex(0)} // Reset to the first section
             >
               {/* Text and Image Container */}
               <div
                 className={`absolute top-1/2 left-0 right-0 px-4 transform -translate-y-1/2 flex justify-between items-center font-ambit-regular transition-all ${
-                  isHovered ? "lg:top-8  top-8 " : ""
+                  isHovered ? "lg:top-8 top-8" : ""
                 }`}
               >
                 {/* Text */}
