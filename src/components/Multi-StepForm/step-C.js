@@ -3,6 +3,9 @@ import { useCallback, useState } from "react";
 import RichText from "../Texts/RichText";
 import Input from "./input";
 import Data from "../../../countries.json";
+import Button from "../v2-components/buttons/button";
+import Image from "next/image";
+import Arrow from "@/assets/button-arrow.svg";
 
 const INITIAL_STATE = {
   first_name: "",
@@ -111,13 +114,20 @@ export default function StepC({
   const progress = Math.round((currentStep / totalSteps) * 100);
   return (
     <div className="flex flex-col items-center h-full w-full mt-24">
-      <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-baseline items-center  h-full w-full">
+      <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-baseline items-center  h-full w-full  md:ml-24">
         <div className="w-[30%] md:p-10  ">
           <button
-            className="   bg-gray-400 text-black border-black transition-all 
-                                     text-3xl rounded-full !py-6 !px-16"
+            className="bg-gray-400 text-black border-black transition-all 
+             text-xl rounded-full !py-6 !px-8 flex items-center gap-2"
             onClick={() => handleStepProgression(null, "back")}
           >
+            <Image
+              src={Arrow}
+              alt="Left Arrow"
+              width={20}
+              height={20}
+              className="rotate-180"
+            />
             Back
           </button>
         </div>
@@ -294,21 +304,18 @@ export default function StepC({
               </p>
             </div> */}
             <div className="flex flex-col items-center space-y-8 mt-16 pb-24">
-              <button
+              <Button
                 type="submit"
                 className={`
-                                        bg-deep-green text-cream border border-black transition-all 
-                                    w-fit text-3xl rounded-full py-6 px-24 ${
-                                      isDisabled
-                                        ? "opacity-55"
-                                        : `hover:bg-bright-yellow hover:text-deep-green hover:scale-95
-                                    hover:border-black hover:border-solid`
-                                    }
-                                    `}
+                                        bg-deep-green text-black border border-black transition-all 
+                                    w-fit text-3xl rounded-full !py-6 !px-24 ${
+                                      isDisabled &&
+                                      "hover:opacity-60 hover:bg-deep-green hover:text-cream hover:!scale-100 active:scale-95 cursor-not-allowed"
+                                    }`}
                 disabled={isDisabled}
               >
                 Next
-              </button>
+              </Button>
               {/* <p className="text-deep-green font-ambit-semibold text-lg w-full sm:w-[90%] text-center">
                 Akanksha provides an Online Payment Gateway through BillDesk to
                 make your donation to us easy, secure and efficient. The

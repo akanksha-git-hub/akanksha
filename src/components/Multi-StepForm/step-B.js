@@ -1,6 +1,8 @@
 import { useCallback, useState } from "react";
 import RichText from "../Texts/RichText";
 import Button from "../v2-components/buttons/button";
+import Arrow from "@/assets/button-arrow.svg";
+import Image from "next/image";
 
 export default function StepB({
   handleStepProgression,
@@ -47,10 +49,17 @@ export default function StepB({
       <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-baseline items-center  h-full w-full ">
         <div className="md:w-[30%]  w-full md:p-10  ">
           <button
-            className="   bg-gray-400 text-black border-black transition-all 
-                                           text-3xl rounded-full !py-6 !px-16"
+            className="bg-gray-400 text-black border-black transition-all 
+                       text-xl rounded-full !py-6 !px-8 flex items-center gap-2"
             onClick={() => handleStepProgression(null, "back")}
           >
+            <Image
+              src={Arrow}
+              alt="Left Arrow"
+              width={20}
+              height={20}
+              className="rotate-180"
+            />
             Back
           </button>
         </div>
