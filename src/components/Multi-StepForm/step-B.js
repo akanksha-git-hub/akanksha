@@ -102,8 +102,8 @@ export default function StepB({
         </p>
         <Button
           type="submit"
-          className=" bg-deep-green text-black border-black transition-all 
-                                     text-3xl rounded-full !py-6 !px-24 
+          className=" bg-deep-green text-black  border-black transition-all 
+                                     md:!text-3xl rounded-full !py-6 !px-24 
                                      
                                       "
         >
