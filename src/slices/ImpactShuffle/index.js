@@ -4,7 +4,7 @@ import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
  * @typedef {import("@prismicio/react").SliceComponentProps<ImpactShuffleSlice>} ImpactShuffleProps
  * @param {ImpactShuffleProps}
  */
-import ShuffleMix from '@/components/CardsShuffle/ShuffleMix';
+import ShuffleMix from "@/components/CardsShuffle/ShuffleMix";
 
 const ImpactShuffle = async ({ slice }) => {
   const cardA = await fetchPrismicSingleDocument("impactcardshuffleone");
@@ -16,7 +16,6 @@ const ImpactShuffle = async ({ slice }) => {
   }
 
   const data = [cardA, cardB];
-  console.log("Data passed to ShuffleMix:", data); // Debug log
 
   return (
     <section
