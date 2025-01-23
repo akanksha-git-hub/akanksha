@@ -308,7 +308,7 @@ export default function StepC({
                 type="submit"
                 className={`
                                         bg-deep-green text-black border border-black transition-all 
-                                    w-fit text-3xl rounded-full !py-6 !px-24 ${
+                                    w-fit md:!text-3xl rounded-full !py-6 !px-24 ${
                                       isDisabled &&
                                       "hover:opacity-60 hover:bg-deep-green hover:text-cream hover:!scale-100 active:scale-95 cursor-not-allowed"
                                     }`}
