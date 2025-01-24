@@ -15,11 +15,13 @@ const CardShuffle = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`${addPadding ? "universal-padding" : ""} mb-64`}
+      className="mb-64"
     >
-      {slice.primary.slice_identifier && (
-        <SliceIdentifier text={slice.primary.slice_identifier} />
-      )}
+      <div className={`${addPadding ? "universal-padding" : " "}`}>
+        {slice.primary.slice_identifier && (
+          <SliceIdentifier text={slice.primary.slice_identifier} />
+        )}
+      </div>
       <div className="font-ambit-regular mt-12 space-y-4">
         {slice.primary.heading_small && (
           <RichText
