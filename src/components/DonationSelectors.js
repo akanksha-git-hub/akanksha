@@ -226,7 +226,7 @@ export default function DonationSelectors({ data }) {
 
           <div className="">
             <Button
-              className={` !py-6 !px-20 xl:!px-48 mt-6 ${
+              className={` !py-6 !px-20 xl:!px-48 mt-6 !text-xl ${
                 isDisabled &&
                 "hover:opacity-60 hover:bg-deep-green hover:text-cream hover:!scale-100 active:scale-95 cursor-not-allowed"
               }`}
