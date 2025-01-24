@@ -15,8 +15,13 @@ import ButterFlyB from "@/assets/butterfly-B.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function SparkleText({ slice, isRight, onContentChange,isActive,
- componentName, }) {
+export default function SparkleText({
+  slice,
+  isRight,
+  onContentChange,
+  isActive,
+  componentName,
+}) {
   // useEffect(() => {
   //   gsap.fromTo(
   //     ".image-1-trigger",
@@ -143,7 +148,6 @@ export default function SparkleText({ slice, isRight, onContentChange,isActive,
   const text_b_modified = slice.text_b.replace(/\+/g, "").trim();
 
   const handleClick = () => {
-
     // const element = event.target;
 
     // gsap.fromTo(
@@ -157,33 +161,29 @@ export default function SparkleText({ slice, isRight, onContentChange,isActive,
     //       gsap.to(element, { scale: 1, duration: 0.2 });
     //     },
     //   }
-    // ); 
+    // );
 
     /* TODO
       Unwanted gsap calculation for a simple and singular click event, 
       can use tailwind css. Optimize performance 
     */
 
-    const title = isRight
-      ? "The " + text_b_modified
-      : "The " + `${slice.text_a}`;
+    const title = isRight ? text_b_modified : "The " + `${slice.text_a}`;
     const description = isRight
       ? `${slice.vision_description}`
       : `${slice.mission_description}`;
-
-    onContentChange(title, description);
-
+    onContentChange(title, description, isRight ? "vision" : "mission");
   };
-  
+
   let content = (
     <>
-       <RichText
-          text={slice.text_a}
-          className="text-description active:scale-90 transition-all font-ambit-regular text-7xl text-deep-green flex justify-end hover:cursor-pointer hover:text-opacity-70"
-          onClick={handleClick} 
-        />
+      <RichText
+        text={slice.text_a}
+        className="text-description active:scale-90 transition-all font-ambit-regular text-7xl text-deep-green flex justify-end hover:cursor-pointer hover:text-opacity-70"
+        onClick={handleClick}
+      />
       <div className="w-full 950px:w-[40%] h-auto relative">
-      {slice.image_a.url ? (
+        {slice.image_a.url ? (
           <>
             <PrismicImage
               className="image-1-trigger rounded-2xl w-full h-auto max-w-[90%] mx-auto 950px:max-w-none 950px:w-full active:scale-95 transition-all hover:cursor-pointer hover:scale-105"
@@ -196,16 +196,16 @@ export default function SparkleText({ slice, isRight, onContentChange,isActive,
               }}
             />
           </>
-      ) : (
-        <Image
-          className="rounded-2xl w-full h-full"
-          src="/dummy_img.png"
-          alt=""
-          height={100}
-          width={200}
-        />
-      )}
-      {/* <SparkleBig className="sparkle-big absolute hidden md:scale-90 950px:block -top-16 -left-40 2xl:h-24" />
+        ) : (
+          <Image
+            className="rounded-2xl w-full h-full"
+            src="/dummy_img.png"
+            alt=""
+            height={100}
+            width={200}
+          />
+        )}
+        {/* <SparkleBig className="sparkle-big absolute hidden md:scale-90 950px:block -top-16 -left-40 2xl:h-24" />
       <SparkleMedium className="sparkle-medium absolute -left-20 -bottom-4 scale-[0.4]" />
       <SparkleMedium className="sparkle-medium absolute -left-[300px] -bottom-4 scale-[0.4]" />
       <SparkleMedium className="sparkle-medium absolute left-3/4 -bottom-16 scale-[0.4]" />
@@ -230,34 +230,34 @@ export default function SparkleText({ slice, isRight, onContentChange,isActive,
               }}
             />
           ) : (
-              <Image
-                className="image-trigger rounded-2xl h-full w-full"
-                src="/dummy_img.png"
-                alt=""
-                height={200}
-                width={200}
-              />            
+            <Image
+              className="image-trigger rounded-2xl h-full w-full"
+              src="/dummy_img.png"
+              alt=""
+              height={200}
+              width={200}
+            />
           )}
-            {/* <SparkleMedium 
+          {/* <SparkleMedium 
               className="sparkle-medium absolute hidden 950px:block top-2/4 -right-96 scale-[0.4]" 
             /> */}
-            {/* <SparkleSmall className=" sparkle-small absolute -top-16 left-12 950px:top-0 2xl:top-1/4 -translate-y-2/4 950px:-left-[40%] 2xl:-left-44" /> */}
-            <TempFillImageComponent 
-              src={ButterflyLineA}
-              className="absolute -bottom-40 -z-10 -left-24 h-80 w-80"
-            />
-            <TempFillImageComponent 
-              src={ButterFlyA}
-              className="absolute -z-10 -top-20 md:-bottom-4 md:-left-20 950px:-left-60 h-24 w-24 950px:h-44 950px:w-44"
-            />
-            <TempFillImageComponent 
-              src={ButterFlyB}
-              className="absolute -z-10 -top-40 sm:-right-20 md:-right-[130%] 2xl:-right-full h-24 w-24 950px:h-44 950px:w-44"
-            />
-            <TempFillImageComponent 
-              src={ButterflyLineB}
-              className="absolute -top-0 -right-20 md:-right-[110%] 2xl:-right-[78%] -z-10 h-44 w-44"
-            />
+          {/* <SparkleSmall className=" sparkle-small absolute -top-16 left-12 950px:top-0 2xl:top-1/4 -translate-y-2/4 950px:-left-[40%] 2xl:-left-44" /> */}
+          <TempFillImageComponent
+            src={ButterflyLineA}
+            className="absolute -bottom-40 -z-10 -left-24 h-80 w-80"
+          />
+          <TempFillImageComponent
+            src={ButterFlyA}
+            className="absolute -z-10 -top-20 md:-bottom-4 md:-left-20 950px:-left-60 h-24 w-24 950px:h-44 950px:w-44"
+          />
+          <TempFillImageComponent
+            src={ButterFlyB}
+            className="absolute -z-10 -top-40 sm:-right-20 md:-right-[130%] 2xl:-right-full h-24 w-24 950px:h-44 950px:w-44"
+          />
+          <TempFillImageComponent
+            src={ButterflyLineB}
+            className="absolute -top-0 -right-20 md:-right-[110%] 2xl:-right-[78%] -z-10 h-44 w-44"
+          />
         </div>
         <RichText
           text={slice.text_b}
@@ -277,23 +277,16 @@ export default function SparkleText({ slice, isRight, onContentChange,isActive,
   );
 }
 
-
 function TempFillImageComponent({ src, className }) {
-
   /* 
     TempFillImageComponent div must have absolute class to be used in relative to any other parent div 
   */
 
-  return(
+  return (
     <div className={className}>
       <div className="relative h-full w-full">
-        <Image 
-          src={src}
-          fill
-          alt="image"
-        />
+        <Image src={src} fill alt="image" />
       </div>
     </div>
-  )
-
+  );
 } // TODO convert as required later

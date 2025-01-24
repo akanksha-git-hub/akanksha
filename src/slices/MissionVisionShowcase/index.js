@@ -10,11 +10,13 @@ const MissionVisionShowcase = ({ slice }) => {
   const initialDescription =
     slice.primary.mission_description || "Default Mission Description";
 
-  const [activeComponent, setActiveComponent] = useState("mission");
+  // Initialize isActive to true for the initial content
+  const [isActive, setIsActive] = useState(true);
 
   const handleContentChange = (title, description, component) => {
     setActiveContent({ title, description });
-    setActiveComponent(component); // Track the active component
+    // Keep isActive true after a click
+    setIsActive(component);
   };
 
   const [activeContent, setActiveContent] = useState({
@@ -42,7 +44,7 @@ const MissionVisionShowcase = ({ slice }) => {
     >
       <SparkleContainer
         slice={slice.primary}
-        activeComponent={activeComponent}
+        isActive={isActive}
         onContentChange={handleContentChange}
       />
       <div className="description-container mt-12 space-y-2 flex flex-col 950px:items-center 950px:justify-center">
