@@ -1,4 +1,4 @@
-'use client'
+"use client";
 // import { useEffect, useRef, useState } from "react";
 // import gsap from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -43,13 +43,11 @@ import CardB from "@/components/v2-components/impact-card-shuffle/CardB";
 //         };
 //       });
 
-     
 //       setOnMount((prevState) => ({ ...prevState, secondMount: true }));
 //       return newData;
 //         });
 //     }
 //     if (onMount.secondMount ) {
-      
 
 //       gsap.set('.pin-wrapper', { height: 'auto' });
 
@@ -121,40 +119,27 @@ import CardB from "@/components/v2-components/impact-card-shuffle/CardB";
 //   );
 // }
 
-import CardsShuffle from './CardsShuffle';
+import CardsShuffle from "./CardsShuffle";
 
 export default function ShuffleMix({ slice }) {
-
-  
   return (
-    
     <CardsShuffle slice={slice}>
-        <CardsShuffle.ItemContainer 
-            itemsContainerClassName="card-container mx-auto"
-            itemClassName='pers-cards'
-            itemKeyFn={(item, index) => index}
-        >
-            {(item, index) => {
+      <CardsShuffle.ItemContainer
+        itemsContainerClassName="card-container mx-auto"
+        itemClassName="pers-cards"
+        itemKeyFn={(item, index) => index}
+      >
+        {(item, index) => {
+          let component;
 
-              let component;
-
-              if(index===0){
-
-                component = <CardA item ={item}/>
-    
-              }
-            else{
-
-              component = <CardB item ={item}/>
-            
-            }
-            return component;
-            }
-             
-        
-            
-            }
-        </CardsShuffle.ItemContainer>
+          if (index === 0) {
+            component = <CardA item={item} />;
+          } else {
+            component = <CardB item={item} />;
+          }
+          return component;
+        }}
+      </CardsShuffle.ItemContainer>
     </CardsShuffle>
-  )
+  );
 }

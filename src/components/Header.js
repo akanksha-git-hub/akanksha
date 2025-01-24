@@ -59,8 +59,8 @@ export default async function Header() {
         </div>
         <div
           className={`
-              absolute z-50 top-full left-0 w-full h-auto lg:hidden
-            `}
+                absolute z-50 top-full left-0 w-full h-auto lg:hidden
+              `}
         >
           <HamburgerContent
             uniqueIdentifier={uniqueIdentifier}
