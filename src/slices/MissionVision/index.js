@@ -15,7 +15,7 @@ import { PrismicNextImage } from "@prismicio/next";
  * @typedef {import("@prismicio/react").SliceComponentProps<MissionVisionSlice>} MissionVisionProps
  * @param {MissionVisionProps}
  */
-const MissionVision = ({ slice,context }) => {
+const MissionVision = ({ slice, context }) => {
   if (slice.variation === "optionF") {
     return (
       <section
@@ -83,24 +83,19 @@ const MissionVision = ({ slice,context }) => {
   if (slice.variation === "v2") {
     const { removePagePadding } = context;
     return (
-      
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className={`${
-          removePagePadding ? " " : "universal-padding"
-        } mt-0`}
+        className={`${removePagePadding ? " " : "universal-padding"} mt-0`}
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <div className="lg:grid lg:grid-cols-[auto,1fr,auto]  items-center mt-24">
           <div className="hidden lg:block h-full">
-             
             <PrismicNextImage
-             width={100}
-             height={100}
+              width={100}
+              height={100}
               field={slice.primary.left_image}
               alt="Left Decorative Arrow"
-             
               className=" object-cover  sm:h-[380px] lg:h-[600px] 3xl:h-[800px] "
             />
           </div>
@@ -196,7 +191,6 @@ const MissionVision = ({ slice,context }) => {
   if (slice.variation === "simpleVersion") {
     const { removePagePadding } = context;
     return (
-      
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
@@ -207,28 +201,19 @@ const MissionVision = ({ slice,context }) => {
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <div className="flex flex-col md:flex-row mt-20 items-center justify-between">
-        <div className="flex w-[100%] md:w-[50%]">
+          <div className="flex w-[100%] md:w-[50%]">
+            <PrismicImage
+              field={slice.primary.image}
+              className="w-full h-full object-cover"
+            />
+          </div>
 
-              <PrismicImage
-                field={slice.primary.image}
-                className="w-full h-full object-cover"
-              />
+          <div className="flex w-[100%] md:w-[50%]    ">
+            <div className="flex-col w-full h-full md:px-12 my-6 md:my-0">
+              <p className="text-7xl w-[80%]">{slice.primary.title}</p>
+              <p className="text-2xl mt-6">{slice.primary.description}</p>
             </div>
-
-            <div className="flex w-[100%] md:w-[50%]    ">
-              <div className="flex-col w-full h-full md:px-12 my-6 md:my-0" >
-                <p className="text-7xl w-[80%]" >
-                  {slice.primary.title}
-                </p>
-                <p className="text-2xl mt-6">
-                  {slice.primary.description}
-                </p>
-
-              </div>
-
-            </div>
-
-
+          </div>
         </div>
       </section>
     );
@@ -344,10 +329,9 @@ const MissionVision = ({ slice,context }) => {
               {slice.primary.cta_text}
             </Button>
             {slice.variation === "doubleCtaComponent" && (
-              <PrimaryCTA
-                link={slice.primary.cta_b_link}
-                text={slice.primary.cta_b_text}
-              />
+              <Button prismiclink={slice.primary.cta_b_link}>
+                {slice.primary.cta_b_text}
+              </Button>
             )}
           </div>
         </div>

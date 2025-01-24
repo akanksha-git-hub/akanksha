@@ -26,7 +26,7 @@ export default function CardsShuffleItemContainer({
   const frameCount = 1400;
 
   let travelPixel;
-  travelPixel = cards.length < 4 ? cards.length * 800 : cards.length * 542;
+  travelPixel = cards.length < 3 ? cards.length * 800 : cards.length * 542;
 
   function lottieLogic() {
     lottieRefs.current.forEach((ref) => {
