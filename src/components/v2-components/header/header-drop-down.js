@@ -51,7 +51,8 @@ export default function HeaderDropDown({ drop_down_items, uniqueIdentifier }) {
                             <PrismicNextImage
                               field={drop_down.image}
                               alt=""
-                              className="object-contain w-full h-full"
+                              className="object-cover w-full h-full rounded"
+                              fill // Ensure it covers the container completely
                             />
                           </div>
                           <p className="mt-2 flex flex-col">
