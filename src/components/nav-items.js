@@ -2,7 +2,10 @@ import TextCTA from "./UI/Button/TextCTA";
 import NavItemDropDownText from "./v2-components/header/nav-item-dropdown-text";
 import { useHeaderDropDownContext } from "./v2-components/header/header";
 
-export default function NavItems({ header_link_items = [], uniqueIdentifier = [] }) {
+export default function NavItems({
+  header_link_items = [],
+  uniqueIdentifier = [],
+}) {
   const { setDropdownId } = useHeaderDropDownContext();
 
   const capitalizeWords = (text) =>
@@ -16,8 +19,13 @@ export default function NavItems({ header_link_items = [], uniqueIdentifier = []
   const nonDropdownItems = header_link_items.filter((item) => !item.dropdown);
 
   // Split dropdown items into two halves
-  const leftDropdownItems = dropdownItems.slice(0, Math.ceil(dropdownItems.length / 2));
-  const rightDropdownItems = dropdownItems.slice(Math.ceil(dropdownItems.length / 2));
+  const leftDropdownItems = dropdownItems.slice(
+    0,
+    Math.ceil(dropdownItems.length / 2)
+  );
+  const rightDropdownItems = dropdownItems.slice(
+    Math.ceil(dropdownItems.length / 2)
+  );
 
   return (
     <>
