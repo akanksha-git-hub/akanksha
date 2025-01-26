@@ -12,6 +12,9 @@ export default function MobileNavItems({
   const { setDropdownId } = useHeaderDropDownContext();
   const [activeDropdown, setActiveDropdown] = useState(null);
 
+  // Create a ref for each dropdown item
+  const dropdownRefs = useRef(uniqueIdentifier.map(() => null));
+
   const handleDropdownToggle = (id) => {
     const newActive = activeDropdown === id ? null : id; // Toggle active dropdown
     setActiveDropdown(newActive);
@@ -26,7 +29,6 @@ export default function MobileNavItems({
   const renderDropdownItems = (identifiers) => {
     return identifiers.map((identifier, index) => {
       const isActive = activeDropdown === identifier;
-      const dropdownContentRef = useRef(null);
 
       return (
         <li
@@ -42,11 +44,11 @@ export default function MobileNavItems({
 
           {/* Dropdown Content */}
           <div
-            ref={dropdownContentRef}
+            ref={(el) => (dropdownRefs.current[index] = el)}
             className={`overflow-hidden transition-all duration-300 ease-in-out w-full`}
             style={{
               maxHeight: isActive
-                ? `${dropdownContentRef.current?.scrollHeight}px`
+                ? `${dropdownRefs.current[index]?.scrollHeight}px`
                 : "0px",
               opacity: isActive ? 1 : 0,
             }}

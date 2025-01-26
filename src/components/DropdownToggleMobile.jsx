@@ -18,6 +18,7 @@ export default function DropdownToggleMobile({ text, isActive, onClick }) {
         className={`relative h-4 w-3 transition-transform ${
           id === targetText && globalIsActive ? "rotate-180" : ""
         }`}
+        style={{ position: "relative" }} // Explicitly ensure it's relative
       >
         <Image src="/newArrow.svg" fill alt="arrow" />
       </span>
