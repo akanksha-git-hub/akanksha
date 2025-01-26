@@ -30,7 +30,7 @@ export default function NavItems({
   return (
     <>
       {header_link_items.length > 0 ? (
-        <ul className="hidden lg:flex items-center w-full justify-between ">
+        <ul className="hidden lg:flex items-start w-full justify-between ">
           {/* Left Section: First half of dropdown items */}
           <div className="flex items-center gap-8">
             {leftDropdownItems.map((item) => (
