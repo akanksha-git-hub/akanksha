@@ -52,7 +52,7 @@ export default function StandaloneHamburgerMenu({
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 w-screen h-auto bg-white transition-transform  ${
+        className={`fixed top-0 left-0 w-screen h-auto bg-white border-b border-gray-300 transition-transform ${
           isOpen ? "translate-y-0" : "-translate-y-full"
         } overflow-hidden z-40`}
       >
