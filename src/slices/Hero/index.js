@@ -90,11 +90,11 @@ const Hero = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="universal-padding relative flex flex-col-reverse h-auto 2xl:min-h-[45rem] 3xl:min-h-[55rem] xl:flex-col pb-[1000px] items-center justify-center lg:items-baseline lg:justify-normal"
     >
-      <div className="mt-6 lg:mt-12 w-full lg:w-auto">
+      <div className="mt-6 lg:mt-12 w-full lg:w-auto ">
         {slice.primary.hero_content.length !== 0 && (
           <ul className=" pb-2 flex items-start justify-start w-full lg:w-[400px] xl:w-[500px] mx-auto lg:mx-0">
             <Swiper
-              className="w-[90%] sm:w-screen flex items-start !py-3 !pl-2"
+              className="w-[90%] sm:w-screen flex items-start !py-3 !pl-2 border"
               breakpoints={{
                 2500: {
                   slidesPerView: 5.6,
