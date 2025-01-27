@@ -85,7 +85,7 @@ const routes = [
   },
   {
     type: "news_letter",
-    path: "/resources/news-letter",
+    path: "/resources/in-the-news",
   },
   {
     type: "blog_showcase_page",

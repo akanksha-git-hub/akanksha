@@ -25,7 +25,7 @@ export default function QuoteComponent({ quote, quote_by, storyLink }) {
           hasArrow
           className="font-inter text-sm xl:text-base"
           strokeColor="#000000"
-          text="Read story"
+          text="Read More"
           bgColor="bg-black"
           textColor="text-black"
         />
