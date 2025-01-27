@@ -571,7 +571,7 @@ const ProgramShowcase = ({ slice }) => {
           <Swiper
             direction="vertical"
             className="h-full"
-            slidesPerView={3.6}
+            slidesPerView={4.2}
             ref={selectorRef}
           >
             {slice.primary.program_showcase_content.map((item, index) => (
