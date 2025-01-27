@@ -1,5 +1,6 @@
 import SliceIdentifier from "@/components/SliceIdentifier";
 import MixedText from "@/components/Texts/MixedText";
+import RichText from "@/components/Texts/RichText";
 import { spanPosition } from "@/utils/helperClasses";
 import Image from "next/image";
 
@@ -21,12 +22,16 @@ const TextShowcase = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="universal-padding flex flex-col items-center justify-center sm:mt-14 w-fit mx-auto"
       >
-        <MixedText
+        <RichText
+          className="font-ambit-regular w-full text-5xl sm:w-[30rem] sm:text-6xl lg:text-8xl lg:w-[50rem] text-deep-green justify-center"
+          text={slice.primary.title}
+        />
+        {/* <MixedText
           texts={slice.primary.title}
           // index={1}
           // spanPosition={spanPosition}
           className="font-ambit-regular w-full text-5xl sm:w-[30rem] sm:text-6xl lg:text-8xl lg:w-[50rem] text-deep-green justify-center"
-        />
+        /> */}
         <Image
           src="/vector_line.svg"
           height={20}

@@ -23,12 +23,9 @@ export default function VideoModal({
       />
       <div className="absolute p-4 sm:p-8 flex items-center image-bg top-0 left-0 h-full w-full z-20 rounded-lg overflow-hidden cursor-pointer transition-all">
         <div className="flex items-center justify-center w-full">
-        <Button  
-          className="z-20 transition-all"
-          isVideo
-        >
-          Play
-        </Button>
+          <Button className="z-20 transition-all" isVideo>
+            Play
+          </Button>
           {/* <div className="w-[70%]">
             <RichText
               className="text-white text-3xl 2xl:text-6xl w-[100%] font-ambit-regular"

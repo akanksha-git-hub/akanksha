@@ -11,7 +11,7 @@ export default function StatsComponent({ description, number }) {
         text={description}
       />
       <RichText
-        className="font-ambit-semibold text-deep-green mt-12 sm:mt-0 text-3xl sm:text-6xl xl:text-8xl"
+        className="font-ambit-semibold text-deep-green mt-12 sm:mt-0 text-5xl sm:text-6xl xl:text-8xl"
         text={number}
       />
     </div>

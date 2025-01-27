@@ -94,7 +94,7 @@ const Hero = ({ slice }) => {
         {slice.primary.hero_content.length !== 0 && (
           <ul className=" pb-2 flex items-start justify-start w-full lg:w-[400px] xl:w-[500px] mx-auto lg:mx-0">
             <Swiper
-              className="w-[90%] sm:w-screen flex items-start !py-3 !pl-2 border"
+              className="w-[90%] sm:w-screen flex items-start !py-3 !pl-2 "
               breakpoints={{
                 2500: {
                   slidesPerView: 5.6,
@@ -126,11 +126,11 @@ const Hero = ({ slice }) => {
           <div className="flex w-full mx-auto sm:w-auto items-center justify-center flex-col lg:items-baseline lg:justify-normal mt-6 lg:mt-2">
             <RichText
               key={slice.primary.hero_content[intervalState.currentIndex].title}
-              className="font-ambit-regular opacity-anim text-deep-green 
-              mt-6 w-full text-center
+              className="font-ambit-regular opacity-anim text-black 
+              mt-6 w-full 
               text-4xl
               sm:text-6xl 
-              xl:w-[46%] lg:text-left
+              xl:w-[46%] text-left
               xl:text-7xl 
               3xl:w-[48rem] 3xl:text-8xl"
               text={
@@ -142,10 +142,10 @@ const Hero = ({ slice }) => {
                 slice.primary.hero_content[intervalState.currentIndex]
                   .description
               }
-              className="font-inter opacity-anim font-normal text-deep-green 
+              className="font-inter opacity-anim font-normal text-black 
               text-base leading-[20.2px]
-              sm:text-xl mt-3 lg:mt-8 w-5/6 text-center 
-              xl:w-[40%] lg:text-left
+              sm:text-xl mt-3 lg:mt-8  md:w-5/6 
+              xl:w-[40%] text-left
               2xl:w-[34rem] 3xl:text-2xl"
               text={
                 slice.primary.hero_content[intervalState.currentIndex]
