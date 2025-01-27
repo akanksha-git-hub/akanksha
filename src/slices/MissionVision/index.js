@@ -89,7 +89,7 @@ const MissionVision = ({ slice, context }) => {
         className={`${removePagePadding ? " " : "universal-padding"} mt-0`}
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
-        <div className="lg:grid lg:grid-cols-[auto,1fr,auto]  items-center mt-24">
+        <div className="lg:grid lg:grid-cols-[auto,1fr,auto]  items-center mt-10 md:mt-24">
           <div className="hidden lg:block h-full">
             <PrismicNextImage
               width={100}
@@ -103,7 +103,7 @@ const MissionVision = ({ slice, context }) => {
           {/* Video Modal */}
           <div className="flex flex-col items-center relative  ">
             <VideoModalv2
-              className="flex  lg:h-[600px] 3xl:h-[800px]"
+              className="flex h-[400px] lg:h-[600px] 3xl:h-[800px]"
               slice={slice}
             />
           </div>

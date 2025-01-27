@@ -7,9 +7,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import PencilShading from "@/assets/shading-side.svg";
 
 function CardShowcaseBCard({ item, isHighlighted, onHover }) {
-
   return (
-    
     <li
       className={`bg-[#ECF0F1] transition-all ${
         isHighlighted && "bg-v2-yellow"
@@ -17,11 +15,10 @@ function CardShowcaseBCard({ item, isHighlighted, onHover }) {
       onMouseEnter={onHover}
       onMouseLeave={onHover}
     >
-{isHighlighted && (
+      {isHighlighted && (
         <div className="absolute -z-10 top-1/3 h-full w-full orange-gradient"></div>
       )}
 
-      
       <div className="absolute top-0 left-0 h-full w-5">
         <div className="relative h-full w-full z-10">
           <Image src={PencilShading} alt="image" className="" fill />
@@ -67,18 +64,17 @@ export default function CardsShowcaseB({ data }) {
   return (
     <div className="universal-padding space-y-20">
       <SliceIdentifier text={data.slice_identifier} />
-      
-        <ul className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 md:px-24   h-auto">
-          {data.items.map((item, i) => (
-            <CardShowcaseBCard
-              key={i}
-              item={item}
-              isHighlighted={highlightedIndex === i}
-              onHover={() => setHighlightedIndex(i)}
-              
-            />
-          ))}
-        </ul>
+
+      <ul className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 md:px-24   h-auto">
+        {data.items.map((item, i) => (
+          <CardShowcaseBCard
+            key={i}
+            item={item}
+            isHighlighted={highlightedIndex === i}
+            onHover={() => setHighlightedIndex(i)}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
