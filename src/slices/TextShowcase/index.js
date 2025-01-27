@@ -22,10 +22,12 @@ const TextShowcase = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="universal-padding flex flex-col items-center justify-center sm:mt-14 w-fit mx-auto"
       >
-        <RichText
-          className="font-ambit-regular w-full text-5xl sm:w-[30rem] sm:text-6xl lg:text-8xl lg:w-[50rem] text-deep-green justify-center"
-          text={slice.primary.title}
-        />
+        <div className="font-ambit-regular w-full text-5xl sm:w-[30rem] sm:text-6xl lg:text-8xl lg:w-[50rem] text-black justify-center">
+          <span>{slice.primary.title.split(" ")[0]}</span>
+          <br />
+          <span>{slice.primary.title.split(" ").slice(1).join(" ")}</span>
+        </div>
+
         {/* <MixedText
           texts={slice.primary.title}
           // index={1}
