@@ -345,6 +345,7 @@ body {
 .marquee-item-expand {
   width: 36% !important;
 }
+
 @media (max-width: 640px) {
   .marquee-item-expand {
     width: 18% !important; /* Adjust the width for mobile screens */

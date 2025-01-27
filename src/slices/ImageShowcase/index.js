@@ -14,11 +14,11 @@ const ImageShowcase = ({ slice }) => {
       {slice.primary.images && (
         <ul className="mt-8 flex flex-wrap w-full">
           {slice.primary.images.map((image, index) => (
-            <PartnerLogo 
+            <PartnerLogo
               image={image.image}
               key={index}
-              imageClassName="h-[80%] w-[80%] object-contain"
-              className="flex items-center justify-center border border-[#DCDCDC] sm:mb-0 h-[10rem] w-full sm:h-[8rem] md:w-[30%] lg:w-[20%]"              
+              imageClassName=" h-[55%] w-[55%] md:h-[80%] md:w-[80%]  object-contain"
+              className="flex items-center justify-center border border-[#DCDCDC] sm:mb-0 h-[10rem] w-full sm:h-[8rem] md:w-[30%] lg:w-[20%]"
             />
           ))}
         </ul>
