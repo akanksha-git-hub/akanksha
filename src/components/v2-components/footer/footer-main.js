@@ -51,15 +51,19 @@ export default async function FooterMain() {
   ];
 
   return (
-    <Footer className="py-12 flex items-center justify-center relative  ">
+    <Footer className="py-8 flex items-center justify-center relative  ">
       <FooterImage />
       <Footer.Container className="w-[90%] md:w-[56%] z-20 space-y-12 ">
-        <Footer.Header className="flex flex-col items-left md:items-center space-y-4">
-          <div className="relative h-36 w-48">
-            <PrismicNextImage field={footerLogo.footer_logo} fill />
+        <Footer.Header className="flex flex-col items-left md:items-center space-y-8">
+          <div className="relative h-28 w-48">
+            <PrismicNextImage
+              field={footerLogo.footer_logo}
+              fill
+              className=""
+            />
           </div>
           <RichText
-            className="font-ambit-regular text-black text-3xl w-full md:text-[3vw] md:max-w-[13ch] md:tracking-tight md:leading-10 text-left md:text-center"
+            className="font-ambit-regular text-black text-3xl w-full md:text-[3vw] md:max-w-[13ch] md:tracking-tight md:leading-[3.2rem] text-left md:text-center "
             text="Stay in touch to know more about us"
           />
           <FooterContact />

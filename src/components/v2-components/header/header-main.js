@@ -21,7 +21,7 @@ export default function HeaderMain({ header }) {
 
   return (
     <Header className={`${maxwidth} bg-white`}>
-      <Header.Container className="flex items-center  justify-between px-6 py-4 relative">
+      <Header.Container className="flex items-center  justify-between px-6  py-2 relative  ">
         <HeaderDropDown
           uniqueIdentifier={uniqueIdentifier}
           drop_down_items={header.drop_down_items}
@@ -40,7 +40,10 @@ export default function HeaderMain({ header }) {
           </Link>
         </Header.Logo>
 
-        <Link href="/" className="relative h-[3rem] w-[5rem] lg:hidden block">
+        <Link
+          href="/"
+          className="relative h-[5rem] w-[8rem] lg:hidden block  -ml-14  "
+        >
           <PrismicNextImage
             field={header.logo_image}
             alt=""
@@ -58,7 +61,7 @@ export default function HeaderMain({ header }) {
         <Header.CTA>
           <Button prismicLink={header.cta_link}>{header.cta_text}</Button>
         </Header.CTA>
-        <div className="lg:hidden">
+        <div className="lg:hidden -ml-8">
           <StandaloneHamburgerMenu
             header_link_items={header.header_link_items}
             uniqueIdentifier={uniqueIdentifier}
