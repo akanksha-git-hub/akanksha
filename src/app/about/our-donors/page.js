@@ -6,20 +6,18 @@ import { createClient } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 import Image from "next/image";
 
-
 export default async function Page() {
+  const page = await fetchPrismicSingleDocument("ourdonors");
+  if (!page) return <p>No page data!</p>;
 
-    const page = await fetchPrismicSingleDocument('ourdonors');
-    if(!page) return <p>No page data!</p>;
-
-    return(
-        <main className={`${maxwidth} universal-padding`}>
-            <div className="relative w-fit">
-                <RichText 
-                    className='text-deep-green font-ambit-regular text-left text-5xl md:text-7xl mt-28 mb-12'
-                    text={page.data.title}
-                />
-                {/* <Image 
+  return (
+    <main className={`${maxwidth} universal-padding`}>
+      <div className="relative w-fit">
+        <RichText
+          className="text-black font-ambit-regular text-left text-5xl md:text-7xl mt-10 mb-12"
+          text={page.data.title}
+        />
+        {/* <Image 
                     src='/sparkle_small.svg'
                     alt=""
                     height={30}
@@ -33,20 +31,16 @@ export default async function Page() {
                     width={100}
                     className="absolute -right-44 md:-right-80 bottom-12 -translate-x-2/4"
                 /> */}
-            </div>
-            <SliceZone 
-                slices={page.data.slices}
-                components={components}
-            />
-        </main>
-    )
-
+      </div>
+      <SliceZone slices={page.data.slices} components={components} />
+    </main>
+  );
 }
 
 // export async function generateMetadata() {
 //     const client = createClient();
 //     const page = await client.getSingle("ourdonors");
-  
+
 //     return {
 //       title: page.data.meta_title,
 //       description: page.data.meta_description,
