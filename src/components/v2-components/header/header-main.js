@@ -22,10 +22,10 @@ export default function HeaderMain({ header }) {
   return (
     <Header className={`${maxwidth} bg-white`}>
       <Header.Container className="flex items-center  justify-between px-6  py-2 relative  ">
-        <HeaderDropDown
+        {/* <HeaderDropDown
           uniqueIdentifier={uniqueIdentifier}
           drop_down_items={header.drop_down_items}
-        />
+        /> */}
         <Header.Logo>
           <Link
             href="/"
@@ -56,6 +56,7 @@ export default function HeaderMain({ header }) {
           <NavItems
             uniqueIdentifier={uniqueIdentifier}
             header_link_items={header.header_link_items}
+            drop_down_items={header.drop_down_items}
           />
         </Header.NavList>
         <Header.CTA>
