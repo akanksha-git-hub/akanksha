@@ -66,12 +66,12 @@ const FlagshipHero = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="relative mb-24"
+        className="relative mb-24 universal-padding"
       >
-        <div className="flex flex-col items-center justify-center space-y-12 mt-32">
+        <div className="flex flex-col items-center justify-center space-y-12 mt-4 lg:mt-32">
           <RichText
             text={slice.primary.main_title}
-            className="font-ambit-regular text-black sm:text-center text-7xl max-w-[20ch]"
+            className="font-ambit-regular text-black sm:text-center text-5xl md:text-7xl max-w-[20ch]"
           />
           <RichText
             text={slice.primary.description1}
@@ -84,7 +84,7 @@ const FlagshipHero = ({ slice }) => {
         </div>
 
         {/* Top left image */}
-        <div className="hidden xl:block absolute -top-[50%] left-[10%]  md:h-[280px] md:w-[120px] lg:h-[350px] w-[200px]  lg:w-[200px] xl:w-[200px] -z-10">
+        <div className="hidden xl:block absolute top-[20%] left-[0%] xl:left-[2%]  md:h-[280px] md:w-[120px] lg:h-[350px] w-[200px]  lg:w-[200px] xl:w-[340px] -z-10">
           <PrismicNextImage
             field={slice.primary.image_a}
             className="h-full w-full object-contain"
