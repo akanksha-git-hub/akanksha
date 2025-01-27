@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function FooterContact() {
   return (
-    <form className="w-full flex justify-start md:justify-center gap-2">
+    <form className="w-full flex justify-start md:justify-center gap-2 ">
       <Input
         name="email"
         type="email"

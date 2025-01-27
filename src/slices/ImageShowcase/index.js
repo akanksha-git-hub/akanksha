@@ -10,9 +10,10 @@ const ImageShowcase = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      mt-8
     >
       {slice.primary.images && (
-        <ul className="mt-8 flex flex-wrap w-full">
+        <ul className=" flex flex-wrap w-full ">
           {slice.primary.images.map((image, index) => (
             <PartnerLogo
               image={image.image}
