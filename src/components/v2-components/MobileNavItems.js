@@ -33,7 +33,7 @@ export default function MobileNavItems({
       return (
         <li
           key={index}
-          className="w-full flex flex-col items-end justify-center"
+          className="w-full flex flex-col items-start justify-center"
         >
           {/* Dropdown Toggle */}
           <DropdownToggleMobile
@@ -53,17 +53,17 @@ export default function MobileNavItems({
               opacity: isActive ? 1 : 0,
             }}
           >
-            <ul className="ml-4 mt-2 space-y-2 text-right border-r-2 border-gray-300 pr-4">
+            <ul className="ml-4 mt-2 space-y-2 text-left border-l-2 border-gray-600 pl-4">
               {/* Add vertical line on the right side */}
               {drop_down_items
                 .filter((item) => item.identifier.toLowerCase() === identifier)
                 .map((dropdown, subIndex) => (
                   <li
                     key={subIndex}
-                    className="text-right w-full flex flex-col items-end"
+                    className="text-left w-full flex flex-col items-start"
                   >
                     <TextCTA
-                      className="text-deep-green text-lg font-light hover:opacity-75 transition-all"
+                      className="text-black text-lg font-light hover:opacity-75 transition-all"
                       text={dropdown.cta_text}
                       link={dropdown.cta_link}
                       onClick={onClose} // Close menu when dropdown item is clicked
@@ -78,7 +78,7 @@ export default function MobileNavItems({
   };
 
   return (
-    <ul className="flex flex-col items-end justify-center w-full h-full space-y-6 mt-10">
+    <ul className="flex flex-col items-start justify-center w-full h-full space-y-6 mt-10">
       {/* First Half of Dropdown Items */}
       {renderDropdownItems(firstHalf)}
 
@@ -86,7 +86,7 @@ export default function MobileNavItems({
       {header_link_items
         .filter((item) => !item.dropdown)
         .map((item, index) => (
-          <li key={index} className="text-lg text-right">
+          <li key={index} className="  text-lg text-left">
             <TextCTA
               className="text-black text-xl font-inter hover:opacity-55 transition-all active:scale-95"
               text={item.cta_text}
