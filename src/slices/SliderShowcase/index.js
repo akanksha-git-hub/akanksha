@@ -594,9 +594,13 @@ const SliderShowcase = ({ slice }) => {
               {/* Title and Description Section */}
 
               <RichText
-                className="text-black text-xl font-ambit-regular  w-full xl:w-[94%] opacity-reveal"
-                key={slice.primary.items[current].description}
-                text={slice.primary.items[current].description}
+                className="text-black text-xl font-ambit-regular w-full xl:w-[94%] opacity-reveal"
+                text={
+                  slice.primary.items &&
+                  slice.primary.items[current]?.description
+                    ? slice.primary.items[current].description
+                    : "No description available"
+                }
               />
             </div>
           </div>
