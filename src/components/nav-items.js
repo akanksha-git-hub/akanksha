@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import TextCTA from "./UI/Button/TextCTA";
 import NavItemDropDownText from "./v2-components/header/nav-item-dropdown-text";
 import { useHeaderDropDownContext } from "./v2-components/header/header";
@@ -13,6 +13,7 @@ export default function NavItems({
 }) {
   const { setDropdownId } = useHeaderDropDownContext();
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const dropdownRef = useRef(null);
 
   const capitalizeWords = (text) =>
     text
@@ -23,6 +24,21 @@ export default function NavItems({
   const toggleDropdown = (item) => {
     setActiveDropdown((prev) => (prev === item ? null : item));
   };
+
+  const closeDropdown = () => setActiveDropdown(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        closeDropdown();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   // Separate dropdown and non-dropdown items
   const dropdownItems = header_link_items.filter((item) => item.dropdown);
@@ -38,7 +54,7 @@ export default function NavItems({
   );
 
   return (
-    <>
+    <div ref={dropdownRef}>
       {header_link_items.length > 0 ? (
         <ul className="hidden lg:flex items-start w-full justify-between">
           {/* Left Section: First half of dropdown items */}
@@ -52,7 +68,7 @@ export default function NavItems({
                 />
                 {/* Dropdown Menu */}
                 {activeDropdown === item.cta_text && (
-                  <div className="absolute top-full mt-2 bg-white border rounded-lg border-gray-300 shadow-lg z-50 w-auto min-w-[200px]">
+                  <div className="absolute top-full mt-5 bg-white border rounded-lg border-gray-300 shadow-lg z-50 w-auto min-w-[200px]">
                     <ul className="py-2">
                       {drop_down_items
                         .filter(
@@ -64,7 +80,7 @@ export default function NavItems({
                           <li key={index} className="w-full">
                             <PrismicNextLink
                               field={dropDownItem.cta_link}
-                              className="block w-full px-4 py-2 text-lg text-black text-right hover:bg-gray-100 transition"
+                              className="block w-full px-4 py-2 text-lg text-black text-left hover:bg-[#FBDA1D] transition"
                               onClick={() => setDropdownId(null)}
                             >
                               {dropDownItem.cta_text}
@@ -82,7 +98,7 @@ export default function NavItems({
           <div className="flex items-center gap-8 mx-8 justify-center">
             {nonDropdownItems.map((item) => (
               <TextCTA
-                className="text-deep-green text-lg font-inter hover:opacity-55 transition-all active:scale-95"
+                className="text-black text-lg font-inter hover:opacity-55 transition-all active:scale-95"
                 key={item.cta_text}
                 text={item.cta_text}
                 link={item.cta_link}
@@ -96,12 +112,12 @@ export default function NavItems({
               <li key={item.cta_text} className="relative group">
                 <NavItemDropDownText
                   text={capitalizeWords(item.cta_text)}
-                  className="text-deep-green text-lg font-inter cursor-pointer hover:opacity-75"
+                  className="text-black text-lg font-inter cursor-pointer hover:opacity-75"
                   onClick={() => toggleDropdown(item.cta_text)}
                 />
                 {/* Dropdown Menu */}
                 {activeDropdown === item.cta_text && (
-                  <div className="absolute top-full rounded-lg mt-2 bg-white border border-gray-300 shadow-lg z-50 w-auto min-w-[200px]">
+                  <div className="absolute top-full rounded-lg mt-5 bg-white border border-gray-300 shadow-lg z-50 w-auto min-w-[200px]">
                     <ul className="py-2">
                       {drop_down_items
                         .filter(
@@ -113,7 +129,7 @@ export default function NavItems({
                           <li key={index} className="w-full">
                             <PrismicNextLink
                               field={dropDownItem.cta_link}
-                              className="block w-full px-4 py-2 text-lg text-black text-right hover:bg-gray-100 transition"
+                              className="block w-full px-4 py-2 text-lg text-black text-left hover:bg-[#FBDA1D] transition"
                               onClick={() => setDropdownId(null)}
                             >
                               {dropDownItem.cta_text}
@@ -130,6 +146,6 @@ export default function NavItems({
       ) : (
         <p>No navigation items available.</p>
       )}
-    </>
+    </div>
   );
 }

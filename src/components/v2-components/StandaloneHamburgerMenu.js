@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import MobileNavItems from "./MobileNavItems";
+import Image from "next/image";
 
 export default function StandaloneHamburgerMenu({
   header_link_items = [],
@@ -29,7 +30,7 @@ export default function StandaloneHamburgerMenu({
   }, [isOpen]);
 
   return (
-    <div className=" lg:hidden">
+    <div className=" lg:hidden relative">
       {/* Hamburger Icon */}
       <button
         onClick={toggleMenu}
@@ -52,12 +53,21 @@ export default function StandaloneHamburgerMenu({
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 w-screen h-auto bg-white border-b border-gray-300 transition-transform ${
+        className={`fixed top-0 left-0 w-screen h-screen bg-[#FBDA1D] border-b border-gray-300 transition-transform ${
           isOpen ? "translate-y-0" : "-translate-y-full"
         } overflow-hidden z-40`}
       >
         {isOpen && (
-          <div className="flex flex-col items-center justify-center h-full px-6 py-10">
+          <div className="flex flex-col items-center justify-center px-6 py-10 ">
+            {/* Top Asset */}
+            {/* <div className="  w-full">
+              <Image
+                src="/nav-top.svg"
+                alt="Top Asset"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div> */}
             <MobileNavItems
               header_link_items={header_link_items}
               uniqueIdentifier={uniqueIdentifier}
