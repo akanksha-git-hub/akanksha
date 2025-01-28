@@ -109,6 +109,62 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "simple",
+      "name": "Simple",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "description",
+            "placeholder": ""
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "asset_1": {
+          "type": "Image",
+          "config": {
+            "label": "Asset 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "asset_2": {
+          "type": "Image",
+          "config": {
+            "label": "Asset 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

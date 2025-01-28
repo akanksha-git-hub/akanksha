@@ -182,6 +182,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
         "title": {
           "type": "Text",
           "config": {
@@ -217,13 +224,6 @@
                   "thumbnails": []
                 }
               },
-              "quote": {
-                "type": "Text",
-                "config": {
-                  "label": "Quote",
-                  "placeholder": ""
-                }
-              },
               "asset": {
                 "type": "Image",
                 "config": {
@@ -231,15 +231,15 @@
                   "constraint": {},
                   "thumbnails": []
                 }
+              },
+              "quote": {
+                "type": "Text",
+                "config": {
+                  "label": "Quote",
+                  "placeholder": ""
+                }
               }
             }
-          }
-        },
-        "slice_identifier": {
-          "type": "Text",
-          "config": {
-            "label": "Slice Identifier",
-            "placeholder": ""
           }
         }
       },
@@ -253,6 +253,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
         "title": {
           "type": "Text",
           "config": {
@@ -288,29 +295,16 @@
                   "thumbnails": []
                 }
               },
-              "quote": {
-                "type": "Text",
+              "card_rich_text": {
+                "type": "StructuredText",
                 "config": {
-                  "label": "Quote",
-                  "placeholder": ""
-                }
-              },
-              "asset": {
-                "type": "Image",
-                "config": {
-                  "label": "Asset",
-                  "constraint": {},
-                  "thumbnails": []
+                  "label": "Card Rich Text",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                 }
               }
             }
-          }
-        },
-        "slice_identifier": {
-          "type": "Text",
-          "config": {
-            "label": "Slice Identifier",
-            "placeholder": ""
           }
         },
         "link": {
@@ -319,6 +313,14 @@
             "label": "link",
             "placeholder": "",
             "select": null
+          }
+        },
+        "asset": {
+          "type": "Image",
+          "config": {
+            "label": "Asset",
+            "constraint": {},
+            "thumbnails": []
           }
         }
       },

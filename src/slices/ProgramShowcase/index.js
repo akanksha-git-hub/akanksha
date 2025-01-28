@@ -271,6 +271,7 @@ const ProgramShowcase = ({ slice }) => {
                         className="w-full md:w-[42%]"
                         image={item.image}
                       />
+
                       <div className="relative rounded-lg bg-[#58BCD4] p-8 w-full xl:w-[56%] flex flex-col items-start justify-between">
                         <div className="absolute top-0 right-0 w-full h-[1.25rem]">
                           <div className="relative h-full w-full">
@@ -337,19 +338,20 @@ const ProgramShowcase = ({ slice }) => {
         className="my-24 lg:mb-60 "
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
-        <div className="flex flex-col xl:flex-row  xl:items-end lg:mt-10">
+        <div className="flex flex-col xl:flex-row  xl:items-end lg:mt-10 relative">
           {/* Title Section */}
           <div className="w-full xl:w-[40%] xl:h-[32.4rem]  flex flex-col justify-evenly">
             <div className="mt-16 lg:mt-0">
               <RichText
                 text={slice.primary.title}
-                className="text-black font-ambit-regular text-5xl lg:text-6xl lg:text-left max-w-[5ch] lg:mr-auto"
+                className="text-black font-ambit-regular text-5xl lg:text-7xl lg:text-left max-w-[5ch] lg:mr-auto"
               />
               <RichText
                 text={slice.primary.description}
-                className="text-black font-ambit-regular text-2xl lg:text-left max-w-[35ch] xl:max-w-[90%] lg:mr-auto mt-10"
+                className="text-black font-ambit-regular text-2xl lg:text-left max-w-[35ch] xl:max-w-[90%] lg:mr-auto mt-4"
               />
             </div>
+
             <div className="mt-10 xl:mt-0">
               <Button link={slice.primary.link}>View Resources</Button>
             </div>
@@ -401,24 +403,16 @@ const ProgramShowcase = ({ slice }) => {
                             />
                           </div>
                         </div>
-                        <div className="flex h-full flex-col items-start justify-start">
+                        <div className="flex h-full flex-col items-start justify-center">
                           <RichText
-                            className="text-black text-4xl  2xl:text-5xl font-ambit-regular w-[5ch]"
+                            className="text-black text-4xl  2xl:text-5xl font-ambit-regular "
                             text={item.heading}
                           />
-                          <RichText
-                            className="text-black text-lg lg:text-2xl font-ambit-regular  mt-8"
-                            text={item.quote}
+
+                          <QuoteComponentB
+                            className="!px-6 "
+                            texts={item.card_rich_text}
                           />
-                          <div className="absolute bottom-0 right-0 hidden md:block  ">
-                            <PrismicNextImage
-                              field={item.asset}
-                              height={500}
-                              width={500}
-                              alt=""
-                              className="object-cover w-[250px] h-[200px] "
-                            />
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -444,6 +438,14 @@ const ProgramShowcase = ({ slice }) => {
                 />
               </div>
             </div>
+          </div>
+          <div className="absolute -bottom-56  -left-12 hidden lg:block  ">
+            <PrismicNextImage
+              field={slice.primary.asset}
+              height={370}
+              width={370}
+              alt=""
+            />
           </div>
         </div>
       </section>

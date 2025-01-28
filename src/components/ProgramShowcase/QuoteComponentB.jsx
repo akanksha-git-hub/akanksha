@@ -11,7 +11,7 @@ export default function QuoteComponentB({ texts, className }) {
           texts.map((text) => {
             return (
               <li
-                className="text-soft-white list-disc w-full text-lg"
+                className="text-black font-ambit-regular list-disc w-full text-xl mt-4"
                 key={text}
               >
                 <span>{text.text}</span>
