@@ -255,14 +255,6 @@
 								}
 							],
 							[
-								"quote",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "quite",
-									"type": "Text"
-								}
-							],
-							[
 								"asset",
 								{
 									"origin": {
@@ -293,6 +285,14 @@
 								{
 									"__TYPE__": "FieldContent",
 									"value": "straw",
+									"type": "Text"
+								}
+							],
+							[
+								"quote",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "written",
 									"type": "Text"
 								}
 							]
@@ -378,37 +378,17 @@
 								}
 							],
 							[
-								"quote",
+								"card_rich_text",
 								{
-									"__TYPE__": "FieldContent",
-									"value": "common",
-									"type": "Text"
-								}
-							],
-							[
-								"asset",
-								{
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
-										"width": 4480,
-										"height": 4480
-									},
-									"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
-									"width": 4480,
-									"height": 4480,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 0,
-											"y": 0
-										},
-										"background": "transparent"
-									},
-									"credits": null,
-									"alt": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {}
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Exercitation fugiat occaecat culpa ut laboris quis duis enim sunt."
+											}
+										}
+									]
 								}
 							]
 						]
@@ -426,6 +406,29 @@
 					"__TYPE__": "ExternalLink",
 					"url": "https://prismic.io"
 				}
+			},
+			"asset": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
+					"width": 4000,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
+				"width": 4000,
+				"height": 4000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
 			}
 		},
 		"items": [

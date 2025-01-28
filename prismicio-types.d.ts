@@ -2942,6 +2942,9 @@ export type PrivacyPolicyDocument<Lang extends string = string> =
   >;
 
 type ProjectSetuDocumentDataSlicesSlice =
+  | MapReachSlice
+  | StudentVisionSlice
+  | ImpactHeroSlice
   | MissionVisionSlice
   | SliderShowcaseSlice
   | TestimonialSlice
@@ -8004,6 +8007,71 @@ export type MagicSectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *MapReach → Default → Primary*
+ */
+export interface MapReachSliceDefaultPrimary {
+  /**
+   * Slice Identifier field in *MapReach → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: map_reach.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *MapReach → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: map_reach.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * image field in *MapReach → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: map_reach.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for MapReach Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MapReachSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MapReachSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MapReach*
+ */
+type MapReachSliceVariation = MapReachSliceDefault;
+
+/**
+ * MapReach Shared Slice
+ *
+ * - **API ID**: `map_reach`
+ * - **Description**: MapReach
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MapReachSlice = prismic.SharedSlice<
+  "map_reach",
+  MapReachSliceVariation
+>;
+
+/**
  * Primary content in *MissionVision → Default → Primary*
  */
 export interface MissionVisionSliceDefaultPrimary {
@@ -9829,16 +9897,6 @@ export interface ProgramShowcaseSliceOptionCPrimaryProgramShowcaseContentItem {
   image: prismic.ImageField<never>;
 
   /**
-   * Quote field in *ProgramShowcase → option C → Primary → Program Showcase Content*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: program_showcase.optionC.primary.program_showcase_content[].quote
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  quote: prismic.KeyTextField;
-
-  /**
    * Asset field in *ProgramShowcase → option C → Primary → Program Showcase Content*
    *
    * - **Field Type**: Image
@@ -9847,6 +9905,16 @@ export interface ProgramShowcaseSliceOptionCPrimaryProgramShowcaseContentItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   asset: prismic.ImageField<never>;
+
+  /**
+   * Quote field in *ProgramShowcase → option C → Primary → Program Showcase Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionC.primary.program_showcase_content[].quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField;
 }
 
 /**
@@ -9874,24 +9942,14 @@ export interface ProgramShowcaseSliceWithButtonPrimaryProgramShowcaseContentItem
   image: prismic.ImageField<never>;
 
   /**
-   * Quote field in *ProgramShowcase → with Button → Primary → Program Showcase Content*
+   * Card Rich Text field in *ProgramShowcase → with Button → Primary → Program Showcase Content*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: program_showcase.withButton.primary.program_showcase_content[].quote
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: program_showcase.withButton.primary.program_showcase_content[].card_rich_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  quote: prismic.KeyTextField;
-
-  /**
-   * Asset field in *ProgramShowcase → with Button → Primary → Program Showcase Content*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: program_showcase.withButton.primary.program_showcase_content[].asset
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  asset: prismic.ImageField<never>;
+  card_rich_text: prismic.RichTextField;
 }
 
 /**
@@ -10014,6 +10072,16 @@ export type ProgramShowcaseSliceOptionB = prismic.SharedSliceVariation<
  */
 export interface ProgramShowcaseSliceOptionCPrimary {
   /**
+   * Slice Identifier field in *ProgramShowcase → option C → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.optionC.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
    * title field in *ProgramShowcase → option C → Primary*
    *
    * - **Field Type**: Text
@@ -10044,16 +10112,6 @@ export interface ProgramShowcaseSliceOptionCPrimary {
   program_showcase_content: prismic.GroupField<
     Simplify<ProgramShowcaseSliceOptionCPrimaryProgramShowcaseContentItem>
   >;
-
-  /**
-   * Slice Identifier field in *ProgramShowcase → option C → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: program_showcase.optionC.primary.slice_identifier
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  slice_identifier: prismic.KeyTextField;
 }
 
 /**
@@ -10073,6 +10131,16 @@ export type ProgramShowcaseSliceOptionC = prismic.SharedSliceVariation<
  * Primary content in *ProgramShowcase → with Button → Primary*
  */
 export interface ProgramShowcaseSliceWithButtonPrimary {
+  /**
+   * Slice Identifier field in *ProgramShowcase → with Button → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.withButton.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
   /**
    * title field in *ProgramShowcase → with Button → Primary*
    *
@@ -10106,16 +10174,6 @@ export interface ProgramShowcaseSliceWithButtonPrimary {
   >;
 
   /**
-   * Slice Identifier field in *ProgramShowcase → with Button → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: program_showcase.withButton.primary.slice_identifier
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  slice_identifier: prismic.KeyTextField;
-
-  /**
    * link field in *ProgramShowcase → with Button → Primary*
    *
    * - **Field Type**: Link
@@ -10124,6 +10182,16 @@ export interface ProgramShowcaseSliceWithButtonPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
+
+  /**
+   * Asset field in *ProgramShowcase → with Button → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: program_showcase.withButton.primary.asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
 }
 
 /**
@@ -11192,11 +11260,90 @@ export type StudentVisionSliceWithBgImage = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *StudentVision → Simple → Primary*
+ */
+export interface StudentVisionSliceSimplePrimary {
+  /**
+   * Slice Identifier field in *StudentVision → Simple → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.simple.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * title field in *StudentVision → Simple → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.simple.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * description field in *StudentVision → Simple → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.simple.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * image field in *StudentVision → Simple → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.simple.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Asset 1 field in *StudentVision → Simple → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.simple.primary.asset_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_1: prismic.ImageField<never>;
+
+  /**
+   * Asset 2 field in *StudentVision → Simple → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.simple.primary.asset_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_2: prismic.ImageField<never>;
+}
+
+/**
+ * Simple variation for StudentVision Slice
+ *
+ * - **API ID**: `simple`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StudentVisionSliceSimple = prismic.SharedSliceVariation<
+  "simple",
+  Simplify<StudentVisionSliceSimplePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *StudentVision*
  */
 type StudentVisionSliceVariation =
   | StudentVisionSliceDefault
-  | StudentVisionSliceWithBgImage;
+  | StudentVisionSliceWithBgImage
+  | StudentVisionSliceSimple;
 
 /**
  * StudentVision Shared Slice
@@ -12540,6 +12687,10 @@ declare module "@prismicio/client" {
       MagicSectionSliceDefaultPrimary,
       MagicSectionSliceVariation,
       MagicSectionSliceDefault,
+      MapReachSlice,
+      MapReachSliceDefaultPrimary,
+      MapReachSliceVariation,
+      MapReachSliceDefault,
       MissionVisionSlice,
       MissionVisionSliceDefaultPrimary,
       MissionVisionSliceReverseVideoComponetPrimary,
@@ -12654,9 +12805,11 @@ declare module "@prismicio/client" {
       StudentVisionSliceDefaultPrimary,
       StudentVisionSliceWithBgImagePrimaryDescriptionItem,
       StudentVisionSliceWithBgImagePrimary,
+      StudentVisionSliceSimplePrimary,
       StudentVisionSliceVariation,
       StudentVisionSliceDefault,
       StudentVisionSliceWithBgImage,
+      StudentVisionSliceSimple,
       SwirlImageSlice,
       SwirlImageSliceDefaultPrimary,
       SwirlImageSliceVariation,

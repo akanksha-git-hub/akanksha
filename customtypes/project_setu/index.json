@@ -11,6 +11,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "map_reach": {
+              "type": "SharedSlice"
+            },
+            "student_vision": {
+              "type": "SharedSlice"
+            },
+            "impact_hero": {
+              "type": "SharedSlice"
+            },
             "mission_vision": {
               "type": "SharedSlice"
             },

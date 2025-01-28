@@ -27,6 +27,7 @@ export const components = {
   impact_shuffle: dynamic(() => import("./ImpactShuffle")),
   initiative_showcase: dynamic(() => import("./InitiativeShowcase")),
   magic_section: dynamic(() => import("./MagicSection")),
+  map_reach: dynamic(() => import("./MapReach")),
   mission_vision: dynamic(() => import("./MissionVision")),
   mission_vision_showcase: dynamic(() => import("./MissionVisionShowcase")),
   our_partners: dynamic(() => import("./OurPartners")),
