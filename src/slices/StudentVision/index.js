@@ -137,6 +137,17 @@ const StudentVision = ({ slice }) => {
       </section>
     );
   }
+  if (slice.variation === "gallery") {
+    return (
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className=" mt-8"
+      >
+        <SliceIdentifier text={slice.primary.slice_identifier} />
+      </section>
+    );
+  }
 
   return (
     <section

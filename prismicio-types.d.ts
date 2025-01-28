@@ -11216,6 +11216,31 @@ export interface StudentVisionSliceWithBgImagePrimaryDescriptionItem {
 }
 
 /**
+ * Item in *StudentVision → Gallery → Primary → images*
+ */
+export interface StudentVisionSliceGalleryPrimaryImagesItem {
+  /**
+   * image field in *StudentVision → Gallery → Primary → images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.gallery.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * link to video field in *StudentVision → Gallery → Primary → images*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.gallery.primary.images[].link_to_video
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_to_video: prismic.LinkField;
+}
+
+/**
  * Primary content in *StudentVision → Default → Primary*
  */
 export interface StudentVisionSliceDefaultPrimary {
@@ -11424,12 +11449,53 @@ export type StudentVisionSliceSimple = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *StudentVision → Gallery → Primary*
+ */
+export interface StudentVisionSliceGalleryPrimary {
+  /**
+   * Slice Identifier field in *StudentVision → Gallery → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.gallery.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * images field in *StudentVision → Gallery → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.gallery.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<
+    Simplify<StudentVisionSliceGalleryPrimaryImagesItem>
+  >;
+}
+
+/**
+ * Gallery variation for StudentVision Slice
+ *
+ * - **API ID**: `gallery`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StudentVisionSliceGallery = prismic.SharedSliceVariation<
+  "gallery",
+  Simplify<StudentVisionSliceGalleryPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *StudentVision*
  */
 type StudentVisionSliceVariation =
   | StudentVisionSliceDefault
   | StudentVisionSliceWithBgImage
-  | StudentVisionSliceSimple;
+  | StudentVisionSliceSimple
+  | StudentVisionSliceGallery;
 
 /**
  * StudentVision Shared Slice
@@ -12895,10 +12961,13 @@ declare module "@prismicio/client" {
       StudentVisionSliceWithBgImagePrimaryDescriptionItem,
       StudentVisionSliceWithBgImagePrimary,
       StudentVisionSliceSimplePrimary,
+      StudentVisionSliceGalleryPrimaryImagesItem,
+      StudentVisionSliceGalleryPrimary,
       StudentVisionSliceVariation,
       StudentVisionSliceDefault,
       StudentVisionSliceWithBgImage,
       StudentVisionSliceSimple,
+      StudentVisionSliceGallery,
       SwirlImageSlice,
       SwirlImageSliceDefaultPrimary,
       SwirlImageSliceVariation,

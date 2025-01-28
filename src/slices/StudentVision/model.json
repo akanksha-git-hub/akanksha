@@ -165,6 +165,49 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "gallery",
+      "name": "Gallery",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "images": {
+          "type": "Group",
+          "config": {
+            "label": "images",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "link_to_video": {
+                "type": "Link",
+                "config": {
+                  "label": "link to video",
+                  "placeholder": "",
+                  "select": null
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
