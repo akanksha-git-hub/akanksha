@@ -113,7 +113,7 @@ const routes = [
   },
   {
     type: "impact",
-    path: "/impact",
+    path: "/our-impact",
   },
 ];
 
