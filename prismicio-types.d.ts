@@ -11473,6 +11473,16 @@ export interface StudentVisionSliceGalleryPrimary {
   images: prismic.GroupField<
     Simplify<StudentVisionSliceGalleryPrimaryImagesItem>
   >;
+
+  /**
+   * Slice Identifier 2 field in *StudentVision → Gallery → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.gallery.primary.slice_identifier_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier_2: prismic.KeyTextField;
 }
 
 /**
