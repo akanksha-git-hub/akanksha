@@ -1,0 +1,85 @@
+{
+  "id": "growth_impact2",
+  "type": "SharedSlice",
+  "name": "GrowthImpact2",
+  "description": "GrowthImpact2",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "card_1_percentage": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 percentage",
+            "placeholder": ""
+          }
+        },
+        "card_1_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 Description",
+            "placeholder": ""
+          }
+        },
+        "card_1_asset": {
+          "type": "Image",
+          "config": {
+            "label": "Card 1 Asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_2_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 title",
+            "placeholder": ""
+          }
+        },
+        "card_2_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Description",
+            "placeholder": ""
+          }
+        },
+        "card_2_button_1_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card 2 button 1 Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "card_2_button_1_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 button 1 description",
+            "placeholder": ""
+          }
+        },
+        "card_2_buttton_2_header": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Buttton 2 Header",
+            "placeholder": ""
+          }
+        },
+        "card_2_button_2_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Button 2 description",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

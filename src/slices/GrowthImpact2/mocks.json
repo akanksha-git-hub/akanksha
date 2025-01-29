@@ -1,0 +1,78 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"card_1_percentage": {
+				"__TYPE__": "FieldContent",
+				"value": "highest",
+				"type": "Text"
+			},
+			"card_1_description": {
+				"__TYPE__": "FieldContent",
+				"value": "act",
+				"type": "Text"
+			},
+			"card_1_asset": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117",
+					"width": 3810,
+					"height": 5715
+				},
+				"url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117",
+				"width": 3810,
+				"height": 5715,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"card_2_title": {
+				"__TYPE__": "FieldContent",
+				"value": "important",
+				"type": "Text"
+			},
+			"card_2_description": {
+				"__TYPE__": "FieldContent",
+				"value": "everywhere",
+				"type": "Text"
+			},
+			"card_2_button_1_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Officia culpa ex aliqua sit nostrud labore aliquip non Lorem eu voluptate aliquip exercitation."
+						}
+					}
+				]
+			},
+			"card_2_button_1_description": {
+				"__TYPE__": "FieldContent",
+				"value": "court",
+				"type": "Text"
+			},
+			"card_2_buttton_2_header": {
+				"__TYPE__": "FieldContent",
+				"value": "farmer",
+				"type": "Text"
+			},
+			"card_2_button_2_description": {
+				"__TYPE__": "FieldContent",
+				"value": "relationship",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

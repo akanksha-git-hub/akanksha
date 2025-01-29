@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "growth_impact2": {
+              "type": "SharedSlice"
+            },
+            "growth_impact": {
+              "type": "SharedSlice"
+            },
             "map_reach": {
               "type": "SharedSlice"
             },

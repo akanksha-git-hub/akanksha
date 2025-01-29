@@ -24,7 +24,6 @@ const Alumini = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="universal-padding  mt-96 "
     >
-      {console.log(slice.primary.universities)}
       <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl text-center ">
         {slice.primary.heading}
       </h1>
