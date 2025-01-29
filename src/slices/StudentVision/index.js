@@ -1,8 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import SwiperArrow from "@/components/UI/SwiperArrow";
 import { PrismicNextImage } from "@prismicio/next";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, EffectCoverflow } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 
 /**
  * @typedef {import("@prismicio/client").Content.StudentVisionSlice} StudentVisionSlice
@@ -138,13 +143,63 @@ const StudentVision = ({ slice }) => {
     );
   }
   if (slice.variation === "gallery") {
+    const images = slice?.primary.images || []; // Assuming images are inside slice.items
+    const [activeIndex, setActiveIndex] = useState(1); // Start with the second image centered
+    const swiperRef = useRef(null);
+
     return (
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className=" mt-8"
+        className="relative mt-8"
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
+        <div className="flex justify-center items-center relative mt-16">
+          {/* Swiper for Images */}
+          <Swiper
+            modules={[Navigation, EffectCoverflow]}
+            effect="coverflow"
+            slidesPerView={3}
+            centeredSlides={true}
+            loop={true}
+            speed={700} // Adjust animation speed for smooth transitions
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 20, // Increased 3D depth effect
+              modifier: 2,
+              scale: 0.8, // Side images are slightly smaller
+            }}
+            onSwiper={(swiper) => (swiperRef.current = swiper)} // Store Swiper instance in ref
+            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Update active index on slide change
+            className="w-full h-[500px]" // Fixed height for proper scaling
+          >
+            {images.map((item, index) => (
+              <SwiperSlide
+                key={index}
+                className="flex justify-center items-center bg-transparent transition-transform ease-in-out w-full h-full"
+              >
+                <PrismicNextImage
+                  field={item.image}
+                  className={`w-full h-full object-cover rounded-lg transition-transform ease-in-out ${
+                    index === activeIndex
+                      ? "scale-100" // Larger center image (full size)
+                      : "" // Slightly smaller side images
+                  }`}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        <div className="flex items-center mt-6 justify-between xl:mt-8 xl:justify-normal">
+          <div className="flex gap-2  mx-auto">
+            <SwiperArrow
+              className="rotate-180"
+              onClick={() => swiperRef.current?.slidePrev()}
+            />
+            <SwiperArrow onClick={() => swiperRef.current?.slideNext()} />
+          </div>
+        </div>
       </section>
     );
   }
