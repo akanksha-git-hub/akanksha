@@ -19,6 +19,7 @@ export const components = {
   ),
   growth_impact: dynamic(() => import("./GrowthImpact")),
   growth_impact2: dynamic(() => import("./GrowthImpact2")),
+  growth_impact3: dynamic(() => import("./GrowthImpact3")),
   hero: dynamic(() => import("./Hero")),
   horizontal_scroll_slice: dynamic(() => import("./HorizontalScrollSlice")),
   icon_scroll_showcase: dynamic(() => import("./IconScrollShowcase")),
