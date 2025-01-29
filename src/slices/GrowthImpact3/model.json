@@ -1,0 +1,83 @@
+{
+  "id": "growth_impact3",
+  "type": "SharedSlice",
+  "name": "GrowthImpact3",
+  "description": "GrowthImpact3",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "card_1_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 Description",
+            "placeholder": ""
+          }
+        },
+        "percentage_1": {
+          "type": "Text",
+          "config": {
+            "label": "Percentage 1",
+            "placeholder": ""
+          }
+        },
+        "chart_description_1": {
+          "type": "Text",
+          "config": {
+            "label": "Chart Description 1",
+            "placeholder": ""
+          }
+        },
+        "percentage_2": {
+          "type": "Text",
+          "config": {
+            "label": "Percentage 2",
+            "placeholder": ""
+          }
+        },
+        "chart_description_2": {
+          "type": "Text",
+          "config": {
+            "label": "Chart Description 2",
+            "placeholder": ""
+          }
+        },
+        "card_2_asset": {
+          "type": "Image",
+          "config": {
+            "label": "Card 2 asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_2_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Title",
+            "placeholder": ""
+          }
+        },
+        "card_2_small_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Small Title",
+            "placeholder": ""
+          }
+        },
+        "card_2_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Description",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

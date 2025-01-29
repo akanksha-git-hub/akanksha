@@ -2942,6 +2942,7 @@ export type PrivacyPolicyDocument<Lang extends string = string> =
   >;
 
 type ProjectSetuDocumentDataSlicesSlice =
+  | GrowthImpact3Slice
   | GrowthImpact2Slice
   | GrowthImpactSlice
   | MapReachSlice
@@ -6606,6 +6607,131 @@ type GrowthImpact2SliceVariation = GrowthImpact2SliceDefault;
 export type GrowthImpact2Slice = prismic.SharedSlice<
   "growth_impact2",
   GrowthImpact2SliceVariation
+>;
+
+/**
+ * Primary content in *GrowthImpact3 → Default → Primary*
+ */
+export interface GrowthImpact3SliceDefaultPrimary {
+  /**
+   * Card 1 Description field in *GrowthImpact3 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact3.default.primary.card_1_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_description: prismic.KeyTextField;
+
+  /**
+   * Percentage 1 field in *GrowthImpact3 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact3.default.primary.percentage_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  percentage_1: prismic.KeyTextField;
+
+  /**
+   * Chart Description 1 field in *GrowthImpact3 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact3.default.primary.chart_description_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  chart_description_1: prismic.KeyTextField;
+
+  /**
+   * Percentage 2 field in *GrowthImpact3 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact3.default.primary.percentage_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  percentage_2: prismic.KeyTextField;
+
+  /**
+   * Chart Description 2 field in *GrowthImpact3 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact3.default.primary.chart_description_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  chart_description_2: prismic.KeyTextField;
+
+  /**
+   * Card 2 asset field in *GrowthImpact3 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact3.default.primary.card_2_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_2_asset: prismic.ImageField<never>;
+
+  /**
+   * Card 2 Title field in *GrowthImpact3 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact3.default.primary.card_2_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_title: prismic.KeyTextField;
+
+  /**
+   * Card 2 Small Title field in *GrowthImpact3 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact3.default.primary.card_2_small_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_small_title: prismic.KeyTextField;
+
+  /**
+   * Card 2 Description field in *GrowthImpact3 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact3.default.primary.card_2_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_description: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for GrowthImpact3 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GrowthImpact3SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<GrowthImpact3SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *GrowthImpact3*
+ */
+type GrowthImpact3SliceVariation = GrowthImpact3SliceDefault;
+
+/**
+ * GrowthImpact3 Shared Slice
+ *
+ * - **API ID**: `growth_impact3`
+ * - **Description**: GrowthImpact3
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GrowthImpact3Slice = prismic.SharedSlice<
+  "growth_impact3",
+  GrowthImpact3SliceVariation
 >;
 
 /**
@@ -13100,6 +13226,10 @@ declare module "@prismicio/client" {
       GrowthImpact2SliceDefaultPrimary,
       GrowthImpact2SliceVariation,
       GrowthImpact2SliceDefault,
+      GrowthImpact3Slice,
+      GrowthImpact3SliceDefaultPrimary,
+      GrowthImpact3SliceVariation,
+      GrowthImpact3SliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimaryHeroContentItem,
       HeroSliceDefaultPrimaryHeroContentCtaItem,
