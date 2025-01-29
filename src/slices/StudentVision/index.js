@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import SwiperArrow from "@/components/UI/SwiperArrow";
 import { PrismicNextImage } from "@prismicio/next";
@@ -9,16 +9,23 @@ import { Navigation, EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
+import FinancialsAccordion from "@/components/financials-accordion";
+import RichText from "@/components/Texts/RichText";
+
 /**
  * @typedef {import("@prismicio/client").Content.StudentVisionSlice} StudentVisionSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<StudentVisionSlice>} StudentVisionProps
  * @param {StudentVisionProps}
  */
-const StudentVision = ({ slice }) => {
+const StudentVision = ({ slice, context }) => {
   const [trackIndex, setTrackIndex] = useState(0);
   const swiperRef = useRef(null);
   const images = slice?.primary.images || [];
   const [activeIndex, setActiveIndex] = useState(1);
+  const financialsPage = context?.financialsPage;
+  useEffect(() => {
+    console.log("Financials Page Data:", financialsPage);
+  }, [financialsPage]); // ✅ Log when financialsPage is available
 
   // Navigation functions
   const swipePrev = () => {
@@ -176,6 +183,22 @@ const StudentVision = ({ slice }) => {
             />
             <SwiperArrow onClick={() => swiperRef.current?.slideNext()} />
           </div>
+        </div>
+        <div>
+          {financialsPage && (
+            <div className="mt-8">
+              <SliceIdentifier text={slice.primary.slice_identifier_2} />
+              <div className="relative w-fit md:mx-auto">
+                <RichText
+                  text={financialsPage.data.title}
+                  className={`text-deep-green font-ambit-regular text-7xl text-left md:text-center w-full pt-24`}
+                />
+              </div>
+              <div className="mt-8">
+                <FinancialsAccordion item={financialsPage.data} />
+              </div>
+            </div>
+          )}
         </div>
       </section>
     );

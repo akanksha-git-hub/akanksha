@@ -205,6 +205,13 @@
               }
             }
           }
+        },
+        "slice_identifier_2": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier 2",
+            "placeholder": ""
+          }
         }
       },
       "items": {}
