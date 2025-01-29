@@ -16,7 +16,9 @@ import "swiper/css/navigation";
  */
 const StudentVision = ({ slice }) => {
   const [trackIndex, setTrackIndex] = useState(0);
-  const swiperRef = useRef(null); // Declare it outside conditions
+  const swiperRef = useRef(null);
+  const images = slice?.primary.images || [];
+  const [activeIndex, setActiveIndex] = useState(1);
 
   // Navigation functions
   const swipePrev = () => {
@@ -125,9 +127,6 @@ const StudentVision = ({ slice }) => {
   }
 
   if (slice.variation === "gallery") {
-    const images = slice?.primary.images || [];
-    const [activeIndex, setActiveIndex] = useState(1);
-
     return (
       <section
         data-slice-type={slice.slice_type}
