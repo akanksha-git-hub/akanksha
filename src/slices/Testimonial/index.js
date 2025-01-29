@@ -13,6 +13,19 @@ import { useState } from "react";
  * @param {TestimonialProps}
  */
 const Testimonial = ({ slice, context }) => {
+  const { addPadding } = context;
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const testimonials = slice.primary.content;
+
+  const nextTestimonial = () => {
+    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  };
   if (slice.variation === "optionC") {
     return (
       <section
@@ -127,22 +140,6 @@ const Testimonial = ({ slice, context }) => {
   //Muiltiple Testimponials with button
 
   if (slice.variation === "testimonialMultiple") {
-    const { addPadding } = context;
-
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    const testimonials = slice.primary.content;
-
-    const nextTestimonial = () => {
-      setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    };
-
-    const prevTestimonial = () => {
-      setActiveIndex((prev) =>
-        prev === 0 ? testimonials.length - 1 : prev - 1
-      );
-    };
-
     return (
       <section
         data-slice-type={slice.slice_type}
