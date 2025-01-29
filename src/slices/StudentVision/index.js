@@ -16,6 +16,7 @@ import "swiper/css/navigation";
  */
 const StudentVision = ({ slice }) => {
   const [trackIndex, setTrackIndex] = useState(0);
+  const swiperRef = useRef(null); // Declare it outside conditions
 
   // Navigation functions
   const swipePrev = () => {
@@ -45,14 +46,12 @@ const StudentVision = ({ slice }) => {
           </h1>
 
           <div className="relative h-full w-full flex items-center justify-center">
-            <div className="">
-              <PrismicNextImage
-                field={slice.primary.bg_image}
-                alt="bg-image"
-                fill
-                className="absolute top-0 left-0 -z-10"
-              />
-            </div>
+            <PrismicNextImage
+              field={slice.primary.bg_image}
+              alt="bg-image"
+              fill
+              className="absolute top-0 left-0 -z-10"
+            />
             <PrismicNextImage
               height={500}
               width={500}
@@ -60,12 +59,10 @@ const StudentVision = ({ slice }) => {
               alt=""
             />
           </div>
-          {/* Display current description */}
           <p className="text-center w-[50%] font-ambit-regular mt-4">
             {slice.primary.description[trackIndex].desc}
           </p>
 
-          {/* Navigation buttons */}
           <div className="flex gap-2 mt-4">
             <SwiperArrow
               strokeColor="#37473C"
@@ -76,17 +73,14 @@ const StudentVision = ({ slice }) => {
             <SwiperArrow
               strokeColor="#37473C"
               onClick={swipeNext}
-              isDisabled={
-                trackIndex === slice.primary.description.length - 1
-                  ? true
-                  : false
-              }
+              isDisabled={trackIndex === slice.primary.description.length - 1}
             />
           </div>
         </div>
       </section>
     );
   }
+
   if (slice.variation === "simple") {
     return (
       <section
@@ -103,33 +97,21 @@ const StudentVision = ({ slice }) => {
           <p className="md:text-center md:w-[40%] font-ambit-regular mt-4 text-left">
             {slice.primary.description}
           </p>
-          <div className="">
-            <PrismicNextImage
-              field={slice.primary.asset_1}
-              alt="left-asset"
-              height={220}
-              width={220}
-              className=" absolute hidden md:block md:-right-[8%] md:top-[8%]  lg:top-[18%] lg:right-[12%] -z-10"
-            />
-          </div>
-          <div className="">
-            <PrismicNextImage
-              field={slice.primary.asset_2}
-              alt="right-asset"
-              height={120}
-              width={120}
-              className=" absolute hidden md:block md:-right-[5%] md:top-[28%]  lg:top-[30%] lg:right-[6%] -z-10"
-            />
-          </div>
+          <PrismicNextImage
+            field={slice.primary.asset_1}
+            alt="left-asset"
+            height={220}
+            width={220}
+            className="absolute hidden md:block md:-right-[8%] md:top-[8%] lg:top-[18%] lg:right-[12%] -z-10"
+          />
+          <PrismicNextImage
+            field={slice.primary.asset_2}
+            alt="right-asset"
+            height={120}
+            width={120}
+            className="absolute hidden md:block md:-right-[5%] md:top-[28%] lg:top-[30%] lg:right-[6%] -z-10"
+          />
           <div className="relative h-full w-full flex items-center justify-center">
-            {/* <div className="">
-              <PrismicNextImage
-                field={slice.primary.bg_image}
-                alt="bg-image"
-                fill
-                className="absolute top-0 left-0 -z-10"
-              />
-            </div> */}
             <PrismicNextImage
               height={900}
               width={900}
@@ -137,15 +119,14 @@ const StudentVision = ({ slice }) => {
               alt=""
             />
           </div>
-          {/* Display current description */}
         </div>
       </section>
     );
   }
+
   if (slice.variation === "gallery") {
-    const images = slice?.primary.images || []; // Assuming images are inside slice.items
-    const [activeIndex, setActiveIndex] = useState(1); // Start with the second image centered
-    const swiperRef = useRef(null);
+    const images = slice?.primary.images || [];
+    const [activeIndex, setActiveIndex] = useState(1);
 
     return (
       <section
@@ -155,24 +136,23 @@ const StudentVision = ({ slice }) => {
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <div className="flex justify-center items-center relative mt-16">
-          {/* Swiper for Images */}
           <Swiper
             modules={[Navigation, EffectCoverflow]}
             effect="coverflow"
             slidesPerView={3}
             centeredSlides={true}
             loop={true}
-            speed={700} // Adjust animation speed for smooth transitions
+            speed={700}
             coverflowEffect={{
               rotate: 0,
               stretch: 0,
-              depth: 20, // Increased 3D depth effect
+              depth: 20,
               modifier: 2,
-              scale: 0.8, // Side images are slightly smaller
+              scale: 0.8,
             }}
-            onSwiper={(swiper) => (swiperRef.current = swiper)} // Store Swiper instance in ref
-            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Update active index on slide change
-            className="w-full h-[500px]" // Fixed height for proper scaling
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+            className="w-full h-[500px]"
           >
             {images.map((item, index) => (
               <SwiperSlide
@@ -182,9 +162,7 @@ const StudentVision = ({ slice }) => {
                 <PrismicNextImage
                   field={item.image}
                   className={`w-full h-full object-cover rounded-lg transition-transform ease-in-out ${
-                    index === activeIndex
-                      ? "scale-100" // Larger center image (full size)
-                      : "" // Slightly smaller side images
+                    index === activeIndex ? "scale-100" : ""
                   }`}
                 />
               </SwiperSlide>
@@ -192,7 +170,7 @@ const StudentVision = ({ slice }) => {
           </Swiper>
         </div>
         <div className="flex items-center mt-6 justify-between xl:mt-8 xl:justify-normal">
-          <div className="flex gap-2  mx-auto">
+          <div className="flex gap-2 mx-auto">
             <SwiperArrow
               className="rotate-180"
               onClick={() => swiperRef.current?.slidePrev()}
@@ -224,12 +202,10 @@ const StudentVision = ({ slice }) => {
           alt=""
         />
 
-        {/* Display current description */}
         <p className="text-center w-[50%] font-ambit-regular mt-4">
           {slice.primary.description[trackIndex].desc}
         </p>
 
-        {/* Navigation buttons */}
         <div className="flex gap-2 mt-4">
           <SwiperArrow
             strokeColor="#37473C"
@@ -240,9 +216,7 @@ const StudentVision = ({ slice }) => {
           <SwiperArrow
             strokeColor="#37473C"
             onClick={swipeNext}
-            isDisabled={
-              trackIndex === slice.primary.description.length - 1 ? true : false
-            }
+            isDisabled={trackIndex === slice.primary.description.length - 1}
           />
         </div>
       </div>
