@@ -1,0 +1,76 @@
+{
+  "id": "growth_impact5",
+  "type": "SharedSlice",
+  "name": "GrowthImpact5",
+  "description": "GrowthImpact5",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "card_1_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 Title",
+            "placeholder": ""
+          }
+        },
+        "card_1_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 Description",
+            "placeholder": ""
+          }
+        },
+        "card_2_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Title",
+            "placeholder": ""
+          }
+        },
+        "role_1": {
+          "type": "Text",
+          "config": {
+            "label": "Role 1",
+            "placeholder": ""
+          }
+        },
+        "role_2": {
+          "type": "Text",
+          "config": {
+            "label": "Role 2",
+            "placeholder": ""
+          }
+        },
+        "role_3": {
+          "type": "Text",
+          "config": {
+            "label": "Role 3",
+            "placeholder": ""
+          }
+        },
+        "card_2_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Description",
+            "placeholder": ""
+          }
+        },
+        "asset": {
+          "type": "Image",
+          "config": {
+            "label": "Asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

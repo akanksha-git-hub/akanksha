@@ -2942,6 +2942,8 @@ export type PrivacyPolicyDocument<Lang extends string = string> =
   >;
 
 type ProjectSetuDocumentDataSlicesSlice =
+  | GrowthImpact5Slice
+  | GrowthImpact4Slice
   | GrowthImpact3Slice
   | GrowthImpact2Slice
   | GrowthImpactSlice
@@ -6732,6 +6734,216 @@ type GrowthImpact3SliceVariation = GrowthImpact3SliceDefault;
 export type GrowthImpact3Slice = prismic.SharedSlice<
   "growth_impact3",
   GrowthImpact3SliceVariation
+>;
+
+/**
+ * Primary content in *GrowthImpact4 → Default → Primary*
+ */
+export interface GrowthImpact4SliceDefaultPrimary {
+  /**
+   * Card 1 Heading field in *GrowthImpact4 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact4.default.primary.card_1_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_heading: prismic.KeyTextField;
+
+  /**
+   * Card 1 Description field in *GrowthImpact4 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact4.default.primary.card_1_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_description: prismic.KeyTextField;
+
+  /**
+   * Card 1 Asset field in *GrowthImpact4 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact4.default.primary.card_1_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_1_asset: prismic.ImageField<never>;
+
+  /**
+   * Card 2 Heading field in *GrowthImpact4 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact4.default.primary.card_2_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_heading: prismic.KeyTextField;
+
+  /**
+   * Card 2 Description field in *GrowthImpact4 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact4.default.primary.card_2_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_description: prismic.KeyTextField;
+
+  /**
+   * Card 2 Asset field in *GrowthImpact4 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact4.default.primary.card_2_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_2_asset: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for GrowthImpact4 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GrowthImpact4SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<GrowthImpact4SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *GrowthImpact4*
+ */
+type GrowthImpact4SliceVariation = GrowthImpact4SliceDefault;
+
+/**
+ * GrowthImpact4 Shared Slice
+ *
+ * - **API ID**: `growth_impact4`
+ * - **Description**: GrowthImpact4
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GrowthImpact4Slice = prismic.SharedSlice<
+  "growth_impact4",
+  GrowthImpact4SliceVariation
+>;
+
+/**
+ * Primary content in *GrowthImpact5 → Default → Primary*
+ */
+export interface GrowthImpact5SliceDefaultPrimary {
+  /**
+   * Card 1 Title field in *GrowthImpact5 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact5.default.primary.card_1_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_title: prismic.KeyTextField;
+
+  /**
+   * Card 1 Description field in *GrowthImpact5 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact5.default.primary.card_1_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_description: prismic.KeyTextField;
+
+  /**
+   * Card 2 Title field in *GrowthImpact5 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact5.default.primary.card_2_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_title: prismic.KeyTextField;
+
+  /**
+   * Role 1 field in *GrowthImpact5 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact5.default.primary.role_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  role_1: prismic.KeyTextField;
+
+  /**
+   * Role 2 field in *GrowthImpact5 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact5.default.primary.role_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  role_2: prismic.KeyTextField;
+
+  /**
+   * Role 3 field in *GrowthImpact5 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact5.default.primary.role_3
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  role_3: prismic.KeyTextField;
+
+  /**
+   * Card 2 Description field in *GrowthImpact5 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact5.default.primary.card_2_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_description: prismic.KeyTextField;
+
+  /**
+   * Asset field in *GrowthImpact5 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact5.default.primary.asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for GrowthImpact5 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GrowthImpact5SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<GrowthImpact5SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *GrowthImpact5*
+ */
+type GrowthImpact5SliceVariation = GrowthImpact5SliceDefault;
+
+/**
+ * GrowthImpact5 Shared Slice
+ *
+ * - **API ID**: `growth_impact5`
+ * - **Description**: GrowthImpact5
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GrowthImpact5Slice = prismic.SharedSlice<
+  "growth_impact5",
+  GrowthImpact5SliceVariation
 >;
 
 /**
@@ -13230,6 +13442,14 @@ declare module "@prismicio/client" {
       GrowthImpact3SliceDefaultPrimary,
       GrowthImpact3SliceVariation,
       GrowthImpact3SliceDefault,
+      GrowthImpact4Slice,
+      GrowthImpact4SliceDefaultPrimary,
+      GrowthImpact4SliceVariation,
+      GrowthImpact4SliceDefault,
+      GrowthImpact5Slice,
+      GrowthImpact5SliceDefaultPrimary,
+      GrowthImpact5SliceVariation,
+      GrowthImpact5SliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimaryHeroContentItem,
       HeroSliceDefaultPrimaryHeroContentCtaItem,
