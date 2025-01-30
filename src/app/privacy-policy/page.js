@@ -9,7 +9,7 @@ export default async function Page() {
 
     return(
         <main className={`${maxwidth} universal-padding space-y-16 relative`}>
-            <div className="orange-gradient absolute -top-28 left-0 h-96 w-full -z-10" />
+            
             <RichText 
                 text='Privacy Policy'
                 className='font-ambit-regular text-5xl md:text-7xl flex place-content-center pt-12 text-deep-green'
