@@ -117,7 +117,7 @@ const IconShowcase = ({ slice }) => {
           />
         </div>
          {slice.primary.data && (
-      <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-y-8 justify-items-center">
+      <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-y-8 justify-center  items-start">
       {slice.primary.data.map((item,index) => {
           
         let LottieData = null;
@@ -264,7 +264,7 @@ const IconShowcase = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="universal-padding "
     >
-       <SliceIdentifier text={slice.primary.slice_identifier}  />
+       {/* <SliceIdentifier text={slice.primary.slice_identifier}  /> */}
       {slice.primary.data && (
         <ul className="grid md:grid-cols-2 xl:grid-cols-3 my-12">
           {slice.primary.data.map((item, index) => {

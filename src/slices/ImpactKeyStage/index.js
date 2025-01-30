@@ -20,18 +20,18 @@ const ImpactKeyStage = ({ slice }) => {
         <div className="flex flex-col md:flex-row items-start ">
           {/* Item 1 */}
           <div className="relative flex flex-col items-start md:items-center  pt-4 md:pt-0">
-            <h1 className="text-2xl mb-4 text-left md:text-center font-ambit-semibold">
+            <h1 className="text-2xl mb-4 md:ml-20  text-left md:text-center font-ambit-semibold">
               {slice.primary.heading1}
             </h1>
-            <div className="md:mt-[22rem] md:ml-40 md:pr-10">
+            <div className="md:mt-[22rem] md:ml-32 md:pr-10">
               <p className="mb-2 text-left md:text-center font-ambit-regular text-3xl">
                 {slice.primary.subheading1}
               </p>
-              <p className="text-left md:text-center md:w-[30ch] font-ambit-regular text-md">
+              <p className="text-left md:text-center md:w-[40ch] font-ambit-regular text-md">
                 {slice.primary.desciption1}
               </p>
             </div>
-            <div className="hidden md:block absolute right-0 top-0 transform translate-x-48 translate-y-3 ">
+            <div className="hidden md:block absolute right-0 top-0 transform translate-x-56 translate-y-3 ">
               <Image
                 src="/vector1.png"
                 alt="Vector connecting Heading 1 to Subtitle 1"
@@ -49,15 +49,15 @@ const ImpactKeyStage = ({ slice }) => {
             <h1 className="text-2xl mb-4 text-left md:text-center font-ambit-semibold">
               {slice.primary.heading2}
             </h1>
-            <div className="md:mt-[22rem] md:mr-40 md:pl-10">
+            <div className="md:mt-[22rem] md:mr-32 md:pl-20">
               <p className="mb-2 text-left md:text-center font-ambit-regular text-3xl">
                 {slice.primary.subheading2}
               </p>
-              <p className="text-left md:text-center md:w-[30ch] font-ambit-regular text-md">
+              <p className="text-left md:text-center md:w-[40ch] font-ambit-regular text-md">
                 {slice.primary.desciption2}
               </p>
             </div>
-            <div className="hidden md:block absolute left-0 top-0 transform -translate-x-48 translate-y-3">
+            <div className="hidden md:block absolute left-0 top-0 transform -translate-x-40 translate-y-3">
               <Image
                 src="/vector2.png"
                 alt="Vector connecting Heading 2 to Subtitle 2"
