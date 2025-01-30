@@ -70,6 +70,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "equipment",
 				"type": "Text"
+			},
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "glad",
+				"type": "Text"
 			}
 		},
 		"items": []

@@ -12,69 +12,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "heading": {
-          "type": "Text",
-          "config": {
-            "label": "Heading",
-            "placeholder": ""
-          }
-        },
-        "card1_heading": {
-          "type": "Text",
-          "config": {
-            "label": "card1_heading",
-            "placeholder": ""
-          }
-        },
-        "card1_descriptiion": {
-          "type": "Text",
-          "config": {
-            "label": "card1_descriptiion",
-            "placeholder": ""
-          }
-        },
-        "year_1": {
-          "type": "Text",
-          "config": {
-            "label": "year_1",
-            "placeholder": ""
-          }
-        },
-        "year_1_percentage": {
-          "type": "Text",
-          "config": {
-            "label": "year_1_percentage",
-            "placeholder": ""
-          }
-        },
-        "year_2": {
-          "type": "Text",
-          "config": {
-            "label": "year_2",
-            "placeholder": ""
-          }
-        },
-        "year_2_percentage": {
-          "type": "Text",
-          "config": {
-            "label": "year_2_percentage",
-            "placeholder": ""
-          }
-        },
-        "year_3": {
-          "type": "Text",
-          "config": {
-            "label": "year_3",
-            "placeholder": ""
-          }
-        },
-        "year_3_percentage": {
-          "type": "Text",
-          "config": {
-            "label": "year_3_percentage",
-            "placeholder": ""
-          }
-        },
         "card2_heading": {
           "type": "Text",
           "config": {

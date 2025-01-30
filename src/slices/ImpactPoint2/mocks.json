@@ -1,0 +1,80 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"card_1_title": {
+				"__TYPE__": "FieldContent",
+				"value": "round",
+				"type": "Text"
+			},
+			"card_1_description": {
+				"__TYPE__": "FieldContent",
+				"value": "because",
+				"type": "Text"
+			},
+			"card_2_description": {
+				"__TYPE__": "FieldContent",
+				"value": "airplane",
+				"type": "Text"
+			},
+			"percentage_box": {
+				"__TYPE__": "FieldContent",
+				"value": "doll",
+				"type": "Text"
+			},
+			"asset": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+					"width": 6000,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e",
+				"width": 6000,
+				"height": 4000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"card_1_asset": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+					"width": 4480,
+					"height": 4480
+				},
+				"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+				"width": 4480,
+				"height": 4480,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"card_2_title": {
+				"__TYPE__": "FieldContent",
+				"value": "each",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

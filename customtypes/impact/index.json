@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "impact_point2": {
+              "type": "SharedSlice"
+            },
+            "impact_points": {
+              "type": "SharedSlice"
+            },
             "impact_shuffle": {
               "type": "SharedSlice"
             },

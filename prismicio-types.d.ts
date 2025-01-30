@@ -1960,6 +1960,8 @@ export type HorizontalScrollCardCDocument<Lang extends string = string> =
   >;
 
 type ImpactDocumentDataSlicesSlice =
+  | ImpactPoint2Slice
+  | ImpactPointsSlice
   | ImpactShuffleSlice
   | TestimonialSlice
   | RetentionSlice
@@ -3509,96 +3511,6 @@ export interface AluminiSliceDefaultPrimaryUniversitiesItem {
  */
 export interface AluminiSliceDefaultPrimary {
   /**
-   * Heading field in *Alumini → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  heading: prismic.KeyTextField;
-
-  /**
-   * card1_heading field in *Alumini → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini.default.primary.card1_heading
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  card1_heading: prismic.KeyTextField;
-
-  /**
-   * card1_descriptiion field in *Alumini → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini.default.primary.card1_descriptiion
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  card1_descriptiion: prismic.KeyTextField;
-
-  /**
-   * year_1 field in *Alumini → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini.default.primary.year_1
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  year_1: prismic.KeyTextField;
-
-  /**
-   * year_1_percentage field in *Alumini → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini.default.primary.year_1_percentage
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  year_1_percentage: prismic.KeyTextField;
-
-  /**
-   * year_2 field in *Alumini → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini.default.primary.year_2
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  year_2: prismic.KeyTextField;
-
-  /**
-   * year_2_percentage field in *Alumini → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini.default.primary.year_2_percentage
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  year_2_percentage: prismic.KeyTextField;
-
-  /**
-   * year_3 field in *Alumini → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini.default.primary.year_3
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  year_3: prismic.KeyTextField;
-
-  /**
-   * year_3_percentage field in *Alumini → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini.default.primary.year_3_percentage
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  year_3_percentage: prismic.KeyTextField;
-
-  /**
    * card2_heading field in *Alumini → Default → Primary*
    *
    * - **Field Type**: Text
@@ -3715,6 +3627,16 @@ export type AluminiSlice = prismic.SharedSlice<
  * Primary content in *Alumini2 → Default → Primary*
  */
 export interface Alumini2SliceDefaultPrimary {
+  /**
+   * Heading field in *Alumini2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
   /**
    * akanksha_average field in *Alumini2 → Default → Primary*
    *
@@ -8202,6 +8124,206 @@ type ImpactKeyStageSliceVariation = ImpactKeyStageSliceDefault;
 export type ImpactKeyStageSlice = prismic.SharedSlice<
   "impact_key_stage",
   ImpactKeyStageSliceVariation
+>;
+
+/**
+ * Primary content in *ImpactPoint2 → Default → Primary*
+ */
+export interface ImpactPoint2SliceDefaultPrimary {
+  /**
+   * Card 1 Title field in *ImpactPoint2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.default.primary.card_1_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_title: prismic.KeyTextField;
+
+  /**
+   * Card 1 Description field in *ImpactPoint2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.default.primary.card_1_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_description: prismic.KeyTextField;
+
+  /**
+   * Card 1 Asset field in *ImpactPoint2 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.default.primary.card_1_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_1_asset: prismic.ImageField<never>;
+
+  /**
+   * Card 2 Title field in *ImpactPoint2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.default.primary.card_2_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_title: prismic.KeyTextField;
+
+  /**
+   * Card 2 Description field in *ImpactPoint2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.default.primary.card_2_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_description: prismic.KeyTextField;
+
+  /**
+   * percentage box field in *ImpactPoint2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.default.primary.percentage_box
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  percentage_box: prismic.KeyTextField;
+
+  /**
+   * Asset field in *ImpactPoint2 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.default.primary.asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ImpactPoint2 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactPoint2SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImpactPoint2SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImpactPoint2*
+ */
+type ImpactPoint2SliceVariation = ImpactPoint2SliceDefault;
+
+/**
+ * ImpactPoint2 Shared Slice
+ *
+ * - **API ID**: `impact_point2`
+ * - **Description**: ImpactPoint2
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactPoint2Slice = prismic.SharedSlice<
+  "impact_point2",
+  ImpactPoint2SliceVariation
+>;
+
+/**
+ * Primary content in *ImpactPoints → Default → Primary*
+ */
+export interface ImpactPointsSliceDefaultPrimary {
+  /**
+   * Card 1 Heading field in *ImpactPoints → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_points.default.primary.card_1_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_heading: prismic.KeyTextField;
+
+  /**
+   * Card 1 Description field in *ImpactPoints → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_points.default.primary.card_1_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_description: prismic.KeyTextField;
+
+  /**
+   * Card 2 Heading field in *ImpactPoints → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_points.default.primary.card_2_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_heading: prismic.KeyTextField;
+
+  /**
+   * Card 2 Description field in *ImpactPoints → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_points.default.primary.card_2_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_description: prismic.KeyTextField;
+
+  /**
+   * Asset 1 field in *ImpactPoints → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_points.default.primary.asset_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_1: prismic.ImageField<never>;
+
+  /**
+   * Asset 2 field in *ImpactPoints → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_points.default.primary.asset_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_2: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ImpactPoints Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactPointsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImpactPointsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImpactPoints*
+ */
+type ImpactPointsSliceVariation = ImpactPointsSliceDefault;
+
+/**
+ * ImpactPoints Shared Slice
+ *
+ * - **API ID**: `impact_points`
+ * - **Description**: ImpactPoints
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactPointsSlice = prismic.SharedSlice<
+  "impact_points",
+  ImpactPointsSliceVariation
 >;
 
 /**
@@ -13502,6 +13624,14 @@ declare module "@prismicio/client" {
       ImpactKeyStageSliceDefaultPrimary,
       ImpactKeyStageSliceVariation,
       ImpactKeyStageSliceDefault,
+      ImpactPoint2Slice,
+      ImpactPoint2SliceDefaultPrimary,
+      ImpactPoint2SliceVariation,
+      ImpactPoint2SliceDefault,
+      ImpactPointsSlice,
+      ImpactPointsSliceDefaultPrimary,
+      ImpactPointsSliceVariation,
+      ImpactPointsSliceDefault,
       ImpactShuffleSlice,
       ImpactShuffleSliceDefaultPrimary,
       ImpactShuffleSliceVariation,

@@ -1,0 +1,63 @@
+{
+  "id": "impact_points",
+  "type": "SharedSlice",
+  "name": "ImpactPoints",
+  "description": "ImpactPoints",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "card_1_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 Heading",
+            "placeholder": ""
+          }
+        },
+        "card_1_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 Description",
+            "placeholder": ""
+          }
+        },
+        "card_2_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Heading",
+            "placeholder": ""
+          }
+        },
+        "card_2_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Description",
+            "placeholder": ""
+          }
+        },
+        "asset_1": {
+          "type": "Image",
+          "config": {
+            "label": "Asset 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "asset_2": {
+          "type": "Image",
+          "config": {
+            "label": "Asset 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

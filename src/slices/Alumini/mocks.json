@@ -3,51 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"heading": {
-				"__TYPE__": "FieldContent",
-				"value": "proud",
-				"type": "Text"
-			},
-			"card1_heading": {
-				"__TYPE__": "FieldContent",
-				"value": "supply",
-				"type": "Text"
-			},
-			"card1_descriptiion": {
-				"__TYPE__": "FieldContent",
-				"value": "fellow",
-				"type": "Text"
-			},
-			"year_1": {
-				"__TYPE__": "FieldContent",
-				"value": "getting",
-				"type": "Text"
-			},
-			"year_1_percentage": {
-				"__TYPE__": "FieldContent",
-				"value": "go",
-				"type": "Text"
-			},
-			"year_2": {
-				"__TYPE__": "FieldContent",
-				"value": "it",
-				"type": "Text"
-			},
-			"year_2_percentage": {
-				"__TYPE__": "FieldContent",
-				"value": "past",
-				"type": "Text"
-			},
-			"year_3": {
-				"__TYPE__": "FieldContent",
-				"value": "rocket",
-				"type": "Text"
-			},
-			"year_3_percentage": {
-				"__TYPE__": "FieldContent",
-				"value": "value",
-				"type": "Text"
-			},
 			"card2_heading": {
 				"__TYPE__": "FieldContent",
 				"value": "needle",
@@ -92,7 +47,6 @@
 							[
 								"card_2_image",
 								{
-									"__TYPE__": "ImageContent",
 									"origin": {
 										"id": "main",
 										"url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b",
@@ -110,6 +64,9 @@
 										},
 										"background": "transparent"
 									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
