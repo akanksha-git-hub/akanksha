@@ -38,7 +38,7 @@ const ImpactHero = ({ slice }) => {
       <PrismicNextImage
         field={slice.primary.left_image}
         alt=""
-        className="absolute top-96  left-52 w-40 h-40 hidden xl:block"
+        className="absolute top-96  left-32 w-40 h-40 hidden xl:block"
       />
       {/* Right Butterfly Image */}
       <PrismicNextImage
@@ -52,7 +52,7 @@ const ImpactHero = ({ slice }) => {
           <h1 className="md:text-9xl text-8xl font-ambit-regular text-[#333333] md:mx-auto  mx-0 ">
             {slice.primary.title}
           </h1>
-          <p className="md:text-2xl text-xl font-ambit-regular text-[#333333] md:mx-auto w-[32ch] mx-0 mt-12">
+          <p className="md:text-2xl text-xl font-ambit-regular text-black md:mx-auto w-[45ch] mx-0 mt-12">
             {slice.primary.editable_description}
             {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. */}
           </p>

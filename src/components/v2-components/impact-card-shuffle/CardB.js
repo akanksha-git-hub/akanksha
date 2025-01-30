@@ -10,7 +10,7 @@ export default function CardB({item}) {
             <div className="w-full md:w-2/4  md:p-12 flex flex-col justify-between">
                 {/* Top Section */}
                 <div>
-                    <h1 className="text-4xl md:text-7xl text-[#37473C] font-ambit-regular">HSC  
+                    <h1 className="text-4xl md:text-7xl text-black font-ambit-regular">HSC  
                     Performance</h1>
                    
                 </div>
@@ -25,10 +25,10 @@ export default function CardB({item}) {
             {/* Section 2 */}
             <div className="w-full md:w-2/4 ">
     {/* Rotated Container */}
-    <div className=" flex flex-col justify-evenly  w-full h-full ">
+    <div className=" flex flex-col justify-center space-y-3  w-full h-full ">
         {/* First Chart */}
 
-        <div className="bg-[#FBDA1D] w-full flex items-center justify-between p-4">
+        <div className="bg-[#FBDA1D] ml-auto w-[90%] flex items-center justify-between p-4">
   {/* Text */}
   <div className="font-ambit-regular text-sm sm:text-lg md:text-xl lg:text-2xl">
     Year 2023-24
@@ -53,7 +53,7 @@ export default function CardB({item}) {
 
 
         {/* Second Chart */}
-        <div className="bg-[#F6AC27] ml-auto w-[70%] flex items-center justify-between p-4">
+        <div className="bg-[#F6AC27] ml-auto w-[65%] flex items-center justify-between p-4">
   {/* Text */}
   <div className="font-ambit-regular text-sm sm:text-lg md:text-xl lg:text-2xl">
     Year 2023-24
@@ -66,7 +66,7 @@ export default function CardB({item}) {
 </div>
 
         {/* Third Chart */}
-        <div className="bg-[#ECF0F1] ml-auto w-[80%] flex items-center justify-between p-4">
+        <div className="bg-[#ECF0F1] ml-auto w-[75%] flex items-center justify-between p-4">
   {/* Text */}
   <div className="font-ambit-regular text-sm sm:text-lg md:text-xl lg:text-2xl">
     Year 2023-24

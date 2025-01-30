@@ -9,13 +9,15 @@ import ShuffleMix from "@/components/CardsShuffle/ShuffleMix";
 const ImpactShuffle = async ({ slice }) => {
   const cardA = await fetchPrismicSingleDocument("impactcardshuffleone");
   const cardB = await fetchPrismicSingleDocument("impactcardshuffletwo");
+  const cardC = await fetchPrismicSingleDocument("horizontal_scroll_card_a");
+  const cardD = await fetchPrismicSingleDocument("horizontal_scroll_card_c");
 
-  if (!cardA || !cardB) {
+  if (!cardA || !cardB || !cardC || !cardD  ) {
     console.error("Error fetching data: cardA or cardB is missing");
     return <p>No data found</p>;
   }
 
-  const data = [cardA, cardB];
+  const data = [cardA, cardB, cardC, cardD];
 
   return (
     <section

@@ -122,8 +122,8 @@ const StudentVision = ({ slice, context }) => {
           />
           <div className="relative h-full w-full flex items-center justify-center">
             <PrismicNextImage
-              height={900}
-              width={900}
+              height={700}
+              width={700}
               field={slice.primary.image}
               alt=""
             />

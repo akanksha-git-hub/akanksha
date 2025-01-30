@@ -5,10 +5,10 @@ export default function HorizontalScrollCardA({item}) {
   console.log("Prismic item data:", item);
   
   return (
-    <div className="flex flex-col xl:flex-row bg-[#55BBD3] rounded-lg overflow-hidden w-full max-w-[1500px]  h-full max-h-[700px] mx-auto ">
+    <div className="flex flex-col xl:flex-row bg-[#F6AC27] rounded-lg overflow-hidden w-full max-w-[1500px]  h-full max-h-[700px] mx-auto ">
       <div className="p-8 lg:p-12 w-[100%] xl:w-[50%] flex flex-col justify-between   ">
         <div>
-          <h2 className="text-5xl lg:text-6xl xl:text-8xl text-white font-ambit-regular  ">
+          <h2 className="text-5xl lg:text-6xl xl:text-8xl text-black font-ambit-regular  ">
             {item.data.title}
           </h2>
           <p className="text-xl lg:text-2xl text-white mt-2 font-ambit-regular ">
@@ -16,7 +16,7 @@ export default function HorizontalScrollCardA({item}) {
           </p>
         </div>
 
-        <p className="text-sm md:text-2xl lg:text-3xl text-white font-ambit-light mt-4    ">
+        <p className="font-ambit-regular text-sm md:text-2xl text-black  mt-4    ">
        {item.data.description}
 
         </p>

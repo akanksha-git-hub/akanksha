@@ -7,17 +7,17 @@ export default function HorizontalScrollCardC({ item }) {
   console.log("3rd Card", item.data);
 
   return (
-    <div className="flex flex-col lg:flex-row bg-[#FBDA1D] rounded-lg overflow-hidden w-full max-w-[1500px] md:p-12 h-full max-h-[700px] mx-auto">
+    <div className="flex flex-col lg:flex-row bg-[#FBDA1D] rounded-lg overflow-hidden w-full max-w-[1500px] md:p-6 h-full max-h-[700px] mx-auto">
       {/* Left Section */}
-      <div className="w-full lg:w-[50%] p-8 flex flex-col justify-between flex-1">
+      <div className="w-full lg:w-[50%] p-6 flex flex-col justify-between   flex-1">
         <div>
-          <h2 className="text-2xl md:text-5xl lg:text-7xl text-[#37473C] font-ambit-regular">
+          <h2 className="text-2xl md:text-5xl lg:text-7xl text-black font-ambit-regular">
             {item.data.title}
           </h2>
         </div>
 
         <div className="mt-4">
-          <p className="text-lg md:text-2xl lg:text-4xl text-black font-ambit-light">
+          <p className="text-lg md:text-xl lg:text-3xl w-[28ch] text-black ">
             {item.data.description}
           </p>
         </div>
