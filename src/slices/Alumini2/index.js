@@ -11,9 +11,12 @@ const Alumini2 = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding   mt-8"
+      className="universal-padding   md:mt-94 mt-64"
     >
-      <div class="flex flex-col xl:flex-row ">
+        <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl md:text-center text-left ">
+        {slice.primary.heading}
+      </h1>
+      <div class="flex flex-col xl:flex-row mt-8 ">
         {/* <!-- Section 1: Charts --> */}
         <div className="xl:w-1/2 flex flex-row justify-center items-end gap-8 p-4  h-[500px] relative">
           {/* <!-- Blue Section --> */}
@@ -49,7 +52,7 @@ const Alumini2 = ({ slice }) => {
               {slice.primary.national_average_text}
             </p>
           </div>
-          <p className="absolute left-[12%] md:left-[20%] md:bottom-[-15%] lg:left-[26%]  lg:bottom-[-14%] xl:left-[19%] bottom-[-18%]  w-[50%] text-left text-sm  text-gray-700 ">
+          <p className="absolute md:-bottom-[2rem] -bottom-[3rem] w-[85%]  lg:w-[83%] text-left text-sm font-ambit-regular text-gray-900 ">
             Akanksha alumni earn an average monthly income of Rs. 24,778. This
             is higher than the national average of Rs. 10,780 for individuals
             aged 25 to 34.
@@ -64,7 +67,7 @@ const Alumini2 = ({ slice }) => {
               <div class="text-5xl md:text-8xl font-ambit-regular text-black">
                 75%
               </div>
-              <div class="text-lg md:text-xl font-ambit-regular text-gray-500">
+              <div class="text-lg md:text-xl font-ambit-regular text-gray-900">
                 Akanksha alumni contribution to their households.
               </div>
             </div>
@@ -74,7 +77,7 @@ const Alumini2 = ({ slice }) => {
               <div class="text-5xl md:text-7xl lg:text-8xl  font-ambit-regular text-black ">
                 50%
               </div>
-              <div class="text-lg md:text-xl font-ambit-regular text-gray-500 self-start">
+              <div class="text-lg md:text-xl font-ambit-regular text-gray-900 self-start">
                 Akanksha alumni engaged in community activities.
               </div>
             </div>

@@ -231,7 +231,7 @@ const IconShowcase = ({ slice }) => {
                       :
                       <div className="h-[82%] w-[82%]">
                         <PrismicNextImage 
-                          field={item.image}
+                          field={item.icon}
                           height={60}
                           width={60}
                           className="h-full w-full object-contain"
@@ -280,7 +280,7 @@ const IconShowcase = ({ slice }) => {
                 key={item.title}
                 className={`
                   flex flex-col items-start justify-start space-y-4 border rounded-3xl p-8 
-                  ${currentItem % 2 === 0 && ("bg-v2-yellow")} group relative overflow-hidden
+                  ${currentItem % 2 === 0 && ("bg-[#58BCD4]")} group relative overflow-hidden
                 `}
               >
                 <div className="absolute top-0 -left-6 group-hover:left-0 h-full w-4 transition-all">
