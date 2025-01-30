@@ -41,7 +41,7 @@ const routes = [
   },
   {
     type: "ourdonors",
-    path: "/about/our-donors",
+    path: "/about/our-supporters",
   },
   {
     type: "core_values",
