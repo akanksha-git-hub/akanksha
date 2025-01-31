@@ -1,3 +1,4 @@
+import FloatingButton from "@/components/FloatingButton";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
 import { components } from "@/slices";
 import { maxwidth } from "@/utils/helperClasses";
@@ -15,7 +16,9 @@ export default async function Page() {
         slices={page.data.slices}
         components={components}
         context={{ financialsPage }}
+        
       />
+       <FloatingButton />
     </main>
   );
 }

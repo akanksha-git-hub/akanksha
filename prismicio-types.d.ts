@@ -117,6 +117,8 @@ export type AnnualReportsDocument<Lang extends string = string> =
   >;
 
 type AseDocumentDataSlicesSlice =
+  | ImpactPoint2Slice
+  | Alumini2Slice
   | ProgramShowcaseSlice
   | MissionVisionSlice
   | CardShuffleSlice
@@ -3752,9 +3754,139 @@ export type Alumini2SliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Alumini2 → SuccessHeadingHero → Primary*
+ */
+export interface Alumini2SliceSuccessHeadingHeroPrimary {
+  /**
+   * Slice Identifier field in *Alumini2 → SuccessHeadingHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.successHeadingHero.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Main Heading field in *Alumini2 → SuccessHeadingHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.successHeadingHero.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_heading: prismic.KeyTextField;
+
+  /**
+   * Heading field in *Alumini2 → SuccessHeadingHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.successHeadingHero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Card 1 Heading field in *Alumini2 → SuccessHeadingHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.successHeadingHero.primary.card_1_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_heading: prismic.KeyTextField;
+
+  /**
+   * Card 1 Description 1 field in *Alumini2 → SuccessHeadingHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.successHeadingHero.primary.card_1_description_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_description_1: prismic.KeyTextField;
+
+  /**
+   * Asset 1 field in *Alumini2 → SuccessHeadingHero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.successHeadingHero.primary.asset_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_1: prismic.ImageField<never>;
+
+  /**
+   * contribution1_percentaege field in *Alumini2 → SuccessHeadingHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.successHeadingHero.primary.contribution1_percentaege
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contribution1_percentaege: prismic.KeyTextField;
+
+  /**
+   * contribution1_desc field in *Alumini2 → SuccessHeadingHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.successHeadingHero.primary.contribution1_desc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contribution1_desc: prismic.KeyTextField;
+
+  /**
+   * contribution2_percentaege field in *Alumini2 → SuccessHeadingHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.successHeadingHero.primary.contribution2_percentaege
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contribution2_percentaege: prismic.KeyTextField;
+
+  /**
+   * contribution2_desc field in *Alumini2 → SuccessHeadingHero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.successHeadingHero.primary.contribution2_desc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contribution2_desc: prismic.KeyTextField;
+
+  /**
+   * image field in *Alumini2 → SuccessHeadingHero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.successHeadingHero.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * SuccessHeadingHero variation for Alumini2 Slice
+ *
+ * - **API ID**: `successHeadingHero`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Alumini2SliceSuccessHeadingHero = prismic.SharedSliceVariation<
+  "successHeadingHero",
+  Simplify<Alumini2SliceSuccessHeadingHeroPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Alumini2*
  */
-type Alumini2SliceVariation = Alumini2SliceDefault;
+type Alumini2SliceVariation =
+  | Alumini2SliceDefault
+  | Alumini2SliceSuccessHeadingHero;
 
 /**
  * Alumini2 Shared Slice
@@ -8215,9 +8347,89 @@ export type ImpactPoint2SliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ImpactPoint2 → ImpactPointASE → Primary*
+ */
+export interface ImpactPoint2SliceImpactPointAsePrimary {
+  /**
+   * Card 1 Title field in *ImpactPoint2 → ImpactPointASE → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.impactPointAse.primary.card_1_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_title: prismic.KeyTextField;
+
+  /**
+   * Card 1 Description field in *ImpactPoint2 → ImpactPointASE → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.impactPointAse.primary.card_1_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_description: prismic.KeyTextField;
+
+  /**
+   * Card 1 Asset field in *ImpactPoint2 → ImpactPointASE → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.impactPointAse.primary.card_1_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_1_asset: prismic.ImageField<never>;
+
+  /**
+   * Card 2 Description field in *ImpactPoint2 → ImpactPointASE → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.impactPointAse.primary.card_2_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_description: prismic.KeyTextField;
+
+  /**
+   * percentage box field in *ImpactPoint2 → ImpactPointASE → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.impactPointAse.primary.percentage_box
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  percentage_box: prismic.KeyTextField;
+
+  /**
+   * Asset field in *ImpactPoint2 → ImpactPointASE → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.impactPointAse.primary.asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
+}
+
+/**
+ * ImpactPointASE variation for ImpactPoint2 Slice
+ *
+ * - **API ID**: `impactPointAse`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactPoint2SliceImpactPointAse = prismic.SharedSliceVariation<
+  "impactPointAse",
+  Simplify<ImpactPoint2SliceImpactPointAsePrimary>,
+  never
+>;
+
+/**
  * Slice variation for *ImpactPoint2*
  */
-type ImpactPoint2SliceVariation = ImpactPoint2SliceDefault;
+type ImpactPoint2SliceVariation =
+  | ImpactPoint2SliceDefault
+  | ImpactPoint2SliceImpactPointAse;
 
 /**
  * ImpactPoint2 Shared Slice
@@ -13472,8 +13684,10 @@ declare module "@prismicio/client" {
       AluminiSliceDefault,
       Alumini2Slice,
       Alumini2SliceDefaultPrimary,
+      Alumini2SliceSuccessHeadingHeroPrimary,
       Alumini2SliceVariation,
       Alumini2SliceDefault,
+      Alumini2SliceSuccessHeadingHero,
       BlogCategoryItemsSlice,
       BlogCategoryItemsSliceDefaultPrimaryCardItemsItem,
       BlogCategoryItemsSliceDefaultPrimary,
@@ -13626,8 +13840,10 @@ declare module "@prismicio/client" {
       ImpactKeyStageSliceDefault,
       ImpactPoint2Slice,
       ImpactPoint2SliceDefaultPrimary,
+      ImpactPoint2SliceImpactPointAsePrimary,
       ImpactPoint2SliceVariation,
       ImpactPoint2SliceDefault,
+      ImpactPoint2SliceImpactPointAse,
       ImpactPointsSlice,
       ImpactPointsSliceDefaultPrimary,
       ImpactPointsSliceVariation,
