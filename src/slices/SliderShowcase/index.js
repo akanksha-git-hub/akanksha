@@ -509,7 +509,7 @@ const SliderShowcase = ({ slice }) => {
           <SliceIdentifier text={slice.primary.slice_identifier} />
         </div>
 
-        <div className="flex flex-col xl:flex-row items-start justify-center h-full   w-full xl:mt-16 mt-8  ">
+        <div className="flex flex-col xl:flex-row items-start justify-center h-full   w-full xl:mt-16 mt-8   ">
           <div className="w-full xl:w-[50%]   flex flex-col justify-evenly">
             <div className=" xl:mt-0">
               <RichText
@@ -518,7 +518,7 @@ const SliderShowcase = ({ slice }) => {
               />
             </div>
           </div>
-          <div className=" ">
+          <div className=" h-full w-full">
             <ul className="hidden">
               <Swiper
                 ref={storyRef}
@@ -563,28 +563,11 @@ const SliderShowcase = ({ slice }) => {
                       ref={prevRef}
                     />
 
-                    {/* <div className="flex gap-2 md:gap-0 flex-col md:flex-row  ">
+<div className="flex gap-2 xl:gap-0 flex-col xl:flex-row    items-start justify-center">
+<div className="w-full xl:w-[40%] xl:h-full">
                       <ImageComponent className="w-full " image={item.image} />
-                    </div> */}
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
-          </div>
-          <div className="flex gap-2 xl:gap-0 flex-col xl:flex-row xl:w-[80%]   items-start justify-center">
-            <div className="w-full xl:w-[40%] xl:h-full">
-              {slice.primary.items &&
-              slice.primary.items[current] &&
-              slice.primary.items[current].image ? (
-                <PrismicNextImage
-                  className="xl:h-[32.4rem] h-[22.4rem] object-cover rounded-lg overflow-hidden"
-                  field={slice.primary.items[current].image}
-                />
-              ) : (
-                <div>No image available</div>
-              )}
-            </div>
-            <div className="w-full  xl:h-[32.4rem] xl:w-[60%]  rounded-lg bg-[#58BCD4] p-8   flex flex-col items-center justify-center relative">
+                    </div>
+                    <div className="w-full  xl:h-[32.4rem] xl:w-[60%]  rounded-lg bg-[#58BCD4] p-8   flex flex-col items-center justify-center relative">
               <div className="absolute top-0 right-0 w-full h-[1.25rem]">
                 <div className="relative h-full w-full">
                   <Image src="/quote-side-up.png" alt="Top Shading" fill />
@@ -603,7 +586,17 @@ const SliderShowcase = ({ slice }) => {
                 }
               />
             </div>
+
+                    </div>
+                    {/* <div className="relative h-full w-full">
+                  <Image src="/quote-side-up.png" alt="Top Shading" fill />
+                </div> */}
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
           </div>
+       
         </div>
         <div className=" flex items-center justify-center gap-2 mt-6">
           <SwiperArrow
