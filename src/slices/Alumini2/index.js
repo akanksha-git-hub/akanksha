@@ -1,3 +1,4 @@
+import SliceIdentifier from "@/components/SliceIdentifier";
 import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
 
@@ -7,6 +8,82 @@ import Image from "next/image";
  * @param {Alumini2Props}
  */
 const Alumini2 = ({ slice }) => {
+
+  if (slice.variation === "successHeadingHero") {
+    return (
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className=" mt-0"
+      >
+        <SliceIdentifier text={slice.primary.slice_identifier} />
+        <h1 className="font-ambit-regular text-5xl md:text-xl md:text-center text-left mt-6 ">
+        {slice.primary.main_heading}
+      </h1>
+         <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl md:text-center text-left ">
+        {slice.primary.heading}
+      </h1>
+        <div className="flex flex-col xl:flex-row mt-6" >
+          <div className="flex flex-col bg-[#ECF0F1] rounded-lg p-8  xl:w-[50%] w-full relative">
+             
+             <div className="w-full h-full flex flex-col items-start justify-between ">
+               <h1 className="font-ambit-regular text-black text-5xl md:text-7xl text-left ">
+                 {slice.primary.card_1_heading}
+               </h1>
+               <h1 className="font-ambit-regular text-black md:text-3xl text-xl md:w-[19ch]  md:text-left  leading-snug">
+                 {slice.primary.card_1_description_1}
+               </h1>
+             </div>
+       
+             <PrismicNextImage
+                 field= {slice.primary.asset_1} 
+                 height={220}
+                 width={220}
+                 className=" h-[80px] w-[80px] md:h-[200px] md:w-[200px] absolute right-0 top-0 object-cover"
+                 alt={"Card Image"}
+               />
+          
+           </div>
+        <div class=" flex xl:flex-row flex-col  items-center justify-center p-4 xl:w-[50%] mt-8 xl:mt-0  ">
+
+          {/* <!-- Left Half: Two Percentage Sections --> */}
+          <div class="flex flex-col justify-between xl:w-1/2 w-full ">
+            {/* <!-- First Percentage Section --> */}
+            <div class="flex flex-col space-y-2">
+              <div class="text-5xl md:text-7xl font-ambit-regular text-black">
+                {slice.primary.contribution1_percentaege}
+              </div>
+              <div class="text-sm md:text-base font-ambit-regular text-gray-900">
+                {slice.primary.contribution1_desc}
+              </div>
+            </div>
+
+            {/* <!-- Second Percentage Section --> */}
+            <div class="mt-8">
+              <div class="text-5xl  lg:text-7xl  font-ambit-regular text-black ">
+             {slice.primary.contribution2_percentaege}
+              </div>
+              <div class="text-sm md:text-base font-ambit-regular text-gray-900 ">
+                {slice.primary.contribution2_desc}
+              </div>
+            </div>
+          </div>
+
+          {/* <!-- Right Half: Image Section --> */}
+          <div class="xl:w-1/2 w-full h-full flex flex-col  p-2">
+            <PrismicNextImage
+              field={slice.primary.image}
+              alt="Akanksha Alumni Image"
+              className="object-cover  w-full h-full"
+            />
+          </div>
+        </div>
+        </div>
+      </section>
+    );
+  }
+
+
   return (
     <section
       data-slice-type={slice.slice_type}

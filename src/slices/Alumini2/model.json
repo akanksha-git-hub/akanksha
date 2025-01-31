@@ -92,6 +92,96 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "successHeadingHero",
+      "name": "SuccessHeadingHero",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "main_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Main Heading",
+            "placeholder": ""
+          }
+        },
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "card_1_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 Heading",
+            "placeholder": ""
+          }
+        },
+        "card_1_description_1": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 Description 1",
+            "placeholder": ""
+          }
+        },
+        "asset_1": {
+          "type": "Image",
+          "config": {
+            "label": "Asset 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "contribution1_percentaege": {
+          "type": "Text",
+          "config": {
+            "label": "contribution1_percentaege",
+            "placeholder": ""
+          }
+        },
+        "contribution1_desc": {
+          "type": "Text",
+          "config": {
+            "label": "contribution1_desc",
+            "placeholder": ""
+          }
+        },
+        "contribution2_percentaege": {
+          "type": "Text",
+          "config": {
+            "label": "contribution2_percentaege",
+            "placeholder": ""
+          }
+        },
+        "contribution2_desc": {
+          "type": "Text",
+          "config": {
+            "label": "contribution2_desc",
+            "placeholder": ""
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
