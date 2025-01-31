@@ -514,7 +514,7 @@ const SliderShowcase = ({ slice }) => {
             <div className=" xl:mt-0">
               <RichText
                 text={slice.primary.title}
-                className="text-black font-ambit-regular text-5xl lg:text-8xl lg:text-left max-w-[5ch] lg:mr-auto"
+                className="text-black font-ambit-regular text-5xl lg:text-6xl lg:text-left max-w-[5ch] lg:mr-auto"
               />
             </div>
           </div>
@@ -564,9 +564,10 @@ const SliderShowcase = ({ slice }) => {
                     />
 
 <div className="flex gap-2 xl:gap-0 flex-col xl:flex-row    items-start justify-center">
-<div className="w-full xl:w-[40%] xl:h-full">
-                      <ImageComponent className="w-full " image={item.image} />
-                    </div>
+   <ImageComponent
+                        className="w-full md:w-[42%]"
+                        image={item.image}
+                      />
                     <div className="w-full  xl:h-[32.4rem] xl:w-[60%]  rounded-lg bg-[#58BCD4] p-8   flex flex-col items-center justify-center relative">
               <div className="absolute top-0 right-0 w-full h-[1.25rem]">
                 <div className="relative h-full w-full">
