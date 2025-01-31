@@ -100,7 +100,7 @@ const StudentVision = ({ slice, context }) => {
         <SliceIdentifier text={slice.primary.slice_identifier} />
 
         <div className="flex flex-col justify-center items-center relative">
-          <h1 className="mt-8 text-7xl md:w-[10ch] font-ambit-regular">
+          <h1 className="mt-8 text-7xl text-center w-[18ch] font-ambit-regular">
             {slice.primary.title}
           </h1>
           <p className="md:text-center md:w-[40%] font-ambit-regular mt-4 text-left">

@@ -405,12 +405,12 @@ const ProgramShowcase = ({ slice }) => {
                         </div>
                         <div className="flex h-full flex-col items-start justify-center">
                           <RichText
-                            className="text-black text-4xl  2xl:text-5xl font-ambit-regular "
+                            className="text-black text-4xl   font-ambit-regular "
                             text={item.heading}
                           />
 
                           <QuoteComponentB
-                            className="!px-6 "
+                            className="!px-6  "
                             texts={item.card_rich_text}
                           />
                         </div>
