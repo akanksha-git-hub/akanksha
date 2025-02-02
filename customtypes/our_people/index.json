@@ -19,6 +19,22 @@
           "placeholder": ""
         }
       },
+      "left_image": {
+        "type": "Image",
+        "config": {
+          "label": "Left Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "right_image": {
+        "type": "Image",
+        "config": {
+          "label": "Right Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

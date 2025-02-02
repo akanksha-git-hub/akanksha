@@ -6,6 +6,7 @@ import { components } from "@/slices";
 import { maxwidth } from "@/utils/helperClasses";
 import RichText from "@/components/Texts/RichText";
 import Image from "next/image";
+import { PrismicNextImage } from "@prismicio/next";
 
 export default async function Page({ params }) {
   const client = createClient();
@@ -14,34 +15,35 @@ export default async function Page({ params }) {
     .catch(() => notFound());
 
   return (
-    <main className={`${maxwidth} universal-padding space-y-12 mb-12 relative overflow-hidden`}>
-      <Image 
-        src='/sparkle_big_right.svg'
-        alt=""
-        height={300}
-        width={300}
-        className="absolute -top-12 -right-12 -z-10"
-      />
-      <Image 
-        src='/sparkle_big_left.svg'
-        alt=""
-        height={300}
-        width={300}
-        className="absolute -bottom-12 -left-12 -z-10"
-        />
-      <Image 
-        src='/sparkle_small.svg'
-        alt=""
-        height={60}
-        width={60}
-        className="absolute bottom-0 right-6 -z-10"
-      />
-      <RichText 
-        text={page.data.title}
-        className="flex items-center md:justify-center text-deep-green text-7xl !mt-[5rem] !mb-12"
-      />
-      <SliceZone slices={page.data.slices} components={components} />
-    </main>
+    <main className={`${maxwidth} universal-padding  mb-12 relative overflow-hidden`}>
+ <div className="flex items-center justify-center gap-4 md:gap-10 mb-10">
+  {/* Left Side Image */}
+  {page.data.left_image?.url && (
+    <PrismicNextImage 
+      field={page.data.left_image}
+      className="w-16 h-auto md:w-36"
+    />
+  )}
+
+  {/* Title */}
+  <RichText 
+      text={page.data.title}
+      className="flex items-center md:justify-center text-black text-5xl md:text-7xl !mt-[5rem] !mb-12"
+    />
+
+  {/* Right Side Image */}
+  {page.data.right_image?.url && (
+    <PrismicNextImage 
+      field={page.data.right_image}
+      className="w-24 h-auto md:w-72"
+    />
+  )}
+</div>
+
+
+    {/* Slice Content */}
+    <SliceZone slices={page.data.slices} components={components} />
+  </main>
   );
 }
 
