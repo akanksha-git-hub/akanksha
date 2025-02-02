@@ -2483,6 +2483,28 @@ interface OurPeopleDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * Left Image field in *Our people*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_people.left_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_image: prismic.ImageField<never>;
+
+  /**
+   * Right Image field in *Our people*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_people.right_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_image: prismic.ImageField<never>;
+
+  /**
    * Slice Zone field in *Our people*
    *
    * - **Field Type**: Slice Zone
