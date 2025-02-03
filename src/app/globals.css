@@ -679,6 +679,11 @@ body {
   opacity: 1;
   transition: all 0.3s var(--magic-bezier);
 }
+.flip-shading {
+  opacity: 0;
+ 
+}
+
 .flip-title {
   color: var(--bright-yellow);
   position: absolute;
@@ -686,6 +691,10 @@ body {
   left: 50%;
   transform: translateX(-50%);
   transition: all 0.2s var(--magic-bezier);
+}
+.flip-card:hover .flip-card-inner .flip-shading {
+  transition: all 0.3s var(--magic-bezier);
+  opacity: 1;
 }
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
