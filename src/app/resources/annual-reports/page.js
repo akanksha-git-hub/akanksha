@@ -3,6 +3,7 @@ import RichText from "@/components/Texts/RichText";
 import Image from "next/image";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
 import { PrismicLink } from "@prismicio/react";
+import { PrismicNextImage } from "@prismicio/next";
 
 export default async function Page() {
 
@@ -17,12 +18,23 @@ export default async function Page() {
 
     return(
         <main className={`${maxwidth} universal-padding`}>
-            <div className="relative w-fit md:mx-auto">
+             <div className="flex flex-row justify-between items-center  universal-padding">
+                        {/* Left Image */}
+                        <PrismicNextImage 
+                            field={page.data.left_image} 
+                            alt="Left Image"
+                            className="hidden md:block md:w-60" 
+                        />
                 <RichText 
                     text={'Annual Reports'}
-                    className={`text-deep-green font-ambit-regular text-7xl text-left md:text-center w-full pt-24`}
+                    className={`text-black font-ambit-regular text-7xl text-left md:text-center w-full pt-24`}
                 />
-            </div>
+           <PrismicNextImage
+                                    field={page.data.right_image} 
+                                    alt="Right Image"
+                                    className="hidden xl:block md:w-40 " 
+                                />
+                            </div>
             <div className="mt-12">
                 <ul className="grid grid-cols-1 place-content-center gap-x-12 md:grid-cols-2 w-full lg:w-[880px] 3xl:w-[1000px] lg:mx-auto">
                     {pageData.map((item, index) => {
