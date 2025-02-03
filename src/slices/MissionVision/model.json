@@ -222,6 +222,14 @@
             "label": "Video Link",
             "placeholder": ""
           }
+        },
+        "asset": {
+          "type": "Image",
+          "config": {
+            "label": "Asset",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}
