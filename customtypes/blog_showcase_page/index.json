@@ -20,6 +20,22 @@
           "placeholder": ""
         }
       },
+      "left_image": {
+        "type": "Image",
+        "config": {
+          "label": "Left Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "right_image": {
+        "type": "Image",
+        "config": {
+          "label": "Right Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "categories": {
         "type": "Group",
         "config": {
