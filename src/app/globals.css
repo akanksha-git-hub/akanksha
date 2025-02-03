@@ -621,8 +621,7 @@ body {
   animation: fade-reveal var(--magic-bezier) 1.3s;
 }
 /* Nav hover items */
-.drop-down {
-}
+
 .drop-down-container {
   position: absolute;
   right: 50%;
