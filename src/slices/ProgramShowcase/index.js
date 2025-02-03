@@ -223,7 +223,7 @@ const ProgramShowcase = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="my-24 lg:mb-60 "
+        className="my-24 lg:mb-60 universal-padding "
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <div className="flex flex-col xl:flex-row  xl:items-center lg:mt-10">
@@ -297,7 +297,7 @@ const ProgramShowcase = ({ slice }) => {
                               height={500}
                               width={500}
                               alt=""
-                              className="object-cover w-[350px] h-[350px]   "
+                              className="object-cover w-[200px] h-[150px]   "
                             />
                           </div>
                         </div>

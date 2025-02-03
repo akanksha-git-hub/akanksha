@@ -3408,6 +3408,7 @@ export type VolunteerWithUsDocument<Lang extends string = string> =
   >;
 
 type WorkWithUsDocumentDataSlicesSlice =
+  | ProgramShowcaseSlice
   | SliderShowcaseSlice
   | MissionVisionSlice;
 
