@@ -290,7 +290,7 @@ const MissionVision = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`universal-padding mt-0 ${slice.variation === "doubleCtaComponent" && "mb-36"}`}
+      className={`relative universal-padding mt-0 ${slice.variation === "doubleCtaComponent" && "mb-36"}`}
     >
       {slice.variation !== "doubleCtaComponent" && (
         <SliceIdentifier text={slice.primary.slice_identifier} />
@@ -300,14 +300,11 @@ const MissionVision = ({ slice, context }) => {
       >
         <VideoModal className="hidden lg:flex" slice={slice} />
         <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-2/4">
-          <RichText
-            className="font-ambit-regular text-deep-green uppercase"
-            text={slice.primary.slice_identifier}
-          />
+         
           <RichText
             text={slice.primary.title}
             className="
-            text-deep-green font-ambit-regular text-center text-5xl w-full 
+            text-black font-ambit-regular text-center text-5xl w-full 
               sm:w-3/4 justify-center
               lg:text-left lg:items-start lg:justify-normal
               md:w-full lg:w-3/4
@@ -317,7 +314,7 @@ const MissionVision = ({ slice, context }) => {
           />
           <VideoModal className="flex w-full mt-8 lg:hidden" slice={slice} />
           <RichText
-            className="font-inter text-deep-green text-center lg:text-left text-sm 3xl:text-lg w-[90%] mt-8"
+            className="font-inter text-black text-center lg:text-left text-sm 3xl:text-lg w-[90%] mt-8"
             text={slice.primary.description}
           />
           <div className="flex flex-wrap gap-4 w-full mt-6 xl:mt-10 3xl:mt-14">
@@ -335,7 +332,16 @@ const MissionVision = ({ slice, context }) => {
             )}
           </div>
         </div>
+      
       </div>
+      <PrismicImage
+  field={slice.primary.asset}
+  className="absolute right-[0px] top-0 w-[350px] h-[350px] object-cover transform scale-x-[-1]"
+/>
+
+      
+             
+            
     </section>
   );
 };

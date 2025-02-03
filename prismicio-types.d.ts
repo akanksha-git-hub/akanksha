@@ -9277,6 +9277,16 @@ export interface MissionVisionSliceDoubleCtaComponentPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   video_link: prismic.KeyTextField;
+
+  /**
+   * Asset field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
 }
 
 /**
