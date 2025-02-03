@@ -336,7 +336,7 @@ const MissionVision = ({ slice, context }) => {
       </div>
       <PrismicImage
   field={slice.primary.asset}
-  className="absolute right-0 top-0 w-[400px] h-auto object-contain transform scale-x-[-1] "
+  className="absolute xl:block -z-30 hidden right-0 top-0 w-[400px] h-auto object-contain  "
 />
 
 
