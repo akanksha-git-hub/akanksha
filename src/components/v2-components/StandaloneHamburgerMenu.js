@@ -91,7 +91,7 @@ export default function StandaloneHamburgerMenu({
 
         {/* Navigation Items */}
         {isOpen && (
-          <div className="flex flex-col items-center justify-center px-6 py-10 mt-16">
+          <div className="flex flex-col items-center justify-center px-6 py-10 mt-24">
             <MobileNavItems
               header_link_items={header_link_items}
               uniqueIdentifier={uniqueIdentifier}
@@ -102,7 +102,7 @@ export default function StandaloneHamburgerMenu({
         )}
 
         {/* Bottom Asset (Band) */}
-        <div className="absolute bottom-0 left-0 w-full">
+        {/* <div className="absolute bottom-0 left-0 w-full">
           <Image
             src="/nav-top.svg" // Replace with actual asset
             alt="Bottom Band"
@@ -110,7 +110,7 @@ export default function StandaloneHamburgerMenu({
             height={100}
             className="w-full object-cover"
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
