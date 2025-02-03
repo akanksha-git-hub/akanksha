@@ -1,9 +1,16 @@
 import { PrismicNextImage } from "@prismicio/next"
+import Image from "next/image"
 
 export default function CardFlip({item, i}) {
     return(
         <li className="relative flex rounded-xl w-full h-[500px] md:h-[598px] md:w-[420px] flip-card" key={i}>
             <span className="h-full w-full rounded-xl flip-card-inner relative">
+                <div className="absolute top-0 right-0 w-full h-[1rem]  ">
+                                <div className="relative h-full w-full flip-shading">
+                                  <Image src="/quote-side-up.png" alt="Top Shading" fill />
+                                </div>
+                              </div>
+                
             <PrismicNextImage 
                 field={item.image}
                 className="h-full w-full object-cover flip-image rounded-xl"
