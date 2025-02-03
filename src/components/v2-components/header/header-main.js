@@ -67,6 +67,7 @@ export default function HeaderMain({ header }) {
             header_link_items={header.header_link_items}
             uniqueIdentifier={uniqueIdentifier}
             drop_down_items={header.drop_down_items}
+            header={header}
           />
         </div>
       </Header.Container>
