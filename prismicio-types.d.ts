@@ -828,6 +828,7 @@ export type DonationPaymentComponentDocument<Lang extends string = string> =
   >;
 
 type DonorPageDocumentDataSlicesSlice =
+  | Alumini2Slice
   | CardShuffleSlice
   | MissionVisionSlice
   | TiltedCardsSlice
@@ -3813,6 +3814,26 @@ export interface Alumini2SliceDefaultPrimary {
   national_average_text: prismic.KeyTextField;
 
   /**
+   * stats field in *Alumini2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.default.primary.stats
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  stats: prismic.KeyTextField;
+
+  /**
+   * image field in *Alumini2 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
    * contribution1_percentaege field in *Alumini2 → Default → Primary*
    *
    * - **Field Type**: Text
@@ -3851,26 +3872,6 @@ export interface Alumini2SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   contribution2_desc: prismic.KeyTextField;
-
-  /**
-   * image field in *Alumini2 → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini2.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * stats field in *Alumini2 → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini2.default.primary.stats
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  stats: prismic.KeyTextField;
 }
 
 /**
@@ -4015,11 +4016,130 @@ export type Alumini2SliceSuccessHeadingHero = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Alumini2 → SecondVariation → Primary*
+ */
+export interface Alumini2SliceSecondVariationPrimary {
+  /**
+   * Slice Identifier field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Heading field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * akanksha_average field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.akanksha_average
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  akanksha_average: prismic.KeyTextField;
+
+  /**
+   * akanksha_alumini field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.akanksha_alumini
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  akanksha_alumini: prismic.KeyTextField;
+
+  /**
+   * national_average field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.national_average
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  national_average: prismic.KeyTextField;
+
+  /**
+   * national_average_text field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.national_average_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  national_average_text: prismic.KeyTextField;
+
+  /**
+   * contribution1_percentaege field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.contribution1_percentaege
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contribution1_percentaege: prismic.KeyTextField;
+
+  /**
+   * contribution1_desc field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.contribution1_desc
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contribution1_desc: prismic.KeyTextField;
+
+  /**
+   * image field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * stats field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.stats
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  stats: prismic.KeyTextField;
+}
+
+/**
+ * SecondVariation variation for Alumini2 Slice
+ *
+ * - **API ID**: `secondVariation`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Alumini2SliceSecondVariation = prismic.SharedSliceVariation<
+  "secondVariation",
+  Simplify<Alumini2SliceSecondVariationPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Alumini2*
  */
 type Alumini2SliceVariation =
   | Alumini2SliceDefault
-  | Alumini2SliceSuccessHeadingHero;
+  | Alumini2SliceSuccessHeadingHero
+  | Alumini2SliceSecondVariation;
 
 /**
  * Alumini2 Shared Slice
@@ -13828,9 +13948,11 @@ declare module "@prismicio/client" {
       Alumini2Slice,
       Alumini2SliceDefaultPrimary,
       Alumini2SliceSuccessHeadingHeroPrimary,
+      Alumini2SliceSecondVariationPrimary,
       Alumini2SliceVariation,
       Alumini2SliceDefault,
       Alumini2SliceSuccessHeadingHero,
+      Alumini2SliceSecondVariation,
       BlogCategoryItemsSlice,
       BlogCategoryItemsSliceDefaultPrimaryCardItemsItem,
       BlogCategoryItemsSliceDefaultPrimary,

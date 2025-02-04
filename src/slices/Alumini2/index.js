@@ -83,6 +83,88 @@ const Alumini2 = ({ slice }) => {
     );
   }
 
+  
+  if (slice.variation === "secondVariation") {
+    return (
+      <section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+      className="universal-padding    mt-8"
+    >
+      <SliceIdentifier text={slice.primary.slice_identifier} />
+        <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl md:text-center text-left mt-8">
+        {slice.primary.heading}
+      </h1>
+      <div class="flex flex-col xl:flex-row mt-8 ">
+        {/* <!-- Section 1: Charts --> */}
+        <div className="xl:w-1/2 flex flex-row justify-center items-end gap-8 p-4  h-[500px] relative">
+          {/* <!-- Blue Section --> */}
+
+          <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black  p-6 h-[100%] ">
+            <div className="absolute  transform  translate-x-[50%] translate-y-[-85%] rotate-[25deg] bg-black text-white font-bold px-8 py-4 rounded-full text-3xl font-ambit-light">
+              2x
+            </div>
+            <p class="text-4xl md:text-6xl font-ambit-semibold pt-16">
+              {slice.primary.akanksha_average}
+            </p>
+            <p class="text-sm lg:text-lg font-ambit-semibold text-center">
+              {slice.primary.akanksha_alumini}
+            </p>
+          </div>
+
+          {/* Dotted Line */}
+          <div className="absolute top-1/2 left-0 w-full flex justify-center transform -translate-y-1/2 -z-10">
+            <Image
+              src="/line-1.png"
+              alt="Dotted Line"
+              width={800} // Adjust width as needed
+              height={10} // Adjust height as needed
+              className="object-contain"
+            />
+          </div>
+          {/* <!-- Orange Section --> */}
+          <div class="flex flex-col items-center justify-center bg-[#F6AC27] text-black  p-6 h-[45%] ">
+            <p class="text-4xl xl:text-6xl font-ambit-semibold pt-10">
+              {slice.primary.national_average}
+            </p>
+            <p class="text-sm  lg:text-lg font-ambit-semibold text-center">
+              {slice.primary.national_average_text}
+            </p>
+          </div>
+          <p className="absolute md:-bottom-[2rem] -bottom-[3rem] w-[85%]  lg:w-[83%] text-left text-sm font-ambit-regular text-gray-900 ">
+           {slice.primary.stats}
+          </p>
+        </div>
+        <div className="flex flex-col lg:flex-row  lg:mt-0 mt-6 lg:w-[60%] w-full relative ">
+      {/* Left Section (Image) */}
+      <div className="w-full lg:w-[50%] flex flex-col md:items-end md:justify-end items-center justify-center mt-12 md:mt-0 ">
+        <PrismicNextImage 
+          field={slice.primary.image} 
+          className="max-w-[350px] max-h-[350px]   object-cover"
+          alt={"Card Image"}
+        />
+      </div>
+
+      {/* Right Section (Title, Secondary Title, and Description) */}
+      <div className="w-full lg:w-[50%] flex flex-col justify-center items-start  space-y-2 p-6 ">
+        {/* Title */}
+        <h1 className="font-ambit-regular text-left text-black text-6xl md:text-8xl">
+          {slice.primary.contribution1_percentaege}
+        </h1>
+
+        {/* Secondary Title */}
+        <h2 className="font-ambit-regular text-left text-black text-3xl">
+          {slice.primary.contribution1_desc}
+        </h2>
+
+       
+      </div>
+      </div>
+     
+      </div>
+    </section>
+    );
+  }
 
   return (
     <section
