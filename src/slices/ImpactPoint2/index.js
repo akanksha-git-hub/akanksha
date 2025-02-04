@@ -71,14 +71,14 @@ const ImpactPoint2 = ({ slice }) => {
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
       className="universal-padding">
-       <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[300px] justify-center items-stretch  ">
-                      <div className="flex flex-row bg-[#ECF0F1] rounded-lg p-6 items-center justify-between lg:w-[50%] w-full  ">
+       <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[300px] justify-center items-stretch   ">
+                      <div className="flex flex-row bg-[#ECF0F1] rounded-lg md:p-12 p-8 items-center justify-between lg:w-[50%] w-full  ">
                   
-                            <div className="w-full h-full flex flex-col justify-end items-start ">
-                              <h1 className="font-ambit-regular text-black text-5xl md:text-7xl text-left ">
+                            <div className="w-full h-full flex flex-col justify-end items-start   ">
+                              <h1 className="font-ambit-semibold text-black text-5xl md:text-8xl text-left ">
                                   {slice.primary.card_1_title}
                               </h1>
-                             <h1 className="font-ambit-regular text-black md:text-2xl text-xl w-[16ch]  lg:text-left ">
+                             <h1 className="font-ambit-regular text-black md:text-2xl text-xl   lg:text-left ">
                                    {slice.primary.card_1_description}
                              </h1>
                        </div>
@@ -94,7 +94,7 @@ const ImpactPoint2 = ({ slice }) => {
                          <div className="flex flex-row bg-[#ECF0F1] rounded-lg p-6 items-center justify-between mt-8 lg:mt-0 lg:w-[50%] w-full">
                          <div className="w-full h-full flex flex-row justify-between items-center md:items-stretch space-x-2">
   {/* Percentage Box */}
-  <span className="bg-[#FBDA1D] font-ambit-regular  text-3xl md:text-6xl text-center text-black flex items-center justify-center rounded-[5rem] w-[40%] h-full">
+  <span className="bg-[#FBDA1D] font-ambit-semibold  text-3xl md:text-6xl text-center text-black flex items-center justify-center rounded-[5rem] w-[40%] h-full">
     {slice.primary.percentage_box}
   </span> 
 
