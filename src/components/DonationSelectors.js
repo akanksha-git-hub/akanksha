@@ -119,7 +119,7 @@ export default function DonationSelectors({ data }) {
 
   return (
     <>
-      <div className="donation-component bg-[#F7F7F7] rounded-[4px] w-full relative  z-20 flex flex-col lg:flex-row items-center justify-between p-6 custom-shadow h-auto  ">
+      <div className="donation-component bg-[#F7F7F7] rounded-[4px] w-full   z-20 flex flex-col lg:flex-row items-center justify-between p-6 custom-shadow h-auto relative  ">
         <Image
           className="w-[98%] h-[15px] absolute top-0 "
           src="/quote-side-up.png"
@@ -128,8 +128,16 @@ export default function DonationSelectors({ data }) {
           height={10}
           alt="Quote side up"
         />
-
-        <div className="flex flex-col items-center justify-center lg:w-[40%] ">
+ <div className="mt-10 lg:mt-0 lg:block lg:w-[50%] ">
+          <PrismicNextImage
+            field={data.image}
+            alt=""
+            height={1200}
+            width={1200}
+            className="min-h-[550px] w-full object-cover z-0 rounded-md overflow-hidden "
+          />
+        </div>
+        <div className="flex flex-col items-center justify-center lg:w-[50%]  ">
           <div className="w-[90%]">
             {/* Title */}
             <RichText
@@ -150,7 +158,7 @@ export default function DonationSelectors({ data }) {
                     ></div>
                     <RichText
                       text={type}
-                      className="font-ambit text-deep-green text-xl"
+                      className="font-ambit text-black text-xl"
                     />
                   </li>
                 );
@@ -236,16 +244,19 @@ export default function DonationSelectors({ data }) {
               {active.loading ? "Loading..." : "Donate and Support"}
             </Button>
           </div>
+          
         </div>
-        <div className="mt-10 lg:mt-0 lg:block lg:w-1/2 ">
-          <PrismicNextImage
-            field={data.image}
-            alt=""
-            height={1200}
-            width={1200}
-            className="h-full w-full object-cover z-0 rounded-md overflow-hidden"
-          />
-        </div>
+        <div>
+
+        <Image
+  src="/planet.svg" 
+  alt="Descriptive Alt Text"
+  height={200}
+  width={200}
+  className="absolute xl:block hidden -translate-x-32 top-12"
+/>
+          </div>
+       
       </div>
       <Modal open={open}>
         <MultiStepForm closeModal={closeModal} />
