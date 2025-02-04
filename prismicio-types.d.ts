@@ -828,6 +828,7 @@ export type DonationPaymentComponentDocument<Lang extends string = string> =
   >;
 
 type DonorPageDocumentDataSlicesSlice =
+  | ImpactPoint2Slice
   | Alumini2Slice
   | CardShuffleSlice
   | MissionVisionSlice
@@ -8678,11 +8679,80 @@ export type ImpactPoint2SliceImpactPointAse = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *ImpactPoint2 → ImpactVersion3 → Primary*
+ */
+export interface ImpactPoint2SliceImpactVersion3Primary {
+  /**
+   * Card 1 Title field in *ImpactPoint2 → ImpactVersion3 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.impactVersion3.primary.card_1_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_title: prismic.KeyTextField;
+
+  /**
+   * Card 1 Description field in *ImpactPoint2 → ImpactVersion3 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.impactVersion3.primary.card_1_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_description: prismic.KeyTextField;
+
+  /**
+   * Card 1 Asset field in *ImpactPoint2 → ImpactVersion3 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.impactVersion3.primary.card_1_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_1_asset: prismic.ImageField<never>;
+
+  /**
+   * Card 2 Description field in *ImpactPoint2 → ImpactVersion3 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.impactVersion3.primary.card_2_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_description: prismic.KeyTextField;
+
+  /**
+   * percentage box field in *ImpactPoint2 → ImpactVersion3 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.impactVersion3.primary.percentage_box
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  percentage_box: prismic.KeyTextField;
+}
+
+/**
+ * ImpactVersion3 variation for ImpactPoint2 Slice
+ *
+ * - **API ID**: `impactVersion3`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactPoint2SliceImpactVersion3 = prismic.SharedSliceVariation<
+  "impactVersion3",
+  Simplify<ImpactPoint2SliceImpactVersion3Primary>,
+  never
+>;
+
+/**
  * Slice variation for *ImpactPoint2*
  */
 type ImpactPoint2SliceVariation =
   | ImpactPoint2SliceDefault
-  | ImpactPoint2SliceImpactPointAse;
+  | ImpactPoint2SliceImpactPointAse
+  | ImpactPoint2SliceImpactVersion3;
 
 /**
  * ImpactPoint2 Shared Slice
@@ -14106,9 +14176,11 @@ declare module "@prismicio/client" {
       ImpactPoint2Slice,
       ImpactPoint2SliceDefaultPrimary,
       ImpactPoint2SliceImpactPointAsePrimary,
+      ImpactPoint2SliceImpactVersion3Primary,
       ImpactPoint2SliceVariation,
       ImpactPoint2SliceDefault,
       ImpactPoint2SliceImpactPointAse,
+      ImpactPoint2SliceImpactVersion3,
       ImpactPointsSlice,
       ImpactPointsSliceDefaultPrimary,
       ImpactPointsSliceVariation,

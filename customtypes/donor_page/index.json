@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "impact_point2": {
+              "type": "SharedSlice"
+            },
             "alumini2": {
               "type": "SharedSlice"
             },
