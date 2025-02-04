@@ -134,7 +134,7 @@ export default function DonationSelectors({ data }) {
             alt=""
             height={1200}
             width={1200}
-            className="min-h-[550px] w-full object-cover z-0 rounded-md overflow-hidden "
+            className="min-h-[575px] w-full object-cover z-0 rounded-md overflow-hidden "
           />
         </div>
         <div className="flex flex-col items-center justify-center lg:w-[50%]  ">
@@ -154,8 +154,8 @@ export default function DonationSelectors({ data }) {
                     className={`flex cursor-pointer items-center justify-center w-full md:w-[48%] gap-2 px-4 py-3 rounded-md ${active.type.index === index ? "bg-bright-yellow" : "border border-black"} custom-bezier`}
                   >
                     <div
-                      className={`${active.type.index === index ? "bg-white" : "bg-[#D9D9D9]"} custom-bezier h-10 w-10 rounded-full`}
-                    ></div>
+                      className={`${active.type.index === index ? "bg-white" : "bg-[#D9D9D9]"} custom-bezier h-10 w-10 rounded-full items-center justify-center flex flex-col text-3xl`}
+                    >₹</div>
                     <RichText
                       text={type}
                       className="font-ambit text-black text-xl"
@@ -168,7 +168,7 @@ export default function DonationSelectors({ data }) {
             <div className="py-4">
               <RichText
                 text="Donation Amount"
-                className="font-ambit-regular text-[#929292] text-base"
+                className="font-ambit-regular text-gray-700 text-base"
               />
               {/* Amount Selector */}
               {active.type.isOneTime ? (
@@ -183,7 +183,7 @@ export default function DonationSelectors({ data }) {
                           }
                           className={`cursor-pointer w-[45%] md:w-[120px] 2xl:w-[153.3px] mb-3 h-[53px] grid place-items-center hover:opacity-90 active:scale-95 rounded-md custom-bezier ${active.amountSelector.amountIndex === index ? "bg-bright-yellow" : "border border-black"}`}
                         >
-                          <p className="text-deep-green text-base font-ambit-regular">
+                          <p className="text-black text-base font-ambit-regular">
                             ₹ {formatNumber(amount.one_time_amount)}
                           </p>
                         </li>
@@ -197,7 +197,7 @@ export default function DonationSelectors({ data }) {
                     onClick={() => handleSelectAmount(100, null)}
                     className={`cursor-pointer w-[45%] md:w-[120px] 2xl:w-[153.3px] mb-3 h-[53px] grid place-items-center hover:opacity-90 active:scale-95 rounded-md custom-bezier bg-bright-yellow`}
                   >
-                    <p className="text-deep-green text-base font-ambit-regular">
+                    <p className="text-black text-base font-ambit-regular">
                       ₹{formatNumber(100)}
                     </p>
                   </li>
@@ -206,10 +206,10 @@ export default function DonationSelectors({ data }) {
             </div>
             {/* Amount Display */}
             <div className="border-2 rounded-[4px] border-[#DADCDB] w-full py-4 px-10 flex items-center justify-between">
-              <p className="font-ambit-regular text-deep-green text-4xl select-none">
+              <p className="font-ambit-regular text-black text-4xl select-none">
                 ₹ {formatNumber(active.amountSelector.amount)}
               </p>
-              <p className="font-ambit-regular text-deep-green text-lg select-none">
+              <p className="font-ambit-regular text-black text-lg select-none">
                 INR
               </p>
             </div>
@@ -236,15 +236,26 @@ export default function DonationSelectors({ data }) {
             <Button
               className={` !py-6 !px-20 xl:!px-48 mt-6 !text-xl ${
                 isDisabled &&
-                "hover:opacity-60 hover:bg-deep-green hover:text-cream hover:!scale-100 active:scale-95 cursor-not-allowed"
+                "hover:opacity-60 hover:bg-black hover:text-cream hover:!scale-100 active:scale-95 cursor-not-allowed"
               }`}
               disabled={isDisabled}
               onClick={openModal}
             >
-              {active.loading ? "Loading..." : "Donate and Support"}
+              {active.loading ? "Loading..." : "Donate Us"}
             </Button>
           </div>
+          {/* Whatsapp Link */}
+           <a href=" https://wa.me/9446442831?text=I'm%20interested" target="_blank" rel="noopener noreferrer">
+          <div className="flex flex-row items-center justify-center mt-6 space-x-2">
+           
+            <Image src="/whatsapp.svg" className="w-14 h-14" 
+            height={10}
+            width={10}
+            />
+          <p className="font-ambit-regular underline text-lg " >Reach out for assistance</p>
           
+          </div>
+          </a>
         </div>
         <div>
 
@@ -253,7 +264,7 @@ export default function DonationSelectors({ data }) {
   alt="Descriptive Alt Text"
   height={200}
   width={200}
-  className="absolute xl:block hidden -translate-x-32 top-12"
+  className="absolute xl:block hidden -translate-x-20 top-12"
 />
           </div>
        

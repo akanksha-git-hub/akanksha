@@ -92,10 +92,10 @@ const Alumini2 = ({ slice }) => {
       className="universal-padding    mt-8"
     >
       <SliceIdentifier text={slice.primary.slice_identifier} />
-        <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl md:text-center text-left mt-8">
+        <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl md:text-center text-left mt-12 md:mt-24">
         {slice.primary.heading}
       </h1>
-      <div class="flex flex-col xl:flex-row mt-8 ">
+      <div class="flex flex-col xl:flex-row mt-12 md:mt-24 ">
         {/* <!-- Section 1: Charts --> */}
         <div className="xl:w-1/2 flex flex-row justify-center items-end gap-8 p-4  h-[500px] relative">
           {/* <!-- Blue Section --> */}
@@ -135,9 +135,9 @@ const Alumini2 = ({ slice }) => {
            {slice.primary.stats}
           </p>
         </div>
-        <div className="flex flex-col lg:flex-row  lg:mt-0 mt-6 lg:w-[60%] w-full relative ">
+        <div className="flex flex-col xl:flex-row  xl:mt-0 mt-6 xl:w-[60%] w-full relative    ">
       {/* Left Section (Image) */}
-      <div className="w-full lg:w-[50%] flex flex-col md:items-end md:justify-end items-center justify-center mt-12 md:mt-0 ">
+      <div className="w-full xl:w-[50%] flex flex-col xl:items-end xl:justify-end  justify-center  mt-12 xl:mt-0  ">
         <PrismicNextImage 
           field={slice.primary.image} 
           className="max-w-[350px] max-h-[350px]   object-cover"
@@ -146,9 +146,10 @@ const Alumini2 = ({ slice }) => {
       </div>
 
       {/* Right Section (Title, Secondary Title, and Description) */}
-      <div className="w-full lg:w-[50%] flex flex-col justify-center items-start  space-y-2 p-6 ">
+  
+      <div className="w-full xl:w-[50%] flex flex-col justify-end items-start xl:mb-20 space-y-2 p-6 ">
         {/* Title */}
-        <h1 className="font-ambit-regular text-left text-black text-6xl md:text-8xl">
+        <h1 className="font-ambit-regular text-left text-black text-6xl xl:text-8xl">
           {slice.primary.contribution1_percentaege}
         </h1>
 
@@ -159,6 +160,7 @@ const Alumini2 = ({ slice }) => {
 
        
       </div>
+      
       </div>
      
       </div>

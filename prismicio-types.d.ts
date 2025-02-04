@@ -828,6 +828,7 @@ export type DonationPaymentComponentDocument<Lang extends string = string> =
   >;
 
 type DonorPageDocumentDataSlicesSlice =
+  | TestimonialSlice
   | ImpactPoint2Slice
   | Alumini2Slice
   | CardShuffleSlice
