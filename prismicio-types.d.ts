@@ -2234,11 +2234,11 @@ interface ImpactcardshuffletwoDocumentData {
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: impactcardshuffletwo.24_data
+   * - **API ID Path**: impactcardshuffletwo.data_24
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  "24_data": prismic.KeyTextField;
+  data_24: prismic.KeyTextField;
 
   /**
    * Year 2022_23 field in *ImpactCardShuffleTwo*
@@ -2256,11 +2256,11 @@ interface ImpactcardshuffletwoDocumentData {
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: impactcardshuffletwo.23_data
+   * - **API ID Path**: impactcardshuffletwo.data_23
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  "23_data": prismic.KeyTextField;
+  data_23: prismic.KeyTextField;
 
   /**
    * Year 2021_22 field in *ImpactCardShuffleTwo*
@@ -2278,11 +2278,11 @@ interface ImpactcardshuffletwoDocumentData {
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: impactcardshuffletwo.22_data
+   * - **API ID Path**: impactcardshuffletwo.data_22
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  "22_data": prismic.KeyTextField;
+  data_22: prismic.KeyTextField;
 }
 
 /**
@@ -2298,6 +2298,71 @@ export type ImpactcardshuffletwoDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
     Simplify<ImpactcardshuffletwoDocumentData>,
     "impactcardshuffletwo",
+    Lang
+  >;
+
+type LocationsDocumentDataSlicesSlice = FlagshipHeroSlice;
+
+/**
+ * Content for Locations documents
+ */
+interface LocationsDocumentData {
+  /**
+   * Slice Zone field in *Locations*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: locations.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<LocationsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Locations*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: locations.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Locations*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: locations.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Locations*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: locations.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Locations document from Prismic
+ *
+ * - **API ID**: `locations`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LocationsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<LocationsDocumentData>,
+    "locations",
     Lang
   >;
 
@@ -3521,6 +3586,7 @@ export type VolunteerWithUsDocument<Lang extends string = string> =
   >;
 
 type WorkWithUsDocumentDataSlicesSlice =
+  | IconShowcaseSlice
   | ProgramShowcaseSlice
   | SliderShowcaseSlice
   | MissionVisionSlice;
@@ -3614,6 +3680,7 @@ export type AllDocumentTypes =
   | ImpactDocument
   | ImpactcardshuffleoneDocument
   | ImpactcardshuffletwoDocument
+  | LocationsDocument
   | NewsLetterDocument
   | NotificationBarDocument
   | OurApproachDocument
@@ -9521,26 +9588,6 @@ export interface MissionVisionSliceDoubleCtaComponentPrimary {
   description: prismic.KeyTextField;
 
   /**
-   * CTA Link field in *MissionVision → Double CTA Component → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.cta_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  cta_link: prismic.LinkField;
-
-  /**
-   * CTA Text field in *MissionVision → Double CTA Component → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.cta_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  cta_text: prismic.KeyTextField;
-
-  /**
    * CTA B Text field in *MissionVision → Double CTA Component → Primary*
    *
    * - **Field Type**: Text
@@ -9571,16 +9618,6 @@ export interface MissionVisionSliceDoubleCtaComponentPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
-   * Video Link field in *MissionVision → Double CTA Component → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.video_link
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  video_link: prismic.KeyTextField;
-
-  /**
    * Asset field in *MissionVision → Double CTA Component → Primary*
    *
    * - **Field Type**: Image
@@ -9589,6 +9626,16 @@ export interface MissionVisionSliceDoubleCtaComponentPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   asset: prismic.ImageField<never>;
+
+  /**
+   * Video Link field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.video_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video_link: prismic.LinkField;
 }
 
 /**
@@ -13964,6 +14011,9 @@ declare module "@prismicio/client" {
       ImpactcardshuffleoneDocumentData,
       ImpactcardshuffletwoDocument,
       ImpactcardshuffletwoDocumentData,
+      LocationsDocument,
+      LocationsDocumentData,
+      LocationsDocumentDataSlicesSlice,
       NewsLetterDocument,
       NewsLetterDocumentData,
       NewsLetterDocumentDataCategoriesItem,

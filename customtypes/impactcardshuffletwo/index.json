@@ -35,7 +35,7 @@
           "thumbnails": []
         }
       },
-      "24_data": {
+      "data_24": {
         "type": "Text",
         "config": {
           "label": "24_data",
@@ -49,7 +49,7 @@
           "placeholder": ""
         }
       },
-      "23_data": {
+      "data_23": {
         "type": "Text",
         "config": {
           "label": "23_data",
@@ -63,7 +63,7 @@
           "placeholder": ""
         }
       },
-      "22_data": {
+      "data_22": {
         "type": "Text",
         "config": {
           "label": "22_data",

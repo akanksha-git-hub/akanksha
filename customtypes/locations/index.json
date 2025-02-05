@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "work_with_us",
-  "label": "Work with us",
+  "id": "locations",
+  "label": "Locations",
   "repeatable": false,
   "status": true,
   "json": {
@@ -11,16 +11,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "icon_showcase": {
-              "type": "SharedSlice"
-            },
-            "program_showcase": {
-              "type": "SharedSlice"
-            },
-            "slider_showcase": {
-              "type": "SharedSlice"
-            },
-            "mission_vision": {
+            "flagship_hero": {
               "type": "SharedSlice"
             }
           }

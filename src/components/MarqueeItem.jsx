@@ -13,17 +13,17 @@ export default function MarqueeItem({
   noHoverEffect,
 }) {
   let textBoxClassName =
-    "absolute opacity-0 top-0 left-0 h-full w-full bg-v2-blue transition-all flex flex-col items-center justify-center";
+    "absolute opacity-0 top-0 left-0 h-full w-full bg-v2-blue transition-all flex flex-col items-center justify-center ";
 
   return (
     <>
       {noHoverEffect ? (
         <div
-          className={`relative rounded-sm overflow-hidden marquee-item`}
+          className={`relative  flex flex-col justify-center items-center overflow-hidden marquee-item border`}
           key={index}
         >
           <PrismicNextImage
-            className={`h-full w-full object-cover`}
+            className={`h-[55%] w-[55%] md:h-[80%] md:w-[80%]  object-contain`}
             key={index}
             field={item.image}
             alt=""

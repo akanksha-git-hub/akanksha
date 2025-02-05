@@ -180,7 +180,7 @@ const Testimonial = ({ slice, context }) => {
             <div className="min-h-[28rem] flex flex-col justify-between">
               <div>
                 <Image src="/quotes-new.png" alt="" height={80} width={80} />
-                <p className="font-ambit-regular text-4xl text-deep-green mt-12">
+                <p className="font-ambit-regular text-2xl text-deep-green mt-12">
                   {testimonials[activeIndex].quote}
                 </p>
               </div>

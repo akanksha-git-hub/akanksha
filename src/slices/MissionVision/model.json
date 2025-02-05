@@ -179,21 +179,6 @@
             "placeholder": ""
           }
         },
-        "cta_link": {
-          "type": "Link",
-          "config": {
-            "label": "CTA Link",
-            "placeholder": "",
-            "select": null
-          }
-        },
-        "cta_text": {
-          "type": "Text",
-          "config": {
-            "label": "CTA Text",
-            "placeholder": ""
-          }
-        },
         "cta_b_text": {
           "type": "Text",
           "config": {
@@ -216,19 +201,20 @@
             "placeholder": ""
           }
         },
-        "video_link": {
-          "type": "Text",
-          "config": {
-            "label": "Video Link",
-            "placeholder": ""
-          }
-        },
         "asset": {
           "type": "Image",
           "config": {
             "label": "Asset",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "video_link": {
+          "type": "Link",
+          "config": {
+            "label": "Video Link",
+            "placeholder": "",
+            "select": null
           }
         }
       },

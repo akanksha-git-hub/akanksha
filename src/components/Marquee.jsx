@@ -44,7 +44,7 @@ export default function Marquee({ slice, isRight, className, noHoverEffect }) {
   const mouseLeave = () => setTrackIndex(INITIAL_VALUE);
 
   return (
-    <div className={`overflow-hidden py-2 whitespace-nowrap ${className}`}>
+    <div className={`overflow-hidden py-2 whitespace-nowrap  ${className}`}>
         <div className="marquee-container">
             <div className="marquee-items">
               <div className={`marquee-items-slide ${isRight ? 'marquee-items-slide-right' : 'marquee-items-slide-left'}`}>
