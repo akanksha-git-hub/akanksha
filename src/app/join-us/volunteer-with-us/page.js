@@ -10,7 +10,7 @@ export default async function Page() {
 
     const page = await fetchPrismicSingleDocument('volunteer_with_us');
     if(!page) return <p>No page</p>
-
+    const removePagePadding = true
     return(
         <main className={`${maxwidth} universal-padding mt-16`}>
            <div className="flex items-center justify-center gap-2 md:gap-10 mb-10">
@@ -44,7 +44,7 @@ export default async function Page() {
             <SliceZone
                              slices={page.data.slices}
                              components={components}
-                          
+                             context={{ removePagePadding }}
                            />
         </main>
     )
