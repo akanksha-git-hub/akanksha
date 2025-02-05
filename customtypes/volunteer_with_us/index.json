@@ -20,35 +20,31 @@
           "placeholder": ""
         }
       },
-      "items": {
-        "type": "Group",
+      "left_image": {
+        "type": "Image",
         "config": {
-          "label": "Items",
-          "repeat": true,
-          "fields": {
-            "image": {
-              "type": "Image",
-              "config": {
-                "label": "Image",
-                "constraint": {},
-                "thumbnails": []
-              }
-            },
-            "text": {
-              "type": "Text",
-              "config": {
-                "label": "Text",
-                "placeholder": ""
-              }
-            }
-          }
+          "label": "Left Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "right_image": {
+        "type": "Image",
+        "config": {
+          "label": "Right Image",
+          "constraint": {},
+          "thumbnails": []
         }
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "icon_scroll_showcase": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

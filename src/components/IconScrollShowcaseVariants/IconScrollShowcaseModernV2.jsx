@@ -14,21 +14,42 @@ export default function IconScrollShowcaseModernV2({ data }) {
     useEffect(() => {
         const items = listRef.current.querySelectorAll("li");
 
-        gsap.fromTo(
-            items,
-            { opacity: 0.1 }, 
-            {
-                opacity: 1, 
-                duration: 0.8, 
-                ease: "power3.out", 
-                stagger: 0.6, 
-                scrollTrigger: {
-                    trigger: listRef.current,
-                    start: "top 80%", 
-                    toggleActions: "play reset play reset", 
-                },
-            }
+        const playAnimation = () => {
+            gsap.fromTo(
+                items,
+                { opacity: 0.1 }, 
+                {
+                    opacity: 1, 
+                    duration: 0.8, 
+                    ease: "power3.out", 
+                    stagger: 0.6, 
+                    scrollTrigger: {
+                        trigger: listRef.current,
+                        start: "top 80%", 
+                        toggleActions: "play reset play reset",
+                    },
+                }
+            );
+        };
+
+        // Check if the section is already in view when the page loads
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    playAnimation(); // Run animation immediately
+                    observer.disconnect(); // Stop observing after first execution
+                }
+            },
+            { threshold: 0.5 } // Adjust this threshold as needed
         );
+
+        if (listRef.current) {
+            observer.observe(listRef.current);
+        }
+
+        return () => {
+            observer.disconnect();
+        };
     }, []);
 
     return (
