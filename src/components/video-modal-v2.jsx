@@ -34,12 +34,16 @@ export default function VideoModalv2({
           />
           {/* Button */}
           <div className="w-full flex justify-center">
-            <Button
+            {/* <Button 
+            
               prismiclink={slice.primary.cta_link}
               className="px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-6 lg:py-4 !text-xs sm:!text-sm md:!text-base"
             >
+          
               {slice.primary.cta_text}
-            </Button>
+            </Button> */}
+            <Button prismicLink={slice.primary.cta_link} className="px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-6 lg:py-4 !text-xs sm:!text-sm md:!text-base">{slice.primary.cta_text}</Button>
+           
           </div>
         </div>
       </div>

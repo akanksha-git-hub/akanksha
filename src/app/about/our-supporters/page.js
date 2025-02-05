@@ -12,9 +12,9 @@ export default async function Page() {
 
   return (
     <main className={`${maxwidth} universal-padding`}>
-      <div className="relative w-fit">
+      <div className="relative ">
         <RichText
-          className="text-black font-ambit-regular text-left text-5xl md:text-7xl mt-2 mb-12"
+          className="text-black font-ambit-regular text-center text-5xl md:text-7xl mt-2 mb-16"
           text={page.data.title}
         />
         {/* <Image 

@@ -314,7 +314,7 @@ const MissionVision = ({ slice, context }) => {
           />
           <VideoModal className="flex w-full mt-8 lg:hidden" slice={slice} />
           <RichText
-            className="font-inter text-black text-center lg:text-left text-sm 3xl:text-lg w-[90%] mt-8"
+            className=" text-black font-ambit-regular text-center lg:text-left text-sm 3xl:text-lg w-[90%] mt-8"
             text={slice.primary.description}
           />
           <div className="flex flex-wrap gap-4 w-full mt-6 xl:mt-10 3xl:mt-14">
@@ -322,13 +322,12 @@ const MissionVision = ({ slice, context }) => {
               link={slice.primary.cta_link}
               text={slice.primary.cta_text}
             /> */}
-            <Button prismiclink={slice.primary.cta_link}>
-              {slice.primary.cta_text}
-            </Button>
+            
             {slice.variation === "doubleCtaComponent" && (
-              <Button prismiclink={slice.primary.cta_b_link}>
-                {slice.primary.cta_b_text}
-              </Button>
+              <>
+                <Button prismicLink={slice.primary.cta_b_link}>{slice.primary.cta_b_text}</Button>
+             
+              </>
             )}
           </div>
         </div>

@@ -13,10 +13,10 @@ const TabSlice = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="w-fit relative">
+      <div className=" relative">
         <RichText 
           text={slice.primary.title}
-          className='text-deep-green font-ambit-regular text-5xl md:text-7xl text-left mt-28'
+          className='text-black font-ambit-regular text-5xl md:text-7xl text-center mt-28'
         />
         {/* <Image 
           src='/sparkle_small.svg'

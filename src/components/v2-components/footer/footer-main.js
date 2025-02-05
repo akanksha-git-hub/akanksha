@@ -64,7 +64,7 @@ export default async function FooterMain() {
           </div>
           <RichText
             className="font-ambit-regular text-black text-3xl w-full md:text-[3vw] md:max-w-[13ch] md:tracking-tight md:leading-[3.2rem] text-left md:text-center "
-            text="Stay in touch to know more about us"
+            text="Stay in touch"
           />
           <FooterContact />
         </Footer.Header>

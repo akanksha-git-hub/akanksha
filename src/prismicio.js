@@ -115,6 +115,10 @@ const routes = [
     type: "impact",
     path: "/our-impact",
   },
+  {
+    type: "locations",
+    path: "/locations",
+  },
 ];
 
 /**
