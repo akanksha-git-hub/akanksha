@@ -1,0 +1,69 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "mail",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "rhyme",
+				"type": "Text"
+			},
+			"data": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "note",
+									"type": "Text"
+								}
+							],
+							[
+								"address",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "transportation",
+									"type": "Text"
+								}
+							],
+							[
+								"school_leader",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "once",
+									"type": "Text"
+								}
+							],
+							[
+								"leader_name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "airplane",
+									"type": "Text"
+								}
+							],
+							[
+								"city",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "Mumbai",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

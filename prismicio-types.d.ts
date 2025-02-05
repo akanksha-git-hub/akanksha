@@ -2301,7 +2301,9 @@ export type ImpactcardshuffletwoDocument<Lang extends string = string> =
     Lang
   >;
 
-type LocationsDocumentDataSlicesSlice = FlagshipHeroSlice;
+type LocationsDocumentDataSlicesSlice =
+  | IconShowcaseLocationSlice
+  | FlagshipHeroSlice;
 
 /**
  * Content for Locations documents
@@ -8248,6 +8250,128 @@ type IconShowcaseSliceVariation =
 export type IconShowcaseSlice = prismic.SharedSlice<
   "icon_showcase",
   IconShowcaseSliceVariation
+>;
+
+/**
+ * Item in *IconShowcaseLocation → Default → Primary → Data*
+ */
+export interface IconShowcaseLocationSliceDefaultPrimaryDataItem {
+  /**
+   * City field in *IconShowcaseLocation → Default → Primary → Data*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase_location.default.primary.data[].city
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  city: prismic.SelectField<"Mumbai" | "Pune" | "Nagpur">;
+
+  /**
+   * Title field in *IconShowcaseLocation → Default → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase_location.default.primary.data[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Address field in *IconShowcaseLocation → Default → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase_location.default.primary.data[].address
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  address: prismic.KeyTextField;
+
+  /**
+   * School Leader field in *IconShowcaseLocation → Default → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase_location.default.primary.data[].school_leader
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  school_leader: prismic.KeyTextField;
+
+  /**
+   * Leader Name field in *IconShowcaseLocation → Default → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase_location.default.primary.data[].leader_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  leader_name: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *IconShowcaseLocation → Default → Primary*
+ */
+export interface IconShowcaseLocationSliceDefaultPrimary {
+  /**
+   * Slice Identifier field in *IconShowcaseLocation → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase_location.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *IconShowcaseLocation → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase_location.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Data field in *IconShowcaseLocation → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase_location.default.primary.data[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  data: prismic.GroupField<
+    Simplify<IconShowcaseLocationSliceDefaultPrimaryDataItem>
+  >;
+}
+
+/**
+ * Default variation for IconShowcaseLocation Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconShowcaseLocationSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<IconShowcaseLocationSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *IconShowcaseLocation*
+ */
+type IconShowcaseLocationSliceVariation = IconShowcaseLocationSliceDefault;
+
+/**
+ * IconShowcaseLocation Shared Slice
+ *
+ * - **API ID**: `icon_showcase_location`
+ * - **Description**: IconShowcaseLocation
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconShowcaseLocationSlice = prismic.SharedSlice<
+  "icon_showcase_location",
+  IconShowcaseLocationSliceVariation
 >;
 
 /**
@@ -14207,6 +14331,11 @@ declare module "@prismicio/client" {
       IconShowcaseSliceWithTitle,
       IconShowcaseSliceTitleAndSubtitle,
       IconShowcaseSliceWithTitleDefault,
+      IconShowcaseLocationSlice,
+      IconShowcaseLocationSliceDefaultPrimaryDataItem,
+      IconShowcaseLocationSliceDefaultPrimary,
+      IconShowcaseLocationSliceVariation,
+      IconShowcaseLocationSliceDefault,
       ImageShowcaseSlice,
       ImageShowcaseSliceDefaultPrimaryImagesItem,
       ImageShowcaseSliceDefaultPrimary,

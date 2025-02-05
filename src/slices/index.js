@@ -26,6 +26,7 @@ export const components = {
   horizontal_scroll_slice: dynamic(() => import("./HorizontalScrollSlice")),
   icon_scroll_showcase: dynamic(() => import("./IconScrollShowcase")),
   icon_showcase: dynamic(() => import("./IconShowcase")),
+  icon_showcase_location: dynamic(() => import("./IconShowcaseLocation")),
   image_showcase: dynamic(() => import("./ImageShowcase")),
   impact_hero: dynamic(() => import("./ImpactHero")),
   impact_key_stage: dynamic(() => import("./ImpactKeyStage")),
