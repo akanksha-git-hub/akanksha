@@ -97,10 +97,10 @@ const Hero = ({ slice }) => {
               className="w-[90%] sm:w-screen flex items-start !py-3 !pl-2 "
               breakpoints={{
                 2500: {
-                  slidesPerView: 5.6,
+                  slidesPerView: 4,
                 },
                 1200: {
-                  slidesPerView: 3.3,
+                  slidesPerView: 4,
                 },
                 600: {
                   slidesPerView: 3,
