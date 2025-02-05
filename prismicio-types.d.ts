@@ -3464,32 +3464,7 @@ export type VisionMissionDocument<Lang extends string = string> =
     Lang
   >;
 
-/**
- * Item in *Volunteer with us → Items*
- */
-export interface VolunteerWithUsDocumentDataItemsItem {
-  /**
-   * Image field in *Volunteer with us → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: volunteer_with_us.items[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Text field in *Volunteer with us → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: volunteer_with_us.items[].text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  text: prismic.KeyTextField;
-}
-
-type VolunteerWithUsDocumentDataSlicesSlice = never;
+type VolunteerWithUsDocumentDataSlicesSlice = IconScrollShowcaseSlice;
 
 /**
  * Content for Volunteer with us documents
@@ -3518,15 +3493,26 @@ interface VolunteerWithUsDocumentData {
   sub_title: prismic.KeyTextField;
 
   /**
-   * Items field in *Volunteer with us*
+   * Left Image field in *Volunteer with us*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: volunteer_with_us.items[]
+   * - **API ID Path**: volunteer_with_us.left_image
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  items: prismic.GroupField<Simplify<VolunteerWithUsDocumentDataItemsItem>>;
+  left_image: prismic.ImageField<never>;
+
+  /**
+   * Right Image field in *Volunteer with us*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: volunteer_with_us.right_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_image: prismic.ImageField<never>;
 
   /**
    * Slice Zone field in *Volunteer with us*
@@ -7621,6 +7607,31 @@ export interface IconScrollShowcaseSliceModernPrimaryItemsItem {
 }
 
 /**
+ * Item in *IconScrollShowcase → ModernWithButton → Primary → items*
+ */
+export interface IconScrollShowcaseSliceModernWithButtonPrimaryItemsItem {
+  /**
+   * image field in *IconScrollShowcase → ModernWithButton → Primary → items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.modernWithButton.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * text field in *IconScrollShowcase → ModernWithButton → Primary → items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.modernWithButton.primary.items[].text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  text: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *IconScrollShowcase → Default → Primary*
  */
 export interface IconScrollShowcaseSliceDefaultPrimary {
@@ -7762,12 +7773,64 @@ export type IconScrollShowcaseSliceModern = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *IconScrollShowcase → ModernWithButton → Primary*
+ */
+export interface IconScrollShowcaseSliceModernWithButtonPrimary {
+  /**
+   * items field in *IconScrollShowcase → ModernWithButton → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.modernWithButton.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<IconScrollShowcaseSliceModernWithButtonPrimaryItemsItem>
+  >;
+
+  /**
+   * CTA Link field in *IconScrollShowcase → ModernWithButton → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.modernWithButton.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * CTA Text field in *IconScrollShowcase → ModernWithButton → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.modernWithButton.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+}
+
+/**
+ * ModernWithButton variation for IconScrollShowcase Slice
+ *
+ * - **API ID**: `modernWithButton`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconScrollShowcaseSliceModernWithButton =
+  prismic.SharedSliceVariation<
+    "modernWithButton",
+    Simplify<IconScrollShowcaseSliceModernWithButtonPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *IconScrollShowcase*
  */
 type IconScrollShowcaseSliceVariation =
   | IconScrollShowcaseSliceDefault
   | IconScrollShowcaseSliceHorizontalVariant
-  | IconScrollShowcaseSliceModern;
+  | IconScrollShowcaseSliceModern
+  | IconScrollShowcaseSliceModernWithButton;
 
 /**
  * IconScrollShowcase Shared Slice
@@ -14179,7 +14242,6 @@ declare module "@prismicio/client" {
       VisionMissionDocumentDataSlicesSlice,
       VolunteerWithUsDocument,
       VolunteerWithUsDocumentData,
-      VolunteerWithUsDocumentDataItemsItem,
       VolunteerWithUsDocumentDataSlicesSlice,
       WorkWithUsDocument,
       WorkWithUsDocumentData,
@@ -14313,10 +14375,13 @@ declare module "@prismicio/client" {
       IconScrollShowcaseSliceHorizontalVariantPrimary,
       IconScrollShowcaseSliceModernPrimaryItemsItem,
       IconScrollShowcaseSliceModernPrimary,
+      IconScrollShowcaseSliceModernWithButtonPrimaryItemsItem,
+      IconScrollShowcaseSliceModernWithButtonPrimary,
       IconScrollShowcaseSliceVariation,
       IconScrollShowcaseSliceDefault,
       IconScrollShowcaseSliceHorizontalVariant,
       IconScrollShowcaseSliceModern,
+      IconScrollShowcaseSliceModernWithButton,
       IconShowcaseSlice,
       IconShowcaseSliceDefaultPrimaryDataItem,
       IconShowcaseSliceDefaultPrimary,

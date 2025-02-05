@@ -6,6 +6,7 @@ import RichText from "@/components/Texts/RichText";
 import useDebouncedResize from "@/hooks/useDebouncedResize";
 import IconScrollShowcaseDefaultV2 from "@/components/IconScrollShowcaseVariants/IconScrollShowcaseDefaultV2";
 import IconScrollShowcaseModernV2 from "@/components/IconScrollShowcaseVariants/IconScrollShowcaseModernV2";
+import Button from "@/components/v2-components/buttons/button";
 
 /**
  * @typedef {import("@prismicio/client").Content.IconScrollShowcaseSlice} IconScrollShowcaseSlice
@@ -78,6 +79,29 @@ const IconScrollShowcase = ({ slice }) => {
     </section>
     )
   }
+  if (slice.variation === 'modernWithButton') {
+    return (
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="mt-16 flex flex-col items-center "
+      >
+        {/* Render Different Components Based on Screen Size */}
+        {width > 1200 ? (
+          <IconScrollShowcaseModernV2 data={slice.primary.items} />
+        ) : (
+          <IconScrollShowcaseDefaultV2 data={slice.primary.items} />
+        )}
+  
+        
+        <Button prismicLink={slice.primary.cta_link}>
+          {slice.primary.cta_text}
+        </Button>
+      </section>
+    );
+  }
+  
+
 
   return (
     <section
