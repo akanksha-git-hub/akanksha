@@ -3464,7 +3464,9 @@ export type VisionMissionDocument<Lang extends string = string> =
     Lang
   >;
 
-type VolunteerWithUsDocumentDataSlicesSlice = IconScrollShowcaseSlice;
+type VolunteerWithUsDocumentDataSlicesSlice =
+  | MissionVisionSlice
+  | IconScrollShowcaseSlice;
 
 /**
  * Content for Volunteer with us documents

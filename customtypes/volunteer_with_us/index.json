@@ -41,6 +41,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "mission_vision": {
+              "type": "SharedSlice"
+            },
             "icon_scroll_showcase": {
               "type": "SharedSlice"
             }
