@@ -1,0 +1,82 @@
+{
+  "id": "icon_showcase_location",
+  "type": "SharedSlice",
+  "name": "IconShowcaseLocation",
+  "description": "IconShowcaseLocation",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "data": {
+          "type": "Group",
+          "config": {
+            "label": "Data",
+            "repeat": true,
+            "fields": {
+              "city": {
+                "type": "Select",
+                "config": {
+                  "label": "City",
+                  "placeholder": "",
+                  "options": [
+                    "Mumbai",
+                    "Pune",
+                    "Nagpur"
+                  ]
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "address": {
+                "type": "Text",
+                "config": {
+                  "label": "Address",
+                  "placeholder": ""
+                }
+              },
+              "school_leader": {
+                "type": "Text",
+                "config": {
+                  "label": "School Leader",
+                  "placeholder": ""
+                }
+              },
+              "leader_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Leader Name",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
