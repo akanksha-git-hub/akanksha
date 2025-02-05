@@ -1,40 +1,30 @@
 "use client";
 import { useEffect, useState } from "react";
-import SparkleContainer from "@/components/Sparkles/sparkle-container";
-import RichText from "@/components/Texts/RichText";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import RichText from "@/components/Texts/RichText";
+import { PrismicImage } from "@prismicio/react";
+
+import ButterflyLineA from "@/assets/butterfly-line-A.svg";
+import ButterflyLineB from "@/assets/butterfly-line-B.svg";
+import ButterFlyA from "@/assets/butterfly-A.svg";
+import ButterFlyB from "@/assets/butterfly-B.svg";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const MissionVisionShowcase = ({ slice }) => {
-  const initialTitle =
-    "The " + `${slice.primary.text_a}` || "Default Mission Title";
-  const initialDescription =
-    slice.primary.mission_description || "Default Mission Description";
+  const [activeComponent, setActiveComponent] = useState("mission");
 
-  // Initialize isActive to true for the initial content
-  const [isActive, setIsActive] = useState(true);
-
-  const handleContentChange = (title, description, component) => {
-    setActiveContent({ title, description });
-    // Keep isActive true after a click
-    setIsActive(component);
-  };
-
-  const [activeContent, setActiveContent] = useState({
-    title: initialTitle,
-    description: initialDescription,
-  });
+  const handleContentChange = (component) => setActiveComponent(component);
 
   useEffect(() => {
     gsap.fromTo(
       ".description-container",
       { opacity: 0 },
-      {
-        opacity: 1,
-        duration: 2,
-        ease: "power3.out",
-      }
+      { opacity: 1, duration: 2, ease: "power3.out" }
     );
-  }, [activeContent]);
+  }, [activeComponent]);
 
   return (
     <section
@@ -42,15 +32,31 @@ const MissionVisionShowcase = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="universal-padding my-12 950px:my-24"
     >
-      <SparkleContainer
-        slice={slice.primary}
-        isActive={isActive}
-        onContentChange={handleContentChange}
-      />
+      {/* Mission & Vision Toggle */}
+      <div className="flex flex-col items-center justify-center space-y-8 950px:space-y-3">
+        <SparkleText
+          slice={slice.primary}
+          isRight={false}
+          isActive={activeComponent === "mission"}
+          onClick={() => handleContentChange("mission")}
+        />
+        <SparkleText
+          slice={slice.primary}
+          isRight={true}
+          isActive={activeComponent === "vision"}
+          onClick={() => handleContentChange("vision")}
+        />
+      </div>
+
+      {/* Description */}
       <div className="description-container mt-12 space-y-2 flex flex-col 950px:items-center 950px:justify-center">
         <RichText
-          className="text-left 950px:text-center text-deep-green font-ambit-regular text-2xl 950px:text-4xl w-full 950px:w-[80%]"
-          text={activeContent.description}
+          className="text-left 950px:text-center text-black font-ambit-regular text-2xl 950px:text-4xl w-full 950px:w-[80%]"
+          text={
+            activeComponent === "mission"
+              ? slice.primary.mission_description
+              : slice.primary.vision_description
+          }
         />
       </div>
     </section>
@@ -58,3 +64,85 @@ const MissionVisionShowcase = ({ slice }) => {
 };
 
 export default MissionVisionShowcase;
+
+// Sparkle Text Component
+const SparkleText = ({ slice, isRight, isActive, onClick }) => {
+  const imageField = isRight ? slice.image_b : slice.image_a;
+  const text = isRight ? slice.text_b : slice.text_a;
+
+  return (
+    <div
+      className={`flex 950px:flex-row 950px:justify-center 950px:items-center w-full gap-8 ${
+        isRight ? "flex-col-reverse 950px:flex-row-reverse" : "flex-col"
+      }`}
+    >
+      {/* Title */}
+      <RichText
+        text={text}
+        className={`text-description font-ambit-regular text-7xl text-deep-green flex justify-end transition-all cursor-pointer ${
+          isActive ? "opacity-100" : "opacity-50 hover:opacity-80"
+        }`}
+        onClick={onClick}
+      />
+
+      {/* Image */}
+      <div className="w-full 950px:w-[40%] h-auto relative">
+        {imageField?.url ? (
+          <PrismicImage
+            className={`rounded-2xl w-full h-auto max-w-[90%] mx-auto 950px:max-w-none 950px:w-full transition-all cursor-pointer ${
+              isActive ? "opacity-100" : "opacity-50 hover:opacity-80"
+            }`}
+            onClick={onClick}
+            field={imageField}
+            imgixParams={{ w: 400, h: 600, fit: "crop" }}
+          />
+        ) : (
+          <Image
+            className={`rounded-2xl w-full h-full transition-all ${
+              isActive ? "opacity-100" : "opacity-50 hover:opacity-80"
+            }`}
+            src="/dummy_img.png"
+            alt="Placeholder"
+            height={200}
+            width={200}
+          />
+        )}
+        {isRight ? <DecorativeImagesRight /> : <DecorativeImagesLeft />}
+      </div>
+    </div>
+  );
+};
+
+// Decorative Images Components
+const DecorativeImagesLeft = () => (
+  <TempFillImageComponent
+    src={ButterflyLineA}
+    className="absolute -bottom-40 -z-10 -left-24 h-80 w-80"
+  />
+);
+
+const DecorativeImagesRight = () => (
+  <>
+    <TempFillImageComponent
+      src={ButterFlyA}
+      className="absolute -z-10 -top-20 md:-bottom-4 md:-left-20 950px:-left-60 h-24 w-24 950px:h-44 950px:w-44"
+    />
+    <TempFillImageComponent
+      src={ButterFlyB}
+      className="absolute -z-10 -top-40 sm:-right-20 md:-right-[130%] 2xl:-right-full h-24 w-24 950px:h-44 950px:w-44"
+    />
+    <TempFillImageComponent
+      src={ButterflyLineB}
+      className="absolute -top-0 -right-20 md:-right-[110%] 2xl:-right-[78%] -z-10 h-44 w-44"
+    />
+  </>
+);
+
+// Temp Image Component
+const TempFillImageComponent = ({ src, className }) => (
+  <div className={className}>
+    <div className="relative h-full w-full">
+      <Image src={src} fill alt="Decorative element" />
+    </div>
+  </div>
+);
