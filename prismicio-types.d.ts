@@ -556,6 +556,28 @@ interface ContactDocumentData {
   sub_title: prismic.KeyTextField;
 
   /**
+   * Left Image field in *Contact*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.left_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_image: prismic.ImageField<never>;
+
+  /**
+   * Right Image field in *Contact*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.right_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_image: prismic.ImageField<never>;
+
+  /**
    * Location Items field in *Contact*
    *
    * - **Field Type**: Group

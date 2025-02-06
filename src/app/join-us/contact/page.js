@@ -3,6 +3,7 @@ import TabContainer from "@/components/Tab/tab-container";
 import RichText from "@/components/Texts/RichText";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
 import { maxwidth } from "@/utils/helperClasses";
+import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
 
 
@@ -18,26 +19,34 @@ export default async function Page() {
         <main
             className={`${maxwidth} universal-padding relative`}
         >
-            <div className="absolute top-0 left-0 h-[90%] -z-10">
-                <Image 
-                    src='/contact-bg.svg'
-                    alt="image"
-                    className="w-full h-full object-contain"
-                    height={1400}
-                    width={600 * 2.6}
-                />
-            </div>
-            <div className="bg-bright-yellow absolute top-0 right-0 w-full h-[1000px] md:h-[660px] -z-20" />
-            <div>
-                <RichText 
-                    text={page.data.title}
-                    className={`text-deep-green font-ambit-regular text-7xl text-left md:text-center w-full pt-24`}
-                />
-                <RichText 
-                    text={page.data.sub_title}
-                    className='font-ambit-regular text-left md:text-center text-deep-green text-base md:text-lg md:leading-7 w-[90%] md:w-[70%] md:mx-auto mt-6'
-                />
-            </div>
+           
+              <div className="flex items-center justify-center gap-2 md:gap-10 mb-10">
+                        {/* Left Side Image */}
+                        {page.data.left_image?.url && (
+                          <PrismicNextImage  
+                            field={page.data.left_image}
+                            className="w-24 h-auto md:w-60"
+                          />
+                        )}
+                      
+                        {/* Title */}
+                        <div className="flex flex-col">
+                        <RichText 
+                            text={page.data.title}
+                            className="flex items-center justify-center text-black   text-2xl md:text-7xl !mt-[5rem] !mb-12  "
+                          /> <RichText
+                          text={page.data.sub_title}
+                          className="flex items-center justify-center text-black  text-center  text-lg md:text-xl !mt-[1rem] !mb-12  "
+                        />
+                        </div>
+                        {/* Right Side Image */}
+                        {page.data.right_image?.url && (
+                          <PrismicNextImage
+                            field={page.data.right_image}
+                            className="w-24 h-auto md:w-60"
+                          />
+                        )}
+                      </div>
             <div className="mb-32">
                 <ContactTabComponent 
                     data={page.data.location_items}
