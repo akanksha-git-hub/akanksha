@@ -1,12 +1,16 @@
 import FloatingButton from "@/components/FloatingButton";
-import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
+import { fetchPrismicSingleDocument, fetchPrismicAllDocuments } from "@/lib/prismicDb"; 
 import { components } from "@/slices";
 import { maxwidth } from "@/utils/helperClasses";
 import { SliceZone } from "@prismicio/react";
 
 export default async function Page() {
+  // Fetch Prismic slices
   const page = await fetchPrismicSingleDocument("project_setu");
-  const financialsPage = await fetchPrismicSingleDocument("financials");
+  
+
+  // Fetch all financial documents separately
+  
 
   if (!page) return <p>No page data!</p>;
 
@@ -15,10 +19,9 @@ export default async function Page() {
       <SliceZone
         slices={page.data.slices}
         components={components}
-        context={{ financialsPage }}
-        
+      
       />
-       <FloatingButton />
+      <FloatingButton />
     </main>
   );
 }

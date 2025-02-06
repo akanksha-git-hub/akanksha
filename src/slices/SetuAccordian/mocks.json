@@ -1,0 +1,73 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"year_groups": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"year",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "lose",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"documents": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "review",
+									"type": "Text"
+								}
+							],
+							[
+								"link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com"
+									}
+								}
+							],
+							[
+								"year_identifier",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "shore",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "frame",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "team",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

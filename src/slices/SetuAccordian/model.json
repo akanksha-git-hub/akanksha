@@ -1,0 +1,80 @@
+{
+  "id": "setu_accordian",
+  "type": "SharedSlice",
+  "name": "SetuAccordian",
+  "description": "SetuAccordian",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "year_groups": {
+          "type": "Group",
+          "config": {
+            "label": "Year Groups",
+            "repeat": true,
+            "fields": {
+              "year": {
+                "type": "Text",
+                "config": {
+                  "label": "year",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "documents": {
+          "type": "Group",
+          "config": {
+            "label": "Documents",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title",
+                  "placeholder": ""
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link",
+                  "placeholder": "",
+                  "select": null
+                }
+              },
+              "year_identifier": {
+                "type": "Text",
+                "config": {
+                  "label": "Year Identifier",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
