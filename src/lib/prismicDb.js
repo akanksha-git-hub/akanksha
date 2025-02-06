@@ -10,3 +10,4 @@ export const fetchPrismicSingleDocument = async (page = "home") => {
 
     return data;
 }
+

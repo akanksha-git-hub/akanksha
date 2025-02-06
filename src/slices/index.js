@@ -46,6 +46,7 @@ export const components = {
   program_showcase: dynamic(() => import("./ProgramShowcase")),
   retention: dynamic(() => import("./Retention")),
   rotating_carousel: dynamic(() => import("./RotatingCarousel")),
+  setu_accordian: dynamic(() => import("./SetuAccordian")),
   showcase_v2: dynamic(() => import("./ShowcaseV2")),
   slider_showcase: dynamic(() => import("./SliderShowcase")),
   student_vision: dynamic(() => import("./StudentVision")),

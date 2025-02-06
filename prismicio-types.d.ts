@@ -3171,6 +3171,7 @@ export type PrivacyPolicyDocument<Lang extends string = string> =
   >;
 
 type ProjectSetuDocumentDataSlicesSlice =
+  | SetuAccordianSlice
   | GrowthImpact5Slice
   | GrowthImpact4Slice
   | GrowthImpact3Slice
@@ -11934,6 +11935,135 @@ export type RotatingCarouselSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *SetuAccordian → Default → Primary → Year Groups*
+ */
+export interface SetuAccordianSliceDefaultPrimaryYearGroupsItem {
+  /**
+   * year field in *SetuAccordian → Default → Primary → Year Groups*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.default.primary.year_groups[].year
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year: prismic.KeyTextField;
+}
+
+/**
+ * Item in *SetuAccordian → Default → Primary → Documents*
+ */
+export interface SetuAccordianSliceDefaultPrimaryDocumentsItem {
+  /**
+   * title field in *SetuAccordian → Default → Primary → Documents*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.default.primary.documents[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * link field in *SetuAccordian → Default → Primary → Documents*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.default.primary.documents[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Year Identifier field in *SetuAccordian → Default → Primary → Documents*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.default.primary.documents[].year_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_identifier: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *SetuAccordian → Default → Primary*
+ */
+export interface SetuAccordianSliceDefaultPrimary {
+  /**
+   * Slice Identifier field in *SetuAccordian → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *SetuAccordian → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Year Groups field in *SetuAccordian → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.default.primary.year_groups[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  year_groups: prismic.GroupField<
+    Simplify<SetuAccordianSliceDefaultPrimaryYearGroupsItem>
+  >;
+
+  /**
+   * Documents field in *SetuAccordian → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.default.primary.documents[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  documents: prismic.GroupField<
+    Simplify<SetuAccordianSliceDefaultPrimaryDocumentsItem>
+  >;
+}
+
+/**
+ * Default variation for SetuAccordian Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SetuAccordianSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SetuAccordianSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SetuAccordian*
+ */
+type SetuAccordianSliceVariation = SetuAccordianSliceDefault;
+
+/**
+ * SetuAccordian Shared Slice
+ *
+ * - **API ID**: `setu_accordian`
+ * - **Description**: SetuAccordian
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SetuAccordianSlice = prismic.SharedSlice<
+  "setu_accordian",
+  SetuAccordianSliceVariation
+>;
+
+/**
  * Item in *ShowcaseV2 → Default → Primary → Images*
  */
 export interface ShowcaseV2SliceDefaultPrimaryImagesItem {
@@ -14556,6 +14686,12 @@ declare module "@prismicio/client" {
       RotatingCarouselSliceDefaultPrimary,
       RotatingCarouselSliceVariation,
       RotatingCarouselSliceDefault,
+      SetuAccordianSlice,
+      SetuAccordianSliceDefaultPrimaryYearGroupsItem,
+      SetuAccordianSliceDefaultPrimaryDocumentsItem,
+      SetuAccordianSliceDefaultPrimary,
+      SetuAccordianSliceVariation,
+      SetuAccordianSliceDefault,
       ShowcaseV2Slice,
       ShowcaseV2SliceDefaultPrimaryImagesItem,
       ShowcaseV2SliceDefaultPrimary,
