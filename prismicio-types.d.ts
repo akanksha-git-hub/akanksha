@@ -139,6 +139,7 @@ export type AnnualReportsDocument<Lang extends string = string> =
   >;
 
 type AseDocumentDataSlicesSlice =
+  | IconShowcaseSlice
   | ImpactPoint2Slice
   | Alumini2Slice
   | ProgramShowcaseSlice
