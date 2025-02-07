@@ -692,7 +692,7 @@ body {
   transition: all 0.2s var(--magic-bezier);
 }
 .flip-card:hover .flip-card-inner .flip-shading {
-  transition: all 0.3s var(--magic-bezier);
+  transition: all ;
   opacity: 1;
 }
 .flip-card:hover .flip-card-inner {
