@@ -13,8 +13,8 @@ export default function ContactTabComponent({ data }) {
 
   const backgroundImages = {
     mumbai: "/mumbai-bg.svg",
-    pune: "/delhi-bg.png",
-    us: "/bangalore-bg.svg",
+    pune: "/bangalore-bg.svg",
+    us: "/delhi-bg.png",
     uk: "/hyderabad-bg.svg",
   };
 

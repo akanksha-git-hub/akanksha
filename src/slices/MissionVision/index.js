@@ -296,7 +296,7 @@ const MissionVision = ({ slice, context }) => {
         <SliceIdentifier text={slice.primary.slice_identifier} />
       )}
       <div
-        className={`flex flex-col items-end gap-12 mt-12 lg:mt-8 ${slice.variation === "reverseVideoComponet" ? "lg:flex-row-reverse" : "lg:flex-row"}`}
+        className={`flex flex-col items-end gap-12 mt-12 lg:mt-24 ${slice.variation === "reverseVideoComponet" ? "lg:flex-row-reverse" : "lg:flex-row"}`}
       >
         <VideoModal className="hidden lg:flex" slice={slice} />
         <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-2/4">
@@ -335,7 +335,7 @@ const MissionVision = ({ slice, context }) => {
       </div>
       <PrismicImage
   field={slice.primary.asset}
-  className="absolute xl:block -z-30 hidden right-0 top-0 w-[400px] h-auto object-contain  "
+  className="absolute xl:block -z-30 hidden right-0 top-0  w-[280px] h-auto object-cover  "
 />
 
 
