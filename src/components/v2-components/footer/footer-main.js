@@ -70,6 +70,8 @@ export default async function FooterMain() {
         </Footer.Header>
         <Footer.Navigation className="relative sm:left-12 grid grid-cols-[repeat(auto-fit,minmax(80px,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-6">
           <FooterNavigationItems
+        
+          
             className=""
             uniqueFooterItemsTitle={uniqueFooterItemsTitle}
             footerItemsContent={footerItemsContent}
