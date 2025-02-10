@@ -6,6 +6,8 @@ export default function FooterNavigationItems({ uniqueFooterItemsTitle, footerIt
 
     return(
         <>
+      
+        
         {uniqueFooterItemsTitle.map((uniqueTitle, titleIndex) => (
             <li className={className} key={titleIndex}>
                 <RichText 
@@ -23,7 +25,7 @@ export default function FooterNavigationItems({ uniqueFooterItemsTitle, footerIt
                             })
                             .map((footerItems, footerItemsIndex) => (
                                 <TextCTA 
-                                    className="font-inter text-sm sm:text-base text-deep-green hover:opacity-80 active:scale-95 transition-all"
+                                    className="font-inter text-left text-sm sm:text-base text-deep-green hover:opacity-80 active:scale-95 transition-all"
                                     key={footerItemsIndex}
                                     text={footerItems.footer_item}
                                     link={footerItems.footer_item_link}
