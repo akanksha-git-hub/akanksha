@@ -71,6 +71,13 @@
                   "label": "Position",
                   "placeholder": ""
                 }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
+                }
               }
             }
           }
