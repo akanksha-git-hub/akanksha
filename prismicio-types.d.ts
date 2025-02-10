@@ -11108,6 +11108,16 @@ export interface PictureTabSliceSliceDefaultPrimaryTabContentItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   position: prismic.KeyTextField;
+
+  /**
+   * Description field in *PictureTabSlice → Default → Primary → Tab Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: picture_tab_slice.default.primary.tab_content[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
 }
 
 /**

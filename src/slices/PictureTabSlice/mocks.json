@@ -76,6 +76,14 @@
 									"value": "pig",
 									"type": "Text"
 								}
+							],
+							[
+								"description",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "pleasure",
+									"type": "Text"
+								}
 							]
 						]
 					}
