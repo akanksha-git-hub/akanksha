@@ -25,7 +25,7 @@ export default function TagsItems({ tags, className }) {
     <div className={className}>
         <RichText 
             text='CATEGORY'
-            className='font-ambit-semibold text-deep-green text-xl grid md:place-content-center mb-6'
+            className='font-ambit-semibold text-black text-xl grid md:place-content-center mb-6'
         />
         <ul className="flex flex-wrap md:justify-center gap-4 lg:gap-6 w-full lg:w-[80%] md:mx-auto">
             {tagList.map(item => {
@@ -37,8 +37,8 @@ export default function TagsItems({ tags, className }) {
                         onClick={() => handleClick(lowerCase)}
                         key={item.category}
                         className={`w-fit py-2 px-4 cursor-pointer font-ambit-regular text-lg rounded-full transition-all
-                                    border border-deep-green 
-                                    ${activeTag === lowerCase ? 'bg-deep-green text-off-white' : 'text-deep-green hover:opacity-75'} 
+                                    border border-black 
+                                    ${activeTag === lowerCase ? 'bg-black text-off-white' : 'text-black hover:opacity-75'} 
                                     active:scale-95`
                                 }
                     >

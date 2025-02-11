@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import { months } from "@/utils/months";
+import Button from "@/components/v2-components/buttons/button";
 
 
 /**
@@ -34,39 +35,60 @@ const BlogHighlight = ({ slice }) => {
     >
       <RichText 
         text={slice.primary.title}
-        className='text-deep-green font-ambit-semibold text-4xl w-full xl:w-[20ch]'
+        className='text-black font-ambit-semibold text-4xl w-full xl:w-[20ch]'
       />
       <div 
         className="flex flex-col xl:flex-row justify-center"
       >
-        <div className="bg-bright-yellow flex items-center justify-center w-full h-[520px] xl:h-auto xl:w-[45%]">
+        <div className="relative h-[520px] xl:h-auto xl:w-[45%] flex items-center justify-center">
+            <PrismicNextImage
+              field={slice.primary.items[activeIndex].bg_image}
+              alt="bg-image"
+              fill
+              className="absolute top-0 left-0 -z-10"
+            />
+            <div
+              key={slice.primary.items[activeIndex].image}
+              className="opacity-anim transition-all h-[78%] w-[78%] lg:h-[85%] lg:w-[85%]"
+            >
+              <PrismicNextImage
+                height={1200}
+                width={1200}
+                loading="eager"
+                field={slice.primary.items[activeIndex].image}
+                className="h-full w-full object-cover"
+                alt=""
+              />
+            </div>
+          </div>
+        {/* <div className="bg-bright-yellow flex items-center justify-center w-full h-[520px] xl:h-auto xl:w-[45%]">
           <PrismicNextImage 
             className="h-[99.4%] w-[99.4%] object-cover"
             field={slice.primary.items[activeIndex].image}
           />
-        </div>
-        <div className="bg-white p-8 xl:pl-12 xl:pr-1 py-8 w-full xl:w-[45%]">
+        </div> */}
+        <div className="bg-white p-8 xl:pl-12 xl:pr-1 py-8 w-full xl:w-[40%]">
           {/* Selectors */}
           <ul>
             <Swiper  
               breakpoints={{
                 2500: {
-                  slidesPerView: 5.6
+                  slidesPerView: 5
                 },
                 1600: {
-                  slidesPerView: 5.4
+                  slidesPerView: 5
                 },
                 1200: {
-                  slidesPerView: 4.4
+                  slidesPerView: 5
                 },
                 600: {
-                  slidesPerView: 3.4
+                  slidesPerView: 3
                 },
                 300: {
-                  slidesPerView: 2.4
+                  slidesPerView: 3
                 },
                 10: {
-                  slidesPerView: 2.4
+                  slidesPerView: 3
                 }
               }}
             >
@@ -92,21 +114,24 @@ const BlogHighlight = ({ slice }) => {
             <div className="space-y-4">
               <RichText 
                 text={`${month}-${year}`}
-                className='font-ambit-regular text-2xl text-deep-green'
+                className='font-ambit-regular text-2xl text-black'
               />
               <RichText 
                 text={slice.primary.items[activeIndex].title}
-                className='font-ambit-semibold text-4xl text-deep-green'
+                className='font-ambit-semibold text-4xl text-black'
               />
               <RichText 
                 text={slice.primary.items[activeIndex].description}
-                className='font-ambit-regular text-deep-green'
+                className='font-ambit-regular text-black'
               />
             </div>
-            <PrimaryCTA 
+            {/* <PrimaryCTA 
               link={slice.primary.items[activeIndex].cta_link}
               text={slice.primary.cta_text}
-            />
+            /> */}
+            <Button prismicLinks={slice.primary.items[activeIndex].cta_link}>
+            {slice.primary.cta_text}
+            </Button>
           </div>
         </div>
       </div>

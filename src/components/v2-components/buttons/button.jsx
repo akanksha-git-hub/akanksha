@@ -3,6 +3,7 @@ import Arrow from "@/assets/button-arrow.svg";
 import PlayVector from "@/assets/play-vector.svg";
 import PencilShading from "@/assets/pencil-shading.svg";
 import Image from "next/image";
+import Link from "next/link"; // Import Next.js Link
 import { PrismicLink } from "@prismicio/react";
 
 const Button = forwardRef(function Button(
@@ -26,30 +27,42 @@ const Button = forwardRef(function Button(
 
       {/* Background effect that stays behind */}
       <div
-        className="
-                    w-full h-full absolute top-0 left-0 rounded-full
-                    overflow-hidden opacity-0 group-hover:opacity-100
-                    group-hover:top-[7px] z-[0]
-                    custom-bezier pointer-events-none
-                "
+        className="w-full h-full absolute top-0 left-0 rounded-full
+                   overflow-hidden opacity-0 group-hover:opacity-100
+                   group-hover:top-[7px] z-[0]
+                   custom-bezier pointer-events-none"
       >
         <div className="h-full w-full relative">
-          <Image
-            alt="pencil-shading"
-            className="object-cover"
-            src={PencilShading}
-            fill
-          />
+          <Image alt="pencil-shading" className="object-cover" src={PencilShading} fill />
         </div>
       </div>
     </div>
   );
 
+  // Handle Prismic links
   if (prismicLink) {
     return (
       <PrismicLink field={prismicLink}>
         <BaseButton />
       </PrismicLink>
+    );
+  }
+
+  // Handle Next.js internal links
+  if (href?.startsWith("/")) {
+    return (
+      <Link href={href} passHref>
+        {<BaseButton />}
+      </Link>
+    );
+  }
+
+  // Handle external links
+  if (href?.startsWith("http")) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        <BaseButton />
+      </a>
     );
   }
 

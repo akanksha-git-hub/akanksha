@@ -52,6 +52,7 @@ export const components = {
   student_vision: dynamic(() => import("./StudentVision")),
   swirl_image: dynamic(() => import("./SwirlImage")),
   tab_slice: dynamic(() => import("./TabSlice")),
+  test_slice: dynamic(() => import("./TestSlice")),
   testimonial: dynamic(() => import("./Testimonial")),
   text_showcase: dynamic(() => import("./TextShowcase")),
   tilted_cards: dynamic(() => import("./TiltedCards")),
