@@ -22,6 +22,7 @@ export default function FinancialsAccordion({ slice }) {
     const firstHalf = items.slice(0, halfDataLength);
     const secondHalf = items.slice(halfDataLength);
     const documents = slice.primary.documents || [];
+    const isNewsletter = slice.variation === "newsletter"; // Adjust this condition based on your data structure
 
     const toggleAccordion = (index, column) => {
         setOpenIndexes(prev => ({
@@ -32,17 +33,23 @@ export default function FinancialsAccordion({ slice }) {
 
     return (
       <section className="">
-<SliceIdentifier text={slice.primary.slice_identifier} />
-        <RichText
-                          text={slice.primary.title}
-                          className={` font-ambit-regular text-7xl w-[18ch] text-left md:text-center mx-auto pt-24`}
-                      />
+        {/* Conditionally Render SliceIdentifier and RichText */}
+        {!isNewsletter && (
+          <>
+            <SliceIdentifier text={slice.primary.slice_identifier} />
+            <RichText
+              text={slice.primary.title}
+              className="font-ambit-regular text-7xl w-[18ch] text-left md:text-center mx-auto pt-24"
+            />
+          </>
+        )}
+
         <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2 w-full lg:w-[880px] 3xl:w-[1000px] lg:mx-auto mt-16">
             {[firstHalf, secondHalf].map((half, colIndex) => (
                 <div key={colIndex} >
                     {half.map((yearItem, index) => {
-                        const column = colIndex === 0 ? "left" : "right"; // ✅ Determine which column
-                        const isOpen = openIndexes[column] === index; // ✅ Check if this item is open
+                        const column = colIndex === 0 ? "left" : "right"; 
+                        const isOpen = openIndexes[column] === index; 
 
                         // 🔹 Match documents with correct formatting
                         const matchedDocuments = documents.filter(doc => {
@@ -89,9 +96,8 @@ export default function FinancialsAccordion({ slice }) {
                 </div>
             ))}
         </div>
-        </section>
+      </section>
     );
-    
 }
 
 
@@ -119,4 +125,4 @@ function DownArrowIcon() {
             <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
     );
-}
+} 

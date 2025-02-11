@@ -2530,6 +2530,71 @@ export type NewsLetterDocument<Lang extends string = string> =
     Lang
   >;
 
+type NewsletterDocumentDataSlicesSlice = SetuAccordianSlice | FlagshipHeroSlice;
+
+/**
+ * Content for NewsLetter documents
+ */
+interface NewsletterDocumentData {
+  /**
+   * Slice Zone field in *NewsLetter*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<NewsletterDocumentDataSlicesSlice> /**
+   * Meta Title field in *NewsLetter*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: newsletter.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *NewsLetter*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: newsletter.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *NewsLetter*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * NewsLetter document from Prismic
+ *
+ * - **API ID**: `newsletter`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NewsletterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NewsletterDocumentData>,
+    "newsletter",
+    Lang
+  >;
+
 /**
  * Content for Notification Bar documents
  */
@@ -3696,6 +3761,7 @@ export type AllDocumentTypes =
   | ImpactcardshuffletwoDocument
   | LocationsDocument
   | NewsLetterDocument
+  | NewsletterDocument
   | NotificationBarDocument
   | OurApproachDocument
   | OurPeopleDocument
@@ -4595,6 +4661,16 @@ export interface BlogHighlightSliceDefaultPrimaryItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * bg_image field in *ResourcedHighlight → Default → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_highlight.default.primary.items[].bg_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bg_image: prismic.ImageField<never>;
 
   /**
    * Date field in *ResourcedHighlight → Default → Primary → Items*
@@ -11995,6 +12071,56 @@ export interface SetuAccordianSliceDefaultPrimaryDocumentsItem {
 }
 
 /**
+ * Item in *SetuAccordian → newsletter → Primary → Year Groups*
+ */
+export interface SetuAccordianSliceNewsletterPrimaryYearGroupsItem {
+  /**
+   * year field in *SetuAccordian → newsletter → Primary → Year Groups*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.newsletter.primary.year_groups[].year
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year: prismic.KeyTextField;
+}
+
+/**
+ * Item in *SetuAccordian → newsletter → Primary → Documents*
+ */
+export interface SetuAccordianSliceNewsletterPrimaryDocumentsItem {
+  /**
+   * title field in *SetuAccordian → newsletter → Primary → Documents*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.newsletter.primary.documents[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * link field in *SetuAccordian → newsletter → Primary → Documents*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.newsletter.primary.documents[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Year Identifier field in *SetuAccordian → newsletter → Primary → Documents*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.newsletter.primary.documents[].year_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_identifier: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *SetuAccordian → Default → Primary*
  */
 export interface SetuAccordianSliceDefaultPrimary {
@@ -12057,9 +12183,73 @@ export type SetuAccordianSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *SetuAccordian → newsletter → Primary*
+ */
+export interface SetuAccordianSliceNewsletterPrimary {
+  /**
+   * Slice Identifier field in *SetuAccordian → newsletter → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.newsletter.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Title field in *SetuAccordian → newsletter → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.newsletter.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Year Groups field in *SetuAccordian → newsletter → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.newsletter.primary.year_groups[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  year_groups: prismic.GroupField<
+    Simplify<SetuAccordianSliceNewsletterPrimaryYearGroupsItem>
+  >;
+
+  /**
+   * Documents field in *SetuAccordian → newsletter → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: setu_accordian.newsletter.primary.documents[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  documents: prismic.GroupField<
+    Simplify<SetuAccordianSliceNewsletterPrimaryDocumentsItem>
+  >;
+}
+
+/**
+ * newsletter variation for SetuAccordian Slice
+ *
+ * - **API ID**: `newsletter`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SetuAccordianSliceNewsletter = prismic.SharedSliceVariation<
+  "newsletter",
+  Simplify<SetuAccordianSliceNewsletterPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *SetuAccordian*
  */
-type SetuAccordianSliceVariation = SetuAccordianSliceDefault;
+type SetuAccordianSliceVariation =
+  | SetuAccordianSliceDefault
+  | SetuAccordianSliceNewsletter;
 
 /**
  * SetuAccordian Shared Slice
@@ -13362,6 +13552,36 @@ export type TabSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Default variation for TestSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *TestSlice*
+ */
+type TestSliceSliceVariation = TestSliceSliceDefault;
+
+/**
+ * TestSlice Shared Slice
+ *
+ * - **API ID**: `test_slice`
+ * - **Description**: TestSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestSliceSlice = prismic.SharedSlice<
+  "test_slice",
+  TestSliceSliceVariation
+>;
+
+/**
  * Item in *Testimonial → TestimonialMultiple → Primary → content*
  */
 export interface TestimonialSliceTestimonialMultiplePrimaryContentItem {
@@ -14370,6 +14590,9 @@ declare module "@prismicio/client" {
       NewsLetterDocumentData,
       NewsLetterDocumentDataCategoriesItem,
       NewsLetterDocumentDataSlicesSlice,
+      NewsletterDocument,
+      NewsletterDocumentData,
+      NewsletterDocumentDataSlicesSlice,
       NotificationBarDocument,
       NotificationBarDocumentData,
       OurApproachDocument,
@@ -14700,8 +14923,12 @@ declare module "@prismicio/client" {
       SetuAccordianSliceDefaultPrimaryYearGroupsItem,
       SetuAccordianSliceDefaultPrimaryDocumentsItem,
       SetuAccordianSliceDefaultPrimary,
+      SetuAccordianSliceNewsletterPrimaryYearGroupsItem,
+      SetuAccordianSliceNewsletterPrimaryDocumentsItem,
+      SetuAccordianSliceNewsletterPrimary,
       SetuAccordianSliceVariation,
       SetuAccordianSliceDefault,
+      SetuAccordianSliceNewsletter,
       ShowcaseV2Slice,
       ShowcaseV2SliceDefaultPrimaryImagesItem,
       ShowcaseV2SliceDefaultPrimary,
@@ -14752,6 +14979,9 @@ declare module "@prismicio/client" {
       TabSliceSliceDefaultPrimary,
       TabSliceSliceVariation,
       TabSliceSliceDefault,
+      TestSliceSlice,
+      TestSliceSliceVariation,
+      TestSliceSliceDefault,
       TestimonialSlice,
       TestimonialSliceSinglePrimary,
       TestimonialSliceOptionCPrimary,

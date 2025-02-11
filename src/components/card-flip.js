@@ -14,14 +14,14 @@ export default function CardFlip({ item, i }) {
             >
                 <span className="h-full flex flex-col items-center justify-center space-y-8 w-full">
                     
-                    {/* Quote Image (Hidden by Default, Shown on Hover) */}
+                  
                     <div className="absolute bottom-0 w-full h-[1rem] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <div className="relative h-full w-[90%] mx-auto">
                             <Image src="/quote-side-down.png" alt="Quote Shading" fill />
                         </div>
                     </div>
 
-                    {/* Avatar Image */}
+                 
                     <div className="w-44 h-44 flex items-center justify-center rounded-full overflow-hidden">
                         <PrismicNextImage 
                             field={item.image}
@@ -29,7 +29,7 @@ export default function CardFlip({ item, i }) {
                         />
                     </div>
 
-                    {/* Text Content */}
+             
                     <p className="flex flex-col space-y-2 text-center max-w-[90%] font-ambit-regular">
                         <span className="text-4xl md:text-3xl font-ambit-semibold">{item.name}</span>
                         <span className="text-3xl md:text-2xl">{item.position}</span>
@@ -47,11 +47,11 @@ export default function CardFlip({ item, i }) {
             {isModalOpen && (
                 <div 
                     className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4  sm:px-0"
-                    onClick={() => setIsModalOpen(false)} // Close modal when clicking outside
+                    onClick={() => setIsModalOpen(false)} 
                 >
                     <div 
                         className="bg-white rounded-2xl shadow-lg p-6 md:p-8 max-w-lg w-full sm:w-[90%] mx-auto relative"
-                        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+                        onClick={(e) => e.stopPropagation()} 
                     >
                         {/* Close Button */}
                         <button 

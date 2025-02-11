@@ -6,6 +6,7 @@ import { useSmoothScroller } from "./LenisScrollContext";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useState } from "react";
+import Button from "./v2-components/buttons/button";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function BlogInfo({ data }) {
@@ -79,7 +80,7 @@ export default function BlogInfo({ data }) {
             {/* Sticky component */}    
             <div className="relative hidden xl:block rounded-[10px] bg-white overflow-hidden max-w-[300px]">
                 <div className="p-4">
-                    <p className="font-ambit-semibold text-deep-green">CONTENTS</p>
+                    <p className="font-ambit-semibold text-black">CONTENTS</p>
                     <ul className="px-4 space-y-3 mt-2">
                         {finalData.length > 0 && (
                             finalData.map((item, index) => {
@@ -87,11 +88,11 @@ export default function BlogInfo({ data }) {
                                 const truncatedText = `${item.substring(0, 20)}...`
                                 return(
                                     <li 
-                                        key={item} className="blog-child-short-title font-ambit-regular relative text-deep-green cursor-pointer"
+                                        key={item} className="blog-child-short-title font-ambit-regular relative text-black cursor-pointer"
                                         onClick={() => lenisScrollTo(targetSection)} 
                                     >
                                         {truncatedText}
-                                        <span className="h-2 w-2 bg-deep-green rounded-full absolute -left-3 top-2/4 -translate-y-2/4"></span>
+                                        <span className="h-2 w-2 bg-black rounded-full absolute -left-3 top-2/4 -translate-y-2/4"></span>
                                     </li>
                                 )
                             })
@@ -99,18 +100,24 @@ export default function BlogInfo({ data }) {
                     </ul>
                 </div>
                 <div className="bg-bright-yellow p-4">
-                    <p className="font-ambit-regular text-deep-green">
+                    <p className="font-ambit-regular text-black">
                         Volunteer program open
                     </p>
                     <div className="flex items-center justify-between mt-2">
-                        <PrimaryCTA 
+                        {/* <PrimaryCTA 
                             className='!p-2 !w-[100px] flex items-center justify-center'
                             text='Know more'
-                        />
-                        <PrimaryCTA
+                        /> */}
+                        <Button className="!p-2 !w-[130px] ">
+                            Know More
+                        </Button>
+                        <Button className="!p-2 !w-[100px] ">
+                           Donate
+                        </Button>
+                        {/* <PrimaryCTA
                             className='!p-2 !w-[100px] flex items-center justify-center' 
                             text='Donate'
-                        />
+                        /> */}
                     </div>
                 </div>
             </div>
@@ -124,7 +131,7 @@ export default function BlogInfo({ data }) {
                     const hasImage = Object.keys(image).length > 0;
 
                     return(
-                        <div className="blog-child-title text-deep-green space-y-4 mb-12" key={index}>
+                        <div className="blog-child-title text-black space-y-4 mb-12" key={index}>
                             {item.rich_text.map((text, i) => {
 
                                 const heading = text.type !== 'paragraph';

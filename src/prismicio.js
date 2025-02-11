@@ -119,6 +119,10 @@ const routes = [
     type: "locations",
     path: "/locations",
   },
+  {
+    type: "newsletter",
+    path: "/news-letter",
+  },
 ];
 
 /**

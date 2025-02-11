@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import ResourcesCardItemSingle from "@/components/Resources/ResourcesCardItemSingle";
 import PrimaryCTA from "@/components/UI/Button/PrimaryCTA";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
+import Button from "@/components/v2-components/buttons/button";
 
 async function BlogData() {
   const showcasePage = await fetchPrismicSingleDocument("blog_showcase_page");
@@ -42,11 +43,14 @@ async function BlogData() {
   return (
     <>
       <div className="flex justify-start md:justify-end lg:justify-end pr-24">
-        <PrimaryCTA
+        {/* <PrimaryCTA
           text={"View All"}
           href="/resources/blogs"
           className="!px-12 !py-2 "
-        />
+        /> */}
+        <Button href="/resources/blogs">
+          View All
+        </Button>
       </div>
       <div className="universal-padding flex flex-col space-y-12">
         <ResourcesCardItemSingle data={blogData} />
@@ -67,11 +71,11 @@ export default async function Page({ params }) {
         <div className="mt-12 space-y-4 flex flex-col items-center justify-center">
           <RichText
             text="October 20, 2024"
-            className="font-ambit-semibold text-deep-green text-3xl grid place-content-center"
+            className="font-ambit-semibold text-black text-3xl grid place-content-center"
           />
           <RichText
             text={page.data.title}
-            className="font-ambit-regular text-deep-green text-6xl text-center w-[90%] 2xl:w-[28ch] grid place-content-center mx-auto"
+            className="font-ambit-regular text-black text-6xl text-center w-[90%] 2xl:w-[28ch] grid place-content-center mx-auto"
           />
           <div className="w-[50%] xl:w-[800px] h-auto !mt-12">
             <PrismicNextImage
