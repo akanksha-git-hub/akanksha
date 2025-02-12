@@ -25,7 +25,7 @@ const PartnersShowcase = ({ slice }) => {
               {slice.primary.partner_logos.map((logo) => (
                 <PartnerLogo
                   imageClassName="h-full w-full object-contain p-4"
-                  className="select-none !h-[100px] md:h-[80px] w-[30%] sm:w-[40%] md:w-[30%] lg:w-[40%] xl:w-[30%] border flex items-center justify-center border-[#DCDCDC]"
+                  className="select-none !h-[120px] md:h-[80px] w-[40%] sm:w-[40%] md:w-[40%] lg:w-[40%] xl:w-[40%] border flex items-center justify-center border-[#DCDCDC]"
                   key={logo.partner_logo}
                   image={logo.partner_logo}
                 />
@@ -56,7 +56,7 @@ const PartnersShowcase = ({ slice }) => {
               {slice.primary.partner_logos.map((logo) => (
                 <PartnerLogo
                   imageClassName="h-full w-full object-contain p-4"
-                  className="select-none !h-[100px] md:h-[80px] w-[30%] sm:w-[40%] md:w-[30%] lg:w-[40%] xl:w-[30%] border flex items-center justify-center border-[#DCDCDC]"
+                  className="select-none !h-[120px] md:h-[80px] w-[40%] sm:w-[40%] md:w-[40%] lg:w-[40%] xl:w-[40%] border flex items-center justify-center border-[#DCDCDC]"
                   key={logo.partner_logo}
                   image={logo.partner_logo}
                 />

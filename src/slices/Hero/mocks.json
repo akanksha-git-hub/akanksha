@@ -102,6 +102,24 @@
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
+							],
+							[
+								"cta_link_2",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io"
+									}
+								}
+							],
+							[
+								"cta_text_2",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "train",
+									"type": "Text"
+								}
 							]
 						]
 					}

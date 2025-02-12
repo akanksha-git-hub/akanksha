@@ -69,6 +69,21 @@
                   "placeholder": "",
                   "select": null
                 }
+              },
+              "cta_link_2": {
+                "type": "Link",
+                "config": {
+                  "label": "CTA Link 2",
+                  "placeholder": "",
+                  "select": null
+                }
+              },
+              "cta_text_2": {
+                "type": "Text",
+                "config": {
+                  "label": "CTA Text 2",
+                  "placeholder": ""
+                }
               }
             }
           }

@@ -15,7 +15,7 @@ import StoryCircle from "@/components/v2-components/story-circle/story-circle";
  * @param {HeroProps}
  */
 
-let timer = 8000;
+let timer = 12000;
 const INITIAL = {
   currentIndex: 0,
   remainingTime: timer,
@@ -152,6 +152,7 @@ const Hero = ({ slice }) => {
                   .description
               }
             />
+            <div className="flex md:flex-row md:space-x-2 flex-col space-y-2">
             <Button
               prismicLink={
                 slice.primary.hero_content[intervalState.currentIndex].cta_link
@@ -171,6 +172,26 @@ const Hero = ({ slice }) => {
                 }
               </p>
             </Button>
+            <Button
+              prismicLink={
+                slice.primary.hero_content[intervalState.currentIndex].cta_link
+              }
+              className="mt-6"
+            >
+              <p
+                className="opacity-anim"
+                key={
+                  slice.primary.hero_content[intervalState.currentIndex]
+                    .cta_link_2
+                }
+              >
+                {
+                  slice.primary.hero_content[intervalState.currentIndex]
+                    .cta_text_2
+                }
+              </p>
+            </Button>
+            </div>
           </div>
         )}
       </div>
