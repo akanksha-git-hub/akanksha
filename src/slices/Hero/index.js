@@ -152,7 +152,7 @@ const Hero = ({ slice }) => {
                   .description
               }
             />
-            <div className="flex md:flex-row md:space-x-2 flex-col space-y-2">
+            <div className="flex flex-row space-x-2  justify-center items-center ">
             <Button
               prismicLink={
                 slice.primary.hero_content[intervalState.currentIndex].cta_link
