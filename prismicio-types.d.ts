@@ -12351,6 +12351,46 @@ export interface ShowcaseV2SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   cta_link: prismic.LinkField;
+
+  /**
+   * CTA Text 2 field in *ShowcaseV2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase_v2.default.primary.cta_text_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text_2: prismic.KeyTextField;
+
+  /**
+   * CTA Link 2 field in *ShowcaseV2 → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase_v2.default.primary.cta_link_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link_2: prismic.LinkField;
+
+  /**
+   * CTA Text 3 field in *ShowcaseV2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase_v2.default.primary.cta_text_3
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text_3: prismic.KeyTextField;
+
+  /**
+   * CTA Link 3 field in *ShowcaseV2 → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase_v2.default.primary.cta_link_3
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link_3: prismic.LinkField;
 }
 
 /**

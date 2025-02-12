@@ -20,11 +20,20 @@ const ShowcaseV2 = ({ slice }) => {
         <div className="grid space-y-8">
           <RichText
             text={slice.primary.title}
-            className="font-ambit-regular text-deep-green text-5xl md:text-6xl max-w-[14ch] tracking-tight"
+            className="font-ambit-regular text-black text-5xl md:text-6xl max-w-[14ch] tracking-tight"
           />
+         <div className="flex flex-row space-x-2">          
           <Button prismicLink={slice.primary.cta_link}>
             {slice.primary.cta_text}
           </Button>
+          <Button prismicLink={slice.primary.cta_link_2}>
+            {slice.primary.cta_text_2}
+          </Button>
+          <Button prismicLink={slice.primary.cta_link_3}>
+            {slice.primary.cta_text_3}
+          </Button>
+          </div>
+
         </div>
         <div className="mt-12 w-full lg:mt-0 lg:w-[52%]">
           <ImageSwiper data={slice.primary.images} />

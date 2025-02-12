@@ -60,6 +60,30 @@
 				"__TYPE__": "FieldContent",
 				"value": "larger",
 				"type": "Text"
+			},
+			"cta_text_2": {
+				"__TYPE__": "FieldContent",
+				"value": "rabbit",
+				"type": "Text"
+			},
+			"cta_link_2": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"cta_text_3": {
+				"__TYPE__": "FieldContent",
+				"value": "pig",
+				"type": "Text"
+			},
+			"cta_link_3": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
 			}
 		},
 		"items": []
