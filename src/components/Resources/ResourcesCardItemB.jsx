@@ -2,6 +2,7 @@ import RichText from "../Texts/RichText";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { months } from "@/utils/months";
 import { useResourcesCardContext } from "./ResourcesCard";
+import Button from "../v2-components/buttons/button";
 
 export default function ResourcesCardItemB({ item }) {
 
@@ -18,7 +19,7 @@ export default function ResourcesCardItemB({ item }) {
     const tags = item.rich_text_bullet_points;
 
   return (
-    <div className="grid space-y-6 xl:space-y-0 xl:grid-cols-3 xl:gap-12 3xl:gap-0 xl:place-content-between pb-12 border-b border-[#A3A19A] last:border-none">
+    <div className="grid space-y-6 xl:space-y-0 xl:grid-cols-3 xl:gap-12 3xl:gap-0 xl:flex  xl:justify-between xl:items-start pb-12 border-b border-[#A3A19A] last:border-none">
         <div className="font-ambit-regular">
             <RichText 
                 className="text-black text-2xl font-ambit-semibold"
@@ -39,7 +40,7 @@ export default function ResourcesCardItemB({ item }) {
                     <li 
                         key={item.text}
                         className={`w-fit py-2 px-4 cursor-pointer font-ambit-regular text-sm rounded-full transition-all
-                                    border border-deep-green hover:bg-deep-green hover:text-off-white `}
+                                    border border-black hover:bg-black hover:text-off-white `}
                     >
                         {item.text}
                     </li>
@@ -49,9 +50,9 @@ export default function ResourcesCardItemB({ item }) {
         <div className="flex xl:justify-end">
             <PrismicNextLink
                 field={item.cta_link}
-                className="group transition-all hover:bg-bright-yellow hover:border-opacity-0 rounded-[10px] p-4 w-full sm:w-[400px] h-[320px] sm:h-[250px] cursor-pointer border border-[#C2BFB7]"
+                className="group transition-all hover:bg-bright-yellow hover:border-opacity-0 rounded-[20px] p-4 w-full sm:w-[500px] h-[320px] sm:h-[250px] cursor-pointer border border-[#C2BFB7]"
             >
-                <div className="overflow-hidden rounded-[10px] h-full w-full relative">
+                <div className="overflow-hidden rounded-[20px] h-full w-full relative">
                     <PrismicNextImage 
                         field={item.image}
                         className="h-full w-full object-cover"
@@ -60,10 +61,13 @@ export default function ResourcesCardItemB({ item }) {
                         alt=""
                     />
                 <div className="bg-black opacity-0 transition-all group-hover:opacity-35 absolute top-0 left-0 h-full w-full z-10" />
-                    <p className="bg-bright-yellow text-deep-green font-ambit-regular text-center py-2 px-4 text-base rounded-full opacity-0 transition-all z-20 absolute top-2/4 -translate-y-2/4 left-2/4 -translate-x-2/4 group-hover:opacity-100">
-                        {text}
-                    </p>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-all group-hover:opacity-100 z-50">
+    <Button className="">
+      {text}
+    </Button>
+  </div>
                 </div>
+                
             </PrismicNextLink>
         </div>
     </div>

@@ -7485,6 +7485,26 @@ export interface HeroSliceDefaultPrimaryHeroContentItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   cta_link: prismic.LinkField;
+
+  /**
+   * CTA Link 2 field in *Hero → Default → Primary → Hero Content*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.hero_content[].cta_link_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link_2: prismic.LinkField;
+
+  /**
+   * CTA Text 2 field in *Hero → Default → Primary → Hero Content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.hero_content[].cta_text_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text_2: prismic.KeyTextField;
 }
 
 /**
