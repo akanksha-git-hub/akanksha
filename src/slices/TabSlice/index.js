@@ -1,5 +1,6 @@
 import TabContainer from "@/components/TabContainer";
 import RichText from "@/components/Texts/RichText";
+import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
 
 /**
@@ -13,11 +14,26 @@ const TabSlice = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className=" relative">
-        <RichText 
+      <div className=" relative flex flex-row items-center justify-center space-x-10 ">
+          {slice.primary.asset_1?.url && (
+                                  <PrismicNextImage  
+                                    field={slice.primary.asset_1}
+                                    className="w-24 h-auto md:w-60"
+                                  />
+                                )}
+                                 <div className="flex flex-col">
+                                 <RichText 
           text={slice.primary.title}
           className='text-black font-ambit-regular text-5xl md:text-7xl text-center mt-28'
         />
+        </div>
+        
+          {slice.primary.asset_2?.url && (
+                                  <PrismicNextImage  
+                                    field={slice.primary.asset_2}
+                                    className="w-24 h-auto md:w-60"
+                                  />
+                                )}
         {/* <Image 
           src='/sparkle_small.svg'
           alt=""

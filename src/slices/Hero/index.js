@@ -142,7 +142,7 @@ const Hero = ({ slice }) => {
                 slice.primary.hero_content[intervalState.currentIndex]
                   .description
               }
-              className="font-inter opacity-anim font-normal text-black 
+              className="font-ambit-regular opacity-anim font-normal text-black 
               text-base leading-[20.2px]
               sm:text-xl mt-3 lg:mt-8  md:w-5/6 
               xl:w-[40%] text-left

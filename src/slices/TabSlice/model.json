@@ -19,6 +19,22 @@
             "placeholder": ""
           }
         },
+        "asset_1": {
+          "type": "Image",
+          "config": {
+            "label": "Asset 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "asset_2": {
+          "type": "Image",
+          "config": {
+            "label": "Asset 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "tab_a_icon": {
           "type": "Image",
           "config": {

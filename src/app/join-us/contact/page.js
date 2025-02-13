@@ -33,10 +33,10 @@ export default async function Page() {
                         <div className="flex flex-col">
                         <RichText 
                             text={page.data.title}
-                            className="flex items-center justify-center text-black   text-2xl md:text-7xl !mt-[5rem] !mb-12  "
+                            className="flex items-center justify-center text-black   text-center md:text-7xl  !mb-12 text-4xl sm:text-6xl xl:text-7xl 3xl:text-8xl "
                           /> <RichText
                           text={page.data.sub_title}
-                          className="flex items-center justify-center text-black  text-center  text-lg md:text-xl !mt-[1rem] !mb-12  "
+                          className="flex items-center justify-center text-black  text-center   md:text-xl  !mb-12 text-base sm:text-xl 3xl:text-2xl"
                         />
                         </div>
                         {/* Right Side Image */}

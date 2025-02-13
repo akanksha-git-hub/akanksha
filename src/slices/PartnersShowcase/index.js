@@ -21,11 +21,11 @@ const PartnersShowcase = ({ slice }) => {
             className="select-none text-black font-ambit-regular text-6xl sm:text-6xl md:text-7xl w-full text-left flex   lg:w-[400px]"
           />
           {slice.primary.partner_logos.length > 0 && (
-            <ul className="flex items-center justify-center sm:justify-center lg:justify-end flex-wrap gap-2 w-full lg:w-[60%] mt-12 lg:mt-0">
+            <ul className="flex items-center justify-center sm:justify-center lg:justify-end flex-wrap gap-2 w-full lg:w-[80%] mt-12 lg:mt-0 ">
               {slice.primary.partner_logos.map((logo) => (
                 <PartnerLogo
                   imageClassName="h-full w-full object-contain p-4"
-                  className="select-none !h-[120px] md:h-[80px] w-[40%] sm:w-[40%] md:w-[40%] lg:w-[40%] xl:w-[40%] border flex items-center justify-center border-[#DCDCDC]"
+                  className="  select-none !h-[140px] md:h-[100px] w-[100%]  md:w-[50%] lg:w-[50%] xl:w-[40%] border flex items-center justify-center border-[#DCDCDC]"
                   key={logo.partner_logo}
                   image={logo.partner_logo}
                 />
@@ -52,11 +52,11 @@ const PartnersShowcase = ({ slice }) => {
             className="select-none text-black font-ambit-regular text-6xl sm:text-6xl md:text-7xl w-full  text-left flex items-center justify-center lg:w-[400px]"
           />
           {slice.primary.partner_logos.length > 0 && (
-            <ul className="flex items-center justify-center sm:justify-center lg:justify-end flex-wrap gap-2 w-full lg:w-[60%] mt-12 lg:mt-0">
+            <ul className="flex items-center justify-center sm:justify-center lg:justify-end flex-wrap gap-2 w-full lg:w-[80%]  mt-12 lg:mt-0">
               {slice.primary.partner_logos.map((logo) => (
                 <PartnerLogo
                   imageClassName="h-full w-full object-contain p-4"
-                  className="select-none !h-[120px] md:h-[80px] w-[40%] sm:w-[40%] md:w-[40%] lg:w-[40%] xl:w-[40%] border flex items-center justify-center border-[#DCDCDC]"
+                  className="select-none !h-[140px] md:h-[100px] w-[100%] md:w-[50%] lg:w-[50%] xl:w-[40%] border flex items-center justify-center border-[#DCDCDC]"
                   key={logo.partner_logo}
                   image={logo.partner_logo}
                 />
