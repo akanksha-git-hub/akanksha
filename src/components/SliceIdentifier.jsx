@@ -3,7 +3,6 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import RichText from "./Texts/RichText";
 import { PrismicNextImage } from "@prismicio/next";
 
 export default function SliceIdentifier({
@@ -60,6 +59,9 @@ export default function SliceIdentifier({
     return () => ctx.revert(); // Cleanup GSAP animations when unmounting
   }, [text]); // Depend on text to ensure updates when text changes
 
+  // Ensure text is always a string to prevent split() errors
+  const safeText = text ?? ""; // Defaults to an empty string if text is null/undefined
+
   return (
     <div className="relative" ref={containerRef}>
       {/* Text Content (With Letter-by-Letter Reveal) */}
@@ -68,7 +70,7 @@ export default function SliceIdentifier({
         <span className="h-[12px] w-[12px] rounded-full bg-black"></span>
 
         {/* Text Letters with Animation */}
-        {text.split("").map((letter, index) => (
+        {safeText.split("").map((letter, index) => (
           <span
             key={index}
             ref={(el) => (textRefs.current[index] = el)}
