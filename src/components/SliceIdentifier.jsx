@@ -7,7 +7,7 @@ import RichText from "./Texts/RichText";
 import { PrismicNextImage } from "@prismicio/next";
 
 export default function SliceIdentifier({
-  text,
+  text = "", // Ensure text is always a string
   className,
   hasSpider,
   isVisible,
@@ -37,32 +37,34 @@ export default function SliceIdentifier({
       );
 
       // Animate each letter appearing from left to right
-      gsap.fromTo(
-        textRefs.current,
-        { opacity: 0, x: -10 }, // Starts slightly hidden
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          stagger: 0.05, // Staggers each letter reveal
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
+      if (textRefs.current.length > 0) {
+        gsap.fromTo(
+          textRefs.current,
+          { opacity: 0, x: -10 }, // Start slightly hidden
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: 0.05, // Stagger effect for letter reveal
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
     }, containerRef);
 
     return () => ctx.revert(); // Cleanup GSAP animations when unmounting
-  }, []);
+  }, [text]); // Depend on text to ensure updates when text changes
 
   return (
     <div className="relative" ref={containerRef}>
       {/* Text Content (With Letter-by-Letter Reveal) */}
       <div className={`pb-3 ${className} flex gap-1 font-inter font-bold items-center uppercase text-2xl text-black`}>
-        {/* Static Rounded Dot */}
+        {/* Static Rounded Dot (No Animation) */}
         <span className="h-[12px] w-[12px] rounded-full bg-black"></span>
 
         {/* Text Letters with Animation */}
