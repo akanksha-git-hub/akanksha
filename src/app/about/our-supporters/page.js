@@ -3,6 +3,7 @@ import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
 import { components } from "@/slices";
 import { maxwidth } from "@/utils/helperClasses";
 import { createClient } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
 import { SliceZone } from "@prismicio/react";
 import Image from "next/image";
 
@@ -12,11 +13,23 @@ export default async function Page() {
 
   return (
     <main className={`${maxwidth} universal-padding`}>
-      <div className="relative ">
+      <div className=" flex flex-row items-center justify-center relative ">
+          {page.data.asset_1?.url && (
+                                  <PrismicNextImage  
+                                    field={page.data.asset_1}
+                                    className="w-24 h-auto md:w-60"
+                                  />
+                                )}
         <RichText
           className="text-black font-ambit-regular text-center text-5xl md:text-7xl mt-2 mb-16"
           text={page.data.title}
         />
+          {page.data.asset_2?.url && (
+                                  <PrismicNextImage  
+                                    field={page.data.asset_2}
+                                    className="w-24 h-auto md:w-60"
+                                  />
+                                )}
         {/* <Image 
                     src='/sparkle_small.svg'
                     alt=""

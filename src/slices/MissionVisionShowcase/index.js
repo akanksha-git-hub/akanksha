@@ -51,7 +51,7 @@ const MissionVisionShowcase = ({ slice }) => {
       {/* Description */}
       <div className="description-container mt-12 space-y-2 flex flex-col 950px:items-center 950px:justify-center">
         <RichText
-          className="text-left 950px:text-center text-black font-ambit-regular text-2xl 950px:text-4xl w-full 950px:w-[80%]"
+          className="text-left 950px:text-center  text-base text-black font-ambit-regular sm:text-xl 950px:text-2xl w-full 950px:w-[80%]"
           text={
             activeComponent === "mission"
               ? slice.primary.mission_description
@@ -79,7 +79,7 @@ const SparkleText = ({ slice, isRight, isActive, onClick }) => {
       {/* Title */}
       <RichText
         text={text}
-        className={`text-description font-ambit-regular text-7xl text-deep-green flex justify-end transition-all cursor-pointer ${
+        className={`text-description font-ambit-regular text-7xl text-black flex justify-end transition-all cursor-pointer ${
           isActive ? "opacity-100" : "opacity-50 hover:opacity-80"
         }`}
         onClick={onClick}

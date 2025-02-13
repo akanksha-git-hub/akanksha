@@ -15,10 +15,10 @@ export default function VideoModal({
   return (
     <div className={`w-2/4 relative ${className} group`}>
       <PrismicNextImage
-        height={800}
-        width={800}
+        height={1200}
+        width={1200}
         field={slice.primary.video_thumbnail_image}
-        className={`w-full h-auto object-cover z-0 rounded-md overflow-hidden ${imageClassName}`}
+        className={`w-full min-h-[480px] object-cover z-0 rounded-md overflow-hidden ${imageClassName}`}
         alt=""
       />
       <div className="absolute p-4 sm:p-8 flex items-center image-bg top-0 left-0 h-full w-full z-20 rounded-lg overflow-hidden cursor-pointer transition-all">

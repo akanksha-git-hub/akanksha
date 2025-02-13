@@ -20,7 +20,7 @@ export default async function Page() {
             <div className="flex flex-col items-center justify-center my-12 universal-padding">
                 <RichText 
                     text={page.data.title}
-                    className='text-deep-green font-ambit-regular text-7xl w-full 950px:w-[10ch] text-center mb-24 mt-6'
+                    className='text-black font-ambit-regular  xl:text-7xl text-4xl 3xl:text-8xl w-full 950px:w-[10ch] text-center mb-24 mt-6'
                 />
                 <TempFillImageComponent 
                     src={Boat}
@@ -30,7 +30,7 @@ export default async function Page() {
                     src={SunCrow}
                     className="absolute -top-28 md:top-0 md:left-[6%] h-44 w-44 -z-10"
                 />
-                <div className="text-deep-green font-ambit-regular text-xl text-center w-full 950px:w-[90%] 950px:max-w-[1400px] relative">
+                <div className="text-black sm:text-xl 3xl:text-2xl font-ambit-regular text-base text-center w-full 950px:w-[90%] 950px:max-w-[1400px] relative">
                     <PrismicRichText 
                         field={page.data.descriptions}
                     />

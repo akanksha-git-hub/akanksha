@@ -109,7 +109,7 @@ const IconShowcase = ({ slice }) => {
           />
            <RichText 
             text={slice.primary.small_title}
-            className='font-ambit-regular text-black text-xl md:text-center flex md:items-center md:justify-center md:w-[15ch] md:mx-auto'
+            className='font-ambit-regular text-black  md:text-8xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto mt-20 text-4xl sm:text-6xl xl:w-[46%] text-left xl:text-7xl 3xl:w-[48rem] 3xl:text-8xl'
           />
           <RichText 
             text={slice.primary.title}
@@ -190,7 +190,7 @@ const IconShowcase = ({ slice }) => {
           />
            <RichText 
             text={slice.primary.title}
-            className='font-ambit-regular text-black text-6xl md:text-8xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto mt-20'
+            className='font-ambit-regular text-black  md:text-8xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto mt-20 text-4xl sm:text-6xl xl:w-[46%] text-left xl:text-7xl 3xl:w-[48rem] 3xl:text-8xl'
           />
         {slice.primary.data && (
           <ul className="grid md:grid-cols-2 xl:grid-cols-3 mt-10">

@@ -296,25 +296,34 @@ const MissionVision = ({ slice, context }) => {
         <SliceIdentifier text={slice.primary.slice_identifier} />
       )}
       <div
-        className={`flex flex-col items-end gap-12 mt-12 lg:mt-24 ${slice.variation === "reverseVideoComponet" ? "lg:flex-row-reverse" : "lg:flex-row"}`}
+        className={`flex flex-col items-center   gap-12 mt-12  ${slice.variation === "reverseVideoComponet" ? "lg:flex-row-reverse" : "lg:flex-row"}`}
       >
-        <VideoModal className="hidden lg:flex" slice={slice} />
-        <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-2/4">
+        
+        <VideoModal className="hidden lg:flex "  slice={slice} />
+       
+        <div className="w-full  flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-2/4">
          
           <RichText
             text={slice.primary.title}
             className="
-            text-black font-ambit-regular text-center text-5xl w-full 
+            text-black font-ambit-regular text-center  w-full 
               sm:w-3/4 justify-center
               lg:text-left lg:items-start lg:justify-normal
               md:w-full lg:w-3/4
-              xl:text-[58px] 
-              2xl:text-[60px]
-              3xl:text-8xl 3xl:mt-2"
+              text-4xl
+              sm:text-6xl 
+              xl:w-[46%]
+              xl:text-7xl 
+              3xl:w-[48rem] 3xl:text-8xl 3xl:mt-2"
           />
           <VideoModal className="flex w-full mt-8 lg:hidden" slice={slice} />
           <RichText
-            className=" text-black font-ambit-regular text-center lg:text-left text-sm 3xl:text-lg w-[90%] mt-8"
+            className=" text-black text-left  w-[90%] mt-8
+            font-ambit-regular opacity-anim font-normal 
+              text-base leading-[20.2px]
+              sm:text-xl lg:mt-8  md:w-5/6 
+              xl:w-[40%] 
+              2xl:w-[34rem] 3xl:text-2xl"
             text={slice.primary.description}
           />
           <div className="flex flex-wrap gap-4 w-full mt-6 xl:mt-10 3xl:mt-14">

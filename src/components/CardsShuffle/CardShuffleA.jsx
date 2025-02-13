@@ -25,18 +25,18 @@ export default function CardShuffleA({ item, index }) {
         <div className="w-full lg:w-[52%] lg:h-full flex flex-col justify-between">
           <div className="font-ambit-regular space-y-1 lg:space-y-6">
             <RichText
-              className="text-2xl"
-              style={{ color: `${cardProps[selectIndex].smallTitle}` }}
+              className="text-2xl text-black"
+           
               text={item.small_title}
             />
             <RichText
-              className="leading-3 text-2xl lg:text-5xl"
-              style={{ color: `${cardProps[selectIndex].mainTitle}` }}
+              className="leading-3 text-2xl text-black lg:text-5xl"
+           
               text={item.main_title}
             />
             <RichText
-              className="font-ambit-regular text-sm lg:text-xl max-w-full"
-              style={{ color: `${cardProps[selectIndex].description}` }}
+              className="font-ambit-regular text-black text-sm lg:text-xl max-w-full"
+            
               text={item.description}
             />
           </div>
