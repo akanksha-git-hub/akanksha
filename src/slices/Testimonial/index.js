@@ -147,7 +147,7 @@ const Testimonial = ({ slice, context }) => {
         className={`${addPadding ? "universal-padding" : ""} mt-16`}
       >
         <SliceIdentifier
-          className="mb-12"
+         
           text={slice.primary.slice_identifier}
         />
 

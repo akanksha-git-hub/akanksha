@@ -110,12 +110,12 @@ const Cards = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative"
+      className="relative mt-16"
     >
-      <SliceIdentifier text={slice.primary.slice_identifier} className="mb-16" />
+      <SliceIdentifier text={slice.primary.slice_identifier}  />
 
       {slice.variation !== "withUnderline" && (
-        <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between space-y-2 xl:space-y-0 xl:space-x-4">
+        <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between space-y-2 xl:space-y-0 xl:space-x-4 mt-16">
           <RichText
             text={slice.primary.title}
             className="text-black font-ambit-regular text-6xl md:text-center"
