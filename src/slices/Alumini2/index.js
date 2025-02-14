@@ -53,7 +53,7 @@ const Alumini2 = ({ slice }) => {
               <div class="text-5xl md:text-7xl font-ambit-regular text-black">
                 {slice.primary.contribution1_percentaege}
               </div>
-              <div class="text-sm md:text-base font-ambit-regular text-gray-900">
+              <div class="text-xl md:text-base font-ambit-regular text-black">
                 {slice.primary.contribution1_desc}
               </div>
             </div>
@@ -63,7 +63,7 @@ const Alumini2 = ({ slice }) => {
               <div class="text-5xl  lg:text-7xl  font-ambit-regular text-black ">
              {slice.primary.contribution2_percentaege}
               </div>
-              <div class="text-sm md:text-base font-ambit-regular text-gray-900 ">
+              <div class="text-lg md:text-base font-ambit-regular text-black ">
                 {slice.primary.contribution2_desc}
               </div>
             </div>
