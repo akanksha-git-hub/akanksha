@@ -27,12 +27,12 @@ const FlagshipHero = ({ slice }) => {
         <div className="flex flex-col items-center justify-center space-y-12  mt-4">
           <RichText
             text={slice.primary.main_title}
-            className="font-ambit-regular text-black sm:text-center  md:text-7xl text-4xl
-              sm:text-6xl  max-w-[15ch] 3xl:text-8xl xl:text-7xl"
+            className="font-ambit-regular text-black sm:text-center  md:text-6xl text-3xl
+              sm:text-4xl  max-w-[15ch] 3xl:text-7xl xl:text-5xl"
           />
           <RichText
             text={slice.primary.description1}
-            className="font-ambit-regular text-black sm:text-center w-full max-w-[60ch]  3xl:text-2xl sm:text-xl text-base"
+            className="font-ambit-regular text-black sm:text-center w-full max-w-[60ch]  3xl:text-2xl sm:text-lg text-base"
           />
           <RichText
             text={slice.primary.description2}
