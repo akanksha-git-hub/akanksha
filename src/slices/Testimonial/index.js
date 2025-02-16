@@ -146,12 +146,9 @@ const Testimonial = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className={`${addPadding ? "universal-padding" : ""} mt-16`}
       >
-        <SliceIdentifier
-         
-          text={slice.primary.slice_identifier}
-        />
+        <SliceIdentifier text={slice.primary.slice_identifier} />
 
-        <h1 className="text-7xl text-center font-ambit-regular w-[8ch] mx-auto">
+        <h1 className="text-7xl text-center font-ambit-regular w-[8ch] mx-auto  mt-12">
           {slice.primary.title}
         </h1>
 

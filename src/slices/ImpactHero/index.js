@@ -49,7 +49,7 @@ const ImpactHero = ({ slice }) => {
       <div className="w-[80%] mt-12 md:mx-auto ">
         <div className="w-full  md:text-center text-start ">
           {/* Title */}
-          <h1 className="md:text-9xl text-8xl font-ambit-regular text-[#333333] md:mx-auto  mx-0 ">
+          <h1 className="md:text-7xl text-4xl font-ambit-regular text-[#333333] md:mx-auto  mx-0 ">
             {slice.primary.title}
           </h1>
           <p className="md:text-2xl text-xl font-ambit-regular text-black md:mx-auto w-[45ch] mx-0 mt-12">
