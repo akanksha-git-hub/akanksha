@@ -26,6 +26,20 @@
           "label": "year_performance",
           "repeat": true,
           "fields": {
+            "descrip_percentage": {
+              "type": "Text",
+              "config": {
+                "label": "descrip Percentage",
+                "placeholder": ""
+              }
+            },
+            "description": {
+              "type": "Text",
+              "config": {
+                "label": "description",
+                "placeholder": ""
+              }
+            },
             "year_202324": {
               "type": "Text",
               "config": {
@@ -37,6 +51,20 @@
               "type": "Text",
               "config": {
                 "label": "percentage",
+                "placeholder": ""
+              }
+            },
+            "distinction": {
+              "type": "Text",
+              "config": {
+                "label": "distinction",
+                "placeholder": ""
+              }
+            },
+            "first_class": {
+              "type": "Text",
+              "config": {
+                "label": "First Class",
                 "placeholder": ""
               }
             }

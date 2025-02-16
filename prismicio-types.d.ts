@@ -1925,6 +1925,16 @@ export interface HorizontalScrollCardBDocumentDataYearDataItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   data: prismic.KeyTextField;
+
+  /**
+   * description field in *Horizontal Scroll Card B → year_data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_b.year_data[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
 }
 
 /**
@@ -1999,6 +2009,26 @@ export type HorizontalScrollCardBDocument<Lang extends string = string> =
  */
 export interface HorizontalScrollCardCDocumentDataYearPerformanceItem {
   /**
+   * descrip Percentage field in *Horizontal Scroll Card C → year_performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_c.year_performance[].descrip_percentage
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  descrip_percentage: prismic.KeyTextField;
+
+  /**
+   * description field in *Horizontal Scroll Card C → year_performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_c.year_performance[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
    * Year 2023-24' field in *Horizontal Scroll Card C → year_performance*
    *
    * - **Field Type**: Text
@@ -2017,6 +2047,26 @@ export interface HorizontalScrollCardCDocumentDataYearPerformanceItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   percentage: prismic.KeyTextField;
+
+  /**
+   * distinction field in *Horizontal Scroll Card C → year_performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_c.year_performance[].distinction
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  distinction: prismic.KeyTextField;
+
+  /**
+   * First Class field in *Horizontal Scroll Card C → year_performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_scroll_card_c.year_performance[].first_class
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  first_class: prismic.KeyTextField;
 }
 
 /**
