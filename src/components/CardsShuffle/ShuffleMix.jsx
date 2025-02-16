@@ -122,6 +122,7 @@ import CardB from "@/components/v2-components/impact-card-shuffle/CardB";
 import CardsShuffle from "./CardsShuffle";
 import HorizontalScrollCardA from "../v2-components/horizontal-scroll/horizontal-scroll-card-A";
 import HorizontalScrollCardC from "../v2-components/horizontal-scroll/horizontal-scroll-card-C";
+import HorizontalScrollCardD from "../v2-components/horizontal-scroll/horizontal-scroll-card-D";
 
 export default function ShuffleMix({ slice }) {
   return (
@@ -136,14 +137,14 @@ export default function ShuffleMix({ slice }) {
 
           if (index === 0) {
             component = <CardA item={item} />;
-          } if (index ===1) {
+          } else if (index === 1) {
             component = <CardB item={item} />;
-          }  if (index ===2) {
-            component = <HorizontalScrollCardA item={item} />;
-          }
-          if (index ===3) {
+          } else if (index === 2) {
             component = <HorizontalScrollCardC item={item} />;
+          } else if (index === 3) {
+            component = <HorizontalScrollCardD item={item} />;
           }
+
           return component;
         }}
       </CardsShuffle.ItemContainer>

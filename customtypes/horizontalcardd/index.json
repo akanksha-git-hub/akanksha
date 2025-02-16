@@ -1,0 +1,76 @@
+{
+  "format": "custom",
+  "id": "horizontalcardd",
+  "label": "HorizontalCardD",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "Description",
+          "placeholder": ""
+        }
+      },
+      "year_performance": {
+        "type": "Group",
+        "config": {
+          "label": "Year_Performance",
+          "repeat": true,
+          "fields": {
+            "descrip_percentage": {
+              "type": "Text",
+              "config": {
+                "label": "descrip Percentage",
+                "placeholder": ""
+              }
+            },
+            "description": {
+              "type": "Text",
+              "config": {
+                "label": "description",
+                "placeholder": ""
+              }
+            },
+            "year_2023_24": {
+              "type": "Text",
+              "config": {
+                "label": "Year 2023_24",
+                "placeholder": ""
+              }
+            },
+            "percentage": {
+              "type": "Text",
+              "config": {
+                "label": "percentage",
+                "placeholder": ""
+              }
+            },
+            "distinction": {
+              "type": "Text",
+              "config": {
+                "label": "distinction",
+                "placeholder": ""
+              }
+            },
+            "first_class": {
+              "type": "Text",
+              "config": {
+                "label": "First Class",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
