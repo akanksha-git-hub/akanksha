@@ -2155,6 +2155,17 @@ export type ImpactDocument<Lang extends string = string> =
  */
 interface ImpactcardshuffleoneDocumentData {
   /**
+   * Heading field in *ImpactCardShuffleOne*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffleone.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
    * Title field in *ImpactCardShuffleOne*
    *
    * - **Field Type**: Text
@@ -2186,6 +2197,72 @@ interface ImpactcardshuffleoneDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Chart 1 percentage field in *ImpactCardShuffleOne*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffleone.chart_1_percentage
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  chart_1_percentage: prismic.KeyTextField;
+
+  /**
+   * Chart 1 Year field in *ImpactCardShuffleOne*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffleone.chart_1_year
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  chart_1_year: prismic.KeyTextField;
+
+  /**
+   * Chart 2 Percentage field in *ImpactCardShuffleOne*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffleone.chart_2_percentage
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  chart_2_percentage: prismic.KeyTextField;
+
+  /**
+   * Chart 2 Year field in *ImpactCardShuffleOne*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffleone.chart_2_year
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  chart_2_year: prismic.KeyTextField;
+
+  /**
+   * Chart 3 percentage field in *ImpactCardShuffleOne*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffleone.chart_3_percentage
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  chart_3_percentage: prismic.KeyTextField;
+
+  /**
+   * Chart 3 Year field in *ImpactCardShuffleOne*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffleone.chart_3_year
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  chart_3_year: prismic.KeyTextField;
 }
 
 /**
