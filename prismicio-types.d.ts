@@ -2125,6 +2125,127 @@ export type HorizontalScrollCardCDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *HorizontalCardD → Year_Performance*
+ */
+export interface HorizontalcarddDocumentDataYearPerformanceItem {
+  /**
+   * descrip Percentage field in *HorizontalCardD → Year_Performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontalcardd.year_performance[].descrip_percentage
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  descrip_percentage: prismic.KeyTextField;
+
+  /**
+   * description field in *HorizontalCardD → Year_Performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontalcardd.year_performance[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Year 2023_24 field in *HorizontalCardD → Year_Performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontalcardd.year_performance[].year_2023_24
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_2023_24: prismic.KeyTextField;
+
+  /**
+   * percentage field in *HorizontalCardD → Year_Performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontalcardd.year_performance[].percentage
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  percentage: prismic.KeyTextField;
+
+  /**
+   * distinction field in *HorizontalCardD → Year_Performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontalcardd.year_performance[].distinction
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  distinction: prismic.KeyTextField;
+
+  /**
+   * First Class field in *HorizontalCardD → Year_Performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontalcardd.year_performance[].first_class
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  first_class: prismic.KeyTextField;
+}
+
+/**
+ * Content for HorizontalCardD documents
+ */
+interface HorizontalcarddDocumentData {
+  /**
+   * Title field in *HorizontalCardD*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontalcardd.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *HorizontalCardD*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontalcardd.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Year_Performance field in *HorizontalCardD*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontalcardd.year_performance[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  year_performance: prismic.GroupField<
+    Simplify<HorizontalcarddDocumentDataYearPerformanceItem>
+  >;
+}
+
+/**
+ * HorizontalCardD document from Prismic
+ *
+ * - **API ID**: `horizontalcardd`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HorizontalcarddDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<HorizontalcarddDocumentData>,
+    "horizontalcardd",
+    Lang
+  >;
+
 type ImpactDocumentDataSlicesSlice =
   | ImpactPoint2Slice
   | ImpactPointsSlice
@@ -3905,6 +4026,7 @@ export type AllDocumentTypes =
   | HorizontalScrollCardADocument
   | HorizontalScrollCardBDocument
   | HorizontalScrollCardCDocument
+  | HorizontalcarddDocument
   | ImpactDocument
   | ImpactcardshuffleoneDocument
   | ImpactcardshuffletwoDocument
@@ -14805,6 +14927,9 @@ declare module "@prismicio/client" {
       HorizontalScrollCardCDocument,
       HorizontalScrollCardCDocumentData,
       HorizontalScrollCardCDocumentDataYearPerformanceItem,
+      HorizontalcarddDocument,
+      HorizontalcarddDocumentData,
+      HorizontalcarddDocumentDataYearPerformanceItem,
       ImpactDocument,
       ImpactDocumentData,
       ImpactDocumentDataSlicesSlice,
