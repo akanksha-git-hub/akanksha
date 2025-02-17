@@ -20,6 +20,7 @@ export default function CardsShuffleItemContainer({
   });
   const [cards, setCards] = useState(slice);
   const root = useRef(null);
+  const arrowRef = useRef(null);
 
   const frameCount = 1400;
   let travelPixel = cards.length < 4 ? cards.length * 800 : cards.length * 542;
@@ -59,25 +60,12 @@ export default function CardsShuffleItemContainer({
     if (onMount.secondMount) {
       gsap.set(".pin-wrapper", { height: "auto" });
 
-      // Set Initial Values for cards (not FIRST INDEX)
       cards.forEach((card, index) => {
-        if (index !== 0) {
-          if (index === 1) {
-            gsap.set(`#${card.id}`, {
-              translateY: "10%",
-              translateZ: "100px",
-              scale: 0.9,
-            });
-          } else {
-            gsap.set(`#${card.id}`, {
-              translateY: "10%",
-              translateZ: "90px",
-              scale: 0.9,
-            });
-          }
-        } else {
-          gsap.set(`#${card.id}`, { translateY: "0%", translateZ: "120px" });
-        }
+        gsap.set(`#${card.id}`, {
+          translateY: index === 0 ? "0%" : "10%",
+          translateZ: index === 0 ? "120px" : index === 1 ? "100px" : "90px",
+          scale: index === 0 ? 1 : 0.9,
+        });
       });
 
       let ctx = gsap.context(() => {
@@ -147,35 +135,43 @@ export default function CardsShuffleItemContainer({
   }, [onMount.firstMount, onMount.secondMount, cards]);
 
   return (
-    <div className="pin-wrapper">
-      <div ref={root} className={`${className}`}>
-        <ul className={itemsContainerClassName}>
+    <div className="pin-wrapper relative min-h-screen">
+      <div ref={root} className={`${className} relative`}>
+        <ul className={`${itemsContainerClassName} relative`}>
           {slice.map((item, index) => (
             <li
               className={`${itemClassName} relative`}
-              key={itemKeyFn}
+              key={itemKeyFn(item, index)}
               id={`card-${index + 1}`}
             >
               {children(item, index)}
-
-              {/* Scroll Down Arrow - Only Show if Not Last Card */}
-              {index !== slice.length - 1 && (
-                <div className="absolute left-1/2 -translate-x-1/2 bottom-[-50px] flex flex-col items-center animate-bounce">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-black"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              )}
             </li>
           ))}
         </ul>
+
+        {/* ✅ Arrow is now fixed at the bottom of ALL cards */}
+        <div
+          ref={arrowRef}
+          className="absolute left-1/2 bottom-5 transform -translate-x-1/2 flex flex-col items-center animate-bounce"
+          style={{
+            position: "absolute",
+            bottom: "-220px", // Push it below the last card
+          
+            zIndex: 50,
+          }}
+        >
+       
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6 text-black"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
       </div>
     </div>
   );
