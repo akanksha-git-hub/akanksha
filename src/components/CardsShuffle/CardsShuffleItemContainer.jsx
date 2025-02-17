@@ -130,7 +130,7 @@ export default function CardsShuffleItemContainer({
         ScrollTrigger.refresh();
       });
 
-      return () => ctx.revert(); // cleanup function
+      return () => ctx.revert(); 
     }
   }, [onMount.firstMount, onMount.secondMount, cards]);
 
@@ -149,13 +149,12 @@ export default function CardsShuffleItemContainer({
           ))}
         </ul>
 
-        {/* ✅ Arrow is now fixed at the bottom of ALL cards */}
         <div
           ref={arrowRef}
           className="absolute left-1/2 bottom-5 transform -translate-x-1/2 flex flex-col items-center animate-bounce"
           style={{
             position: "absolute",
-            bottom: "-220px", // Push it below the last card
+            bottom: "-250px", 
           
             zIndex: 50,
           }}

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export default function CardB({item}) {
-    console.log(item);
+ 
     
     return (
         <div className="bg-[#58BCD4] rounded-lg shadow-lg h-full md:p-0 pl-6 pt-6 pb-6">

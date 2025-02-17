@@ -1,6 +1,5 @@
 export default function CardA({ item }) {
-  console.log(item);
-
+ 
   return (
     <div className="bg-[#F6AC27] rounded-lg shadow-lg  h-full">
       <div className="flex flex-col md:flex-row  h-full w-full">

@@ -9,7 +9,7 @@ import ShuffleMix from "@/components/CardsShuffle/ShuffleMix";
 const ImpactShuffle = async ({ slice }) => {
   const cardA = await fetchPrismicSingleDocument("impactcardshuffleone");
   const cardB = await fetchPrismicSingleDocument("impactcardshuffletwo");
-  const cardC = await fetchPrismicSingleDocument("horizontal_scroll_card_a");
+  const cardC = await fetchPrismicSingleDocument("horizontalcardd");
   const cardD = await fetchPrismicSingleDocument("horizontal_scroll_card_c");
 
   if (!cardA || !cardB || !cardC || !cardD  ) {
