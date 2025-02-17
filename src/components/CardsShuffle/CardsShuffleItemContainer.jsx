@@ -19,13 +19,10 @@ export default function CardsShuffleItemContainer({
     secondMount: false,
   });
   const [cards, setCards] = useState(slice);
-
   const root = useRef(null);
 
   const frameCount = 1400;
-
-  let travelPixel;
-  travelPixel = cards.length < 4 ? cards.length * 800 : cards.length * 542;
+  let travelPixel = cards.length < 4 ? cards.length * 800 : cards.length * 542;
 
   useEffect(() => {
     if (!onMount.firstMount) {
@@ -155,11 +152,27 @@ export default function CardsShuffleItemContainer({
         <ul className={itemsContainerClassName}>
           {slice.map((item, index) => (
             <li
-              className={itemClassName}
+              className={`${itemClassName} relative`}
               key={itemKeyFn}
               id={`card-${index + 1}`}
             >
               {children(item, index)}
+
+              {/* Scroll Down Arrow - Only Show if Not Last Card */}
+              {index !== slice.length - 1 && (
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-[-50px] flex flex-col items-center animate-bounce">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-black"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              )}
             </li>
           ))}
         </ul>
