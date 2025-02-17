@@ -65,18 +65,24 @@ export default function SliceIdentifier({
   return (
     <div className="relative" ref={containerRef}>
       {/* Text Content (With Letter-by-Letter Reveal) */}
-      <div className={`pb-3 ${className} flex gap-1 font-inter font-bold items-center uppercase text-2xl text-black`}>
+      <div className={`pb-3 ${className} flex flex-wrap gap-[4px] font-inter font-bold items-center uppercase text-2xl text-black tracking-[-0.5px]`}>
         {/* Static Rounded Dot (No Animation) */}
         <span className="h-[12px] w-[12px] rounded-full bg-black"></span>
 
-        {/* Text Letters with Animation */}
-        {safeText.split("").map((letter, index) => (
-          <span
-            key={index}
-            ref={(el) => (textRefs.current[index] = el)}
-            className="inline-block"
-          >
-            {letter}
+        {/* Split text into words, preserving spaces */}
+        {safeText.split(" ").map((word, wordIndex) => (
+          <span key={wordIndex} className="inline-block">
+            {word.split("").map((letter, index) => (
+              <span
+                key={index}
+                ref={(el) => (textRefs.current[wordIndex * 10 + index] = el)}
+                className="inline-block"
+              >
+                {letter}
+              </span>
+            ))}
+            {/* Add space after each word except the last one */}
+            {wordIndex !== safeText.split(" ").length - 1 && <span>&nbsp;</span>}
           </span>
         ))}
       </div>
