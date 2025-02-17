@@ -30,11 +30,11 @@ export default function HorizontalScrollCardC({ item }) {
 
         {/* Description Section - Updates on Hover */}
         <div className="mt-4">
-          <p className="text-lg md:text-xl font-ambit-bold lg:text-3xl w-[36ch] text-black transition-opacity duration-300">
+          <p className="text-lg md:text-xl font-ambit-bold lg:text-2xl w-[36ch] text-black transition-opacity duration-300">
             {item.data.year_performance[hoveredIndex]?.descrip_percentage ||
               "N/A"}
           </p>
-          <p className="text-lg md:text-xl lg:text-3xl w-[36ch] text-black transition-opacity duration-300">
+          <p className="text-lg md:text-xl lg:text-2xl w-[36ch] text-black transition-opacity duration-300">
             {item.data.year_performance[hoveredIndex]?.description ||
               "No description available"}
           </p>
@@ -93,10 +93,10 @@ export default function HorizontalScrollCardC({ item }) {
                   isHovered ? "opacity-100" : "opacity-0"
                 }`}
               >
-                <p className="text-xs sm:text-base md:text-3xl">
+                <p className="text-xs sm:text-base md:text-2xl">
                   Distinction - {performance.distinction || "N/A"}
                 </p>
-                <p className="text-xs sm:text-base md:text-3xl">
+                <p className="text-xs sm:text-base md:text-2xl">
                   1st Class - {performance.first_class || "N/A"}
                 </p>
               </div>

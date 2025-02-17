@@ -3,9 +3,7 @@
 // import gsap from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import CardA from "@/components/v2-components/impact-card-shuffle/CardA";
 
-import CardB from "@/components/v2-components/impact-card-shuffle/CardB";
 
 // gsap.registerPlugin(ScrollTrigger);
 
@@ -123,6 +121,9 @@ import CardsShuffle from "./CardsShuffle";
 import HorizontalScrollCardA from "../v2-components/horizontal-scroll/horizontal-scroll-card-A";
 import HorizontalScrollCardC from "../v2-components/horizontal-scroll/horizontal-scroll-card-C";
 import HorizontalScrollCardD from "../v2-components/horizontal-scroll/horizontal-scroll-card-D";
+import CardA from "@/components/v2-components/impact-card-shuffle/CardA";
+
+import CardB from "@/components/v2-components/impact-card-shuffle/CardB";
 
 export default function ShuffleMix({ slice }) {
   return (
@@ -140,9 +141,9 @@ export default function ShuffleMix({ slice }) {
           } else if (index === 1) {
             component = <CardB item={item} />;
           } else if (index === 2) {
-            component = <HorizontalScrollCardC item={item} />;
-          } else if (index === 3) {
             component = <HorizontalScrollCardD item={item} />;
+          } else if (index === 3) {
+            component = <HorizontalScrollCardC item={item} />;
           }
 
           return component;
