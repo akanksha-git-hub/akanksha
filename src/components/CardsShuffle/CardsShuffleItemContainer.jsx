@@ -80,6 +80,11 @@ export default function CardsShuffleItemContainer({
             anticipatePin: 1,
             invalidateOnRefresh: true,
             scroller: "body",
+            onUpdate: (self) => {
+              const progress = self.progress; // Get scroll progress
+              const isLastCardVisible = progress > 0.95; // Adjust threshold if needed
+              gsap.to(arrowRef.current, { opacity: isLastCardVisible ? 0 : 1, duration: 0.5, ease: "power1.out" });
+            },
           },
         });
 
@@ -130,7 +135,7 @@ export default function CardsShuffleItemContainer({
         ScrollTrigger.refresh();
       });
 
-      return () => ctx.revert(); 
+      return () => ctx.revert();
     }
   }, [onMount.firstMount, onMount.secondMount, cards]);
 
@@ -149,17 +154,18 @@ export default function CardsShuffleItemContainer({
           ))}
         </ul>
 
+        {/* Scroll Down Arrow */}
         <div
           ref={arrowRef}
           className="absolute left-1/2 bottom-5 transform -translate-x-1/2 flex flex-col items-center animate-bounce"
           style={{
             position: "absolute",
             bottom: "-250px", 
-          
             zIndex: 50,
+            opacity: 1, // Ensure it starts visible
+            transition: "opacity 0.5s ease",
           }}
         >
-       
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6 text-black"
