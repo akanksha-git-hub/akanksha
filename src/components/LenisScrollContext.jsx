@@ -14,7 +14,7 @@ export default function LenisScrollContext({ children }) {
     useEffect(() => {
         const scroller = new Lenis({ 
             syncTouch: true,
-            direction: 'vertical' // ✅ Prevents unwanted horizontal scroll
+            direction: 'vertical'
         });
         
         let rf;
@@ -28,7 +28,7 @@ export default function LenisScrollContext({ children }) {
         setRafState(rf);
         setLenisRef(scroller);
 
-        // ✅ Prevent horizontal scrolling
+      
         document.documentElement.style.overflowX = "hidden";
         document.body.style.overflowX = "hidden";
 
@@ -37,7 +37,7 @@ export default function LenisScrollContext({ children }) {
                 cancelAnimationFrame(rf);
                 scroller.destroy();
             }
-            // Restore default styles
+           
             document.documentElement.style.overflowX = "";
             document.body.style.overflowX = "";
         };
