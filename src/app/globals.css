@@ -22,10 +22,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+
 }
 body {
   background: var(--white);
   overflow-x: hidden;
+ 
 }
 .blur-bg {
   background-color: rgba(70, 70, 70, 0.8);
