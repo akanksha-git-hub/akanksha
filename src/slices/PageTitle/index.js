@@ -66,7 +66,7 @@ const PageTitle = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className={`flex flex-col items-center ${slice.variation === "default" && "universal-padding mt-24"} pt-28`}
+        className={`flex flex-col items-center ${slice.variation === "default" && "universal-padding mt-16"} `}
       >
         {/* {slice.variation === 'sparkle' && (
         <div 
