@@ -79,8 +79,8 @@ const MissionVisionShowcase = ({ slice }) => {
             <Image
               src={ButterFlyA}
               alt="Decorative butterfly"
-              width={200}
-              height={200}
+              width={160}
+              height={160}
             />
           </div>
         
