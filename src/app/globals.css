@@ -799,7 +799,7 @@ body {
 /* perspective translate z */
 .card-container {
   position: relative;
-  top: 150px;
+  top: 50px;
   min-height: var(--card-height);
   width: var(--card-width);
   transform-style: preserve-3d;

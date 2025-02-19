@@ -21,7 +21,7 @@ const CardShuffle = ({ slice, context }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="mb-64"
+        className="mb-64 "
       >
         <div className={`${addPadding ? "universal-padding" : " "}`}>
           {slice.primary.slice_identifier && (

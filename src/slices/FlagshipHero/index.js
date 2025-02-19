@@ -27,8 +27,8 @@ const FlagshipHero = ({ slice }) => {
         <div className="flex flex-col items-center justify-center space-y-12  mt-4">
           <RichText
             text={slice.primary.main_title}
-            className="font-ambit-regular text-black sm:text-center  md:text-6xl text-3xl
-              sm:text-4xl  max-w-[15ch] 3xl:text-7xl xl:text-5xl"
+            className="font-ambit-regular text-black sm:text-center text-4xl
+              sm:text-4xl  max-w-[15ch]  xl:text-7xl 3xl:text-8xl"
           />
           <RichText
             text={slice.primary.description1}
@@ -67,25 +67,28 @@ const FlagshipHero = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="relative mb-24 universal-padding"
+        className="relative md:mb-24 universal-padding  mt-10 md:mt-0"
       >
         <div className="flex flex-col items-center justify-center space-y-12 mt-4 lg:mt-32">
           <RichText
             text={slice.primary.main_title}
-            className="font-ambit-regular text-black sm:text-center text-5xl md:text-7xl max-w-[20ch]"
+            className="font-ambit-regular text-black sm:text-center text-4xl xl:text-7xl 3xl:text-8xl max-w-[20ch]"
           />
           <RichText
             text={slice.primary.description1}
-            className="font-ambit-regular text-black sm:text-center text-lg w-full max-w-[60ch]"
+            className="font-ambit-regular text-black sm:text-center text-xl w-full max-w-[60ch]"
           />
-          <RichText
-            text={slice.primary.description2}
-            className="font-ambit-regular text-black sm:text-center text-lg w-full max-w-[60ch]"
-          />
+         {slice.primary.description2 && (
+  <RichText
+    text={slice.primary.description2}
+    className="font-ambit-regular text-black sm:text-center text-xl w-full max-w-[60ch]"
+  />
+)}
+
         </div>
 
         {/* Top left image */}
-        <div className="hidden xl:block absolute top-[20%] left-[0%] xl:left-[2%]  md:h-[280px] md:w-[120px] lg:h-[350px] w-[200px]  lg:w-[200px] xl:w-[340px] -z-10">
+        <div className="   absolute -bottom-[36%] -left-[2%] md:top-[20%] md:left-[0%] xl:left-[2%]  md:h-[280px] md:w-[120px] lg:h-[350px] w-[200px]  lg:w-[200px] xl:w-[340px] -z-10">
           <PrismicNextImage
             field={slice.primary.image_a}
             className="h-full w-full object-contain"
@@ -95,7 +98,7 @@ const FlagshipHero = ({ slice }) => {
         </div>
 
         {/* Bottom right image */}
-        <div className="hidden xl:block absolute -bottom-[10px] -right-[20px]  md:h-[260px] md:w-[350px] lg:h-[400px] w-[300px]  lg:w-[200px] -z-10">
+        <div className="  absolute -right-[4%] md:-bottom-[10px] md:-right-[20px] h-[150px] w-[150px] md:h-[170px] md:w-[170px] lg:h-[400px] lg:w-[200px] -z-10">
           <PrismicNextImage
             field={slice.primary.image_b}
             className="h-full w-full object-contain"
