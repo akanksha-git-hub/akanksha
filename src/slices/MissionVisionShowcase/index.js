@@ -75,7 +75,7 @@ const MissionVisionShowcase = ({ slice }) => {
             }
           />
         </div>
-        <div className="absolute top-40 -right-32 transform -translate-x-1/2">
+        <div className="absolute top-40 -right-32 transform -translate-x-1/2  pointer-events-none">
             <Image
               src={ButterFlyA}
               alt="Decorative butterfly"
