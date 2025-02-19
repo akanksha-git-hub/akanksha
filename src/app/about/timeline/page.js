@@ -24,7 +24,7 @@ export default async function Page() {
                 />
                 <TempFillImageComponent 
                     src={Boat}
-                    className="absolute top-[8%] left-0 md:top-0 md:left-[76%] h-44 w-44 -z-10"
+                    className="absolute   top-[7%] left-[25%] h-24 w-24   md:top-0 md:left-[76%] md:h-44 md:w-44 -z-10"
                 />
                 <TempFillImageComponent 
                     src={SunCrow}
