@@ -27,7 +27,8 @@
 }
 body {
   background: var(--white);
-  overflow-x: hidden;
+  overflow: hidden;
+
  
 }
 .blur-bg {
