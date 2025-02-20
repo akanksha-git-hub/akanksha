@@ -11,7 +11,7 @@ export default function CardsContainer({ cards }) {
   return (
     <>
     {
-        width > 1000 ?
+        width > 1001 ?
         <CardsThreeDesktop 
           cards={cards}
         />
