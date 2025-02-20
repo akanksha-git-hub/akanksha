@@ -68,19 +68,23 @@ const IconShowcaseLocation = ({ slice }) => {
              <Image src={PencilShading} alt="img" fill />
            </div>
      
-           {/* ✅ Title & Address Together Without Space */}
+       
            <div className="text-black">
-             <RichText 
-               text={item.title}
-               className="text-2xl font-ambit-semibold mb-0"
-             />
+           <a 
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.title + ", " + item.address)}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-2xl font-ambit-semibold mb-0 cursor-pointer"
+              >
+                <RichText text={item.title} />
+              </a>
              <RichText 
                text={item.address}  
                className="text-lg font-ambit-regular mt-0"
              />
            </div>
      
-           {/* ✅ School Leader & Leader Name Aligned to Bottom */}
+           
            <div className=" mt-4">
              <RichText 
                text={item.school_leader}  
