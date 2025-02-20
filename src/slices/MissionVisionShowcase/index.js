@@ -18,6 +18,7 @@ const MissionVisionShowcase = ({ slice }) => {
 
   const handleContentChange = (component) => setActiveComponent(component);
 
+  // Re-run the gsap animation when the activeComponent changes
   useEffect(() => {
     gsap.fromTo(
       ".description-container",
@@ -30,34 +31,90 @@ const MissionVisionShowcase = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding my-12 950px:my-24"
+      className="universal-padding mt-8 950px:my-8"
     >
-      {/* Mission & Vision Toggle */}
-      <div className="flex flex-col items-center justify-center space-y-8 950px:space-y-3">
-        <SparkleText
-          slice={slice.primary}
-          isRight={false}
-          isActive={activeComponent === "mission"}
-          onClick={() => handleContentChange("mission")}
-        />
-        <SparkleText
-          slice={slice.primary}
-          isRight={true}
-          isActive={activeComponent === "vision"}
-          onClick={() => handleContentChange("vision")}
-        />
+      {/* Mobile Layout */}
+      <div className="block lg:hidden">
+        {/* Header: Side-by-Side Tabs */}
+        <div className="flex justify-left space-x-6">
+          <button
+            onClick={() => handleContentChange("mission")}
+            className={`text-5xl font-ambit-regular text-black transition-all ${
+              activeComponent === "mission"
+                ? "underline underline-offset-4"
+                : "opacity-60 hover:opacity-80"
+            }`}
+          >
+            Mission
+          </button>
+          <button
+            onClick={() => handleContentChange("vision")}
+            className={`text-5xl font-ambit-regular text-black transition-all ${
+              activeComponent === "vision"
+                ? "underline underline-offset-4"
+                : "opacity-60 hover:opacity-80"
+            }`}
+          >
+            Vision
+          </button>
+        </div>
+
+        {/* Image: Only one image based on the active component */}
+        <div className="mt-6 w-[80%] relative">
+          <MobileSparkleImage slice={slice.primary} activeComponent={activeComponent} onClick={() => handleContentChange(activeComponent)} />
+        </div>
+
+        {/* Description */}
+        <div className="description-container mt-8">
+          <RichText
+            className="text-left text-xl text-black font-ambit-regular "
+            text={
+              activeComponent === "mission"
+                ? slice.primary.mission_description
+                : slice.primary.vision_description
+            }
+          />
+        </div>
+        <div className="absolute top-40 -right-32 transform -translate-x-1/2  pointer-events-none">
+            <Image
+              src={ButterFlyA}
+              alt="Decorative butterfly"
+              width={160}
+              height={160}
+            />
+          </div>
+        
       </div>
 
-      {/* Description */}
-      <div className="description-container mt-12 space-y-2 flex flex-col 950px:items-center 950px:justify-center">
-        <RichText
-          className="text-left 950px:text-center  text-base text-black font-ambit-regular sm:text-xl 950px:text-2xl w-full 950px:w-[80%]"
-          text={
-            activeComponent === "mission"
-              ? slice.primary.mission_description
-              : slice.primary.vision_description
-          }
-        />
+      {/* Large Layout  */}
+      <div className="hidden lg:block">
+        {/* Mission & Vision Toggle */}
+        <div className="flex flex-col items-center justify-center space-y-8 950px:space-y-3">
+          <SparkleText
+            slice={slice.primary}
+            isRight={false}
+            isActive={activeComponent === "mission"}
+            onClick={() => handleContentChange("mission")}
+          />
+          <SparkleText
+            slice={slice.primary}
+            isRight={true}
+            isActive={activeComponent === "vision"}
+            onClick={() => handleContentChange("vision")}
+          />
+        </div>
+
+        {/* Description */}
+        <div className="description-container mt-12 space-y-2 flex flex-col 950px:items-center 950px:justify-center">
+          <RichText
+            className="text-left 950px:text-center text-base text-black font-ambit-regular sm:text-xl 950px:text-2xl w-full 950px:w-[80%]"
+            text={
+              activeComponent === "mission"
+                ? slice.primary.mission_description
+                : slice.primary.vision_description
+            }
+          />
+        </div>
       </div>
     </section>
   );
@@ -65,7 +122,36 @@ const MissionVisionShowcase = ({ slice }) => {
 
 export default MissionVisionShowcase;
 
-// Sparkle Text Component
+/* 
+  MobileSparkleImage Component 
+  Renders only the image corresponding to the selected tab.
+*/
+const MobileSparkleImage = ({ slice, activeComponent, onClick }) => {
+  const imageField = activeComponent === "mission" ? slice.image_a : slice.image_b;
+  return (
+    <>
+      {imageField?.url ? (
+        <PrismicImage
+          className="rounded-2xl w-full h-auto transition-all cursor-pointer mx-auto"
+          onClick={onClick}
+          field={imageField}
+          imgixParams={{ w: 400, h: 600, fit: "crop" }}
+        />
+      ) : (
+        <Image
+          className="rounded-2xl w-full h-full transition-all cursor-pointer"
+          src="/dummy_img.png"
+          alt="Placeholder"
+          height={200}
+          width={200}
+          onClick={onClick}
+        />
+      )}
+    </>
+  );
+};
+
+/* Sparkle Text Component for large screens */
 const SparkleText = ({ slice, isRight, isActive, onClick }) => {
   const imageField = isRight ? slice.image_b : slice.image_a;
   const text = isRight ? slice.text_b : slice.text_a;
@@ -129,11 +215,11 @@ const DecorativeImagesRight = () => (
     />
     <TempFillImageComponent
       src={ButterFlyB}
-      className="absolute -z-10 -top-40 sm:-right-20 md:-right-[130%] 2xl:-right-full h-24 w-24 950px:h-44 950px:w-44"
+      className="absolute -z-10 -top-40 sm:-right-20 md:-right-full 2xl:-right-full h-24 w-24 950px:h-44 950px:w-44"
     />
     <TempFillImageComponent
       src={ButterflyLineB}
-      className="absolute -top-0 -right-20 md:-right-[110%] 2xl:-right-[78%] -z-10 h-44 w-44"
+      className="absolute -top-0 -right-20 md:-right-[78%] 2xl:-right-[78%] -z-10 h-44 w-44"
     />
   </>
 );
