@@ -60,8 +60,8 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
                     onClick={() => setIsModalOpen(false)} 
                 >
                     <div 
-                        className={`bg-white rounded-2xl shadow-lg p-6 md:p-8 mx-auto relative 
-                            ${isSchoolLeaders ? "max-w-md w-full sm:w-[80%]" : "max-w-lg w-full sm:w-[90%]"}`}
+                        className={`bg-white rounded-2xl shadow-lg py-10 px-10 md:px-14 mx-auto relative 
+                            ${isSchoolLeaders ? "max-w-md w-full sm:w-[80%]" : " md:max-w-[600px] md:max-h-[650px]  w-full  sm:max-w-full sm:h-screen sm:w-screen "}`}
                         onClick={(e) => e.stopPropagation()} 
                     >
                         <button 
@@ -72,7 +72,7 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
                         </button>
 
                         {!isSchoolLeaders && (
-                            <div className="w-24 h-24 md:w-32 md:h-32 mx-auto flex items-center justify-center rounded-full overflow-hidden mb-4">
+                            <div className="w-24 h-24 md:w-32 md:h-32  flex items-center justify-start rounded-full overflow-hidden mb-4">
                                 <PrismicNextImage 
                                     field={item.image}
                                     className="object-cover w-full h-full"
@@ -81,11 +81,11 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
                         )}
 
                         {/* Name & Position */}
-                        <h2 className="font-ambit-regular text-2xl md:text-xl font-bold text-center">{item.name}</h2>
-                        <p className="font-ambit-regular text-lg md:text-base text-center text-black">{item.position}</p>
+                        <h2 className="font-ambit-regular text-2xl md:text-xl font-bold text-left">{item.name}</h2>
+                        <p className="font-ambit-regular text-lg md:text-base text-left text-black">{item.position}</p>
 
                         {/* Description */}
-                        <div className="px-6 md:px-8 font-normal text-black text-base sm:text-lg mt-4 space-y-3">
+                        <div className=" font-normal text-black text-sm mt-4 space-y-3">
                         <PrismicRichText field={item.description} />
                         </div>
                     </div>
