@@ -40,6 +40,42 @@ body.modal-open {
  
   top: var(--scroll-y);
 }
+/* Ensure modal description scrolls properly */
+.modal-description {
+  max-height: 40vh !important; /* Prevents modal from growing too big */
+  overflow-y: auto !important; /* Enables scrolling */
+  padding-right: 10px; /* Adds padding for better usability */
+  touch-action: auto !important; /* Fixes scrolling issues on mobile */
+}
+
+/* Custom Scrollbar for Modal Description */
+.modal-description::-webkit-scrollbar {
+  width: 4px !important;/* Adjust scrollbar width */
+}
+
+.modal-description::-webkit-scrollbar-thumb {
+  background: #FE6600 !important; /* Sets scrollbar thumb color to Orange */
+  border-radius: 4px!important;/* Smooth edges */
+}
+
+.modal-description::-webkit-scrollbar-track {
+  background: var(--cream) !important; /* Keeps track visible */
+}
+
+/* Scrollbar for other parts of the app (optional) */
+::-webkit-scrollbar {
+  width: 4px!important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F6AC27 !important; /* Orange scrollbar */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
 
 
 .blur-bg {
