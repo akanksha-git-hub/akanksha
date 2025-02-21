@@ -106,7 +106,7 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
                         {/* Scrollable Description */}
                         <div 
                             className="modal-description font-normal text-black text-sm mt-4 space-y-3"
-                            onClick={(e) => e.stopPropagation()} // Prevents modal close when clicking inside
+                            onClick={(e) => e.stopPropagation()} 
                         >
                             <PrismicRichText field={item.description} />
                         </div>
