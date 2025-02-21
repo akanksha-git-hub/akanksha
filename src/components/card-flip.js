@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
+import { PrismicRichText } from "@prismicio/react";
 
 export default function CardFlip({ item, i, isSchoolLeaders = false }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -85,7 +86,7 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
 
                         {/* Description */}
                         <div className="px-6 md:px-8 font-normal text-black text-base sm:text-lg mt-4 space-y-3">
-                            <p>{item.description}</p>
+                        <PrismicRichText field={item.description} />
                         </div>
                     </div>
                 </div>
