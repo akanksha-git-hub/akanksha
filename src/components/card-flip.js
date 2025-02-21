@@ -59,11 +59,12 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
                     className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 sm:px-0"
                     onClick={() => setIsModalOpen(false)} 
                 >
-                    <div 
-                        className={`bg-white rounded-2xl shadow-lg py-10 px-10 md:px-14 mx-auto relative 
-                            ${isSchoolLeaders ? "max-w-md w-full sm:w-[80%]" : " md:max-w-[600px] md:max-h-[650px]  w-full  sm:max-w-full sm:h-screen sm:w-screen "}`}
-                        onClick={(e) => e.stopPropagation()} 
-                    >
+            <div 
+    className={`bg-white rounded-2xl shadow-lg py-10 px-10 md:px-14 mx-auto relative 
+        ${isSchoolLeaders ? "max-w-md w-full sm:w-[80%]" : "md:max-w-[600px] w-full md:w-auto sm:w-[95vw] sm:max-w-[95vw]"} 
+        sm:h-auto sm:max-h-[90vh] md:max-h-none overflow-y-auto`}
+    onClick={(e) => e.stopPropagation()} 
+>
                         <button 
                             className="absolute top-4 right-4 flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full text-gray-600 hover:bg-gray-300 hover:text-gray-800 transition"
                             onClick={() => setIsModalOpen(false)}
