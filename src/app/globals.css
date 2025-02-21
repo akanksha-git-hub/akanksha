@@ -31,6 +31,17 @@ body {
 
  
 }
+
+/* Prevent background scrolling when modal is open */
+body.modal-open {
+  position: fixed !important;
+ 
+ 
+ 
+  top: var(--scroll-y);
+}
+
+
 .blur-bg {
   background-color: rgba(70, 70, 70, 0.8);
   backdrop-filter: blur(15.2px);

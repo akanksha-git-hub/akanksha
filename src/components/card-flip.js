@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
 import { PrismicRichText } from "@prismicio/react";
@@ -6,10 +6,27 @@ import { PrismicRichText } from "@prismicio/react";
 export default function CardFlip({ item, i, isSchoolLeaders = false }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    useEffect(() => {
+        if (isModalOpen) {
+            const scrollY = window.scrollY;
+            document.documentElement.style.setProperty("--scroll-y", `-${scrollY}px`);
+            document.body.classList.add("modal-open");
+        } else {
+            const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
+            document.body.classList.remove("modal-open");
+            window.scrollTo(0, -parseInt(scrollY || "0"));
+        }
+
+        return () => {
+            document.body.classList.remove("modal-open");
+        };
+    }, [isModalOpen]);
+
     return (
         <>
+            {/* Card Component */}
             <li 
-                className={`bg-[#FAFAFA] relative  border border-stone-400 w-full
+                className={`bg-[#FAFAFA] relative border border-stone-400 w-full
                     ${isSchoolLeaders ? "h-[240px] md:w-[280px] rounded-[1.5rem]" : "rounded-[2rem] h-[500px] md:h-[428px] md:w-[420px]"} 
                     flip-card group`}
                 key={i}
@@ -53,18 +70,19 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
                 </span>
             </li>
 
-            {/* Modal */}
+            {/* Modal Component */}
             {isModalOpen && !isSchoolLeaders && (
                 <div 
                     className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4 sm:px-0"
                     onClick={() => setIsModalOpen(false)} 
                 >
-            <div 
-    className={`bg-white rounded-2xl shadow-lg py-10 px-10 md:px-14 mx-auto relative 
-        ${isSchoolLeaders ? "max-w-md w-full sm:w-[80%]" : "md:max-w-[600px] w-full md:w-auto sm:w-[95vw] sm:max-w-[95vw]"} 
-        sm:h-auto sm:max-h-[90vh] md:max-h-none overflow-y-auto`}
-    onClick={(e) => e.stopPropagation()} 
->
+                    <div 
+                        className={`bg-white rounded-2xl shadow-lg py-10 px-10 md:px-14 mx-auto relative 
+                            ${isSchoolLeaders ? "max-w-md w-full sm:w-[80%]" : "md:max-w-[600px] w-full md:w-auto sm:w-[95vw] sm:max-w-[95vw]"} 
+                            sm:h-auto sm:max-h-[90vh] md:max-h-none overflow-y-auto`}
+                        onClick={(e) => e.stopPropagation()} 
+                    >
+                        {/* Close Button */}
                         <button 
                             className="absolute top-4 right-4 flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full text-gray-600 hover:bg-gray-300 hover:text-gray-800 transition"
                             onClick={() => setIsModalOpen(false)}
@@ -73,7 +91,7 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
                         </button>
 
                         {!isSchoolLeaders && (
-                            <div className="w-24 h-24 md:w-32 md:h-32  flex items-center justify-start rounded-full overflow-hidden mb-4">
+                            <div className="w-24 h-24 md:w-32 md:h-32 flex items-center justify-start rounded-full overflow-hidden mb-4">
                                 <PrismicNextImage 
                                     field={item.image}
                                     className="object-cover w-full h-full"
@@ -85,9 +103,9 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
                         <h2 className="font-ambit-regular text-2xl md:text-xl font-bold text-left">{item.name}</h2>
                         <p className="font-ambit-regular text-lg md:text-base text-left text-black">{item.position}</p>
 
-                        {/* Description */}
-                        <div className=" font-normal text-black text-sm mt-4 space-y-3">
-                        <PrismicRichText field={item.description} />
+                        {/* Scrollable Description */}
+                        <div className="font-normal text-black text-sm mt-4 space-y-3">
+                            <PrismicRichText field={item.description} />
                         </div>
                     </div>
                 </div>
