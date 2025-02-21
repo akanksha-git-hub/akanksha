@@ -55,11 +55,11 @@ body.modal-open {
 
 .modal-description::-webkit-scrollbar-thumb {
   background: #FE6600 !important; /* Sets scrollbar thumb color to Orange */
-  border-radius: 4px!important;/* Smooth edges */
+
 }
 
 .modal-description::-webkit-scrollbar-track {
-  background: var(--cream) !important; /* Keeps track visible */
+  background: transparent !important; /* Keeps track visible */
 }
 
 /* Scrollbar for other parts of the app (optional) */
@@ -69,11 +69,11 @@ body.modal-open {
 
 ::-webkit-scrollbar-thumb {
   background: #F6AC27 !important; /* Orange scrollbar */
-  border-radius: 5px;
+ 
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cream);
+  background: transparent !important;
 }
 
 
