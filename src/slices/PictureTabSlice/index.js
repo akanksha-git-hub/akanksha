@@ -11,7 +11,7 @@ import TabContainer from "@/components/Tab/tab-container";
 const PictureTabSlice = ({ slice, context }) => {
 
 
-  const isSchoolLeaders = context?.id === "school-leaders"; // ✅ Extract the boolean value
+  const isSchoolLeaders = context?.id === "school-leaders"; 
 
 
   const isTab = slice.primary.enable_tabs;
