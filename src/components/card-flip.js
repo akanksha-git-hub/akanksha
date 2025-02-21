@@ -79,7 +79,7 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
                     <div 
                         className={`bg-white rounded-2xl shadow-lg py-10 px-10 md:px-14 mx-auto relative 
                             ${isSchoolLeaders ? "max-w-md w-full sm:w-[80%]" : "md:max-w-[600px] w-full md:w-auto sm:w-[95vw] sm:max-w-[95vw]"} 
-                            sm:h-auto sm:max-h-[90vh] md:max-h-none overflow-y-auto`}
+                            sm:h-auto sm:max-h-[90vh] md:max-h-none overflow-hidden`} // Prevents overflow
                         onClick={(e) => e.stopPropagation()} 
                     >
                         {/* Close Button */}
@@ -104,7 +104,10 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
                         <p className="font-ambit-regular text-lg md:text-base text-left text-black">{item.position}</p>
 
                         {/* Scrollable Description */}
-                        <div className="font-normal text-black text-sm mt-4 space-y-3">
+                        <div 
+                            className="modal-description font-normal text-black text-sm mt-4 space-y-3"
+                            onClick={(e) => e.stopPropagation()} // Prevents modal close when clicking inside
+                        >
                             <PrismicRichText field={item.description} />
                         </div>
                     </div>
