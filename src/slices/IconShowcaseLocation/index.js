@@ -71,10 +71,10 @@ const IconShowcaseLocation = ({ slice }) => {
        
            <div className="text-black">
            <a 
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.title + ", " + item.address)}`} 
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.title)}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-2xl font-ambit-semibold mb-0 cursor-pointer"
+                className="text-2xl font-ambit-semibold mb-0 hover:underline cursor-pointer"
               >
                 <RichText text={item.title} />
               </a>
