@@ -14,7 +14,7 @@ export default function LenisScrollContext({ children }) {
     useEffect(() => {
         const scroller = new Lenis({ 
             syncTouch: true,
-            direction: 'vertical' // ✅ Prevents unwanted horizontal scroll
+            direction: 'vertical' 
         });
         
         let rf;
