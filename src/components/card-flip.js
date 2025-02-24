@@ -1,26 +1,33 @@
+'use client'
 import { useState, useEffect } from "react";
 import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
 import { PrismicRichText } from "@prismicio/react";
+import { useSmoothScroller } from "@/components/LenisScrollContext"; // ✅ Import Lenis context
 
 export default function CardFlip({ item, i, isSchoolLeaders = false }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { stopScroll, startScroll } = useSmoothScroller(); // ✅ Lenis Scroll Control
 
     useEffect(() => {
         if (isModalOpen) {
+            // Record scroll position and prevent background scroll
             const scrollY = window.scrollY;
             document.documentElement.style.setProperty("--scroll-y", `-${scrollY}px`);
             document.body.classList.add("modal-open");
+            stopScroll();
         } else {
+            // Restore background scroll and position
             const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
             document.body.classList.remove("modal-open");
             window.scrollTo(0, -parseInt(scrollY || "0"));
+            startScroll();
         }
-
         return () => {
+            startScroll();
             document.body.classList.remove("modal-open");
         };
-    }, [isModalOpen]);
+    }, [isModalOpen, stopScroll, startScroll]);
 
     return (
         <>
@@ -79,8 +86,9 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
                     <div 
                         className={`bg-white rounded-2xl shadow-lg py-10 px-10 md:px-14 mx-auto relative 
                             ${isSchoolLeaders ? "max-w-md w-full sm:w-[80%]" : "md:max-w-[600px] w-full md:w-auto sm:w-[95vw] sm:max-w-[95vw]"} 
-                            sm:h-auto sm:max-h-[90vh] md:max-h-none overflow-hidden`} // Prevents overflow
-                        onClick={(e) => e.stopPropagation()} 
+                            sm:h-auto sm:max-h-[90vh] md:max-h-none overflow-y-auto`} 
+                        data-lenis-prevent
+                        onClick={(e) => e.stopPropagation()}
                     >
                         {/* Close Button */}
                         <button 
@@ -104,10 +112,7 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
                         <p className="font-ambit-regular text-lg md:text-base text-left text-black">{item.position}</p>
 
                         {/* Scrollable Description */}
-                        <div 
-                            className="modal-description font-normal text-black text-sm mt-4 space-y-3"
-                            onClick={(e) => e.stopPropagation()} 
-                        >
+                        <div className="modal-description font-normal text-black text-sm mt-4 space-y-3 overflow-y-auto max-h-[70vh]">
                             <PrismicRichText field={item.description} />
                         </div>
                     </div>
