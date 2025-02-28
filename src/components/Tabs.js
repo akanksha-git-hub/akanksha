@@ -1,9 +1,7 @@
-import { PrismicNextImage } from "@prismicio/next"
-import RichText from "./Texts/RichText"
-
+import { PrismicNextImage } from "@prismicio/next";
+import RichText from "./Texts/RichText";
 
 export default function Tabs({ slice, handleClick, tabState }) {
-
     const TABS = [
         {
             text: slice.primary.tab_a_text,
@@ -20,16 +18,16 @@ export default function Tabs({ slice, handleClick, tabState }) {
             description: slice.primary.tab_c_description,
             icon: slice.primary.tab_c_icon
         },
-    ]
+    ];
 
-    return(
-        <ul className="flex md:flex-wrap gap-24 text-nowrap whitespace-nowrap overflow-x-scroll md:overflow-x-hidden">
+    return (
+        <ul className="flex flex-wrap gap-6 md:gap-24 md:flex-nowrap text-nowrap md:whitespace-nowrap overflow-x-hidden">
             {TABS.map((item) => (
                 <li 
                     onClick={() => handleClick({ text: item.text, description: item.description })}
                     key={item.text}
-                    className={
-                        `flex items-center gap-2 
+                    className={`
+                        flex items-center gap-2 
                         ${tabState.text === item.text ? 'opacity-100' : 'opacity-55'} 
                         transition-all cursor-pointer`
                     }
@@ -43,11 +41,11 @@ export default function Tabs({ slice, handleClick, tabState }) {
                         />
                     </div>
                     <RichText 
-                        className='text-deep-green text-3xl font-ambit-regular font-medium'
+                        className="text-deep-green text-xl md:text-3xl font-ambit-regular font-medium"
                         text={item.text}
                     />
                 </li>
             ))}
         </ul>
-    )
+    );
 }

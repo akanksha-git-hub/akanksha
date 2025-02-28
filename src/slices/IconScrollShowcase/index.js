@@ -30,11 +30,11 @@ const IconScrollShowcase = ({ slice }) => {
       <div className="mt-16 space-y-2 flex flex-col md:items-center md:justify-center">
         <RichText 
           text={slice.primary.small_title}
-          className='font-ambit-regular text-2xl text-deep-green uppercase max-w-[30ch] md:text-center'
+          className='font-ambit-regular text-2xl text-black uppercase max-w-[30ch] md:text-center'
         />
         <RichText 
           text={slice.primary.main_title}
-          className='font-ambit-regular text-6xl text-deep-green max-w-[40ch] md:text-center'
+          className='font-ambit-regular text-6xl text-black max-w-[40ch] md:text-center'
         />
       </div>
       {
@@ -63,7 +63,7 @@ const IconScrollShowcase = ({ slice }) => {
        
         <RichText 
           text={slice.primary.main_title}
-          className='font-ambit-regular text-6xl text-black md:max-w-[40%] md:text-start mt-16'
+          className='font-ambit-regular text-3xl md:text-6xl   text-black md:max-w-[40%] md:text-start mt-16'
         />
       
       {
