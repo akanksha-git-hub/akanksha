@@ -19,7 +19,7 @@ const ImpactPoint2 = ({ slice }) => {
                               <h1 className="font-ambit-regular text-black text-5xl md:text-7xl text-left ">
                                   {slice.primary.card_1_title}
                               </h1>
-                             <h1 className="font-ambit-regular text-black md:text-lg  text-base lg:text-left ">
+                             <h1 className="font-ambit-regular text-black md:text-3xl text-xl lg:text-left ">
                                    {slice.primary.card_1_description}
                              </h1>
                        </div>
@@ -36,12 +36,12 @@ const ImpactPoint2 = ({ slice }) => {
                   
                          <div className="w-full h-full flex flex-row justify-between items-center md:items-stretch space-x-2">
   {/* Percentage Box */}
-  <span className="bg-[#FBDA1D] font-ambit-regular  text-3xl md:text-7xl text-left text-black flex items-center justify-center rounded-[5rem] w-[40%] h-full">
+  <span className="bg-[#FBDA1D] font-ambit-regular min-h-[150px] text-5xl md:text-7xl text-left text-black flex items-center justify-center rounded-[5rem] w-[40%] h-full">
     {slice.primary.percentage_box}
   </span> 
 
   {/* Description Section */}
-  <h1 className="font-ambit-regular text-black lg:text-3xl text-xl flex-1 h-full flex items-center">
+  <h1 className="font-ambit-regular text-black md:text-3xl text-xl flex-1 h-full flex items-center">
     {slice.primary.card_2_description}
   </h1>
 </div>

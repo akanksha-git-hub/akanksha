@@ -148,7 +148,7 @@ const Testimonial = ({ slice, context }) => {
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
 
-        <h1 className="text-7xl text-center font-ambit-regular w-[8ch] mx-auto  mt-12">
+        <h1 className="text-5xl md:text-7xl text-center font-ambit-regular w-[8ch] mx-auto  mt-12">
           {slice.primary.title}
         </h1>
 

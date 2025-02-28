@@ -14,11 +14,11 @@ const TabSlice = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className=" relative flex flex-row items-center justify-center space-x-10 ">
+      <div className=" relative flex flex-row md:items-center items-end justify-center space-x-2 md:space-x-10 ">
           {slice.primary.asset_1?.url && (
                                   <PrismicNextImage  
                                     field={slice.primary.asset_1}
-                                    className="w-24 h-auto md:w-60"
+                                    className="w-16 h-auto md:w-60"
                                   />
                                 )}
                                  <div className="flex flex-col">
@@ -31,7 +31,7 @@ const TabSlice = ({ slice }) => {
           {slice.primary.asset_2?.url && (
                                   <PrismicNextImage  
                                     field={slice.primary.asset_2}
-                                    className="w-24 h-auto md:w-60"
+                                    className="w-16 h-auto md:w-60"
                                   />
                                 )}
         {/* <Image 

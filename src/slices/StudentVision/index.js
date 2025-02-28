@@ -50,7 +50,7 @@ const StudentVision = ({ slice, context }) => {
         <SliceIdentifier text={slice.primary.slice_identifier} />
 
         <div className="flex flex-col justify-center items-center">
-          <h1 className="mt-8 text-7xl font-ambit-regular">
+          <h1 className="mt-8 text-5xl md:text-7xl font-ambit-regular">
             {slice.primary.title}
           </h1>
 
@@ -100,7 +100,7 @@ const StudentVision = ({ slice, context }) => {
         <SliceIdentifier text={slice.primary.slice_identifier} />
 
         <div className="flex flex-col justify-center items-center relative mt-12">
-          <h1 className="mt-8 text-7xl text-center w-[18ch] font-ambit-regular">
+          <h1 className="mt-8  text-5xl md:text-7xl text-center w-[18ch] font-ambit-regular">
             {slice.primary.title}
           </h1>
           <p className="md:text-center md:w-[40%] font-ambit-regular mt-4 text-left">
@@ -191,7 +191,7 @@ const StudentVision = ({ slice, context }) => {
               <div className="relative w-fit md:mx-auto">
                 <RichText
                   text={financialsPage.data.title}
-                  className={`text-deep-green font-ambit-regular text-7xl text-left md:text-center w-full pt-24`}
+                  className={`text-deep-green font-ambit-regular  text-5xl md:text-7xl text-left md:text-center w-full pt-24`}
                 />
               </div>
               <div className="mt-8">
@@ -213,7 +213,7 @@ const StudentVision = ({ slice, context }) => {
       <SliceIdentifier text={slice.primary.slice_identifier} />
 
       <div className="flex flex-col justify-center items-center">
-        <h1 className="mt-8 text-7xl font-ambit-regular">
+        <h1 className="mt-8 text-5xl md:text-7xl font-ambit-regular">
           {slice.primary.title}
         </h1>
 
@@ -224,7 +224,7 @@ const StudentVision = ({ slice, context }) => {
           alt=""
         />
 
-        <p className="text-center w-[50%] font-ambit-regular mt-4">
+        <p className="text-center w-[50%] text-lg font-ambit-regular mt-4">
           {slice.primary.description[trackIndex].desc}
         </p>
 
