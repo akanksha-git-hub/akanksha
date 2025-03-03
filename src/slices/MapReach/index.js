@@ -16,7 +16,7 @@ const MapReach = ({ slice }) => {
       <SliceIdentifier text={slice.primary.slice_identifier} />
 
       <div className="flex flex-col justify-center items-center relative mt-10 ">
-        <h1 className=" text-7xl  font-ambit-regular">{slice.primary.title}</h1>
+        <h1 className="text-3xl md:text-6xl font-ambit-regular">{slice.primary.title}</h1>
         <p className="md:text-center md:w-[40%] font-ambit-regular mt-4 text-left">
           {slice.primary.description}
         </p>
