@@ -2265,6 +2265,28 @@ type ImpactDocumentDataSlicesSlice =
  */
 interface ImpactDocumentData {
   /**
+   * Download text field in *impact*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact.download_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  download_text: prismic.KeyTextField;
+
+  /**
+   * PDF Link field in *impact*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact.pdf_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  pdf_link: prismic.LinkField;
+
+  /**
    * Slice Zone field in *impact*
    *
    * - **Field Type**: Slice Zone
