@@ -11,8 +11,8 @@ const SuccessRate2 = ({ slice }) => {
            data-slice-type={slice.slice_type}
            data-slice-variation={slice.variation}
          className=" ">
-          <div className="flex lg:flex-row flex-col lg:space-x-8 min-h-[300px] justify-stretch items-stretch universal-padding ">
-                         <div className="flex flex-row   p-6 items-center justify-between lg:w-[50%] w-full  ">
+          <div className="flex lg:flex-row flex-col lg:space-x-8 min-h-[300px] justify-stretch items-stretch  ">
+                         <div className="flex flex-row   p-6 items-center justify-between lg:w-[50%] w-full universal-padding  ">
                      
                                <div className="w-full h-full flex flex-col justify-around items-start ">
                                  <h1 className="font-ambit-regular text-black text-5xl md:text-7xl text-left ">
@@ -52,7 +52,7 @@ const SuccessRate2 = ({ slice }) => {
               
                
             </div>
-            <div className="-mt-8" >
+            <div className="" >
 
          
 <PrismicNextImage
