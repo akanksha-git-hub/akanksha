@@ -155,7 +155,7 @@
           "type": "Text",
           "config": {
             "label": "contribution1_desc",
-            "placeholder": ""
+            "placeholder": "Max 100 char"
           }
         },
         "contribution2_percentaege": {
@@ -169,7 +169,7 @@
           "type": "Text",
           "config": {
             "label": "contribution2_desc",
-            "placeholder": ""
+            "placeholder": "Max 100 char"
           }
         },
         "image": {

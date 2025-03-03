@@ -13,10 +13,10 @@ const Alumini2 = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className=" mt-6 md:mt-0"
+        className=" mt-0"
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
-        <h1 className="font-ambit-regular text-xl md:text-center text-left mt-6 ">
+        <h1 className="font-ambit-regular text-5xl md:text-xl md:text-center text-left mt-6 ">
           {slice.primary.main_heading}
         </h1>
         <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl md:text-center text-left ">
@@ -28,9 +28,9 @@ const Alumini2 = ({ slice }) => {
               <h1 className="font-ambit-regular text-black text-5xl md:text-7xl text-left ">
                 {slice.primary.card_1_heading}
               </h1>
-              <p className="font-ambit-regular text-black md:text-3xl text-xl md:w-[19ch]  md:text-left  leading-snug">
+              <h1 className="font-ambit-regular text-black md:text-3xl text-xl md:w-[19ch]  md:text-left  leading-snug">
                 {slice.primary.card_1_description_1}
-              </p>
+              </h1>
             </div>
 
             <PrismicNextImage
@@ -49,7 +49,7 @@ const Alumini2 = ({ slice }) => {
                 <div class="text-5xl md:text-7xl font-ambit-regular text-black">
                   {slice.primary.contribution1_percentaege}
                 </div>
-                <div class="md:text-3xl text-xl font-ambit-regular text-black">
+                <div class="text-xl md:text-base font-ambit-regular text-black">
                   {slice.primary.contribution1_desc}
                 </div>
               </div>
@@ -59,7 +59,7 @@ const Alumini2 = ({ slice }) => {
                 <div class="text-5xl  lg:text-7xl  font-ambit-regular text-black ">
                   {slice.primary.contribution2_percentaege}
                 </div>
-                <div class="md:text-3xl text-xl font-ambit-regular text-black ">
+                <div class="text-lg md:text-base font-ambit-regular text-black ">
                   {slice.primary.contribution2_desc}
                 </div>
               </div>
