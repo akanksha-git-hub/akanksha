@@ -1,0 +1,77 @@
+{
+  "id": "success_rate2",
+  "type": "SharedSlice",
+  "name": "SuccessRate2",
+  "description": "SuccessRate2",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "card_1_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 Title",
+            "placeholder": ""
+          }
+        },
+        "card_1_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 Description",
+            "placeholder": ""
+          }
+        },
+        "box_number": {
+          "type": "Text",
+          "config": {
+            "label": "Box Number",
+            "placeholder": ""
+          }
+        },
+        "card_2_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Description",
+            "placeholder": ""
+          }
+        },
+        "band_asset": {
+          "type": "Image",
+          "config": {
+            "label": "Band_Asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_3_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card 3 Title",
+            "placeholder": ""
+          }
+        },
+        "card_3_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 3 Description",
+            "placeholder": ""
+          }
+        },
+        "asset": {
+          "type": "Image",
+          "config": {
+            "label": "Asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

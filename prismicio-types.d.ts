@@ -139,6 +139,8 @@ export type AnnualReportsDocument<Lang extends string = string> =
   >;
 
 type AseDocumentDataSlicesSlice =
+  | SuccessRate2Slice
+  | SuccessRate1Slice
   | IconShowcaseSlice
   | ImpactPoint2Slice
   | Alumini2Slice
@@ -4385,7 +4387,7 @@ export interface Alumini2SliceSuccessHeadingHeroPrimary {
    * contribution1_desc field in *Alumini2 → SuccessHeadingHero → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Max 100 char
    * - **API ID Path**: alumini2.successHeadingHero.primary.contribution1_desc
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
@@ -4405,7 +4407,7 @@ export interface Alumini2SliceSuccessHeadingHeroPrimary {
    * contribution2_desc field in *Alumini2 → SuccessHeadingHero → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Max 100 char
    * - **API ID Path**: alumini2.successHeadingHero.primary.contribution2_desc
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
@@ -9286,7 +9288,7 @@ export interface ImpactPoint2SliceImpactPointAsePrimary {
    * Card 2 Description field in *ImpactPoint2 → ImpactPointASE → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Max 100 char
    * - **API ID Path**: impact_point2.impactPointAse.primary.card_2_description
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
@@ -13658,6 +13660,246 @@ export type StudentVisionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *SuccessRate1 → Default → Primary*
+ */
+export interface SuccessRate1SliceDefaultPrimary {
+  /**
+   * Slice Identifier field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Main Heading field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.main_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_heading: prismic.KeyTextField;
+
+  /**
+   * Heading field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Card 1 Heading field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.card_1_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_heading: prismic.KeyTextField;
+
+  /**
+   * Card 1 Description 1 field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.card_1_description_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_description_1: prismic.KeyTextField;
+
+  /**
+   * Asset 1 field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.asset_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_1: prismic.ImageField<never>;
+
+  /**
+   * Card 2 Title field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.card_2_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_title: prismic.KeyTextField;
+
+  /**
+   * Card 2 Description field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.card_2_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_description: prismic.KeyTextField;
+
+  /**
+   * Band_Asset field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.band_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  band_asset: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for SuccessRate1 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SuccessRate1SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SuccessRate1SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SuccessRate1*
+ */
+type SuccessRate1SliceVariation = SuccessRate1SliceDefault;
+
+/**
+ * SuccessRate1 Shared Slice
+ *
+ * - **API ID**: `success_rate1`
+ * - **Description**: SuccessRate1
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SuccessRate1Slice = prismic.SharedSlice<
+  "success_rate1",
+  SuccessRate1SliceVariation
+>;
+
+/**
+ * Primary content in *SuccessRate2 → Default → Primary*
+ */
+export interface SuccessRate2SliceDefaultPrimary {
+  /**
+   * Card 1 Title field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.card_1_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_title: prismic.KeyTextField;
+
+  /**
+   * Card 1 Description field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.card_1_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_description: prismic.KeyTextField;
+
+  /**
+   * Box Number field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.box_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  box_number: prismic.KeyTextField;
+
+  /**
+   * Card 2 Description field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.card_2_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_description: prismic.KeyTextField;
+
+  /**
+   * Band_Asset field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.band_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  band_asset: prismic.ImageField<never>;
+
+  /**
+   * Card 3 Title field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.card_3_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_3_title: prismic.KeyTextField;
+
+  /**
+   * Card 3 Description field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.card_3_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_3_description: prismic.KeyTextField;
+
+  /**
+   * Asset field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for SuccessRate2 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SuccessRate2SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SuccessRate2SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SuccessRate2*
+ */
+type SuccessRate2SliceVariation = SuccessRate2SliceDefault;
+
+/**
+ * SuccessRate2 Shared Slice
+ *
+ * - **API ID**: `success_rate2`
+ * - **Description**: SuccessRate2
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SuccessRate2Slice = prismic.SharedSlice<
+  "success_rate2",
+  SuccessRate2SliceVariation
+>;
+
+/**
  * Primary content in *SwirlImage → Default → Primary*
  */
 export interface SwirlImageSliceDefaultPrimary {
@@ -15324,6 +15566,14 @@ declare module "@prismicio/client" {
       StudentVisionSliceWithBgImage,
       StudentVisionSliceSimple,
       StudentVisionSliceGallery,
+      SuccessRate1Slice,
+      SuccessRate1SliceDefaultPrimary,
+      SuccessRate1SliceVariation,
+      SuccessRate1SliceDefault,
+      SuccessRate2Slice,
+      SuccessRate2SliceDefaultPrimary,
+      SuccessRate2SliceVariation,
+      SuccessRate2SliceDefault,
       SwirlImageSlice,
       SwirlImageSliceDefaultPrimary,
       SwirlImageSliceVariation,

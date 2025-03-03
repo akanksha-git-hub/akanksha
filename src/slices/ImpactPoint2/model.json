@@ -100,7 +100,7 @@
           "type": "Text",
           "config": {
             "label": "Card 2 Description",
-            "placeholder": ""
+            "placeholder": "Max 100 char"
           }
         },
         "percentage_box": {

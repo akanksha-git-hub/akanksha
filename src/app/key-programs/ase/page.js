@@ -12,7 +12,7 @@ export default async function Page() {
 
     return(
         <main 
-            className={`${maxwidth} universal-padding`}
+        
         >
             <SliceZone 
                 slices={page.data.slices}

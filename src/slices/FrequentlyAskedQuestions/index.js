@@ -26,7 +26,7 @@ const FrequentlyAskedQuestions = ({ slice }) => {
             index={1}
             className="w-full"
             dataItems={slice.primary.faq}
-            titleClassName="text-deep-green text-left md:w-[28.3rem] text-7xl"
+            titleClassName="text-black text-left md:w-[28.3rem] text-7xl"
           />
         </div>
         <div className="w-full mt-12 xl:mt-0 xl:w-[45%] relative h-[22rem] md:h-[40rem] xl:h-[36rem]">
