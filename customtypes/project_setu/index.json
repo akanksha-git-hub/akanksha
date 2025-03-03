@@ -6,6 +6,21 @@
   "status": true,
   "json": {
     "Main": {
+      "download_text": {
+        "type": "Text",
+        "config": {
+          "label": "Download text",
+          "placeholder": ""
+        }
+      },
+      "pdf_link": {
+        "type": "Link",
+        "config": {
+          "label": "PDF Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

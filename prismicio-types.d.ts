@@ -3533,6 +3533,28 @@ type ProjectSetuDocumentDataSlicesSlice =
  */
 interface ProjectSetuDocumentData {
   /**
+   * Download text field in *Project Setu*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_setu.download_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  download_text: prismic.KeyTextField;
+
+  /**
+   * PDF Link field in *Project Setu*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_setu.pdf_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  pdf_link: prismic.LinkField;
+
+  /**
    * Slice Zone field in *Project Setu*
    *
    * - **Field Type**: Slice Zone
