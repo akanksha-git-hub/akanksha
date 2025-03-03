@@ -73,7 +73,7 @@ const ProgramShowcase = ({ slice }) => {
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <RichText
           text={slice.primary.title}
-          className="text-deep-green font-ambit-regular text-6xl md:text-center flex md:items-center md:justify-center max-w-[40ch] mt-16"
+          className="text-black font-ambit-regular text-6xl md:text-center flex md:items-center md:justify-center max-w-[40ch] mt-16"
         />
         {/* Swiper Component Container */}
 
@@ -344,7 +344,7 @@ const ProgramShowcase = ({ slice }) => {
             <div className="mt-16 lg:mt-0">
               <RichText
                 text={slice.primary.title}
-                className="text-black font-ambit-regular text-5xl lg:text-7xl lg:text-left max-w-[5ch] lg:mr-auto"
+                className="text-black font-ambit-regular text-3xl md:text-6xl lg:text-left max-w-[5ch] lg:mr-auto"
               />
               <RichText
                 text={slice.primary.description}

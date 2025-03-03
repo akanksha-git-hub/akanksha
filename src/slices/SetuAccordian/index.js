@@ -39,12 +39,12 @@ export default function FinancialsAccordion({ slice }) {
             <SliceIdentifier text={slice.primary.slice_identifier} />
             <RichText
               text={slice.primary.title}
-              className="font-ambit-regular text-7xl w-[18ch] text-left md:text-center mx-auto pt-24"
+              className="font-ambit-regular text-3xl md:text-6xl w-[18ch] text-left md:text-center mx-auto pt-24"
             />
           </>
         )}
 
-        <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2 w-full lg:w-[880px] 3xl:w-[1000px] lg:mx-auto mt-16">
+        <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2 w-full lg:w-[880px] 3xl:w-[1000px] lg:mx-auto mt-16 ">
             {[firstHalf, secondHalf].map((half, colIndex) => (
                 <div key={colIndex} >
                     {half.map((yearItem, index) => {
@@ -72,24 +72,30 @@ export default function FinancialsAccordion({ slice }) {
                                 </button>
 
                                 {/* Accordion Content */}
-                                {isOpen && (
-                                    <div className="mt-4 space-y-2">
-                                        {matchedDocuments.length > 0 ? (
-                                            matchedDocuments.map((doc, docIndex) => (
-                                                <PrismicLink 
-                                                    key={docIndex} 
-                                                    field={doc.link} 
-                                                    target="_blank"
-                                                    className="block text-green-600 hover:opacity-75 transition-all"
-                                                >
-                                                    {doc.title || "View Document"}
-                                                </PrismicLink>
-                                            ))
-                                        ) : (
-                                            <p className="text-gray-500">No documents available</p>
-                                        )}
-                                    </div>
-                                )}
+                             {/* Accordion Content */}
+<div
+    className={`transition-all duration-300 overflow-hidden ${
+        isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+    }`}
+>
+    <div className="mt-4 space-y-2 p-2">
+        {matchedDocuments.length > 0 ? (
+            matchedDocuments.map((doc, docIndex) => (
+                <PrismicLink
+                    key={docIndex}
+                    field={doc.link}
+                    target="_blank"
+                    className="block text-green-600 hover:opacity-75 transition-all"
+                >
+                    {doc.title || "View Document"}
+                </PrismicLink>
+            ))
+        ) : (
+            <p className="text-gray-500">No documents available</p>
+        )}
+    </div>
+</div>
+
                             </div>
                         );
                     })}
