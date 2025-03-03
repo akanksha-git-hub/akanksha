@@ -17,6 +17,7 @@ export default async function Page() {
             <SliceZone 
                 slices={page.data.slices}
                 components={components}
+                context={{addUniversalPadding:true}}
             />
         </main>
     )
