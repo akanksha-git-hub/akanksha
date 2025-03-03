@@ -11,7 +11,7 @@ export default function CardsTwoDesktopB({ data }) {
   return (
 
 
-    <ul className="flex items-center justify-center gap-4 xl:gap-4 my-24 relative  ">
+    <ul className="flex items-center justify-center gap-4 xl:gap-4 my-24 relative   ">
           
         {data.map((item, i) => {
             console.log(item);

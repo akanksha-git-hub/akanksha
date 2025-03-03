@@ -7,12 +7,11 @@ import { PrismicNextImage } from "@prismicio/next";
  */
 const SuccessRate2 = ({ slice }) => {
   return (
-    <>
     <section
            data-slice-type={slice.slice_type}
            data-slice-variation={slice.variation}
-         className=" universal-padding">
-          <div className="flex lg:flex-row flex-col lg:space-x-8 min-h-[300px] justify-stretch items-stretch relative ">
+         className=" ">
+          <div className="flex lg:flex-row flex-col lg:space-x-8 min-h-[300px] justify-stretch items-stretch universal-padding ">
                          <div className="flex flex-row   p-6 items-center justify-between lg:w-[50%] w-full  ">
                      
                                <div className="w-full h-full flex flex-col justify-around items-start ">
@@ -53,8 +52,18 @@ const SuccessRate2 = ({ slice }) => {
               
                
             </div>
+            <div className="-mt-8" >
+
          
-<div className="flex flex-row   p-6 items-center justify-between  w-full mt-12  ">
+<PrismicNextImage
+field={slice.primary.band_asset}
+height={920}
+width={1080}
+className="h-[70px] !w-screen object-cover "
+alt={"Card Image"}
+/>
+</div>
+<div className="flex flex-row   p-6 items-center justify-between  w-full universal-padding  ">
                      
                      <div className="w-full h-full flex flex-col justify-around items-start ">
                        <h1 className="font-ambit-regular text-black text-5xl md:text-7xl text-left ">
@@ -75,18 +84,6 @@ const SuccessRate2 = ({ slice }) => {
                  </div>
          </section>
          
-         <div className="absolute top-[313%]" >
-
-         
-<PrismicNextImage
-field={slice.primary.band_asset}
-height={920}
-width={1080}
-className="h-[70px]  !w-screen  object-cover "
-alt={"Card Image"}
-/>
-</div>
-</>
   );
 };
 

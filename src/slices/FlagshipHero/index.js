@@ -22,8 +22,8 @@ const FlagshipHero = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="relative mb-24"
-      >
+        className="relative mb-24 universal-padding"
+       >
         <div className="flex flex-col items-center justify-center space-y-12 mt-4">
           <RichText
             text={slice.primary.main_title}

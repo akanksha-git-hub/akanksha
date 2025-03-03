@@ -398,7 +398,7 @@ const SliderShowcase = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="my-24 relative"
+        className="my-24 relative "
       >
         <div>
           <SliceIdentifier text={slice.primary.slice_identifier} />
@@ -503,7 +503,7 @@ const SliderShowcase = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="relative mt-10"
+        className="relative mt-10 universal-padding"
       >
         <div>
           <SliceIdentifier text={slice.primary.slice_identifier} />
@@ -514,7 +514,7 @@ const SliderShowcase = ({ slice }) => {
             <div className=" xl:mt-0">
               <RichText
                 text={slice.primary.title}
-                className="text-black font-ambit-regular text-5xl lg:text-6xl lg:text-left max-w-[5ch] lg:mr-auto"
+                className="text-black font-ambit-regular text-5xl lg:text-6xl lg:text-left lg:max-w-[5ch] lg:mr-auto mb-8 xl:mb-0"
               />
             </div>
           </div>
@@ -565,7 +565,7 @@ const SliderShowcase = ({ slice }) => {
 
 <div className="flex gap-2 xl:gap-0 flex-col xl:flex-row    items-start justify-center">
    <ImageComponent
-                        className="w-full md:w-[42%] h-full"
+                        className="w-full xl:w-[42%] h-full"
                         image={item.image}
                       />
                     <div className="w-full  xl:h-[32.4rem] xl:w-[60%]  rounded-lg bg-[#58BCD4] p-8   flex flex-col items-center justify-center relative">
