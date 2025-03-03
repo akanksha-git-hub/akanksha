@@ -83,7 +83,7 @@ const FlagshipHero = ({ slice }) => {
           />
           <RichText
             text={slice.primary.description2}
-            className="font-ambit-regular text-black sm:text-center text-lg w-full max-w-[60ch]"
+            className="font-ambit-regular text-black sm:text-center text-xl w-full max-w-[60ch]"
           />
         </div>
 
