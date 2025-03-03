@@ -21,9 +21,18 @@ export default function NavItems({
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join(" ");
 
-  const toggleDropdown = (item) => {
-    setActiveDropdown((prev) => (prev === item ? null : item));
-  };
+      const toggleDropdown = (item) => {
+        const lowercaseItem = item.toLowerCase();
+        
+        if (activeDropdown === item) {
+          setActiveDropdown(null);
+          setDropdownId(null); 
+        } else {
+          setActiveDropdown(item);
+          setDropdownId(lowercaseItem);
+        }
+      };
+      
 
   const closeDropdown = () => setActiveDropdown(null);
 
