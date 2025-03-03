@@ -18,7 +18,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
  * @typedef {import("@prismicio/react").SliceComponentProps<SliderShowcaseSlice>} SliderShowcaseProps
  * @param {SliderShowcaseProps}
  */
-const SliderShowcase = ({ slice }) => {
+const SliderShowcase = ({ slice,context  }) => {
+  const addUniversalPadding = context.addUniversalPadding;
   const [current, setCurrent] = useState(0);
   const [sliderBIndex, setSliderBIndex] = useState(0);
 
@@ -503,7 +504,7 @@ const SliderShowcase = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="relative mt-10 universal-padding"
+        className={`relative mt-10 ${addUniversalPadding ? "universal-padding" : ""}`}
       >
         <div>
           <SliceIdentifier text={slice.primary.slice_identifier} />
