@@ -16,7 +16,7 @@ const GrowthImpact4 = ({ slice }) => {
             <div className="flex flex-col bg-[#ECF0F1] rounded-lg p-6 items-center justify-between lg:w-[50%] w-full relative">
          {/* Description */}
          <div className="w-full flex ">
-           <h1 className="font-ambit-semibold text-black text-5xl md:text-6xl text-center ">
+           <h1 className="font-ambit-semibold text-black text-5xl md:text-8xl text-center ">
              {slice.primary.card_1_heading}
            </h1>
          </div>

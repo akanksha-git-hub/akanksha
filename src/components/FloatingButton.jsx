@@ -43,7 +43,7 @@ export default function FloatingButton({ pdfUrl }) {
         className={`transition-all flex items-center ${
           isExpanded
             ? "w-80 h-20 bg-white shadow-lg rounded-md flex-row gap-x-4 justify-start px-4"
-            : "w-20 h-20 rounded-full justify-center"
+            : "w-20 h-24 bg-bright-yellow rounded-2xl justify-center"
         } text-black`}
         onClick={toggleButton}
       >
@@ -58,7 +58,7 @@ export default function FloatingButton({ pdfUrl }) {
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    window.open(pdfUrl, "_blank"); // ✅ Opens the file in a new tab
+                    window.open(pdfUrl, "_blank"); 
                   }}
                   className="flex items-center gap-1 text-sm underline"
                 >
@@ -73,7 +73,7 @@ export default function FloatingButton({ pdfUrl }) {
         ) : (
           <div className="relative">
             <Image src="/file.png" alt="Expand button" width={44} height={44} />
-            {/* 🔴 Red Dot Notification */}
+    
             <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"></div>
           </div>
         )}

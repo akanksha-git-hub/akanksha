@@ -11,11 +11,11 @@ const GrowthImpact5 = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="flex flex-col lg:flex-row items-center justify-between space-x-6 px-8 py-6 w-full">
+      <div className="flex flex-col lg:flex-row items-center justify-between space-x-6  py-6 w-full ">
   {/* Left Section */}
   <div className="flex flex-col lg:flex-row items-center lg:items-start">
     {/* Growth Box */}
-    <div className="bg-[#FBDA1D] text-black p-8 rounded-[80px] flex items-center justify-center min-h-[300px] w-full lg:w-auto">
+    <div className="bg-[#FBDA1D] text-black p-8 rounded-[80px] flex items-center justify-center min-h-[250px] min-w-52 lg:w-auto">
       <p className="text-left text-6xl font-ambit-regular">
         {slice.primary.card_1_title}<br />
         <p className="text-2xl font-ambit-regular mt-4">{slice.primary.card_1_description}</p>
@@ -24,19 +24,19 @@ const GrowthImpact5 = ({ slice }) => {
   </div>
 
   {/* Middle Section */}
-  <div className="flex flex-col items-center lg:items-start justify-around min-h-[300px] mt-6 lg:mt-0 w-full lg:w-auto ">
-    <p className="text-4xl font-ambit-regular w-[16ch] text-center lg:text-left">
+  <div className="flex flex-col items-center justify-center min-h-[250px] mt-6 lg:mt-0 w-full  ">
+    <p className="text-4xl font-ambit-regular  ">
       {slice.primary.card_2_title}
     </p>
     {/* Roles */}
     <div className="flex flex-wrap justify-center lg:justify-start space-x-4  mt-2">
-      <span className="bg-[#55BBD3] text-black px-8 py-4 rounded-full text-xl">
+      <span className="bg-[#55BBD3] text-black px-8 py-4 rounded-full text-xl mt-2">
         {slice.primary.role_1}
       </span>
-      <span className="bg-[#FBDA1D] text-black px-8 py-4 rounded-full text-xl">
+      <span className="bg-[#FBDA1D] text-black px-8 py-4 rounded-full text-xl mt-2 ">
         {slice.primary.role_2}
       </span>
-      <span className="bg-[#F6AC27] text-black px-8 py-4 rounded-full text-xl mt-2 lg:mt-0">
+      <span className="bg-[#F6AC27] text-black px-8 py-4 rounded-full text-xl mt-2 ">
         {slice.primary.role_3}
       </span>
     </div>
