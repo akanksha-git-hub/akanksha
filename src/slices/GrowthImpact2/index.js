@@ -15,7 +15,7 @@ const GrowthImpact2 = ({ slice }) => {
       <div className="flex md:flex-row flex-col md:space-x-6  min-h-[400px]">
         <div className="flex flex-col  bg-[#ECF0F1] rounded-lg p-8 items-center justify-end  md:w-[40%] w-full relative">
           <div className="w-[100%]  flex flex-col mt-10">
-            <h1 className="font-ambit-regular text-black text-6xl lg:text-7xl xl:text-8xl w-[2ch] items-center">
+            <h1 className="font-ambit-regular text-black text-5xl md:text-7xl w-[2ch] items-center">
               {slice.primary.card_1_percentage}
             </h1>
             <p className="font-ambit-regular text-lg  md:text-3xl w-[20ch] ">
@@ -36,7 +36,7 @@ const GrowthImpact2 = ({ slice }) => {
         <div className="flex flex-col md:flex-row bg-[#ECF0F1] rounded-lg p-8 md:mt-0 mt-6 md:w-[60%]  w-full relative">
           {/* Left Section */}
           <div className="w-full md:w-[70%]  flex flex-col items-left justify-between ">
-            <h1 className="font-ambit-regular text-black text-6xl md:text-7xl ">
+            <h1 className="font-ambit-regular text-black text-5xl md:text-7xl">
               {slice.primary.card_2_title}
             </h1>
             <p className="font-ambit-regular text-lg md:text-2xl w-[18ch]">
