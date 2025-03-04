@@ -98,7 +98,7 @@ const IconShowcase = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="my-12 relative"
       >
-        <div className="mb-24 md:space-y-14 space-y-8">
+        <div className="mb-24 md:space-y-10 space-y-8">
           <SliceIdentifier text={slice.primary.slice_identifier} />
           <RichText
             text={slice.primary.small_title}
@@ -121,7 +121,7 @@ const IconShowcase = ({ slice }) => {
               return (
                 <li
                   key={item.title}
-                  className="flex flex-col items-left justify-center space-y-4 w-full md:max-w-[300px] "
+                  className="flex flex-col items-left justify-center space-y-4 w-full md:max-w-[360px] "
                 >
                   <div className="h-28 w-28 rounded-full flex items-center justify-center">
                     {item.isanimatedicon ? (
