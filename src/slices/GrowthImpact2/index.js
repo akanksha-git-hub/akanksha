@@ -12,13 +12,13 @@ const GrowthImpact2 = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="mt-6"
     >
-      <div className="flex md:flex-row flex-col md:space-x-6  min-h-[400px]">
-        <div className="flex flex-col  bg-[#ECF0F1] rounded-lg p-8 items-center justify-end  md:w-[40%] w-full relative">
+      <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[400px]">
+        <div className="flex flex-col  bg-[#ECF0F1] rounded-lg p-8 items-center justify-end  lg:w-[40%] w-full relative">
           <div className="w-[100%]  flex flex-col mt-10">
             <h1 className="font-ambit-regular text-black text-5xl md:text-7xl w-[2ch] items-center">
               {slice.primary.card_1_percentage}
             </h1>
-            <p className="font-ambit-regular text-lg  md:text-3xl w-[20ch] ">
+            <p className="font-ambit-regular text-lg  lg:text-3xl w-[20ch] ">
               {slice.primary.card_1_description}
             </p>
           </div>
@@ -33,10 +33,10 @@ const GrowthImpact2 = ({ slice }) => {
             />
           </div>
         </div>
-        <div className="flex flex-col md:flex-row bg-[#ECF0F1] rounded-lg p-8 md:mt-0 mt-6 md:w-[60%]  w-full relative">
+        <div className="flex flex-col md:flex-row bg-[#ECF0F1] rounded-lg p-8 lg:mt-0 mt-6 lg:w-[60%]  w-full relative">
           {/* Left Section */}
           <div className="w-full md:w-[70%]  flex flex-col items-left justify-between ">
-            <h1 className="font-ambit-regular text-black text-5xl md:text-7xl">
+            <h1 className="font-ambit-regular text-black text-5xl xl:text-7xl">
               {slice.primary.card_2_title}
             </h1>
             <p className="font-ambit-regular text-lg md:text-2xl w-[18ch]">
@@ -47,7 +47,7 @@ const GrowthImpact2 = ({ slice }) => {
           {/* Right Section */}
           <div className="w-full md:w-[30%] h-full flex flex-col items-right justify-center">
             {/* First Box */}
-            <div className="w-full bg-[#FBDA1D] mt-6 md:mt-0 text-black text-center md:py-10 py-6  flex flex-col items-center justify-center rounded-full">
+            <div className="w-full bg-[#FBDA1D] mt-6 md:mt-0 text-black text-center md:py-10 py-6 px-3  flex flex-col items-center justify-center rounded-full">
               <h2 className="text-4xl font-bold">32%</h2>
               <p className="text-lg">
                 {slice.primary.card_2_button_1_description}
@@ -55,7 +55,7 @@ const GrowthImpact2 = ({ slice }) => {
             </div>
 
             {/* Second Box */}
-            <div className="w-full bg-[#F4456E] text-black text-center md:py-10 py-6 flex flex-col items-center justify-center rounded-full">
+            <div className="w-full bg-[#F4456E] text-black text-center md:py-10 py-6 px-3 flex flex-col items-center justify-center rounded-full">
               <h2 className="text-4xl font-bold">
                 {slice.primary.card_2_buttton_2_header}
               </h2>
