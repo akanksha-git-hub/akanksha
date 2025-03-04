@@ -18,7 +18,7 @@ const GrowthImpact = ({ slice }) => {
       <h1 className="font-ambit-regular text-3xl md:text-6xl text-center mt-10 ">
         {slice.primary.title}
       </h1>
-      <div className="flex flex-col lg:flex-row bg-[#ECF0F1] rounded-lg p-12 mt-8 xl:max-h-[600px] w-full">
+      <div className="flex flex-col lg:flex-row bg-[#ECF0F1] rounded-lg p-12 mt-8  w-full">
         <div className="w-[100%] lg:w-[50%] flex flex-col">
           <h1 className="font-ambit-regular text-black text-5xl md:text-7xl w-[2ch] ">
             {slice.primary.card_1_title}
@@ -27,7 +27,7 @@ const GrowthImpact = ({ slice }) => {
             {slice.primary.card_1_description}
           </p>
         </div>
-        <div className="w-[100%] lg:w-[50%] flex flex-col ">
+        <div className="w-[100%] lg:w-[50%] flex flex-col h-full ">
           <PrismicNextImage
             height={300}
             width={300}
