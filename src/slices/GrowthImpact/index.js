@@ -18,22 +18,22 @@ const GrowthImpact = ({ slice }) => {
       <h1 className="font-ambit-regular text-3xl md:text-6xl text-center mt-10 ">
         {slice.primary.title}
       </h1>
-      <div className="flex flex-col lg:flex-row bg-[#ECF0F1] rounded-lg p-12 mt-8  w-full">
-        <div className="w-[100%] lg:w-[50%] flex flex-col">
-          <h1 className="font-ambit-regular text-black text-5xl md:text-7xl w-[2ch] ">
+      <div className="flex flex-col lg:flex-row bg-[#ECF0F1] rounded-lg  py-12  mt-8 w-full ">
+        <div className="w-[100%] lg:w-[60%] flex flex-col px-12">
+          <h1 className="font-ambit-regular text-black text-4xl xl:text-7xl w-[2ch] ">
             {slice.primary.card_1_title}
           </h1>
           <p className="font-ambit-regular text-lg  md:text-3xl w-[20ch] mt-auto">
             {slice.primary.card_1_description}
           </p>
         </div>
-        <div className="w-[100%] lg:w-[50%] flex flex-col h-full ">
+        <div className="w-[100%] lg:w-[40%] flex flex-col h-full p-8    ">
           <PrismicNextImage
-            height={300}
-            width={300}
+            height={200}
+            width={200}
             loading="eager"
             field={slice.primary.card_1_image}
-            className="h-full w-full object-cover"
+            className=" w-full h-[350px] object-fill "
             alt="growth image"
           />
         </div>
