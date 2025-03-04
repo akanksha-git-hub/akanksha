@@ -103,7 +103,7 @@ const StudentVision = ({ slice, context }) => {
           <h1 className="mt-8  text-3xl md:text-6xl text-center w-[18ch] font-ambit-regular">
             {slice.primary.title}
           </h1>
-          <p className="md:text-center md:w-[40%] font-ambit-regular mt-4 text-left">
+          <p className="md:text-center md:w-[40%] font-ambit-regular mt-4 text-left text-xl">
             {slice.primary.description}
           </p>
           <PrismicNextImage
