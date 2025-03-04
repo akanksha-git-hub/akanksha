@@ -48,7 +48,7 @@ const GrowthImpact3 = ({ slice }) => {
       <div className="w-full lg:w-[50%] flex flex-col items-center justify-center ">
         <PrismicNextImage 
           field={slice.primary.card_2_asset} 
-          className="max-w-[300px] max-h-[300px]   object-cover"
+          className="xl:w-[300px] xl:h-[300px] h-[200px] w-[200px]  object-cover"
           alt={"Card Image"}
         />
       </div>
