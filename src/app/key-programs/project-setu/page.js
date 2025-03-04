@@ -12,13 +12,14 @@ export default async function Page() {
 
  
   const pdfUrl = page.data.pdf_link?.url || null; 
+  const text = page.data.download_text || null; 
 
   return (
     <main className={`${maxwidth} universal-padding`}>
       <SliceZone slices={page.data.slices} components={components} />
       
       
-      <FloatingButton pdfUrl={pdfUrl} />
+      <FloatingButton pdfUrl={pdfUrl} text={text} />
     </main>
   );
 }

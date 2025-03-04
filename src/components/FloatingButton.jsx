@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
-export default function FloatingButton({ pdfUrl }) {
+export default function FloatingButton({ pdfUrl,text }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const buttonRef = useRef(null);
   const [isClient, setIsClient] = useState(false); // ✅ Ensures client-side rendering
@@ -51,7 +51,7 @@ export default function FloatingButton({ pdfUrl }) {
           <>
             <Image src="/file.png" alt="Expand button" width={38} height={38} />
             <div className="flex flex-col gap-2">
-              <span className="text-base">Explorers of knowledge unite</span>
+              <span className="text-base">{text}</span>
 
               {/* ✅ Button triggers direct download */}
               {pdfUrl ? (
