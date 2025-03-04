@@ -171,7 +171,7 @@ const Testimonial = ({ slice, context }) => {
               alt=""
               height={80}
               width={80}
-              className="absolute bottom-[18%] left-1/2 transform -translate-x-1/2 w-full"
+              className="absolute bottom-[22%] left-1/2 transform -translate-x-1/2 w-full"
             />
 
             <div className="min-h-[28rem] flex flex-col justify-between">
