@@ -68,7 +68,7 @@ export default async function FooterMain() {
           />
           <FooterContact />
         </Footer.Header>
-        <Footer.Navigation className="relative sm:left-12 grid grid-cols-[repeat(auto-fit,minmax(80px,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-6">
+        <Footer.Navigation className="relative sm:left-2 grid grid-cols-[repeat(auto-fit,minmax(80px,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-6 ">
           <FooterNavigationItems
         
           
