@@ -12,11 +12,11 @@ const GrowthImpact4 = ({ slice }) => {
             data-slice-variation={slice.variation}
             className="mt-6"
           >
-            <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[400px]">
+            <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[300px] xl:min-h-[350px]">
             <div className="flex flex-col bg-[#ECF0F1] rounded-lg p-6 items-center justify-between lg:w-[50%] w-full relative">
          {/* Description */}
-         <div className="w-full flex ">
-           <h1 className="font-ambit-semibold text-black text-5xl md:text-8xl text-center ">
+         <div className="w-full  ">
+           <h1 className="font-ambit-regular text-black text-4xl xl:text-6xl text-center ">
              {slice.primary.card_1_heading}
            </h1>
          </div>
@@ -26,14 +26,14 @@ const GrowthImpact4 = ({ slice }) => {
      {/* First Chart */}
      <div className="flex md:flex-row flex-col   md:items-end md:justify-between items-center justify-center mt-6 md:mt-0 w-full h-full  ">
      
-           <h1 className="font-ambit-semibold text-black md:text-3xl text-xl md:w-[15ch]  md:text-left  leading-snug">
+           <h1 className="font-ambit-regular text-black xl:text-3xl text-xl md:w-[15ch]  xl:text-left  leading-snug">
              {slice.primary.card_1_description}
            </h1>
          
        
          <PrismicNextImage 
              field= {slice.primary.card_1_asset} 
-             className="max-w-[300px] max-h-[300px] object-cover"
+             className="xl:max-w-[300px] xl:max-h-[300px] object-cover p-2"
              alt={"Card Image"}
            />
           
@@ -49,15 +49,20 @@ const GrowthImpact4 = ({ slice }) => {
        </div>
        <div className="flex flex-col bg-[#ECF0F1] rounded-lg p-6 mt-6  lg:mt-0  items-center justify-between lg:w-[50%] w-full relative">
          {/* Description */}
-         <div className="w-full flex md:flex-row flex-col items-center justify-center md:items-end ">
-           <h1 className="font-ambit-regular text-black text-5xl md:text-7xl text-left w-[8ch] ">
+         <div className="w-full flex flex-row  items-center justify-between   ">
+         <div>
+           <h1 className="font-ambit-regular text-black text-4xl xl:text-7xl text-left w-[5ch]  ">
              {slice.primary.card_2_heading}
            </h1>
+           </div>
+           <div className="">
+
            <PrismicNextImage 
              field= {slice.primary.card_2_asset} 
-             className="max-w-[300px] max-h-[300px] object-cover"
+             className="xl:max-w-[300px] xl:max-h-[300px] max-w-[120px] max-h-[120px] object-cover "
              alt={"Card Image"}
-           />
+             />
+             </div>
          </div>
    
        
@@ -65,7 +70,7 @@ const GrowthImpact4 = ({ slice }) => {
      {/* First Chart */}
      <div className="flex md:flex-row flex-col   md:items-end md:justify-between items-center justify-center mt-6 md:mt-0 w-full h-full  ">
      
-           <p className="font-ambit-regular text-black md:text-3xl text-xl  md:text-left  leading-snug">
+           <p className="font-ambit-regular text-black xl:text-3xl text-xl  md:text-left  leading-snug">
              {slice.primary.card_2_description}
            </p>
          
