@@ -229,7 +229,7 @@ const StudentVision = ({ slice, context }) => {
           alt=""
         />
 
-        <p className="text-center w-[50%] text-lg font-ambit-regular mt-4">
+        <p className="text-center md:w-[50%] w-full text-lg font-ambit-regular mt-4">
           {slice.primary.description[trackIndex].desc}
         </p>
 
