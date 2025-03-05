@@ -399,14 +399,14 @@ const SliderShowcase = ({ slice,context  }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="my-24 relative "
+        className="my-10 relative  "
       >
         <div>
           <SliceIdentifier text={slice.primary.slice_identifier} />
         </div>
-        <div className="rounded-lg flex flex-col lg:flex-row items-center justify-center gap-16 w-full mt-20">
+        <div className="rounded-lg flex flex-col lg:flex-row items-center justify-center gap-16 w-full mt-10">
           <div className="w-full lg:w-[50%] ">
-            <ul className="pb-2 flex items-start justify-start w-full lg:w-[400px] xl:w-[600px] mx-auto lg:mx-0 mb-6">
+            <ul className=" flex items-start justify-start w-full lg:w-[400px] xl:w-[600px] mx-auto lg:mx-0 ">
               <Swiper
                 ref={storyRef}
                 className="w-[90%] sm:w-screen flex items-start"
@@ -459,7 +459,7 @@ const SliderShowcase = ({ slice,context  }) => {
               })}
             </Swiper>
           </div>
-          <div className="flex flex-col items-start justify-between w-full lg:w-[40%] h-[400px] sm:h-[420px] 3xl:h-[500px] lg:mt-8 ">
+          <div className="flex flex-col items-start justify-between w-full lg:w-[40%] lg:mt-8 ">
             {/* Title and Description Section */}
             <div className="flex flex-col space-y-4">
               <RichText
@@ -475,7 +475,7 @@ const SliderShowcase = ({ slice,context  }) => {
             </div>
 
             {/* Swiper Arrows at the Bottom */}
-            <div className="mt-auto flex gap-2">
+            <div className=" flex gap-2 mt-8">
               <SwiperArrow
                 strokeColor="#37473C"
                 className="rotate-180"
