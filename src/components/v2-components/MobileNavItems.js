@@ -48,7 +48,7 @@ export default function MobileNavItems({
             className={`overflow-hidden transition-all duration-300 ease-in-out w-full`}
             style={{
               maxHeight: isActive
-                ? `${dropdownRefs.current[index]?.scrollHeight}px`
+                ? `1000px`
                 : "0px",
               opacity: isActive ? 1 : 0,
             }}
