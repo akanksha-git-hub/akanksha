@@ -399,7 +399,7 @@ const SliderShowcase = ({ slice,context  }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="my-10 relative  "
+        className="my-24 relative  "
       >
         <div>
           <SliceIdentifier text={slice.primary.slice_identifier} />
