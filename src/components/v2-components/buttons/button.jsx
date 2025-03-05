@@ -27,11 +27,12 @@ const Button = forwardRef(function Button(
 
       {/* Background effect that stays behind */}
       <div
-        className="w-full h-full absolute top-0 left-0 rounded-full
-                   overflow-hidden opacity-0 group-hover:opacity-100
-                   group-hover:top-[7px] z-[0]
-                   custom-bezier pointer-events-none"
-      >
+  className="w-full h-full absolute top-0 left-0 rounded-full
+             overflow-hidden opacity-0 group-hover:opacity-100 group-active:opacity-100
+             group-hover:top-[7px] group-active:top-[7px]
+             z-[0] custom-bezier pointer-events-none"
+>
+
         <div className="h-full w-full relative">
           <Image alt="pencil-shading" className="object-cover" src={PencilShading} fill />
         </div>
