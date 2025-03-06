@@ -86,7 +86,7 @@ const MissionVision = ({ slice, context }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className={`${removePagePadding ? " " : "universal-padding"} mt-0`}
+        className={`${removePagePadding ? " " : "universal-padding"} mt-8`}
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <div className="lg:grid lg:grid-cols-[auto,1fr,auto]  items-center mt-10 md:mt-24">
@@ -290,7 +290,7 @@ const MissionVision = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`relative universal-padding mt-0 ${slice.variation === "doubleCtaComponent" && "mb-36"}`}
+      className={`relative universal-padding mt-0 ${slice.variation === "doubleCtaComponent" && ""}`}
     >
       {slice.variation !== "doubleCtaComponent" && (
         <SliceIdentifier text={slice.primary.slice_identifier} />
