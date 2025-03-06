@@ -38,7 +38,7 @@ export default function ContactTabComponent({ data }) {
 
   return (
     <div className="relative w-full min-h-screen">
-      {/* Background Image with Reduced Size */}
+     
       <div className=" lg:block hidden absolute top-80 left-4 w-[500px] h-[500px] opacity-80 -z-10">
         <Image
           src={currentBgImage}
