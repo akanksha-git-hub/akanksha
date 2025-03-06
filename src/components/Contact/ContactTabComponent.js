@@ -21,8 +21,6 @@ export default function ContactTabComponent({ data }) {
   const normalizedActiveValue = activeValue.toLowerCase().replace(/\./g, "");
   const currentBgImage = backgroundImages[normalizedActiveValue] || "/default-bg.jpg";
 
-  console.log("Active Location:", activeValue, "| Normalized:", normalizedActiveValue);
-  console.log("Background Image:", currentBgImage);
 
   const uniqueSet = [
     ...new Set(
@@ -52,7 +50,7 @@ export default function ContactTabComponent({ data }) {
         />
       </div>
 
-      <ul className="flex md:justify-center md:flex-wrap gap-12 md:gap-24 2xl:gap-56 text-nowrap whitespace-nowrap overflow-x-scroll md:overflow-x-hidden mt-24">
+      <ul className="flex md:justify-center flex-wrap gap-12 md:gap-24 2xl:gap-56 text-nowrap whitespace-nowrap overflow-x-hidden mt-24">
         {uniqueSet.map((item) => (
           <li
             onClick={() => setActiveValue(item.lowerCaseValue)}
@@ -66,7 +64,7 @@ export default function ContactTabComponent({ data }) {
         ))}
       </ul>
 
-      <div className="mt-44 flex flex-col xl:flex-row items-start justify-between">
+      <div className=" mt-8 md:mt-44 flex flex-col xl:flex-row items-start justify-between">
         <ul className="bg-[#FBDA1D] w-full mb-24 xl:mb-0 xl:w-fit p-6 rounded-[10px] relative">
           {tabContent.map((item) => (
             <li
