@@ -16,13 +16,13 @@ export default function SlideSelector({
     <li
       onClick={onClick}
       className={`
-      border-t border-[#D7D7CD] min-h-[10.8rem] overflow-hidden
+      xl:border-t  xl:border-[#D7D7CD] xl:min-h-[10.8rem] overflow-hidden
       p-2 cursor-pointer transition-all  flex flex-col justify-center items-start
       ${trackIndex === index ? "opacity-100" : "opacity-55"} ${className}
     `}
     >
       {isOptionB && (
-        <p className="font-ambit-semibold text-deep-green uppercase">
+        <p className="font-ambit-semibold text-black uppercase">
           <span>
             {date.startMonth}
             {date.startYear}
@@ -36,12 +36,12 @@ export default function SlideSelector({
       )}
       <div className="flex items-center justify-between ">
         <RichText
-          className="text-black max-w-[80] text-xl 2xl:text-2xl font-inter"
+          className="text-black max-w-[80] text-2xl xl:text-2xl font-ambit-regular"
           text={name}
         />
       </div>
       <RichText
-        className="text-black font-inter w-[80%] 2xl:w-full text-sm 2xl:text-base "
+        className="text-black font-ambit-regular w-[80%] 2xl:w-full text-sm 2xl:text-base "
         text={short_content}
       />
     </li>
