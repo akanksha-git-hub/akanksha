@@ -227,11 +227,11 @@ const IconShowcase = ({ slice }) => {
                   <div className="space-y-2">
                     <RichText
                       text={item.title}
-                      className="text-deep-green font-ambit-semibold text-2xl"
+                      className="text-black font-ambit-semibold text-2xl"
                     />
                     <RichText
                       text={item.description}
-                      className="text-deep-green font-ambit-regular text-lg"
+                      className="text-black font-ambit-regular text-lg"
                     />
                   </div>
                 </li>
