@@ -569,7 +569,7 @@ const ProgramShowcase = ({ slice }) => {
     >
       {/* Swiper Component Container */}
       <div className="h-auto xl:h-[32.4rem] flex gap-12  ">
-        <ul className="h-full hidden xl:block w-[20%] xl:w-[25%] ">
+        <ul className="h-full hidden xl:block w-[20%] xl:w-[25%]  ">
           <Swiper
             direction="vertical"
             className="h-full"
@@ -652,7 +652,7 @@ const ProgramShowcase = ({ slice }) => {
         xl:mt-0 xl:justify-normal "
       >
         <SlideSelector
-          className="block w-3/4 xl:hidden"
+          className="block full xl:hidden"
           key={slice.primary.program_showcase_content[trackIndex].name}
           name={slice.primary.program_showcase_content[trackIndex].name}
           short_content={
@@ -664,7 +664,7 @@ const ProgramShowcase = ({ slice }) => {
           trackIndex={trackIndex}
           index={trackIndex}
         />
-        <div className="flex gap-2 mt-24 mx-auto">
+        <div className="flex gap-2 mt-24 mx-auto ">
           <SwiperArrow
             isDisabled={trackIndex === 0}
             className="rotate-180"
