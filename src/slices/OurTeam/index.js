@@ -31,7 +31,7 @@ const OurTeam = ({ slice }) => {
       <div className="inline-padding">
         <SliceIdentifier text={slice.primary.slice_identifier} />
       </div>
-      <div className="universal-padding no-padding ">
+      <div className="mt-8  ">
         {/* <MixedText 
           // texts={slice.primary.slice_identifier}
           texts="Our board"
