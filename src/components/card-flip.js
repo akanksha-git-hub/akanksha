@@ -5,7 +5,7 @@ import Image from "next/image";
 import { PrismicRichText } from "@prismicio/react";
 import { useSmoothScroller } from "@/components/LenisScrollContext"; // ✅ Import Lenis context
 
-export default function CardFlip({ item, i, isSchoolLeaders = false }) {
+export default function CardFlip({ item, i, isSchoolLeaders = false ,isTeam }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { stopScroll, startScroll } = useSmoothScroller(); // ✅ Lenis Scroll Control
 
@@ -65,7 +65,7 @@ export default function CardFlip({ item, i, isSchoolLeaders = false }) {
                             {item.position}
                         </span>
 
-                        {!isSchoolLeaders && (
+                        {isTeam &&  (
                             <span 
                                 className="text-[#F6AC27] text-2xl pt-2 hover:cursor-pointer"
                                 onClick={() => setIsModalOpen(true)}

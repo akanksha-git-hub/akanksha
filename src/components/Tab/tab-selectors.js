@@ -17,7 +17,7 @@ import PinLocation from "@/assets/pin-location.svg";
                             onClick={() => handleClick(i, item.lowerCaseValue)}
                             key={item.originalValue}
                             className={`
-                                text-deep-green font-ambit-regular text-3xl cursor-pointer transition-all flex items-center
+                                text-black font-ambit-regular text-3xl cursor-pointer transition-all flex  items-center
                                 ${index === i ? 'opacity-100' : 'opacity-45'}`}
                         >
                             <Image 

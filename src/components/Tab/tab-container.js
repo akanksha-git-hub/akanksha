@@ -18,7 +18,7 @@ const TabContainer = memo(function TabContainer({ tabValues, data, RenderElement
     return (
         <>
         <ul 
-            className="flex md:justify-center md:flex-wrap gap-24 text-nowrap whitespace-nowrap overflow-x-scroll md:overflow-x-hidden mt-12"
+            className="flex md:justify-center  flex-wrap md:gap-24 gap-8 text-nowrap whitespace-nowrap overflow-x-hidden mt-12"
         >
             <TabSelectors 
                 values={tabValues}
