@@ -22,14 +22,14 @@ const ShowcaseV2 = ({ slice }) => {
             text={slice.primary.title}
             className="font-ambit-regular text-black text-5xl md:text-6xl max-w-[14ch] tracking-tight"
           />
-         <div className="flex flex-row space-x-2">          
-          <Button prismicLink={slice.primary.cta_link}>
+         <div className="flex flex-row flex-wrap gap-2 ">          
+          <Button prismicLink={slice.primary.cta_link} className="mt-2">
             {slice.primary.cta_text}
           </Button>
-          <Button prismicLink={slice.primary.cta_link_2}>
+          <Button prismicLink={slice.primary.cta_link_2} className="mt-2">
             {slice.primary.cta_text_2}
           </Button>
-          <Button prismicLink={slice.primary.cta_link_3}>
+          <Button prismicLink={slice.primary.cta_link_3} className="mt-2">
             {slice.primary.cta_text_3}
           </Button>
           </div>
