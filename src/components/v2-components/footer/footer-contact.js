@@ -7,7 +7,7 @@ export default function FooterContact() {
   return (
 <div className="flex flex-row space-x-6">
     {/* LinkedIn */}
-    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="h-8 w-8">
+    <a href="https://www.linkedin.com/company/theakankshafoundation/" target="_blank" rel="noopener noreferrer" className="h-8 w-8">
         <Image 
             src="/linkedin.svg" 
             alt="LinkedIn"
@@ -18,7 +18,7 @@ export default function FooterContact() {
     </a>
 
     {/* Instagram */}
-    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="h-8 w-8">
+    <a href="https://www.instagram.com/theakankshafoundation?igsh=d2I1ZzEyYWN6YW9j" target="_blank" rel="noopener noreferrer" className="h-8 w-8">
         <Image 
             src="/instagram.svg" 
             alt="Instagram"
@@ -29,7 +29,7 @@ export default function FooterContact() {
     </a>
 
     {/* YouTube */}
-    <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="h-8 w-8">
+    <a href="https://youtube.com/@theakankshafoundation6454?si=OU7En5iCu66_Jh8X" target="_blank" rel="noopener noreferrer" className="h-8 w-8">
         <Image 
             src="/youtube.svg" 
             alt="YouTube"
@@ -40,7 +40,7 @@ export default function FooterContact() {
     </a>
 
     {/* Facebook */}
-    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="h-8 w-8">
+    <a href="https://www.facebook.com/share/1Qi4iA5tNu/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="h-8 w-8">
         <Image 
             src="/facebook.svg" 
             alt="Facebook"
@@ -51,7 +51,7 @@ export default function FooterContact() {
     </a>
 
     {/* Twitter (X) */}
-    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="h-8 w-8">
+    <a href="https://x.com/akanksha_india?s=21" target="_blank" rel="noopener noreferrer" className="h-8 w-8">
         <Image 
             src="/twitter.svg" 
             alt="Twitter (X)"
