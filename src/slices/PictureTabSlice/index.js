@@ -12,6 +12,8 @@ const PictureTabSlice = ({ slice, context }) => {
 
 
   const isSchoolLeaders = context?.id === "school-leaders"; 
+  const isTeam = context?.id === "the-team"; 
+ 
 
 
   const isTab = slice.primary.enable_tabs;
@@ -45,6 +47,7 @@ const PictureTabSlice = ({ slice, context }) => {
               i={index} 
               item={item} 
               isSchoolLeaders={isSchoolLeaders} 
+              isTeam = {isTeam}
             />
           ))}
         </ul>
