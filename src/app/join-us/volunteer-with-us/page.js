@@ -13,7 +13,7 @@ export default async function Page() {
     const removePagePadding = true
     return(
         <main className={`${maxwidth} universal-padding mt-16`}>
-           <div className="flex items-center justify-center gap-2 md:gap-10 mb-10">
+           <div className="flex items-center justify-center gap-2 md:gap-10 mb-10 ">
             {/* Left Side Image */}
             {page.data.left_image?.url && (
               <PrismicNextImage  
@@ -23,7 +23,7 @@ export default async function Page() {
             )}
           
             {/* Title */}
-            <div className="flex flex-col">
+            <div className="flex flex-col ">
             <RichText 
                 text={page.data.title}
                 className="flex items-center justify-center text-black  text-center   md:text-7xl  !mb-12
@@ -34,7 +34,7 @@ export default async function Page() {
               3xl:text-8xl  "
               /> <RichText 
               text={page.data.sub_title}
-              className="flex items-center justify-center text-black   text-lg md:text-3xl  !mb-12  "
+              className="flex items-center justify-center text-black text-center  text-lg md:text-3xl  !mb-12  "
             />
             </div>
             {/* Right Side Image */}

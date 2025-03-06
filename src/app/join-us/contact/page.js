@@ -20,7 +20,7 @@ export default async function Page() {
             className={`${maxwidth} universal-padding relative`}
         >
            
-              <div className="flex items-center justify-center gap-2 md:gap-10 mb-10">
+              <div className="flex items-center justify-center  md:gap-10 mb-10">
                         {/* Left Side Image */}
                         {page.data.left_image?.url && (
                           <PrismicNextImage  
@@ -30,10 +30,10 @@ export default async function Page() {
                         )}
                       
                         {/* Title */}
-                        <div className="flex flex-col">
+                        <div className="flex flex-col ">
                         <RichText 
                             text={page.data.title}
-                            className="flex items-center justify-center text-black   text-center md:text-7xl  !mb-12 text-4xl sm:text-6xl xl:text-7xl 3xl:text-8xl "
+                            className="flex items-center justify-center text-black   text-center md:text-7xl  !mb-12 text-3xl  xl:text-7xl 3xl:text-8xl "
                           /> <RichText
                           text={page.data.sub_title}
                           className="flex items-center justify-center text-black  text-center   md:text-xl  !mb-12 text-base sm:text-xl 3xl:text-2xl"
