@@ -175,7 +175,7 @@ const IconShowcase = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="universal-padding my-12"
+        className=" my-12"
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <RichText
