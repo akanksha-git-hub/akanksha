@@ -46,6 +46,13 @@
                   "label": "desc",
                   "placeholder": ""
                 }
+              },
+              "bg_color": {
+                "type": "Text",
+                "config": {
+                  "label": "BG Color",
+                  "placeholder": ""
+                }
               }
             }
           }

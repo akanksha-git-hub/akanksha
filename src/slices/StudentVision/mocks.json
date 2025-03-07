@@ -49,6 +49,14 @@
 									"value": "radio",
 									"type": "Text"
 								}
+							],
+							[
+								"bg_color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "has",
+									"type": "Text"
+								}
 							]
 						]
 					}

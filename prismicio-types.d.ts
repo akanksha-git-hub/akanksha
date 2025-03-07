@@ -13382,6 +13382,16 @@ export interface StudentVisionSliceDefaultPrimaryDescriptionItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   desc: prismic.KeyTextField;
+
+  /**
+   * BG Color field in *StudentVision → Default → Primary → description*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.default.primary.description[].bg_color
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  bg_color: prismic.KeyTextField;
 }
 
 /**

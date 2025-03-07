@@ -229,9 +229,16 @@ const StudentVision = ({ slice, context }) => {
           alt=""
         />
 
-        <p className="text-center md:w-[50%] w-full text-lg font-ambit-regular mt-4">
-          {slice.primary.description[trackIndex].desc}
-        </p>
+<div
+  className={`text-center w-[50%] font-ambit-regular mt-4 p-4 rounded-lg transition-all duration-300`}
+  style={{
+    backgroundColor: slice.primary.description[trackIndex]?.bg_color || "transparent",
+  }}
+>
+  {slice.primary.description[trackIndex].desc}
+</div>
+
+
 
         <div className="flex gap-2 mt-4">
           <SwiperArrow
