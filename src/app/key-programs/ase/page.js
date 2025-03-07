@@ -11,13 +11,14 @@ export default async function Page() {
     if(!page) return <p>No page data!</p>;
 
     return(
-        <main 
         
-        >
+        <main className={`${maxwidth} universal-padding`}>
+       
             <SliceZone 
                 slices={page.data.slices}
                 components={components}
-                context={{addUniversalPadding:true}}
+                
+                context={{ removePagePadding: true }}
             />
         </main>
     )

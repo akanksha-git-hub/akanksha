@@ -110,7 +110,7 @@ const Cards = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative mt-16 universal-padding"
+      className="relative mt-16"
     >
       <SliceIdentifier text={slice.primary.slice_identifier}  />
 

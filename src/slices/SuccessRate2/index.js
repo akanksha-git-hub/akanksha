@@ -10,15 +10,15 @@ const SuccessRate2 = ({ slice }) => {
     <section
            data-slice-type={slice.slice_type}
            data-slice-variation={slice.variation}
-         className=" ">
-          <div className="flex lg:flex-row flex-col lg:space-x-8 min-h-[300px] justify-stretch items-stretch  ">
-                         <div className="flex flex-row   p-6 items-center justify-between lg:w-[50%] w-full universal-padding  ">
+         className="  ">
+          <div className="flex  lg:flex-row flex-col lg:space-x-8 min-h-[300px] justify-stretch items-stretch mt-8    ">
+                         <div className="flex flex-row bg-[#ECF0F1]  p-6  items-center justify-between lg:w-[50%] w-full  ">
                      
                                <div className="w-full h-full flex flex-col justify-around items-start ">
-                                 <h1 className="font-ambit-regular text-black text-5xl md:text-7xl text-left ">
+                                 <h1 className="font-ambit-regular text-black text-5xl lg:text-7xl text-left ">
                                      {slice.primary.card_1_title}
                                  </h1>
-                                <h1 className="font-ambit-regular text-black md:text-3xl text-xl lg:text-left ">
+                                <h1 className="font-ambit-regular text-black lg:text-3xl text-xl lg:text-left ">
                                       {slice.primary.card_1_description}
                                 </h1>
                           </div>
@@ -31,16 +31,16 @@ const SuccessRate2 = ({ slice }) => {
                                   />
                       
                            </div>
-                            <div className="flex flex-row bg-[#ECF0F1] rounded-lg p-6 items-center justify-between mt-8 lg:mt-0 lg:w-[50%] w-full ">
+                            <div className="flex flex-row bg-[#ECF0F1]  p-6 items-center justify-between mt-8 lg:mt-0 lg:w-[50%] w-full ">
                      
                             <div className="w-full h-full flex flex-row justify-between items-center md:items-stretch space-x-2">
      {/* Percentage Box */}
-     <span className="bg-[#FBDA1D] font-ambit-semibold min-h-[150px] text-5xl md:text-7xl text-left text-black flex items-center justify-center rounded-[5rem] w-[40%] h-full">
+     <span className="bg-[#FBDA1D] font-ambit-semibold min-h-[150px] text-5xl lg:text-7xl text-left text-black flex items-center justify-center rounded-[3rem] lg:rounded-[5rem] w-[35%] h-full">
        {slice.primary.box_number}
      </span> 
    
      {/* Description Section */}
-     <h1 className="font-ambit-regular text-black md:text-3xl text-xl flex-1 h-full flex items-center">
+     <h1 className="font-ambit-regular text-black lg:text-3xl text-xl flex-1 h-full flex items-center p-4">
        {slice.primary.card_2_description}
      </h1>
    </div>
@@ -52,31 +52,21 @@ const SuccessRate2 = ({ slice }) => {
               
                
             </div>
-            <div className="" >
-
-         
-<PrismicNextImage
-field={slice.primary.band_asset}
-height={920}
-width={1080}
-className="h-[70px] !w-screen object-cover "
-alt={"Card Image"}
-/>
-</div>
-<div className="flex flex-row   p-6 items-center justify-between  w-full universal-padding  ">
+           
+<div className="flex flex-row  bg-[#ECF0F1] p-6 items-center justify-between  w-full mt-8   min-h-[300px] ">
                      
                      <div className="w-full h-full flex flex-col justify-around items-start ">
                        <h1 className="font-ambit-regular text-black text-5xl md:text-7xl text-left ">
                            {slice.primary.card_3_title}
                        </h1>
-                      <h1 className="font-ambit-regular text-black md:text-3xl text-xl lg:text-left ">
+                      <h1 className="font-ambit-regular text-black lg:text-3xl text-xl lg:text-left ">
                             {slice.primary.card_3_description}
                       </h1>
                 </div>
                       <PrismicNextImage
                          field= {slice.primary.asset} 
-                         height={150}
-                         width={150}
+                         height={200}
+                         width={200}
                           className=" object-contain"
                          alt={"Card Image"}
                         />
