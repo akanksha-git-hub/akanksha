@@ -6,7 +6,7 @@ export default function MarqueeContainerTypeA({ items, direction }) {
         <div className="overflow-hidden py-2 whitespace-nowrap">
             <div className="marquee-container">
                 <div className="marquee-items">
-                    <div className={`marquee-items-slide ${direction}`}>
+                <div className={`marquee-items-slide ${isRight ? 'marquee-items-slide-right' : 'marquee-items-slide-left'}`}>
                         {items.map((logo, index) => {
                             return(
                                 <PartnerLogo 
@@ -18,7 +18,7 @@ export default function MarqueeContainerTypeA({ items, direction }) {
                             )
                         })}
                     </div>
-                    <div className={`marquee-items-slide ${direction}`}>
+                    <div className={`marquee-items-slide ${isRight ? 'marquee-items-slide-right' : 'marquee-items-slide-left'}`}>
                         {items.map((logo, index) => {
                             return(
                                 <PartnerLogo 
