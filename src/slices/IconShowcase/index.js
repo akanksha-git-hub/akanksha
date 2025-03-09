@@ -175,7 +175,7 @@ const IconShowcase = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className=" my-12"
+        className="universal-padding my-12"
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <RichText
@@ -294,11 +294,11 @@ const IconShowcase = ({ slice }) => {
                 <div className="space-y-2">
                   <RichText
                     text={item.title}
-                    className="text-deep-green font-ambit-semibold text-2xl"
+                    className="text-black font-ambit-semibold text-2xl"
                   />
                   <RichText
                     text={item.description}
-                    className="text-deep-green font-ambit-regular text-lg"
+                    className="text-black font-ambit-regular text-lg"
                   />
                 </div>
               </li>

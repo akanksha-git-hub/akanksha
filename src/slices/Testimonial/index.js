@@ -177,14 +177,14 @@ const Testimonial = ({ slice, context }) => {
             <div className="min-h-[28rem] flex flex-col justify-between">
               <div>
                 <Image src="/quotes-new.png" alt="" height={80} width={80} />
-                <p className="font-ambit-regular text-2xl text-deep-green mt-12">
+                <p className="font-ambit-regular text-2xl text-black mt-12">
                   {testimonials[activeIndex].quote}
                 </p>
               </div>
 
               {/* ✅ Change Name & Designation Based on Active Testimonial */}
               <p className="flex w-[50%] sm:w-full">
-                <span className="text-deep-green font-ambit-regular text-lg">
+                <span className="text-black font-ambit-regular text-lg">
                   {testimonials[activeIndex].name}
                 </span>
                 ,<br />
