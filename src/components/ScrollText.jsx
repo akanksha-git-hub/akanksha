@@ -115,7 +115,7 @@ export default function ScrollText({ title, prismicTexts, asset_2 ,asset_1 }) {
             alt=""
         />
     </div>
-                <p className="text-black flex items-center justify-center flex-wrap text-center text-4xl lg:text-7xl w-full lg:w-[20ch]">
+                <p className="text-black flex items-center justify-center flex-wrap text-left md:text-center text-4xl lg:text-7xl w-full lg:w-[20ch]">
                     {title}
                 </p>
                 <div className="hidden lg:block">
