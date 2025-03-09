@@ -11,9 +11,9 @@ export default function MarqueeContainerTypeA({ items, direction }) {
                             return(
                                 <PartnerLogo 
                                     image={logo.partner_logo}
-                                    key={`logo-1-${index}`}
+                                    key={index}
                                     imageClassName="h-[70%] w-[70%] object-contain"
-                                    className="flex items-center justify-center border border-[#DCDCDC]  h-[8rem] w-[30%]"              
+                                    className="flex items-center justify-center border border-[#DCDCDC] sm:mb-0 h-[4rem] w-2/4 sm:h-[8rem] md:w-[30%] lg:w-[20%]"              
                                 />
                             )
                         })}
@@ -23,9 +23,9 @@ export default function MarqueeContainerTypeA({ items, direction }) {
                             return(
                                 <PartnerLogo 
                                     image={logo.partner_logo}
-                                    key={`logo-1-${index}`}
+                                    key={index}
                                     imageClassName="h-[70%] w-[70%] object-contain"
-                                    className="flex items-center justify-center border border-[#DCDCDC] h-[8rem] w-[30%]"              
+                                    className="flex items-center justify-center border border-[#DCDCDC] sm:mb-0 h-[4rem] w-2/4 sm:h-[8rem] md:w-[30%] lg:w-[20%]"              
                                 />
                             )
                         })}
