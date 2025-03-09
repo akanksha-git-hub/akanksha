@@ -25,6 +25,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 const OurPartners = ({ slice }) => {
+  
    if (slice.variation === "withOutSliceIdentifier") {
       return (
         <section
@@ -67,10 +68,7 @@ const OurPartners = ({ slice }) => {
                   </div>
                
 
-          <MarqueeTypeA 
-            items={slice.primary.partner_logos}
-            direction='marquee-items-slide-left'
-            />
+                  <Marquee slice={slice.primary.partner_logos}  noHoverEffect />
        
         
       </section>
@@ -254,10 +252,10 @@ const OurPartners = ({ slice }) => {
         } */}
        
         
-        <MarqueeTypeA 
-          items={slice.primary.partner_logos}
-          direction='marquee-items-slide-left'
-          />
+         
+                       <Marquee slice={slice.primary.partner_logos} isRight noHoverEffect />
+                       
+                      
        
         
     </section>
