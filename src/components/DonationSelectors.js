@@ -206,7 +206,7 @@ export default function DonationSelectors({ data }) {
             </div>
             {/* Amount Display */}
             <div className="border-2 rounded-[4px] border-[#DADCDB] w-full py-4 px-10 flex items-center justify-between">
-              <p className="font-ambit-regular text-black text-4xl select-none">
+              <p className="font-ambit-regular text-black text-2xl md:text-4xl select-none">
                 ₹ {formatNumber(active.amountSelector.amount)}
               </p>
               <p className="font-ambit-regular text-black text-lg select-none">

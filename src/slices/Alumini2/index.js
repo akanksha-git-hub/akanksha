@@ -96,9 +96,9 @@ const Alumini2 = ({ slice }) => {
             {/* <!-- Blue Section --> */}
 
             <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black  p-6 h-[100%] ">
-              <div className="absolute  transform  translate-x-[50%] translate-y-[-85%] rotate-[25deg] bg-black text-white font-bold px-8 py-4 rounded-full text-3xl font-ambit-light">
+              {/* <div className="absolute  transform  translate-x-[50%] translate-y-[-85%] rotate-[25deg] bg-black text-white font-bold px-8 py-4 rounded-full text-3xl font-ambit-light">
                 2x
-              </div>
+              </div> */}
               <p class="text-4xl md:text-6xl font-ambit-semibold pt-16">
                 {slice.primary.akanksha_average}
               </p>
@@ -108,7 +108,7 @@ const Alumini2 = ({ slice }) => {
             </div>
 
             {/* Dotted Line */}
-            <div className="absolute top-1/2 left-0 w-full flex justify-center transform -translate-y-1/2 -z-10">
+            {/* <div className="absolute top-1/2 left-0 w-full flex justify-center transform -translate-y-1/2 -z-10">
               <Image
                 src="/line-1.png"
                 alt="Dotted Line"
@@ -116,7 +116,7 @@ const Alumini2 = ({ slice }) => {
                 height={10} // Adjust height as needed
                 className="object-contain"
               />
-            </div>
+            </div> */}
             {/* <!-- Orange Section --> */}
             <div class="flex flex-col items-center justify-center bg-[#F6AC27] text-black  p-6 h-[45%] ">
               <p class="text-4xl xl:text-6xl font-ambit-semibold pt-10">
@@ -174,9 +174,9 @@ const Alumini2 = ({ slice }) => {
           {/* <!-- Blue Section --> */}
 
           <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black  p-6 h-[100%] ">
-            <div className="absolute  transform  translate-x-[50%] translate-y-[-85%] rotate-[25deg] bg-black text-white font-bold px-8 py-4 rounded-full text-3xl font-ambit-light">
+            {/* <div className="absolute  transform  translate-x-[50%] translate-y-[-85%] rotate-[25deg] bg-black text-white font-bold px-8 py-4 rounded-full text-3xl font-ambit-light">
               2x
-            </div>
+            </div> */}
             <p class="text-4xl md:text-6xl font-ambit-semibold pt-16">
               {slice.primary.akanksha_average}
             </p>
@@ -186,7 +186,7 @@ const Alumini2 = ({ slice }) => {
           </div>
 
           {/* Dotted Line */}
-          <div className="absolute top-1/2 left-0 w-full flex justify-center transform -translate-y-1/2 -z-10">
+          {/* <div className="absolute top-1/2 left-0 w-full flex justify-center transform -translate-y-1/2 -z-10">
             <Image
               src="/line-1.png"
               alt="Dotted Line"
@@ -194,7 +194,7 @@ const Alumini2 = ({ slice }) => {
               height={10} // Adjust height as needed
               className="object-contain"
             />
-          </div>
+          </div> */}
           {/* <!-- Orange Section --> */}
           <div class="flex flex-col items-center justify-center bg-[#F6AC27] text-black  p-6 h-[45%] ">
             <p class="text-4xl xl:text-6xl font-ambit-semibold pt-10">

@@ -63,7 +63,7 @@ export default function StepB({
             Back
           </button>
         </div>
-        <div className="md:w-[50%] w-full ">
+        <div className="md:w-[50%] w-full mt-8 ">
           <RichText
             text="Final Question"
             className="font-ambit-regular text-black text-3xl lg:text-7xl  text-center  "
