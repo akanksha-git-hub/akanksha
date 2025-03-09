@@ -408,6 +408,10 @@ body.modal-open {
     width: 18% !important; /* Adjust the width for mobile screens */
   }
 }
+.marquee-items-slide {
+  will-change: transform;
+}
+
 
 /* Keyframes for seamless marquee animation */
 @keyframes marquee {
