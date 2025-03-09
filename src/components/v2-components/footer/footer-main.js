@@ -54,7 +54,7 @@ export default async function FooterMain() {
     <Footer className="py-8 flex items-center justify-center relative  ">
       <FooterImage />
       <Footer.Container className="w-[90%] md:w-[56%] z-20 space-y-12 ">
-        <Footer.Header className="flex flex-col items-left md:items-center space-y-8">
+        <Footer.Header className="flex flex-col items-left md:items-center space-y-8 ">
           <div className="relative h-28 w-48">
             <PrismicNextImage
               field={footerLogo.footer_logo}
@@ -68,11 +68,11 @@ export default async function FooterMain() {
           />
           <FooterContact />
         </Footer.Header>
-        <Footer.Navigation className="relative sm:left-2 grid grid-cols-[repeat(2,minmax(80px,1fr))]  xl:px-0 sm:grid-cols-[repeat(auto-fit,minmax(150px,1fr))] md:gap-6   ">
+        <Footer.Navigation className="relative sm:left-2 grid grid-cols-[repeat(2,minmax(80px,1fr))]  xl:px-0 sm:grid-cols-[repeat(auto-fit,minmax(150px,1fr))] md:gap-6  ">
           <FooterNavigationItems
         
           
-            className=" w-[10rem] md:w-full"
+            className=" w-[10rem] md:w-full  mt-4"
             uniqueFooterItemsTitle={uniqueFooterItemsTitle}
             footerItemsContent={footerItemsContent}
           />
