@@ -383,6 +383,10 @@ body.modal-open {
 }
 .marquee-items-slide-left {
   animation: var(--marquee-timing) slideLeft infinite linear;
+  animation-delay: 0s;
+  animation-play-state: running;
+  
+  transition-delay: 0s;
 }
 .marquee-items-slide-right {
   animation: var(--marquee-timing) slideRight infinite linear;
