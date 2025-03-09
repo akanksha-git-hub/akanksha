@@ -119,7 +119,7 @@ export default function DonationSelectors({ data }) {
 
   return (
     <>
-      <div className="donation-component bg-[#F7F7F7] rounded-[4px] w-full   z-20 flex flex-col lg:flex-row items-center justify-between p-6 custom-shadow h-auto relative  ">
+      <div className="donation-component bg-[#F7F7F7] rounded-[4px] w-full   z-20 flex flex-col xl:flex-row items-center justify-between p-6 custom-shadow h-auto relative  ">
         <Image
           className="w-[98%] h-[15px] absolute top-0 "
           src="/quote-side-up.png"
@@ -128,30 +128,30 @@ export default function DonationSelectors({ data }) {
           height={10}
           alt="Quote side up"
         />
- <div className="mt-10 lg:mt-0 lg:block lg:w-[50%] ">
+ <div className="mt-10 xl:mt-0 xl:block xl:w-[50%] ">
           <PrismicNextImage
             field={data.image}
             alt=""
             height={1200}
             width={1200}
-            className="min-h-[575px] w-full object-cover z-0 rounded-md overflow-hidden "
+            className="min-h-[300px] xl:min-h-[575px] w-full object-cover z-0 rounded-md overflow-hidden "
           />
         </div>
-        <div className="flex flex-col items-center justify-center lg:w-[50%]  ">
+        <div className="flex flex-col items-center justify-centerxl:w-[50%]  ">
           <div className="w-[90%]">
             {/* Title */}
             <RichText
               text={data.title}
-              className="font-ambit-regular text-black text-xl md:text-4xl flex items-center justify-center py-8"
+              className="font-ambit-regular text-black text-xl xl:text-4xl flex items-center justify-center py-8"
             />
             {/* Selector */}
-            <ul className="flex items-center space-y-4 md:space-y-0 md:gap-2 justify-between flex-wrap pb-6 w-full border-b border-gray-300">
+            <ul className="flex items-center space-y-4 xl:space-y-0 xl:gap-2 justify-between flex-wrap pb-6 w-full border-b border-gray-300">
               {types.map((type, index) => {
                 return (
                   <li
                     key={type}
                     onClick={() => handleSelectType(index, type)}
-                    className={`flex cursor-pointer items-center justify-center w-full md:w-[48%] gap-2 px-4 py-3 rounded-md ${active.type.index === index ? "bg-bright-yellow" : "border border-black"} custom-bezier`}
+                    className={`flex cursor-pointer items-center justify-center w-full xl:w-[48%] gap-2 px-4 py-3 rounded-md ${active.type.index === index ? "bg-bright-yellow" : "border border-black"} custom-bezier`}
                   >
                     <div
                       className={`${active.type.index === index ? "bg-white" : "bg-[#D9D9D9]"} custom-bezier h-10 w-10 rounded-full items-center justify-center flex flex-col text-3xl`}
@@ -181,7 +181,7 @@ export default function DonationSelectors({ data }) {
                           onClick={() =>
                             handleSelectAmount(amount.one_time_amount, index)
                           }
-                          className={`cursor-pointer w-[45%] md:w-[120px] 2xl:w-[153.3px] mb-3 h-[53px] grid place-items-center hover:opacity-90 active:scale-95 rounded-md custom-bezier ${active.amountSelector.amountIndex === index ? "bg-bright-yellow" : "border border-black"}`}
+                          className={`cursor-pointer w-[45%] xl:w-[120px] 2xl:w-[153.3px] mb-3 h-[53px] grid place-items-center hover:opacity-90 active:scale-95 rounded-md custom-bezier ${active.amountSelector.amountIndex === index ? "bg-bright-yellow" : "border border-black"}`}
                         >
                           <p className="text-black text-base font-ambit-regular">
                             ₹ {formatNumber(amount.one_time_amount)}
@@ -195,7 +195,7 @@ export default function DonationSelectors({ data }) {
                 <ul className="flex flex-wrap justify-between mt-2">
                   <li
                     onClick={() => handleSelectAmount(100, null)}
-                    className={`cursor-pointer w-[45%] md:w-[120px] 2xl:w-[153.3px] mb-3 h-[53px] grid place-items-center hover:opacity-90 active:scale-95 rounded-md custom-bezier bg-bright-yellow`}
+                    className={`cursor-pointer w-[45%] xl:w-[120px] 2xl:w-[153.3px] mb-3 h-[53px] grid place-items-center hover:opacity-90 active:scale-95 rounded-md custom-bezier bg-bright-yellow`}
                   >
                     <p className="text-black text-base font-ambit-regular">
                       ₹{formatNumber(100)}
@@ -234,7 +234,7 @@ export default function DonationSelectors({ data }) {
 
           <div className="">
             <Button
-              className={` !py-6 !px-20 xl:!px-48 mt-6 !text-xl ${
+              className={` !py-6 !px-6 xl:!px-48 mt-6  !text-base md:!text-xl ${
                 isDisabled &&
                 "hover:opacity-60 hover:bg-black hover:text-cream hover:!scale-100 active:scale-95 cursor-not-allowed"
               }`}
