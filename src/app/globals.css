@@ -375,6 +375,7 @@ body.modal-open {
   min-width: 200vw;
   white-space: nowrap;
 }
+
 .marquee-items-slide {
   display: flex;
   align-items: center;

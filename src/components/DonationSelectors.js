@@ -241,7 +241,7 @@ export default function DonationSelectors({ data }) {
               disabled={isDisabled}
               onClick={openModal}
             >
-              {active.loading ? "Loading..." : "Donate Us"}
+              {active.loading ? "Loading..." : "Make a Difference"}
             </Button>
           </div>
           {/* Whatsapp Link */}

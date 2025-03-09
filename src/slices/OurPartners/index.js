@@ -24,6 +24,61 @@ gsap.registerPlugin(ScrollTrigger);
 let isInitial = true;
 
 const OurPartners = ({ slice }) => {
+   if (slice.variation === "withOutSliceIdentifier") {
+      return (
+        <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className=""
+      >
+       
+        {/* <ul className="mt-12 flex items-center justify-center flex-wrap">
+          {slice.primary.partner_logos.map((logo, index) => (
+            <PartnerLogo 
+              image={logo.partner_logo}
+              key={index}
+              imageClassName="h-[70%] w-[70%] object-contain"
+              className="flex items-center justify-center border border-[#DCDCDC] sm:mb-0 h-[4rem] w-2/4 sm:h-[8rem] md:w-[30%] lg:w-[20%]"              
+            />
+          ))}
+          </ul> */}
+          {/* {splitData && splitData.length < 20 && (
+            <MarqueeTypeA 
+              items={splitData}
+            />
+          )} */}
+          {/* {
+            splitItems.partner_logos.map((item, index) => {
+  
+              return(
+                <MarqueeTypeA 
+                  key={index}
+                  items={item}
+                />
+              )
+            })
+          } */}
+          <div className="universal-padding">
+           <RichText
+                    text={slice.primary.title}
+                    className="select-none text-black font-ambit-regular text-3xl sm:text-4xl md:text-6xl w-full text-left   mt-8"
+                  />
+                  </div>
+          <MarqueeTypeA 
+            items={slice.primary.partner_logos}
+            direction='marquee-items-slide-left'
+            />
+          <MarqueeTypeA 
+            items={slice.primary.partner_logos}
+            direction='marquee-items-slide-right'
+            />
+          {/* <MarqueeTypeA 
+            items={slice.primary.partner_logos}
+            direction='marquee-items-slide-left'
+          /> */}
+      </section>
+      );
+    }
 
   // const [onMounted, setOnMounted] = useState(false)
 
@@ -169,6 +224,10 @@ const OurPartners = ({ slice }) => {
         <SliceIdentifier 
           text={slice.primary.slice_identifier}
         />
+         <RichText
+                  text={slice.primary.title}
+                  className="select-none text-black font-ambit-regular text-3xl sm:text-4xl md:text-6xl w-full text-left   mt-8"
+                />
       </div>
       {/* <ul className="mt-12 flex items-center justify-center flex-wrap">
         {slice.primary.partner_logos.map((logo, index) => (
@@ -196,6 +255,7 @@ const OurPartners = ({ slice }) => {
             )
           })
         } */}
+        
         <MarqueeTypeA 
           items={slice.primary.partner_logos}
           direction='marquee-items-slide-left'
@@ -204,10 +264,10 @@ const OurPartners = ({ slice }) => {
           items={slice.primary.partner_logos}
           direction='marquee-items-slide-right'
           />
-        <MarqueeTypeA 
+        {/* <MarqueeTypeA 
           items={slice.primary.partner_logos}
           direction='marquee-items-slide-left'
-        />
+        /> */}
     </section>
   )
 };

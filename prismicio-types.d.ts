@@ -10912,6 +10912,21 @@ export interface OurPartnersSliceDefaultPrimaryPartnerLogosItem {
 }
 
 /**
+ * Item in *OurPartners → withOutSliceIdentifier → Primary → Partner Logos*
+ */
+export interface OurPartnersSliceWithOutSliceIdentifierPrimaryPartnerLogosItem {
+  /**
+   * Partner Logo field in *OurPartners → withOutSliceIdentifier → Primary → Partner Logos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_partners.withOutSliceIdentifier.primary.partner_logos[].partner_logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  partner_logo: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *OurPartners → Default → Primary*
  */
 export interface OurPartnersSliceDefaultPrimary {
@@ -11002,9 +11017,52 @@ export type OurPartnersSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *OurPartners → withOutSliceIdentifier → Primary*
+ */
+export interface OurPartnersSliceWithOutSliceIdentifierPrimary {
+  /**
+   * Title field in *OurPartners → withOutSliceIdentifier → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_partners.withOutSliceIdentifier.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Partner Logos field in *OurPartners → withOutSliceIdentifier → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_partners.withOutSliceIdentifier.primary.partner_logos[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  partner_logos: prismic.GroupField<
+    Simplify<OurPartnersSliceWithOutSliceIdentifierPrimaryPartnerLogosItem>
+  >;
+}
+
+/**
+ * withOutSliceIdentifier variation for OurPartners Slice
+ *
+ * - **API ID**: `withOutSliceIdentifier`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OurPartnersSliceWithOutSliceIdentifier =
+  prismic.SharedSliceVariation<
+    "withOutSliceIdentifier",
+    Simplify<OurPartnersSliceWithOutSliceIdentifierPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *OurPartners*
  */
-type OurPartnersSliceVariation = OurPartnersSliceDefault;
+type OurPartnersSliceVariation =
+  | OurPartnersSliceDefault
+  | OurPartnersSliceWithOutSliceIdentifier;
 
 /**
  * OurPartners Shared Slice
@@ -15512,8 +15570,11 @@ declare module "@prismicio/client" {
       OurPartnersSlice,
       OurPartnersSliceDefaultPrimaryPartnerLogosItem,
       OurPartnersSliceDefaultPrimary,
+      OurPartnersSliceWithOutSliceIdentifierPrimaryPartnerLogosItem,
+      OurPartnersSliceWithOutSliceIdentifierPrimary,
       OurPartnersSliceVariation,
       OurPartnersSliceDefault,
+      OurPartnersSliceWithOutSliceIdentifier,
       OurTeamSlice,
       OurTeamSliceDefaultPrimaryTeamContentItem,
       OurTeamSliceDefaultPrimary,

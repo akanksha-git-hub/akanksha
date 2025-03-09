@@ -20,12 +20,16 @@ const TextShowcase = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="universal-padding flex flex-col items-center justify-center sm:mt-14 w-fit mx-auto"
+        className="universal-padding flex flex-col md:items-center justify-start sm:mt-14 w-fit border"
       >
-        <div className="font-ambit-regular w-full text-5xl sm:w-[30rem] sm:text-6xl lg:text-8xl lg:w-[50rem] text-black justify-center">
-          <span>{slice.primary.title.split(" ")[0]}</span>
+        <div className="font-ambit-regular w-full text-5xl sm:w-[30rem] md:text-8xl md:w-[50rem]  text-black text-left justify-center md:text-center">
+         
+         <p>
+          {slice.primary.title}
+         </p>
+          {/* <span>{slice.primary.title.split(" ")[0]}</span>
           <br />
-          <span>{slice.primary.title.split(" ").slice(1).join(" ")}</span>
+          <span>{slice.primary.title.split(" ").slice(1).join(" ")}</span> */}
         </div>
 
         {/* <MixedText
@@ -39,7 +43,7 @@ const TextShowcase = ({ slice }) => {
           height={20}
           width={20}
           alt=""
-          className="w-[96%] sm:w-[70%] xl:w-[50%] mt-4  "
+          className="w-[86%]  md:w-[60%] mt-4  "
           style={{
             filter:
               "brightness(0) saturate(100%) invert(68%) sepia(75%) saturate(330%) hue-rotate(151deg) brightness(88%) contrast(88%)",
