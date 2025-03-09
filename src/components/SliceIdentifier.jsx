@@ -46,7 +46,7 @@ export default function SliceIdentifier({ text = "", className, hasSpider, isVis
           {
             opacity: 1,
             x: 0,
-            duration: 0.6,
+            duration: 0.4,
             ease: "power2.out",
             stagger: 0.05, // ✅ Restores stagger effect
             scrollTrigger: {
