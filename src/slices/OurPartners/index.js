@@ -70,7 +70,7 @@ const OurPartners = ({ slice }) => {
             />
           <MarqueeTypeA 
             items={slice.primary.partner_logos}
-            direction='marquee-items-slide-right'
+            direction='marquee-items-slide-left'
             />
        
         
