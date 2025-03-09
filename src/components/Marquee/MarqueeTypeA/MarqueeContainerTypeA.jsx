@@ -13,7 +13,7 @@ export default function MarqueeContainerTypeA({ items, direction }) {
                                     image={logo.partner_logo}
                                     key={index}
                                     imageClassName="h-[70%] w-[70%] object-contain"
-                                    className="flex items-center justify-center border border-[#DCDCDC] sm:mb-0 h-[4rem] w-2/4 sm:h-[8rem] md:w-[30%] lg:w-[20%]"              
+                                    className="flex items-center justify-center border border-[#DCDCDC] mb-0 h-[8rem] md:w-[30%]"              
                                 />
                             )
                         })}
