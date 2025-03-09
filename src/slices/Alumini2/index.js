@@ -92,17 +92,17 @@ const Alumini2 = ({ slice }) => {
         </h1>
         <div class="flex flex-col xl:flex-row mt-12 md:mt-24 ">
           {/* <!-- Section 1: Charts --> */}
-          <div className="xl:w-1/2 flex flex-row justify-center items-end gap-8 p-4  h-[500px] relative">
+          <div className="xl:w-1/2 flex flex-row justify-center items-end gap-8 p-4  h-[300px] md:h-[400px]  relative">
             {/* <!-- Blue Section --> */}
 
             <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black  p-6 h-[100%] ">
               {/* <div className="absolute  transform  translate-x-[50%] translate-y-[-85%] rotate-[25deg] bg-black text-white font-bold px-8 py-4 rounded-full text-3xl font-ambit-light">
                 2x
               </div> */}
-              <p class="text-4xl md:text-6xl font-ambit-semibold pt-16">
+              <p class="text-xl md:text-4xl font-ambit-semibold pt-16">
                 {slice.primary.akanksha_average}
               </p>
-              <p class="text-sm lg:text-lg font-ambit-semibold text-center">
+              <p class="text-md md:text-2xl font-ambit-semibold text-center">
                 {slice.primary.akanksha_alumini}
               </p>
             </div>
@@ -119,14 +119,14 @@ const Alumini2 = ({ slice }) => {
             </div> */}
             {/* <!-- Orange Section --> */}
             <div class="flex flex-col items-center justify-center bg-[#F6AC27] text-black  p-6 h-[45%] ">
-              <p class="text-4xl xl:text-6xl font-ambit-semibold pt-10">
+              <p class="text-xl md:text-4xl font-ambit-semibold pt-10">
                 {slice.primary.national_average}
               </p>
-              <p class="text-sm  lg:text-lg font-ambit-semibold text-center">
+              <p class="text-md md:text-2xl font-ambit-semibold text-center">
                 {slice.primary.national_average_text}
               </p>
             </div>
-            <p className="absolute md:-bottom-[2rem] -bottom-[3rem] w-[85%]  lg:w-[83%] text-left text-sm font-ambit-regular text-gray-900 ">
+            <p className="absolute  -bottom-[3rem] w-full   text-left text-sm md:text-base font-ambit-regular text-gray-900 ">
               {slice.primary.stats}
             </p>
           </div>
