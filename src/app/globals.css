@@ -393,12 +393,9 @@ body.modal-open {
   width: 12.5rem;
   transition: all 0.5s ease;
 }
-@media (hover: hover) and (pointer: fine) {
-  .marquee-items:hover .marquee-items-slide-left {
-    animation-play-state: paused;
-  }
+.marquee-items:hover .marquee-items-slide-left {
+  animation-play-state: paused;
 }
-
 .marquee-items:hover .marquee-items-slide-right {
   animation-play-state: paused;
 }
