@@ -13,7 +13,7 @@ export default function MarqueeContainerTypeA({ items, direction }) {
                                     image={logo.partner_logo}
                                     key={index}
                                     imageClassName="h-[70%] w-[70%] object-contain"
-                                    className="flex items-center justify-center border border-[#DCDCDC] mb-0 h-[8rem] w-[30%]"              
+                                    className="flex items-center justify-center border border-[#DCDCDC] mb-0 h-[7rem] w-[30%]"              
                                 />
                             )
                         })}
@@ -25,7 +25,7 @@ export default function MarqueeContainerTypeA({ items, direction }) {
                                     image={logo.partner_logo}
                                     key={index}
                                     imageClassName="h-[70%] w-[70%] object-contain"
-                                    className="flex items-center justify-center border border-[#DCDCDC] mb-0 h-[8rem] w-[30%]"              
+                                    className="flex items-center justify-center border border-[#DCDCDC] mb-0 h-[7rem] w-[30%]"              
                                 />
                             )
                         })}
