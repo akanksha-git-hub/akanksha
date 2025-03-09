@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import MarqueeTypeA from "@/components/Marquee/MarqueeTypeA/MarqueeTypeA";
+import PartnerMarquee from "@/components/Marquee/MarqueeTypeA/MarqueeContainerTypeA";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,10 +65,8 @@ const OurPartners = ({ slice }) => {
                     className="select-none text-black font-ambit-regular text-3xl sm:text-4xl md:text-6xl w-full text-left   mt-8"
                   />
                   </div>
-          <MarqueeTypeA 
-            items={slice.primary.partner_logos}
-            direction='marquee-items-slide-left'
-            />
+               
+
           <MarqueeTypeA 
             items={slice.primary.partner_logos}
             direction='marquee-items-slide-left'
@@ -254,13 +253,10 @@ const OurPartners = ({ slice }) => {
           })
         } */}
        
+        
         <MarqueeTypeA 
           items={slice.primary.partner_logos}
-          direction='marquee-items-slide-left'
-          />
-        <MarqueeTypeA 
-          items={slice.primary.partner_logos}
-          direction='marquee-items-slide-left'
+          direction='marquee-items-slide-right'
           />
        
         
