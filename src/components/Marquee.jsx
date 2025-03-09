@@ -2,6 +2,7 @@
 import { useCallback, useState } from "react";
 import MarqueeItem from "./MarqueeItem";
 
+
 const INITIAL_VALUE = {
   A: null,
   B: null,
