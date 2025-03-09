@@ -153,7 +153,7 @@ const Testimonial = ({ slice, context }) => {
         </h1>
 
         {/* ✅ Testimonial Container */}
-        <div className="min-h-[800px] relative flex flex-col items-center justify-center">
+        <div className="min-h-[600px] md:min-h-[800px] relative flex flex-col items-center justify-center ">
           <div className="single-test-bg absolute top-[60%] -translate-y-2/4 left-2/4 -translate-x-2/4 h-[400px] rounded-full w-full" />
 
           {/* ✅ Testimonial Box */}
@@ -183,7 +183,7 @@ const Testimonial = ({ slice, context }) => {
               </div>
 
               {/* ✅ Change Name & Designation Based on Active Testimonial */}
-              <p className="flex w-[50%] sm:w-full">
+              <p className="flex w-[80%] sm:w-full">
                 <span className="text-black font-ambit-regular text-lg">
                   {testimonials[activeIndex].name}
                 </span>
@@ -193,7 +193,7 @@ const Testimonial = ({ slice, context }) => {
           </div>
 
           {/* ✅ Change Image Based on Active Testimonial */}
-          <div className="scale-50 sm:scale-75 lg:scale-100 w-[350px] lg:max-w-[24rem] h-[32rem] absolute left-[53%] -translate-x-1/4 top-[30%] rotate-[4deg] z-20">
+          <div className="scale-50 sm:scale-75 lg:scale-100 w-[350px] lg:max-w-[24rem] h-[32rem] absolute left-[50%] -translate-x-1/4 top-[30%] rotate-[4deg] z-20">
             <PrismicNextImage
               field={testimonials[activeIndex].image}
               alt=""
@@ -203,7 +203,7 @@ const Testimonial = ({ slice, context }) => {
         </div>
 
         {/* ✅ Navigation Arrows */}
-        <div className="flex gap-2 items-center justify-center mt-4">
+        <div className="flex gap-2 items-center justify-center mt-4 ">
           <SwiperArrow
             strokeColor="#37473C"
             className="rotate-180"
