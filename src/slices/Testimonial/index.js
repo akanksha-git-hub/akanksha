@@ -187,10 +187,7 @@ const Testimonial = ({ slice, context }) => {
                 <span className="text-black font-ambit-regular text-lg">
                   {testimonials[activeIndex].name}
                 </span>
-                ,<br />
-                <span className="text-[#9DA59F] font-ambit-regular text-lg">
-                  {testimonials[activeIndex].designation}
-                </span>
+               
               </p>
             </div>
           </div>
