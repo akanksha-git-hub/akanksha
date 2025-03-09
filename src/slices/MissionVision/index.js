@@ -92,11 +92,11 @@ const MissionVision = ({ slice, context }) => {
         <div className="lg:grid lg:grid-cols-[auto,1fr,auto]  items-center mt-10 md:mt-24">
           <div className="hidden lg:block h-full">
             <PrismicNextImage
-              width={100}
-              height={100}
+              width={1200}
+              height={1200}
               field={slice.primary.left_image}
               alt="Left Decorative Arrow"
-              className=" object-cover  sm:h-[380px] lg:h-[600px] 3xl:h-[800px] "
+              className=" object-cover w-[100px] sm:h-[380px] lg:h-[600px] 3xl:h-[800px] "
             />
           </div>
 
@@ -111,9 +111,9 @@ const MissionVision = ({ slice, context }) => {
             <PrismicNextImage
               field={slice.primary.right_image}
               alt="Right Decorative Arrow"
-              width={100}
-              height={100}
-              className=" object-cover sm:h-[380px] lg:h-[600px] 3xl:h-[800px]  "
+              width={1200}
+              height={1200}
+              className=" object-cover w-[100px] sm:h-[380px] lg:h-[600px] 3xl:h-[800px]  "
             />
           </div>
         </div>
