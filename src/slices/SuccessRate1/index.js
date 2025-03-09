@@ -24,7 +24,7 @@ const SuccessRate1 = ({ slice }) => {
            {slice.primary.heading}
          </h1>
          <div className="flex flex-col lg:flex-row mt-6 lg:space-x-8 ">
-           <div className="flex flex-col bg-[#ECF0F1]  p-8  lg:w-[50%] w-full relative">
+           <div className="flex flex-col bg-[#ECF0F1] rounded-lg p-8  lg:w-[50%] w-full relative">
              <div className="w-full h-full flex flex-col items-start justify-between min-h-[160px]  ">
                <h1 className="font-ambit-regular text-black text-5xl lg:text-7xl text-left ">
                  {slice.primary.card_1_heading}
@@ -42,7 +42,7 @@ const SuccessRate1 = ({ slice }) => {
                alt={"Card Image"}
                />
            </div>
-           <div class=" bg-[#ECF0F1] flex lg:flex-row flex-col p-8  items-center justify-center  lg:w-[50%] mt-8 lg:mt-0  ">
+           <div class=" bg-[#ECF0F1] flex lg:flex-row flex-col p-8 rounded-lg items-center justify-center  lg:w-[50%] mt-8 lg:mt-0  ">
             
              <div class="flex flex-col justify-between  w-full ">
                {/* <!-- First Percentage Section --> */}
