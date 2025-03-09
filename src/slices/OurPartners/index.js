@@ -21,7 +21,6 @@ gsap.registerPlugin(ScrollTrigger);
  * @param {OurPartnersProps}
  */
 
-let isInitial = true;
 
 const OurPartners = ({ slice }) => {
    if (slice.variation === "withOutSliceIdentifier") {
