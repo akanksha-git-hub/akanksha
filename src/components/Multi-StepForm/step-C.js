@@ -113,12 +113,12 @@ export default function StepC({
   };
   const progress = Math.round((currentStep / totalSteps) * 100);
   return (
-    <div className="flex flex-col items-center h-full w-full mt-24">
+    <div className="flex flex-col items-center h-full w-full mt-22">
       <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-baseline items-center  h-full w-full  md:ml-24">
         <div className="w-[30%] md:p-10  ">
           <button
             className="bg-gray-400 text-black border-black transition-all 
-             text-xl rounded-full !py-6 !px-8 flex items-center gap-2"
+             !text-base md:text-xl rounded-full !py-6 !px-8 flex items-center justify-center gap-2"
             onClick={() => handleStepProgression(null, "back")}
           >
             <Image
@@ -134,9 +134,9 @@ export default function StepC({
         <div>
           <RichText
             text="Contact Information"
-            className="font-ambit-regular text-deep-green text-6xl lg:text-7xl  text-center mb-12 mt-36"
+            className="font-ambit-regular text-black text-4xl lg:text-7xl  text-center mb-12 mt-28"
           />
-          <p className="font-ambit-regular text-deep-green text-2xl mb-6 text-center ">
+          <p className="font-ambit-regular text-black text-2xl mb-6 text-center ">
             Fields marked with <span className="text-[#C80707]">*</span> are
             mandatory
           </p>

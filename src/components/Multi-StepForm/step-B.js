@@ -45,9 +45,9 @@ export default function StepB({
   const progress = Math.round((currentStep / totalSteps) * 100);
 
   return (
-    <div className="flex flex-col items-center  h-full w-full justify-center space-y-6 ">
-      <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-baseline items-center  h-full w-full ">
-        <div className="md:w-[30%]  w-full md:p-10  ">
+    <div className="flex flex-col items-center   w-full justify-center space-y-6  mt-52 ">
+      <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-baseline items-center mt-96 sm:mt-0    ">
+        <div className="md:w-[30%]  w-full md:p-10  mt-0  ">
           <button
             className="bg-gray-400 text-black border-black transition-all 
                        text-xl rounded-full !py-6 !px-8 flex items-center gap-2"
@@ -66,12 +66,12 @@ export default function StepB({
         <div className="md:w-[50%] w-full ">
           <RichText
             text="Final Question"
-            className="font-ambit-regular text-deep-green text-6xl lg:text-7xl  text-center mb-12 mt-36"
+            className="font-ambit-regular text-black text-3xl lg:text-7xl  text-center  "
           />
         </div>
       </div>
-      <div className="flex flex-col space-y-6 pb-6 w-[60%] justify-center items-center">
-        <p className="input-parent-state flex flex-col space-y-1 w-full mt-4">
+      <div className="flex flex-col space-y-6 pb-6 w-[60%] justify-center items-center ">
+        <p className="input-parent-state flex flex-col space-y-1 w-full mt-2">
           <label className="font-ambit-regular text-lg label-state">
             {`We'd love to know who you are donating to`}
           </label>
@@ -109,14 +109,14 @@ export default function StepB({
         >
           Proceed
         </Button>
-        <p className="text-deep-green font-ambit-semibold text-lg w-full sm:w-[90%] text-center">
+        <p className="text-black font-ambit-regular text-lg w-full sm:w-[90%] text-left md:text-center">
           Akanksha provides an Online Payment Gateway through BillDesk to make
           your donation to us easy, secure and efficient. The BillDesk Payment
           Gateway uses 128-bit SSL encrypted, highly secure transmission
           protocols and has been Verisign certified. This ensures that your
           payment is processed securely.
         </p>
-        <p className="text-deep-green font-ambit-semibold text-lg w-full sm:w-[90%] text-center">
+        <p className="text-black font-ambit-regular text-lg w-full sm:w-[90%] text-left md:text-center">
           By sharing your details, you agree to receive stories and updates from
           Akanksha via mobile,  Whatsapp, landline, email and post. If you’d
           like to change this, please send us an email on &nbsp;
