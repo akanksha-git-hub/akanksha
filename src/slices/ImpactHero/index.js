@@ -46,13 +46,13 @@ const ImpactHero = ({ slice }) => {
         alt=""
         className="absolute top-36 right-44 w-32 h-32 hidden xl:block"
       />
-      <div className="w-[80%] mt-12 md:mx-auto ">
+      <div className=" mt-8 ">
         <div className="w-full  md:text-center text-start ">
           {/* Title */}
-          <h1 className="md:text-7xl text-4xl font-ambit-regular text-[#333333] md:mx-auto  mx-0 ">
+          <h1 className="md:text-7xl text-4xl font-ambit-regular text-black  md:mx-auto  mx-0 ">
             {slice.primary.title}
           </h1>
-          <p className="md:text-2xl text-xl font-ambit-regular text-black md:mx-auto w-[45ch] mx-0 mt-12">
+          <p className="md:text-2xl text-xl font-ambit-regular text-black md:mx-auto w-full xl:w-[45ch]  mt-8">
             {slice.primary.editable_description}
             {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. */}
           </p>
