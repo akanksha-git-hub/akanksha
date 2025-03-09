@@ -58,7 +58,7 @@ const OurPartners = ({ slice }) => {
               )
             })
           } */}
-          <div className="">
+          <div className="universal-padding">
            <RichText
                     text={slice.primary.title}
                     className="select-none text-black font-ambit-regular text-3xl sm:text-4xl md:text-6xl w-full text-left   mt-8"
@@ -220,7 +220,7 @@ const OurPartners = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="mt-12"
     >
-      <div className="">
+      <div className="universal-padding">
         <SliceIdentifier 
           text={slice.primary.slice_identifier}
         />
