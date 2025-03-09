@@ -20,7 +20,7 @@ const TextShowcase = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="universal-padding flex flex-col md:items-center justify-start sm:mt-14 w-fit border"
+        className="universal-padding flex flex-col md:items-center justify-start sm:mt-14 w-fit "
       >
         <div className="font-ambit-regular w-full text-5xl sm:w-[30rem] md:text-8xl md:w-[50rem]  text-black text-left justify-center md:text-center">
          
