@@ -11,7 +11,7 @@ import PencilShading from "@/assets/shading-side.svg";
  * @typedef {import("@prismicio/react").SliceComponentProps<IconShowcaseSlice>} IconShowcaseProps
  * @param {IconShowcaseProps}
  */
-const IconShowcase = ({ slice }) => {
+const IconShowcase = ({ slice,context }) => {
   if (slice.variation === "withTitle") {
     return (
       <section
@@ -171,11 +171,14 @@ const IconShowcase = ({ slice }) => {
   }
 
   if (slice.variation === "withTitleDefault") {
+    const { removePagePadding } = context;
     return (
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="universal-padding my-12"
+        className={`${
+          removePagePadding ? " " : "universal-padding"
+        } my-12`}
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <RichText

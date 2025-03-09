@@ -12,7 +12,7 @@ const SuccessRate2 = ({ slice }) => {
            data-slice-variation={slice.variation}
          className="  ">
           <div className="flex  lg:flex-row flex-col lg:space-x-8 min-h-[300px] justify-stretch items-stretch mt-8    ">
-                         <div className="flex flex-row bg-[#ECF0F1]  p-6  items-center justify-between lg:w-[50%] w-full  ">
+                         <div className="flex flex-row bg-[#ECF0F1] rounded-lg  p-6  items-center justify-between lg:w-[50%] w-full  ">
                      
                                <div className="w-full h-full flex flex-col justify-around items-start ">
                                  <h1 className="font-ambit-regular text-black text-5xl lg:text-7xl text-left ">
@@ -31,7 +31,7 @@ const SuccessRate2 = ({ slice }) => {
                                   />
                       
                            </div>
-                            <div className="flex flex-row bg-[#ECF0F1]  p-6 items-center justify-between mt-8 lg:mt-0 lg:w-[50%] w-full ">
+                            <div className="flex flex-row bg-[#ECF0F1] rounded-lg p-6 items-center justify-between mt-8 lg:mt-0 lg:w-[50%] w-full ">
                      
                             <div className="w-full h-full flex flex-row justify-between items-center md:items-stretch space-x-2">
      {/* Percentage Box */}
@@ -53,7 +53,7 @@ const SuccessRate2 = ({ slice }) => {
                
             </div>
            
-<div className="flex flex-row  bg-[#ECF0F1] p-6 items-center justify-between  w-full mt-8   min-h-[300px] ">
+<div className="flex flex-row  bg-[#ECF0F1] rounded-lg p-6 items-center justify-between  w-full mt-8   min-h-[300px] ">
                      
                      <div className="w-full h-full flex flex-col justify-around items-start ">
                        <h1 className="font-ambit-regular text-black text-5xl md:text-7xl text-left ">
