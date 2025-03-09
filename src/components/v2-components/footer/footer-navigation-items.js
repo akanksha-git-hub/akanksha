@@ -11,7 +11,7 @@ export default function FooterNavigationItems({ uniqueFooterItemsTitle, footerIt
         {uniqueFooterItemsTitle.map((uniqueTitle, titleIndex) => (
             <li className={className} key={titleIndex}>
                 <RichText 
-                    className="uppercase text-black font-ambit-semibold text-base sm:text-xl "
+                    className="uppercase text-black font-ambit-semibold text-base sm:text-xl  "
                     text={uniqueTitle}
                 />
                 {footerItemsContent.footer_list_items && (

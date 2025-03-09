@@ -29,7 +29,7 @@ export default function HeaderMain({ header }) {
         <Header.Logo>
           <Link
             href="/"
-            className="relative h-[3.7rem] w-[8.6rem] hidden lg:block"
+            className="relative h-[4rem] w-[7.4rem] hidden lg:block"
           >
             <PrismicNextImage
               field={header.logo_image}
