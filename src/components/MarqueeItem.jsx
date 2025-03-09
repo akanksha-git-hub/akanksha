@@ -22,12 +22,15 @@ export default function MarqueeItem({
           className={`relative  flex flex-col justify-center items-center overflow-hidden marquee-item border`}
           key={index}
         >
-          <PrismicNextImage
-            className={`h-[55%] w-[55%] md:h-[80%] md:w-[80%]  object-contain`}
-            key={index}
-            field={item.image}
-            alt=""
-          />
+         <PrismicNextImage
+  className="h-[55%] w-[55%] md:h-[80%] md:w-[80%] object-contain"
+  key={index}
+  
+  field={item.image || item.partner_logo}
+  
+  alt={item.image?.alt || item.partner_logo?.alt}
+/>
+
         </div>
       ) : (
         <div
