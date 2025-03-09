@@ -5,6 +5,7 @@ import SliceIdentifier from "@/components/SliceIdentifier";
 import PrimaryCTA from "@/components/UI/Button/PrimaryCTA";
 import WeirdText from "@/components/Texts/WeirdText";
 import Lottie from "lottie-react";
+import Marquee from "@/components/Marquee";
 import LottieData from "../../../public/akanksha_sun.lottie.json";
 // import TestLottieData from "../../../public/we-collaborate.lottie.json";
 import { useEffect, useRef, useState } from "react";
@@ -69,12 +70,10 @@ const OurPartners = ({ slice }) => {
             />
           <MarqueeTypeA 
             items={slice.primary.partner_logos}
-            direction='marquee-items-slide-left'
+            direction='marquee-items-slide-right'
             />
-          {/* <MarqueeTypeA 
-            items={slice.primary.partner_logos}
-            direction='marquee-items-slide-left'
-          /> */}
+       
+        
       </section>
       );
     }
@@ -254,7 +253,7 @@ const OurPartners = ({ slice }) => {
             )
           })
         } */}
-        <div>
+       
         <MarqueeTypeA 
           items={slice.primary.partner_logos}
           direction='marquee-items-slide-left'
@@ -263,11 +262,8 @@ const OurPartners = ({ slice }) => {
           items={slice.primary.partner_logos}
           direction='marquee-items-slide-left'
           />
-        {/* <MarqueeTypeA 
-          items={slice.primary.partner_logos}
-          direction='marquee-items-slide-left'
-        /> */}
-        </div>
+       
+        
     </section>
   )
 };
