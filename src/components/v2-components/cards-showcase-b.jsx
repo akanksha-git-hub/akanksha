@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import SliceIdentifier from "../SliceIdentifier";
 import RichText from "../Texts/RichText";
@@ -6,23 +6,46 @@ import Button from "./buttons/button";
 import { PrismicNextImage } from "@prismicio/next";
 import PencilShading from "@/assets/shading-side.svg";
 
-function CardShowcaseBCard({ item, isHighlighted, onHover }) {
+// Mobile-like UI (always highlighted, no hover logic)
+function CardShowcaseBCardMobile({ item }) {
+  return (
+    <li className="bg-v2-yellow pt-6 relative">
+      <div className="pl-8 grid space-y-2">
+        <div>
+          <RichText
+            text={item.big_text}
+            className="font-ambit-regular text-black text-5xl"
+          />
+          <RichText
+            text={item.small_text}
+            className="font-ambit-regular text-black text-2xl"
+          />
+        </div>
+        <div>
+          <Button prismicLink={item.cta_link}>{item.cta_text}</Button>
+        </div>
+      </div>
+      <div className="flex justify-center items-center w-full h-60 mt-4 overflow-hidden relative">
+        <PrismicNextImage field={item.image} className="object-cover" fill />
+      </div>
+    </li>
+  );
+}
+
+// Desktop UI (hover highlight)
+function CardShowcaseBCardDesktop({ item, isHighlighted, onHover }) {
   return (
     <li
       className={`bg-[#ECF0F1] transition-all ${
         isHighlighted ? "bg-v2-yellow" : ""
-      } pt-6 group relative h-full hidden md:block`} // Hidden on small screens
+      } pt-6 group relative h-full`}
       onMouseEnter={onHover}
       onMouseLeave={onHover}
     >
-      {isHighlighted && (
-        <div className="absolute -z-10 top-1/3 h-full w-full orange-gradient"></div>
-      )}
-
-      <div className="absolute top-0 left-0 h-full w-5">
-        <div className="relative h-full w-full z-10">
-          <Image src={PencilShading} alt="image" fill />
-        </div>
+      {/* Example: orange gradient overlay when highlighted */}
+     
+      <div className="absolute top-0 left-0 h-full w-5 z-10">
+        <Image src={PencilShading} alt="image" fill />
       </div>
       <div className="pl-8 grid space-y-2">
         <div>
@@ -58,57 +81,55 @@ function CardShowcaseBCard({ item, isHighlighted, onHover }) {
   );
 }
 
-// ▼ CHANGED HERE: Always highlight on mobile
-function CardShowcaseBCardMobile({ item }) {
-  return (
-    <li className="bg-v2-yellow pt-6 relative block md:hidden">
-      <div className="pl-8 grid space-y-2">
-        <div>
-          <RichText
-            text={item.big_text}
-            className="font-ambit-regular text-black text-5xl"
-          />
-          <RichText
-            text={item.small_text}
-            className="font-ambit-regular text-black text-2xl"
-          />
-        </div>
-        <div className="opacity-100">
-          <Button prismicLink={item.cta_link}>{item.cta_text}</Button>
-        </div>
-      </div>
-      <div className="flex justify-center items-center w-full h-60 mt-4 overflow-hidden relative">
-        <div className="relative w-full h-full opacity-100 translate-y-0">
-          <PrismicNextImage field={item.image} className="object-cover" fill />
-        </div>
-      </div>
-    </li>
-  );
-}
-
 export default function CardsShowcaseB({ data }) {
   const [highlightedIndex, setHighlightedIndex] = useState(0);
+
+  // "allowHover" = true if device truly supports hover (mouse); false if touch-only.
+  const [allowHover, setAllowHover] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const mediaQuery = window.matchMedia("(hover: hover)");
+      setAllowHover(mediaQuery.matches);
+
+      const handleChange = (e) => {
+        setAllowHover(e.matches);
+      };
+      mediaQuery.addEventListener("change", handleChange);
+
+      return () => {
+        mediaQuery.removeEventListener("change", handleChange);
+      };
+    }
+  }, []);
+
+  // If the device does NOT support hover (iPad, mobile, etc.):
+  // treat it as the "mobile" experience with no hover effect.
+  if (!allowHover) {
+    return (
+      <div className="universal-padding space-y-20">
+        <SliceIdentifier text={data.slice_identifier} />
+        <ul className="grid grid-cols-1 gap-6 h-auto">
+          {data.items.map((item, i) => (
+            <CardShowcaseBCardMobile key={i} item={item} />
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
 
   return (
     <div className="universal-padding space-y-20">
       <SliceIdentifier text={data.slice_identifier} />
-
-      {/* Desktop Version */}
-      <ul className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 md:px-24 h-auto hidden md:grid">
+      <ul className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 md:px-24 h-auto">
         {data.items.map((item, i) => (
-          <CardShowcaseBCard
+          <CardShowcaseBCardDesktop
             key={i}
             item={item}
             isHighlighted={highlightedIndex === i}
             onHover={() => setHighlightedIndex(i)}
           />
-        ))}
-      </ul>
-
-      {/* Mobile Version */}
-      <ul className="grid grid-cols-1 gap-6 md:px-24 h-auto block md:hidden">
-        {data.items.map((item, i) => (
-          <CardShowcaseBCardMobile key={i} item={item} />
         ))}
       </ul>
     </div>
