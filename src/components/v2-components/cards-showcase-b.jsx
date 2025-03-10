@@ -21,7 +21,7 @@ function CardShowcaseBCard({ item, isHighlighted, onHover }) {
 
       <div className="absolute top-0 left-0 h-full w-5">
         <div className="relative h-full w-full z-10">
-          <Image src={PencilShading} alt="image" className="" fill />
+          <Image src={PencilShading} alt="image" fill />
         </div>
       </div>
       <div className="pl-8 grid space-y-2">
@@ -58,9 +58,10 @@ function CardShowcaseBCard({ item, isHighlighted, onHover }) {
   );
 }
 
+// ▼ CHANGED HERE: Always highlight on mobile
 function CardShowcaseBCardMobile({ item }) {
   return (
-    <li className="bg-[#ECF0F1] pt-6 relative block md:hidden"> {/* Only visible on small screens */}
+    <li className="bg-v2-yellow pt-6 relative block md:hidden">
       <div className="pl-8 grid space-y-2">
         <div>
           <RichText
