@@ -47,6 +47,14 @@
             "placeholder": ""
           }
         },
+        "icon_1": {
+          "type": "Image",
+          "config": {
+            "label": "Icon 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "asset_1": {
           "type": "Image",
           "config": {
@@ -67,6 +75,14 @@
           "config": {
             "label": "Card 2 Description",
             "placeholder": ""
+          }
+        },
+        "icon_2": {
+          "type": "Image",
+          "config": {
+            "label": "Icon 2",
+            "constraint": {},
+            "thumbnails": []
           }
         },
         "band_asset": {

@@ -13826,6 +13826,16 @@ export interface SuccessRate1SliceDefaultPrimary {
   card_1_description_1: prismic.KeyTextField;
 
   /**
+   * Icon 1 field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.icon_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon_1: prismic.ImageField<never>;
+
+  /**
    * Asset 1 field in *SuccessRate1 → Default → Primary*
    *
    * - **Field Type**: Image
@@ -13854,6 +13864,16 @@ export interface SuccessRate1SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   card_2_description: prismic.KeyTextField;
+
+  /**
+   * Icon 2 field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.icon_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon_2: prismic.ImageField<never>;
 
   /**
    * Band_Asset field in *SuccessRate1 → Default → Primary*
@@ -13921,6 +13941,16 @@ export interface SuccessRate2SliceDefaultPrimary {
   card_1_description: prismic.KeyTextField;
 
   /**
+   * Card 1 Icon field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.card_1_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_1_icon: prismic.ImageField<never>;
+
+  /**
    * Box Number field in *SuccessRate2 → Default → Primary*
    *
    * - **Field Type**: Text
@@ -13939,6 +13969,16 @@ export interface SuccessRate2SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   card_2_description: prismic.KeyTextField;
+
+  /**
+   * Card 2 Icon field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.card_2_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_2_icon: prismic.ImageField<never>;
 
   /**
    * Band_Asset field in *SuccessRate2 → Default → Primary*
@@ -13969,6 +14009,16 @@ export interface SuccessRate2SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   card_3_description: prismic.KeyTextField;
+
+  /**
+   * Card 3 Icon field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.card_3_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_3_icon: prismic.ImageField<never>;
 
   /**
    * Asset field in *SuccessRate2 → Default → Primary*
