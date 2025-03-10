@@ -78,7 +78,7 @@ const ProgramShowcase = ({ slice }) => {
         {/* Swiper Component Container */}
 
         <div className="h-auto lg:h-[32.4rem] flex gap-12 mt-16">
-          <ul className="h-full hidden lg:block w-[20%] lg:w-[25%] border-red-400">
+          <ul className="h-full hidden lg:block w-[20%] lg:w-[25%] ">
             <Swiper
               direction="vertical"
               className="h-full"
@@ -569,7 +569,7 @@ const ProgramShowcase = ({ slice }) => {
     >
       {/* Swiper Component Container */}
       <div className="h-auto xl:h-[32.4rem] flex gap-12  ">
-        <ul className="h-full hidden xl:block w-[20%] xl:w-[25%]  ">
+        <ul className="h-full hidden xl:block w-[20%] xl:w-[25%]   ">
           <Swiper
             direction="vertical"
             className="h-full"
@@ -594,19 +594,47 @@ const ProgramShowcase = ({ slice }) => {
           </Swiper>
         </ul>
         {/* Swiper Component */}
-        <div className="relative w-full xl:w-[70%]  h-full cursor-grab  ">
+        <div className="relative w-full  xl:w-[70%]  h-full  cursor-grab  ">
           <div className="absolute h-[120%] w-full -top-8 -left-8 hidden xl:block">
             <div className="relative h-full w-full">
               {/* <Image src="/bg-page.png" fill className="mix-blend-hard-light" /> */}
             </div>
           </div>
-          <Swiper
+          {/* <Swiper
             ref={swiperRef}
             className="w-full  h-full cursor-grab"
             slidesPerView={1.04}
             spaceBetween={20}
             onSlideChange={(i) => handleSlideChange(i.activeIndex)}
-          >
+          > */}
+            <Swiper
+  ref={swiperRef}
+  className="w-full h-full cursor-grab"
+  // Default (mobile) configuration
+  slidesPerView={1}
+  spaceBetween={10}
+  onSlideChange={(i) => handleSlideChange(i.activeIndex)}
+  // Override for each breakpoint
+  breakpoints={{
+    // >=640px (tailwind "sm:" size)
+    640: {
+      slidesPerView: 1.04,
+      spaceBetween: 20,
+    },
+    // >=768px (tailwind "md:" size)
+    768: {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+    },
+    
+    1280: {
+      slidesPerView: 1.04,
+      spaceBetween: 20,
+    },
+  }}
+>
+
+
             {slice.primary.program_showcase_content.map((item) => (
               <SwiperSlide
                 className="!flex flex-col gap-2 xl:flex-row"
