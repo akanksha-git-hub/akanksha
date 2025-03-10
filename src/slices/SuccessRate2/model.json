@@ -26,6 +26,14 @@
             "placeholder": ""
           }
         },
+        "card_1_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Card 1 Icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "box_number": {
           "type": "Text",
           "config": {
@@ -38,6 +46,14 @@
           "config": {
             "label": "Card 2 Description",
             "placeholder": ""
+          }
+        },
+        "card_2_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Card 2 Icon",
+            "constraint": {},
+            "thumbnails": []
           }
         },
         "band_asset": {
@@ -60,6 +76,14 @@
           "config": {
             "label": "Card 3 Description",
             "placeholder": ""
+          }
+        },
+        "card_3_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Card 3 Icon",
+            "constraint": {},
+            "thumbnails": []
           }
         },
         "asset": {
