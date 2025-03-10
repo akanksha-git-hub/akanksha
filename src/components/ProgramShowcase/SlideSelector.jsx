@@ -34,9 +34,9 @@ export default function SlideSelector({
           </span>
         </p>
       )}
-      <div className="flex items-center justify-between ">
+      <div className="flex items-center justify-between  ">
         <RichText
-          className="text-black max-w-[80] text-2xl xl:text-2xl font-ambit-regular"
+          className="text-black max-w-[80]  text-4xl md:text-4xl xl:text-2xl font-ambit-regular"
           text={name}
         />
       </div>

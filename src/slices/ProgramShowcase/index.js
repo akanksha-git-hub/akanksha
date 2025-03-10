@@ -674,13 +674,9 @@ const ProgramShowcase = ({ slice }) => {
           </Swiper>
         </div>
       </div>
-      <div
-        className="
-        flex items-start mt-6 justify-between
-        xl:mt-0 xl:justify-normal "
-      >
+     <div className="flex flex-col justify-center items-center">
         <SlideSelector
-          className="block full xl:hidden"
+          className="block full xl:hidden mt-4 "
           key={slice.primary.program_showcase_content[trackIndex].name}
           name={slice.primary.program_showcase_content[trackIndex].name}
           short_content={
@@ -693,7 +689,7 @@ const ProgramShowcase = ({ slice }) => {
           index={trackIndex}
         />
         
-        <div className="flex gap-2 mt-24 mx-auto ">
+        <div className="flex gap-2 mt-12 mx-auto ">
        
           <SwiperArrow
             isDisabled={trackIndex === 0}
@@ -708,7 +704,7 @@ const ProgramShowcase = ({ slice }) => {
             onClick={swipeNext}
           />
         </div>
-      </div>
+        </div>
     </section>
   );
 };
