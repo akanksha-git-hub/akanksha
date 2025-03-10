@@ -22,7 +22,7 @@ const TextShowcase = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="universal-padding flex flex-col md:items-center justify-start sm:mt-14 "
       >
-        <div className="font-ambit-regular w-full text-5xl sm:w-[30rem] md:text-8xl md:w-[50rem]  text-black text-left justify-center md:mx-auto md:text-center items-center">
+        <div className="font-ambit-regular w-full text-4xl  md:text-8xl md:w-[50rem]  text-black text-left justify-center md:mx-auto md:text-center items-center">
          
          <p>
           {slice.primary.title}
