@@ -89,7 +89,7 @@ const MissionVision = ({ slice, context }) => {
         className={`${removePagePadding ? " " : "universal-padding"} mt-8`}
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
-        <div className="lg:grid lg:grid-cols-[auto,1fr,auto]  items-center mt-10 md:mt-24">
+        <div className="lg:grid lg:grid-cols-[auto,1fr,auto]  items-center mt-16 ">
           <div className="hidden lg:block h-full">
             <PrismicNextImage
               width={1200}
