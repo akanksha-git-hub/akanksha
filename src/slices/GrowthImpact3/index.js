@@ -13,29 +13,29 @@ const GrowthImpact3 = ({ slice }) => {
          className="mt-6"
        >
          <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[350px]">
-         <div className="flex flex-col bg-[#ECF0F1] rounded-lg p-8 items-center justify-between lg:w-[40%] w-full relative">
+         <div className="flex flex-col bg-[#ECF0F1] rounded-lg pt-8 px-8 items-center justify-between  lg:w-[40%] w-full relative ">
       {/* Description */}
-      <div className="w-full flex flex-col">
+      <div className="w-full flex flex-col ">
         <h1 className="font-ambit-regular text-black text-lg xl:text-2xl text-left xl:w-[12ch]">
           {slice.primary.card_1_description}
         </h1>
       </div>
 
       {/* Chart Section */}
-      <div className="w-full flex flex-row mt-0 space-x-2 justify-center items-end h-[220px] mx-auto">
+      <div className="w-full flex flex-row mt-2 space-x-2 justify-center items-end h-[220px] mx-auto ">
   {/* First Chart */}
   <div className="flex flex-col items-center justify-end w-full h-full relative max-w-[250px]">
-    <span className="text-3xl xl:text-5xl font-ambit-regular text-black mb-2">{slice.primary.percentage_1}</span>
+    <span className="text-3xl xl:text-4xl font-ambit-regular text-black mb-2">{slice.primary.percentage_1}</span>
     <div className="w-full bg-[#58BCD4]  relative flex items-end justify-center p-4" style={{ height: "40%" }}>
-      <span className="text-xl xl:text-3xl font-ambit-regular text-black absolute">{slice.primary.chart_description_1}</span>
+      <span className="text-xl xl:text-2xl font-ambit-regular text-black absolute">{slice.primary.chart_description_1}</span>
     </div>
   </div>
 
   {/* Second Chart */}
   <div className="flex flex-col items-center justify-end w-full h-full relative max-w-[250px]">
-    <span className="text-3xl xl:text-5xl font-ambit-regular text-black mb-2">{slice.primary.percentage_2}</span>
+    <span className="text-3xl xl:text-4xl font-ambit-regular text-black mb-2">{slice.primary.percentage_2}</span>
     <div className="w-full bg-[#F4456E]  relative flex items-end justify-center p-4 " style={{ height: "80%" }}>
-      <span className="text-xl xl:text-3xl  font-ambit-regular text-black absolute">{slice.primary.chart_description_2}</span>
+      <span className="text-xl xl:text-2xl  font-ambit-regular text-black absolute">{slice.primary.chart_description_2}</span>
     </div>
   </div>
 </div>

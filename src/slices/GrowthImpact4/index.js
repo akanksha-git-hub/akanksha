@@ -13,10 +13,10 @@ const GrowthImpact4 = ({ slice }) => {
             className="mt-6"
           >
             <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[300px] xl:min-h-[350px]">
-            <div className="flex flex-col bg-[#ECF0F1] rounded-lg p-6 items-center justify-between lg:w-[50%] w-full relative">
+            <div className="flex flex-col bg-[#ECF0F1] rounded-lg p-6 items-center justify-between  lg:w-[50%] w-full relative">
          {/* Description */}
          <div className="w-full  ">
-           <h1 className="font-ambit-regular text-black text-4xl xl:text-6xl text-center ">
+           <h1 className="font-ambit-regular text-black text-4xl xl:text-5xl w-[10ch] mr-auto text-left ">
              {slice.primary.card_1_heading}
            </h1>
          </div>
@@ -24,9 +24,9 @@ const GrowthImpact4 = ({ slice }) => {
        
          
      {/* First Chart */}
-     <div className="flex md:flex-row flex-col   md:items-end md:justify-between items-center justify-center mt-6 md:mt-0 w-full h-full  ">
+     <div className="flex md:flex-row flex-col   md:items-end md:justify-between items-center justify-center mt-6 md:mt-0 w-full h-full    ">
      
-           <h1 className="font-ambit-regular text-black xl:text-3xl text-xl md:w-[15ch]  xl:text-left  leading-snug">
+           <h1 className="font-ambit-regular text-black xl:text-3xl text-xl md:w-[15ch]  xl:text-left  leading-snug md:pb-6">
              {slice.primary.card_1_description}
            </h1>
          
@@ -47,45 +47,27 @@ const GrowthImpact4 = ({ slice }) => {
    
    
        </div>
-       <div className="flex flex-col bg-[#ECF0F1] rounded-lg p-6 mt-6  lg:mt-0  items-center justify-between lg:w-[50%] w-full relative">
-         {/* Description */}
-         <div className="w-full flex flex-row  items-center justify-between   ">
-         <div>
-           <h1 className="font-ambit-regular text-black text-4xl xl:text-7xl text-left w-[5ch]  ">
-             {slice.primary.card_2_heading}
-           </h1>
-           </div>
-           <div className="">
+       <div className="relative flex flex-col justify-end bg-[#ECF0F1] rounded-lg p-6 mt-6 lg:mt-0 lg:w-[50%] w-full">
+  {/* Absolutely positioned image */}
+  <div className="absolute top-0 right-0 p-2">
+    <PrismicNextImage 
+      field={slice.primary.card_2_asset}
+      className="xl:max-w-[300px] xl:max-h-[300px] max-w-[120px] max-h-[120px] object-cover"
+      alt="Card Image"
+    />
+  </div>
 
-           <PrismicNextImage 
-             field= {slice.primary.card_2_asset} 
-             className="xl:max-w-[300px] xl:max-h-[300px] max-w-[120px] max-h-[120px] object-cover "
-             alt={"Card Image"}
-             />
-             </div>
-         </div>
-   
-       
-         
-     {/* First Chart */}
-     <div className="flex md:flex-row flex-col   md:items-end md:justify-between items-center justify-center mt-6 md:mt-0 w-full h-full  ">
-     
-           <p className="font-ambit-regular text-black xl:text-3xl text-xl  md:text-left  leading-snug">
-             {slice.primary.card_2_description}
-           </p>
-         
-     
-          
-        
-     </div>
-   
- 
-     
-   
-   
-   
-   
-       </div>
+  {/* Heading and description */}
+  <div className="mt-6 w-full">
+    <h1 className="font-ambit-regular text-black text-4xl xl:text-7xl text-left w-[5ch]">
+      {slice.primary.card_2_heading}
+    </h1>
+    <p className="font-ambit-regular text-black xl:text-3xl text-xl leading-snug mt-2">
+      {slice.primary.card_2_description}
+    </p>
+  </div>
+</div>
+
             </div>
           </section>
   );

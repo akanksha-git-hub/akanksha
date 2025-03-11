@@ -35,8 +35,8 @@ const GrowthImpact2 = ({ slice }) => {
         </div>
         <div className="flex flex-col md:flex-row bg-[#ECF0F1] rounded-lg p-8 lg:mt-0 mt-6 lg:w-[60%]  w-full relative">
           {/* Left Section */}
-          <div className="w-full md:w-[60%]  flex flex-col items-left justify-between ">
-            <h1 className="font-ambit-regular text-black text-4xl xl:text-7xl">
+          <div className="w-full md:w-[60%]  flex flex-col items-left justify-around ">
+            <h1 className="font-ambit-regular text-black text-4xl xl:text-6xl">
               {slice.primary.card_2_title}
             </h1>
             <p className="font-ambit-regular text-lg xl:text-2xl w-[18ch]">
@@ -48,15 +48,15 @@ const GrowthImpact2 = ({ slice }) => {
           <div className="w-full md:w-[40%] h-full flex flex-col items-right justify-center">
             {/* First Box */}
             <div className="w-full bg-[#FBDA1D] mt-6 md:mt-0 text-black text-center xl:py-10 py-4 px-6  flex flex-col items-center justify-center rounded-full">
-              <h2 className="text-2xl xl:text-4xl font-bold">32%</h2>
+              <h2 className="text-2xl xl:text-4xl font-ambit-semibold">32%</h2>
               <p className="text-sm xl:text-lg">
                 {slice.primary.card_2_button_1_description}
               </p>
             </div>
 
             {/* Second Box */}
-            <div className="w-full bg-[#F4456E] text-black text-center xl:py-10 py-4 px-3 flex flex-col items-center justify-center rounded-full">
-              <h2 className="text-2xl xl:text-4xl font-bold">
+            <div className="w-full bg-[#55BBD3] text-black text-center xl:py-10 py-4 px-3 flex flex-col items-center justify-center rounded-full">
+              <h2 className="text-2xl xl:text-4xl font-ambit-semibold">
                 {slice.primary.card_2_buttton_2_header}
               </h2>
               <p className="text-sm xl:text-lg">
