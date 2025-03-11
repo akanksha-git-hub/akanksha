@@ -32,17 +32,17 @@ const FlagshipHero = ({ slice }) => {
           />
           <RichText
             text={slice.primary.description1}
-            className="font-ambit-regular text-black sm:text-center w-full max-w-[60ch] 3xl:text-2xl sm:text-lg text-base"
+            className="font-ambit-regular text-black sm:text-center w-full max-w-[60ch] text-[1.35rem]"
           />
           <RichText
             text={slice.primary.description2}
-            className="font-ambit-regular text-black sm:text-center w-full max-w-[60ch] 3xl:text-2xl sm:text-xl text-base"
+            className="font-ambit-regular text-black sm:text-center w-full max-w-[60ch] text-[1.35rem]"
           />
         </div>
   
         
         <div className="block absolute -top-[10%] -left-[15px] md:top-[10%] md:-left-[100px] 
-          h-[100px] w-[80px] sm:h-[150px] sm:w-[100px] md:h-[280px] md:w-[120px] lg:h-[350px] lg:w-[200px] xl:w-[300px] -z-10">
+          h-[100px] w-[80px] sm:h-[150px] sm:w-[100px] md:h-[230px] md:w-[140px] xl:h-[350px] xl:w-[300px]  -z-10">
           <PrismicNextImage
             field={slice.primary.image_a}
             className="h-full w-full object-contain"
@@ -52,8 +52,8 @@ const FlagshipHero = ({ slice }) => {
         </div>
   
       
-        <div className="block absolute -bottom-[45px] -right-[24px] md:-bottom-[100px] md:-right-[190px]
-          h-[120px] w-[100px] sm:h-[180px] sm:w-[140px] md:h-[260px] md:w-[350px] lg:h-[400px] lg:w-[500px] -z-10">
+        <div className="block absolute -bottom-[45px] -right-[24px] md:-bottom-[80px] md:-right-[190px]
+          h-[120px] w-[100px] sm:h-[180px] sm:w-[140px] md:h-[260px] md:w-[350px] xl:h-[400px] xl:w-[500px] -z-10">
           <PrismicNextImage
             field={slice.primary.image_b}
             className="h-full w-full object-contain"
