@@ -2,7 +2,7 @@ import { PrismicNextImage } from '@prismicio/next'
 
 export default function ImageComponent({ image, className }) {
   return (
-    <div className={`h-[30vh] md:h-[36rem] ${className}`}>
+    <div className={`h-[30vh] md:h-[33rem] ${className}`}>
       <PrismicNextImage 
         field={image}
         height={1200}
