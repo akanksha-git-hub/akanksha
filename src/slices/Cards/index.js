@@ -115,14 +115,14 @@ const Cards = ({ slice }) => {
       <SliceIdentifier text={slice.primary.slice_identifier}  />
 
       {slice.variation !== "withUnderline" && (
-        <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between space-y-2 xl:space-y-0 xl:space-x-4 mt-16">
+        <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between space-y-2 xl:space-y-0 xl:space-x-4 mt-12">
           <RichText
             text={slice.primary.title}
-            className="text-black font-ambit-regular text-6xl md:text-center"
+            className="text-black font-ambit-regular text-6xl text-left xl:text-center mt-8"
           />
           <RichText
             text={slice.primary.description}
-            className="text-black font-ambit-regular text-xl md:text-left max-w-[50ch]"
+            className="text-black font-ambit-regular text-[1.35rem] md:text-left max-w-[50ch]  pt-8 "
           />
         </div>
       )}
@@ -133,7 +133,7 @@ const Cards = ({ slice }) => {
           <div className="w-full xl:w-[50%] space-y-6">
             <RichText
               text={slice.primary.title}
-              className="text-black font-ambit-regular text-8xl text-left xl:text-center"
+              className="text-black font-ambit-regular text-8xl text-left  xl:text-center"
             />
             <Image
   src="/underline-orange.svg"
