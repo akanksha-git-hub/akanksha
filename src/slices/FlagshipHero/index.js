@@ -70,7 +70,7 @@ const FlagshipHero = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="relative mb-24 universal-padding"
+        className="relative universal-padding "
       >
         <div className="flex flex-col items-center justify-center space-y-12 mt-4 lg:mt-32">
           <RichText
@@ -81,10 +81,13 @@ const FlagshipHero = ({ slice }) => {
             text={slice.primary.description1}
             className="font-ambit-regular text-black sm:text-center text-xl w-full max-w-[60ch]"
           />
-          <RichText
-            text={slice.primary.description2}
-            className="font-ambit-regular text-black sm:text-center text-xl w-full max-w-[60ch]"
-          />
+          {slice.primary.description2?.length > 0 && (
+  <RichText
+    text={slice.primary.description2}
+    className="font-ambit-regular text-black sm:text-center text-xl w-full max-w-[60ch]"
+  />
+)}
+
         </div>
 
         {/* Top left image */}
