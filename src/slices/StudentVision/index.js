@@ -95,15 +95,15 @@ const StudentVision = ({ slice, context }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className=" mt-8"
+        className=" mt-10"
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
 
-        <div className="flex flex-col justify-center items-center relative mt-12">
-          <h1 className="mt-8  text-3xl md:text-6xl text-center w-[18ch] font-ambit-regular">
+        <div className="flex flex-col justify-center items-center relative mt-10">
+          <h1 className="  text-3xl md:text-6xl text-center w-[18ch] font-ambit-regular mt-10">
             {slice.primary.title}
           </h1>
-          <p className="md:text-center md:w-[40%] font-ambit-regular mt-4 text-left text-xl">
+          <p className="md:text-center md:w-[40%] font-ambit-regular text-left text-xl mt-10">
             {slice.primary.description}
           </p>
           <PrismicNextImage
@@ -119,6 +119,20 @@ const StudentVision = ({ slice, context }) => {
             height={120}
             width={120}
             className="absolute hidden md:block md:-right-[5%] md:top-[28%] lg:top-[30%] lg:right-[6%] -z-10"
+          />
+            <PrismicNextImage
+            field={slice.primary.asset_1}
+            alt="left-asset"
+            height={220}
+            width={220}
+            className="absolute hidden lg:block lg:top-[50%] lg:left-[5%] -z-10"
+          />
+          <PrismicNextImage
+            field={slice.primary.asset_2}
+            alt="right-asset"
+            height={120}
+            width={120}
+            className="absolute hidden lg:block xl:top-[64%] xl:left-[18%] -z-10"
           />
           <div className="relative h-full w-full flex items-center justify-center">
             <PrismicNextImage

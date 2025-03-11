@@ -390,7 +390,7 @@ const ProgramShowcase = ({ slice }) => {
 
                     <div className="flex gap-2 md:gap-0 flex-col md:flex-row">
                       <ImageComponent
-                        className="w-full md:w-[42%]"
+                        className="w-full md:w-[42%] "
                         image={item.image}
                       />
                       <div className="relative rounded-lg bg-[#58BCD4] p-8 w-full xl:w-[56%] flex flex-col items-start justify-between">
@@ -419,11 +419,7 @@ const ProgramShowcase = ({ slice }) => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </div>
-
-            {/* Arrows */}
-            <div className="flex items-start mt-6 justify-between xl:mt-0 xl:justify-normal">
-              <div className="flex gap-2  mx-auto">
+              <div className="flex gap-2  mx-auto mt-4">
                 <SwiperArrow
                   isDisabled={trackIndex === 0}
                   className="rotate-180"
@@ -438,6 +434,9 @@ const ProgramShowcase = ({ slice }) => {
                 />
               </div>
             </div>
+
+            {/* Arrows */}
+            
           </div>
           <div className="absolute -bottom-56  -left-12 hidden lg:block  ">
             <PrismicNextImage
