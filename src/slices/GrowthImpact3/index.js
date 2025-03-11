@@ -13,7 +13,7 @@ const GrowthImpact3 = ({ slice }) => {
          className="mt-6"
        >
          <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[350px]">
-         <div className="flex flex-col bg-[#ECF0F1] rounded-lg pt-8 px-8 items-center justify-between  lg:w-[40%] w-full relative ">
+         <div className="flex flex-col bg-[#ECF0F1] rounded-lg px-12 pt-14 items-center justify-between  lg:w-[40%] w-full relative ">
       {/* Description */}
       <div className="w-full flex flex-col ">
         <h1 className="font-ambit-regular text-black text-lg xl:text-2xl text-left xl:w-[12ch]">
@@ -34,7 +34,7 @@ const GrowthImpact3 = ({ slice }) => {
   {/* Second Chart */}
   <div className="flex flex-col items-center justify-end w-full h-full relative max-w-[250px]">
     <span className="text-3xl xl:text-4xl font-ambit-regular text-black mb-2">{slice.primary.percentage_2}</span>
-    <div className="w-full bg-[#F4456E]  relative flex items-end justify-center p-4 " style={{ height: "80%" }}>
+    <div className="w-full bg-v2-yellow  relative flex items-end justify-center p-4 " style={{ height: "80%" }}>
       <span className="text-xl xl:text-2xl  font-ambit-regular text-black absolute">{slice.primary.chart_description_2}</span>
     </div>
   </div>
@@ -54,19 +54,19 @@ const GrowthImpact3 = ({ slice }) => {
       </div>
 
       {/* Right Section (Title, Secondary Title, and Description) */}
-      <div className="w-full lg:w-[50%] flex flex-col justify-center space-y-4 items-left  xl:p-6 ">
+      <div className="w-full lg:w-[50%] flex flex-col justify-center space-y-4 items-left   md:pt-14 ">
         {/* Title */}
         <h1 className="font-ambit-regular text-left text-black text-4xl xl:text-7xl">
           {slice.primary.card_2_title}
         </h1>
 
         {/* Secondary Title */}
-        <h2 className="font-ambit-regular text-left text-black text-xl xl:text-3xl">
+        <h2 className="font-ambit-regular text-left text-black text-lg xl:text-2xl">
           {slice.primary.card_2_small_title}
         </h2>
 
         {/* Description */}
-        <p className="font-ambit-regular text-base xl:text-xl text-black text-left">
+        <p className="font-ambit-regular text-lg xl:text-2xl text-black text-left">
           {slice.primary.card_2_description}
         </p>
       </div>

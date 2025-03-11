@@ -23,7 +23,7 @@ const GrowthImpact = ({ slice }) => {
           <h1 className="font-ambit-regular text-black text-4xl xl:text-7xl w-[2ch] ">
             {slice.primary.card_1_title}
           </h1>
-          <p className="font-ambit-regular text-lg  xl:text-3xl xl:w-[20ch] mt-auto">
+          <p className="font-ambit-regular text-lg xl:text-2xl xl:w-[20ch] mt-auto">
             {slice.primary.card_1_description}
           </p>
         </div>
