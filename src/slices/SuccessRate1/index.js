@@ -13,11 +13,11 @@ const SuccessRate1 = ({ slice }) => {
  <section
          data-slice-type={slice.slice_type}
          data-slice-variation={slice.variation}
-         className=" mt-0 "
+         className="md:mt-20 mt-8 "
        >
        
 
-         <SliceIdentifier text={slice.primary.slice_identifier} />
+         <SliceIdentifier text={slice.primary.slice_identifier} className=" " />
          <h1 className="font-ambit-regular text-5xl md:text-xl lg:text-center text-left mt-6 ">
            {slice.primary.main_heading}
          </h1>

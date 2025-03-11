@@ -510,7 +510,7 @@ const SliderShowcase = ({ slice,context  }) => {
           <SliceIdentifier text={slice.primary.slice_identifier} />
         </div>
 
-        <div className="flex flex-col xl:flex-row items-start justify-center h-full   w-full xl:mt-16 mt-8   ">
+        <div className="flex flex-col xl:flex-row items-start justify-center h-full   w-full md:mt-20 mt-8   ">
           <div className="w-full xl:w-[50%]   flex flex-col justify-evenly">
             <div className=" xl:mt-0">
               <RichText
@@ -569,7 +569,7 @@ const SliderShowcase = ({ slice,context  }) => {
                         className="w-full xl:w-[42%] h-full"
                         image={item.image}
                       />
-                    <div className="w-full  xl:h-[32.4rem] xl:w-[60%]  rounded-lg bg-[#58BCD4] p-8   flex flex-col items-center justify-center relative">
+                    <div className="w-full  xl:h-[32.4rem] xl:w-[60%] rounded-lg md:rounded-none bg-[#58BCD4] p-8   flex flex-col items-center justify-center relative">
               <div className="absolute top-0 right-0 w-full h-[1.25rem]">
                 <div className="relative h-full w-full">
                   <Image src="/quote-side-up.png" alt="Top Shading" fill />
@@ -600,19 +600,20 @@ const SliderShowcase = ({ slice,context  }) => {
           </div>
        
         </div>
-        <div className=" flex items-center justify-center gap-2 mt-6">
-          <SwiperArrow
-            strokeColor="#37473C"
-            className="rotate-180"
-            onClick={swipePrev}
-            isDisabled={current === 0}
-          />
-          <SwiperArrow
-            strokeColor="#37473C"
-            onClick={swipeNext}
-            isDisabled={current === slice.primary.items.length - 1}
-          />
-        </div>
+        <div className="flex items-center justify-center md:justify-start gap-2 mt-6 md:mt-0">
+  <SwiperArrow
+    strokeColor="#37473C"
+    className="rotate-180"
+    onClick={swipePrev}
+    isDisabled={current === 0}
+  />
+  <SwiperArrow
+    strokeColor="#37473C"
+    onClick={swipeNext}
+    isDisabled={current === slice.primary.items.length - 1}
+  />
+</div>
+
 
         <div className="hidden xl:block absolute -bottom-2 -left-12  lg:h-[500px] lg:w-[500px]  -z-10">
           <PrismicNextImage
