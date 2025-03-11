@@ -515,7 +515,7 @@ const SliderShowcase = ({ slice,context  }) => {
             <div className=" xl:mt-0">
               <RichText
                 text={slice.primary.title}
-                className="text-black font-ambit-regular text-5xl lg:text-6xl lg:text-left xl:max-w-[5ch] lg:mr-auto mb-8 xl:mb-0"
+                className="text-black font-ambit-regular text-4xl lg:text-6xl lg:text-left xl:max-w-[5ch] lg:mr-auto xl:mb-0"
               />
             </div>
           </div>

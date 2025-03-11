@@ -24,11 +24,11 @@ const FlagshipHero = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="relative mb-12 "
        >
-        <div className="flex flex-col items-center justify-center space-y-12 mt-4">
+        <div className="flex flex-col items-start md:items-center justify-center space-y-12 mt-4">
           <RichText
             text={slice.primary.main_title}
-            className="font-ambit-regular text-black sm:text-center text-3xl md:text-6xl
-              max-w-[15ch] "
+            className="font-ambit-regular text-black text-left md:text-center text-3xl md:text-6xl
+              max-w-[15ch]  "
           />
           <RichText
             text={slice.primary.description1}
@@ -41,7 +41,7 @@ const FlagshipHero = ({ slice }) => {
         </div>
   
         
-        <div className="block absolute -top-[10%] -left-[15px] md:top-[10%] md:-left-[100px] 
+        <div className="hidden lg:block absolute -top-[10%] -left-[15px] md:top-[10%] md:-left-[100px] 
           h-[100px] w-[80px] sm:h-[150px] sm:w-[100px] md:h-[230px] md:w-[140px] xl:h-[350px] xl:w-[300px]  -z-10">
           <PrismicNextImage
             field={slice.primary.image_a}
@@ -52,8 +52,8 @@ const FlagshipHero = ({ slice }) => {
         </div>
   
       
-        <div className="block absolute -bottom-[45px] -right-[24px] md:-bottom-[80px] md:-right-[190px]
-          h-[120px] w-[100px] sm:h-[180px] sm:w-[140px] md:h-[260px] md:w-[350px] xl:h-[400px] xl:w-[500px] -z-10">
+        <div className="block absolute -bottom-[50px] -right-[24px] md:-bottom-[80px] md:-right-[190px]
+          h-[160px] w-[120px] sm:h-[180px] sm:w-[140px] md:h-[260px] md:w-[350px] xl:h-[400px] xl:w-[500px] -z-10">
           <PrismicNextImage
             field={slice.primary.image_b}
             className="h-full w-full object-contain"
