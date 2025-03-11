@@ -26,7 +26,7 @@ const GrowthImpact5 = ({ slice }) => {
      
         iconField={slice.primary.icon_2}
       />
-    <p className="text-xl xl:text-4xl font-ambit-regular  ">
+    <p className="text-lg xl:text-2xl font-ambit-regular  ">
       {slice.primary.card_2_title}
     </p>
     {/* Roles */}
