@@ -178,7 +178,7 @@ const TimelineScroller = ({ slice }) => {
           trigger: root.current,
           start: `-24px top`,
           end: `${totalSlides * 400}px`,
-          scrub: 0.15,
+          scrub: 0.05,
           pin: true,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
@@ -223,7 +223,7 @@ const TimelineScroller = ({ slice }) => {
             <div 
               className={`w-full rounded-full custom-bezier relative h-full`}
             >
-              <p className="text-deep-green text-base font-ambit-regular absolute -left-[94%] -translate-x-2/4 -top-8">1991</p>
+              <p className="text-black text-2xl font-ambit-regular absolute -left-[94%] -translate-x-2/4 -top-10 ">1991</p>
               <div 
                 className={`bg-deep-green w-full custom-bezier relative h-full rounded-full`}
                 style={{
@@ -276,7 +276,7 @@ const TimelineScroller = ({ slice }) => {
                   )}
                 </ul>
               )}
-            <p className="text-deep-green text-base font-ambit-regular absolute -left-[94%] -translate-x-2/4 -bottom-8">2024</p>
+            <p className="text-black text-2xl font-ambit-regular absolute -left-[8%] -translate-x-2/4 -bottom-12">2024</p>
             </div>
           </div>
           <Swiper 
@@ -375,10 +375,10 @@ const TimelineScroller = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="mb-52 1000pixel:hidden mt-24 pt-12"
+        className="mb-52 1000pixel:hidden "
       >
       <div className="relative">
-        <div className="absolute -bottom-12 left-2/4 -translate-x-2/4 w-[76%] md:w-[80%] h-2 rounded-full z-20 bg-[#D2D1CD]">
+        <div className="absolute -bottom-12 left-2/4 -translate-x-2/4 w-[76%] md:w-[80%] h-2 rounded-full z-20 bg-[#FBDA1D]">
           <p className="text-deep-green text-base font-ambit-regular absolute -left-12 bottom-2/4 translate-y-[58%]">1991</p>
           <div className="w-full h-full rounded-full custom-bezier relative">
             <div 
@@ -396,7 +396,7 @@ const TimelineScroller = ({ slice }) => {
                       <li 
                       key={i} 
                       onClick={() => handleMobileUpdateActiveIndex(i)} 
-                      className={`rounded-full !h-[12px] !w-[12px] slow-bezier cursor-pointer relative bg-bright-yellow`} 
+                      className={`rounded-full !h-[12px] !w-[12px] slow-bezier cursor-pointer relative bg-deep-green`} 
                     >
                       <span className={`
                           absolute bottom-[50%] translate-y-2/4 -left-[130%] translate-x-2/4 h-[180%] w-[180%] 

@@ -24,11 +24,11 @@ export default async function Page() {
                 />
                 <TempFillImageComponent 
                     src={Boat}
-                    className="absolute top-[8%] left-0 md:top-0 md:left-[76%] h-44 w-44 -z-10"
+                    className="absolute top-[6%] left-0 lg:top-0 lg:left-[76%] h-24 w-24 lg:h-52 lg:w-52 -z-10"
                 />
                 <TempFillImageComponent 
                     src={SunCrow}
-                    className="absolute -top-28 md:top-0 md:left-[6%] h-44 w-44 -z-10"
+                    className="absolute -top-10 right-6 lg:top-0 lg:left-[6%] h-24 w-24 lg:h-52 lg:w-52 -z-10"
                 />
                 <div className="text-black sm:text-xl 3xl:text-2xl font-ambit-regular text-base text-center w-full 950px:w-[90%] 950px:max-w-[1400px] relative">
                     <PrismicRichText 
