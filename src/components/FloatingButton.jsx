@@ -38,7 +38,7 @@ export default function FloatingButton({ pdfUrl,text }) {
   if (!isClient) return <div className="fixed top-1/2 right-4 w-20 h-20 bg-transparent"></div>;
 
   return (
-    <div ref={buttonRef} className="fixed top-1/2 right-4 transform -translate-y-1/2 z-50">
+    <div ref={buttonRef} className="fixed top-3/4 right-4 transform -translate-y-1/2 z-50">
       <div
         className={`transition-all flex items-center ${
           isExpanded

@@ -96,21 +96,18 @@ const IconShowcase = ({ slice,context }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="my-12 relative"
+        className=" relative"
       >
-        <div className="mb-24 md:space-y-10 space-y-8">
+        <div className=" md:space-y-10 space-y-8">
           <SliceIdentifier text={slice.primary.slice_identifier} />
-          <RichText
-            text={slice.primary.small_title}
-            className="font-ambit-regular text-black  md:text-8xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto mt-20 text-4xl sm:text-6xl xl:w-[46%] text-left xl:text-7xl 3xl:w-[48rem] 3xl:text-8xl"
-          />
+       
           <RichText
             text={slice.primary.title}
-            className="font-ambit-regular text-black text-3xl md:text-6xl md:text-center flex md:items-center md:justify-center md:w-[15ch] md:mx-auto"
+            className="font-ambit-regular text-black text-3xl md:text-6xl md:text-center flex md:items-center md:justify-center md:w-[15ch] md:mx-auto pt-8"
           />
         </div>
         {slice.primary.data && (
-          <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-y-8 justify-center  items-start">
+          <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-y-8 justify-center  items-start mt-10">
             {slice.primary.data.map((item, index) => {
               let LottieData = null;
 
@@ -158,7 +155,7 @@ const IconShowcase = ({ slice,context }) => {
           </ul>
         )}
 
-        <div className="hidden xl:block absolute -bottom-64 -right-48  xl:h-[900px] xl:w-[900px] -z-10">
+        <div className="hidden xl:block absolute -bottom-52 -right-52  xl:h-[900px] xl:w-[900px] -z-10">
           <PrismicNextImage
             field={slice.primary.asset}
             className="h-full w-full object-contain"
