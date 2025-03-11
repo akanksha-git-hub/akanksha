@@ -14,34 +14,37 @@ const CardShuffle = ({ slice, context }) => {
   return (
     <>
       {slice.variation === "wihoutSliceIdentifierAndHead" && (
-        <div className="lg:-mt-32 -mt-64">
+        <div className="lg:-mt-32 -mt-64 ">
           <Shuffle slice={slice.primary.items} className />
         </div>
       )}
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="mb-64"
+        className=" mb-56 lg:mb-64"
       >
-        <div className={`${addPadding ? "universal-padding" : " "}`}>
+        <div className={`${addPadding ? "universal-padding" : " "} `}>
           {slice.primary.slice_identifier && (
             <SliceIdentifier text={slice.primary.slice_identifier} />
           )}
         </div>
-        <div className="font-ambit-regular mt-12 space-y-4">
-          {slice.primary.heading_small && (
-            <RichText
-              text={slice.primary.heading_small}
-              className="text-black text-3xl text-center flex items-center justify-center"
-            />
-          )}
-          {slice.primary.heading_big && (
-            <RichText
-              text={slice.primary.heading_big}
-              className="text-black  text-6xl text-center mx-auto max-w-[36ch]"
-            />
-          )}
-        </div>
+        {(slice.primary.heading_small?.length > 0 || slice.primary.heading_big?.length > 0) && (
+  <div className="font-ambit-regular mt-12 space-y-4">
+    {slice.primary.heading_small?.length > 0 && (
+      <RichText
+        text={slice.primary.heading_small}
+        className="text-black text-3xl text-center flex items-center justify-center"
+      />
+    )}
+    {slice.primary.heading_big?.length > 0 && (
+      <RichText
+        text={slice.primary.heading_big}
+        className="text-black text-6xl text-center mx-auto max-w-[36ch]"
+      />
+    )}
+  </div>
+)}
+
         {slice.variation === "default" && (
           <Shuffle slice={slice.primary.items} />
         )}
