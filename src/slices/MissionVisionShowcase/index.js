@@ -36,28 +36,33 @@ const MissionVisionShowcase = ({ slice }) => {
       {/* Mobile Layout */}
       <div className="block lg:hidden">
         {/* Header: Side-by-Side Tabs */}
-        <div className="flex justify-left space-x-6">
-          <button
-            onClick={() => handleContentChange("mission")}
-            className={`text-5xl font-ambit-regular text-black transition-all ${
-              activeComponent === "mission"
-                ? "underline underline-offset-4"
-                : "opacity-60 hover:opacity-80"
-            }`}
-          >
-            Mission
-          </button>
-          <button
-            onClick={() => handleContentChange("vision")}
-            className={`text-5xl font-ambit-regular text-black transition-all ${
-              activeComponent === "vision"
-                ? "underline underline-offset-4"
-                : "opacity-60 hover:opacity-80"
-            }`}
-          >
-            Vision
-          </button>
-        </div>
+        <div className="flex justify-left items-center space-x-2">
+  <button
+    onClick={() => handleContentChange("mission")}
+    className={`text-4xl md:text-5xl font-ambit-regular text-black transition-all ${
+      activeComponent === "mission"
+        ? "underline underline-offset-4"
+        : "opacity-60 hover:opacity-80"
+    }`}
+  >
+    Mission
+  </button>
+
+  {/* Comma in its own span, so it won't inherit the underline/hover styles */}
+  <span className="text-4xl md:text-5xl font-ambit-regular text-black">,</span>
+
+  <button
+    onClick={() => handleContentChange("vision")}
+    className={`text-4xl md:text-5xl font-ambit-regular text-black transition-all ${
+      activeComponent === "vision"
+        ? "underline underline-offset-4"
+        : "opacity-60 hover:opacity-80"
+    }`}
+  >
+    Vision
+  </button>
+</div>
+
 
         {/* Image: Only one image based on the active component */}
         <div className="mt-6 w-[80%] relative">
@@ -75,7 +80,7 @@ const MissionVisionShowcase = ({ slice }) => {
             }
           />
         </div>
-        <div className="absolute top-40 -right-32 transform -translate-x-1/2  pointer-events-none">
+        <div className="absolute top-40 -right-36 transform -translate-x-1/2  pointer-events-none">
             <Image
               src={ButterFlyA}
               alt="Decorative butterfly"
@@ -135,7 +140,7 @@ const MobileSparkleImage = ({ slice, activeComponent, onClick }) => {
           className="rounded-2xl w-full h-auto transition-all cursor-pointer mx-auto"
           onClick={onClick}
           field={imageField}
-          imgixParams={{ w: 400, h: 600, fit: "crop" }}
+          imgixParams={{ w: 400, h: 750, fit: "crop" }}
         />
       ) : (
         <Image
@@ -180,7 +185,7 @@ const SparkleText = ({ slice, isRight, isActive, onClick }) => {
             }`}
             onClick={onClick}
             field={imageField}
-            imgixParams={{ w: 400, h: 600, fit: "crop" }}
+            imgixParams={{ w: 400, h: 720, fit: "crop" }}
           />
         ) : (
           <Image
@@ -211,15 +216,15 @@ const DecorativeImagesRight = () => (
   <>
     <TempFillImageComponent
       src={ButterFlyA}
-      className="absolute -z-10 -top-20 md:-bottom-4 md:-left-20 950px:-left-60 h-24 w-24 950px:h-44 950px:w-44"
+      className="absolute -z-10 -top-20 md:-bottom-4 md:-left-20 950px:-left-60 h-24 w-24 950px:h-52 950px:w-52"
     />
     <TempFillImageComponent
       src={ButterFlyB}
-      className="absolute -z-10 -top-40 sm:-right-20 md:-right-full 2xl:-right-full h-24 w-24 950px:h-44 950px:w-44"
+      className="absolute -z-10 -top-40 sm:-right-20 md:-right-[140%] xl:-right-full h-24 w-24 950px:h-52 950px:w-52"
     />
     <TempFillImageComponent
       src={ButterflyLineB}
-      className="absolute -top-0 -right-20 md:-right-[78%] 2xl:-right-[78%] -z-10 h-44 w-44"
+      className="absolute -top-0 -right-20 md:-right-[78%] block md:hidden xl:block 2xl:-right-[78%] -z-10 h-32 w-32"
     />
   </>
 );

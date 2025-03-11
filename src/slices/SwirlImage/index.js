@@ -14,7 +14,7 @@ const SwirlImage = ({ slice }) => {
       className="universal-padding"
     >
        {/* <SliceIdentifier text={slice.primary.slice_identifier}  /> */}
-      <div className="h-[600px] w-full">
+      <div className="md:h-[600px] w-full ">
         <PrismicNextImage 
           className="h-full w-full object-contain"
           height={2200}

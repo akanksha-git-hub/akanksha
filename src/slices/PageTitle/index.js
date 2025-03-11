@@ -66,7 +66,7 @@ const PageTitle = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className={`flex flex-col items-center ${slice.variation === "default" && "universal-padding mt-24"} pt-28`}
+        className={`flex flex-col items-center ${slice.variation === "default" && "universal-padding mt-14"} pt-8 md:pt-10`}
       >
         {/* {slice.variation === 'sparkle' && (
         <div 
@@ -84,6 +84,7 @@ const PageTitle = ({ slice }) => {
           className={`flex flex-col items-center ${slice.variation === "sparkle" && "universal-padding"} !pt-0 space-y-8`}
         >
           <div className="space-y-2 w-full flex flex-col md:items-center relative">
+          <Image src={PinkHeart} height={100} width={100} alt="heart" />
             <RichText
               text={slice.primary.title}
               className={`text-black xl:text-7xl sm:text-6xl font-ambit-regular text-5xl ${slice.variation === "sparkle" ? "text-left" : "text-center"} md:text-center w-full sm:w-[70%]`}
@@ -98,7 +99,7 @@ const PageTitle = ({ slice }) => {
             className="absolute -z-10 top-0 -right-[20%] w-full h-full scale-[0.2]"
           /> */}
             {/* TODO Change Heart Image to prismic later */}
-            <Image src={PinkHeart} height={100} width={100} alt="heart" />
+           
           </div>
           <div
             className={`relative text-black sm:text-xl 3xl:text-2xl font-ambit-regular text-lg text-left md:text-center ${slice.variation === "default" ? "w-full lg:w-[70%] xl:w-[70ch]" : "w-full lg:w-[80%] 3xl:w-[110ch]"}`}
