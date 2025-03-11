@@ -515,7 +515,7 @@ const SliderShowcase = ({ slice,context  }) => {
             <div className=" xl:mt-0">
               <RichText
                 text={slice.primary.title}
-                className="text-black font-ambit-regular text-5xl lg:text-6xl lg:text-left lg:max-w-[5ch] lg:mr-auto mb-8 xl:mb-0"
+                className="text-black font-ambit-regular text-5xl lg:text-6xl lg:text-left xl:max-w-[5ch] lg:mr-auto mb-8 xl:mb-0"
               />
             </div>
           </div>
@@ -564,7 +564,7 @@ const SliderShowcase = ({ slice,context  }) => {
                       ref={prevRef}
                     />
 
-<div className="flex gap-2 xl:gap-0 flex-col xl:flex-row    items-start justify-center">
+<div className="flex gap-2 xl:gap-0 flex-col xl:flex-row mt-8    items-start justify-center">
    <ImageComponent
                         className="w-full xl:w-[42%] h-full"
                         image={item.image}
@@ -600,7 +600,7 @@ const SliderShowcase = ({ slice,context  }) => {
           </div>
        
         </div>
-        <div className="flex items-center justify-center md:justify-start gap-2 mt-6 md:mt-0">
+        <div className="flex items-center justify-center md:justify-start gap-2 mt-6 md:mt-4">
   <SwiperArrow
     strokeColor="#37473C"
     className="rotate-180"

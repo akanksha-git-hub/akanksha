@@ -4,7 +4,7 @@ import { PrismicNextImage } from '@prismicio/next'
 
 export default function CardsTwoMobileB({ data }) {
   return (
-    <ul className="flex flex-wrap sm:items-center sm:justify-center gap-12 my-12 sm:my-24">
+    <ul className="flex flex-wrap sm:items-center sm:justify-center gap-12 my-16">
     {data.map((item, i) => {
         return(
             <li

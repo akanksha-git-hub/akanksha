@@ -10,7 +10,7 @@ export default function CardsTwoContainerB({ data }) {
   return (
     <>
     {
-        width > 1000 ?
+        width > 1280 ?
         <CardsTwoDesktopB 
             data={data}
         />
