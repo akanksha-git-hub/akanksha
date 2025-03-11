@@ -579,7 +579,7 @@ const SliderShowcase = ({ slice,context  }) => {
               {/* Title and Description Section */}
 
               <RichText
-                className="text-black text-xl font-ambit-regular w-full xl:w-[94%] opacity-reveal"
+                className="text-black text-lg md:text-xl font-ambit-regular w-full xl:w-[94%] opacity-reveal p-2"
                 text={
                   slice.primary.items &&
                   slice.primary.items[current]?.description

@@ -13,7 +13,7 @@ const SuccessRate1 = ({ slice }) => {
  <section
          data-slice-type={slice.slice_type}
          data-slice-variation={slice.variation}
-         className="md:mt-20 mt-8 "
+         className="md:mt-20 mt-16 "
        >
        
 
@@ -24,7 +24,7 @@ const SuccessRate1 = ({ slice }) => {
          <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl lg:text-center text-left mt-2 ">
            {slice.primary.heading}
          </h1>
-         <div className="flex  lg:flex-row flex-col lg:space-x-4 justify-between  items-stretch mt-10  min-h-[250px]    ">
+         <div className="flex  lg:flex-row flex-col lg:space-x-4 justify-between  items-stretch mt-8  min-h-[250px]    ">
            <div className="flex flex-col    p-8  lg:w-[35%] w-full relative border-[0.15rem] border-black  md:hover:bg-v2-yellow">
              <div className="w-full h-full flex flex-col items-start justify-around   ">
              <HeadingAndDescription
