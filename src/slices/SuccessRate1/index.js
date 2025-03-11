@@ -18,13 +18,13 @@ const SuccessRate1 = ({ slice }) => {
        
 
          <SliceIdentifier text={slice.primary.slice_identifier} className=" " />
-         <h1 className="font-ambit-regular text-5xl md:text-xl lg:text-center text-left mt-6 ">
+         <h1 className="font-ambit-regular text-5xl md:text-3xl lg:text-center text-left mt-8 ">
            {slice.primary.main_heading}
          </h1>
-         <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl lg:text-center text-left ">
+         <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl lg:text-center text-left mt-2 ">
            {slice.primary.heading}
          </h1>
-         <div className="flex  lg:flex-row flex-col lg:space-x-4 justify-between  items-stretch mt-8  min-h-[250px]    ">
+         <div className="flex  lg:flex-row flex-col lg:space-x-4 justify-between  items-stretch mt-10  min-h-[250px]    ">
            <div className="flex flex-col    p-8  lg:w-[35%] w-full relative border-[0.15rem] border-black  md:hover:bg-v2-yellow">
              <div className="w-full h-full flex flex-col items-start justify-around   ">
              <HeadingAndDescription

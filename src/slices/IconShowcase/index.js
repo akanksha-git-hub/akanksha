@@ -183,10 +183,10 @@ const IconShowcase = ({ slice,context }) => {
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <RichText
           text={slice.primary.title}
-          className="font-ambit-regular text-black  md:text-6xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto mt-20 text-3xl sm:text-5xl xl:w-[46%] text-left xl:text-4xl 3xl:w-[48rem] 3xl:text-6xl"
+          className="font-ambit-regular text-black  md:text-6xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto mt-10 text-3xl sm:text-5xl xl:w-[46%] text-left xl:text-5xl 3xl:w-[48rem] 3xl:text-6xl"
         />
         {slice.primary.data && (
-          <ul className="grid md:grid-cols-2 xl:grid-cols-3 mt-10">
+          <ul className="grid md:grid-cols-2 xl:grid-cols-3 mt-10 ">
             {slice.primary.data.map((item, index) => {
               let LottieData = null;
 
@@ -208,7 +208,7 @@ const IconShowcase = ({ slice,context }) => {
                       <Image src={PencilShading} alt="img" fill />
                     </div>
                   </div>
-                  <div className="h-28 w-28 rounded-full flex items-center justify-center place-self-end">
+                  <div className="h-28 w-28 rounded-full flex items-center justify-start ">
                     {item.isanimatedicon ? (
                       <div className="h-[80%] w-[80%]">
                         <Lottie
