@@ -23,7 +23,7 @@ export default function MarqueeItem({
           key={index}
         >
          <PrismicNextImage
-  className="h-[55%] w-[55%] md:h-[80%] md:w-[80%] object-contain"
+  className="h-[75%] w-[75%] md:h-[80%] md:w-[80%] object-contain"
   key={index}
   
   field={item.image || item.partner_logo}
