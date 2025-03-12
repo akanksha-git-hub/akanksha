@@ -244,7 +244,7 @@ const StudentVision = ({ slice, context }) => {
         />
 
 <div
-  className={`text-center w-[50%] font-ambit-regular mt-4 p-4 rounded-lg transition-all duration-300`}
+  className={`text-center w-[80%] md:w-[50%] font-ambit-regular mt-4 p-4 rounded-lg transition-all duration-300`}
   style={{
     backgroundColor: slice.primary.description[trackIndex]?.bg_color || "transparent",
   }}
