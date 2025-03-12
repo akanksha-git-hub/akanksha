@@ -37,10 +37,10 @@ const GrowthImpact5 = ({ slice }) => {
   </div>
 
   {/* Right Section */}
-  <div className="relative mt-6 lg:mt-0 w-full lg:w-auto flex justify-center lg:justify-end">
+  <div className="relative mt-6 lg:mt-0 w-full lg:w-auto flex justify-center lg:justify-end overflow-hidden ">
     <PrismicNextImage
       field={slice.primary.asset}
-      className="max-w-[300px] max-h-[300px] object-cover"
+      className="   object-cover max-w-[300px] max-h-[300px]  transform translate-x-2/4  lg:transform-none"
       alt="Card Image"
     />
   </div>
