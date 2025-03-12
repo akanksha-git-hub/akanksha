@@ -91,7 +91,7 @@ const FlagshipHero = ({ slice }) => {
         </div>
 
         {/* Top left image */}
-        <div className="hidden xl:block absolute top-[20%] left-[0%] xl:left-[2%]  md:h-[280px] md:w-[120px] lg:h-[350px] w-[200px]  lg:w-[200px] xl:w-[340px] -z-10">
+        <div className=" md:block hidden absolute top-[20%] md:-left-[6%] xl:left-[2%]  md:h-[280px] md:w-[120px] lg:h-[350px] w-[200px]  lg:w-[200px] xl:w-[340px] -z-10">
           <PrismicNextImage
             field={slice.primary.image_a}
             className="h-full w-full object-contain"
@@ -101,7 +101,7 @@ const FlagshipHero = ({ slice }) => {
         </div>
 
         {/* Bottom right image */}
-        <div className="hidden xl:block absolute -bottom-[10px] -right-[20px]  md:h-[260px] md:w-[350px] lg:h-[400px] w-[300px]  lg:w-[200px] -z-10">
+        <div className="absolute -bottom-18 md:bottom-32 -right-4  xl:-bottom-[10px] xl:right-20  md:h-[260px] xl:h-[400px] w-[100px]  xl:w-[200px] -z-10">
           <PrismicNextImage
             field={slice.primary.image_b}
             className="h-full w-full object-contain"
