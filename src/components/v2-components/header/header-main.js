@@ -42,7 +42,7 @@ export default function HeaderMain({ header }) {
 
         <Link
           href="/"
-          className="relative h-[5rem] w-[8rem] lg:hidden block  -ml-14  "
+          className="relative h-[3.8rem] w-[8rem] lg:hidden block  -ml-14  "
         >
           <PrismicNextImage
             field={header.logo_image}
@@ -62,7 +62,7 @@ export default function HeaderMain({ header }) {
         <Header.CTA>
           <Button prismicLink={header.cta_link}>{header.cta_text}</Button>
         </Header.CTA>
-        <div className="lg:hidden -ml-8">
+        <div className="lg:hidden -ml-8 ">
           <StandaloneHamburgerMenu
             header_link_items={header.header_link_items}
             uniqueIdentifier={uniqueIdentifier}
