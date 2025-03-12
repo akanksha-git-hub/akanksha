@@ -7629,6 +7629,16 @@ export interface GrowthImpact5SliceDefaultPrimary {
   card_1_title: prismic.KeyTextField;
 
   /**
+   * Icon field in *GrowthImpact5 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact5.default.primary.icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
    * Card 1 Description field in *GrowthImpact5 → Default → Primary*
    *
    * - **Field Type**: Text

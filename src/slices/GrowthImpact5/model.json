@@ -19,6 +19,14 @@
             "placeholder": ""
           }
         },
+        "icon": {
+          "type": "Image",
+          "config": {
+            "label": "Icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "card_1_description": {
           "type": "Text",
           "config": {
