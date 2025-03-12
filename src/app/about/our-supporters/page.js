@@ -13,7 +13,7 @@ export default async function Page() {
 
   return (
     <main className={`${maxwidth} universal-padding`}>
-      <div className=" flex flex-row items-center justify-center relative ">
+      <div className=" relative flex flex-row md:items-end items-end justify-center space-x-2   ">
           {page.data.asset_1?.url && (
                                   <PrismicNextImage  
                                     field={page.data.asset_1}
@@ -21,7 +21,7 @@ export default async function Page() {
                                   />
                                 )}
         <RichText
-          className="text-black font-ambit-regular text-center text-5xl md:text-7xl mt-2 mb-16"
+          className="text-black font-ambit-regular text-5xl md:text-7xl text-center mt-8 md:mt-28"
           text={page.data.title}
         />
           {page.data.asset_2?.url && (
