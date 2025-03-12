@@ -80,9 +80,15 @@
 							[
 								"description",
 								{
-									"__TYPE__": "FieldContent",
-									"value": "pleasure",
-									"type": "Text"
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Nulla fugiat excepteur consequat."
+											}
+										}
+									]
 								}
 							]
 						]
