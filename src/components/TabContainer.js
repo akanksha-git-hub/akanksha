@@ -32,7 +32,7 @@ export default function TabContainer({ slice }) {
                 tabState={tabState}
             />
             <div 
-                className="text-black font-ambit-regular text-xl mt-16 w-full lg:w-[42ch]"
+                className="text-black font-ambit-regular text-xl mt-16 w-full lg:w-[70%] "
             >
                 <PrismicRichText 
                     field={tabState.description}

@@ -24,7 +24,7 @@ const TabSlice = ({ slice }) => {
                                  <div className="flex flex-col">
                                  <RichText 
           text={slice.primary.title}
-          className='text-black font-ambit-regular text-5xl md:text-7xl text-center mt-28'
+          className='text-black font-ambit-regular text-5xl md:text-7xl text-center mt-8 md:mt-28'
         />
         </div>
         
