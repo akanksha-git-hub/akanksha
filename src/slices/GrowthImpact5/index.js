@@ -24,7 +24,7 @@ const GrowthImpact5 = ({ slice }) => {
   <HeadingAndDescription
         heading=   {slice.primary.card_1_title}
      
-        iconField={slice.primary.icon_2}
+        iconField={slice.primary.icon}
       />
     <p className="text-lg xl:text-2xl font-ambit-regular  ">
       {slice.primary.card_2_title}
@@ -37,10 +37,10 @@ const GrowthImpact5 = ({ slice }) => {
   </div>
 
   {/* Right Section */}
-  <div className="relative mt-6 lg:mt-0 w-full lg:w-auto flex justify-center lg:justify-end overflow-hidden ">
+  <div className="relative mt-6 lg:mt-0 w-full lg:w-auto flex justify-center lg:justify-end overflow-hidden lg:overflow-visible     ">
     <PrismicNextImage
       field={slice.primary.asset}
-      className="   object-cover max-w-[300px] max-h-[300px]  transform translate-x-2/4  lg:transform-none"
+      className="   object-cover  transform translate-x-2/4  lg:transform-none"
       alt="Card Image"
     />
   </div>
