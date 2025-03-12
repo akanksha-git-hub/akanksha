@@ -203,7 +203,7 @@ export default function ResourcesCard({ children, slice, className }) {
 
   return (
     <ResourceCardContext.Provider value={ctxValues}>
-      <ul className={`${className} space-y-12`}>{children}</ul>
+      <ul className={`${className} space-y-14 `}>{children}</ul>
     </ResourceCardContext.Provider>
   );
 }
