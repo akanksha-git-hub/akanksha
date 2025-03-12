@@ -19,11 +19,11 @@ export default function MarqueeItem({
     <>
       {noHoverEffect ? (
         <div
-          className={`relative  flex flex-col justify-center items-center overflow-hidden marquee-item h-42 w-42 border`}
+          className={`relative  flex flex-col justify-center items-center overflow-hidden marquee-item border`}
           key={index}
         >
          <PrismicNextImage
-  className="  object-contain w-full h-full border "
+  className="  object-contain h-40 w-40 "
   key={index}
   
   field={item.image || item.partner_logo}
