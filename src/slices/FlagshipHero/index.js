@@ -53,7 +53,7 @@ const FlagshipHero = ({ slice }) => {
   
       
         <div className="block absolute -bottom-[50px] -right-[24px] md:-bottom-[80px] md:-right-[190px]
-          h-[160px] w-[120px] sm:h-[180px] sm:w-[140px] md:h-[260px] md:w-[350px] xl:h-[400px] xl:w-[500px] -z-10">
+          h-[160px] w-[120px] sm:h-[180px] sm:w-[140px] md:h-[260px] md:w-[300px] xl:h-[400px] xl:w-[500px] -z-10">
           <PrismicNextImage
             field={slice.primary.image_b}
             className="h-full w-full object-contain"

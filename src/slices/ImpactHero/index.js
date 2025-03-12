@@ -14,11 +14,11 @@ const ImpactHero = ({ slice }) => {
         className=" "
       >
         <div className="w-[80%]  md:mx-auto  ">
-          <div className=" flex flex-wrap md:justify-center justify-start w-full  gap-8">
+          <div className=" flex flex-wrap md:justify-center justify-start w-full gap-4 xl:gap-8 ">
             {slice.primary.stats.map((stat, index) => (
               <div key={index} className="flex flex-col md:items-center  py-2">
-                <p className="text-5xl font-ambit-regular">{stat.number}</p>
-                <p className="text-xl font-ambit-regular mt-2 md:w-[10ch] w-[8ch] text-left md:text-center  ">
+                <p className="text-5xl md:text-6xl font-ambit-regular">{stat.number}</p>
+                <p className="text-xl md:text-2xl font-ambit-regular mt-2 md:w-[10ch] w-[8ch] text-left md:text-center  ">
                   {stat.field}
                 </p>
               </div>
