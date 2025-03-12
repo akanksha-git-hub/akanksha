@@ -250,7 +250,7 @@ const IconShowcase = ({ slice,context }) => {
     >
       {/* <SliceIdentifier text={slice.primary.slice_identifier}  /> */}
       {slice.primary.data && (
-        <ul className="grid md:grid-cols-2 xl:grid-cols-3 my-12">
+        <ul className="grid md:grid-cols-2 xl:grid-cols-3 my-12 gap-4">
           {slice.primary.data.map((item, index) => {
             let LottieData = null;
 
