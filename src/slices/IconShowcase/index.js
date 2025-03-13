@@ -17,7 +17,7 @@ const IconShowcase = ({ slice, context }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="my-12 relative"
+        className=" relative"
       >
         <div className="hidden  md:block absolute -right-80 -bottom-60 xl:top-[150px] xl:-left-[280px] h-[1000px] w-[1000px] -z-10">
           <PrismicNextImage
@@ -27,11 +27,11 @@ const IconShowcase = ({ slice, context }) => {
             width={1800}
           />
         </div>
-        <div className="mb-24 space-y-20">
-          <SliceIdentifier text={slice.primary.slice_identifier} />
+        <SliceIdentifier text={slice.primary.slice_identifier} />
+        <div className="mb-12 space-y-8 mt-12">
           <RichText
             text={slice.primary.title}
-            className="font-ambit-regular text-black text-5xl md:text-7xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto"
+            className="font-ambit-regular text-black text-5xl md:text-7xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto "
           />{" "}
           <RichText
             text={slice.primary.description}
@@ -103,7 +103,7 @@ const IconShowcase = ({ slice, context }) => {
 
           <RichText
             text={slice.primary.title}
-            className="font-ambit-regular text-black text-3xl md:text-6xl md:text-center flex md:items-center md:justify-center md:w-[15ch] md:mx-auto pt-8"
+            className="font-ambit-regular text-black text-3xl md:text-6xl text-left xl:text-center flex xl:items-left xl:justify-left md:w-[15ch] xl:mx-auto pt-8"
           />
         </div>
         {slice.primary.data && (
@@ -155,7 +155,7 @@ const IconShowcase = ({ slice, context }) => {
           </ul>
         )}
 
-        <div className="hidden xl:block absolute -bottom-52 -right-52  xl:h-[900px] xl:w-[900px] -z-10">
+        <div className="hidden md:block absolute md:-bottom-36 -right-44   xl:-bottom-52 xl:-right-52  h-[600px] w-[600px]  xl:h-[900px] xl:w-[900px] -z-10">
           <PrismicNextImage
             field={slice.primary.asset}
             className="h-full w-full object-contain"
@@ -173,7 +173,7 @@ const IconShowcase = ({ slice, context }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className={`${removePagePadding ? " " : "universal-padding"} my-12`}
+        className={`${removePagePadding ? " " : "universal-padding"} my-12 pt-12 `}
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <RichText

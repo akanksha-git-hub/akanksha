@@ -335,7 +335,7 @@ const ProgramShowcase = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="my-24 lg:mb-60 "
+        className="my-24 xl:mb-60 "
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <div className="flex flex-col xl:flex-row  xl:items-end lg:mt-10 relative">
@@ -436,9 +436,8 @@ const ProgramShowcase = ({ slice }) => {
             </div>
 
             {/* Arrows */}
-            
           </div>
-          <div className="absolute -bottom-56  -left-12 hidden lg:block  ">
+          <div className="absolute -bottom-56  -left-12 hidden xl:block  ">
             <PrismicNextImage
               field={slice.primary.asset}
               height={370}
@@ -606,34 +605,32 @@ const ProgramShowcase = ({ slice }) => {
             spaceBetween={20}
             onSlideChange={(i) => handleSlideChange(i.activeIndex)}
           > */}
-            <Swiper
-  ref={swiperRef}
-  className="w-full h-full cursor-grab"
-  // Default (mobile) configuration
-  slidesPerView={1}
-  spaceBetween={10}
-  onSlideChange={(i) => handleSlideChange(i.activeIndex)}
-  // Override for each breakpoint
-  breakpoints={{
-    // >=640px (tailwind "sm:" size)
-    640: {
-      slidesPerView: 1.04,
-      spaceBetween: 20,
-    },
-    // >=768px (tailwind "md:" size)
-    768: {
-      slidesPerView: 1.5,
-      spaceBetween: 20,
-    },
-    
-    1280: {
-      slidesPerView: 1.04,
-      spaceBetween: 20,
-    },
-  }}
->
+          <Swiper
+            ref={swiperRef}
+            className="w-full h-full cursor-grab"
+            // Default (mobile) configuration
+            slidesPerView={1}
+            spaceBetween={10}
+            onSlideChange={(i) => handleSlideChange(i.activeIndex)}
+            // Override for each breakpoint
+            breakpoints={{
+              // >=640px (tailwind "sm:" size)
+              640: {
+                slidesPerView: 1.04,
+                spaceBetween: 20,
+              },
+              // >=768px (tailwind "md:" size)
+              768: {
+                slidesPerView: 1.5,
+                spaceBetween: 20,
+              },
 
-
+              1280: {
+                slidesPerView: 1.04,
+                spaceBetween: 20,
+              },
+            }}
+          >
             {slice.primary.program_showcase_content.map((item) => (
               <SwiperSlide
                 className="!flex flex-col gap-2 xl:flex-row"
@@ -673,7 +670,7 @@ const ProgramShowcase = ({ slice }) => {
           </Swiper>
         </div>
       </div>
-     <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center">
         <SlideSelector
           className="block full xl:hidden mt-4 "
           key={slice.primary.program_showcase_content[trackIndex].name}
@@ -687,9 +684,8 @@ const ProgramShowcase = ({ slice }) => {
           trackIndex={trackIndex}
           index={trackIndex}
         />
-        
+
         <div className="flex gap-2 mt-12 mx-auto ">
-       
           <SwiperArrow
             isDisabled={trackIndex === 0}
             className="rotate-180"
@@ -703,7 +699,7 @@ const ProgramShowcase = ({ slice }) => {
             onClick={swipeNext}
           />
         </div>
-        </div>
+      </div>
     </section>
   );
 };

@@ -103,7 +103,7 @@ const StudentVision = ({ slice, context }) => {
           <h1 className="  text-3xl md:text-6xl text-center w-[18ch] font-ambit-regular mt-10">
             {slice.primary.title}
           </h1>
-          <p className="md:text-center md:w-[40%] font-ambit-regular text-left text-xl mt-10">
+          <p className="md:text-center md:w-[65%] xl:w-[40%] font-ambit-regular text-left text-xl mt-10">
             {slice.primary.description}
           </p>
           <PrismicNextImage
@@ -111,21 +111,21 @@ const StudentVision = ({ slice, context }) => {
             alt="left-asset"
             height={220}
             width={220}
-            className="absolute hidden md:block md:-right-[8%] md:top-[8%] lg:top-[18%] lg:right-[12%] -z-10"
+            className="absolute hidden md:block md:-right-[2%] md:top-[28%] xl:top-[18%] xl:right-[12%] -z-10 md:h-40 md:w-40 lg:h-56 lg:w-56 xl:h-56 xl:w-56"
           />
           <PrismicNextImage
             field={slice.primary.asset_2}
             alt="right-asset"
             height={120}
             width={120}
-            className="absolute hidden md:block md:-right-[5%] md:top-[28%] lg:top-[30%] lg:right-[6%] -z-10"
+            className="absolute hidden md:block md:-right-[10%] md:top-[39%] xl:top-[30%] xl:right-[6%] -z-10 md:h-32 md:w-32 lg:h-40 lg:w-40 xl:h-44 xl:w-44"
           />
-            <PrismicNextImage
+          <PrismicNextImage
             field={slice.primary.asset_1}
             alt="left-asset"
             height={220}
             width={220}
-            className="absolute hidden lg:block lg:top-[50%] lg:left-[5%] -z-10"
+            className="absolute hidden xl:block md:top-[50%] md:-left-[12%] xl:top-[50%] xl:left-[5%] -z-10 md:h-40 md:w-40 lg:h-56 lg:w-56 xl:h-56 xl:w-56"
           />
           <PrismicNextImage
             field={slice.primary.asset_2}
@@ -156,43 +156,42 @@ const StudentVision = ({ slice, context }) => {
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <div className="flex justify-center items-center relative mt-16">
-        <Swiper
-  modules={[Navigation, EffectCoverflow]}
-  effect="coverflow"
-  centeredSlides={true}
-  loop={true}
-  speed={700}
-  coverflowEffect={{
-    rotate: 0,
-    stretch: 0,
-    depth: 20,
-    modifier: 2,
-    scale: 0.8,
-  }}
-  breakpoints={{
-    0: { slidesPerView: 1 }, // 1 slide for mobile (sm and below)
-    640: { slidesPerView: 1 }, // 1 slide for sm screens
-    768: { slidesPerView: 3 }, // 3 slides from md screens and above
-  }}
-  onSwiper={(swiper) => (swiperRef.current = swiper)}
-  onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-  className="w-full h-[500px]"
->
-  {images.map((item, index) => (
-    <SwiperSlide
-      key={index}
-      className="flex justify-center items-center bg-transparent transition-transform ease-in-out w-full h-full"
-    >
-      <PrismicNextImage
-        field={item.image}
-        className={`w-full h-full object-cover rounded-lg transition-transform ease-in-out ${
-          index === activeIndex ? "scale-100" : ""
-        }`}
-      />
-    </SwiperSlide>
-  ))}
-</Swiper>
-
+          <Swiper
+            modules={[Navigation, EffectCoverflow]}
+            effect="coverflow"
+            centeredSlides={true}
+            loop={true}
+            speed={700}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 20,
+              modifier: 2,
+              scale: 0.8,
+            }}
+            breakpoints={{
+              0: { slidesPerView: 1 }, // 1 slide for mobile (sm and below)
+              640: { slidesPerView: 1 }, // 1 slide for sm screens
+              768: { slidesPerView: 3 }, // 3 slides from md screens and above
+            }}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+            className="w-full h-[500px]"
+          >
+            {images.map((item, index) => (
+              <SwiperSlide
+                key={index}
+                className="flex justify-center items-center bg-transparent transition-transform ease-in-out w-full h-full"
+              >
+                <PrismicNextImage
+                  field={item.image}
+                  className={`w-full h-full object-cover rounded-lg transition-transform ease-in-out ${
+                    index === activeIndex ? "scale-100" : ""
+                  }`}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
         <div className="flex items-center mt-6 justify-between xl:mt-8 xl:justify-normal">
           <div className="flex gap-2 mx-auto">
@@ -243,16 +242,15 @@ const StudentVision = ({ slice, context }) => {
           alt=""
         />
 
-<div
-  className={`text-center w-[80%] md:w-[50%] font-ambit-regular mt-4 p-4 rounded-lg transition-all duration-300`}
-  style={{
-    backgroundColor: slice.primary.description[trackIndex]?.bg_color || "transparent",
-  }}
->
-  {slice.primary.description[trackIndex].desc}
-</div>
-
-
+        <div
+          className={`text-center w-[80%] md:w-[50%] font-ambit-regular mt-4 p-4 rounded-lg transition-all duration-300`}
+          style={{
+            backgroundColor:
+              slice.primary.description[trackIndex]?.bg_color || "transparent",
+          }}
+        >
+          {slice.primary.description[trackIndex].desc}
+        </div>
 
         <div className="flex gap-2 mt-4">
           <SwiperArrow
