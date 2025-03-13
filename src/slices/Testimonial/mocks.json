@@ -275,20 +275,6 @@
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
-							],
-							[
-								"details",
-								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "paragraph",
-											"content": {
-												"text": "Pariatur duis reprehenderit id duis."
-											}
-										}
-									]
-								}
 							]
 						]
 					}

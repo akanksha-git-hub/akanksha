@@ -4,6 +4,7 @@ import TestimonialSingle from "@/components/Testimonials/testimonial-single";
 import RichText from "@/components/Texts/RichText";
 import SwiperArrow from "@/components/UI/SwiperArrow";
 import { PrismicNextImage } from "@prismicio/next";
+import { PrismicRichText } from "@prismicio/react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -183,8 +184,8 @@ const Testimonial = ({ slice, context }) => {
               </div>
 
               {/* ✅ Change Name & Designation Based on Active Testimonial */}
-              <p className="flex w-[80%] sm:w-full">
-                <span className="text-black font-ambit-regular text-lg">
+              <p className="flex  sm:w-full">
+                <span className="text-black font-ambit-regular text-lg w-[72%]">
                   {testimonials[activeIndex].name}
                 </span>
               </p>
