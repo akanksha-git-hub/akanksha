@@ -13,7 +13,7 @@ const ShowcaseV2 = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding "
+      className="universal-padding  mt-6 "
     >
       <SliceIdentifier text={slice.primary.slice_identifier} />
       <div className="flex flex-col lg:flex-row lg:items-center justify-between py-12 lg:py-24">
@@ -22,18 +22,17 @@ const ShowcaseV2 = ({ slice }) => {
             text={slice.primary.title}
             className="font-ambit-regular text-black text-5xl md:text-6xl max-w-[14ch] tracking-tight"
           />
-         <div className="flex flex-row flex-wrap gap-2 ">          
-          <Button prismicLink={slice.primary.cta_link} className="mt-2">
-            {slice.primary.cta_text}
-          </Button>
-          <Button prismicLink={slice.primary.cta_link_2} className="mt-2">
-            {slice.primary.cta_text_2}
-          </Button>
-          <Button prismicLink={slice.primary.cta_link_3} className="mt-2">
-            {slice.primary.cta_text_3}
-          </Button>
+          <div className="flex flex-row flex-wrap gap-2 ">
+            <Button prismicLink={slice.primary.cta_link} className="mt-2">
+              {slice.primary.cta_text}
+            </Button>
+            <Button prismicLink={slice.primary.cta_link_2} className="mt-2">
+              {slice.primary.cta_text_2}
+            </Button>
+            <Button prismicLink={slice.primary.cta_link_3} className="mt-2">
+              {slice.primary.cta_text_3}
+            </Button>
           </div>
-
         </div>
         <div className="mt-12 w-full lg:mt-0 lg:w-[52%]">
           <ImageSwiper data={slice.primary.images} />

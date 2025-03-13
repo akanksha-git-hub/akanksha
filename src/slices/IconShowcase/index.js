@@ -11,7 +11,7 @@ import PencilShading from "@/assets/shading-side.svg";
  * @typedef {import("@prismicio/react").SliceComponentProps<IconShowcaseSlice>} IconShowcaseProps
  * @param {IconShowcaseProps}
  */
-const IconShowcase = ({ slice,context }) => {
+const IconShowcase = ({ slice, context }) => {
   if (slice.variation === "withTitle") {
     return (
       <section
@@ -100,7 +100,7 @@ const IconShowcase = ({ slice,context }) => {
       >
         <div className=" md:space-y-10 space-y-8">
           <SliceIdentifier text={slice.primary.slice_identifier} />
-       
+
           <RichText
             text={slice.primary.title}
             className="font-ambit-regular text-black text-3xl md:text-6xl md:text-center flex md:items-center md:justify-center md:w-[15ch] md:mx-auto pt-8"
@@ -173,14 +173,12 @@ const IconShowcase = ({ slice,context }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className={`${
-          removePagePadding ? " " : "universal-padding"
-        } my-12`}
+        className={`${removePagePadding ? " " : "universal-padding"} my-12`}
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <RichText
           text={slice.primary.title}
-          className="font-ambit-regular text-black  md:text-6xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto text-3xl sm:text-5xl xl:w-[46%] text-left xl:text-5xl 3xl:w-[48rem] 3xl:text-6xl mt-14" 
+          className="font-ambit-regular text-black  md:text-6xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto text-3xl sm:text-5xl xl:w-[46%] text-left xl:text-5xl 3xl:w-[48rem] 3xl:text-6xl mt-14"
         />
         {slice.primary.data && (
           <ul className="grid md:grid-cols-2 xl:grid-cols-3 mt-14 gap-4">
@@ -272,7 +270,7 @@ const IconShowcase = ({ slice,context }) => {
                     <Image src={PencilShading} alt="img" fill />
                   </div>
                 </div>
-                <div className="h-28 w-28 rounded-full flex items-center justify-center place-self-end">
+                <div className="h-28 w-28 rounded-full flex items-center justify-center">
                   {item.isanimatedicon ? (
                     <div className="h-[80%] w-[80%]">
                       <Lottie

@@ -16,12 +16,10 @@ const FrequentlyAskedQuestions = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="universal-padding"
     >
-      <SliceIdentifier 
-        text={slice.primary.slice_identifier}
-      />
-      <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between mt-12 xl:mt-36">
+      <SliceIdentifier text={slice.primary.slice_identifier} />
+      <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between mt-12 xl:mt-20">
         <div className="w-full xl:w-[45%]">
-          <Faq 
+          <Faq
             title={slice.primary.title}
             index={1}
             className="w-full"
