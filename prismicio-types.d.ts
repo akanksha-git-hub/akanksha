@@ -14381,6 +14381,16 @@ export interface TestimonialSliceTestimonialMultiplePrimaryContentItem {
   name: prismic.KeyTextField;
 
   /**
+   * details field in *Testimonial → TestimonialMultiple → Primary → content*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.testimonialMultiple.primary.content[].details
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  details: prismic.RichTextField;
+
+  /**
    * asset field in *Testimonial → TestimonialMultiple → Primary → content*
    *
    * - **Field Type**: Image
