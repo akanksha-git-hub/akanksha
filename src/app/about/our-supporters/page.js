@@ -13,23 +13,23 @@ export default async function Page() {
 
   return (
     <main className={`${maxwidth} universal-padding`}>
-      <div className=" relative flex flex-row md:items-end items-end justify-center space-x-2   ">
-          {page.data.asset_1?.url && (
-                                  <PrismicNextImage  
-                                    field={page.data.asset_1}
-                                    className="w-24 h-auto md:w-60"
-                                  />
-                                )}
+      <div className=" relative flex flex-row md:items-end items-end justify-center space-x-0   ">
+        {page.data.asset_1?.url && (
+          <PrismicNextImage
+            field={page.data.asset_1}
+            className="w-24 h-auto md:w-60"
+          />
+        )}
         <RichText
           className="text-black font-ambit-regular text-5xl md:text-7xl text-center mt-8 md:mt-28"
           text={page.data.title}
         />
-          {page.data.asset_2?.url && (
-                                  <PrismicNextImage  
-                                    field={page.data.asset_2}
-                                    className="w-24 h-auto md:w-60"
-                                  />
-                                )}
+        {page.data.asset_2?.url && (
+          <PrismicNextImage
+            field={page.data.asset_2}
+            className="w-24 h-auto md:w-60"
+          />
+        )}
         {/* <Image 
                     src='/sparkle_small.svg'
                     alt=""

@@ -28,22 +28,23 @@ const CardShuffle = ({ slice, context }) => {
             <SliceIdentifier text={slice.primary.slice_identifier} />
           )}
         </div>
-        {(slice.primary.heading_small?.length > 0 || slice.primary.heading_big?.length > 0) && (
-  <div className="font-ambit-regular mt-12 space-y-4">
-    {slice.primary.heading_small?.length > 0 && (
-      <RichText
-        text={slice.primary.heading_small}
-        className="text-black text-3xl text-center flex items-center justify-center"
-      />
-    )}
-    {slice.primary.heading_big?.length > 0 && (
-      <RichText
-        text={slice.primary.heading_big}
-        className="text-black text-6xl text-center mx-auto max-w-[36ch]"
-      />
-    )}
-  </div>
-)}
+        {(slice.primary.heading_small?.length > 0 ||
+          slice.primary.heading_big?.length > 0) && (
+          <div className="font-ambit-regular mt-12 space-y-4">
+            {slice.primary.heading_small?.length > 0 && (
+              <RichText
+                text={slice.primary.heading_small}
+                className="text-black text-3xl text-center flex items-center justify-center"
+              />
+            )}
+            {slice.primary.heading_big?.length > 0 && (
+              <RichText
+                text={slice.primary.heading_big}
+                className="text-black text-6xl text-center mx-auto max-w-[36ch]"
+              />
+            )}
+          </div>
+        )}
 
         {slice.variation === "default" && (
           <Shuffle slice={slice.primary.items} />
