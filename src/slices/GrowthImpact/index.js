@@ -12,13 +12,13 @@ const GrowthImpact = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className=" mt-10"
+      className=" mt-0"
     >
       <SliceIdentifier text={slice.primary.slice_identifier} />
       <h1 className="font-ambit-regular text-3xl md:text-6xl text-center mt-14 ">
         {slice.primary.title}
       </h1>
-      <div className="flex flex-col lg:flex-row bg-[#ECF0F1]  rounded-lg   pt-2    w-full ">
+      <div className="flex flex-col lg:flex-row bg-[#ECF0F1]  rounded-lg   pt-2  mt-14   w-full ">
         <div className="w-[100%] lg:w-[60%] flex flex-col px-12 py-14 justify-evenly  ">
           <h1 className="font-ambit-regular text-black text-4xl xl:text-7xl w-[2ch] ">
             {slice.primary.card_1_title}

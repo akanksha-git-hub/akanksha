@@ -18,7 +18,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
  * @typedef {import("@prismicio/react").SliceComponentProps<SliderShowcaseSlice>} SliderShowcaseProps
  * @param {SliderShowcaseProps}
  */
-const SliderShowcase = ({ slice,context  }) => {
+const SliderShowcase = ({ slice, context }) => {
   const addUniversalPadding = context.addUniversalPadding;
   const [current, setCurrent] = useState(0);
   const [sliderBIndex, setSliderBIndex] = useState(0);
@@ -515,11 +515,11 @@ const SliderShowcase = ({ slice,context  }) => {
             <div className=" xl:mt-6">
               <RichText
                 text={slice.primary.title}
-                className="text-black font-ambit-regular text-4xl lg:text-6xl lg:text-left xl:max-w-[5ch] lg:mr-auto xl:mb-0"
+                className="text-black font-ambit-regular text-4xl lg:text-6xl lg:text-left xl:max-w-[5ch] lg:mr-auto xl:mb-0 "
               />
             </div>
           </div>
-          <div className=" h-full w-full xl:w-[70%]">
+          <div className=" h-full w-full xl:w-[70%] mt-8 md:mt-10 xl:mt-0">
             <ul className="hidden">
               <Swiper
                 ref={storyRef}
@@ -564,31 +564,34 @@ const SliderShowcase = ({ slice,context  }) => {
                       ref={prevRef}
                     />
 
-<div className="flex gap-2 xl:gap-0 flex-col xl:flex-row      items-start justify-end">
-   <ImageComponent
+                    <div className="flex gap-2 xl:gap-0 flex-col xl:flex-row      items-start justify-end">
+                      <ImageComponent
                         className="w-full  h-full "
-                        image={item.image}  
+                        image={item.image}
                       />
-                    <div className="w-full   xl:h-[33rem] xl:max-w-[50%] rounded-lg md:rounded-none bg-[#58BCD4] p-8   flex flex-col items-center justify-center relative">
-              <div className="absolute top-0 right-0 w-full h-[1.25rem]">
-                <div className="relative h-full w-full">
-                  <Image src="/quote-side-up.png" alt="Top Shading" fill />
-                </div>
-              </div>
+                      <div className="w-full   xl:h-[33rem] xl:max-w-[50%] rounded-lg md:rounded-none bg-[#58BCD4] p-8   flex flex-col items-center justify-center relative">
+                        <div className="absolute top-0 right-0 w-full h-[1.25rem]">
+                          <div className="relative h-full w-full">
+                            <Image
+                              src="/quote-side-up.png"
+                              alt="Top Shading"
+                              fill
+                            />
+                          </div>
+                        </div>
 
-              {/* Title and Description Section */}
+                        {/* Title and Description Section */}
 
-              <RichText
-                className="text-black text-lg md:text-xl font-ambit-regular w-full xl:w-[94%] opacity-reveal p-2"
-                text={
-                  slice.primary.items &&
-                  slice.primary.items[current]?.description
-                    ? slice.primary.items[current].description
-                    : "No description available"
-                }
-              />
-            </div>
-
+                        <RichText
+                          className="text-black text-lg md:text-xl font-ambit-regular w-full xl:w-[94%] opacity-reveal p-2"
+                          text={
+                            slice.primary.items &&
+                            slice.primary.items[current]?.description
+                              ? slice.primary.items[current].description
+                              : "No description available"
+                          }
+                        />
+                      </div>
                     </div>
                     {/* <div className="relative h-full w-full">
                   <Image src="/quote-side-up.png" alt="Top Shading" fill />
@@ -598,23 +601,20 @@ const SliderShowcase = ({ slice,context  }) => {
               })}
             </Swiper>
             <div className="flex items-center justify-center md:justify-start gap-2 mt-6 md:mt-4">
-  <SwiperArrow
-    strokeColor="#37473C"
-    className="rotate-180"
-    onClick={swipePrev}
-    isDisabled={current === 0}
-  />
-  <SwiperArrow
-    strokeColor="#37473C"
-    onClick={swipeNext}
-    isDisabled={current === slice.primary.items.length - 1}
-  />
-</div>
+              <SwiperArrow
+                strokeColor="#37473C"
+                className="rotate-180"
+                onClick={swipePrev}
+                isDisabled={current === 0}
+              />
+              <SwiperArrow
+                strokeColor="#37473C"
+                onClick={swipeNext}
+                isDisabled={current === slice.primary.items.length - 1}
+              />
+            </div>
           </div>
-       
         </div>
-   
-
 
         <div className="hidden xl:block absolute -bottom-2 -left-12  lg:h-[500px] lg:w-[500px]  -z-10">
           <PrismicNextImage
