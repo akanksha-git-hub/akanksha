@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import PartnerLogo from "@/components/PartnerLogo";
 import RichText from "@/components/Texts/RichText";
 import SliceIdentifier from "@/components/SliceIdentifier";
@@ -23,17 +23,14 @@ gsap.registerPlugin(ScrollTrigger);
  * @param {OurPartnersProps}
  */
 
-
 const OurPartners = ({ slice }) => {
-  
-   if (slice.variation === "withOutSliceIdentifier") {
-      return (
-        <section
+  if (slice.variation === "withOutSliceIdentifier") {
+    return (
+      <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
         className=""
       >
-       
         {/* <ul className="mt-12 flex items-center justify-center flex-wrap">
           {slice.primary.partner_logos.map((logo, index) => (
             <PartnerLogo 
@@ -44,12 +41,12 @@ const OurPartners = ({ slice }) => {
             />
           ))}
           </ul> */}
-          {/* {splitData && splitData.length < 20 && (
+        {/* {splitData && splitData.length < 20 && (
             <MarqueeTypeA 
               items={splitData}
             />
           )} */}
-          {/* {
+        {/* {
             splitItems.partner_logos.map((item, index) => {
   
               return(
@@ -60,20 +57,17 @@ const OurPartners = ({ slice }) => {
               )
             })
           } */}
-          <div className="universal-padding">
-           <RichText
-                    text={slice.primary.title}
-                    className="select-none text-black font-ambit-regular text-3xl sm:text-4xl md:text-6xl w-full text-left   mt-8"
-                  />
-                  </div>
-               
+        <div className="universal-padding">
+          <RichText
+            text={slice.primary.title}
+            className="select-none text-black font-ambit-regular text-3xl sm:text-4xl md:text-6xl w-full text-left   mt-8"
+          />
+        </div>
 
-                  <Marquee slice={slice.primary.partner_logos}  noHoverEffect />
-       
-        
+        <Marquee slice={slice.primary.partner_logos} noHoverEffect />
       </section>
-      );
-    }
+    );
+  }
 
   // const [onMounted, setOnMounted] = useState(false)
 
@@ -81,7 +75,7 @@ const OurPartners = ({ slice }) => {
   // const root = useRef();
 
   // useEffect(() => {
-    
+
   //   ref.current.stop();
 
   //   if(!onMounted) {
@@ -107,8 +101,6 @@ const OurPartners = ({ slice }) => {
   //     tl.kill();
   //   }
 
-
-
   // }, [onMounted]);
 
   // return (
@@ -117,20 +109,20 @@ const OurPartners = ({ slice }) => {
   //     data-slice-variation={slice.variation}
   //     className="universal-padding mt-12"
   //   >
-  //     <SliceIdentifier 
+  //     <SliceIdentifier
   //       text={slice.primary.slice_identifier}
   //     />
-  //     <div 
+  //     <div
   //       className="mt-12 flex flex-col"
   //     >
-  //       <WeirdText 
+  //       <WeirdText
   //         className="mt-6 flex flex-col"
   //         texts={slice.primary.title}
   //       />
   //     </div>
   //     <div className="space-y-12 mt-12 lg:space-y-32 lg:mt-32">
   //       <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-center justify-end xl:mr-6">
-  //         <div 
+  //         <div
   //         ref={root}
   //         className="
   //           w-full
@@ -139,41 +131,41 @@ const OurPartners = ({ slice }) => {
   //           3xl:w-[30rem] 3xl:h-[24rem]
   //           "
   //         >
-  //           {/* <PrismicNextImage 
+  //           {/* <PrismicNextImage
   //             field={slice.primary.image}
   //             height={500}
   //             width={500}
   //             alt=""
   //             className="h-full w-full"
   //           /> */}
-  //           <Lottie 
+  //           <Lottie
   //             animationData={LottieData}
   //             lottieRef={ref}
   //             loop={false}
   //           />
   //         </div>
   //         <div className="space-y-4 flex flex-col w-full md:w-[45%] lg:w-[60ch] 3xl:w-[70ch]">
-  //           <RichText 
+  //           <RichText
   //             text={slice.primary.description}
   //             className="text-deep-green font-inter text-base lg:text-xl leading-6 xl:text-2xl xl:leading-8"
   //           />
-  //           <PrimaryCTA 
+  //           <PrimaryCTA
   //             text={slice.primary.cta_text || "Know more"}
   //           />
   //         </div>
   //       </div>
   //       <ul className="mt-12 flex items-center justify-center flex-wrap">
   //         {slice.primary.partner_logos.map((logo, index) => (
-  //           <PartnerLogo 
+  //           <PartnerLogo
   //             image={logo.partner_logo}
   //             key={index}
   //             imageClassName="h-[70%] w-[70%] object-contain"
-  //             className="flex items-center justify-center border border-[#DCDCDC] sm:mb-0 h-[4rem] w-2/4 sm:h-[8rem] md:w-[30%] lg:w-[20%]"              
+  //             className="flex items-center justify-center border border-[#DCDCDC] sm:mb-0 h-[4rem] w-2/4 sm:h-[8rem] md:w-[30%] lg:w-[20%]"
   //           />
   //         ))}
   //       </ul>
   //     </div>
-  //     {/* <Lottie 
+  //     {/* <Lottie
   //       className="border border-red-500 h-[200px] w-[200px]"
   //       animationData={TestLottieData}
   //       loop
@@ -184,7 +176,6 @@ const OurPartners = ({ slice }) => {
   // const [onMount, setOnMount] = useState(false);
   // const [splitData, setSplitData] = useState(slice.primary.partner_logos);
   // const [dispersedData, setDispersedData] = useState([]);
-
 
   // useEffect(() => {
 
@@ -204,25 +195,21 @@ const OurPartners = ({ slice }) => {
 
   //     });
   //   }
-    
 
   // }, [onMount]);
 
-
-  return(
+  return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="mt-12"
     >
       <div className="universal-padding">
-        <SliceIdentifier 
-          text={slice.primary.slice_identifier}
+        <SliceIdentifier text={slice.primary.slice_identifier} />
+        <RichText
+          text={slice.primary.title}
+          className="select-none text-black font-ambit-regular text-3xl sm:text-4xl md:text-6xl w-full text-left   mt-12"
         />
-         <RichText
-                  text={slice.primary.title}
-                  className="select-none text-black font-ambit-regular text-3xl sm:text-4xl md:text-6xl w-full text-left   mt-8"
-                />
       </div>
       {/* <ul className="mt-12 flex items-center justify-center flex-wrap">
         {slice.primary.partner_logos.map((logo, index) => (
@@ -234,12 +221,12 @@ const OurPartners = ({ slice }) => {
           />
         ))}
         </ul> */}
-        {/* {splitData && splitData.length < 20 && (
+      {/* {splitData && splitData.length < 20 && (
           <MarqueeTypeA 
             items={splitData}
           />
         )} */}
-        {/* {
+      {/* {
           splitItems.partner_logos.map((item, index) => {
 
             return(
@@ -250,16 +237,10 @@ const OurPartners = ({ slice }) => {
             )
           })
         } */}
-       
-        
-         
-                       <Marquee slice={slice.primary.partner_logos} isRight noHoverEffect />
-                       
-                      
-       
-        
+
+      <Marquee slice={slice.primary.partner_logos} isRight noHoverEffect />
     </section>
-  )
+  );
 };
 
 export default OurPartners;

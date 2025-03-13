@@ -26,7 +26,7 @@ const OurTeam = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mt-8"
+      className="mt-12"
     >
       <div className="inline-padding">
         <SliceIdentifier text={slice.primary.slice_identifier} />

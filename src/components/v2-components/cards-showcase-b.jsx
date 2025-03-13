@@ -9,24 +9,30 @@ import PencilShading from "@/assets/shading-side.svg";
 // Mobile-like UI (always highlighted, no hover logic)
 function CardShowcaseBCardMobile({ item }) {
   return (
-    <li className="bg-v2-yellow pt-6 relative">
-      <div className="pl-8 grid space-y-2">
-        <div>
-          <RichText
-            text={item.big_text}
-            className="font-ambit-regular text-black text-5xl"
-          />
-          <RichText
-            text={item.small_text}
-            className="font-ambit-regular text-black text-2xl"
-          />
+    <li className="bg-v2-yellow pt-6 relative ">
+      <div className="flex flex-row justify-between items-center px-8 ">
+        <div className=" grid space-y-2">
+          <div>
+            <RichText
+              text={item.big_text}
+              className="font-ambit-regular text-black text-5xl"
+            />
+            <RichText
+              text={item.small_text}
+              className="font-ambit-regular text-black text-2xl"
+            />
+          </div>
         </div>
         <div>
           <Button prismicLink={item.cta_link}>{item.cta_text}</Button>
         </div>
       </div>
-      <div className="flex justify-center items-center w-full h-60 mt-4 overflow-hidden relative">
-        <PrismicNextImage field={item.image} className="object-cover" fill />
+      <div className="flex justify-center items-center md:w-[65%] w-full h-64 md:h-80 mt-4 overflow-hidden relative  mx-auto">
+        <PrismicNextImage
+          field={item.image}
+          className="absolute inset-0 m-auto object-cover"
+          fill
+        />
       </div>
     </li>
   );
@@ -43,7 +49,7 @@ function CardShowcaseBCardDesktop({ item, isHighlighted, onHover }) {
       onMouseLeave={onHover}
     >
       {/* Example: orange gradient overlay when highlighted */}
-     
+
       <div className="absolute top-0 left-0 h-full w-5 z-10">
         <Image src={PencilShading} alt="image" fill />
       </div>
@@ -117,7 +123,6 @@ export default function CardsShowcaseB({ data }) {
       </div>
     );
   }
-
 
   return (
     <div className="universal-padding space-y-20">

@@ -15,15 +15,10 @@ import Lottie from "lottie-react";
 const CardShowcase = ({ slice }) => {
   if (slice.variation === "cardsShowcaseB")
     return <CardsShowcaseB data={slice.primary} />;
-  
+
   if (slice.variation === "showcaseC") {
-    return  <ShowcaseC data={slice.primary} />;
+    return <ShowcaseC data={slice.primary} />;
   }
-
-
-
-
-
 
   return (
     <section
@@ -32,14 +27,11 @@ const CardShowcase = ({ slice }) => {
       className="my-12 relative"
     >
       <PrismicNextImage
-              className="absolute hidden xl:block  -left-12  -top-7"
-              field={slice.primary.asset}
-            />
-      
-      <SliceIdentifier text={slice.primary.slice_identifier} />
-      
+        className="absolute hidden xl:block  -left-12  -top-7"
+        field={slice.primary.asset}
+      />
+
       <div className="flex flex-col 1000pixel:flex-row items-end justify-between bg-white w-full  1000pixel:h-[600px] mt-12 sm:mt-24 pt-8 pr-8 pl-8 ">
-      
         <div className="w-full 1000pixel:h-[90%] 1000pixel:w-[40%] flex flex-col justify-end pb-8 space-y-6 1000pixel:space-y-0">
           <RichText
             text={slice.primary.title}
