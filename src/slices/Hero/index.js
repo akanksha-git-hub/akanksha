@@ -85,7 +85,7 @@ const Hero = ({ slice }) => {
         {slice.primary.hero_content.length !== 0 && (
           <ul className="pb-2 flex items-start justify-start w-full lg:w-[400px] xl:w-[500px] mx-auto lg:mx-0">
             <Swiper
-              className="w-[100%] sm:w-screen flex items-start  !py-2  md:!py-3 md:!pl-2 border"
+              className="w-[100%] sm:w-screen flex items-start  !py-2  md:!py-3 md:!pl-2 "
               breakpoints={{
                 2500: { slidesPerView: 4 },
                 1200: { slidesPerView: 4 },
