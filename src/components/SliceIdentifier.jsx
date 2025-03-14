@@ -1,7 +1,11 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { PrismicNextImage } from "@prismicio/next";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function SliceIdentifier({
   text = "",
@@ -10,6 +14,26 @@ export default function SliceIdentifier({
   isVisible,
 }) {
   const containerRef = useRef(null);
+  const lineRef = useRef(null);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      gsap.fromTo(
+        lineRef.current,
+        { scaleX: 0, transformOrigin: "left" },
+        {
+          scaleX: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+  }, []);
 
   // Safely handle text (avoid undefined/null)
   const safeText = text ?? "";
@@ -33,8 +57,8 @@ export default function SliceIdentifier({
         ))}
       </div>
 
-      {/* Bottom Border (no animation) */}
-      <div className="border-b border-black w-full" />
+      {/* Bottom Border (animated) */}
+      <div ref={lineRef} className="border-b border-black w-full scale-x-0" />
 
       {/* Optional Spider Image */}
       {isVisible && (
