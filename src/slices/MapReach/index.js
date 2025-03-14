@@ -11,16 +11,19 @@ const MapReach = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className=" mt-14"
+      className="mt-14"
     >
       <SliceIdentifier text={slice.primary.slice_identifier} />
 
-      <div className="flex flex-col justify-center items-center relative mt-14  ">
-        <h1 className="text-3xl md:text-6xl font-ambit-regular">
-          {slice.primary.title}
-        </h1>
+      <div className="flex flex-col justify-center relative mt-14">
+        {/* Separate div for title alignment */}
+        <div className="w-full px-4 md:px-0">
+          <h1 className="text-3xl md:text-6xl font-ambit-regular text-left md:text-center">
+            {slice.primary.title}
+          </h1>
+        </div>
 
-        <div className="relative h-full w-full flex items-center justify-center mt-10 ">
+        <div className="relative h-full w-full flex items-center justify-center mt-10">
           <PrismicNextImage
             height={1000}
             width={1000}

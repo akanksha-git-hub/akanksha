@@ -12,7 +12,7 @@ const GrowthImpact5 = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="flex flex-col lg:flex-row items-center justify-between space-x-6  py-6 w-full  md:max-h-[300px] xl:max-h-max ">
+      <div className="flex flex-col lg:flex-row items-center justify-between space-x-6  w-full  md:max-h-[300px] xl:max-h-max  -mt-6 ">
         {/* Left Section */}
         <div className="flex flex-col lg:flex-row items-center lg:items-start">
           {/* Growth Box */}
@@ -35,7 +35,7 @@ const GrowthImpact5 = ({ slice }) => {
         </div>
 
         {/* Right Section */}
-        <div className="relative mt-6 lg:mt-0 w-full lg:w-auto flex justify-center lg:justify-end overflow-hidden lg:overflow-visible     ">
+        <div className="relative  lg:mt-0 w-full lg:w-auto flex justify-center  lg:justify-end overflow-hidden lg:overflow-visible     ">
           <PrismicNextImage
             field={slice.primary.asset}
             className="   object-cover  transform translate-x-2/4  lg:transform-none"

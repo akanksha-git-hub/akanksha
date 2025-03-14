@@ -298,20 +298,19 @@ const MissionVision = ({ slice, context }) => {
       <div
         className={`flex flex-col items-center   gap-12 mt-12  ${slice.variation === "reverseVideoComponet" ? "lg:flex-row-reverse" : "lg:flex-row"}`}
       >
-        
-        <VideoModal className="hidden lg:flex "  slice={slice} />
-       
-        <div className="w-full  flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-2/4">
-         
+        <VideoModal className="hidden lg:flex " slice={slice} />
+
+        <div className="w-full  flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-[85%] xl:w-2/4">
           <RichText
             text={slice.primary.title}
             className="
             text-black font-ambit-regular text-center  w-full 
               sm:w-3/4 justify-center
               lg:text-left lg:items-start lg:justify-normal
-              md:w-full lg:w-3/4
+              md:w-full 
               text-4xl
               sm:text-6xl 
+              lg:w-[99%]
               xl:w-[46%]
               xl:text-7xl 
               3xl:w-[48rem] 3xl:text-8xl 3xl:mt-2"
@@ -331,26 +330,21 @@ const MissionVision = ({ slice, context }) => {
               link={slice.primary.cta_link}
               text={slice.primary.cta_text}
             /> */}
-            
+
             {slice.variation === "doubleCtaComponent" && (
               <>
-                <Button prismicLink={slice.primary.cta_b_link}>{slice.primary.cta_b_text}</Button>
-             
+                <Button prismicLink={slice.primary.cta_b_link}>
+                  {slice.primary.cta_b_text}
+                </Button>
               </>
             )}
           </div>
         </div>
-      
       </div>
       <PrismicImage
-  field={slice.primary.asset}
-  className="absolute xl:block -z-30 hidden right-0 top-0  w-[280px] h-auto object-cover  "
-/>
-
-
-      
-             
-            
+        field={slice.primary.asset}
+        className="absolute xl:block -z-30 hidden right-0 top-0  w-[280px] h-auto object-cover  "
+      />
     </section>
   );
 };
