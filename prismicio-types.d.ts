@@ -7707,6 +7707,16 @@ export interface GrowthImpact5SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   asset: prismic.ImageField<never>;
+
+  /**
+   * mobile image field in *GrowthImpact5 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: growth_impact5.default.primary.mobile_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  mobile_image: prismic.ImageField<never>;
 }
 
 /**

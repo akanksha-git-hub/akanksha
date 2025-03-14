@@ -76,6 +76,14 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "mobile_image": {
+          "type": "Image",
+          "config": {
+            "label": "mobile image",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}
