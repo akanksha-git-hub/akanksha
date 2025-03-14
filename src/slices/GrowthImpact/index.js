@@ -18,7 +18,7 @@ const GrowthImpact = ({ slice }) => {
       <h1 className="font-ambit-regular text-3xl md:text-6xl text-center mt-14 ">
         {slice.primary.title}
       </h1>
-      <div className="flex flex-col lg:flex-row bg-[#ECF0F1]  rounded-lg   pt-2  mt-14  md:max-h-[300px] xl:max-h-max  w-full ">
+      <div className="flex flex-col lg:flex-row bg-[#ECF0F1]  rounded-lg   pt-2  mt-14 h-full lg:max-h-[300px] xl:max-h-max  w-full ">
         <div className="w-[100%] lg:w-[60%] flex flex-col px-12 py-14 justify-evenly  ">
           <h1 className="font-ambit-regular text-black text-4xl xl:text-7xl w-[2ch] ">
             {slice.primary.card_1_title}

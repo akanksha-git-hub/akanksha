@@ -335,12 +335,12 @@ const ProgramShowcase = ({ slice }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="my-24 xl:mb-60 "
+        className="my-24 xl:mb-60   "
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <div className="flex flex-col xl:flex-row  xl:items-end lg:mt-10 relative">
           {/* Title Section */}
-          <div className="w-full xl:w-[40%] xl:h-[32.4rem]  flex flex-col justify-evenly">
+          <div className="w-full xl:w-[40%] xl:h-[32.4rem]  flex flex-col justify-evenly mt-6 ">
             <div className="mt-16 lg:mt-0">
               <RichText
                 text={slice.primary.title}
