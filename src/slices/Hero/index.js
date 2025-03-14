@@ -85,12 +85,12 @@ const Hero = ({ slice }) => {
         {slice.primary.hero_content.length !== 0 && (
           <ul className="pb-2 flex items-start justify-start w-full lg:w-[400px] xl:w-[500px] mx-auto lg:mx-0">
             <Swiper
-              className="w-[90%] sm:w-screen flex items-start !py-3 !pl-2"
+              className="w-[100%] sm:w-screen flex items-start  !py-2  md:!py-3 md:!pl-2 border"
               breakpoints={{
                 2500: { slidesPerView: 4 },
                 1200: { slidesPerView: 4 },
                 600: { slidesPerView: 3 },
-                10: { slidesPerView: 3.4 },
+                10: { slidesPerView: 3.2 },
               }}
             >
               {slice.primary.hero_content.map(({ image }, index) => (
