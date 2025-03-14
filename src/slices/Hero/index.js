@@ -90,7 +90,7 @@ const Hero = ({ slice }) => {
                 2500: { slidesPerView: 4 },
                 1200: { slidesPerView: 4 },
                 600: { slidesPerView: 3 },
-                10: { slidesPerView: 2.2 },
+                10: { slidesPerView: 3 },
               }}
             >
               {slice.primary.hero_content.map(({ image }, index) => (
