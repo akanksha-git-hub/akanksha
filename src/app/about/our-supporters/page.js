@@ -13,7 +13,7 @@ export default async function Page() {
 
   return (
     <main className={`${maxwidth} universal-padding`}>
-      <div className=" relative flex flex-row md:items-end items-end justify-center space-x-0  border   ">
+      <div className=" relative flex flex-row md:items-end items-end justify-center space-x-0     ">
         {page.data.asset_1?.url && (
           <PrismicNextImage
             field={page.data.asset_1}
