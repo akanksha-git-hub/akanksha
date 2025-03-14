@@ -38,7 +38,12 @@ const GrowthImpact5 = ({ slice }) => {
         <div className="relative  lg:mt-0 w-full lg:w-auto flex justify-center  lg:justify-end overflow-hidden lg:overflow-visible     ">
           <PrismicNextImage
             field={slice.primary.asset}
-            className="   object-cover  transform translate-x-2/4  lg:transform-none"
+            className=" hidden lg:block object-cover  transform translate-x-2/4  lg:transform-none"
+            alt="Card Image"
+          />
+          <PrismicNextImage
+            field={slice.primary.mobile_image}
+            className=" block lg:hidden object-cover w-44 h-44  "
             alt="Card Image"
           />
         </div>
