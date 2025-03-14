@@ -99,11 +99,11 @@ const StudentVision = ({ slice, context }) => {
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
 
-        <div className="flex flex-col justify-center items-center relative mt-10">
-          <h1 className="  text-3xl md:text-6xl text-center w-[18ch] font-ambit-regular mt-10">
+        <div className="flex flex-col justify-center items-center relative md:mt-10">
+          <h1 className="  text-3xl  md:text-6xl text-left md:text-center md:w-[18ch] font-ambit-regular mt-10 ">
             {slice.primary.title}
           </h1>
-          <p className="md:text-center md:w-[65%] xl:w-[40%] font-ambit-regular text-left text-xl mt-10">
+          <p className="md:text-center md:w-[65%] xl:w-[40%] font-ambit-regular text-left text-xl mt-8 md:mt-10">
             {slice.primary.description}
           </p>
           <PrismicNextImage

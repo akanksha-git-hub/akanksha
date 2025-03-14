@@ -340,8 +340,8 @@ const ProgramShowcase = ({ slice }) => {
         <SliceIdentifier text={slice.primary.slice_identifier} />
         <div className="flex flex-col xl:flex-row  xl:items-end lg:mt-10 relative">
           {/* Title Section */}
-          <div className="w-full xl:w-[40%] xl:h-[32.4rem]  flex flex-col justify-evenly mt-6 ">
-            <div className="mt-16 lg:mt-0">
+          <div className="w-full xl:w-[40%] xl:h-[32.4rem]  flex flex-col justify-evenly lg:mt-6 ">
+            <div className="mt-10 lg:mt-0">
               <RichText
                 text={slice.primary.title}
                 className="text-black font-ambit-regular text-3xl md:text-6xl lg:text-left max-w-[5ch] lg:mr-auto"

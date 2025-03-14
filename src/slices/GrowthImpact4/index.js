@@ -13,7 +13,7 @@ const GrowthImpact4 = ({ slice }) => {
       className=" md:-mt-6 xl:mt-6"
     >
       <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[300px] xl:min-h-[350px]">
-        <div className="flex flex-col bg-[#ECF0F1] rounded-lg md:px-12  pt-10 px-6 items-center justify-between  lg:w-[50%] w-full relative overflow-hidden  md:max-h-[300px]  ">
+        <div className="flex flex-col bg-[#ECF0F1] rounded-lg md:px-12  pt-10 px-6 items-center justify-between  lg:w-[50%] w-full relative overflow-hidden  md:max-h-[270px]  ">
           {/* Description */}
           <div className="w-full  ">
             <h1 className="font-ambit-regular text-black text-4xl xl:text-5xl w-[10ch] mr-auto text-left ">
@@ -34,12 +34,12 @@ const GrowthImpact4 = ({ slice }) => {
             />
           </div>
         </div>
-        <div className="relative flex flex-col justify-center bg-[#ECF0F1] rounded-lg p-6 mt-6 lg:mt-0 lg:w-[50%] w-full overflow-hidden md:max-h-[300px] ">
+        <div className="relative flex flex-col justify-center bg-[#ECF0F1] rounded-lg p-6 mt-6 lg:mt-0 lg:w-[50%] w-full overflow-hidden md:max-h-[270px] ">
           {/* Absolutely positioned image */}
-          <div className="absolute right-0 -top-2 md:right-6 md:-top-20 right- xl:-top-44 xl:right-12 p-2">
+          <div className="absolute right-0 -top-24 md:right-6 md:-top-20 right- xl:-top-44 xl:right-12 p-2">
             <PrismicNextImage
               field={slice.primary.card_2_asset}
-              className="xl:min-w-[350px] xl:min-h-[300px] md:w-[300px] md:h-[200px]   max-w-[200px] max-h-[220px] object-cover"
+              className=" min-w-[150px] min-h-[100px]  xl:min-w-[350px] xl:min-h-[300px] md:w-[300px] md:h-[200px]   max-w-[200px] max-h-[220px] object-cover"
               alt="Card Image"
             />
           </div>
