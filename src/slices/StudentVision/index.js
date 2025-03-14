@@ -152,10 +152,10 @@ const StudentVision = ({ slice, context }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="relative mt-8"
+        className="relative mt-14"
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
-        <div className="flex justify-center items-center relative mt-16">
+        <div className="flex justify-center items-center relative mt-20">
           <Swiper
             modules={[Navigation, EffectCoverflow]}
             effect="coverflow"
@@ -193,7 +193,7 @@ const StudentVision = ({ slice, context }) => {
             ))}
           </Swiper>
         </div>
-        <div className="flex items-center mt-6 justify-between xl:mt-8 xl:justify-normal">
+        <div className="flex items-center mt-14 justify-between  xl:justify-normal">
           <div className="flex gap-2 mx-auto">
             <SwiperArrow
               className="rotate-180"
