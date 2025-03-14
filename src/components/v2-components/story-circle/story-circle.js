@@ -11,7 +11,7 @@ export default function StoryCircle({
   return (
     <li
       onClick={() => onClick(index)}
-      className={`${className} circle-display w-fit cursor-pointer rounded-full flex items-center justify-center transition-all scale-75 md:scale-100  md:active:scale-95 hover:opacity-95`}
+      className={`${className} circle-display w-fit cursor-pointer rounded-full flex items-center justify-center transition-all scale-90 md:scale-100  md:active:scale-95 hover:opacity-95`}
     >
       <div className="relative rounded-full h-full w-full">
         <div className="absolute -top-[16px] -left-[30px] flex items-center justify-center h-[150%] w-[150%]">
