@@ -32,19 +32,19 @@ export default function FinancialsAccordion({ slice }) {
   };
 
   return (
-    <section className="mt-14">
+    <section className=" ">
       {/* Conditionally Render SliceIdentifier and RichText */}
       {!isNewsletter && (
         <>
           <SliceIdentifier text={slice.primary.slice_identifier} />
           <RichText
             text={slice.primary.title}
-            className="font-ambit-regular text-3xl md:text-6xl w-[18ch] text-left md:text-center mx-auto mt-14 "
+            className="font-ambit-regular text-3xl md:text-6xl w-[18ch] text-left md:text-center mx-auto mt-14  "
           />
         </>
       )}
 
-      <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2 w-full lg:w-[880px] 3xl:w-[1000px] lg:mx-auto mt-14 ">
+      <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2 w-full lg:w-[880px] 3xl:w-[1000px] lg:mx-auto mt-14 md:mt-0  ">
         {[firstHalf, secondHalf].map((half, colIndex) => (
           <div key={colIndex}>
             {half.map((yearItem, index) => {
