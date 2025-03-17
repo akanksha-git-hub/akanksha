@@ -48,9 +48,7 @@ async function BlogData() {
           href="/resources/blogs"
           className="!px-12 !py-2 "
         /> */}
-        <Button href="/resources/blogs">
-          View All
-        </Button>
+        <Button href="/resources/blogs">View All</Button>
       </div>
       <div className="universal-padding flex flex-col space-y-12">
         <ResourcesCardItemSingle data={blogData} />

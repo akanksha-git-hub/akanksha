@@ -343,7 +343,7 @@ const MissionVision = ({ slice, context }) => {
       </div>
       <PrismicImage
         field={slice.primary.asset}
-        className="absolute xl:block -z-30 hidden right-0 top-0  w-[280px] h-auto object-cover  "
+        className="absolute md:block -z-30 hidden right-0 bottom-0 xl:right-0 xl:top-0  xl:w-[280px] h-auto object-cover  "
       />
     </section>
   );
