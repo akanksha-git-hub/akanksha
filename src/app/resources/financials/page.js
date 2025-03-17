@@ -16,7 +16,7 @@ export default async function Page() {
         <PrismicNextImage
           field={page.data.left_image}
           alt="Left Image"
-          className=" hidden md:block md:w-60 xl:-translate-y-16 xl:-translate-x-96" // Adjust size as needed
+          className=" hidden md:block md:w-60 xl:-translate-y-16 xl:translate-x-96" // Adjust size as needed
         />
         <div className="flex flex-col items-center text-black">
           <RichText
