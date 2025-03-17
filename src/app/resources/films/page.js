@@ -11,7 +11,7 @@ export default async function Page() {
   if (!page) return <p>No page data</p>;
 
   return (
-    <main className={`${maxwidth} universal-padding mt-14 `}>
+    <main className={`${maxwidth} universal-padding  `}>
       <div className="flex flex-row justify-center items-center gap-2 ">
         {/* Left Image */}
         <PrismicNextImage
