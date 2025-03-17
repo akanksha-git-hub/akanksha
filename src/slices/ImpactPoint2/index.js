@@ -1,3 +1,4 @@
+import HeadingAndDescription from "@/components/v2-components/HeadingAndDescription";
 import { PrismicNextImage } from "@prismicio/next";
 
 /**
@@ -14,7 +15,7 @@ const ImpactPoint2 = ({ slice }) => {
         className="mt-6"
       >
         <div className="flex lg:flex-row flex-col lg:space-x-6 min-h-[300px] justify-stretch items-stretch ">
-          <div className="flex flex-row bg-[#ECF0F1] rounded-lg p-6 items-center justify-between lg:w-[40%] w-full  ">
+          <div className="flex flex-row bg-[#ECF0F1] rounded-lg p-6 items-center justify-between lg:w-[40%] w-full   ">
             <div className="w-full h-full flex flex-col justify-around items-start ">
               <h1 className="font-ambit-regular text-black text-5xl md:text-7xl text-left ">
                 {slice.primary.card_1_title}
@@ -65,46 +66,25 @@ const ImpactPoint2 = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="universal-padding"
       >
-        <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[300px] justify-center items-stretch   ">
-          <div className="flex flex-row bg-[#ECF0F1] rounded-lg md:p-12 p-8 items-center justify-between lg:w-[50%] w-full  ">
-            <div className="w-full h-full flex flex-col justify-end items-start   ">
-              <h1 className="font-ambit-semibold text-black text-5xl md:text-8xl text-left ">
-                {slice.primary.card_1_title}
-              </h1>
-              <h1 className="font-ambit-regular text-black md:text-2xl text-xl   lg:text-left ">
-                {slice.primary.card_1_description}
-              </h1>
+        <div className="flex  lg:flex-row flex-col lg:space-x-4 justify-between items-stretch -mt-12 md:mt-0  ">
+          <div className="flex flex-row  border-[0.15rem] border-black  md:hover:bg-v2-yellow p-6  items-center justify-between lg:w-[50%] w-full  ">
+            <div className="w-full h-full flex flex-col justify-around items-start ">
+              <HeadingAndDescription
+                heading={slice.primary.card_1_title}
+                description={slice.primary.card_1_description}
+                iconField={slice.primary.card_1_icon}
+              />
             </div>
-            <PrismicNextImage
-              field={slice.primary.card_1_asset}
-              height={150}
-              width={150}
-              className="  w-[150px] h-[150px] md:w-[250px] md:h-[250px] object-contain"
-              alt={"Card Image"}
-            />
           </div>
-          <div className="flex flex-row bg-[#ECF0F1] rounded-lg p-6 items-center justify-between mt-8 lg:mt-0 lg:w-[50%] w-full min-h-[150px]">
+          <div className="flex flex-row  border-[0.15rem] border-black  md:hover:bg-v2-yellow p-6 items-center justify-between mt-4 lg:mt-0 lg:w-[50%] w-full ">
             <div className="w-full h-full flex flex-row justify-between items-center md:items-stretch space-x-2">
               {/* Percentage Box */}
-              <span className="bg-[#FBDA1D] font-ambit-semibold  text-xl md:text-6xl text-center text-black flex items-center justify-center rounded-[5rem] px-2 py-6 md:px-0 md:py-0 w-[40%] h-full">
-                {slice.primary.percentage_box}
-              </span>
-
-              {/* Description Section */}
-              <h1 className="font-ambit-regular text-black lg:text-3xl text-xl flex-1 h-full flex items-center ">
-                {slice.primary.card_2_description}
-              </h1>
+              <HeadingAndDescription
+                heading={slice.primary.percentage_box}
+                description={slice.primary.card_2_description}
+                iconField={slice.primary.card_2_icon}
+              />
             </div>
-          </div>
-
-          <div className="flex flex-col items-center justify-center">
-            <PrismicNextImage
-              field={slice.primary.asset}
-              height={150}
-              width={150}
-              className=" w-[250px] h-[250px] "
-              alt={"Card Image"}
-            />
           </div>
         </div>
       </section>

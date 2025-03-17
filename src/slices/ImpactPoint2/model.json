@@ -143,10 +143,10 @@
             "placeholder": ""
           }
         },
-        "card_1_asset": {
+        "card_1_icon": {
           "type": "Image",
           "config": {
-            "label": "Card 1 Asset",
+            "label": "Card 1 Icon",
             "constraint": {},
             "thumbnails": []
           }
@@ -163,6 +163,14 @@
           "config": {
             "label": "percentage box",
             "placeholder": ""
+          }
+        },
+        "card_2_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Card 2 Icon",
+            "constraint": {},
+            "thumbnails": []
           }
         }
       },

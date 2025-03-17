@@ -853,6 +853,7 @@ export type DonationPaymentComponentDocument<Lang extends string = string> =
   >;
 
 type DonorPageDocumentDataSlicesSlice =
+  | SuccessRate2Slice
   | TestimonialSlice
   | ImpactPoint2Slice
   | Alumini2Slice
@@ -4506,6 +4507,16 @@ export interface Alumini2SliceSecondVariationPrimary {
   heading: prismic.KeyTextField;
 
   /**
+   * icon field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
    * akanksha_average field in *Alumini2 → SecondVariation → Primary*
    *
    * - **Field Type**: Text
@@ -4514,16 +4525,6 @@ export interface Alumini2SliceSecondVariationPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   akanksha_average: prismic.KeyTextField;
-
-  /**
-   * akanksha_alumini field in *Alumini2 → SecondVariation → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini2.secondVariation.primary.akanksha_alumini
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  akanksha_alumini: prismic.KeyTextField;
 
   /**
    * national_average field in *Alumini2 → SecondVariation → Primary*
@@ -4554,6 +4555,16 @@ export interface Alumini2SliceSecondVariationPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   contribution1_percentaege: prismic.KeyTextField;
+
+  /**
+   * akanksha_alumini field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.akanksha_alumini
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  akanksha_alumini: prismic.KeyTextField;
 
   /**
    * contribution1_desc field in *Alumini2 → SecondVariation → Primary*
@@ -9417,14 +9428,14 @@ export interface ImpactPoint2SliceImpactVersion3Primary {
   card_1_description: prismic.KeyTextField;
 
   /**
-   * Card 1 Asset field in *ImpactPoint2 → ImpactVersion3 → Primary*
+   * Card 1 Icon field in *ImpactPoint2 → ImpactVersion3 → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: impact_point2.impactVersion3.primary.card_1_asset
+   * - **API ID Path**: impact_point2.impactVersion3.primary.card_1_icon
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  card_1_asset: prismic.ImageField<never>;
+  card_1_icon: prismic.ImageField<never>;
 
   /**
    * Card 2 Description field in *ImpactPoint2 → ImpactVersion3 → Primary*
@@ -9445,6 +9456,16 @@ export interface ImpactPoint2SliceImpactVersion3Primary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   percentage_box: prismic.KeyTextField;
+
+  /**
+   * Card 2 Icon field in *ImpactPoint2 → ImpactVersion3 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_point2.impactVersion3.primary.card_2_icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_2_icon: prismic.ImageField<never>;
 }
 
 /**

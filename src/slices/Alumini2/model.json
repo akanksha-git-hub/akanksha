@@ -205,17 +205,18 @@
             "placeholder": ""
           }
         },
+        "icon": {
+          "type": "Image",
+          "config": {
+            "label": "icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "akanksha_average": {
           "type": "Text",
           "config": {
             "label": "akanksha_average",
-            "placeholder": ""
-          }
-        },
-        "akanksha_alumini": {
-          "type": "Text",
-          "config": {
-            "label": "akanksha_alumini",
             "placeholder": ""
           }
         },
@@ -237,6 +238,13 @@
           "type": "Text",
           "config": {
             "label": "contribution1_percentaege",
+            "placeholder": ""
+          }
+        },
+        "akanksha_alumini": {
+          "type": "Text",
+          "config": {
+            "label": "akanksha_alumini",
             "placeholder": ""
           }
         },
