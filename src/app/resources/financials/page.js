@@ -21,11 +21,11 @@ export default async function Page() {
         <div className="flex flex-col items-center text-black">
           <RichText
             text={page.data.title}
-            className={` font-ambit-regular text-3xl md:text-6xl text-left md:text-center w-full pt-24`}
+            className={` font-ambit-regular text-3xl md:text-6xl text-left md:text-center w-full pt-2`}
           />
           <RichText
             text={page.data.description}
-            className="font-ambit-regular text-left md:text-center  text-base md:text-lg md:leading-7 w-[90%] md:w-[80%] md:mx-auto mt-6"
+            className="font-ambit-regular text-left md:text-center  text-base md:text-lg md:leading-7 w-[90%] md:w-[80%] md:mx-auto mt-20"
           />
         </div>
         <PrismicNextImage
