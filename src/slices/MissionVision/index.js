@@ -309,11 +309,11 @@ const MissionVision = ({ slice, context }) => {
               lg:text-left lg:items-start lg:justify-normal
               md:w-full 
               text-3xl md:text-6xl
-              sm:text-6xl 
+              
               lg:w-[99%]
               xl:w-[46%]
-              xl:text-7xl 
-              3xl:w-[48rem] 3xl:text-8xl 3xl:mt-2"
+             
+              3xl:w-[48rem]  3xl:mt-2"
           />
           <VideoModal className="flex w-full mt-8 lg:hidden" slice={slice} />
           <RichText

@@ -74,10 +74,10 @@ const FlagshipHero = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="relative universal-padding "
       >
-        <div className="flex flex-col items-center justify-center space-y-12 mt-4 lg:mt-32">
+        <div className="flex flex-col items-center justify-center space-y-12 mt-4 lg:mt-4">
           <RichText
             text={slice.primary.main_title}
-            className="font-ambit-regular text-black sm:text-center text-5xl md:text-7xl max-w-[20ch]"
+            className="font-ambit-regular text-black sm:text-center  text-3xl md:text-6xl max-w-[20ch]"
           />
           <RichText
             text={slice.primary.description1}

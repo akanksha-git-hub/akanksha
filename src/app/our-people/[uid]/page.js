@@ -16,9 +16,9 @@ export default async function Page({ params }) {
 
   return (
     <main
-      className={`${maxwidth} universal-padding  mb-12 relative overflow-hidden`}
+      className={`${maxwidth} universal-padding  mb-12 relative overflow-hidden `}
     >
-      <div className="flex items-center justify-center gap-2 md:gap-10 mb-10">
+      <div className="flex items-center justify-center gap-2 md:gap-10 ">
         {/* Left Side Image */}
         {page.data.left_image?.url && (
           <PrismicNextImage
@@ -30,7 +30,7 @@ export default async function Page({ params }) {
         {/* Title */}
         <RichText
           text={page.data.title}
-          className="flex items-center justify-center text-black   text-3xl md:text-6xl    3xl:text-8xl !mt-[5rem] !mb-12  "
+          className="flex items-center justify-center text-black   text-3xl md:text-6xl   !mt-2 !mb-12  "
         />
 
         {/* Right Side Image */}
