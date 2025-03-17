@@ -132,17 +132,17 @@ const Alumini2 = ({ slice }) => {
           </div>
           <div className="flex flex-col xl:flex-row  xl:mt-0 mt-6 xl:w-[60%] w-full relative    ">
             {/* Left Section (Image) */}
-            <div className="w-full xl:w-[50%] flex flex-col xl:items-end xl:justify-end  justify-center  mt-12 xl:mt-0  ">
+            <div className="w-full xl:w-[50%] flex flex-col xl:items-center xl:justify-center  justify-center  mt-12 xl:mt-0  ">
               <PrismicNextImage
                 field={slice.primary.image}
-                className="max-w-[350px] max-h-[350px]   object-cover"
+                className="max-w-[300px] max-h-[300px]   object-cover"
                 alt={"Card Image"}
               />
             </div>
 
             {/* Right Section (Title, Secondary Title, and Description) */}
 
-            <div className="w-full xl:w-[50%] flex flex-col justify-end items-start xl:mb-20 space-y-2 p-6 ">
+            <div className="w-full xl:w-[50%] flex flex-col justify-center items-start space-y-2  ">
               {/* Title */}
               <h1 className="font-ambit-regular text-left text-black text-6xl xl:text-8xl">
                 {slice.primary.contribution1_percentaege}
