@@ -1,4 +1,5 @@
 import SliceIdentifier from "@/components/SliceIdentifier";
+import HeadingAndDescription from "@/components/v2-components/HeadingAndDescription";
 import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
 
@@ -87,22 +88,22 @@ const Alumini2 = ({ slice }) => {
         className="universal-padding    mt-8"
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
-        <h1 className="font-ambit-regular text-3xl md:text-5xl lg:text-7xl md:text-center text-left mt-12 md:mt-24">
+        <h1 className="font-ambit-regular text-3xl md:text-5xl lg:text-7xl md:text-center text-left mt-12 md:mt-24 ">
           {slice.primary.heading}
         </h1>
-        <div class="flex flex-col xl:flex-row mt-12 md:mt-24 ">
+        <div class="flex flex-col md:flex-row mt-12 md:mt-8  ">
           {/* <!-- Section 1: Charts --> */}
-          <div className="xl:w-1/2 flex flex-row justify-center items-end gap-8 p-4  h-[300px] md:h-[400px]  relative">
+          <div className="md:w-1/2 flex flex-row justify-center items-end gap-8  py-4 h-[300px] md:h-[300px]   xl:h-[400px] relative  ">
             {/* <!-- Blue Section --> */}
 
-            <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black  p-6 h-[100%] ">
+            <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black  p-6  h-[100%] ">
               {/* <div className="absolute  transform  translate-x-[50%] translate-y-[-85%] rotate-[25deg] bg-black text-white font-bold px-8 py-4 rounded-full text-3xl font-ambit-light">
                 2x
               </div> */}
-              <p class="text-xl md:text-4xl font-ambit-semibold pt-16">
+              <p class="text-xl md:text-2xl xl:text-4xl font-ambit-semibold pt-16">
                 {slice.primary.akanksha_average}
               </p>
-              <p class="text-md md:text-2xl font-ambit-semibold text-center">
+              <p class="text-md md:text-lg xl:text-2xl font-ambit-semibold text-center">
                 {slice.primary.akanksha_alumini}
               </p>
             </div>
@@ -118,40 +119,26 @@ const Alumini2 = ({ slice }) => {
               />
             </div> */}
             {/* <!-- Orange Section --> */}
-            <div class="flex flex-col items-center justify-center bg-[#F6AC27] text-black  p-6 h-[45%] ">
-              <p class="text-xl md:text-4xl font-ambit-semibold pt-10">
+            <div class="flex flex-col items-center justify-center bg-[#F6AC27] text-black  p-6 h-[45%]  ">
+              <p class="text-xl md:text-2xl xl:text-4xl font-ambit-semibold pt-10">
                 {slice.primary.national_average}
               </p>
-              <p class="text-md md:text-2xl font-ambit-semibold text-center">
+              <p class="text-md md:text-lg xl:text-2xl  font-ambit-semibold text-center">
                 {slice.primary.national_average_text}
               </p>
             </div>
-            <p className="absolute  -bottom-[3rem] w-full   text-left text-sm md:text-base font-ambit-regular text-gray-900 ">
+            <p className="absolute  -bottom-[4rem] xl:-bottom-[2rem] w-full   text-left text-sm md:text-base font-ambit-regular text-gray-900 ">
               {slice.primary.stats}
             </p>
           </div>
-          <div className="flex flex-col xl:flex-row  xl:mt-0 mt-6 xl:w-[60%] w-full relative    ">
-            {/* Left Section (Image) */}
-            <div className="w-full xl:w-[50%] flex flex-col items-center xl:justify-center  justify-center  mt-12 xl:mt-0  ">
-              <PrismicNextImage
-                field={slice.primary.image}
-                className=" w-[300px] h-[300px] md:max-w-[300px] md:max-h-[300px]   object-cover"
-                alt={"Card Image"}
+          <div className="flex flex-row  border-[0.15rem] border-black  md:hover:bg-v2-yellow p-6 items-center justify-between  md:mt-0 md:w-[50%] w-full mt-20 ">
+            <div className="w-full h-full flex flex-row justify-between items-center md:items-stretch space-x-2">
+              {/* Percentage Box */}
+              <HeadingAndDescription
+                heading={slice.primary.contribution1_percentaege}
+                description={slice.primary.stats}
+                iconField={slice.primary.icon}
               />
-            </div>
-
-            {/* Right Section (Title, Secondary Title, and Description) */}
-
-            <div className="w-full xl:w-[50%] flex flex-col justify-center items-start space-y-2 mt-12 md:mt-0 pl-4 ">
-              {/* Title */}
-              <h1 className="font-ambit-regular text-left text-black text-6xl xl:text-8xl">
-                {slice.primary.contribution1_percentaege}
-              </h1>
-
-              {/* Secondary Title */}
-              <h2 className="font-ambit-regular text-left text-black text-3xl ">
-                {slice.primary.contribution1_desc}
-              </h2>
             </div>
           </div>
         </div>
