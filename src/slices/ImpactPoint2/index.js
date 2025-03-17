@@ -79,14 +79,14 @@ const ImpactPoint2 = ({ slice }) => {
               field={slice.primary.card_1_asset}
               height={150}
               width={150}
-              className=" object-contain"
+              className="  w-[150px] h-[150px] md:w-[250px] md:h-[250px] object-contain"
               alt={"Card Image"}
             />
           </div>
-          <div className="flex flex-row bg-[#ECF0F1] rounded-lg p-6 items-center justify-between mt-8 lg:mt-0 lg:w-[50%] w-full">
+          <div className="flex flex-row bg-[#ECF0F1] rounded-lg p-6 items-center justify-between mt-8 lg:mt-0 lg:w-[50%] w-full min-h-[150px]">
             <div className="w-full h-full flex flex-row justify-between items-center md:items-stretch space-x-2">
               {/* Percentage Box */}
-              <span className="bg-[#FBDA1D] font-ambit-semibold  text-2xl md:text-6xl text-center text-black flex items-center justify-center rounded-[5rem] px-4 py-8 md:px-0 md:py-0 w-[40%] h-full">
+              <span className="bg-[#FBDA1D] font-ambit-semibold  text-xl md:text-6xl text-center text-black flex items-center justify-center rounded-[5rem] px-2 py-6 md:px-0 md:py-0 w-[40%] h-full">
                 {slice.primary.percentage_box}
               </span>
 
