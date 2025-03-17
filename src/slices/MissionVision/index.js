@@ -308,7 +308,7 @@ const MissionVision = ({ slice, context }) => {
               sm:w-3/4 justify-center
               lg:text-left lg:items-start lg:justify-normal
               md:w-full 
-              text-4xl
+              text-3xl md:text-6xl
               sm:text-6xl 
               lg:w-[99%]
               xl:w-[46%]

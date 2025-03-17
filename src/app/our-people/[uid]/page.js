@@ -13,40 +13,42 @@ export default async function Page({ params }) {
   const page = await client
     .getByUID("our_people", params.uid)
     .catch(() => notFound());
-   
+
   return (
- 
-    
-    <main className={`${maxwidth} universal-padding  mb-12 relative overflow-hidden`}>
- <div className="flex items-center justify-center gap-2 md:gap-10 mb-10">
-  {/* Left Side Image */}
-  {page.data.left_image?.url && (
-    <PrismicNextImage 
-      field={page.data.left_image}
-      className="w-24 h-auto md:w-60"
-    />
-  )}
+    <main
+      className={`${maxwidth} universal-padding  mb-12 relative overflow-hidden`}
+    >
+      <div className="flex items-center justify-center gap-2 md:gap-10 mb-10">
+        {/* Left Side Image */}
+        {page.data.left_image?.url && (
+          <PrismicNextImage
+            field={page.data.left_image}
+            className="w-24 h-auto md:w-60"
+          />
+        )}
 
-  {/* Title */}
-  <RichText 
-      text={page.data.title}
-      className="flex items-center justify-center text-black   text-4xl
-              sm:text-6xl  xl:text-7xl  3xl:text-8xl !mt-[5rem] !mb-12  "
-    />
+        {/* Title */}
+        <RichText
+          text={page.data.title}
+          className="flex items-center justify-center text-black   text-3xl md:text-6xl    3xl:text-8xl !mt-[5rem] !mb-12  "
+        />
 
-  {/* Right Side Image */}
-  {page.data.right_image?.url && (
-    <PrismicNextImage 
-      field={page.data.right_image}
-      className="w-24 h-auto md:w-60"
-    />
-  )}
-</div>
+        {/* Right Side Image */}
+        {page.data.right_image?.url && (
+          <PrismicNextImage
+            field={page.data.right_image}
+            className="w-24 h-auto md:w-60"
+          />
+        )}
+      </div>
 
-
-    {/* Slice Content */}
-    <SliceZone slices={page.data.slices} context = {{id: page.uid}} components={components} />
-  </main>
+      {/* Slice Content */}
+      <SliceZone
+        slices={page.data.slices}
+        context={{ id: page.uid }}
+        components={components}
+      />
+    </main>
   );
 }
 

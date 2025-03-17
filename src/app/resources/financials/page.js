@@ -21,7 +21,7 @@ export default async function Page() {
         <div className="flex flex-col items-center text-black">
           <RichText
             text={page.data.title}
-            className={` font-ambit-regular text-7xl text-left md:text-center w-full pt-24`}
+            className={` font-ambit-regular text-3xl md:text-6xl text-left md:text-center w-full pt-24`}
           />
           <RichText
             text={page.data.description}
