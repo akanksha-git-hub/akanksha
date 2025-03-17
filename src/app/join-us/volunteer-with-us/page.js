@@ -11,7 +11,7 @@ export default async function Page() {
   if (!page) return <p>No page</p>;
   const removePagePadding = true;
   return (
-    <main className={`${maxwidth} universal-padding mt-16`}>
+    <main className={`${maxwidth} universal-padding mt-3`}>
       <div className="flex items-center justify-center gap-2 md:gap-10 mb-10 ">
         {/* Left Side Image */}
         {page.data.left_image?.url && (
