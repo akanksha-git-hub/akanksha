@@ -102,7 +102,7 @@ export default function ScrollText({ title, prismicTexts, asset_2 ,asset_1 }) {
     }, [secondMount]);
 
     return (
-        <div ref={root} className="flex flex-col items-center mt-20   ">
+        <div ref={root} className="flex flex-col items-center    ">
            {secondMount ? 
             <>
             <div className="flex flex-row  items-center">
