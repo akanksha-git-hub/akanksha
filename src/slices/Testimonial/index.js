@@ -21,12 +21,17 @@ const Testimonial = ({ slice, context }) => {
   const testimonials = slice.primary.content;
 
   const nextTestimonial = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    if (activeIndex < testimonials.length - 1) {
+      setActiveIndex((prev) => prev + 1);
+    }
   };
-
+  
   const prevTestimonial = () => {
-    setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+    if (activeIndex > 0) {
+      setActiveIndex((prev) => prev - 1);
+    }
   };
+  
   if (slice.variation === "optionC") {
     return (
       <section
