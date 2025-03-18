@@ -26,14 +26,14 @@ const ImpactShuffle = async ({ slice }) => {
       className="relative"
     >
       <div className="text-center universal-padding">
-        <h1 className="text-5xl md:text-8xl font-ambit-regular text-[#333333] md:mx-auto md:w-[8ch] w-[5ch]">
+        <h1 className="text-3xl md:text-6xl  font-ambit-regular text-black md:mx-auto md:w-[8ch] w-[5ch]">
           {slice.primary.title}
         </h1>
-        <p className="font-ambit text-2xl font-ambit-regular mt-4">
+        <p className="font-ambit text-[1.35rem] font-ambit-regular mt-8">
           {slice.primary.small_title}
         </p>
       </div>
-      <div className="mt-8">
+      <div className="mt-0 ">
         <ShuffleMix slice={data} />
       </div>
     </section>
