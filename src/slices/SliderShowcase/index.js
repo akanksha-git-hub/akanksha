@@ -468,7 +468,7 @@ const SliderShowcase = ({ slice, context }) => {
                 text={slice.primary.items[current].title}
               />
               <RichText
-                className="text-black font-ambit-regular text-xl md:text-2xl w-full lg:w-[94%] opacity-reveal"
+                className="text-black font-ambit-regular text-md md:text-lg w-full lg:w-[94%] opacity-reveal"
                 key={slice.primary.items[current].description}
                 text={slice.primary.items[current].description}
               />
