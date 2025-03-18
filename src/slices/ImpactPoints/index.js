@@ -18,7 +18,7 @@ const ImpactPoints = ({ slice }) => {
                 <h1 className="font-ambit-regular text-black text-5xl md:text-7xl lg:text-8xl text-left ">
                   {slice.primary.card_1_heading}
                 </h1>
-                <h1 className="font-ambit-regular text-black text-[1.35rem] w-[20ch]   md:text-left  leading-snug">
+                <h1 className="font-ambit-regular text-black text-[1.35rem] w-[70%]   md:text-left  leading-snug">
                   {slice.primary.card_1_description}
                 </h1>
               </div>
