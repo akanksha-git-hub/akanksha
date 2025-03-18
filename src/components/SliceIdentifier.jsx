@@ -15,27 +15,45 @@ export default function SliceIdentifier({
 }) {
   const containerRef = useRef(null);
   const lineRef = useRef(null);
+  const lettersRef = useRef([]);
 
   useEffect(() => {
     if (containerRef.current) {
-      gsap.fromTo(
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      // Animate underline
+      tl.fromTo(
         lineRef.current,
         { scaleX: 0, transformOrigin: "left" },
         {
           scaleX: 1,
           duration: 1,
           ease: "power2.out",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
         }
+      );
+
+      // Animate letters (sliding in from left)
+      tl.fromTo(
+        lettersRef.current,
+        { x: -20, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          stagger: 0.05,
+          ease: "power2.out",
+          duration: 0.6,
+        },
+        "<" // start at the same time as underline
       );
     }
   }, []);
 
-  // Safely handle text (avoid undefined/null)
   const safeText = text ?? "";
 
   return (
@@ -45,14 +63,15 @@ export default function SliceIdentifier({
         className={`pb-3 ${className} flex flex-wrap gap-[4px] font-inter font-bold items-center uppercase text-2xl text-black tracking-[-0.5px]`}
       >
         <span className="h-[12px] w-[12px] rounded-full bg-black" />
-        {safeText.split(" ").map((word, wIndex) => (
-          <span key={wIndex} className="inline-block">
-            {word.split("").map((letter, lIndex) => (
-              <span key={lIndex} className="inline-block">
-                {letter}
-              </span>
-            ))}
-            {wIndex !== safeText.split(" ").length - 1 && <span>&nbsp;</span>}
+        {safeText.split("").map((letter, index) => (
+          <span
+            key={index}
+            ref={(el) => (lettersRef.current[index] = el)}
+            className={`inline-block ${
+              letter === " " ? "w-2 inline-block" : ""
+            }`}
+          >
+            {letter === " " ? "\u00A0" : letter}
           </span>
         ))}
       </div>
