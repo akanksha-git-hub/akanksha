@@ -102,7 +102,7 @@ export default function ScrollText({ title, prismicTexts, asset_2 ,asset_1 }) {
     }, [secondMount]);
 
     return (
-        <div ref={root} className="flex flex-col items-center    ">
+        <div ref={root} className="flex flex-col items-center     ">
            {secondMount ? 
             <>
             <div className="flex flex-row  items-center">
@@ -111,7 +111,7 @@ export default function ScrollText({ title, prismicTexts, asset_2 ,asset_1 }) {
             field={asset_1}
             width={30}
             height={30}
-            className=" lg:h-[300px] lg:w-[300px]"
+            className=" lg:h-[200px] lg:w-[200px]"
             alt=""
         />
     </div>
@@ -123,7 +123,7 @@ export default function ScrollText({ title, prismicTexts, asset_2 ,asset_1 }) {
             field={asset_2}
             width={30}
             height={30}
-            className=" lg:h-[300px] lg:w-[300px]"
+            className=" lg:h-[200px] lg:w-[200px]"
             alt=""
         />
     </div>
