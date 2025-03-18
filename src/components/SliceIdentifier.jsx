@@ -68,7 +68,7 @@ export default function SliceIdentifier({
             key={index}
             ref={(el) => (lettersRef.current[index] = el)}
             className={`inline-block ${
-              letter === " " ? "w-2 inline-block" : ""
+              letter === " " ? "w-1 inline-block" : ""
             }`}
           >
             {letter === " " ? "\u00A0" : letter}
