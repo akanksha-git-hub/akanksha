@@ -18,7 +18,7 @@ const ImpactPoints = ({ slice }) => {
                 <h1 className="font-ambit-regular text-black text-5xl md:text-7xl lg:text-8xl text-left ">
                   {slice.primary.card_1_heading}
                 </h1>
-                <h1 className="font-ambit-regular text-black text-[1.35rem]   md:text-left  leading-snug">
+                <h1 className="font-ambit-regular text-black text-[1.35rem] w-[20ch]   md:text-left  leading-snug">
                   {slice.primary.card_1_description}
                 </h1>
               </div>
@@ -49,7 +49,7 @@ const ImpactPoints = ({ slice }) => {
         
         
             </div>
-            <div className="flex flex-col lg:flex-row bg-[#ECF0F1] rounded-lg p-8  lg:mt-0 mt-6 lg:w-[60%] w-full relative ">
+            <div className="flex flex-col lg:flex-row bg-[#ECF0F1] rounded-lg p-8  lg:mt-0 mt-6 lg:w-[50%] w-full relative ">
       {/* Left Section (Image) */}
       <div className="w-full lg:w-[50%] flex flex-col items-center justify-center  ">
         <PrismicNextImage 
