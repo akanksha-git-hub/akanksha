@@ -136,7 +136,7 @@ const Alumini2 = ({ slice }) => {
               {/* Percentage Box */}
               <HeadingAndDescription
                 heading={slice.primary.contribution1_percentaege}
-                description={slice.primary.stats}
+                description={slice.primary.contribution1_desc}
                 iconField={slice.primary.icon}
               />
             </div>
