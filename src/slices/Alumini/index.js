@@ -22,7 +22,7 @@ const Alumini = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding  "
+      className="universal-padding -mt-16 "
     >
       <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl text-center ">
         {slice.primary.heading}
@@ -30,15 +30,15 @@ const Alumini = ({ slice }) => {
       
 
       {/* Parent container for Alumni and Percentage sections */}
-      <div className="flex flex-col xl:flex-row mt-8 lg:space-x-12">
+      <div className="flex flex-col xl:flex-row mt-8 lg:space-x-12 h-[300px] lg:h-[520px]">
         {/* Alumini Enrollment */}
-        <div className="flex-1 bg-[#ECF0F1] rounded-lg p-12 md:mr-4 w-full h-[300px] lg:h-[600px] flex flex-col justify-between">
+        <div className="flex-1 bg-[#ECF0F1] rounded-lg p-12 md:mr-4 w-full  flex flex-col justify-between">
           {/* Card Heading */}
           <div>
-            <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl text-left">
+            <h1 className="font-ambit-regular text-5xl md:text-7xl lg:text-8xl text-left">
               {slice.primary.card2_heading}
             </h1>
-            <p className="font-ambit-regular text-lg md:text-xl  mt-12 w-[75%]">
+            <p className="font-ambit-regular text-[1.35rem]  mt-12 w-[75%]">
               {slice.primary.card2_description}
             </p>
           </div>
@@ -67,7 +67,7 @@ const Alumini = ({ slice }) => {
         </div>
 
         {/* Percentage Section */}
-        <div className="flex-1 w-full h-[300px] lg:h-[600px] bg-white flex flex-col justify-between p-4">
+        <div className="flex-1 w-full  bg-white flex flex-col justify-between p-4">
           <div>
             {/* Fulltime Percentage Section */}
             <div
@@ -108,7 +108,7 @@ const Alumini = ({ slice }) => {
 
           {/* Description at the Bottom */}
           <div>
-            <p className="font-ambit-regular md:text-2xl xl:text-4xl xl:w-[90%] mt-4">
+            <p className="font-ambit-regular text-[1.35rem] xl:w-[90%] mt-4">
               {slice.primary.card3_description}
             </p>
           </div>

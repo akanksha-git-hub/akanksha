@@ -10,15 +10,15 @@ const ImpactPoints = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-   className="universal-padding" >
-       <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[400px]">
+   className="universal-padding " >
+       <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[300px]  ">
                  <div className="flex flex-col bg-[#ECF0F1] rounded-lg p-8 items-center justify-between lg:w-[50%] w-full relative">
              
-              <div className="w-full h-full flex flex-col justify-around items-start ">
-                <h1 className="font-ambit-regular text-black text-5xl md:text-7xl text-left ">
+              <div className="w-full h-full flex flex-col justify-around items-start  ">
+                <h1 className="font-ambit-regular text-black text-5xl md:text-7xl lg:text-8xl text-left ">
                   {slice.primary.card_1_heading}
                 </h1>
-                <h1 className="font-ambit-regular text-black md:text-3xl text-xl md:w-[19ch]  md:text-left  leading-snug">
+                <h1 className="font-ambit-regular text-black text-[1.35rem]   md:text-left  leading-snug">
                   {slice.primary.card_1_description}
                 </h1>
               </div>
@@ -56,7 +56,7 @@ const ImpactPoints = ({ slice }) => {
           field={slice.primary.asset_2} 
           width={300}
           height={300}
-          className=" w-[180px] h-[180px] md:h-[300px] md:w-[300px]  object-cover"
+          className=" w-[180px] h-[180px] md:h-[220px] md:w-[220px]  object-cover"
           alt={"Card Image"}
         />
       </div>
@@ -70,7 +70,7 @@ const ImpactPoints = ({ slice }) => {
 
        
         {/* Description */}
-        <h2 className="font-ambit-regular text-left text-black text-2xl md:text-3xl">
+        <h2 className="font-ambit-regular text-left text-black text-[1.35rem]">
           {slice.primary.card_2_description}
         </h2>
 

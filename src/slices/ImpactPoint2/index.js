@@ -94,15 +94,15 @@ const ImpactPoint2 = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding"
+      className="universal-padding "
     >
-      <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[300px] justify-stretch items-stretch ">
+      <div className="flex lg:flex-row flex-col lg:space-x-6  min-h-[300px] -mt-8   ">
         <div className="flex flex-row bg-[#ECF0F1] rounded-lg p-6 items-center justify-between lg:w-[40%] w-full  ">
           <div className="w-full h-full flex flex-col justify-around items-start ">
-            <h1 className="font-ambit-regular text-black text-5xl md:text-7xl text-left ">
+            <h1 className="font-ambit-regular text-black text-5xl md:text-7xl lg:text-8xl text-left ">
               {slice.primary.card_1_title}
             </h1>
-            <h1 className="font-ambit-regular text-black md:text-2xl text-xl  lg:text-left ">
+            <h1 className="font-ambit-regular text-black text-[1.35rem]  lg:text-left ">
               {slice.primary.card_1_description}
             </h1>
           </div>
@@ -120,7 +120,7 @@ const ImpactPoint2 = ({ slice }) => {
               {slice.primary.card_2_title}
             </h1>
 
-            <h1 className="font-ambit-regular text-black lg:text-2xl text-xl lg:w-[19ch]  lg:text-left ">
+            <h1 className="font-ambit-regular text-black text-[1.35rem] lg:w-[19ch]  lg:text-left ">
               {slice.primary.card_2_description}
             </h1>
           </div>

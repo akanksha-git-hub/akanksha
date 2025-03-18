@@ -152,7 +152,7 @@ const Alumini2 = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="universal-padding   md:mt-94 mt-64"
     >
-      <h1 className="font-ambit-regular text-5xl md:text-6xl lg:text-8xl md:text-center text-left ">
+      <h1 className="font-ambit-regular text-3xl md:text-6xl  md:text-center text-left ">
         {slice.primary.heading}
       </h1>
       <div class="flex flex-col xl:flex-row mt-8 ">
@@ -206,7 +206,7 @@ const Alumini2 = ({ slice }) => {
               <div class="text-5xl md:text-8xl font-ambit-regular text-black">
                 75%
               </div>
-              <div class="text-lg md:text-xl font-ambit-regular text-gray-900">
+              <div class="text-[1.35rem] font-ambit-regular text-gray-900">
                 Akanksha alumni contribution to their households.
               </div>
             </div>
@@ -216,7 +216,7 @@ const Alumini2 = ({ slice }) => {
               <div class="text-5xl md:text-7xl lg:text-8xl  font-ambit-regular text-black ">
                 50%
               </div>
-              <div class="text-lg md:text-xl font-ambit-regular text-gray-900 self-start">
+              <div class="text-[1.35rem] font-ambit-regular text-gray-900 self-start">
                 Akanksha alumni engaged in community activities.
               </div>
             </div>

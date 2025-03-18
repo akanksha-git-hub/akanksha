@@ -12,10 +12,10 @@ const ImpactKeyStage = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="universal-padding "
     >
-      <h1 className="md:text-6xl text-4xl md:text-center font-ambit-regular text-black md:mx-auto ">
+      <h1 className="text-3xl md:text-6xl md:text-center font-ambit-regular text-black md:mx-auto ">
             {slice.primary.main_heading}
           </h1>
-      <div className="relative flex items-center justify-center  md:mt-8">
+      <div className="relative flex items-center justify-center  md:mt-14">
 
         <div className="flex flex-col md:flex-row items-start ">
           {/* Item 1 */}

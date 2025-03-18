@@ -140,7 +140,7 @@ export default function CardsShuffleItemContainer({
   }, [onMount.firstMount, onMount.secondMount, cards]);
 
   return (
-    <div className="pin-wrapper relative min-h-screen">
+    <div className="pin-wrapper relative min-h-screen ">
       <div ref={root} className={`${className} relative`}>
         <ul className={`${itemsContainerClassName} relative`}>
           {slice.map((item, index) => (
