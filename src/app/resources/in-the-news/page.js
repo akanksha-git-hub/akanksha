@@ -19,7 +19,7 @@ export default async function Page() {
         <PrismicNextImage
           field={page.data.left_image}
           alt="Left Image"
-          className="hidden md:block md:w-44" // Adjust size as needed
+          className="hidden md:block md:w-44 md:h-40" // Adjust size as needed
         />
 
         {/* Text Container - Column Layout */}
