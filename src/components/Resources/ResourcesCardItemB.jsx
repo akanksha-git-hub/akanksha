@@ -27,24 +27,24 @@ export default function ResourcesCardItemB({ item }) {
 
   return (
     <div className="grid space-y-6 xl:space-y-0 xl:grid-cols-3 xl:gap-12 3xl:gap-0 xl:flex  xl:justify-between xl:items-start mt-6 border-b border-[#A3A19A] last:border-none">
-      <div className="font-ambit-regular">
+      <div className="font-ambit-regular  w-[25%] ">
         <RichText
           className="text-black text-2xl font-ambit-semibold"
           text={day}
         />
         <RichText className="text-black text-5xl" text={monthYear} />
       </div>
-      <div className="font-ambit-regular space-y-2">
+      <div className="font-ambit-regular space-y-2   ">
         <RichText
           className="text-3xl w-[80%] text-black font-ambit-semibold"
           text={item.title}
         />
-        <ul className="flex flex-wrap gap-2">
+        <ul className="flex flex-wrap gap-2 " >
           {tags.map((item) => (
             <li
               key={item.text}
               className={`w-fit py-2 px-4 cursor-pointer font-ambit-regular text-sm rounded-full transition-all
-                                    border border-black hover:bg-black hover:text-off-white `}
+                                    border border-black hover:bg-black hover:text-off-white  `}
             >
               {item.text}
             </li>
