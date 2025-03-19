@@ -10088,6 +10088,17 @@ export interface MissionVisionSliceDefaultPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *MissionVision → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: mission_vision.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Video Link field in *MissionVision → Default → Primary*
    *
    * - **Field Type**: Text
@@ -10184,6 +10195,17 @@ export interface MissionVisionSliceReverseVideoComponetPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *MissionVision → ReverseVideoComponet → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: mission_vision.reverseVideoComponet.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Video Link field in *MissionVision → ReverseVideoComponet → Primary*
@@ -10285,6 +10307,17 @@ export interface MissionVisionSliceDoubleCtaComponentPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Asset field in *MissionVision → Double CTA Component → Primary*
    *
    * - **Field Type**: Image
@@ -10381,6 +10414,17 @@ export interface MissionVisionSliceOptionDPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *MissionVision → Option D → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: mission_vision.optionD.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * CTA Text field in *MissionVision → Option D → Primary*
@@ -10499,6 +10543,17 @@ export interface MissionVisionSliceOptionFPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *MissionVision → Option F → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: mission_vision.optionF.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Video Thumbnail Image field in *MissionVision → Option F → Primary*
    *
    * - **Field Type**: Image
@@ -10597,6 +10652,17 @@ export interface MissionVisionSliceV2Primary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *MissionVision → V2 → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: mission_vision.v2.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * CTA Text field in *MissionVision → V2 → Primary*
    *
    * - **Field Type**: Text
@@ -10663,6 +10729,17 @@ export interface MissionVisionSliceProjectRisePrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *MissionVision → Project-Rise → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: mission_vision.projectRise.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * bg_image field in *MissionVision → Project-Rise → Primary*
@@ -10771,6 +10848,17 @@ export interface MissionVisionSliceSimpleVersionPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *MissionVision → SimpleVersion → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: mission_vision.simpleVersion.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Title field in *MissionVision → SimpleVersion → Primary*
