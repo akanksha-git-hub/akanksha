@@ -63,6 +63,15 @@
             "placeholder": ""
           }
         },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
         "video_link": {
           "type": "Text",
           "config": {
@@ -130,6 +139,15 @@
           "config": {
             "label": "Slice Identifier",
             "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         },
         "video_link": {
@@ -201,6 +219,15 @@
             "placeholder": ""
           }
         },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
         "asset": {
           "type": "Image",
           "config": {
@@ -269,6 +296,15 @@
           "config": {
             "label": "Slice Identifier",
             "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         },
         "cta_text": {
@@ -351,6 +387,15 @@
             "placeholder": ""
           }
         },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
         "video_thumbnail_image": {
           "type": "Image",
           "config": {
@@ -420,6 +465,15 @@
             "placeholder": ""
           }
         },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
         "cta_text": {
           "type": "Text",
           "config": {
@@ -467,6 +521,15 @@
           "config": {
             "label": "Slice Identifier",
             "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         },
         "bg_image": {
@@ -547,6 +610,15 @@
           "config": {
             "label": "Slice Identifier",
             "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         },
         "title": {
