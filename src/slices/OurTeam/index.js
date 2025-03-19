@@ -22,6 +22,11 @@ const OurTeam = ({ slice }) => {
     slice.primary.team_content.length
   );
 
+  const { show_identifier, slice_identifier } = slice.primary;
+
+  const RenderIdentifier = () =>
+    show_identifier && <SliceIdentifier text={slice_identifier} />;
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -29,19 +34,9 @@ const OurTeam = ({ slice }) => {
       className="mt-12"
     >
       <div className="inline-padding">
-        <SliceIdentifier text={slice.primary.slice_identifier} />
+        <RenderIdentifier />
       </div>
       <div className="mt-8 ">
-        {/* <MixedText 
-          // texts={slice.primary.slice_identifier}
-          texts="Our board"
-          index={1}
-          className="flex items-center justify-center text-8xl text-deep-green mb-12"
-          /> */}
-        {/* <RichText 
-          className="flex items-center justify-center text-8xl text-deep-green mb-12"
-          text="Our board"
-        /> */}
         <Marquee slice={feedMarqueeDataA} />
         <Marquee slice={feedMarqueeDataB} isRight />
       </div>
