@@ -369,7 +369,7 @@ const TimelineScroller = ({ slice }) => {
         <div className="relative ">
           <div className="absolute -bottom-12 left-2/4 -translate-x-2/4 w-[90%] md:w-[80%] h-1 rounded-full z-20 bg-[#FBDA1D]">
             <p className="text-black text-base font-ambit-regular absolute -left-1 bottom-2/4 translate-y-[165%]">
-              1991
+            {slice.primary.start_year}
             </p>
             <div className="w-full h-full rounded-full custom-bezier relative ">
               <div
@@ -425,7 +425,7 @@ const TimelineScroller = ({ slice }) => {
                 </ul>
               )}
               <p className="text-balck text-base font-ambit-regular absolute -right-1 bottom-2/4 translate-y-[165%]">
-                2024
+              {slice.primary.start_year}
               </p>
             </div>
           </div>
