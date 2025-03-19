@@ -59,6 +59,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "organization",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": []

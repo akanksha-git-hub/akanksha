@@ -48,8 +48,6 @@ function CardShowcaseBCardDesktop({ item, isHighlighted, onHover }) {
       onMouseEnter={onHover}
       onMouseLeave={onHover}
     >
-      {/* Example: orange gradient overlay when highlighted */}
-
       <div className="absolute top-0 left-0 h-full w-5 z-10">
         <Image src={PencilShading} alt="image" fill />
       </div>
@@ -90,7 +88,6 @@ function CardShowcaseBCardDesktop({ item, isHighlighted, onHover }) {
 export default function CardsShowcaseB({ data }) {
   const [highlightedIndex, setHighlightedIndex] = useState(0);
 
-  // "allowHover" = true if device truly supports hover (mouse); false if touch-only.
   const [allowHover, setAllowHover] = useState(false);
 
   useEffect(() => {
@@ -109,12 +106,13 @@ export default function CardsShowcaseB({ data }) {
     }
   }, []);
 
-  // If the device does NOT support hover (iPad, mobile, etc.):
-  // treat it as the "mobile" experience with no hover effect.
+  const RenderIdentifier = () =>
+    data.show_identifier && <SliceIdentifier text={data.slice_identifier} />;
+
   if (!allowHover) {
     return (
       <div className="universal-padding space-y-20">
-        <SliceIdentifier text={data.slice_identifier} />
+        <RenderIdentifier />
         <ul className="grid grid-cols-1 gap-6 h-auto">
           {data.items.map((item, i) => (
             <CardShowcaseBCardMobile key={i} item={item} />
@@ -126,7 +124,7 @@ export default function CardsShowcaseB({ data }) {
 
   return (
     <div className="universal-padding space-y-20">
-      <SliceIdentifier text={data.slice_identifier} />
+      <RenderIdentifier />
       <ul className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 md:px-24 h-auto">
         {data.items.map((item, i) => (
           <CardShowcaseBCardDesktop
