@@ -14,6 +14,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import MarqueeTypeA from "@/components/Marquee/MarqueeTypeA/MarqueeTypeA";
 import PartnerMarquee from "@/components/Marquee/MarqueeTypeA/MarqueeContainerTypeA";
+import { PrismicNextLink } from "@prismicio/next";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,10 +59,13 @@ const OurPartners = ({ slice }) => {
             })
           } */}
         <div className="universal-padding">
-          <RichText
+        <PrismicNextLink field={slice.primary.title_link}>
+        <RichText
             text={slice.primary.title}
-            className="select-none text-black font-ambit-regular text-3xl sm:text-4xl md:text-6xl w-full text-left   mt-8"
+            className="select-none text-black font-ambit-regular text-2xl sm:text-3xl md:text-5xl  w-full text-left   mt-8"
           />
+</PrismicNextLink>
+          
         </div>
 
         <Marquee slice={slice.primary.partner_logos} noHoverEffect />
@@ -206,10 +210,12 @@ const OurPartners = ({ slice }) => {
     >
       <div className="universal-padding">
         <SliceIdentifier text={slice.primary.slice_identifier} />
+        <PrismicNextLink field={slice.primary.title_link}>
         <RichText
-          text={slice.primary.title}
-          className="select-none text-black font-ambit-regular text-3xl sm:text-4xl md:text-6xl w-full text-left   mt-12"
-        />
+            text={slice.primary.title}
+            className="select-none text-black font-ambit-regular text-2xl sm:text-3xl md:text-5xl w-full text-left   mt-8"
+          />
+</PrismicNextLink>
       </div>
       {/* <ul className="mt-12 flex items-center justify-center flex-wrap">
         {slice.primary.partner_logos.map((logo, index) => (
