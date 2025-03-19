@@ -1,5 +1,4 @@
-import Marquee from "@/components/Marquee";
-import PartnerLogo from "@/components/PartnerLogo";
+import { PrismicNextImage } from "@prismicio/next";
 
 /**
  * @typedef {import("@prismicio/client").Content.ImageShowcaseSlice} ImageShowcaseSlice
@@ -7,41 +6,27 @@ import PartnerLogo from "@/components/PartnerLogo";
  * @param {ImageShowcaseProps}
  */
 const ImageShowcase = ({ slice }) => {
-  const marqueeASliceEnd = Math.floor(slice.primary.images.length / 2);
+  const images = slice.primary.images;
 
-  const feedMarqueeDataA = slice.primary.images.slice(
-    0,
-    marqueeASliceEnd
-  );
-  const feedMarqueeDataB = slice.primary.images.slice(
-    marqueeASliceEnd,
-    slice.primary.images.length
-  );
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      mt-8
+      className="mt-14"
     >
-          <Marquee slice={feedMarqueeDataA} noHoverEffect/>
-                <Marquee slice={feedMarqueeDataB} isRight noHoverEffect />
-                <Marquee slice={feedMarqueeDataA} noHoverEffect/>
-               
-      {/* {slice.primary.images && (
-        <ul className=" flex flex-wrap w-full ">
-          {slice.primary.images.map((image, index) => (
-            <>
-            <PartnerLogo
-              image={image.image}
-              key={index}
-              imageClassName=" h-[55%] w-[55%] md:h-[80%] md:w-[80%]  object-contain"
-              className="flex items-center justify-center border border-[#DCDCDC] sm:mb-0 h-[10rem] w-full sm:h-[8rem] md:w-[30%] lg:w-[20%]"
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        {images.map((item, index) => (
+          <div
+            key={index}
+            className="flex justify-center items-center border w-full aspect-square"
+          >
+            <PrismicNextImage
+              className="object-contain w-[70%] h-[70%]"
+              field={item.image}
             />
-         
-            </>
-          ))}
-        </ul>
-      )} */}
+          </div>
+        ))}
+      </div>
     </section>
   );
 };

@@ -34,6 +34,14 @@
             "placeholder": ""
           }
         },
+        "title_link": {
+          "type": "Link",
+          "config": {
+            "label": "Title Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
         "description": {
           "type": "Text",
           "config": {
@@ -89,6 +97,14 @@
           "config": {
             "label": "Title",
             "placeholder": ""
+          }
+        },
+        "title_link": {
+          "type": "Link",
+          "config": {
+            "label": "Title Link",
+            "placeholder": "",
+            "select": null
           }
         },
         "partner_logos": {

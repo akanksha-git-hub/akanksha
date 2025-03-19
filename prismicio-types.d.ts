@@ -11090,6 +11090,16 @@ export interface OurPartnersSliceDefaultPrimary {
   title: prismic.KeyTextField;
 
   /**
+   * Title Link field in *OurPartners → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_partners.default.primary.title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link: prismic.LinkField;
+
+  /**
    * Description field in *OurPartners → Default → Primary*
    *
    * - **Field Type**: Text
@@ -11158,6 +11168,16 @@ export interface OurPartnersSliceWithOutSliceIdentifierPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * Title Link field in *OurPartners → withOutSliceIdentifier → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_partners.withOutSliceIdentifier.primary.title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_link: prismic.LinkField;
 
   /**
    * Partner Logos field in *OurPartners → withOutSliceIdentifier → Primary*
@@ -15350,6 +15370,26 @@ export interface TimelineScrollerSliceDefaultPrimary {
   items: prismic.GroupField<
     Simplify<TimelineScrollerSliceDefaultPrimaryItemsItem>
   >;
+
+  /**
+   * Start Year field in *TimelineScroller → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_scroller.default.primary.start_year
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  start_year: prismic.KeyTextField;
+
+  /**
+   * End Year field in *TimelineScroller → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_scroller.default.primary.end_year
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  end_year: prismic.KeyTextField;
 }
 
 /**

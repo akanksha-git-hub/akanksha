@@ -176,7 +176,7 @@ const SparkleText = ({ slice, isRight, isActive, onClick }) => {
       <RichText
         text={text}
         className={`text-description font-ambit-regular text-7xl text-black flex justify-end transition-all cursor-pointer ${
-          isActive ? "opacity-100" : "opacity-50 hover:opacity-80"
+          isActive ? "opacity-100 underline" : "opacity-50 hover:opacity-80"
         }`}
         onClick={onClick}
       />
