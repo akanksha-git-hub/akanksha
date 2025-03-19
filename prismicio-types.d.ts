@@ -5462,6 +5462,17 @@ export interface CardShowcaseSliceDefaultPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *CardShowcase → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: card_showcase.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Title field in *CardShowcase → Default → Primary*
    *
    * - **Field Type**: Text
@@ -5551,6 +5562,17 @@ export interface CardShowcaseSliceCardsShowcaseBPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *CardShowcase → Cards showcase B → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: card_showcase.cardsShowcaseB.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Items field in *CardShowcase → Cards showcase B → Primary*
    *
    * - **Field Type**: Group
@@ -5589,6 +5611,17 @@ export interface CardShowcaseSliceShowcaseCPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *CardShowcase → Showcase C → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: card_showcase.showcaseC.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Heading field in *CardShowcase → Showcase C → Primary*

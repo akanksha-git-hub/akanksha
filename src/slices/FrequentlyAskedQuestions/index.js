@@ -10,13 +10,18 @@ import { PrismicNextImage } from "@prismicio/next";
  * @param {FrequentlyAskedQuestionsProps}
  */
 const FrequentlyAskedQuestions = ({ slice }) => {
+  const { show_identifier, slice_identifier } = slice.primary;
+
+  const RenderIdentifier = () =>
+    show_identifier && <SliceIdentifier text={slice_identifier} />;
+
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="universal-padding"
     >
-      <SliceIdentifier text={slice.primary.slice_identifier} />
+      <RenderIdentifier />
       <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between mt-12 xl:mt-20">
         <div className="w-full xl:w-[45%]">
           <Faq

@@ -9,13 +9,18 @@ import Button from "@/components/v2-components/buttons/button";
  * @param {ShowcaseV2Props}
  */
 const ShowcaseV2 = ({ slice }) => {
+  const { show_identifier, slice_identifier } = slice.primary;
+
+  const RenderIdentifier = () =>
+    show_identifier && <SliceIdentifier text={slice_identifier} />;
+
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="universal-padding  mt-6 "
+      className="universal-padding mt-6"
     >
-      <SliceIdentifier text={slice.primary.slice_identifier} />
+      <RenderIdentifier />
       <div className="flex flex-col lg:flex-row lg:items-center justify-between py-12 lg:py-24">
         <div className="grid space-y-8">
           <RichText
