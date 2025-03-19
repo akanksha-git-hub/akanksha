@@ -15282,6 +15282,26 @@ export interface TimelineScrollerSliceDefaultPrimary {
   items: prismic.GroupField<
     Simplify<TimelineScrollerSliceDefaultPrimaryItemsItem>
   >;
+
+  /**
+   * Start Year field in *TimelineScroller → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_scroller.default.primary.start_year
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  start_year: prismic.KeyTextField;
+
+  /**
+   * End Year field in *TimelineScroller → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_scroller.default.primary.end_year
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  end_year: prismic.KeyTextField;
 }
 
 /**

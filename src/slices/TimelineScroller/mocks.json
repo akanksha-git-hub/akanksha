@@ -61,6 +61,16 @@
 						]
 					}
 				]
+			},
+			"start_year": {
+				"__TYPE__": "FieldContent",
+				"value": "entirely",
+				"type": "Text"
+			},
+			"end_year": {
+				"__TYPE__": "FieldContent",
+				"value": "dozen",
+				"type": "Text"
 			}
 		},
 		"items": []

@@ -51,6 +51,20 @@
               }
             }
           }
+        },
+        "start_year": {
+          "type": "Text",
+          "config": {
+            "label": "Start Year",
+            "placeholder": ""
+          }
+        },
+        "end_year": {
+          "type": "Text",
+          "config": {
+            "label": "End Year",
+            "placeholder": ""
+          }
         }
       },
       "items": {}
