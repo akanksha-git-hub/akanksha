@@ -15,25 +15,15 @@ const TabSlice = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       <div className=" relative flex flex-row md:items-center items-end justify-center space-x-2 md:space-x-10 ">
-          {slice.primary.asset_1?.url && (
-                                  <PrismicNextImage  
-                                    field={slice.primary.asset_1}
-                                    className="w-16 h-auto md:w-60"
-                                  />
-                                )}
+         
                                  <div className="flex flex-col">
                                  <RichText 
           text={slice.primary.title}
-          className='text-black font-ambit-regular text-5xl md:text-7xl text-center mt-8 md:mt-28'
+          className='text-black font-ambit-regular text-5xl md:text-7xl text-center mt-2'
         />
         </div>
         
-          {slice.primary.asset_2?.url && (
-                                  <PrismicNextImage  
-                                    field={slice.primary.asset_2}
-                                    className="w-16 h-auto md:w-60"
-                                  />
-                                )}
+        
         {/* <Image 
           src='/sparkle_small.svg'
           alt=""
