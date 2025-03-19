@@ -190,6 +190,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "now",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "1",
+				"type": "Select"
 			}
 		},
 		"items": []

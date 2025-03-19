@@ -19,6 +19,17 @@
             "placeholder": ""
           }
         },
+        "show_identifier": {
+          "type": "Select",
+          "config": {
+            "label": "Show Identifier",
+            "placeholder": "",
+            "options": [
+              "1",
+              "2"
+            ]
+          }
+        },
         "initiative_content_a_title": {
           "type": "Text",
           "config": {

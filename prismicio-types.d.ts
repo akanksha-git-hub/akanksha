@@ -7132,6 +7132,17 @@ export interface FrequentlyAskedQuestionsSliceDefaultPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *FrequentlyAskedQuestions → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: frequently_asked_questions.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Title field in *FrequentlyAskedQuestions → Default → Primary*
    *
    * - **Field Type**: Text
@@ -9666,6 +9677,16 @@ export interface InitiativeShowcaseSliceDefaultPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *InitiativeShowcase → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: initiative_showcase.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  show_identifier: prismic.SelectField<"1" | "2">;
+
+  /**
    * Initiative Content A Title field in *InitiativeShowcase → Default → Primary*
    *
    * - **Field Type**: Text
@@ -9874,6 +9895,17 @@ export interface MagicSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *MagicSection → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: magic_section.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Text Showcase field in *MagicSection → Default → Primary*
@@ -11070,6 +11102,17 @@ export interface OurPartnersSliceDefaultPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *OurPartners → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: our_partners.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Image field in *OurPartners → Default → Primary*
    *
    * - **Field Type**: Image
@@ -11273,6 +11316,17 @@ export interface OurTeamSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *OurTeam → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: our_team.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Team Content field in *OurTeam → Default → Primary*
@@ -12835,6 +12889,17 @@ export interface ShowcaseV2SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *ShowcaseV2 → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: showcase_v2.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Title field in *ShowcaseV2 → Default → Primary*
@@ -14910,6 +14975,17 @@ export interface TiltedCardsSliceDefaultPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *TiltedCards → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: tilted_cards.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Title field in *TiltedCards → Default → Primary*
    *
    * - **Field Type**: Text
@@ -15038,6 +15114,17 @@ export interface TiltedCardsSliceTiltedCardsBPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *TiltedCards → tilted_cards_b → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: tilted_cards.tiltedCardsB.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Title field in *TiltedCards → tilted_cards_b → Primary*
    *
    * - **Field Type**: Text
@@ -15164,6 +15251,17 @@ export interface TiltedCardsSliceTiltedCardsNoTitlePrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *TiltedCards → Tilted Cards No Title → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: tilted_cards.tiltedCardsNoTitle.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Card A Stat Number field in *TiltedCards → Tilted Cards No Title → Primary*
