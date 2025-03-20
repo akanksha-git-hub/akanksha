@@ -1,5 +1,6 @@
 import { useSmoothScroller } from "../LenisScrollContext";
 import CTA from "../UI/Button/CTA";
+import Button from "../v2-components/buttons/button";
 import { useResourcesCardContext } from "./ResourcesCard";
 
 export default function ResourcesCardPaginationContainer() {
@@ -25,9 +26,9 @@ export default function ResourcesCardPaginationContainer() {
     <>
       {totalLength >= 6 && (
         <div className="flex items-center justify-center gap-4 ">
-          {initial !== 0 && <CTA onClick={decrementFunction} text="Prev" />}
+          {initial !== 0 && <Button rev  onClick={decrementFunction} >Prev</Button>}
           {final !== totalLength && (
-            <CTA onClick={incrementFunction} text="Next" />
+            <Button onClick={incrementFunction} >Next</Button>
           )}
         </div>
       )}

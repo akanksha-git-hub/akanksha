@@ -43,7 +43,7 @@ export default function FilterSelector({ handleChange, data }) {
     <div data-lenis-prevent className="flex gap-12">
       <div className="group relative">
         <div 
-          className="flex items-center gap-2 py-1 px-2 border border-deep-green rounded-full cursor-pointer transition-all group-hover:opacity-60"
+          className="flex items-center gap-2 py-1 px-4 border border-deep-green rounded-full cursor-pointer transition-all group-hover:opacity-60"
         >
           <p className="select-none">{selectedData.month}</p>
           <Image 
@@ -60,7 +60,7 @@ export default function FilterSelector({ handleChange, data }) {
           className="peer/dropdown absolute top-0 left-0 h-full w-full cursor-pointer opacity-0" 
         />
         <ul 
-          className="absolute space-y-2 py-2 px-2 z-50 bg-off-white border border-deep-green rounded
+          className="absolute space-y-2 py-2 px-2 z-50 bg-white border border-deep-green rounded
           top-[110%] left-2/4 -translate-x-2/4 peer peer-checked/dropdown:block hidden h-[400px] overflow-y-scroll green-scroll-bar"
         >
           {months.map(item => (
@@ -76,7 +76,7 @@ export default function FilterSelector({ handleChange, data }) {
       </div>
       <div className="group relative">
         <div 
-          className="flex items-center gap-2 py-1 px-2 border border-deep-green rounded-full cursor-pointer transition-all group-hover:opacity-60"
+          className="flex items-center gap-2 py-1 px-4 border border-deep-green rounded-full cursor-pointer transition-all group-hover:opacity-60"
         >
           <p className="select-none">{selectedData.year}</p>
           <Image 
@@ -93,7 +93,7 @@ export default function FilterSelector({ handleChange, data }) {
           className="peer/dropdown absolute top-0 left-0 h-full w-full cursor-pointer opacity-0" 
         />
         <ul 
-          className="absolute space-y-2 py-2 px-2 z-50 bg-off-white border border-deep-green rounded
+          className="absolute space-y-2 py-2 px-2 z-50 bg-white border border-deep-green rounded
           top-[110%] left-2/4 -translate-x-2/4 peer peer-checked/dropdown:block hidden h-[400px] overflow-y-scroll green-scroll-bar"
         >
           {years.map(item => (
