@@ -23,7 +23,7 @@ export default async function Page() {
           />
           <RichText
             text={page.data.description}
-            className="font-ambit-regular text-left md:text-center  text-base md:text-lg md:leading-7 w-[90%] md:w-[80%] md:mx-auto mt-20"
+            className="font-ambit-regular text-left md:text-center  text-base md:text-lg md:leading-7 w-[90%] md:w-[80%] md:mx-auto mt-10"
           />
         </div>
       
