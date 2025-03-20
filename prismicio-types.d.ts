@@ -12696,6 +12696,17 @@ export interface SetuAccordianSliceDefaultPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *SetuAccordian → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: setu_accordian.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Title field in *SetuAccordian → Default → Primary*
    *
    * - **Field Type**: Text
@@ -12756,6 +12767,17 @@ export interface SetuAccordianSliceNewsletterPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *SetuAccordian → newsletter → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: setu_accordian.newsletter.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Title field in *SetuAccordian → newsletter → Primary*
