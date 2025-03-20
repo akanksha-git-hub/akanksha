@@ -4991,16 +4991,6 @@ export interface BlogHighlightSliceDefaultPrimaryItemsItem {
   image: prismic.ImageField<never>;
 
   /**
-   * bg_image field in *ResourcedHighlight → Default → Primary → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog_highlight.default.primary.items[].bg_image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  bg_image: prismic.ImageField<never>;
-
-  /**
    * Date field in *ResourcedHighlight → Default → Primary → Items*
    *
    * - **Field Type**: Date
