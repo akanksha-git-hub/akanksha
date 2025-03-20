@@ -19,32 +19,12 @@
             "placeholder": ""
           }
         },
-        "percentage_1": {
-          "type": "Text",
+        "card_1_image": {
+          "type": "Image",
           "config": {
-            "label": "Percentage 1",
-            "placeholder": ""
-          }
-        },
-        "chart_description_1": {
-          "type": "Text",
-          "config": {
-            "label": "Chart Description 1",
-            "placeholder": ""
-          }
-        },
-        "percentage_2": {
-          "type": "Text",
-          "config": {
-            "label": "Percentage 2",
-            "placeholder": ""
-          }
-        },
-        "chart_description_2": {
-          "type": "Text",
-          "config": {
-            "label": "Chart Description 2",
-            "placeholder": ""
+            "label": "Card 1 Image",
+            "constraint": {},
+            "thumbnails": []
           }
         },
         "card_2_asset": {

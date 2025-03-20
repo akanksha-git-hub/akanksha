@@ -7379,44 +7379,14 @@ export interface GrowthImpact2SliceDefaultPrimary {
   card_2_description: prismic.KeyTextField;
 
   /**
-   * Card 2 button 1 Heading field in *GrowthImpact2 → Default → Primary*
+   * Card 2 Image field in *GrowthImpact2 → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: growth_impact2.default.primary.card_2_button_1_heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **API ID Path**: growth_impact2.default.primary.card_2_image
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  card_2_button_1_heading: prismic.RichTextField;
-
-  /**
-   * Card 2 button 1 description field in *GrowthImpact2 → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: growth_impact2.default.primary.card_2_button_1_description
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  card_2_button_1_description: prismic.KeyTextField;
-
-  /**
-   * Card 2 Buttton 2 Header field in *GrowthImpact2 → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: growth_impact2.default.primary.card_2_buttton_2_header
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  card_2_buttton_2_header: prismic.KeyTextField;
-
-  /**
-   * Card 2 Button 2 description field in *GrowthImpact2 → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: growth_impact2.default.primary.card_2_button_2_description
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  card_2_button_2_description: prismic.KeyTextField;
+  card_2_image: prismic.ImageField<never>;
 }
 
 /**
@@ -7464,44 +7434,14 @@ export interface GrowthImpact3SliceDefaultPrimary {
   card_1_description: prismic.KeyTextField;
 
   /**
-   * Percentage 1 field in *GrowthImpact3 → Default → Primary*
+   * Card 1 Image field in *GrowthImpact3 → Default → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: growth_impact3.default.primary.percentage_1
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: growth_impact3.default.primary.card_1_image
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  percentage_1: prismic.KeyTextField;
-
-  /**
-   * Chart Description 1 field in *GrowthImpact3 → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: growth_impact3.default.primary.chart_description_1
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  chart_description_1: prismic.KeyTextField;
-
-  /**
-   * Percentage 2 field in *GrowthImpact3 → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: growth_impact3.default.primary.percentage_2
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  percentage_2: prismic.KeyTextField;
-
-  /**
-   * Chart Description 2 field in *GrowthImpact3 → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: growth_impact3.default.primary.chart_description_2
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  chart_description_2: prismic.KeyTextField;
+  card_1_image: prismic.ImageField<never>;
 
   /**
    * Card 2 asset field in *GrowthImpact3 → Default → Primary*

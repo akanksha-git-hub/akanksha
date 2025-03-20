@@ -24,34 +24,14 @@ const GrowthImpact3 = ({ slice }) => {
           {/* Chart Section */}
           <div className="w-full flex flex-row mt-2 space-x-2 justify-center items-end h-[220px] mx-auto ">
             {/* First Chart */}
-            <div className="flex flex-col items-center justify-end w-full h-full relative max-w-[250px]">
-              <span className="text-3xl xl:text-4xl font-ambit-regular text-black mb-2">
-                {slice.primary.percentage_1}
-              </span>
-              <div
-                className="w-full bg-[#58BCD4]  relative flex items-end justify-center p-4"
-                style={{ height: "40%" }}
-              >
-                <span className="text-xl xl:text-2xl font-ambit-regular text-black absolute">
-                  {slice.primary.chart_description_1}
-                </span>
-              </div>
-            </div>
-
-            {/* Second Chart */}
-            <div className="flex flex-col items-center justify-end w-full h-full relative max-w-[250px]">
-              <span className="text-3xl xl:text-4xl font-ambit-regular text-black mb-2">
-                {slice.primary.percentage_2}
-              </span>
-              <div
-                className="w-full bg-v2-yellow  relative flex items-end justify-center p-4 "
-                style={{ height: "80%" }}
-              >
-                <span className="text-xl xl:text-2xl  font-ambit-regular text-black absolute">
-                  {slice.primary.chart_description_2}
-                </span>
-              </div>
-            </div>
+            <PrismicNextImage
+              height={300}
+              width={300}
+              loading="eager"
+              field={slice.primary.card_1_image}
+              className="xl:h-52 xl:w-96 mx-auto  md:h-40 md:w-64  h-44 w-72   "
+              alt="growth image"
+            />
           </div>
         </div>
         <div className="flex flex-col lg:flex-row  lg:mt-0 mt-6 lg:w-[60%] w-full relative  ">

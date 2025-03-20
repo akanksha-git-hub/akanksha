@@ -46,31 +46,26 @@
 				"value": "everywhere",
 				"type": "Text"
 			},
-			"card_2_button_1_heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Officia culpa ex aliqua sit nostrud labore aliquip non Lorem eu voluptate aliquip exercitation."
-						}
-					}
-				]
-			},
-			"card_2_button_1_description": {
-				"__TYPE__": "FieldContent",
-				"value": "court",
-				"type": "Text"
-			},
-			"card_2_buttton_2_header": {
-				"__TYPE__": "FieldContent",
-				"value": "farmer",
-				"type": "Text"
-			},
-			"card_2_button_2_description": {
-				"__TYPE__": "FieldContent",
-				"value": "relationship",
-				"type": "Text"
+			"card_2_image": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+					"width": 4076,
+					"height": 2712
+				},
+				"url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+				"width": 4076,
+				"height": 2712,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"thumbnails": {}
 			}
 		},
 		"items": []
