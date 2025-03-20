@@ -4595,16 +4595,6 @@ export interface Alumini2SliceSecondVariationPrimary {
   heading: prismic.KeyTextField;
 
   /**
-   * icon field in *Alumini2 → SecondVariation → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini2.secondVariation.primary.icon
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  icon: prismic.ImageField<never>;
-
-  /**
    * akanksha_average field in *Alumini2 → SecondVariation → Primary*
    *
    * - **Field Type**: Text
@@ -4635,46 +4625,6 @@ export interface Alumini2SliceSecondVariationPrimary {
   national_average_text: prismic.KeyTextField;
 
   /**
-   * contribution1_percentaege field in *Alumini2 → SecondVariation → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini2.secondVariation.primary.contribution1_percentaege
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  contribution1_percentaege: prismic.KeyTextField;
-
-  /**
-   * akanksha_alumini field in *Alumini2 → SecondVariation → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini2.secondVariation.primary.akanksha_alumini
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  akanksha_alumini: prismic.KeyTextField;
-
-  /**
-   * contribution1_desc field in *Alumini2 → SecondVariation → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini2.secondVariation.primary.contribution1_desc
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  contribution1_desc: prismic.KeyTextField;
-
-  /**
-   * image field in *Alumini2 → SecondVariation → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini2.secondVariation.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
    * stats field in *Alumini2 → SecondVariation → Primary*
    *
    * - **Field Type**: Text
@@ -4683,6 +4633,96 @@ export interface Alumini2SliceSecondVariationPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   stats: prismic.KeyTextField;
+
+  /**
+   * heading 1 field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.heading_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading_1: prismic.KeyTextField;
+
+  /**
+   * stat 1 field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.stat_1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  stat_1: prismic.KeyTextField;
+
+  /**
+   * Icon 1 field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.icon_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon_1: prismic.ImageField<never>;
+
+  /**
+   * Heading 2 field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.heading_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading_2: prismic.KeyTextField;
+
+  /**
+   * Stat 2 field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.stat_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  stat_2: prismic.KeyTextField;
+
+  /**
+   * Icon 2 field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.icon_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon_2: prismic.ImageField<never>;
+
+  /**
+   * Heading 3 field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.heading_3
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading_3: prismic.KeyTextField;
+
+  /**
+   * Stat 3 field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.stat_3
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  stat_3: prismic.KeyTextField;
+
+  /**
+   * Icon 3 field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.icon_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon_3: prismic.ImageField<never>;
 }
 
 /**

@@ -205,14 +205,6 @@
             "placeholder": ""
           }
         },
-        "icon": {
-          "type": "Image",
-          "config": {
-            "label": "icon",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
         "akanksha_average": {
           "type": "Text",
           "config": {
@@ -234,40 +226,77 @@
             "placeholder": ""
           }
         },
-        "contribution1_percentaege": {
-          "type": "Text",
-          "config": {
-            "label": "contribution1_percentaege",
-            "placeholder": ""
-          }
-        },
-        "akanksha_alumini": {
-          "type": "Text",
-          "config": {
-            "label": "akanksha_alumini",
-            "placeholder": ""
-          }
-        },
-        "contribution1_desc": {
-          "type": "Text",
-          "config": {
-            "label": "contribution1_desc",
-            "placeholder": ""
-          }
-        },
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
         "stats": {
           "type": "Text",
           "config": {
             "label": "stats",
             "placeholder": ""
+          }
+        },
+        "heading_1": {
+          "type": "Text",
+          "config": {
+            "label": "heading 1",
+            "placeholder": ""
+          }
+        },
+        "stat_1": {
+          "type": "Text",
+          "config": {
+            "label": "stat 1",
+            "placeholder": ""
+          }
+        },
+        "icon_1": {
+          "type": "Image",
+          "config": {
+            "label": "Icon 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "heading_2": {
+          "type": "Text",
+          "config": {
+            "label": "Heading 2",
+            "placeholder": ""
+          }
+        },
+        "stat_2": {
+          "type": "Text",
+          "config": {
+            "label": "Stat 2",
+            "placeholder": ""
+          }
+        },
+        "icon_2": {
+          "type": "Image",
+          "config": {
+            "label": "Icon 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "heading_3": {
+          "type": "Text",
+          "config": {
+            "label": "Heading 3",
+            "placeholder": ""
+          }
+        },
+        "stat_3": {
+          "type": "Text",
+          "config": {
+            "label": "Stat 3",
+            "placeholder": ""
+          }
+        },
+        "icon_3": {
+          "type": "Image",
+          "config": {
+            "label": "Icon 3",
+            "constraint": {},
+            "thumbnails": []
           }
         }
       },

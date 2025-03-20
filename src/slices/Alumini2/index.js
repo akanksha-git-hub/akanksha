@@ -1,4 +1,5 @@
 import SliceIdentifier from "@/components/SliceIdentifier";
+import CardWithHeadingStatIcon from "@/components/v2-components/CardWithHeadingStatIcon";
 import HeadingAndDescription from "@/components/v2-components/HeadingAndDescription";
 import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
@@ -91,7 +92,7 @@ const Alumini2 = ({ slice }) => {
         <h1 className="font-ambit-regular text-3xl md:text-5xl lg:text-7xl md:text-center text-left mt-12 md:mt-24 ">
           {slice.primary.heading}
         </h1>
-        <div class="flex flex-col md:flex-row mt-12 md:mt-8  ">
+        <div class="flex flex-col md:flex-row mt-12 md:mt-8   ">
           {/* <!-- Section 1: Charts --> */}
           <div className="md:w-1/2 flex flex-row justify-center items-end gap-8  py-4 h-[300px] md:h-[300px]   xl:h-[400px] relative  ">
             {/* <!-- Blue Section --> */}
@@ -131,16 +132,23 @@ const Alumini2 = ({ slice }) => {
               {slice.primary.stats}
             </p>
           </div>
-          <div className="flex flex-row  border-[0.15rem] border-black  md:hover:bg-v2-yellow p-6 items-center justify-between  md:mt-0 md:w-[50%] w-full mt-20 ">
-            <div className="w-full h-full flex flex-row justify-between items-center md:items-stretch space-x-2">
-              {/* Percentage Box */}
-              <HeadingAndDescription
-                heading={slice.primary.contribution1_percentaege}
-                description={slice.primary.contribution1_desc}
-                iconField={slice.primary.icon}
-              />
+          <div className="md:w-1/2 w-full flex flex-row gap-2  ">
+          <CardWithHeadingStatIcon
+    heading={slice.primary.heading_1}
+    stat={slice.primary.stat_1}
+    iconField={slice.primary.icon_1}
+  />
+           <CardWithHeadingStatIcon
+    heading={slice.primary.heading_2}
+    stat={slice.primary.stat_2}
+    iconField={slice.primary.icon_2}
+  />
+           <CardWithHeadingStatIcon
+    heading={slice.primary.heading_3}
+    stat={slice.primary.stat_3}
+    iconField={slice.primary.icon_3}
+  />
             </div>
-          </div>
         </div>
       </section>
     );

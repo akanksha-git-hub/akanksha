@@ -196,11 +196,6 @@
 				"value": "value",
 				"type": "Text"
 			},
-			"akanksha_alumini": {
-				"__TYPE__": "FieldContent",
-				"value": "worry",
-				"type": "Text"
-			},
 			"national_average": {
 				"__TYPE__": "FieldContent",
 				"value": "naturally",
@@ -211,26 +206,36 @@
 				"value": "fact",
 				"type": "Text"
 			},
-			"contribution1_percentaege": {
+			"stats": {
 				"__TYPE__": "FieldContent",
-				"value": "spite",
+				"value": "doll",
 				"type": "Text"
 			},
-			"contribution1_desc": {
+			"slice_identifier": {
 				"__TYPE__": "FieldContent",
-				"value": "mice",
+				"value": "pilot",
 				"type": "Text"
 			},
-			"image": {
+			"heading_1": {
+				"__TYPE__": "FieldContent",
+				"value": "meant",
+				"type": "Text"
+			},
+			"stat_1": {
+				"__TYPE__": "FieldContent",
+				"value": "ourselves",
+				"type": "Text"
+			},
+			"icon_1": {
 				"origin": {
 					"id": "main",
-					"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
-					"width": 3024,
-					"height": 3778
+					"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
+					"width": 4024,
+					"height": 4024
 				},
-				"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
-				"width": 3024,
-				"height": 3778,
+				"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
+				"width": 4024,
+				"height": 4024,
 				"edit": {
 					"zoom": 1,
 					"crop": {
@@ -244,26 +249,26 @@
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
-			"stats": {
+			"heading_2": {
 				"__TYPE__": "FieldContent",
-				"value": "doll",
+				"value": "completely",
 				"type": "Text"
 			},
-			"slice_identifier": {
+			"stat_2": {
 				"__TYPE__": "FieldContent",
-				"value": "pilot",
+				"value": "market",
 				"type": "Text"
 			},
-			"icon": {
+			"icon_2": {
 				"origin": {
 					"id": "main",
-					"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
-					"width": 3935,
-					"height": 5894
+					"url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c",
+					"width": 3424,
+					"height": 3424
 				},
-				"url": "https://images.unsplash.com/photo-1587905069134-008460d7a636",
-				"width": 3935,
-				"height": 5894,
+				"url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c",
+				"width": 3424,
+				"height": 3424,
 				"edit": {
 					"zoom": 1,
 					"crop": {
@@ -275,6 +280,37 @@
 				"credits": null,
 				"alt": null,
 				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"heading_3": {
+				"__TYPE__": "FieldContent",
+				"value": "itself",
+				"type": "Text"
+			},
+			"stat_3": {
+				"__TYPE__": "FieldContent",
+				"value": "wait",
+				"type": "Text"
+			},
+			"icon_3": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c",
+					"width": 3424,
+					"height": 3424
+				},
+				"url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c",
+				"width": 3424,
+				"height": 3424,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
 				"thumbnails": {}
 			}
 		},
