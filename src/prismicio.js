@@ -76,6 +76,10 @@ const routes = [
     path: "/resources/financials",
   },
   {
+    type: "reports",
+    path: "/resources/reports",
+  },
+  {
     type: "annual_reports",
     path: "/resources/annual-reports",
   },

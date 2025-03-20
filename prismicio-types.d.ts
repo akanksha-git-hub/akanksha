@@ -3636,6 +3636,93 @@ export type ProjectSetuDocument<Lang extends string = string> =
     Lang
   >;
 
+type ReportsDocumentDataSlicesSlice = SetuAccordianSlice;
+
+/**
+ * Content for Reports documents
+ */
+interface ReportsDocumentData {
+  /**
+   * Title field in *Reports*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reports.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Reports*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reports.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Reports*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reports.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ReportsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Reports*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: reports.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Reports*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: reports.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Reports*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reports.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Reports document from Prismic
+ *
+ * - **API ID**: `reports`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ReportsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ReportsDocumentData>,
+    "reports",
+    Lang
+  >;
+
 type SchoolProjectDocumentDataSlicesSlice =
   | ImpactHeroSlice
   | StudentVisionSlice
@@ -4088,6 +4175,7 @@ export type AllDocumentTypes =
   | PartnershipsDocument
   | PrivacyPolicyDocument
   | ProjectSetuDocument
+  | ReportsDocument
   | SchoolProjectDocument
   | TimelineDocument
   | VisionMissionDocument
@@ -15629,6 +15717,9 @@ declare module "@prismicio/client" {
       ProjectSetuDocument,
       ProjectSetuDocumentData,
       ProjectSetuDocumentDataSlicesSlice,
+      ReportsDocument,
+      ReportsDocumentData,
+      ReportsDocumentDataSlicesSlice,
       SchoolProjectDocument,
       SchoolProjectDocumentData,
       SchoolProjectDocumentDataSlicesSlice,
