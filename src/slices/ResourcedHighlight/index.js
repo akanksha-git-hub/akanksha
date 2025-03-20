@@ -38,9 +38,9 @@ const BlogHighlight = ({ slice }) => {
         className='text-black font-ambit-semibold text-4xl w-full xl:w-[20ch]'
       />
       <div 
-        className="flex flex-col xl:flex-row justify-center"
+        className="flex flex-col xl:flex-row justify-center "
       >
-        <div className="relative h-[520px] xl:h-auto xl:w-[45%] flex items-center justify-center">
+        <div className="relative h-[520px] xl:h-auto xl:w-[60%] flex items-center justify-center ">
             
             <div
               key={slice.primary.items[activeIndex].image}
