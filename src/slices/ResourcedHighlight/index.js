@@ -41,12 +41,7 @@ const BlogHighlight = ({ slice }) => {
         className="flex flex-col xl:flex-row justify-center"
       >
         <div className="relative h-[520px] xl:h-auto xl:w-[45%] flex items-center justify-center">
-            <PrismicNextImage
-              field={slice.primary.items[activeIndex].bg_image}
-              alt="bg-image"
-              fill
-              className="absolute top-0 left-0 -z-10"
-            />
+            
             <div
               key={slice.primary.items[activeIndex].image}
               className="opacity-anim transition-all h-[78%] w-[78%] lg:h-[85%] lg:w-[85%]"
