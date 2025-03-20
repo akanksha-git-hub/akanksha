@@ -48,34 +48,12 @@
             "placeholder": ""
           }
         },
-        "card_2_button_1_heading": {
-          "type": "StructuredText",
+        "card_2_image": {
+          "type": "Image",
           "config": {
-            "label": "Card 2 button 1 Heading",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-          }
-        },
-        "card_2_button_1_description": {
-          "type": "Text",
-          "config": {
-            "label": "Card 2 button 1 description",
-            "placeholder": ""
-          }
-        },
-        "card_2_buttton_2_header": {
-          "type": "Text",
-          "config": {
-            "label": "Card 2 Buttton 2 Header",
-            "placeholder": ""
-          }
-        },
-        "card_2_button_2_description": {
-          "type": "Text",
-          "config": {
-            "label": "Card 2 Button 2 description",
-            "placeholder": ""
+            "label": "Card 2 Image",
+            "constraint": {},
+            "thumbnails": []
           }
         }
       },

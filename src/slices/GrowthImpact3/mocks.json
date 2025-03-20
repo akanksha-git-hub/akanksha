@@ -8,26 +8,6 @@
 				"value": "high",
 				"type": "Text"
 			},
-			"percentage_1": {
-				"__TYPE__": "FieldContent",
-				"value": "program",
-				"type": "Text"
-			},
-			"chart_description_1": {
-				"__TYPE__": "FieldContent",
-				"value": "bus",
-				"type": "Text"
-			},
-			"percentage_2": {
-				"__TYPE__": "FieldContent",
-				"value": "tales",
-				"type": "Text"
-			},
-			"chart_description_2": {
-				"__TYPE__": "FieldContent",
-				"value": "breath",
-				"type": "Text"
-			},
 			"card_2_asset": {
 				"origin": {
 					"id": "main",
@@ -65,6 +45,29 @@
 				"__TYPE__": "FieldContent",
 				"value": "color",
 				"type": "Text"
+			},
+			"card_1_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
+					"width": 5000,
+					"height": 4613
+				},
+				"url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
+				"width": 5000,
+				"height": 4613,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
 			}
 		},
 		"items": []

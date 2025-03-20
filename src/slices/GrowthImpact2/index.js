@@ -47,22 +47,17 @@ const GrowthImpact2 = ({ slice }) => {
           {/* Right Section */}
           <div className="w-full md:w-[40%] h-full flex flex-col items-right justify-center">
             {/* First Box */}
-            <div className="w-full bg-[#FBDA1D] mt-6 md:mt-0 text-black text-center  py-4 px-6  flex flex-col items-center justify-center rounded-full">
-              <h2 className="text-2xl xl:text-4xl font-ambit-semibold">32%</h2>
-              <p className="text-sm xl:text-lg">
-                {slice.primary.card_2_button_1_description}
-              </p>
-            </div>
-
-            {/* Second Box */}
-            <div className="w-full bg-[#55BBD3] text-black text-center  py-4 px-3 flex flex-col items-center justify-center rounded-full">
-              <h2 className="text-2xl xl:text-4xl font-ambit-semibold">
-                {slice.primary.card_2_buttton_2_header}
-              </h2>
-              <p className="text-sm xl:text-lg">
-                {slice.primary.card_2_button_2_description}
-              </p>
-            </div>
+          
+            <PrismicNextImage
+              height={300}
+              width={300}
+              loading="eager"
+              field={slice.primary.card_2_image}
+              className="xl:h-48 xl:w-72 mx-auto h-32 w-44   "
+              alt="growth image"
+            />
+      
+          
           </div>
         </div>
       </div>
