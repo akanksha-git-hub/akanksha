@@ -1,8 +1,10 @@
 import FinancialsAccordion from "@/components/financials-accordion";
 import RichText from "@/components/Texts/RichText";
+import { components } from "@/slices";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
 import { maxwidth } from "@/utils/helperClasses";
 import { PrismicNextImage } from "@prismicio/next";
+import { SliceZone } from "@prismicio/react";
 
 export default async function Page() {
   const page = await fetchPrismicSingleDocument("financials");
@@ -37,6 +39,12 @@ export default async function Page() {
       <div className="mt-12">
         <FinancialsAccordion item={page.data} />
       </div>
+       <SliceZone
+                      slices={page.data.slices}
+                      components={components}
+                      
+                
+                  />
     </main>
   );
 }

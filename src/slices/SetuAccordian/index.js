@@ -22,7 +22,12 @@ export default function FinancialsAccordion({ slice }) {
   const firstHalf = items.slice(0, halfDataLength);
   const secondHalf = items.slice(halfDataLength);
   const documents = slice.primary.documents || [];
-  const isNewsletter = slice.variation === "newsletter"; // Adjust this condition based on your data structure
+  const isNewsletter = slice.variation === "newsletter"; 
+
+  const { show_identifier, slice_identifier } = slice.primary;
+
+  const RenderIdentifier = () =>
+    show_identifier && <SliceIdentifier text={slice_identifier} />;
 
   const toggleAccordion = (index, column) => {
     setOpenIndexes((prev) => ({
@@ -32,11 +37,12 @@ export default function FinancialsAccordion({ slice }) {
   };
 
   return (
-    <section className=" ">
+    <section className=" mt-12">
       {/* Conditionally Render SliceIdentifier and RichText */}
       {!isNewsletter && (
         <>
-          <SliceIdentifier text={slice.primary.slice_identifier} />
+                    <RenderIdentifier />
+
           <RichText
             text={slice.primary.title}
             className="font-ambit-regular text-3xl md:text-6xl w-[18ch] text-left md:text-center mx-auto mt-14  "
@@ -44,7 +50,7 @@ export default function FinancialsAccordion({ slice }) {
         </>
       )}
 
-      <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2 w-full lg:w-[880px] 3xl:w-[1000px] lg:mx-auto mt-14 md:mt-0  ">
+      <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2 w-full lg:w-[880px] 3xl:w-[1000px] lg:mx-auto pt-12   ">
         {[firstHalf, secondHalf].map((half, colIndex) => (
           <div key={colIndex}>
             {half.map((yearItem, index) => {
