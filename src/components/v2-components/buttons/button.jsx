@@ -8,7 +8,7 @@ import Link from "next/link";
 import { PrismicLink } from "@prismicio/react";
 
 const Button = forwardRef(function Button(
-  { children, isVideo, prismicLink, href, className, ...props },
+  { children, isVideo, prismicLink, href,rev = false, className, ...props },
   ref
 ) {
   const [isTouched, setIsTouched] = useState(false);
@@ -62,11 +62,28 @@ const Button = forwardRef(function Button(
 
   const BaseButton = () => (
     <div className="relative group active:scale-95 w-fit">
-      <button ref={buttonRef} className={`${baseClass}`} {...props}>
-        <span>{children}</span>
-        <span className="relative top-[1px] h-4 w-6">
-          <Image alt="arrow" src={isVideo ? PlayVector : Arrow} fill />
-        </span>
+    <button ref={buttonRef} className={`${baseClass}`} {...props}>
+        {/* Conditionally render arrow + text */}
+        {rev ? (
+          <>
+            <span className="relative top-[1px] h-4 w-6 mr-1">
+              <Image
+                alt="arrow"
+                src={isVideo ? PlayVector : Arrow}
+                className="scale-x-[-1]"
+                fill
+              />
+            </span>
+            <span>{children}</span>
+          </>
+        ) : (
+          <>
+            <span>{children}</span>
+            <span className="relative top-[1px] h-4 w-6 ml-1">
+              <Image alt="arrow" src={isVideo ? PlayVector : Arrow} fill />
+            </span>
+          </>
+        )}
       </button>
 
       <div className={hoverEffectClasses}>
