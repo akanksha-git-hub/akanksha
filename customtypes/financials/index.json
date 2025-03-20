@@ -96,7 +96,11 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "setu_accordian": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

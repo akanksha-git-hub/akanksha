@@ -1092,7 +1092,7 @@ export interface FinancialsDocumentDataFcraDocumentLinkItem {
   cta_link: prismic.LinkField;
 }
 
-type FinancialsDocumentDataSlicesSlice = never;
+type FinancialsDocumentDataSlicesSlice = SetuAccordianSlice;
 
 /**
  * Content for Financials documents
