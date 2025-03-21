@@ -4605,6 +4605,16 @@ export interface Alumini2SliceSecondVariationPrimary {
   akanksha_average: prismic.KeyTextField;
 
   /**
+   * Akanksha Average Text field in *Alumini2 → SecondVariation → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: alumini2.secondVariation.primary.akanksha_average_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  akanksha_average_text: prismic.KeyTextField;
+
+  /**
    * national_average field in *Alumini2 → SecondVariation → Primary*
    *
    * - **Field Type**: Text
