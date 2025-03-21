@@ -18,6 +18,10 @@ import RichText from "@/components/Texts/RichText";
  * @param {StudentVisionProps}
  */
 const StudentVision = ({ slice, context }) => {
+   const { show_identifier, slice_identifier } = slice.primary;
+    
+      const RenderIdentifier = () =>
+        show_identifier && <SliceIdentifier text={slice_identifier} />;
   const [trackIndex, setTrackIndex] = useState(0);
   const swiperRef = useRef(null);
   const images = slice?.primary.images || [];
@@ -47,7 +51,7 @@ const StudentVision = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className="universal-padding mt-8"
       >
-        <SliceIdentifier text={slice.primary.slice_identifier} />
+        <RenderIdentifier />
 
         <div className="flex flex-col justify-center items-center">
           <h1 className="mt-8 text-5xl md:text-7xl font-ambit-regular">
@@ -97,7 +101,7 @@ const StudentVision = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className=" mt-10"
       >
-        <SliceIdentifier text={slice.primary.slice_identifier} />
+        <RenderIdentifier />
 
         <div className="flex flex-col justify-center items-center relative md:mt-10">
           <h1 className="  text-3xl  md:text-6xl text-left md:text-center md:w-[18ch] font-ambit-regular mt-10 ">
@@ -154,7 +158,7 @@ const StudentVision = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className="relative mt-14"
       >
-        <SliceIdentifier text={slice.primary.slice_identifier} />
+        <RenderIdentifier />
         <div className="flex justify-center items-center relative mt-20">
           <Swiper
             modules={[Navigation, EffectCoverflow]}
@@ -205,7 +209,7 @@ const StudentVision = ({ slice, context }) => {
         <div>
           {financialsPage && (
             <div className="mt-8">
-              <SliceIdentifier text={slice.primary.slice_identifier_2} />
+              <RenderIdentifier />
               <div className="relative w-fit md:mx-auto">
                 <RichText
                   text={financialsPage.data.title}
@@ -228,7 +232,7 @@ const StudentVision = ({ slice, context }) => {
       data-slice-variation={slice.variation}
       className=" mt-8"
     >
-      <SliceIdentifier text={slice.primary.slice_identifier} />
+      <RenderIdentifier />
 
       <div className="flex flex-col justify-center items-center">
         <h1 className="mt-8 text-5xl md:text-7xl font-ambit-regular">

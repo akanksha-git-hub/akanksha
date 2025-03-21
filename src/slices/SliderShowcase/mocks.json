@@ -95,6 +95,15 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "getting",
+				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": []
@@ -151,6 +160,15 @@
 				"__TYPE__": "FieldContent",
 				"value": "wait",
 				"type": "Text"
+			},
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "while",
+				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": [
@@ -225,6 +243,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "degree",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": [
@@ -311,6 +333,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "ability",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": [
@@ -385,6 +411,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "hay",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": [
@@ -477,6 +507,10 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": [
@@ -566,6 +600,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "between",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": [

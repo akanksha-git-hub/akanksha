@@ -65,6 +65,22 @@
               }
             }
           }
+        },
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
         }
       },
       "items": {}
@@ -107,6 +123,22 @@
               }
             }
           }
+        },
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
         }
       },
       "items": {}
@@ -131,6 +163,15 @@
           "config": {
             "label": "Slice Identifier",
             "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         },
         "items": {
@@ -180,6 +221,15 @@
           "config": {
             "label": "Slice Identifier",
             "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         },
         "title": {
@@ -253,6 +303,15 @@
             "placeholder": ""
           }
         },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
         "title": {
           "type": "Text",
           "config": {
@@ -307,6 +366,15 @@
           "config": {
             "label": "Slice Identifier",
             "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         },
         "items": {
@@ -364,6 +432,15 @@
           "config": {
             "label": "Slice Identifier",
             "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         },
         "title": {
