@@ -19,6 +19,7 @@ const Testimonial = ({ slice, context }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const testimonials = slice.primary.content;
+  const length = slice.primary.content.length;
 
   const nextTestimonial = () => {
     if (activeIndex < testimonials.length - 1) {
@@ -208,7 +209,7 @@ const Testimonial = ({ slice, context }) => {
         </div>
 
         {/* ✅ Navigation Arrows */}
-        <div className="flex gap-2 items-center justify-center mt-4 ">
+        { length>1 && <div className="flex gap-2 items-center justify-center mt-4 ">
           <SwiperArrow
             strokeColor="#37473C"
             className="rotate-180"
@@ -220,7 +221,7 @@ const Testimonial = ({ slice, context }) => {
             onClick={nextTestimonial}
             isDisabled={activeIndex === testimonials.length - 1}
           />
-        </div>
+        </div>}
       </section>
     );
   }
