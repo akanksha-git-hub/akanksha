@@ -13546,6 +13546,27 @@ export interface SliderShowcaseSliceDefaultPrimary {
   items: prismic.GroupField<
     Simplify<SliderShowcaseSliceDefaultPrimaryItemsItem>
   >;
+
+  /**
+   * Slice Identifier field in *SliderShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *SliderShowcase → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: slider_showcase.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 }
 
 /**
@@ -13586,6 +13607,27 @@ export interface SliderShowcaseSliceSliderBPrimary {
   items: prismic.GroupField<
     Simplify<SliderShowcaseSliceSliderBPrimaryItemsItem>
   >;
+
+  /**
+   * Slice Identifier field in *SliderShowcase → SliderB → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderB.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *SliderShowcase → SliderB → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: slider_showcase.sliderB.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 }
 
 /**
@@ -13626,6 +13668,17 @@ export interface SliderShowcaseSliceSliderCPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *SliderShowcase → Slider C → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: slider_showcase.sliderC.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Items field in *SliderShowcase → Slider C → Primary*
    *
    * - **Field Type**: Group
@@ -13664,6 +13717,17 @@ export interface SliderShowcaseSliceSliderDPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *SliderShowcase → Slider D → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: slider_showcase.sliderD.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Title field in *SliderShowcase → Slider D → Primary*
@@ -13736,6 +13800,17 @@ export interface SliderShowcaseSliceSliderEPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *SliderShowcase → Slider E → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: slider_showcase.sliderE.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Title field in *SliderShowcase → Slider E → Primary*
    *
    * - **Field Type**: Text
@@ -13786,6 +13861,17 @@ export interface SliderShowcaseSliceSliderFPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *SliderShowcase → sliderF → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: slider_showcase.sliderF.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Items field in *SliderShowcase → sliderF → Primary*
    *
    * - **Field Type**: Group
@@ -13834,6 +13920,17 @@ export interface SliderShowcaseSliceSliderFvariationPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *SliderShowcase → sliderFvariation → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: slider_showcase.sliderFvariation.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * title field in *SliderShowcase → sliderFvariation → Primary*
@@ -13985,6 +14082,17 @@ export interface StudentVisionSliceDefaultPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *StudentVision → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: student_vision.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * title field in *StudentVision → Default → Primary*
    *
    * - **Field Type**: Text
@@ -14043,6 +14151,17 @@ export interface StudentVisionSliceWithBgImagePrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *StudentVision → With BG Image → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: student_vision.withBgImage.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * title field in *StudentVision → With BG Image → Primary*
@@ -14113,6 +14232,17 @@ export interface StudentVisionSliceSimplePrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *StudentVision → Simple → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: student_vision.simple.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * title field in *StudentVision → Simple → Primary*
@@ -14191,6 +14321,17 @@ export interface StudentVisionSliceGalleryPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *StudentVision → Gallery → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: student_vision.gallery.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * images field in *StudentVision → Gallery → Primary*
