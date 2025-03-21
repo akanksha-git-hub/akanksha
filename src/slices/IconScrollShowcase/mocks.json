@@ -46,6 +46,15 @@
 						]
 					}
 				]
+			},
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "part",
+				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": []
@@ -112,6 +121,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "practical",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": [
@@ -178,6 +191,10 @@
 						]
 					}
 				]
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": [
@@ -246,6 +263,15 @@
 				"__TYPE__": "FieldContent",
 				"value": "gently",
 				"type": "Text"
+			},
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "earlier",
+				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": [

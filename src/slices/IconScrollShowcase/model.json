@@ -12,6 +12,22 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
         "items": {
           "type": "Group",
           "config": {
@@ -52,6 +68,15 @@
           "config": {
             "label": "Slice Identifier",
             "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         },
         "small_title": {
@@ -110,6 +135,15 @@
             "placeholder": ""
           }
         },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
         "main_title": {
           "type": "Text",
           "config": {
@@ -152,6 +186,22 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
         "items": {
           "type": "Group",
           "config": {
