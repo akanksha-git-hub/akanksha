@@ -7,13 +7,17 @@ import { PrismicNextImage } from "@prismicio/next";
  * @param {MapReachProps}
  */
 const MapReach = ({ slice }) => {
+   const { show_identifier, slice_identifier } = slice.primary;
+    
+      const RenderIdentifier = () =>
+        show_identifier && <SliceIdentifier text={slice_identifier} />;
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="mt-14"
     >
-      <SliceIdentifier text={slice.primary.slice_identifier} />
+      <RenderIdentifier />
 
       <div className="flex flex-col justify-center relative mt-14">
         {/* Separate div for title alignment */}

@@ -7480,6 +7480,17 @@ export interface GrowthImpactSliceDefaultPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *GrowthImpact → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: growth_impact.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Title field in *GrowthImpact → Default → Primary*
    *
    * - **Field Type**: Text
@@ -10236,6 +10247,17 @@ export interface MapReachSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *MapReach → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: map_reach.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Title field in *MapReach → Default → Primary*
