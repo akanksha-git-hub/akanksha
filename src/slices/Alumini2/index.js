@@ -89,12 +89,12 @@ const Alumini2 = ({ slice }) => {
         className="universal-padding    mt-8"
       >
         <SliceIdentifier text={slice.primary.slice_identifier} />
-        <h1 className="font-ambit-regular text-3xl md:text-5xl lg:text-7xl md:text-center text-left mt-12 md:mt-24 ">
+        <h1 className="font-ambit-regular text-3xl md:text-5xl lg:text-7xl md:text-center text-left mt-12 md:mt-24  ">
           {slice.primary.heading}
         </h1>
-        <div class="flex flex-col md:flex-row mt-12 md:mt-8   ">
+        <div class="flex flex-col md:flex-row mt-12 md:mt-8 ">
           {/* <!-- Section 1: Charts --> */}
-          <div className="md:w-1/2 flex flex-row justify-center items-end gap-8  py-4 h-[300px] md:h-[300px]   xl:h-[400px] relative  ">
+          <div className="md:w-1/2 flex flex-row justify-center items-end gap-8   py-4 relative  h-[300px]  md:h-[450px] ">
             {/* <!-- Blue Section --> */}
 
             <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black  p-6  h-[100%] ">
@@ -105,7 +105,7 @@ const Alumini2 = ({ slice }) => {
                 {slice.primary.akanksha_average}
               </p>
               <p class="text-md md:text-lg xl:text-2xl font-ambit-semibold text-center">
-                {slice.primary.akanksha_alumini}
+                {slice.primary.akanksha_average_text}
               </p>
             </div>
 
@@ -120,7 +120,7 @@ const Alumini2 = ({ slice }) => {
               />
             </div> */}
             {/* <!-- Orange Section --> */}
-            <div class="flex flex-col items-center justify-center bg-[#F6AC27] text-black  p-6 h-[45%]  ">
+            <div class="flex flex-col items-center justify-center bg-[#F6AC27] text-black p-6 h-[45%]  ">
               <p class="text-xl md:text-2xl xl:text-4xl font-ambit-semibold pt-10">
                 {slice.primary.national_average}
               </p>
@@ -132,7 +132,7 @@ const Alumini2 = ({ slice }) => {
               {slice.primary.stats}
             </p>
           </div>
-          <div className="md:w-1/2 w-full flex flex-row gap-2  ">
+          <div className="md:w-1/2 w-full  flex md:flex-row flex-col md:gap-2 mt-16 md:mt-0 h-full md:h-[450px] ">
           <CardWithHeadingStatIcon
     heading={slice.primary.heading_1}
     stat={slice.primary.stat_1}
