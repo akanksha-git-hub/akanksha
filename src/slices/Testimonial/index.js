@@ -14,6 +14,11 @@ import { useState } from "react";
  * @param {TestimonialProps}
  */
 const Testimonial = ({ slice, context }) => {
+   const { show_identifier, slice_identifier } = slice.primary;
+    
+      const RenderIdentifier = () =>
+        show_identifier && <SliceIdentifier text={slice_identifier} />;
+
   const { addPadding } = context;
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -39,10 +44,7 @@ const Testimonial = ({ slice, context }) => {
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
       >
-        <SliceIdentifier
-          className="mb-12"
-          text={slice.primary.slice_identifier}
-        />
+        <RenderIdentifier />
         <div className="min-h-[800px] relative flex flex-col items-center justify-center">
           <div className="single-test-bg absolute top-[60%] -translate-y-2/4 left-2/4 -translate-x-2/4 h-[400px] rounded-full w-full" />
           <div
@@ -88,10 +90,7 @@ const Testimonial = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className={`${addPadding ? "universal-padding" : ""} mt-16`}
       >
-        <SliceIdentifier
-          className="mb-12"
-          text={slice.primary.slice_identifier}
-        />
+       <RenderIdentifier />
 
         <h1 class="text-7xl text-center font-ambit-regular w-[8ch]  mx-auto">
           {slice.primary.title}
@@ -153,7 +152,7 @@ const Testimonial = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className={`${addPadding ? "universal-padding" : ""} mt-16`}
       >
-        <SliceIdentifier text={slice.primary.slice_identifier} />
+       <RenderIdentifier />
 
         <h1 className="text-5xl md:text-7xl text-left md:text-center font-ambit-regular md:w-[8ch] md:mx-auto  mt-12">
           {slice.primary.title}
@@ -232,10 +231,7 @@ const Testimonial = ({ slice, context }) => {
       data-slice-variation={slice.variation}
       className="universal-padding"
     >
-      <SliceIdentifier
-        className="mb-12"
-        text={slice.primary.slice_identifier}
-      />
+      <RenderIdentifier />
       {slice.variation === "single" && <TestimonialSingle slice={slice} />}
     </section>
   );

@@ -15039,6 +15039,17 @@ export interface TestimonialSliceSinglePrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *Testimonial → Single → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: testimonial.single.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Image field in *Testimonial → Single → Primary*
    *
    * - **Field Type**: Image
@@ -15095,6 +15106,17 @@ export interface TestimonialSliceOptionCPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *Testimonial → Option C → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: testimonial.optionC.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Image field in *Testimonial → Option C → Primary*
@@ -15163,6 +15185,17 @@ export interface TestimonialSliceOptionDPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *Testimonial → option D → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: testimonial.optionD.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * title field in *Testimonial → option D → Primary*
@@ -15241,6 +15274,17 @@ export interface TestimonialSliceTestimonialMultiplePrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *Testimonial → TestimonialMultiple → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: testimonial.testimonialMultiple.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * title field in *Testimonial → TestimonialMultiple → Primary*
