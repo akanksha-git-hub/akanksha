@@ -92,9 +92,9 @@ const Alumini2 = ({ slice }) => {
         <h1 className="font-ambit-regular text-3xl md:text-5xl lg:text-7xl md:text-center text-left mt-12 md:mt-24  ">
           {slice.primary.heading}
         </h1>
-        <div class="flex flex-col md:flex-row mt-12 md:mt-8 ">
+        <div class="flex flex-col 2xl:flex-row mt-12 2xl:mt-8 ">
           {/* <!-- Section 1: Charts --> */}
-          <div className="md:w-1/2 flex flex-row justify-center items-end gap-8   py-4 relative  h-[300px]  md:h-[450px] ">
+          <div className="xl:w-1/2 flex flex-row justify-center items-end gap-8   py-4 relative  h-[300px]  xl:h-[450px] ">
             {/* <!-- Blue Section --> */}
 
             <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black  p-6  h-[100%] ">
@@ -132,7 +132,7 @@ const Alumini2 = ({ slice }) => {
               {slice.primary.stats}
             </p>
           </div>
-          <div className="md:w-1/2 w-full  flex md:flex-row flex-col md:gap-2 mt-16 md:mt-0 h-full md:h-[450px] ">
+          <div className="xl:w-1/2 w-full  flex xl:flex-row flex-col xl:gap-2 mt-16 xl:mt-0 h-full xl:h-[450px] ">
           <CardWithHeadingStatIcon
     heading={slice.primary.heading_1}
     stat={slice.primary.stat_1}
