@@ -94,17 +94,17 @@ const Alumini2 = ({ slice }) => {
         </h1>
         <div class="flex flex-col 2xl:flex-row mt-12 2xl:mt-8 ">
           {/* <!-- Section 1: Charts --> */}
-          <div className="xl:w-1/2 flex flex-row justify-center items-end gap-8   py-4 relative  h-[300px]  xl:h-[450px] ">
+          <div className="2xl:w-1/2 flex flex-row justify-center items-end gap-8   py-4 relative  h-[300px]  2xl:h-[450px] ">
             {/* <!-- Blue Section --> */}
 
             <div class="flex flex-col items-center justify-start bg-[#58BCD4] text-black  p-6  h-[100%] ">
               {/* <div className="absolute  transform  translate-x-[50%] translate-y-[-85%] rotate-[25deg] bg-black text-white font-bold px-8 py-4 rounded-full text-3xl font-ambit-light">
                 2x
               </div> */}
-              <p class="text-xl md:text-2xl xl:text-4xl font-ambit-semibold pt-16">
+              <p class="text-xl md:text-2xl 2xl:text-4xl font-ambit-semibold pt-16">
                 {slice.primary.akanksha_average}
               </p>
-              <p class="text-md md:text-lg xl:text-2xl font-ambit-semibold text-center">
+              <p class="text-md md:text-lg 2xl:text-2xl font-ambit-semibold text-center">
                 {slice.primary.akanksha_average_text}
               </p>
             </div>
@@ -132,7 +132,7 @@ const Alumini2 = ({ slice }) => {
               {slice.primary.stats}
             </p>
           </div>
-          <div className="xl:w-1/2 w-full  flex xl:flex-row flex-col xl:gap-2 mt-16 xl:mt-0 h-full xl:h-[450px] ">
+          <div className="2xl:w-1/2 w-full  flex 2xl:flex-row flex-col 2xl:gap-2 mt-16 2xl:mt-0 h-full 2xl:h-[450px] ">
           <CardWithHeadingStatIcon
     heading={slice.primary.heading_1}
     stat={slice.primary.stat_1}

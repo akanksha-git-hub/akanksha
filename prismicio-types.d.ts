@@ -8665,6 +8665,17 @@ export interface IconShowcaseSliceDefaultPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *IconShowcase → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: icon_showcase.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Data field in *IconShowcase → Default → Primary*
    *
    * - **Field Type**: Group
@@ -8701,6 +8712,17 @@ export interface IconShowcaseSliceWithTitlePrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *IconShowcase → With Title → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: icon_showcase.withTitle.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Title field in *IconShowcase → With Title → Primary*
@@ -8771,6 +8793,17 @@ export interface IconShowcaseSliceTitleAndSubtitlePrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *IconShowcase → Title and Subtitle → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: icon_showcase.titleAndSubtitle.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Small Title field in *IconShowcase → Title and Subtitle → Primary*
    *
    * - **Field Type**: Text
@@ -8839,6 +8872,17 @@ export interface IconShowcaseSliceWithTitleDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *IconShowcase → With Title Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: icon_showcase.withTitleDefault.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Title field in *IconShowcase → With Title Default → Primary*
@@ -11477,6 +11521,27 @@ export type OurTeamSlice = prismic.SharedSlice<
  */
 export interface PageTitleSliceDefaultPrimary {
   /**
+   * Slice Identifier field in *PageTitle → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *PageTitle → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: page_title.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Title field in *PageTitle → Default → Primary*
    *
    * - **Field Type**: Text
@@ -11523,6 +11588,17 @@ export interface PageTitleSliceSparklePrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *PageTitle → Sparkle → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: page_title.sparkle.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Title field in *PageTitle → Sparkle → Primary*
@@ -11583,6 +11659,17 @@ export interface PageTitleSliceOptionCPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *PageTitle → Option C → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: page_title.optionC.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Title field in *PageTitle → Option C → Primary*
    *
    * - **Field Type**: Text
@@ -11629,6 +11716,17 @@ export interface PageTitleSliceOptionDPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *PageTitle → optionD → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: page_title.optionD.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Title field in *PageTitle → optionD → Primary*
@@ -14411,6 +14509,17 @@ export interface SwirlImageSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *SwirlImage → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: swirl_image.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Image field in *SwirlImage → Default → Primary*

@@ -18,6 +18,15 @@
 						}
 					}
 				]
+			},
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "fully",
+				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": []
@@ -69,6 +78,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "hand",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": [
@@ -96,6 +109,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "lower",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": [
@@ -123,6 +140,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "dark",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": [

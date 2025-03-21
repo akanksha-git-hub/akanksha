@@ -7,13 +7,17 @@ import { PrismicNextImage } from "@prismicio/next";
  * @param {SwirlImageProps}
  */
 const SwirlImage = ({ slice }) => {
+    const { show_identifier, slice_identifier } = slice.primary;
+  
+    const RenderIdentifier = () =>
+      show_identifier && <SliceIdentifier text={slice_identifier} />;
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="universal-padding"
     >
-       {/* <SliceIdentifier text={slice.primary.slice_identifier}  /> */}
+      <RenderIdentifier />
       <div className="md:h-[600px] w-full ">
         <PrismicNextImage 
           className="h-full w-full object-contain"
