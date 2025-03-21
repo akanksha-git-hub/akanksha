@@ -14,6 +14,10 @@ import SparkleMedium from "@/components/Sparkles/sparkle-medium";
  * @param {PageTitleProps}
  */
 const PageTitle = ({ slice }) => {
+  const { show_identifier, slice_identifier } = slice.primary;
+    
+      const RenderIdentifier = () =>
+        show_identifier && <SliceIdentifier text={slice_identifier} />;
   if (slice.variation === "optionC") {
     return (
       <section
@@ -21,7 +25,7 @@ const PageTitle = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="my-12 space-y-16"
       >
-        <SliceIdentifier text={slice.primary.slice_identifier} />
+         <RenderIdentifier />
         <div className="space-y-6">
           <MixedText
             index={5}
@@ -44,7 +48,7 @@ const PageTitle = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="my-12 space-y-16"
       >
-        <SliceIdentifier text={slice.primary.slice_identifier} />
+        <RenderIdentifier />
         <div className="space-y-6">
           <MixedText
             texts={slice.primary.title}
@@ -61,7 +65,7 @@ const PageTitle = ({ slice }) => {
   return (
     <>
       <div className="universal-padding">
-        <SliceIdentifier text={slice.primary.slice_identifier} />
+      <RenderIdentifier />
       </div>
       <section
         data-slice-type={slice.slice_type}

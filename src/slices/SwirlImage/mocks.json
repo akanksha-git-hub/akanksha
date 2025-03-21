@@ -30,6 +30,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "prepare",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": []

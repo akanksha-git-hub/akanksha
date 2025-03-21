@@ -19,6 +19,15 @@
             "placeholder": ""
           }
         },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
         "data": {
           "type": "Group",
           "config": {
@@ -82,6 +91,15 @@
           "config": {
             "label": "Slice Identifier",
             "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         },
         "title": {
@@ -171,6 +189,15 @@
             "placeholder": ""
           }
         },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
         "small_title": {
           "type": "Text",
           "config": {
@@ -256,6 +283,15 @@
           "config": {
             "label": "Slice Identifier",
             "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
           }
         },
         "title": {
