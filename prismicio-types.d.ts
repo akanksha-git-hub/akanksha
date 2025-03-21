@@ -6227,6 +6227,17 @@ export interface CardsSliceDefaultPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *Cards → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cards.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Title field in *Cards → Default → Primary*
    *
    * - **Field Type**: Text
@@ -6365,6 +6376,17 @@ export interface CardsSliceOptionBPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *Cards → Option B → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cards.optionB.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Title field in *Cards → Option B → Primary*
    *
    * - **Field Type**: Text
@@ -6473,6 +6495,17 @@ export interface CardsSliceOptionCPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *Cards → Option C → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cards.optionC.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Title field in *Cards → Option C → Primary*
    *
    * - **Field Type**: Text
@@ -6559,6 +6592,17 @@ export interface CardsSliceOptionDPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *Cards → option D → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cards.optionD.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Title field in *Cards → option D → Primary*
@@ -6727,6 +6771,17 @@ export interface CardsSliceWithUnderlinePrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *Cards → withUnderline → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cards.withUnderline.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Title field in *Cards → withUnderline → Primary*
@@ -14403,6 +14458,17 @@ export interface SuccessRate1SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: success_rate1.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Main Heading field in *SuccessRate1 → Default → Primary*
