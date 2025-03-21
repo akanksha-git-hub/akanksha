@@ -8327,6 +8327,27 @@ export interface IconScrollShowcaseSliceModernWithButtonPrimaryItemsItem {
  */
 export interface IconScrollShowcaseSliceDefaultPrimary {
   /**
+   * Slice Identifier field in *IconScrollShowcase → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *IconScrollShowcase → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: icon_scroll_showcase.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * items field in *IconScrollShowcase → Default → Primary*
    *
    * - **Field Type**: Group
@@ -8365,6 +8386,17 @@ export interface IconScrollShowcaseSliceHorizontalVariantPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *IconScrollShowcase → Horizontal Variant → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: icon_scroll_showcase.horizontalVariant.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
 
   /**
    * Small title field in *IconScrollShowcase → Horizontal Variant → Primary*
@@ -8428,6 +8460,17 @@ export interface IconScrollShowcaseSliceModernPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *IconScrollShowcase → Modern → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: icon_scroll_showcase.modern.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Main title field in *IconScrollShowcase → Modern → Primary*
    *
    * - **Field Type**: Text
@@ -8467,6 +8510,27 @@ export type IconScrollShowcaseSliceModern = prismic.SharedSliceVariation<
  * Primary content in *IconScrollShowcase → ModernWithButton → Primary*
  */
 export interface IconScrollShowcaseSliceModernWithButtonPrimary {
+  /**
+   * Slice Identifier field in *IconScrollShowcase → ModernWithButton → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.modernWithButton.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *IconScrollShowcase → ModernWithButton → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: icon_scroll_showcase.modernWithButton.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
   /**
    * items field in *IconScrollShowcase → ModernWithButton → Primary*
    *

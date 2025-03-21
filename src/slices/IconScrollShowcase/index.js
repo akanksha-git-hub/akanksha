@@ -14,6 +14,10 @@ import Button from "@/components/v2-components/buttons/button";
  * @param {IconScrollShowcaseProps}
  */
 const IconScrollShowcase = ({ slice }) => {
+  const { show_identifier, slice_identifier } = slice.primary;
+    
+      const RenderIdentifier = () =>
+        show_identifier && <SliceIdentifier text={slice_identifier} />;
 
 
   const { width } = useDebouncedResize();
@@ -24,9 +28,7 @@ const IconScrollShowcase = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <SliceIdentifier 
-        text={slice.primary.slice_identifier}
-      />
+      <RenderIdentifier />
       <div className="mt-16 space-y-2 flex flex-col md:items-center md:justify-center">
         <RichText 
           text={slice.primary.small_title}
@@ -56,9 +58,7 @@ const IconScrollShowcase = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     className="mt-16">
-      <SliceIdentifier 
-        text={slice.primary.slice_identifier}
-      />
+      <RenderIdentifier />
      
        
         <RichText 
@@ -86,6 +86,7 @@ const IconScrollShowcase = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="mt-16 flex flex-col items-center "
       >
+        <RenderIdentifier />
         {/* Render Different Components Based on Screen Size */}
         {width > 1200 ? (
           <IconScrollShowcaseModernV2 data={slice.primary.items} />
@@ -108,6 +109,7 @@ const IconScrollShowcase = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
+      <RenderIdentifier />
       <IconScrollShowcaseDefault 
         data={slice.primary.items}
       />
