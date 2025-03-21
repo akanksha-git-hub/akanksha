@@ -13,6 +13,10 @@ import Image from "next/image";
  * @param {CardsProps}
  */
 const Cards = ({ slice }) => {
+   const { show_identifier, slice_identifier } = slice.primary;
+    
+      const RenderIdentifier = () =>
+        show_identifier && <SliceIdentifier text={slice_identifier} />;
   let cards = [];
 
   if (slice.variation === "default") {
@@ -109,7 +113,7 @@ const Cards = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="relative mt-16"
     >
-      <SliceIdentifier text={slice.primary.slice_identifier} />
+      <RenderIdentifier />
 
       {slice.variation !== "withUnderline" && (
         <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between space-y-2 xl:space-y-0 xl:space-x-4 mt-8 md:mt-12">

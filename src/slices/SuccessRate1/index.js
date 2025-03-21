@@ -8,6 +8,10 @@ import { PrismicNextImage } from "@prismicio/next";
  * @param {SuccessRate1Props}
  */
 const SuccessRate1 = ({ slice }) => {
+      const { show_identifier, slice_identifier } = slice.primary;
+    
+      const RenderIdentifier = () =>
+        show_identifier && <SliceIdentifier text={slice_identifier} />;
   return (
     <>
       <section
@@ -15,7 +19,7 @@ const SuccessRate1 = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="md:mt-20 mt-16 "
       >
-        <SliceIdentifier text={slice.primary.slice_identifier} className=" " />
+        <RenderIdentifier />
         <h1 className="font-ambit-regular text-5xl md:text-3xl lg:text-center text-left mt-8 ">
           {slice.primary.main_heading}
         </h1>
