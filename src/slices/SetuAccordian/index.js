@@ -26,8 +26,7 @@ export default function FinancialsAccordion({ slice }) {
 
   const { show_identifier, slice_identifier } = slice.primary;
 
-  const RenderIdentifier = () =>
-    show_identifier && <SliceIdentifier text={slice_identifier} />;
+ 
 
   const toggleAccordion = (index, column) => {
     setOpenIndexes((prev) => ({
@@ -38,10 +37,11 @@ export default function FinancialsAccordion({ slice }) {
 
   return (
     <section className=" mt-12">
-      {/* Conditionally Render SliceIdentifier and RichText */}
+      
       {!isNewsletter && (
         <>
-                    <RenderIdentifier />
+                  {show_identifier && <SliceIdentifier text={slice_identifier} />}
+
 
           <RichText
             text={slice.primary.title}
