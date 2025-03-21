@@ -8,13 +8,17 @@ import { PrismicImage } from "@prismicio/react";
  * @param {GrowthImpactProps}
  */
 const GrowthImpact = ({ slice }) => {
+   const { show_identifier, slice_identifier } = slice.primary;
+    
+      const RenderIdentifier = () =>
+        show_identifier && <SliceIdentifier text={slice_identifier} />;
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className=" mt-0"
     >
-      <SliceIdentifier text={slice.primary.slice_identifier} />
+     <RenderIdentifier />
       <h1 className="font-ambit-regular text-3xl md:text-6xl text-left md:ext-center mt-14 ">
         {slice.primary.title}
       </h1>
