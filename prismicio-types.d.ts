@@ -6007,6 +6007,17 @@ export interface CardShuffleSliceDefaultPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *CardShuffle → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: card_shuffle.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Heading small field in *CardShuffle → Default → Primary*
    *
    * - **Field Type**: Text
@@ -6075,6 +6086,17 @@ export interface CardShuffleSliceOptionBPrimary {
   slice_identifier: prismic.KeyTextField;
 
   /**
+   * Show Identifier field in *CardShuffle → Option B → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: card_shuffle.optionB.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
    * Heading small field in *CardShuffle → Option B → Primary*
    *
    * - **Field Type**: Text
@@ -6122,6 +6144,27 @@ export type CardShuffleSliceOptionB = prismic.SharedSliceVariation<
  * Primary content in *CardShuffle → wihoutSliceIdentifierAndHead → Primary*
  */
 export interface CardShuffleSliceWihoutSliceIdentifierAndHeadPrimary {
+  /**
+   * Slice Identifier field in *CardShuffle → wihoutSliceIdentifierAndHead → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.wihoutSliceIdentifierAndHead.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *CardShuffle → wihoutSliceIdentifierAndHead → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: card_shuffle.wihoutSliceIdentifierAndHead.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
   /**
    * Items field in *CardShuffle → wihoutSliceIdentifierAndHead → Primary*
    *

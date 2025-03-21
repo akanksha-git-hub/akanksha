@@ -92,6 +92,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "mainly",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": []
@@ -192,6 +196,10 @@
 						]
 					}
 				]
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": [
@@ -266,6 +274,15 @@
 						]
 					}
 				]
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "low",
+				"type": "Text"
 			}
 		},
 		"items": [

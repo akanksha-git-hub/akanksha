@@ -10,6 +10,10 @@ import RichText from "@/components/Texts/RichText";
  */
 const CardShuffle = ({ slice, context }) => {
   const { addPadding } = context;
+  const { show_identifier, slice_identifier } = slice.primary;
+    
+      const RenderIdentifier = () =>
+        show_identifier && <SliceIdentifier text={slice_identifier} />;
 
   return (
     <>
@@ -25,7 +29,7 @@ const CardShuffle = ({ slice, context }) => {
       >
         <div className={`${addPadding ? "universal-padding" : " "} `}>
           {slice.primary.slice_identifier && (
-            <SliceIdentifier text={slice.primary.slice_identifier} />
+            <RenderIdentifier />
           )}
         </div>
         {(slice.primary.heading_small?.length > 0 ||
