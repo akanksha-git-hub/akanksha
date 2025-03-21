@@ -62,7 +62,7 @@ const BlogHighlight = ({ slice }) => {
             field={slice.primary.items[activeIndex].image}
           />
         </div> */}
-        <div className="bg-white p-8 xl:pl-12 xl:pr-1 py-8 w-full xl:w-[40%]">
+        <div className="bg-white  xl:pl-12 xl:pr-1  md:py-8 w-full xl:w-[40%] ">
           {/* Selectors */}
           <ul>
             <Swiper  
@@ -77,13 +77,13 @@ const BlogHighlight = ({ slice }) => {
                   slidesPerView: 5
                 },
                 600: {
-                  slidesPerView: 3
+                  slidesPerView: 5
                 },
                 300: {
-                  slidesPerView: 3
+                  slidesPerView: 3.7
                 },
                 10: {
-                  slidesPerView: 3
+                  slidesPerView: 3.4
                 }
               }}
             >
@@ -92,7 +92,7 @@ const BlogHighlight = ({ slice }) => {
                 return(
                   <SwiperSlide key={index}>
                     <StoryCircle 
-                      className="story-circle" 
+                      className="story-circle " 
                       currentIndex={activeIndex}
                       onClick={() => handleClick(index)}
                       index={index}
