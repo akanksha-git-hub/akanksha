@@ -10,6 +10,10 @@ import Image from "next/image";
  * @param {Alumini2Props}
  */
 const Alumini2 = ({ slice }) => {
+  const { show_identifier, slice_identifier } = slice.primary;
+    
+      const RenderIdentifier = () =>
+        show_identifier && <SliceIdentifier text={slice_identifier} />;
   if (slice.variation === "successHeadingHero") {
     return (
       <section
@@ -17,7 +21,7 @@ const Alumini2 = ({ slice }) => {
         data-slice-variation={slice.variation}
         className=" mt-0"
       >
-        <SliceIdentifier text={slice.primary.slice_identifier} />
+        <RenderIdentifier />
         <h1 className="font-ambit-regular text-5xl md:text-xl md:text-center text-left mt-6 ">
           {slice.primary.main_heading}
         </h1>
@@ -88,7 +92,7 @@ const Alumini2 = ({ slice }) => {
         data-slice-variation={slice.variation}
         className="universal-padding    mt-8"
       >
-        <SliceIdentifier text={slice.primary.slice_identifier} />
+       <RenderIdentifier />
         <h1 className="font-ambit-regular text-3xl md:text-5xl lg:text-7xl md:text-center text-left mt-12 md:mt-24  ">
           {slice.primary.heading}
         </h1>
@@ -160,6 +164,7 @@ const Alumini2 = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="universal-padding   md:mt-94 mt-64"
     >
+      <RenderIdentifier />
       <h1 className="font-ambit-regular text-3xl md:text-6xl  md:text-center text-left ">
         {slice.primary.heading}
       </h1>

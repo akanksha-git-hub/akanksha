@@ -75,6 +75,15 @@
 				"__TYPE__": "FieldContent",
 				"value": "family",
 				"type": "Text"
+			},
+			"slice_identifier": {
+				"__TYPE__": "FieldContent",
+				"value": "shaking",
+				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": []
@@ -173,6 +182,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "experience",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": [
@@ -319,6 +332,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "ago",
 				"type": "Text"
+			},
+			"show_identifier": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": [
