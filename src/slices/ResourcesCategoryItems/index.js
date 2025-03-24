@@ -44,7 +44,7 @@ const BlogCategoryItems = ({ slice, context }) => {
           <section
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
-            className="mt-24"
+            className="mt-10"
             id={identifier}
           >
             <ResourcesCard slice={slice}>
@@ -68,7 +68,7 @@ const BlogCategoryItems = ({ slice, context }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="mt-24"
+        className="mt-10"
       >
         <ResourcesCard slice={slice}>
           <ResourcesCard.ItemsContainer itemKeyFn={(item) => item.date}>
