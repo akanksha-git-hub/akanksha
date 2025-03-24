@@ -30,7 +30,7 @@ export default async function Page() {
           />
           <RichText
             text={page.data.description}
-            className="text-2xl font-playfair-display md:text-center"
+            className="text-2xl font-ambit-regular md:text-center"
           />
         </div>
 
