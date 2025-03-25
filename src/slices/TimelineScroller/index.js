@@ -269,7 +269,7 @@ const TimelineScroller = ({ slice }) => {
                 </ul>
               )}
               <p className="text-black text-2xl font-ambit-regular absolute -left-[8%] -translate-x-2/4 -bottom-12">
-                2024
+                 {slice.primary.end_year}
               </p>
             </div>
           </div>
