@@ -6,12 +6,12 @@ import Button from "./buttons/button";
 import { PrismicNextImage } from "@prismicio/next";
 import PencilShading from "@/assets/shading-side.svg";
 
-// Mobile-like UI (always highlighted, no hover logic)
+// Mobile Card Component (Always highlighted)
 function CardShowcaseBCardMobile({ item }) {
   return (
-    <li className="bg-v2-yellow pt-6 relative ">
-      <div className="flex flex-row justify-between items-center px-8 ">
-        <div className=" grid space-y-2">
+    <li className="bg-v2-yellow pt-6 relative">
+      <div className="flex flex-row justify-between items-center px-8">
+        <div className="grid space-y-2">
           <div>
             <RichText
               text={item.big_text}
@@ -27,7 +27,7 @@ function CardShowcaseBCardMobile({ item }) {
           <Button prismicLink={item.cta_link}>{item.cta_text}</Button>
         </div>
       </div>
-      <div className="flex justify-center items-center md:w-[65%] w-full h-64 md:h-80 mt-4 overflow-hidden relative  mx-auto">
+      <div className="flex justify-center items-center md:w-[65%] w-full h-64 md:h-80 mt-4 overflow-hidden relative mx-auto">
         <PrismicNextImage
           field={item.image}
           className="absolute inset-0 m-auto object-cover"
@@ -38,7 +38,7 @@ function CardShowcaseBCardMobile({ item }) {
   );
 }
 
-// Desktop UI (hover highlight)
+// Desktop Card Component (Hover to highlight)
 function CardShowcaseBCardDesktop({ item, isHighlighted, onHover }) {
   return (
     <li
@@ -85,9 +85,9 @@ function CardShowcaseBCardDesktop({ item, isHighlighted, onHover }) {
   );
 }
 
+// Main Component
 export default function CardsShowcaseB({ data }) {
   const [highlightedIndex, setHighlightedIndex] = useState(0);
-
   const [allowHover, setAllowHover] = useState(false);
 
   useEffect(() => {
@@ -106,34 +106,30 @@ export default function CardsShowcaseB({ data }) {
     }
   }, []);
 
-  const RenderIdentifier = () =>
-    data.show_identifier && <SliceIdentifier text={data.slice_identifier} />;
-
-  if (!allowHover) {
-    return (
-      <div className="universal-padding space-y-20">
-        <RenderIdentifier />
-        <ul className="grid grid-cols-1 gap-6 h-auto">
-          {data.items.map((item, i) => (
-            <CardShowcaseBCardMobile key={i} item={item} />
-          ))}
-        </ul>
-      </div>
-    );
-  }
-
   return (
     <div className="universal-padding space-y-20">
-      <RenderIdentifier />
-      <ul className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 md:px-24 h-auto">
-        {data.items.map((item, i) => (
-          <CardShowcaseBCardDesktop
-            key={i}
-            item={item}
-            isHighlighted={highlightedIndex === i}
-            onHover={() => setHighlightedIndex(i)}
-          />
-        ))}
+      {data.show_identifier && (
+        <SliceIdentifier text={data.slice_identifier} />
+      )}
+      <ul
+        className={`grid ${
+          allowHover
+            ? "grid-cols-[repeat(auto-fit,minmax(320px,1fr))] md:px-24"
+            : "grid-cols-1"
+        } gap-6 h-auto`}
+      >
+        {data.items.map((item, i) =>
+          allowHover ? (
+            <CardShowcaseBCardDesktop
+              key={i}
+              item={item}
+              isHighlighted={highlightedIndex === i}
+              onHover={() => setHighlightedIndex(i)}
+            />
+          ) : (
+            <CardShowcaseBCardMobile key={i} item={item} />
+          )
+        )}
       </ul>
     </div>
   );
