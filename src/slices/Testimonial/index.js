@@ -1,12 +1,18 @@
 "use client";
+
+import { useState } from "react";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import TestimonialSingle from "@/components/Testimonials/testimonial-single";
 import RichText from "@/components/Texts/RichText";
 import SwiperArrow from "@/components/UI/SwiperArrow";
 import { PrismicNextImage } from "@prismicio/next";
-import { PrismicRichText } from "@prismicio/react";
 import Image from "next/image";
-import { useState } from "react";
+
+/** ✅ Moved out */
+const RenderIdentifier = ({ show, text }) => {
+  if (!show) return null;
+  return <SliceIdentifier text={text} />;
+};
 
 /**
  * @typedef {import("@prismicio/client").Content.TestimonialSlice} TestimonialSlice
@@ -14,44 +20,33 @@ import { useState } from "react";
  * @param {TestimonialProps}
  */
 const Testimonial = ({ slice, context }) => {
-   const { show_identifier, slice_identifier } = slice.primary;
-    
-      const RenderIdentifier = () =>
-        show_identifier && <SliceIdentifier text={slice_identifier} />;
-
+  const { show_identifier, slice_identifier } = slice.primary;
   const { addPadding } = context;
-
   const [activeIndex, setActiveIndex] = useState(0);
-
   const testimonials = slice.primary.content;
-  const length = slice.primary.content.length;
+  const length = testimonials.length;
 
   const nextTestimonial = () => {
     if (activeIndex < testimonials.length - 1) {
       setActiveIndex((prev) => prev + 1);
     }
   };
-  
+
   const prevTestimonial = () => {
     if (activeIndex > 0) {
       setActiveIndex((prev) => prev - 1);
     }
   };
-  
+
   if (slice.variation === "optionC") {
     return (
-      <section
-        data-slice-type={slice.slice_type}
-        data-slice-variation={slice.variation}
-      >
-        <RenderIdentifier />
+      <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
+        <RenderIdentifier show={show_identifier} text={slice_identifier} />
+
         <div className="min-h-[800px] relative flex flex-col items-center justify-center">
           <div className="single-test-bg absolute top-[60%] -translate-y-2/4 left-2/4 -translate-x-2/4 h-[400px] rounded-full w-full" />
-          <div
-            className="
-                    bg-white py-4 px-4 scale-75 lg:scale-100 lg:px-8 rounded-[20px] min-h-[28rem] w-[350px] lg:max-w-[24rem] relative bottom-24 -left-12 sm:-left-24 lg:-left-52 -rotate-[2deg] z-20"
-          >
-            <div className="min-h-[28rem] flex flex-col justify-between ">
+          <div className="bg-white py-4 px-4 scale-75 lg:scale-100 lg:px-8 rounded-[20px] min-h-[28rem] w-[350px] lg:max-w-[24rem] relative bottom-24 -left-12 sm:-left-24 lg:-left-52 -rotate-[2deg] z-20">
+            <div className="min-h-[28rem] flex flex-col justify-between">
               <div>
                 <Image src="/quote.svg" alt="" height={80} width={80} />
                 <RichText
@@ -83,26 +78,22 @@ const Testimonial = ({ slice, context }) => {
   }
 
   if (slice.variation === "optionD") {
-    const { addPadding } = context;
     return (
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
         className={`${addPadding ? "universal-padding" : ""} mt-16`}
       >
-       <RenderIdentifier />
+        <RenderIdentifier show={show_identifier} text={slice_identifier} />
 
-        <h1 class="text-7xl text-center font-ambit-regular w-[8ch]  mx-auto">
+        <h1 className="text-7xl text-center font-ambit-regular w-[8ch] mx-auto">
           {slice.primary.title}
         </h1>
+
         <div className="min-h-[800px] relative flex flex-col items-center justify-center">
           <div className="single-test-bg absolute top-[60%] -translate-y-2/4 left-2/4 -translate-x-2/4 h-[400px] rounded-full w-full" />
-          <div
-            className="
-                    bg-white py-4 px-4 scale-75 lg:scale-100 lg:px-8 rounded-[20px] min-h-[28rem] w-[350px] lg:max-w-[24rem] relative bottom-24 -left-12 sm:-left-24 lg:-left-52 -rotate-[2deg] z-20"
-          >
-            <div></div>
 
+          <div className="bg-white py-4 px-4 scale-75 lg:scale-100 lg:px-8 rounded-[20px] min-h-[28rem] w-[350px] lg:max-w-[24rem] relative bottom-24 -left-12 sm:-left-24 lg:-left-52 -rotate-[2deg] z-20">
             <PrismicNextImage
               field={slice.primary.asset}
               alt=""
@@ -111,7 +102,7 @@ const Testimonial = ({ slice, context }) => {
               className="absolute bottom-[18%] left-1/2 transform -translate-x-1/2 w-full"
             />
 
-            <div className="min-h-[28rem] flex flex-col justify-between ">
+            <div className="min-h-[28rem] flex flex-col justify-between">
               <div>
                 <Image src="/quotes-new.png" alt="" height={80} width={80} />
                 <RichText
@@ -119,7 +110,6 @@ const Testimonial = ({ slice, context }) => {
                   className="font-ambit-regular text-4xl text-deep-green mt-12"
                 />
               </div>
-
               <p className="flex w-[50%] sm:w-full">
                 <span className="text-deep-green font-ambit-regular text-lg">
                   {slice.primary.name}
@@ -143,7 +133,6 @@ const Testimonial = ({ slice, context }) => {
       </section>
     );
   }
-  //Muiltiple Testimponials with button
 
   if (slice.variation === "testimonialMultiple") {
     return (
@@ -152,26 +141,16 @@ const Testimonial = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className={`${addPadding ? "universal-padding" : ""} mt-16`}
       >
-       <RenderIdentifier />
+        <RenderIdentifier show={show_identifier} text={slice_identifier} />
 
-        <h1 className="text-5xl md:text-7xl text-left md:text-center font-ambit-regular md:w-[8ch] md:mx-auto  mt-12">
+        <h1 className="text-5xl md:text-7xl text-left md:text-center font-ambit-regular md:w-[8ch] md:mx-auto mt-12">
           {slice.primary.title}
         </h1>
 
-        {/* ✅ Testimonial Container */}
-        <div className="min-h-[600px] md:min-h-[800px] relative flex flex-col items-center justify-center ">
+        <div className="min-h-[600px] md:min-h-[800px] relative flex flex-col items-center justify-center">
           <div className="single-test-bg absolute top-[60%] -translate-y-2/4 left-2/4 -translate-x-2/4 h-[400px] rounded-full w-full" />
 
-          {/* ✅ Testimonial Box */}
-          <div
-            className="
-            bg-white py-4 px-4 scale-75 lg:scale-100 lg:px-8 rounded-[20px]
-            min-h-[28rem] w-[350px] lg:max-w-[24rem] relative bottom-24 
-            -left-12 sm:-left-24 lg:-left-52 -rotate-[2deg] z-20"
-          >
-            <div></div>
-
-            {/* ✅ Change Asset Based on Active Testimonial */}
+          <div className="bg-white py-4 px-4 scale-75 lg:scale-100 lg:px-8 rounded-[20px] min-h-[28rem] w-[350px] lg:max-w-[24rem] relative bottom-24 -left-12 sm:-left-24 lg:-left-52 -rotate-[2deg] z-20">
             <PrismicNextImage
               field={testimonials[activeIndex].asset}
               alt=""
@@ -187,9 +166,7 @@ const Testimonial = ({ slice, context }) => {
                   {testimonials[activeIndex].quote}
                 </p>
               </div>
-
-              {/* ✅ Change Name & Designation Based on Active Testimonial */}
-              <p className="flex  sm:w-full">
+              <p className="flex sm:w-full">
                 <span className="text-black font-ambit-regular text-lg w-[72%]">
                   {testimonials[activeIndex].name}
                 </span>
@@ -197,7 +174,6 @@ const Testimonial = ({ slice, context }) => {
             </div>
           </div>
 
-          {/* ✅ Change Image Based on Active Testimonial */}
           <div className="scale-50 sm:scale-75 lg:scale-100 w-[350px] lg:max-w-[24rem] h-[32rem] absolute left-[50%] -translate-x-1/4 top-[30%] rotate-[4deg] z-20">
             <PrismicNextImage
               field={testimonials[activeIndex].image}
@@ -207,20 +183,21 @@ const Testimonial = ({ slice, context }) => {
           </div>
         </div>
 
-        {/* ✅ Navigation Arrows */}
-        { length>1 && <div className="flex gap-2 items-center justify-center mt-4 ">
-          <SwiperArrow
-            strokeColor="#37473C"
-            className="rotate-180"
-            onClick={prevTestimonial}
-            isDisabled={activeIndex === 0}
-          />
-          <SwiperArrow
-            strokeColor="#37473C"
-            onClick={nextTestimonial}
-            isDisabled={activeIndex === testimonials.length - 1}
-          />
-        </div>}
+        {length > 1 && (
+          <div className="flex gap-2 items-center justify-center mt-4">
+            <SwiperArrow
+              strokeColor="#37473C"
+              className="rotate-180"
+              onClick={prevTestimonial}
+              isDisabled={activeIndex === 0}
+            />
+            <SwiperArrow
+              strokeColor="#37473C"
+              onClick={nextTestimonial}
+              isDisabled={activeIndex === testimonials.length - 1}
+            />
+          </div>
+        )}
       </section>
     );
   }
@@ -231,7 +208,7 @@ const Testimonial = ({ slice, context }) => {
       data-slice-variation={slice.variation}
       className="universal-padding"
     >
-      <RenderIdentifier />
+      <RenderIdentifier show={show_identifier} text={slice_identifier} />
       {slice.variation === "single" && <TestimonialSingle slice={slice} />}
     </section>
   );

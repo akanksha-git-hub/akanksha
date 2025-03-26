@@ -1,9 +1,9 @@
 "use client";
+
 import { useState, useRef, useEffect } from "react";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import SwiperArrow from "@/components/UI/SwiperArrow";
 import { PrismicNextImage } from "@prismicio/next";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, EffectCoverflow } from "swiper/modules";
 import "swiper/css";
@@ -12,26 +12,30 @@ import "swiper/css/navigation";
 import FinancialsAccordion from "@/components/financials-accordion";
 import RichText from "@/components/Texts/RichText";
 
+/** ✅ Moved outside to avoid re-renders */
+const RenderIdentifier = ({ show, text }) => {
+  if (!show) return null;
+  return <SliceIdentifier text={text} />;
+};
+
 /**
  * @typedef {import("@prismicio/client").Content.StudentVisionSlice} StudentVisionSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<StudentVisionSlice>} StudentVisionProps
  * @param {StudentVisionProps}
  */
 const StudentVision = ({ slice, context }) => {
-   const { show_identifier, slice_identifier } = slice.primary;
-    
-      const RenderIdentifier = () =>
-        show_identifier && <SliceIdentifier text={slice_identifier} />;
+  const { show_identifier, slice_identifier } = slice.primary;
+
   const [trackIndex, setTrackIndex] = useState(0);
   const swiperRef = useRef(null);
   const images = slice?.primary.images || [];
   const [activeIndex, setActiveIndex] = useState(1);
   const financialsPage = context?.financialsPage;
+
   useEffect(() => {
     console.log("Financials Page Data:", financialsPage);
-  }, [financialsPage]); // ✅ Log when financialsPage is available
+  }, [financialsPage]);
 
-  // Navigation functions
   const swipePrev = () => {
     if (trackIndex > 0) {
       setTrackIndex(trackIndex - 1);
@@ -51,7 +55,7 @@ const StudentVision = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className="universal-padding mt-8"
       >
-        <RenderIdentifier />
+        <RenderIdentifier show={show_identifier} text={slice_identifier} />
 
         <div className="flex flex-col justify-center items-center">
           <h1 className="mt-8 text-5xl md:text-7xl font-ambit-regular">
@@ -101,10 +105,10 @@ const StudentVision = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className=" mt-10"
       >
-        <RenderIdentifier />
+        <RenderIdentifier show={show_identifier} text={slice_identifier} />
 
         <div className="flex flex-col justify-center items-center relative md:mt-10">
-          <h1 className="  text-3xl  md:text-6xl text-left md:text-center md:w-[18ch] font-ambit-regular mt-10 ">
+          <h1 className="text-3xl md:text-6xl text-left md:text-center md:w-[18ch] font-ambit-regular mt-10">
             {slice.primary.title}
           </h1>
           <p className="md:text-center md:w-[65%] xl:w-[40%] font-ambit-regular text-left text-xl mt-8 md:mt-10">
@@ -158,7 +162,8 @@ const StudentVision = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className="relative mt-14"
       >
-        <RenderIdentifier />
+        <RenderIdentifier show={show_identifier} text={slice_identifier} />
+
         <div className="flex justify-center items-center relative mt-20">
           <Swiper
             modules={[Navigation, EffectCoverflow]}
@@ -174,19 +179,16 @@ const StudentVision = ({ slice, context }) => {
               scale: 0.8,
             }}
             breakpoints={{
-              0: { slidesPerView: 1 }, // 1 slide for mobile (sm and below)
-              640: { slidesPerView: 1 }, // 1 slide for sm screens
-              768: { slidesPerView: 3 }, // 3 slides from md screens and above
+              0: { slidesPerView: 1 },
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 3 },
             }}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             className="w-full h-[500px]"
           >
             {images.map((item, index) => (
-              <SwiperSlide
-                key={index}
-                className="flex justify-center items-center bg-transparent transition-transform ease-in-out w-full h-full"
-              >
+              <SwiperSlide key={index} className="flex justify-center items-center bg-transparent transition-transform ease-in-out w-full h-full">
                 <PrismicNextImage
                   field={item.image}
                   className={`w-full h-full object-cover rounded-lg transition-transform ease-in-out ${
@@ -197,23 +199,22 @@ const StudentVision = ({ slice, context }) => {
             ))}
           </Swiper>
         </div>
-        <div className="flex items-center mt-14 justify-between  xl:justify-normal">
+
+        <div className="flex items-center mt-14 justify-between xl:justify-normal">
           <div className="flex gap-2 mx-auto">
-            <SwiperArrow
-              className="rotate-180"
-              onClick={() => swiperRef.current?.slidePrev()}
-            />
+            <SwiperArrow className="rotate-180" onClick={() => swiperRef.current?.slidePrev()} />
             <SwiperArrow onClick={() => swiperRef.current?.slideNext()} />
           </div>
         </div>
+
         <div>
           {financialsPage && (
             <div className="mt-8">
-              <RenderIdentifier />
+              <RenderIdentifier show={show_identifier} text={slice_identifier} />
               <div className="relative w-fit md:mx-auto">
                 <RichText
                   text={financialsPage.data.title}
-                  className={`text-black font-ambit-regular  text-5xl md:text-7xl text-left md:text-center w-full pt-24`}
+                  className="text-black font-ambit-regular text-5xl md:text-7xl text-left md:text-center w-full pt-24"
                 />
               </div>
               <div className="mt-8">
@@ -232,7 +233,7 @@ const StudentVision = ({ slice, context }) => {
       data-slice-variation={slice.variation}
       className=" mt-8"
     >
-      <RenderIdentifier />
+      <RenderIdentifier show={show_identifier} text={slice_identifier} />
 
       <div className="flex flex-col justify-center items-center">
         <h1 className="mt-8 text-5xl md:text-7xl font-ambit-regular">
