@@ -18,11 +18,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
  * @typedef {import("@prismicio/react").SliceComponentProps<SliderShowcaseSlice>} SliderShowcaseProps
  * @param {SliderShowcaseProps}
  */
+const RenderIdentifier = ({ show, text }) => {
+  if (!show) return null;
+  return <SliceIdentifier text={text} />;
+};
 const SliderShowcase = ({ slice, context }) => {
-   const { show_identifier, slice_identifier } = slice.primary;
+  const { show_identifier, slice_identifier } = slice.primary;
     
-      const RenderIdentifier = () =>
-        show_identifier && <SliceIdentifier text={slice_identifier} />;
+     
+       
   const addUniversalPadding = context.addUniversalPadding;
   const [current, setCurrent] = useState(0);
   const [sliderBIndex, setSliderBIndex] = useState(0);
@@ -49,7 +53,8 @@ const SliderShowcase = ({ slice, context }) => {
   if (slice.variation === "sliderE") {
     return (
       <section>
-         <RenderIdentifier />
+         <RenderIdentifier show={show_identifier} text={slice_identifier} />
+
         <RichText
           text={slice.primary.title}
           className="text-deep-green text-6xl font-ambit-regular text-center flex items-center justify-center my-24"
@@ -162,7 +167,8 @@ const SliderShowcase = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className="my-12"
       >
-        <RenderIdentifier />
+       <RenderIdentifier show={show_identifier} text={slice_identifier} />
+
         <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between my-12">
           <div className="flex flex-col w-full xl:w-[42%] space-y-5">
             <RichText
@@ -287,7 +293,8 @@ const SliderShowcase = ({ slice, context }) => {
         className="my-24"
       >
         <div>
-        <RenderIdentifier />
+        <RenderIdentifier show={show_identifier} text={slice_identifier} />
+
           <RichText
             text={slice.primary.title}
             className="font-ambit-regular text-deep-green py-20 md:text-center max-w-[30ch] text-5xl mx-auto"
@@ -406,7 +413,8 @@ const SliderShowcase = ({ slice, context }) => {
         className="my-24 relative  "
       >
         <div>
-        <RenderIdentifier />
+        <RenderIdentifier show={show_identifier} text={slice_identifier} />
+
         </div>
         <div className="rounded-lg flex flex-col lg:flex-row items-center justify-center gap-16 w-full mt-10">
           <div className="w-full lg:w-[50%] ">
@@ -511,7 +519,8 @@ const SliderShowcase = ({ slice, context }) => {
         className={`relative mt-10 ${addUniversalPadding ? "universal-padding" : ""}`}
       >
         <div>
-        <RenderIdentifier />
+        <RenderIdentifier show={show_identifier} text={slice_identifier} />
+
         </div>
 
         <div className="flex flex-col xl:flex-row items-start justify-between h-full   w-full md:mt-16 mt-8   ">
@@ -638,7 +647,8 @@ const SliderShowcase = ({ slice, context }) => {
           data-slice-variation={slice.variation}
           className="py-12 flex items-center justify-center relative"
         >
-           <RenderIdentifier />
+          <RenderIdentifier show={show_identifier} text={slice_identifier} />
+
           <PrismicNextImage
             field={slice.primary.background_image}
             alt=""
@@ -719,7 +729,8 @@ const SliderShowcase = ({ slice, context }) => {
       {/* Default */}
       {slice.variation === "sliderB" && (
         <section>
-           <RenderIdentifier />
+          <RenderIdentifier show={show_identifier} text={slice_identifier} />
+
           <RichText
             text={slice.primary.title}
             className="text-deep-green text-6xl font-ambit-regular text-center flex items-center justify-center my-24"
