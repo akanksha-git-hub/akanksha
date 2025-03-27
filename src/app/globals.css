@@ -22,22 +22,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-
 }
 body {
   background: var(--white);
   overflow: hidden;
-
- 
 }
 
 /* Prevent background scrolling when modal is open */
 body.modal-open {
   position: fixed !important;
- 
- 
- 
+
   top: var(--scroll-y);
 }
 /* Ensure modal description scrolls properly */
@@ -50,12 +44,11 @@ body.modal-open {
 
 /* Custom Scrollbar for Modal Description */
 .modal-description::-webkit-scrollbar {
-  width: 4px !important;/* Adjust scrollbar width */
+  width: 4px !important; /* Adjust scrollbar width */
 }
 
 .modal-description::-webkit-scrollbar-thumb {
-  background: #FE6600 !important; /* Sets scrollbar thumb color to Orange */
-
+  background: #fe6600 !important; /* Sets scrollbar thumb color to Orange */
 }
 
 .modal-description::-webkit-scrollbar-track {
@@ -64,19 +57,16 @@ body.modal-open {
 
 /* Scrollbar for other parts of the app (optional) */
 ::-webkit-scrollbar {
-  width: 4px!important;
+  width: 4px !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #F6AC27 !important; /* Orange scrollbar */
- 
+  background: #f6ac27 !important; /* Orange scrollbar */
 }
 
 ::-webkit-scrollbar-track {
   background: transparent !important;
 }
-
-
 
 .blur-bg {
   background-color: rgba(70, 70, 70, 0.8);
@@ -131,7 +121,6 @@ body.modal-open {
 .no-padding {
   padding: 0 !important;
   margin-top: 0 !important;
- 
 }
 
 .story-circle {
@@ -385,7 +374,7 @@ body.modal-open {
   animation: var(--marquee-timing) slideLeft infinite linear;
   animation-delay: 0s;
   animation-play-state: running;
-  
+
   transition-delay: 0s;
 }
 .marquee-items-slide-right {
@@ -415,7 +404,6 @@ body.modal-open {
 .marquee-items-slide {
   will-change: transform;
 }
-
 
 /* Keyframes for seamless marquee animation */
 @keyframes marquee {
@@ -745,7 +733,6 @@ body.modal-open {
 }
 .flip-shading {
   opacity: 0;
- 
 }
 
 .flip-title {
@@ -757,7 +744,7 @@ body.modal-open {
   transition: all 0.2s var(--magic-bezier);
 }
 .flip-card:hover .flip-card-inner .flip-shading {
-  transition: all ;
+  transition: all;
   opacity: 1;
 }
 .flip-card:hover .flip-card-inner {
@@ -987,6 +974,21 @@ body.modal-open {
     transform: translateY(0%);
   }
 }
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px) rotate(-15deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.55s ease-out forwards;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -1074,4 +1076,3 @@ body.modal-open {
 .custom-cursor {
   cursor: url("/assets/story_A.webp"), auto;
 }
-
