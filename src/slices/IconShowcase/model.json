@@ -350,6 +350,118 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "iconShowcaseV2",
+      "name": "IconShowcaseV2",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "data": {
+          "type": "Group",
+          "config": {
+            "label": "Data",
+            "repeat": true,
+            "fields": {
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
+                }
+              },
+              "isanimatedicon": {
+                "type": "Boolean",
+                "config": {
+                  "label": "isAnimatedIcon",
+                  "default_value": false,
+                  "placeholder_true": "true",
+                  "placeholder_false": "false"
+                }
+              },
+              "animated_icon_json_format": {
+                "type": "Text",
+                "config": {
+                  "label": "Animated Icon JSON format",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "asset_1": {
+          "type": "Image",
+          "config": {
+            "label": "Asset 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "asset_2": {
+          "type": "Image",
+          "config": {
+            "label": "Asset 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

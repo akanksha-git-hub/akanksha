@@ -100,6 +100,100 @@ const IconShowcase = ({ slice, context }) => {
       </section>
     );
   }
+  if (slice.variation === "iconShowcaseV2") {
+    return (
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="relative"
+      >
+        <div className="absolute -left-12  top-[700px]">
+      <PrismicNextImage
+        field={slice.primary.asset_1}
+        className="h-full w-[300px] object-cover"
+        height={1800}
+        width={1800}
+      />
+    </div>
+    <div className="absolute -right-12 bottom-[470px]">
+      <PrismicNextImage
+        field={slice.primary.asset_2}
+        className="h-full w-[250px] object-cover"
+        height={1800}
+        width={1800}
+      />
+      </div>
+        <RenderIdentifier />
+        <div className="mb-12 space-y-8 mt-12">
+          <RichText
+            text={slice.primary.title}
+            className="font-ambit-regular  text-black text-5xl md:text-7xl md:text-center flex md:items-center md:justify-center md:w-[15ch] mx-auto "
+          />
+          <RichText
+            text={slice.primary.description}
+            className="font-ambit-regular text-black text-xl md:text-2xl md:text-center flex md:items-center md:justify-center lg:w-[65%] mx-auto"
+          />
+        </div>
+        <div className="mt-16">
+          <PrismicNextImage
+            field={slice.primary.image}
+            className="md:h-[45%] md:w-[45%] object-contain mx-auto "
+            height={1800}
+            width={1800}
+          />
+        </div>
+        {slice.primary.data && (
+          <ul className="grid md:grid-cols-2 gap-x-8 gap-y-10 w-full md:max-w-[1000px] mx-auto mt-16 ">
+            {slice.primary.data.map((item, index) => {
+             
+              let LottieData = null;
+              if (item.animated_icon_json_format) {
+                LottieData = JSON.parse(item.animated_icon_json_format);
+              }
+              return (
+                <li
+                  key={item.title}
+                  className="flex flex-col items-start justify-start space-y-4   "
+                     
+                >
+                  <div className="h-28 w-28 rounded-full flex items-center justify-center">
+                    {item.isanimatedicon ? (
+                      <div className="h-[80%] w-[80%]">
+                        <Lottie
+                          animationData={LottieData}
+                          className="h-full w-full"
+                        />
+                      </div>
+                    ) : (
+                      <div className="h-[82%] w-[82%]">
+                        <PrismicNextImage
+                          field={item.icon}
+                          height={60}
+                          width={60}
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                    )}
+                  </div>
+                  <div className="space-y-6 p-4">
+                    <RichText
+                      text={item.title}
+                      className="text-black font-ambit-semibold text-3xl md:text-4xl w-[13ch]"
+                    />
+                    <RichText
+                      text={item.description}
+                      className="text-black font-ambit-regular text-md md:text-lg"
+                    />
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </section>
+    );
+  }
+
 
   if (slice.variation === "titleAndSubtitle") {
     return (
@@ -174,6 +268,77 @@ const IconShowcase = ({ slice, context }) => {
   }
 
   if (slice.variation === "withTitleDefault") {
+    const { removePagePadding } = context;
+    return (
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className={`${
+          removePagePadding ? " " : "universal-padding"
+        } my-12 pt-12`}
+      >
+        <RenderIdentifier />
+        <RichText
+          text={slice.primary.title}
+          className="font-ambit-regular text-black md:text-6xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto text-3xl sm:text-5xl xl:w-[46%] text-left xl:text-5xl 3xl:w-[48rem] 3xl:text-6xl mt-14"
+        />
+        {slice.primary.data && (
+          <ul className="grid md:grid-cols-2 xl:grid-cols-3 mt-14 gap-4">
+            {slice.primary.data.map((item, index) => {
+              let LottieData = null;
+              if (item.animated_icon_json_format) {
+                LottieData = JSON.parse(item.animated_icon_json_format);
+              }
+              return (
+                <li
+                  key={item.title}
+                  className={`flex flex-col items-start justify-start space-y-4 border rounded-3xl p-8 ${
+                    index % 2 === 0 && "bg-v2-yellow"
+                  } group relative overflow-hidden`}
+                >
+                  <div className="absolute top-0 -left-6 group-hover:left-0 h-full w-4 transition-all">
+                    <div className="h-full w-full">
+                      <Image src={PencilShading} alt="img" fill />
+                    </div>
+                  </div>
+                  <div className="h-32 w-32 xl:h-28 xl:w-28 rounded-full flex items-center justify-start">
+                    {item.isanimatedicon ? (
+                      <div className="h-[80%] w-[80%]">
+                        <Lottie
+                          animationData={LottieData}
+                          className="h-full w-full"
+                        />
+                      </div>
+                    ) : (
+                      <div className="h-[82%] w-[82%]">
+                        <PrismicNextImage
+                          field={item.icon}
+                          height={60}
+                          width={60}
+                          className="h-full w-full object-contain"
+                        />
+                      </div>
+                    )}
+                  </div>
+                  <div className="space-y-2">
+                    <RichText
+                      text={item.title}
+                      className="text-black font-ambit-semibold text-2xl"
+                    />
+                    <RichText
+                      text={item.description}
+                      className="text-black font-ambit-regular text-lg"
+                    />
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </section>
+    );
+  }
+if (slice.variation === "withTitleDefault") {
     const { removePagePadding } = context;
     return (
       <section
