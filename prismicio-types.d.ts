@@ -8867,6 +8867,62 @@ export interface IconShowcaseSliceWithTitleDefaultPrimaryDataItem {
 }
 
 /**
+ * Item in *IconShowcase → IconShowcaseV2 → Primary → Data*
+ */
+export interface IconShowcaseSliceIconShowcaseV2PrimaryDataItem {
+  /**
+   * Icon field in *IconShowcase → IconShowcaseV2 → Primary → Data*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.data[].icon
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *IconShowcase → IconShowcaseV2 → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.data[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *IconShowcase → IconShowcaseV2 → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.data[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * isAnimatedIcon field in *IconShowcase → IconShowcaseV2 → Primary → Data*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.data[].isanimatedicon
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  isanimatedicon: prismic.BooleanField;
+
+  /**
+   * Animated Icon JSON format field in *IconShowcase → IconShowcaseV2 → Primary → Data*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.data[].animated_icon_json_format
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  animated_icon_json_format: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *IconShowcase → Default → Primary*
  */
 export interface IconShowcaseSliceDefaultPrimary {
@@ -9137,13 +9193,115 @@ export type IconShowcaseSliceWithTitleDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *IconShowcase → IconShowcaseV2 → Primary*
+ */
+export interface IconShowcaseSliceIconShowcaseV2Primary {
+  /**
+   * Slice Identifier field in *IconShowcase → IconShowcaseV2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *IconShowcase → IconShowcaseV2 → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
+   * Title field in *IconShowcase → IconShowcaseV2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *IconShowcase → IconShowcaseV2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Image field in *IconShowcase → IconShowcaseV2 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Data field in *IconShowcase → IconShowcaseV2 → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.data[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  data: prismic.GroupField<
+    Simplify<IconShowcaseSliceIconShowcaseV2PrimaryDataItem>
+  >;
+
+  /**
+   * Asset 1 field in *IconShowcase → IconShowcaseV2 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.asset_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_1: prismic.ImageField<never>;
+
+  /**
+   * Asset 2 field in *IconShowcase → IconShowcaseV2 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.asset_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_2: prismic.ImageField<never>;
+}
+
+/**
+ * IconShowcaseV2 variation for IconShowcase Slice
+ *
+ * - **API ID**: `iconShowcaseV2`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IconShowcaseSliceIconShowcaseV2 = prismic.SharedSliceVariation<
+  "iconShowcaseV2",
+  Simplify<IconShowcaseSliceIconShowcaseV2Primary>,
+  never
+>;
+
+/**
  * Slice variation for *IconShowcase*
  */
 type IconShowcaseSliceVariation =
   | IconShowcaseSliceDefault
   | IconShowcaseSliceWithTitle
   | IconShowcaseSliceTitleAndSubtitle
-  | IconShowcaseSliceWithTitleDefault;
+  | IconShowcaseSliceWithTitleDefault
+  | IconShowcaseSliceIconShowcaseV2;
 
 /**
  * IconShowcase Shared Slice
@@ -13706,6 +13864,41 @@ export interface SliderShowcaseSliceSliderFvariationPrimaryItemsItem {
 }
 
 /**
+ * Item in *SliderShowcase → sliderFV2 → Primary → Items*
+ */
+export interface SliderShowcaseSliceSliderFv2PrimaryItemsItem {
+  /**
+   * Title field in *SliderShowcase → sliderFV2 → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderFv2.primary.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *SliderShowcase → sliderFV2 → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderFv2.primary.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Image field in *SliderShowcase → sliderFV2 → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderFv2.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *SliderShowcase → Default → Primary*
  */
 export interface SliderShowcaseSliceDefaultPrimary {
@@ -14163,6 +14356,77 @@ export type SliderShowcaseSliceSliderFvariation = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *SliderShowcase → sliderFV2 → Primary*
+ */
+export interface SliderShowcaseSliceSliderFv2Primary {
+  /**
+   * Slice Identifier field in *SliderShowcase → sliderFV2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderFv2.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *SliderShowcase → sliderFV2 → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: slider_showcase.sliderFv2.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
+   * Items field in *SliderShowcase → sliderFV2 → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderFv2.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<SliderShowcaseSliceSliderFv2PrimaryItemsItem>
+  >;
+
+  /**
+   * asset 1 field in *SliderShowcase → sliderFV2 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderFv2.primary.asset_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_1: prismic.ImageField<never>;
+
+  /**
+   * asset_2 field in *SliderShowcase → sliderFV2 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderFv2.primary.asset_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_2: prismic.ImageField<never>;
+}
+
+/**
+ * sliderFV2 variation for SliderShowcase Slice
+ *
+ * - **API ID**: `sliderFv2`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SliderShowcaseSliceSliderFv2 = prismic.SharedSliceVariation<
+  "sliderFv2",
+  Simplify<SliderShowcaseSliceSliderFv2Primary>,
+  never
+>;
+
+/**
  * Slice variation for *SliderShowcase*
  */
 type SliderShowcaseSliceVariation =
@@ -14172,7 +14436,8 @@ type SliderShowcaseSliceVariation =
   | SliderShowcaseSliceSliderD
   | SliderShowcaseSliceSliderE
   | SliderShowcaseSliceSliderF
-  | SliderShowcaseSliceSliderFvariation;
+  | SliderShowcaseSliceSliderFvariation
+  | SliderShowcaseSliceSliderFv2;
 
 /**
  * SliderShowcase Shared Slice
@@ -16462,11 +16727,14 @@ declare module "@prismicio/client" {
       IconShowcaseSliceTitleAndSubtitlePrimary,
       IconShowcaseSliceWithTitleDefaultPrimaryDataItem,
       IconShowcaseSliceWithTitleDefaultPrimary,
+      IconShowcaseSliceIconShowcaseV2PrimaryDataItem,
+      IconShowcaseSliceIconShowcaseV2Primary,
       IconShowcaseSliceVariation,
       IconShowcaseSliceDefault,
       IconShowcaseSliceWithTitle,
       IconShowcaseSliceTitleAndSubtitle,
       IconShowcaseSliceWithTitleDefault,
+      IconShowcaseSliceIconShowcaseV2,
       IconShowcaseLocationSlice,
       IconShowcaseLocationSliceDefaultPrimaryDataItem,
       IconShowcaseLocationSliceDefaultPrimary,
@@ -16635,6 +16903,8 @@ declare module "@prismicio/client" {
       SliderShowcaseSliceSliderFPrimary,
       SliderShowcaseSliceSliderFvariationPrimaryItemsItem,
       SliderShowcaseSliceSliderFvariationPrimary,
+      SliderShowcaseSliceSliderFv2PrimaryItemsItem,
+      SliderShowcaseSliceSliderFv2Primary,
       SliderShowcaseSliceVariation,
       SliderShowcaseSliceDefault,
       SliderShowcaseSliceSliderB,
@@ -16643,6 +16913,7 @@ declare module "@prismicio/client" {
       SliderShowcaseSliceSliderE,
       SliderShowcaseSliceSliderF,
       SliderShowcaseSliceSliderFvariation,
+      SliderShowcaseSliceSliderFv2,
       StudentVisionSlice,
       StudentVisionSliceDefaultPrimaryDescriptionItem,
       StudentVisionSliceDefaultPrimary,

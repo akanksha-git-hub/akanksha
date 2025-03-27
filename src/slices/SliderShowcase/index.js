@@ -638,6 +638,149 @@ const SliderShowcase = ({ slice, context }) => {
       </section>
     );
   }
+  if (slice.variation === "sliderFv2") {
+    return (
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className={`relative mt-8 ${addUniversalPadding ? "universal-padding" : ""}`}
+      >
+        <div>
+        <RenderIdentifier show={show_identifier} text={slice_identifier} />
+
+        </div>
+
+        <div className="flex flex-col xl:flex-row items-start justify-between h-full   w-full  mt-10  ">
+         
+          <div className=" h-full w-full   xl:mt-0 ">
+            <ul className="hidden">
+              <Swiper
+                ref={storyRef}
+                className="w-full sm:w-screen flex items-start "
+                breakpoints={{
+                  2500: {
+                    slidesPerView: 5.6,
+                  },
+                  1200: {
+                    slidesPerView: 4.3,
+                  },
+                  600: {
+                    slidesPerView: 3,
+                  },
+                  10: {
+                    slidesPerView: 2.2,
+                  },
+                }}
+              ></Swiper>
+            </ul>
+            <Swiper
+              ref={mainRef}
+              className="w-full h-full rounded-lg "
+              onActiveIndexChange={(swiper) => {
+                setCurrent(current);
+                storyRef.current.swiper.slideTo(current - 1);
+              }}
+              onSlideChange={(e) => setCurrent(() => e.activeIndex)}
+            >
+              {slice.primary.items.map((item, index) => {
+                return (
+                  <SwiperSlide className="!h-full !w-full" key={index}>
+                    <SwiperClick
+                      className="absolute opacity-0"
+                      text="Next"
+                      ref={nextRef}
+                    />
+                    <SwiperClick
+                      className="absolute opacity-0"
+                      isPrev
+                      text="Prev"
+                      ref={prevRef}
+                    />
+
+                    <div className="flex gap-2 xl:gap-0 flex-col xl:flex-row      items-start justify-end">
+                    
+                      <div className="w-full   xl:h-[33rem] xl:max-w-[50%]  flex flex-col items-center justify-center relative">
+                       
+
+                        {/* Title and Description Section */}
+<div className="flex flex-col mt-12">
+<RichText
+                          className="text-black text-2xl md:text-5xl font-ambit-regular w-full xl:w-[94%] opacity-reveal"
+                          text={
+                            slice.primary.items &&
+                            slice.primary.items[current]?.title
+                              ? slice.primary.items[current].title
+                              : "No description available"
+                          }
+                        />
+                        <RichText
+                          className="text-black text-lg md:text-xl font-ambit-regular w-full xl:w-[94%] opacity-reveal mt-4 xl:mt-0 "
+                          text={
+                            slice.primary.items &&
+                            slice.primary.items[current]?.description
+                              ? slice.primary.items[current].description
+                              : "No description available"
+                          }
+                        />
+                          <div className="  hidden xl:flex flex-row items-center justify-center  mr-auto  gap-2  mt-6 xl:mt-6">
+              <SwiperArrow
+                strokeColor="#37473C"
+                className="rotate-180"
+                onClick={swipePrev}
+                isDisabled={current === 0}
+              />
+              <SwiperArrow
+                strokeColor="#37473C"
+                onClick={swipeNext}
+                isDisabled={current === slice.primary.items.length - 1}
+              />
+            </div>
+                       
+                      </div>
+                      
+            </div>
+                      <ImageComponent
+                        className="w-full  h-full mt-4 xl:mt-0"
+                        image={item.image}
+                      />
+                    </div>
+                    
+                   
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+            <div className=" xl:hidden  flex items-center justify-center md:justify-start mr-auto  gap-2  mt-6 xl:mt-0">
+              <SwiperArrow
+                strokeColor="#37473C"
+                className="rotate-180"
+                onClick={swipePrev}
+                isDisabled={current === 0}
+              />
+              <SwiperArrow
+                strokeColor="#37473C"
+                onClick={swipeNext}
+                isDisabled={current === slice.primary.items.length - 1}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="hidden xl:block absolute top-24 -left-12  lg:h-[200px] lg:w-[100px]  -z-10">
+          <PrismicNextImage
+            className="h-full w-full object-cover"
+            field={slice.primary.asset_1}
+          />
+        </div>
+        <div className="hidden xl:block absolute -bottom-28 -right-12  lg:h-[220px] lg:w-[220px]  z-10">
+          <PrismicNextImage
+            className="h-full w-full object-cover"
+            field={slice.primary.asset_2}
+          />
+        </div>
+      </section>
+    );
+  }
 
   return (
     <>
@@ -797,7 +940,7 @@ const SliderShowcase = ({ slice, context }) => {
                       className={`${sliderBIndex === index ? "bg-bright-yellow p-4 lg:p-8 scale-100" : "p-4 lg:p-8 scale-90"} 
                       transition-all w-[16rem] sm:w-[24rem] lg:w-[33rem] rounded-md`}
                     >
-                      <div className="w-full h-[14rem] sm:min-h-[18rem] lg:min-h-[24rem] rounded-md overflow-hidden">
+                      <div className="w-full h-[14rem] sm:min-h-[18rem] lg:min-h-[24rem] rounded-md overflow-hdden">
                         <PrismicNextImage
                           className="h-full w-full object-cover"
                           field={item.image}
