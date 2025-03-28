@@ -1,0 +1,49 @@
+{
+  "id": "box_arrow_section",
+  "type": "SharedSlice",
+  "name": "BoxArrowSection",
+  "description": "BoxArrowSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "box": {
+          "type": "Group",
+          "config": {
+            "label": "Box",
+            "repeat": true,
+            "fields": {
+              "heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Heading",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
+                }
+              },
+              "hex_color": {
+                "type": "Text",
+                "config": {
+                  "label": "Hex Color",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -12,7 +12,7 @@ export default async function Page() {
 
   const context = { addPadding: true };
   return (
-    <main className={`${maxwidth}`}>
+    <main className={`${maxwidth} universal-padding`}>
       <SliceZone
         slices={page.data.slices}
         components={components}
