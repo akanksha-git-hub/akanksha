@@ -26,6 +26,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "cards": {
+              "type": "SharedSlice"
+            },
+            "box_arrow_section": {
+              "type": "SharedSlice"
+            },
+            "our_theory": {
+              "type": "SharedSlice"
+            },
             "impact_point2": {
               "type": "SharedSlice"
             },
@@ -48,9 +57,6 @@
               "type": "SharedSlice"
             },
             "horizontal_scroll_slice": {
-              "type": "SharedSlice"
-            },
-            "impact_key_stage": {
               "type": "SharedSlice"
             },
             "impact_hero": {

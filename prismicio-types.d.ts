@@ -2250,6 +2250,9 @@ export type HorizontalcarddDocument<Lang extends string = string> =
   >;
 
 type ImpactDocumentDataSlicesSlice =
+  | CardsSlice
+  | BoxArrowSectionSlice
+  | OurTheorySlice
   | ImpactPoint2Slice
   | ImpactPointsSlice
   | ImpactShuffleSlice
@@ -2258,7 +2261,6 @@ type ImpactDocumentDataSlicesSlice =
   | Alumini2Slice
   | AluminiSlice
   | HorizontalScrollSliceSlice
-  | ImpactKeyStageSlice
   | ImpactHeroSlice;
 
 /**
@@ -5506,6 +5508,86 @@ type BlogRecentsSliceVariation =
 export type BlogRecentsSlice = prismic.SharedSlice<
   "blog_recents",
   BlogRecentsSliceVariation
+>;
+
+/**
+ * Item in *BoxArrowSection → Default → Primary → Box*
+ */
+export interface BoxArrowSectionSliceDefaultPrimaryBoxItem {
+  /**
+   * Heading field in *BoxArrowSection → Default → Primary → Box*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: box_arrow_section.default.primary.box[].heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *BoxArrowSection → Default → Primary → Box*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: box_arrow_section.default.primary.box[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Hex Color field in *BoxArrowSection → Default → Primary → Box*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: box_arrow_section.default.primary.box[].hex_color
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hex_color: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *BoxArrowSection → Default → Primary*
+ */
+export interface BoxArrowSectionSliceDefaultPrimary {
+  /**
+   * Box field in *BoxArrowSection → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: box_arrow_section.default.primary.box[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  box: prismic.GroupField<Simplify<BoxArrowSectionSliceDefaultPrimaryBoxItem>>;
+}
+
+/**
+ * Default variation for BoxArrowSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BoxArrowSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BoxArrowSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BoxArrowSection*
+ */
+type BoxArrowSectionSliceVariation = BoxArrowSectionSliceDefault;
+
+/**
+ * BoxArrowSection Shared Slice
+ *
+ * - **API ID**: `box_arrow_section`
+ * - **Description**: BoxArrowSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BoxArrowSectionSlice = prismic.SharedSlice<
+  "box_arrow_section",
+  BoxArrowSectionSliceVariation
 >;
 
 /**
@@ -11902,6 +11984,102 @@ export type OurTeamSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *OurTheory → Default → Primary*
+ */
+export interface OurTheorySliceDefaultPrimary {
+  /**
+   * Slice Identifier field in *OurTheory → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_theory.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *OurTheory → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: our_theory.default.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
+   * Title field in *OurTheory → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_theory.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *OurTheory → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_theory.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Asset 1 field in *OurTheory → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_theory.default.primary.asset_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_1: prismic.ImageField<never>;
+
+  /**
+   * Asset 2 field in *OurTheory → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_theory.default.primary.asset_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_2: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for OurTheory Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OurTheorySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<OurTheorySliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *OurTheory*
+ */
+type OurTheorySliceVariation = OurTheorySliceDefault;
+
+/**
+ * OurTheory Shared Slice
+ *
+ * - **API ID**: `our_theory`
+ * - **Description**: OurTheory
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OurTheorySlice = prismic.SharedSlice<
+  "our_theory",
+  OurTheorySliceVariation
+>;
+
+/**
  * Primary content in *PageTitle → Default → Primary*
  */
 export interface PageTitleSliceDefaultPrimary {
@@ -16620,6 +16798,11 @@ declare module "@prismicio/client" {
       BlogRecentsSliceVariation,
       BlogRecentsSliceDefault,
       BlogRecentsSliceTagVariation,
+      BoxArrowSectionSlice,
+      BoxArrowSectionSliceDefaultPrimaryBoxItem,
+      BoxArrowSectionSliceDefaultPrimary,
+      BoxArrowSectionSliceVariation,
+      BoxArrowSectionSliceDefault,
       CardShowcaseSlice,
       CardShowcaseSliceDefaultPrimary,
       CardShowcaseSliceCardsShowcaseBPrimaryItemsItem,
@@ -16823,6 +17006,10 @@ declare module "@prismicio/client" {
       OurTeamSliceDefaultPrimary,
       OurTeamSliceVariation,
       OurTeamSliceDefault,
+      OurTheorySlice,
+      OurTheorySliceDefaultPrimary,
+      OurTheorySliceVariation,
+      OurTheorySliceDefault,
       PageTitleSlice,
       PageTitleSliceDefaultPrimary,
       PageTitleSliceSparklePrimary,

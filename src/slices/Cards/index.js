@@ -15,6 +15,9 @@ import Image from "next/image";
 const Cards = ({ slice }) => {
    const { show_identifier, slice_identifier } = slice.primary;
     
+
+const hasTitle = slice.primary.title && slice.primary.title.length > 0;
+const hasDescription = slice.primary.description && slice.primary.description.length > 0;
       const RenderIdentifier = () =>
         show_identifier && <SliceIdentifier text={slice_identifier} />;
   let cards = [];
@@ -113,19 +116,32 @@ const Cards = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="relative mt-16"
     >
+      
       <RenderIdentifier />
 
       {slice.variation !== "withUnderline" && (
-        <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between space-y-2 xl:space-y-0 xl:space-x-4 mt-8 md:mt-12">
-          <RichText
-            text={slice.primary.title}
-            className="text-black font-ambit-regular text-6xl text-left xl:text-center mt-8"
-          />
-          <RichText
-            text={slice.primary.description}
-            className="text-black font-ambit-regular text-[1.35rem] md:text-left max-w-[50ch]  pt-8  "
-          />
-        </div>
+      <div
+      className={`flex flex-col ${
+        hasTitle && hasDescription ? 'xl:flex-row xl:items-center xl:justify-between' : ''
+      } space-y-2 xl:space-y-0 xl:space-x-4 mt-8 md:mt-12`}
+    >
+       <RichText
+         text={slice.primary.title}
+         className={`text-black font-ambit-regular text-6xl mt-8 ${
+           !slice.primary.description || slice.primary.description.length === 0
+             ? 'text-center'
+             : 'text-left xl:text-center'
+         }`}
+       />
+     
+       {slice.primary.description && slice.primary.description.length > 0 && (
+         <RichText
+           text={slice.primary.description}
+           className="text-black font-ambit-regular text-[1.35rem] md:text-left max-w-[50ch] pt-8"
+         />
+       )}
+     </div>
+     
       )}
 
       {slice.variation === "withUnderline" && (

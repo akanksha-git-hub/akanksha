@@ -23,7 +23,7 @@ export default function CardsTwoDesktopB({ data }) {
                         border 
                         ${i === 0 ? 'rotate-[-6deg]' : 'rotate-[6deg]  '}
                         ${active === i ? 'bg-bright-yellow border-transparent opacity-100  z-10' : 'border-deep-green opacity-70'}
-                        rounded-t-[10px] px-8 pt-8 pb-16 space-y-2 w-[420px] max-h-[500px] flex items-center justify-center transition-all relative `} 
+                        rounded-t-[10px] px-8 pt-8 pb-16 space-y-2 w-[420px]  flex items-center justify-center transition-all relative `} 
                     key={i}
                 >
                      {i === 0 && (
