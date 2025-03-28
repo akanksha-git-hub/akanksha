@@ -38,13 +38,13 @@ const ImpactHero = ({ slice }) => {
       <PrismicNextImage
         field={slice.primary.left_image}
         alt=""
-        className="absolute top-96  left-32 w-40 h-40 hidden xl:block"
+        className="absolute top-40  left-52 w-40 h-40 hidden xl:block"
       />
       {/* Right Butterfly Image */}
       <PrismicNextImage
         field={slice.primary.right_image}
         alt=""
-        className="absolute top-36 right-44 w-32 h-32 hidden xl:block"
+        className="absolute top-16 right-72 w-28 h-28 hidden xl:block"
       />
       <div className=" mt-4 ">
         <div className="w-full  md:text-center text-start ">
