@@ -46,6 +46,7 @@ export const components = {
   partners_showcase: dynamic(() => import("./PartnersShowcase")),
   picture_tab_slice: dynamic(() => import("./PictureTabSlice")),
   program_showcase: dynamic(() => import("./ProgramShowcase")),
+  quote: dynamic(() => import("./Quote")),
   retention: dynamic(() => import("./Retention")),
   rotating_carousel: dynamic(() => import("./RotatingCarousel")),
   setu_accordian: dynamic(() => import("./SetuAccordian")),

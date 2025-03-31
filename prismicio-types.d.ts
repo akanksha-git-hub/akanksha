@@ -2250,6 +2250,7 @@ export type HorizontalcarddDocument<Lang extends string = string> =
   >;
 
 type ImpactDocumentDataSlicesSlice =
+  | QuoteSlice
   | CardsSlice
   | BoxArrowSectionSlice
   | OurTheorySlice
@@ -13194,6 +13195,58 @@ export type ProgramShowcaseSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Quote → Default → Primary*
+ */
+export interface QuoteSliceDefaultPrimary {
+  /**
+   * Quote field in *Quote → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote.default.primary.quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField;
+
+  /**
+   * Quote Image field in *Quote → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote.default.primary.quote_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  quote_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Quote Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuoteSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<QuoteSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Quote*
+ */
+type QuoteSliceVariation = QuoteSliceDefault;
+
+/**
+ * Quote Shared Slice
+ *
+ * - **API ID**: `quote`
+ * - **Description**: Quote
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuoteSlice = prismic.SharedSlice<"quote", QuoteSliceVariation>;
+
+/**
  * Primary content in *Retention → Default → Primary*
  */
 export interface RetentionSliceDefaultPrimary {
@@ -17051,6 +17104,10 @@ declare module "@prismicio/client" {
       ProgramShowcaseSliceOptionC,
       ProgramShowcaseSliceWithButton,
       ProgramShowcaseSliceOurApproachPage,
+      QuoteSlice,
+      QuoteSliceDefaultPrimary,
+      QuoteSliceVariation,
+      QuoteSliceDefault,
       RetentionSlice,
       RetentionSliceDefaultPrimary,
       RetentionSliceVariation,
