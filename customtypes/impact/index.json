@@ -26,6 +26,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "impact_marquee": {
+              "type": "SharedSlice"
+            },
+            "alumini_grid": {
+              "type": "SharedSlice"
+            },
             "quote": {
               "type": "SharedSlice"
             },

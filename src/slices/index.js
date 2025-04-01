@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 export const components = {
   alumini: dynamic(() => import("./Alumini")),
   alumini2: dynamic(() => import("./Alumini2")),
+  alumini_grid: dynamic(() => import("./AluminiGrid")),
   blog_category_items: dynamic(() => import("./ResourcesCategoryItems")),
   blog_highlight: dynamic(() => import("./ResourcedHighlight")),
   blog_recents: dynamic(() => import("./ResourcesRecents")),
@@ -31,6 +32,7 @@ export const components = {
   image_showcase: dynamic(() => import("./ImageShowcase")),
   impact_hero: dynamic(() => import("./ImpactHero")),
   impact_key_stage: dynamic(() => import("./ImpactKeyStage")),
+  impact_marquee: dynamic(() => import("./ImpactMarquee")),
   impact_point2: dynamic(() => import("./ImpactPoint2")),
   impact_points: dynamic(() => import("./ImpactPoints")),
   impact_shuffle: dynamic(() => import("./ImpactShuffle")),

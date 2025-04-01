@@ -1,0 +1,83 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"card_1_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "directly",
+				"type": "Text"
+			},
+			"card_1_description": {
+				"__TYPE__": "FieldContent",
+				"value": "cake",
+				"type": "Text"
+			},
+			"universities": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+										"width": 4076,
+										"height": 2712
+									},
+									"url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+									"width": 4076,
+									"height": 2712,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"credits": null,
+									"alt": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							]
+						]
+					}
+				]
+			},
+			"card_2_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+					"width": 5243,
+					"height": 3495
+				},
+				"url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+				"width": 5243,
+				"height": 3495,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"card_2_description": {
+				"__TYPE__": "FieldContent",
+				"value": "next",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

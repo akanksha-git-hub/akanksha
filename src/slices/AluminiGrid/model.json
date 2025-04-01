@@ -1,0 +1,172 @@
+{
+  "id": "alumini_grid",
+  "type": "SharedSlice",
+  "name": "AluminiGrid",
+  "description": "AluminiGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_1_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 Description",
+            "placeholder": ""
+          }
+        },
+        "card_2_percentage_1": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 percentage 1",
+            "placeholder": ""
+          }
+        },
+        "card_2_description_1": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Description 1",
+            "placeholder": ""
+          }
+        },
+        "card_2_percentage_2": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Percentage 2",
+            "placeholder": ""
+          }
+        },
+        "card_2_description_2": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Description 2",
+            "placeholder": ""
+          }
+        },
+        "card_3_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Card 3 Icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_3_percentage_1": {
+          "type": "Text",
+          "config": {
+            "label": "Card 3 Percentage 1",
+            "placeholder": ""
+          }
+        },
+        "card_3_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 3 Description",
+            "placeholder": ""
+          }
+        },
+        "card_4_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Card 4 Icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_4_percentage": {
+          "type": "Text",
+          "config": {
+            "label": "Card 4 Percentage",
+            "placeholder": ""
+          }
+        },
+        "card_4_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 4 Description",
+            "placeholder": ""
+          }
+        },
+        "card_5_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Card 5 Icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_5_percentage": {
+          "type": "Text",
+          "config": {
+            "label": "Card 5 Percentage",
+            "placeholder": ""
+          }
+        },
+        "card_5_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 5 Description",
+            "placeholder": ""
+          }
+        },
+        "card_6_subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Card 6 subtitle",
+            "placeholder": ""
+          }
+        },
+        "card_6_percentage": {
+          "type": "Text",
+          "config": {
+            "label": "Card 6 Percentage",
+            "placeholder": ""
+          }
+        },
+        "card_6_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 6 Description",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
