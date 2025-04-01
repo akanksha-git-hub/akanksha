@@ -766,7 +766,7 @@ const SliderShowcase = ({ slice, context }) => {
           </div>
         </div>
 
-        <div className="absolute top-24 scale-x-[-1] xl:scale-x-100 -left-16 md:top-16 -right-20 md:-right-36  -z-10">
+        <div className="absolute top-10 scale-x-[-1] xl:scale-x-100 -left-16 md:top-16 -right-20 md:-right-36  -z-10">
 
     <PrismicNextImage
             className=" object-contain h-[200px] w-[200px]  md:h-[250px] md:w-[250px] xl:h-[200px] xl:w-[100px]"
