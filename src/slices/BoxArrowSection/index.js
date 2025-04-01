@@ -33,7 +33,7 @@ const BoxArrowSection = ({ slice }) => {
                 <>
                   {/* Box */}
                   <div  key={`box-${rowIndex}-${itemIndex}`}
-                    className="relative text-black p-6 flex flex-col justify-between w-[300px] min-h-[320px] "
+                    className="relative text-black p-6 flex flex-col justify-center w-[300px] md:h-[380px] xl:h-[320px] "
                     style={{ backgroundColor: item.hex_color }}
                 >
                     <h2 className="text-5xl font-ambit-regular mb-4">{item.heading}</h2>
