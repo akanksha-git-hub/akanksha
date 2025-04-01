@@ -766,13 +766,13 @@ const SliderShowcase = ({ slice, context }) => {
           </div>
         </div>
 
-        <div className="hidden xl:block absolute top-24 -left-12  lg:h-[200px] lg:w-[100px]  -z-10">
+        <div className="absolute top-24 -left-16 md:top-16 md:-left-24 xl:-left-12  xl:h-[200px] xl:w-[100px]  -z-10">
           <PrismicNextImage
             className="h-full w-full object-cover"
             field={slice.primary.asset_1}
           />
         </div>
-        <div className="hidden xl:block absolute -bottom-28 -right-12  lg:h-[220px] lg:w-[220px]  z-10">
+        <div className=" absolute md:-bottom-10 xl:-bottom-28  bottom-2 -right-4 md:-right-12 h-[100px] w-[100px] md:h-[220px] md:w-[220px]  z-10">
           <PrismicNextImage
             className="h-full w-full object-cover"
             field={slice.primary.asset_2}
