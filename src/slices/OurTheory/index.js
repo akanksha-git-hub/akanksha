@@ -29,18 +29,20 @@ const OurTheory = ({ slice }) => {
             {slice.primary.title}
           </h1>
       
-<div className="relative mx-auto bg-[#F4456E] font-ambit-regular text-white text-[1.35rem] max-w-[50%] mt-14 h-full px-12 py-6  " >
-<PrismicRichText  field={slice.primary.description} />
-<div className="absolute  top-1/2 -translate-y-1/2 left-0 z-10 ">
-<Image
-  src="/quote-left.png" 
-  alt="quote icon"
-  width={15}
-  height={60}
-  className="object-cover h-auto"
-/>
-        </div>
+          <div className="relative mx-auto bg-[#F4456E] font-ambit-regular text-white text-[1.35rem] max-w-full sm:max-w-[90%] md:max-w-[80%] lg:max-w-[70%] xl:max-w-[50%] mt-14 min-h-[200px] px-6 sm:px-8 md:px-10 lg:px-12 py-8">
+  <PrismicRichText field={slice.primary.description} />
+
+  <div className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-0 md:left-0 z-10">
+    <Image
+      src="/quote-left.png"
+      alt="quote icon"
+      width={15}
+      height={60}
+      className="object-cover h-auto"
+    />
+  </div>
 </div>
+
 
         <div className="absolute h-[45%] w-[45%] top-[15%] left-32 -z-10 ">
           <PrismicNextImage
