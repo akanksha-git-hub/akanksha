@@ -703,7 +703,7 @@ const SliderShowcase = ({ slice, context }) => {
                        
 
                         {/* Title and Description Section */}
-<div className="flex flex-col mt-12">
+<div className="flex flex-col mt-2">
 <RichText
                           className="text-black text-2xl md:text-5xl font-ambit-regular w-full xl:w-[94%] opacity-reveal"
                           text={
@@ -714,7 +714,7 @@ const SliderShowcase = ({ slice, context }) => {
                           }
                         />
                         <RichText
-                          className="text-black text-lg md:text-xl font-ambit-regular w-full xl:w-[94%] opacity-reveal mt-4 xl:mt-0 "
+                          className="text-black text-lg md:text-xl font-ambit-regular w-full xl:w-[94%] opacity-reveal mt-4 xl:mt-4 "
                           text={
                             slice.primary.items &&
                             slice.primary.items[current]?.description
@@ -766,13 +766,14 @@ const SliderShowcase = ({ slice, context }) => {
           </div>
         </div>
 
-        <div className="absolute top-24 -left-16 md:top-16 md:-left-24 xl:-left-12  xl:h-[200px] xl:w-[100px]  -z-10">
-          <PrismicNextImage
-            className="h-full w-full object-cover"
+        <div className="absolute top-24 scale-x-[-1] xl:scale-x-100 -left-16 md:top-16 -right-20 md:-right-36  -z-10">
+
+    <PrismicNextImage
+            className=" object-contain h-[200px] w-[200px]  md:h-[250px] md:w-[250px] xl:h-[200px] xl:w-[100px]"
             field={slice.primary.asset_1}
           />
         </div>
-        <div className=" absolute md:-bottom-10 xl:-bottom-28  bottom-2 -right-4 md:-right-12 h-[100px] w-[100px] md:h-[220px] md:w-[220px]  z-10">
+        <div className=" absolute hidden md:block md:-bottom-6 xl:-bottom-28  bottom-2 -right-4 md:-right-12 h-[100px] w-[100px] md:h-[220px] md:w-[220px]  z-10">
           <PrismicNextImage
             className="h-full w-full object-cover"
             field={slice.primary.asset_2}

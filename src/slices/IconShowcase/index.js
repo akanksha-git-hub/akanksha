@@ -107,15 +107,15 @@ const IconShowcase = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className="relative"
       >
-        <div className="absolute hidden md:block  -left-24 top-[380px] xl:-left-12  xl:top-[700px]">
+        <div className="absolute -left-6 top-[500px]  md:-left-24 md:top-[380px] xl:-left-12  xl:top-[700px]">
       <PrismicNextImage
         field={slice.primary.asset_1}
-        className="h-full w-[200px] xl:w-[300px] object-cover"
+        className="h-full w-[120px] md:w-[200px] xl:w-[300px] object-cover"
         height={1800}
         width={1800}
       />
     </div>
-    <div className="absolute hidden md:block -right-24 bottom-[1000px] xl:-right-12 xl:bottom-[470px]">
+    <div className="absolute -right-24 top-[750px] md:-right-20 md:bottom-[1000px] xl:-right-12 xl:bottom-[470px]">
       <PrismicNextImage
         field={slice.primary.asset_2}
         className="h-full w-[200px] xl:w-[250px] object-cover"
