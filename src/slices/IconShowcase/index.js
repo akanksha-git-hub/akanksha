@@ -115,10 +115,10 @@ const IconShowcase = ({ slice, context }) => {
         width={1800}
       />
     </div>
-    <div className="absolute -right-24 top-[750px] md:-right-20 md:bottom-[1000px] xl:-right-12 xl:bottom-[470px]">
+    <div className="absolute -right-24 top-[750px] md:-right-20 md:bottom-[1000px] xl:-right-28 xl:bottom-[470px]">
       <PrismicNextImage
         field={slice.primary.asset_2}
-        className="h-full w-[200px] xl:w-[250px] object-cover"
+        className="h-full w-[200px] xl:w-full xl:scale-75 object-cover"
         height={1800}
         width={1800}
       />
