@@ -1,0 +1,65 @@
+{
+  "id": "impact_marquee",
+  "type": "SharedSlice",
+  "name": "ImpactMarquee",
+  "description": "ImpactMarquee",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "card_1_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 Heading",
+            "placeholder": ""
+          }
+        },
+        "card_1_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 1 Description",
+            "placeholder": ""
+          }
+        },
+        "universities": {
+          "type": "Group",
+          "config": {
+            "label": "Universities",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "card_2_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card 2 Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_2_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Description",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
