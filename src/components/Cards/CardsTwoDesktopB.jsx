@@ -14,7 +14,7 @@ export default function CardsTwoDesktopB({ data }) {
     <ul className="flex items-center justify-center gap-4 xl:gap-4 my-24 relative   ">
           
         {data.map((item, i) => {
-            console.log(item);
+           
             
             return(
                 <li
@@ -54,8 +54,13 @@ export default function CardsTwoDesktopB({ data }) {
         <PrismicNextImage field={item.right_shading} />
       )}
     </div>
-                        
+    <RichText 
+                            text={item.subtitle}
+                            className='font-ambit-regular text-black text-4xl
+                                        text-center flex items-center justify-center'
+                        />             
     <div className="flex items-center justify-center">
+    
                          <PrismicNextImage field={item.card_image} />
                          </div>
                         <RichText 

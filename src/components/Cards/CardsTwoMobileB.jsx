@@ -10,7 +10,7 @@ export default function CardsTwoMobileB({ data }) {
             <li
                 className={`
                     border bg-bright-yellow border-transparent
-                    rounded-[10px] px-8 pt-8 pb-16 space-y-2 w-[420px] h-[420px] flex items-center justify-center transition-all
+                    rounded-[10px] px-8 pt-8 pb-16 space-y-2 w-[420px] min-h-[420px] flex items-center justify-center transition-all
                    relative `} 
                 key={i}
             >

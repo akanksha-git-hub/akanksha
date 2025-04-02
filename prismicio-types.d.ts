@@ -7312,6 +7312,175 @@ export type CardsSliceWithUnderline = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Cards → ImpactCards → Primary*
+ */
+export interface CardsSliceImpactCardsPrimary {
+  /**
+   * Slice Identifier field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Show Identifier field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: cards.impactCards.primary.show_identifier
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_identifier: prismic.BooleanField;
+
+  /**
+   * Title field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Card A title field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.card_a_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_title: prismic.KeyTextField;
+
+  /**
+   * Card A Subtitle field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.card_a_subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_subtitle: prismic.KeyTextField;
+
+  /**
+   * Card A description field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.card_a_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_a_description: prismic.KeyTextField;
+
+  /**
+   * Card B Title field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.card_b_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_title: prismic.KeyTextField;
+
+  /**
+   * Card B Subtitle field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.card_b_subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_subtitle: prismic.KeyTextField;
+
+  /**
+   * Card B description field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.card_b_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_b_description: prismic.KeyTextField;
+
+  /**
+   * left_asset field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.left_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_asset: prismic.ImageField<never>;
+
+  /**
+   * right_asset field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.right_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_asset: prismic.ImageField<never>;
+
+  /**
+   * left_shading field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.left_shading
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_shading: prismic.ImageField<never>;
+
+  /**
+   * right_shading field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.right_shading
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_shading: prismic.ImageField<never>;
+
+  /**
+   * Card A Image field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.card_a_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_a_image: prismic.ImageField<never>;
+
+  /**
+   * Card B Image field in *Cards → ImpactCards → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cards.impactCards.primary.card_b_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_b_image: prismic.ImageField<never>;
+}
+
+/**
+ * ImpactCards variation for Cards Slice
+ *
+ * - **API ID**: `impactCards`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardsSliceImpactCards = prismic.SharedSliceVariation<
+  "impactCards",
+  Simplify<CardsSliceImpactCardsPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *Cards*
  */
 type CardsSliceVariation =
@@ -7319,7 +7488,8 @@ type CardsSliceVariation =
   | CardsSliceOptionB
   | CardsSliceOptionC
   | CardsSliceOptionD
-  | CardsSliceWithUnderline;
+  | CardsSliceWithUnderline
+  | CardsSliceImpactCards;
 
 /**
  * Cards Shared Slice
@@ -17237,12 +17407,14 @@ declare module "@prismicio/client" {
       CardsSliceOptionCPrimary,
       CardsSliceOptionDPrimary,
       CardsSliceWithUnderlinePrimary,
+      CardsSliceImpactCardsPrimary,
       CardsSliceVariation,
       CardsSliceDefault,
       CardsSliceOptionB,
       CardsSliceOptionC,
       CardsSliceOptionD,
       CardsSliceWithUnderline,
+      CardsSliceImpactCards,
       DonationSliceSlice,
       DonationSliceSliceVariation,
       DonationSliceSliceDefault,
