@@ -89,6 +89,28 @@ const hasDescription = slice.primary.description && slice.primary.description.le
       },
     ];
   }
+  if (slice.variation === "impactCards") {
+    cards = [
+      {
+        subtitle:slice.primary.card_a_subtitle,
+        title: slice.primary.card_a_title,
+        desc: slice.primary.card_a_description,
+        left_asset: slice.primary.left_asset,
+        left_shading: slice.primary.left_shading,
+        sparkles_left: slice.primary.sparkles_left,
+        card_image: slice.primary.card_a_image,
+      },
+      {
+        subtitle:slice.primary.card_b_subtitle,
+        title: slice.primary.card_b_title,
+        desc: slice.primary.card_b_description,
+        right_asset: slice.primary.left_asset,
+        right_shading: slice.primary.left_shading,
+        sparkles_right: slice.primary.sparkles_right,
+        card_image: slice.primary.card_b_image,
+      },
+    ];
+  }
   if (slice.variation === "withUnderline") {
     cards = [
       {
@@ -181,6 +203,7 @@ const hasDescription = slice.primary.description && slice.primary.description.le
       {slice.variation === "optionB" && <CardsTwoContainer data={cards} />}
       {slice.variation === "optionC" && <CardsTwoContainerB data={cards} />}
       {slice.variation === "optionD" && <CardsTwoContainerB data={cards} />}
+      {slice.variation === "impactCards" && <CardsTwoContainerB data={cards} />}
     </section>
   );
 };

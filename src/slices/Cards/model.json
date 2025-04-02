@@ -538,6 +538,130 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "impactCards",
+      "name": "ImpactCards",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "slice_identifier": {
+          "type": "Text",
+          "config": {
+            "label": "Slice Identifier",
+            "placeholder": ""
+          }
+        },
+        "show_identifier": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Identifier",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "card_a_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card A title",
+            "placeholder": ""
+          }
+        },
+        "card_a_subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Card A Subtitle",
+            "placeholder": ""
+          }
+        },
+        "card_a_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card A description",
+            "placeholder": ""
+          }
+        },
+        "card_b_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card B Title",
+            "placeholder": ""
+          }
+        },
+        "card_b_subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "Card B Subtitle",
+            "placeholder": ""
+          }
+        },
+        "card_b_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card B description",
+            "placeholder": ""
+          }
+        },
+        "left_asset": {
+          "type": "Image",
+          "config": {
+            "label": "left_asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "right_asset": {
+          "type": "Image",
+          "config": {
+            "label": "right_asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "left_shading": {
+          "type": "Image",
+          "config": {
+            "label": "left_shading",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "right_shading": {
+          "type": "Image",
+          "config": {
+            "label": "right_shading",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_a_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card A Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_b_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card B Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
