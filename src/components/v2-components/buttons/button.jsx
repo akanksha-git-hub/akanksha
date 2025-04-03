@@ -16,7 +16,7 @@ const Button = forwardRef(function Button(
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
-    // Client-side only code
+    
     if (typeof window !== "undefined") {
       setIsTouchDevice(
         "ontouchstart" in window ||
