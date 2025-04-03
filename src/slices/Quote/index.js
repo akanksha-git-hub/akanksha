@@ -10,7 +10,7 @@ const Quote = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-    className="uiversal-padding mt-14 ">
+    className="uiversal-padding mt-16 ">
  <div className="relative w-full max-w-3xl h-64 mx-auto ">
   
   <div className="absolute top-4 left-4 w-12 h-12">
