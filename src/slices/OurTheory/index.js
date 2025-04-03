@@ -29,7 +29,7 @@ const OurTheory = ({ slice }) => {
             {slice.primary.title}
           </h1>
       
-          <div className="relative mx-auto bg-[#F4456E] font-ambit-regular text-white text-[1.35rem] max-w-full sm:max-w-[90%] md:max-w-[80%] lg:max-w-[70%] xl:max-w-[50%] mt-14 min-h-[200px] px-6 sm:px-8 md:px-10 lg:px-12 py-8">
+          <div className="relative mx-auto bg-[#F4456E] font-ambit-regular text-white text-[1.35rem] max-w-full sm:max-w-[90%] md:max-w-[80%]  xl:max-w-[50%] mt-14 min-h-[200px] px-6 sm:px-8 md:px-10 lg:px-12 py-8">
   <PrismicRichText field={slice.primary.description} />
 
   <div className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-0 md:left-0 z-10">
@@ -44,7 +44,7 @@ const OurTheory = ({ slice }) => {
 </div>
 
 
-        <div className="absolute h-[45%] w-[45%] top-[15%] left-32 -z-10 ">
+        <div className="absolute hidden md:block md:h-[65%] md:w-[65%] md:top-[25%] md:-left-36 xl:h-[45%] xl:w-[45%] xl:top-[15%] xl:left-32 -z-10 ">
           <PrismicNextImage
             height={1000}
             width={1000}
@@ -52,7 +52,7 @@ const OurTheory = ({ slice }) => {
             alt=""
           />
         </div>
-        <div className="absolute h-[18%] w-[18%] top-[50%] right-64 -z-10 ">
+        <div className="absolute hidden md:block md:h-[30%] md:w-[30%] md:top-[55%] md:-right-12 xl:h-[18%] xl:w-[18%] xl:top-[50%] xl:right-64 -z-10 ">
           <PrismicNextImage
             height={1000}
             width={1000}
