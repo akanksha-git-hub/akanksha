@@ -1,5 +1,6 @@
 import SliceIdentifier from "@/components/SliceIdentifier";
 import HeadingAndDescription from "@/components/v2-components/HeadingAndDescription";
+import { PrismicNextImage } from "@prismicio/next";
 
 /**
  * @typedef {import("@prismicio/client").Content.AluminiGridSlice} AluminiGridSlice
@@ -25,10 +26,17 @@ const AluminiGrid = ({ slice }) => {
               </h1>
               {/* //Row 1  */}
               <div className="flex  lg:flex-row flex-col lg:space-x-4 justify-between  items-stretch mt-8  min-h-[250px]    ">
-                <div className="flex flex-row    p-8  lg:w-[55%] w-full relative border-[0.15rem] border-black  md:hover:bg-v2-yellow">
+                <div className="flex flex-row    p-8 md:w-[50%] xl:w-[55%] w-full relative border-[0.15rem] border-black  md:hover:bg-v2-yellow">
                   
-                  <div className="flex flex-row">
-                  <div className="flex flex-row items-end w-[50%]">
+                  <div className="flex flex-col xl:flex-row">
+                  <div className="flex flex-row items-center justify-center xl:w-[50%]  xl:px-6">
+
+ <PrismicNextImage
+                                field={slice.primary.image_1}
+                                className=" h-full w-full object-cover"
+                            />
+</div>
+                  <div className="flex flex-row xl:items-end xl:w-[50%] xl:mt-0 mt-4">
 
                   <p className="font-ambit-regular text-black text-[1.35rem]" >{slice.primary.card_1_description}</p>
                   </div>
@@ -36,29 +44,29 @@ const AluminiGrid = ({ slice }) => {
                   </div>
                 
                 </div>
-                <div className="flex flex-col p-8 lg:w-[45%] w-full relative border-[0.15rem] border-black md:hover:bg-v2-yellow mt-4 lg:mt-0 space-y-4">
+                <div className="flex flex-col p-8 md:w-[50%]  xl:w-[45%] w-full relative border-[0.15rem] border-black md:hover:bg-v2-yellow mt-4 lg:mt-0 space-y-4">
   
-  <div className="flex justify-between items-center ">
+  <div className="flex  flex-col xl:flex-row   xl:justify-between xl:items-center ">
     {/* Left: Percentage and Total */}
     <div className="flex flex-col">
       <span className=" text-5xl md:text-6xl lg:text-8xl font-ambit-regular text-black">{slice.primary.card_2_percentage_1}</span>
     
     </div>
     {/* Right: Description */}
-    <div className="w-1/2 text-left font-ambit-regular text-[1.35rem]">
+    <div className="xl:w-1/2 text-left font-ambit-regular text-[1.35rem]">
      {slice.primary.card_2_description_1}
     </div>
   </div>
 
   
-  <div className="flex justify-between items-center">
+  <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center">
     {/* Left: Percentage and Total */}
     <div className="flex flex-col">
       <span className="text-5xl md:text-6xl lg:text-8xl  font-ambit-regular">{slice.primary.card_2_percentage_2}</span>
       
     </div>
     {/* Right: Description */}
-    <div className="w-1/2 text-left text-black font-ambit-regular text-[1.35rem]">
+    <div className="xl:w-1/2 text-left text-black font-ambit-regular text-[1.35rem]">
     {slice.primary.card_2_description_2}
     </div>
   </div>
