@@ -14,7 +14,7 @@ export default function MarqueeNew({ data }) {
             key={`${index}-${item?.id || "item"}`}
           >
             <PrismicNextImage
-              className="w-[240px] h-[100px] object-fill"
+              className=" w-[200px] h-[60px] md:w-[240px] md:h-[100px] object-fill"
               field={item.image}
               alt={item?.image?.alt || "Marquee Image"}
             />
