@@ -5,7 +5,7 @@ export default function HorizontalScrollCardC({ item }) {
   // Ensure year_performance exists before setting initial state
   const hasData =
     item?.data?.year_performance && item.data.year_performance.length > 0;
-  const [hoveredIndex, setHoveredIndex] = useState(hasData ? 0 : -1); // Default to -1 if no data
+  const [hoveredIndex, setHoveredIndex] = useState(hasData ? 0 : -1); 
 
   useEffect(() => {
     console.log("Item Data:", item?.data);
