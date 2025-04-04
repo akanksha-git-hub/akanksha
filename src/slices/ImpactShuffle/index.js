@@ -39,10 +39,11 @@ const ImpactShuffle = async ({ slice }) => {
 
   return (
     <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-      className="relative"
-    >
+    data-slice-type={slice.slice_type}
+    data-slice-variation={slice.variation}
+    className={`relative ${slice.variation === "impactShuffle1" ? "mt-64" : ""}`}
+  >
+  
       <div className="text-center universal-padding">
         <h1 className="text-3xl md:text-6xl font-ambit-regular text-black md:mx-auto md:w-[8ch] w-[5ch]">
           {slice.primary.title}

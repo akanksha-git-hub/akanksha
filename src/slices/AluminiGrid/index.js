@@ -17,7 +17,7 @@ const AluminiGrid = ({ slice }) => {
             <section
               data-slice-type={slice.slice_type}
               data-slice-variation={slice.variation}
-              className="md:mt-72 mt-16 "
+              className="md:mt-72 mt-96 "
             >
               <RenderIdentifier />
              
