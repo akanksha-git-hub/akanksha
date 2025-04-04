@@ -2473,6 +2473,71 @@ export type ImpactcardshuffleoneDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *ImpactCardShuffleTwo → year_performance*
+ */
+export interface ImpactcardshuffletwoDocumentDataYearPerformanceItem {
+  /**
+   * descrip_percentage field in *ImpactCardShuffleTwo → year_performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.year_performance[].descrip_percentage
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  descrip_percentage: prismic.KeyTextField;
+
+  /**
+   * description field in *ImpactCardShuffleTwo → year_performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.year_performance[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * year_202324 field in *ImpactCardShuffleTwo → year_performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.year_performance[].year_202324
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  year_202324: prismic.KeyTextField;
+
+  /**
+   * percentage field in *ImpactCardShuffleTwo → year_performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.year_performance[].percentage
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  percentage: prismic.KeyTextField;
+
+  /**
+   * distinction field in *ImpactCardShuffleTwo → year_performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.year_performance[].distinction
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  distinction: prismic.KeyTextField;
+
+  /**
+   * first_class field in *ImpactCardShuffleTwo → year_performance*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impactcardshuffletwo.year_performance[].first_class
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  first_class: prismic.KeyTextField;
+}
+
+/**
  * Content for ImpactCardShuffleTwo documents
  */
 interface ImpactcardshuffletwoDocumentData {
@@ -2499,81 +2564,17 @@ interface ImpactcardshuffletwoDocumentData {
   description: prismic.KeyTextField;
 
   /**
-   * Year 2023_24 field in *ImpactCardShuffleTwo*
+   * year_performance field in *ImpactCardShuffleTwo*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: impactcardshuffletwo.year_2023_24
+   * - **API ID Path**: impactcardshuffletwo.year_performance[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  year_2023_24: prismic.KeyTextField;
-
-  /**
-   * 24_image field in *ImpactCardShuffleTwo*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: impactcardshuffletwo.24_image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  "24_image": prismic.ImageField<never>;
-
-  /**
-   * 24_data field in *ImpactCardShuffleTwo*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: impactcardshuffletwo.data_24
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  data_24: prismic.KeyTextField;
-
-  /**
-   * Year 2022_23 field in *ImpactCardShuffleTwo*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: impactcardshuffletwo.year_2022_23
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  year_2022_23: prismic.KeyTextField;
-
-  /**
-   * 23_data field in *ImpactCardShuffleTwo*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: impactcardshuffletwo.data_23
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  data_23: prismic.KeyTextField;
-
-  /**
-   * Year 2021_22 field in *ImpactCardShuffleTwo*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: impactcardshuffletwo.year_2021_22
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  year_2021_22: prismic.KeyTextField;
-
-  /**
-   * 22_data field in *ImpactCardShuffleTwo*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: impactcardshuffletwo.data_22
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  data_22: prismic.KeyTextField;
+  year_performance: prismic.GroupField<
+    Simplify<ImpactcardshuffletwoDocumentDataYearPerformanceItem>
+  >;
 }
 
 /**
@@ -17310,6 +17311,7 @@ declare module "@prismicio/client" {
       ImpactcardshuffleoneDocumentDataYearPerformanceItem,
       ImpactcardshuffletwoDocument,
       ImpactcardshuffletwoDocumentData,
+      ImpactcardshuffletwoDocumentDataYearPerformanceItem,
       LocationsDocument,
       LocationsDocumentData,
       LocationsDocumentDataSlicesSlice,

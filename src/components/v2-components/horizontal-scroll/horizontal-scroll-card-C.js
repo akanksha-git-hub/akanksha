@@ -7,11 +7,7 @@ export default function HorizontalScrollCardC({ item }) {
     item?.data?.year_performance && item.data.year_performance.length > 0;
   const [hoveredIndex, setHoveredIndex] = useState(hasData ? 0 : -1); 
 
-  useEffect(() => {
-    console.log("Item Data:", item?.data);
-    console.log("Year Performance:", item?.data?.year_performance);
-    console.log("Hovered Index:", hoveredIndex);
-  }, [item, hoveredIndex]);
+
 
   // If no data is available, show a placeholder UI
   if (!hasData) {

@@ -1,91 +1,104 @@
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
-export default function CardB({item}) {
- 
-    
-    return (
-        <div className="bg-[#58BCD4] rounded-lg shadow-lg h-full md:p-0 pl-6 pt-6 pb-6">
-        <div className="flex flex-col md:flex-row justify-between h-full w-full">
-            {/* Section 1 */}
-            <div className="w-full md:w-2/4  md:p-12 flex flex-col justify-between">
-                {/* Top Section */}
-                <div>
-                    <h1 className="text-4xl md:text-7xl text-black font-ambit-regular">{item.data.title}</h1>
-                   
-                </div>
-                {/* Bottom Section */}
-                <div className="mt-4">
-                    <p className="font-ambit-regular text-sm md:text-2xl w-[28ch] md:w-[30ch]">
-                    {item.data.description}
-                    </p>
-                </div>
-            </div>
-    
-            {/* Section 2 */}
-            <div className="w-full md:w-2/4 ">
-    {/* Rotated Container */}
-    <div className=" flex flex-col justify-center space-y-3  w-full h-full ">
-        {/* First Chart */}
+export default function CardB({ item }) {
+  const hasData =
+    item?.data?.year_performance &&
+    Array.isArray(item.data.year_performance) &&
+    item.data.year_performance.length > 0;
 
-        <div className="bg-[#FBDA1D] ml-auto w-[90%] flex items-center justify-between p-4">
-  {/* Text */}
-  <div className="font-ambit-regular text-sm sm:text-lg md:text-xl lg:text-2xl">
-{item.data.year_2023_24
-}
-  </div>
+  const [hoveredIndex, setHoveredIndex] = useState(hasData ? 0 : -1);
 
-  {/* Image and Percentage Container */}
-  <div className="flex items-center justify-end">
-    {/* Image */}
-    <Image
-      src="/hover-3.png"
-      alt="Hovered Image"
-      width={12} 
-      height={12} 
-    />
+  useEffect(() => {
+    console.log("✅ CardA loaded with:", item?.data);
+  }, [item]);
 
-    {/* Percentage */}
-    <div className="font-ambit-regular text-xl sm:text-2xl md:text-3xl lg:text-6xl ml-2">
-     {item.data.data_24}
-    </div>
-  </div>
-</div>
-
-
-        {/* Second Chart */}
-        <div className="bg-[#F6AC27] ml-auto w-[65%] flex items-center justify-between p-4">
-  {/* Text */}
-  <div className="font-ambit-regular text-sm sm:text-lg md:text-xl lg:text-2xl">
-  {item.data.year_2022_23
+  if (!hasData) {
+    return <p className="text-black text-center p-6">No data available.</p>;
   }
-  </div>
 
-  {/* Percentage */}
-  <div className="font-ambit-regular text-xl sm:text-2xl md:text-3xl lg:text-6xl">
-  {item.data.data_23}
-  </div>
-</div>
-
-        {/* Third Chart */}
-        <div className="bg-[#ECF0F1] ml-auto w-[75%] flex items-center justify-between p-4">
-  {/* Text */}
-  <div className="font-ambit-regular text-sm sm:text-lg md:text-xl lg:text-2xl">
-  {item.data.year_2021_22
-  }
-  </div>
-
-  {/* Percentage */}
-   <div className="font-ambit-regular text-xl sm:text-2xl md:text-3xl lg:text-6xl">
-   {item.data.data_22}
-  </div>
-</div>
-
-
-    </div>
-</div>
-
+  return (
+    <div className="flex flex-col lg:flex-row bg-[#FBDA1D] rounded-lg overflow-hidden w-full max-w-[1500px] md:p-6 h-full max-h-[700px] mx-auto">
+      {/* Left Section */}
+      <div className="w-full lg:w-[50%] p-6 flex flex-col justify-between flex-1">
+        <div>
+          <h2 className="text-2xl md:text-5xl lg:text-7xl text-black font-ambit-regular">
+            {item.data.title || "Title Unavailable"}
+          </h2>
         </div>
+
+        {/* Description Section - Updates on Hover */}
+        <div className="mt-4">
+          <p className="text-lg md:text-xl font-ambit-bold lg:text-2xl w-[36ch] text-black transition-opacity duration-300">
+            {item.data.year_performance[hoveredIndex]?.descrip_percentage || "N/A"}
+          </p>
+          <p className="text-lg md:text-xl lg:text-2xl w-[36ch] text-black transition-opacity duration-300">
+            {item.data.year_performance[hoveredIndex]?.description || "No description available"}
+          </p>
+        </div>
+      </div>
+
+      {/* Right Section */}
+      <div className="w-full lg:w-[40%] h-full flex flex-col items-center justify-center px-8 lg:px-0">
+        {item.data.year_performance.map((performance, index) => {
+          const bgColors = ["#F6AC27", "#FFFFFF", "#58BCD4"];
+          const hoverImages = ["/hover-3.png", "/hover-2.png", "/hover-1.png"];
+          const isHovered = hoveredIndex === index;
+
+          return (
+            <div
+              key={index}
+              style={{ backgroundColor: bgColors[index] || "#DDD" }}
+              className={`group w-full h-[80px] sm:h-[120px] ${isHovered ? "lg:h-[350px]" : ""} flex flex-col items-center justify-between relative cursor-pointer transition-all sm:pt-6 sm:pb-6`}
+              onMouseEnter={() => setHoveredIndex(index)}
+            >
+              {/* Year and Hover Image */}
+              <div
+                className={`absolute top-1/2 left-0 right-0 px-4 transform -translate-y-1/2 flex justify-between items-center font-ambit-regular transition-all ${
+                  isHovered ? "lg:top-8 top-8" : ""
+                }`}
+              >
+                <p className="text-xl lg:text-3xl">
+                  {performance.year_202324 || "N/A"}
+                </p>
+                <Image
+                  src={hoverImages[index] || "/default-hover.png"}
+                  alt={`Hover Image ${index + 1}`}
+                  width={16}
+                  height={16}
+                  className={`transition-opacity ${isHovered ? "opacity-100" : "opacity-0"}`}
+                />
+              </div>
+
+              {/* Performance % */}
+              <div
+                className={`p-6 absolute top-1/3 flex flex-row justify-start w-full items-end text-black font-ambit-regular transition-opacity ${
+                  isHovered ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <p className="text-sm sm:text-2xl md:text-4xl lg:text-7xl">
+                  {performance.percentage || "0%"}
+                </p>
+                <p className="ml-4 text-sm md:text-xl lg:text-2xl mb-3">Passed</p>
+              </div>
+
+              {/* Distinction & 1st Class */}
+              <div
+                className={`absolute bottom-0 mb-2 left-4 right-4 flex flex-row justify-around w-full items-center text-black font-ambit-regular transition-opacity ${
+                  isHovered ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <p className="text-xs sm:text-base md:text-2xl">
+                  Distinction - {performance.distinction || "N/A"}
+                </p>
+                <p className="text-xs sm:text-base md:text-2xl">
+                  1st Class - {performance.first_class || "N/A"}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
-    
-    );
+  );
 }
