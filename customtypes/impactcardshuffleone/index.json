@@ -6,24 +6,10 @@
   "status": true,
   "json": {
     "Main": {
-      "heading": {
-        "type": "Text",
-        "config": {
-          "label": "Heading",
-          "placeholder": ""
-        }
-      },
       "title": {
         "type": "Text",
         "config": {
           "label": "Title",
-          "placeholder": ""
-        }
-      },
-      "subtitle": {
-        "type": "Text",
-        "config": {
-          "label": "subtitle",
           "placeholder": ""
         }
       },
@@ -34,46 +20,55 @@
           "placeholder": ""
         }
       },
-      "chart_1_percentage": {
-        "type": "Text",
+      "year_performance": {
+        "type": "Group",
         "config": {
-          "label": "Chart 1 percentage",
-          "placeholder": ""
-        }
-      },
-      "chart_1_year": {
-        "type": "Text",
-        "config": {
-          "label": "Chart 1 Year",
-          "placeholder": ""
-        }
-      },
-      "chart_2_percentage": {
-        "type": "Text",
-        "config": {
-          "label": "Chart 2 Percentage",
-          "placeholder": ""
-        }
-      },
-      "chart_2_year": {
-        "type": "Text",
-        "config": {
-          "label": "Chart 2 Year",
-          "placeholder": ""
-        }
-      },
-      "chart_3_percentage": {
-        "type": "Text",
-        "config": {
-          "label": "Chart 3 percentage",
-          "placeholder": ""
-        }
-      },
-      "chart_3_year": {
-        "type": "Text",
-        "config": {
-          "label": "Chart 3 Year",
-          "placeholder": ""
+          "label": "year_performance",
+          "repeat": true,
+          "fields": {
+            "descrip_percentage": {
+              "type": "Text",
+              "config": {
+                "label": "descrip Percentage",
+                "placeholder": ""
+              }
+            },
+            "description": {
+              "type": "Text",
+              "config": {
+                "label": "description",
+                "placeholder": ""
+              }
+            },
+            "year_202324": {
+              "type": "Text",
+              "config": {
+                "label": "year_202324",
+                "placeholder": ""
+              }
+            },
+            "percentage": {
+              "type": "Text",
+              "config": {
+                "label": "percentage",
+                "placeholder": ""
+              }
+            },
+            "distinction": {
+              "type": "Text",
+              "config": {
+                "label": "distinction",
+                "placeholder": ""
+              }
+            },
+            "first_class": {
+              "type": "Text",
+              "config": {
+                "label": "First Class",
+                "placeholder": ""
+              }
+            }
+          }
         }
       }
     }

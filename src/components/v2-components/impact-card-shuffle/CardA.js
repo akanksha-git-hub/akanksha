@@ -1,65 +1,38 @@
+import { useEffect } from "react";
+
 export default function CardA({ item }) {
- 
+  const performanceData = item?.data?.year_performance || [];
+
+  useEffect(() => {
+    console.log("🧾 Full item:", item);
+    console.log("🧾 item.data:", item?.data);
+    console.log("📊 item.data.year_performance:", item?.data?.year_performance);
+    console.log("📦 performanceData (final):", performanceData);
+  }, [item]);
+
   return (
-    <div className="bg-[#F6AC27] rounded-lg shadow-lg  h-full">
-      <div className="flex flex-col md:flex-row  h-full w-full">
-        {/* Section 1 */}
-        <div className="w-full md:w-[50%] md:p-12 p-8 flex flex-col justify-between">
-          {/* Top Section */}
-          <div className="flex flex-col  justify-center">
-            <p className="text-xl md:text-3xl text-black font-ambit-regular">
-              {item.data.heading}
-            </p>
-            <h1 className="text-2xl md:text-5xl lg:text-8xl text-black font-ambit-regular">
-              {item.data.title}
-            </h1>
-            <p className="text-xl md:text-xl  text-black font-ambit-regular">
-              {item.data.subtitle}
-            </p>
-          </div>
-          {/* Bottom Section */}
-          <div className="mt-4">
-            <p className="text-black text-lg md:text-xl lg:text-3xl w-[28ch]">
-              {item.data.description}
-            </p>
-          </div>
-        </div>
+    <div className="bg-[#F6AC27] rounded-lg shadow-lg h-full p-6 text-black">
+      <h2 className="text-2xl font-bold mb-4">{item?.data?.title || "No Title"}</h2>
+      <p className="mb-4">{item?.data?.description || "No Description"}</p>
 
-        {/* Section 2 */}
-        <div className="w-full md:w-[50%] flex flex-col justify-end">
-          <div className="relative h-36 md:h-48 w-full flex justify-center items-end ">
-            {/* First (White) Chart */}
-            <div className="relative bg-white w-[20%] h-[100%] md:w-[150px] md:h-[200%] flex flex-col justify-between items-center">
-              <p className="text-black font-ambit-semibold text-lg md:text-4xl mt-4">
-                {item.data.chart_1_percentage}
-              </p>
-              <p className="ext-black font-medium text-sm md:text-xl mt-auto mb-2">
-                {item.data.chart_1_year}
-              </p>
-            </div>
+      <h3 className="text-xl font-semibold mb-2">Year Performance Data:</h3>
 
-            {/* Second (Yellow) Chart */}
-            <div className="relative bg-[#FBDA1D] w-[20%] h-[80%] md:w-[150px] md:h-[120%] flex flex-col justify-between items-center">
-              <p className="text-black font-ambit-semibold text-lg md:text-4xl mt-4">
-                {item.data.chart_2_percentage}
-              </p>
-              <p className="text-black font-medium text-sm md:text-xl mt-auto mb-2">
-                {item.data.chart_2_year}
-              </p>
-            </div>
-
-            {/* Third (Blue) Chart */}
-            <div className="relative bg-[#55BBD3] w-[20%] h-[50%] md:w-[150px] md:h-[80%] flex flex-col justify-between items-center">
-              <p className="text-black font-ambit-semibold text-lg md:text-4xl mt-4">
-                {item.data.chart_3_percentage}
-              </p>
-              <p className="ext-black font-medium text-sm md:text-xl mt-auto mb-2">
-                {item.data.chart_3_year}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      {performanceData.length > 0 ? (
+        <ul className="space-y-4">
+          {performanceData.map((entry, index) => (
+            <li key={index} className="bg-white p-4 rounded shadow">
+              <p><strong>Year:</strong> {entry.year_202324 || "N/A"}</p>
+              <p><strong>Percentage:</strong> {entry.percentage || "N/A"}</p>
+              <p><strong>Description:</strong> {entry.description || "N/A"}</p>
+              <p><strong>Descrip %:</strong> {entry.descrip_percentage || "N/A"}</p>
+              <p><strong>Distinction:</strong> {entry.distinction || "N/A"}</p>
+              <p><strong>1st Class:</strong> {entry.first_class || "N/A"}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No performance data found.</p>
+      )}
     </div>
   );
 }

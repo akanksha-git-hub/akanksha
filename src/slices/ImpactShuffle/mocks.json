@@ -15,5 +15,27 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "impactShuffle1",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "ride",
+				"type": "Text"
+			},
+			"small_title": {
+				"__TYPE__": "FieldContent",
+				"value": "summer",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]
