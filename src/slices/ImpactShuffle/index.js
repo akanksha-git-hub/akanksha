@@ -48,7 +48,7 @@ const ImpactShuffle = async ({ slice }) => {
         <h1 className="text-3xl md:text-6xl font-ambit-regular text-black md:mx-auto md:w-[8ch] w-[5ch]">
           {slice.primary.title}
         </h1>
-        <p className="font-ambit text-[1.35rem] font-ambit-regular mt-8">
+        <p className="font-ambit text-2xl md:text-4xl font-ambit-regular mt-8">
           {slice.primary.small_title}
         </p>
       </div>
