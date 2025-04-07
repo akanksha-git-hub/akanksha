@@ -59,7 +59,7 @@ export default function HorizontalScrollCardD({ item }) {
                   isHovered ? "lg:top-8 top-8" : ""
                 }`}
               >
-                <p className="text-xl lg:text-3xl">
+                <p className="text-sm  md:text-3xl">
                   {performance.year_2023_24 || "N/A"}
                 </p>
                 <Image
@@ -77,7 +77,7 @@ export default function HorizontalScrollCardD({ item }) {
                   isHovered ? "opacity-100" : "opacity-0"
                 }`}
               >
-                <p className="text-sm sm:text-2xl md:text-4xl lg:text-8xl ">
+                <p className="text-2xl md:text-4xl  lg:text-8xl ">
                   {performance.percentage || "0%"}
                 </p>
                 
