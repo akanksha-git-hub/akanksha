@@ -13,7 +13,7 @@ export default function CardsShuffleItemContainer({
   itemClassName,
   itemsContainerClassName,
   className,
-  uniquePrefix = "shuffle", // 👈 unique for IDs
+  uniquePrefix = "shuffle", 
 }) {
   const { slice } = useCardsShuffleContext();
   const [onMount, setOnMount] = useState({

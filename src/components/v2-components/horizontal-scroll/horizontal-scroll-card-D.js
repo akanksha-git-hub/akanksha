@@ -16,7 +16,7 @@ export default function HorizontalScrollCardD({ item }) {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row bg-[#4BCFEE] rounded-lg overflow-hidden w-full max-w-[1500px] md:p-6 h-full max-h-[700px] mx-auto">
+    <div className="flex flex-col lg:flex-row bg-[#4BCFEE] rounded-lg overflow-hidden w-full max-w-[1500px] md:p-6 h-[500px]  md:h-full md:max-h-[700px] mx-auto">
       {/* Left Section */}
       <div className="w-full lg:w-[50%] p-6 flex flex-col justify-between flex-1">
         <div>
