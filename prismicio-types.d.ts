@@ -3792,6 +3792,136 @@ export type SchoolProjectDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for ThirdCard10th documents
+ */
+interface Thirdcard10thDocumentData {
+  /**
+   * Heading field in *ThirdCard10th*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thirdcard10th.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *ThirdCard10th*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thirdcard10th.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Image field in *ThirdCard10th*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thirdcard10th.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Color field in *ThirdCard10th*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thirdcard10th.color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  color: prismic.ColorField;
+}
+
+/**
+ * ThirdCard10th document from Prismic
+ *
+ * - **API ID**: `thirdcard10th`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type Thirdcard10thDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<Thirdcard10thDocumentData>,
+    "thirdcard10th",
+    Lang
+  >;
+
+/**
+ * Content for ThirdCard12th documents
+ */
+interface Thirdcard12thDocumentData {
+  /**
+   * Heading field in *ThirdCard12th*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thirdcard12th.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *ThirdCard12th*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thirdcard12th.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Image field in *ThirdCard12th*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thirdcard12th.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Color field in *ThirdCard12th*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: thirdcard12th.color
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  color: prismic.ColorField;
+}
+
+/**
+ * ThirdCard12th document from Prismic
+ *
+ * - **API ID**: `thirdcard12th`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type Thirdcard12thDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<Thirdcard12thDocumentData>,
+    "thirdcard12th",
+    Lang
+  >;
+
 type TimelineDocumentDataSlicesSlice = TimelineScrollerSlice;
 
 /**
@@ -4173,6 +4303,8 @@ export type AllDocumentTypes =
   | ProjectSetuDocument
   | ReportsDocument
   | SchoolProjectDocument
+  | Thirdcard10thDocument
+  | Thirdcard12thDocument
   | TimelineDocument
   | VisionMissionDocument
   | VolunteerWithUsDocument
@@ -17354,6 +17486,10 @@ declare module "@prismicio/client" {
       SchoolProjectDocument,
       SchoolProjectDocumentData,
       SchoolProjectDocumentDataSlicesSlice,
+      Thirdcard10thDocument,
+      Thirdcard10thDocumentData,
+      Thirdcard12thDocument,
+      Thirdcard12thDocumentData,
       TimelineDocument,
       TimelineDocumentData,
       TimelineDocumentDataSlicesSlice,

@@ -3,6 +3,7 @@
 import CardsShuffle from "./CardsShuffle";
 import CardA from "@/components/v2-components/impact-card-shuffle/CardA";
 import CardB from "@/components/v2-components/impact-card-shuffle/CardB";
+import ThirdCard from "@/components/v2-components/impact-card-shuffle/ThirdCard"// ✅ Import thirdCard
 
 export default function ShuffleMix({ slice, uniquePrefix = "shuffle-default" }) {
   return (
@@ -19,6 +20,8 @@ export default function ShuffleMix({ slice, uniquePrefix = "shuffle-default" }) 
               return <CardA item={item} />;
             case "impactcardshuffletwo":
               return <CardB item={item} />;
+            case "thirdcard10th": // ✅ Add case for thirdCard
+              return <ThirdCard item={item} />;
             default:
               return null;
           }

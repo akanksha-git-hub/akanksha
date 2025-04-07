@@ -12,9 +12,11 @@ const ImpactShuffle = async ({ slice }) => {
   const cardB = await fetchPrismicSingleDocument("impactcardshuffletwo");
   const cardC = await fetchPrismicSingleDocument("horizontalcardd");
   const cardD = await fetchPrismicSingleDocument("horizontal_scroll_card_c");
+  const thirdCard = await fetchPrismicSingleDocument("thirdcard10th");
+  const thirdCard12th = await fetchPrismicSingleDocument("thirdcard12th");
 
-  if (!cardA || !cardB || !cardC || !cardD) {
-    console.error("Error fetching card data");
+  if (!cardA || !cardB || !cardC || !cardD || !thirdCard) {
+    console.error("Error fetching one or more card data");
     return <p>No data found</p>;
   }
 
@@ -25,13 +27,13 @@ const ImpactShuffle = async ({ slice }) => {
 
   switch (slice.variation) {
     case "impactShuffle1":
-      data = [cardC, cardD];
+      data = [cardC, cardD, thirdCard12th];
       uniquePrefix = "shuffle-2";
       RenderComponent = ShuffleMixVariation; // ✅ Use variation component
       break;
     case "default":
     default:
-      data = [cardA, cardB];
+      data = [cardA, cardB, thirdCard];
       uniquePrefix = "shuffle-1";
       RenderComponent = ShuffleMix;
       break;
