@@ -4,6 +4,7 @@ import CardsShuffle from "./CardsShuffle";
 import CardsShuffleItemContainer from "./CardsShuffleItemContainer";
 import HorizontalScrollCardC from "../v2-components/horizontal-scroll/horizontal-scroll-card-C";
 import HorizontalScrollCardD from "../v2-components/horizontal-scroll/horizontal-scroll-card-D";
+import ThirdCard from "@/components/v2-components/impact-card-shuffle/ThirdCard12th"// 
 
 export default function ShuffleMixVariation({ slice, uniquePrefix = "shuffle-variation" }) {
   return (
@@ -12,7 +13,7 @@ export default function ShuffleMixVariation({ slice, uniquePrefix = "shuffle-var
         itemsContainerClassName="card-container mx-auto"
         itemClassName="pers-cards"
         itemKeyFn={(item, index) => index}
-        uniquePrefix={uniquePrefix} // 🔥 important
+        uniquePrefix={uniquePrefix} 
       >
         {(item) => {
           switch (item.type) {
@@ -20,6 +21,10 @@ export default function ShuffleMixVariation({ slice, uniquePrefix = "shuffle-var
               return <HorizontalScrollCardC item={item} />;
             case "horizontalcardd":
               return <HorizontalScrollCardD item={item} />;
+              case "horizontalcardd":
+                return <HorizontalScrollCardD item={item} />;
+                  case "thirdcard12th": // ✅ Add case for thirdCard
+                              return <ThirdCard item={item} />;
             default:
               return null;
           }
