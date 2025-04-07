@@ -23,7 +23,7 @@ export default function ShuffleMixVariation({ slice, uniquePrefix = "shuffle-var
               return <HorizontalScrollCardD item={item} />;
               case "horizontalcardd":
                 return <HorizontalScrollCardD item={item} />;
-                  case "thirdcard12th": // ✅ Add case for thirdCard
+                  case "thirdcard12th": 
                               return <ThirdCard item={item} />;
             default:
               return null;
