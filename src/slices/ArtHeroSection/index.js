@@ -14,7 +14,10 @@ const ArtHeroSection = ({ slice }) => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
-      // 1️⃣ First: Top & Left image slide from top (no fade)
+      // 🚫 Prevent flicker
+      tl.set(heroRef.current, { opacity: 1 });
+
+      // 1️⃣ First: Top & Left image slide from top
       tl.from(".image-top", { y: -100, duration: 1 })
         .from(".image-left", { y: -100, duration: 1 }, "-=0.9");
 
@@ -38,7 +41,7 @@ const ArtHeroSection = ({ slice }) => {
   }, []);
 
   return (
-    <section className="w-full" ref={heroRef}>
+    <section className="w-full opacity-0" ref={heroRef}>
       {/* ✅ Desktop & Tablet layout */}
       <div className="hidden md:block relative max-w-screen-xl mx-auto mt-8 mb-48">
         {/* Floating Product Card Left */}
@@ -71,10 +74,10 @@ const ArtHeroSection = ({ slice }) => {
         <PrismicImage field={slice.primary.bottom_image_set} className="absolute -bottom-64 right-[38%] w-80 z-10 prismic-img" />
         <PrismicImage field={slice.primary.right_image_2} className="absolute top-12 -right-28 w-96 z-10 prismic-img" />
         <PrismicImage field={slice.primary.right_image} className="absolute -top-12 right-44 w-48 z-10 image-left" />
-        
+
         {/* These two come first */}
-        <PrismicImage field={slice.primary.top} className="absolute -top-12 right-[40%] w-8 z-10 prismic-img " />
-        <PrismicImage field={slice.primary.left_image} className="absolute top-72 left-52 w-8 z-10 image-top " />
+        <PrismicImage field={slice.primary.top} className="absolute -top-12 right-[40%] w-8 z-10 prismic-img" />
+        <PrismicImage field={slice.primary.left_image} className="absolute top-72 left-52 w-8 z-10 image-top" />
 
         {/* Floating Product Card Right */}
         <div className="absolute right-0 -bottom-[580px] z-10 product-card">
