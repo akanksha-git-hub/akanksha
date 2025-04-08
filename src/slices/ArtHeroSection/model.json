@@ -1,0 +1,81 @@
+{
+  "id": "art_hero_section",
+  "type": "SharedSlice",
+  "name": "ArtHeroSection",
+  "description": "ArtHeroSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "right_image": {
+          "type": "Image",
+          "config": {
+            "label": "Right Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "right_image_2": {
+          "type": "Image",
+          "config": {
+            "label": "Right Image 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "left_image": {
+          "type": "Image",
+          "config": {
+            "label": "Left Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "bottom_image_set": {
+          "type": "Image",
+          "config": {
+            "label": "Bottom Image Set",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "top": {
+          "type": "Image",
+          "config": {
+            "label": "Top",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "bottom_single": {
+          "type": "Image",
+          "config": {
+            "label": "Bottom single",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

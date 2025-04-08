@@ -138,6 +138,73 @@ export type AnnualReportsDocument<Lang extends string = string> =
     Lang
   >;
 
+type ArtForAkankshaDocumentDataSlicesSlice =
+  | InceptionAfaSlice
+  | ArtHeroSectionSlice;
+
+/**
+ * Content for Art For Akanksha documents
+ */
+interface ArtForAkankshaDocumentData {
+  /**
+   * Slice Zone field in *Art For Akanksha*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: art_for_akanksha.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ArtForAkankshaDocumentDataSlicesSlice> /**
+   * Meta Title field in *Art For Akanksha*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: art_for_akanksha.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Art For Akanksha*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: art_for_akanksha.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Art For Akanksha*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: art_for_akanksha.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Art For Akanksha document from Prismic
+ *
+ * - **API ID**: `art_for_akanksha`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ArtForAkankshaDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ArtForAkankshaDocumentData>,
+    "art_for_akanksha",
+    Lang
+  >;
+
 type AseDocumentDataSlicesSlice =
   | SuccessRate2Slice
   | SuccessRate1Slice
@@ -4265,6 +4332,7 @@ export type WorkWithUsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AnnualReportsDocument
+  | ArtForAkankshaDocument
   | AseDocument
   | BlogChildPageDocument
   | BlogShowcasePageDocument
@@ -5183,6 +5251,121 @@ type AluminiGridSliceVariation = AluminiGridSliceDefault;
 export type AluminiGridSlice = prismic.SharedSlice<
   "alumini_grid",
   AluminiGridSliceVariation
+>;
+
+/**
+ * Primary content in *ArtHeroSection → Default → Primary*
+ */
+export interface ArtHeroSectionSliceDefaultPrimary {
+  /**
+   * Heading field in *ArtHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: art_hero_section.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *ArtHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: art_hero_section.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Right Image field in *ArtHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: art_hero_section.default.primary.right_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_image: prismic.ImageField<never>;
+
+  /**
+   * Right Image 2 field in *ArtHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: art_hero_section.default.primary.right_image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_image_2: prismic.ImageField<never>;
+
+  /**
+   * Left Image field in *ArtHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: art_hero_section.default.primary.left_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_image: prismic.ImageField<never>;
+
+  /**
+   * Bottom Image Set field in *ArtHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: art_hero_section.default.primary.bottom_image_set
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bottom_image_set: prismic.ImageField<never>;
+
+  /**
+   * Top field in *ArtHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: art_hero_section.default.primary.top
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  top: prismic.ImageField<never>;
+
+  /**
+   * Bottom single field in *ArtHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: art_hero_section.default.primary.bottom_single
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bottom_single: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ArtHeroSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ArtHeroSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ArtHeroSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ArtHeroSection*
+ */
+type ArtHeroSectionSliceVariation = ArtHeroSectionSliceDefault;
+
+/**
+ * ArtHeroSection Shared Slice
+ *
+ * - **API ID**: `art_hero_section`
+ * - **Description**: ArtHeroSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ArtHeroSectionSlice = prismic.SharedSlice<
+  "art_hero_section",
+  ArtHeroSectionSliceVariation
 >;
 
 /**
@@ -10945,6 +11128,81 @@ type ImpactShuffleSliceVariation =
 export type ImpactShuffleSlice = prismic.SharedSlice<
   "impact_shuffle",
   ImpactShuffleSliceVariation
+>;
+
+/**
+ * Primary content in *InceptionAfa → Default → Primary*
+ */
+export interface InceptionAfaSliceDefaultPrimary {
+  /**
+   * BG Color field in *InceptionAfa → Default → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: inception_afa.default.primary.bg_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  bg_color: prismic.ColorField;
+
+  /**
+   * Asset field in *InceptionAfa → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: inception_afa.default.primary.asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset: prismic.ImageField<never>;
+
+  /**
+   * Info Description field in *InceptionAfa → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: inception_afa.default.primary.info_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  info_description: prismic.RichTextField;
+
+  /**
+   * Box Asset field in *InceptionAfa → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: inception_afa.default.primary.box_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  box_asset: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for InceptionAfa Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InceptionAfaSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<InceptionAfaSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *InceptionAfa*
+ */
+type InceptionAfaSliceVariation = InceptionAfaSliceDefault;
+
+/**
+ * InceptionAfa Shared Slice
+ *
+ * - **API ID**: `inception_afa`
+ * - **Description**: InceptionAfa
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InceptionAfaSlice = prismic.SharedSlice<
+  "inception_afa",
+  InceptionAfaSliceVariation
 >;
 
 /**
@@ -17368,6 +17626,9 @@ declare module "@prismicio/client" {
       AnnualReportsDocumentData,
       AnnualReportsDocumentDataItemsItem,
       AnnualReportsDocumentDataSlicesSlice,
+      ArtForAkankshaDocument,
+      ArtForAkankshaDocumentData,
+      ArtForAkankshaDocumentDataSlicesSlice,
       AseDocument,
       AseDocumentData,
       AseDocumentDataSlicesSlice,
@@ -17520,6 +17781,10 @@ declare module "@prismicio/client" {
       AluminiGridSliceDefaultPrimary,
       AluminiGridSliceVariation,
       AluminiGridSliceDefault,
+      ArtHeroSectionSlice,
+      ArtHeroSectionSliceDefaultPrimary,
+      ArtHeroSectionSliceVariation,
+      ArtHeroSectionSliceDefault,
       BlogCategoryItemsSlice,
       BlogCategoryItemsSliceDefaultPrimaryCardItemsItem,
       BlogCategoryItemsSliceDefaultPrimary,
@@ -17711,6 +17976,10 @@ declare module "@prismicio/client" {
       ImpactShuffleSliceVariation,
       ImpactShuffleSliceDefault,
       ImpactShuffleSliceImpactShuffle1,
+      InceptionAfaSlice,
+      InceptionAfaSliceDefaultPrimary,
+      InceptionAfaSliceVariation,
+      InceptionAfaSliceDefault,
       InitiativeShowcaseSlice,
       InitiativeShowcaseSliceDefaultPrimary,
       InitiativeShowcaseSliceVariation,

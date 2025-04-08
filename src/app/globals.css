@@ -100,6 +100,35 @@ body.modal-open {
   background: linear-gradient(180deg, #d54121 -2%, #ffef62 48.5%, #ffffff 100%);
   filter: blur(120px);
 }
+.curves{
+
+  position:relative;
+  
+}
+  
+.curves {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+
+  /* 💡 Repeating SVG mask */
+  -webkit-mask-image: url('/semi-circle.svg');
+  mask-image: url('/semi-circle.svg');
+
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+
+  -webkit-mask-size: auto 100%; /* full height, repeat in width */
+  mask-size: auto 100%;
+  
+  z-index: 1;
+}
+
+  .curves::after{
+   top:0;
+  }
 .custom-up {
   position: relative;
   transform: translateY(-100%);
