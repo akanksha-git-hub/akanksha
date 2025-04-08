@@ -127,6 +127,10 @@ const routes = [
     type: "newsletter",
     path: "/news-letter",
   },
+  {
+    type: "art_for_akanksha",
+    path: "/art-for-akanksha",
+  },
 ];
 
 /**
