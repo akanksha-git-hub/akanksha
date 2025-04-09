@@ -139,6 +139,7 @@ export type AnnualReportsDocument<Lang extends string = string> =
   >;
 
 type ArtForAkankshaDocumentDataSlicesSlice =
+  | ImpactNumbers2AfaSlice
   | ImpactNumbersAfaSlice
   | InceptionAfaSlice
   | ArtHeroSectionSlice;
@@ -10678,6 +10679,151 @@ export type ImpactMarqueeSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ImpactNumbers2Afa → Default → Primary*
+ */
+export interface ImpactNumbers2AfaSliceDefaultPrimary {
+  /**
+   * Card 1 Description field in *ImpactNumbers2Afa → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers2_afa.default.primary.card_1_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_1_description: prismic.KeyTextField;
+
+  /**
+   * Card 1 Image field in *ImpactNumbers2Afa → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers2_afa.default.primary.card_1_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_1_image: prismic.ImageField<never>;
+
+  /**
+   * Card 2 Title field in *ImpactNumbers2Afa → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers2_afa.default.primary.card_2_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_title: prismic.KeyTextField;
+
+  /**
+   * Card 2 Description field in *ImpactNumbers2Afa → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers2_afa.default.primary.card_2_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_2_description: prismic.KeyTextField;
+
+  /**
+   * Card 2 Image field in *ImpactNumbers2Afa → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers2_afa.default.primary.card_2_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_2_image: prismic.ImageField<never>;
+
+  /**
+   * Card 3 Title field in *ImpactNumbers2Afa → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers2_afa.default.primary.card_3_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_3_title: prismic.KeyTextField;
+
+  /**
+   * Card 3 Description field in *ImpactNumbers2Afa → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers2_afa.default.primary.card_3_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_3_description: prismic.KeyTextField;
+
+  /**
+   * Card 4 Title field in *ImpactNumbers2Afa → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers2_afa.default.primary.card_4_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_4_title: prismic.KeyTextField;
+
+  /**
+   * Card 4 Description field in *ImpactNumbers2Afa → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers2_afa.default.primary.card_4_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_4_description: prismic.KeyTextField;
+
+  /**
+   * Card 4 Image field in *ImpactNumbers2Afa → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers2_afa.default.primary.card_4_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_4_image: prismic.ImageField<never>;
+
+  /**
+   * Card 5 Description field in *ImpactNumbers2Afa → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers2_afa.default.primary.card_5_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_5_description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ImpactNumbers2Afa Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactNumbers2AfaSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImpactNumbers2AfaSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImpactNumbers2Afa*
+ */
+type ImpactNumbers2AfaSliceVariation = ImpactNumbers2AfaSliceDefault;
+
+/**
+ * ImpactNumbers2Afa Shared Slice
+ *
+ * - **API ID**: `impact_numbers2_afa`
+ * - **Description**: ImpactNumbers2Afa
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImpactNumbers2AfaSlice = prismic.SharedSlice<
+  "impact_numbers2_afa",
+  ImpactNumbers2AfaSliceVariation
+>;
+
+/**
  * Primary content in *ImpactNumbersAfa → Default → Primary*
  */
 export interface ImpactNumbersAfaSliceDefaultPrimary {
@@ -18114,6 +18260,10 @@ declare module "@prismicio/client" {
       ImpactMarqueeSliceDefaultPrimary,
       ImpactMarqueeSliceVariation,
       ImpactMarqueeSliceDefault,
+      ImpactNumbers2AfaSlice,
+      ImpactNumbers2AfaSliceDefaultPrimary,
+      ImpactNumbers2AfaSliceVariation,
+      ImpactNumbers2AfaSliceDefault,
       ImpactNumbersAfaSlice,
       ImpactNumbersAfaSliceDefaultPrimary,
       ImpactNumbersAfaSliceVariation,
