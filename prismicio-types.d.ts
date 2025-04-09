@@ -139,6 +139,7 @@ export type AnnualReportsDocument<Lang extends string = string> =
   >;
 
 type ArtForAkankshaDocumentDataSlicesSlice =
+  | StudentVisionSlice
   | TestimonialSlice
   | ProductAfaSlice
   | ImpactNumbers2AfaSlice
@@ -16123,6 +16124,21 @@ export interface StudentVisionSliceGalleryPrimaryImagesItem {
 }
 
 /**
+ * Item in *StudentVision → GalleryAfa → Primary → images*
+ */
+export interface StudentVisionSliceGalleryAfaPrimaryImagesItem {
+  /**
+   * image field in *StudentVision → GalleryAfa → Primary → images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.galleryAfa.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
  * Primary content in *StudentVision → Default → Primary*
  */
 export interface StudentVisionSliceDefaultPrimary {
@@ -16425,13 +16441,44 @@ export type StudentVisionSliceGallery = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *StudentVision → GalleryAfa → Primary*
+ */
+export interface StudentVisionSliceGalleryAfaPrimary {
+  /**
+   * images field in *StudentVision → GalleryAfa → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.galleryAfa.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<
+    Simplify<StudentVisionSliceGalleryAfaPrimaryImagesItem>
+  >;
+}
+
+/**
+ * GalleryAfa variation for StudentVision Slice
+ *
+ * - **API ID**: `galleryAfa`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StudentVisionSliceGalleryAfa = prismic.SharedSliceVariation<
+  "galleryAfa",
+  Simplify<StudentVisionSliceGalleryAfaPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *StudentVision*
  */
 type StudentVisionSliceVariation =
   | StudentVisionSliceDefault
   | StudentVisionSliceWithBgImage
   | StudentVisionSliceSimple
-  | StudentVisionSliceGallery;
+  | StudentVisionSliceGallery
+  | StudentVisionSliceGalleryAfa;
 
 /**
  * StudentVision Shared Slice
@@ -18661,11 +18708,14 @@ declare module "@prismicio/client" {
       StudentVisionSliceSimplePrimary,
       StudentVisionSliceGalleryPrimaryImagesItem,
       StudentVisionSliceGalleryPrimary,
+      StudentVisionSliceGalleryAfaPrimaryImagesItem,
+      StudentVisionSliceGalleryAfaPrimary,
       StudentVisionSliceVariation,
       StudentVisionSliceDefault,
       StudentVisionSliceWithBgImage,
       StudentVisionSliceSimple,
       StudentVisionSliceGallery,
+      StudentVisionSliceGalleryAfa,
       SuccessRate1Slice,
       SuccessRate1SliceDefaultPrimary,
       SuccessRate1SliceVariation,
