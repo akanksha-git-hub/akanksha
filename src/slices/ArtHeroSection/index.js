@@ -14,7 +14,6 @@ const ArtHeroSection = ({ slice }) => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
-      // 🚫 Prevent flicker
       tl.set(heroRef.current, { opacity: 1 });
 
       // 1️⃣ First: Top & Left image slide from top
