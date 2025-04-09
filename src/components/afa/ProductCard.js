@@ -36,9 +36,9 @@ export default function ProductCard({
 
       {/* Optional Content */}
       {variant === "default" && (
-        <div className="p-4 space-y-2">
+        <div className=" pt-4 space-y-2 ">
           <h3 className="text-3xl font-ambit-regular">{title}</h3>
-          <CTABtn text="Buy Now" variant="text" />
+          <CTABtn text="get it now" variant="text" />
         </div>
       )}
     </div>

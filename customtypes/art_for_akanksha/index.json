@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "product_afa": {
+              "type": "SharedSlice"
+            },
             "impact_numbers2_afa": {
               "type": "SharedSlice"
             },

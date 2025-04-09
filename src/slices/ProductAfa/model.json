@@ -1,0 +1,89 @@
+{
+  "id": "product_afa",
+  "type": "SharedSlice",
+  "name": "ProductAfa",
+  "description": "ProductAfa",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "insta_image": {
+          "type": "Image",
+          "config": {
+            "label": "Insta Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "insta_asset": {
+          "type": "Image",
+          "config": {
+            "label": "Insta Asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "main_asset": {
+          "type": "Image",
+          "config": {
+            "label": "Main Asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "items": {
+          "type": "Group",
+          "config": {
+            "label": "Items",
+            "repeat": true,
+            "fields": {
+              "product_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Product Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "cta_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Cta Text",
+                  "placeholder": ""
+                }
+              },
+              "cta_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Cta Link",
+                  "placeholder": "",
+                  "select": null
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
