@@ -8,9 +8,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, EffectCoverflow } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import 'swiper/css/free-mode'
+import { FreeMode } from 'swiper/modules'
 
 import FinancialsAccordion from "@/components/financials-accordion";
 import RichText from "@/components/Texts/RichText";
+import CTABtn from "@/components/afa/CTABtn";
 
 /** ✅ Moved outside to avoid re-renders */
 const RenderIdentifier = ({ show, text }) => {
@@ -224,6 +227,65 @@ const StudentVision = ({ slice, context }) => {
           )}
         </div>
       </section>
+    );
+  }
+
+  if (slice.variation === "galleryAfa") {
+    return (
+      <section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+      className="relative mt-14 pt-10 cursor-grab active:cursor-grabbing overflow-visible"
+    >
+        
+        <div className="curves curve-mask -mt-14" />
+       
+
+       <div className="absolute inset-0 -mt-20 -z-10 w-full bg-[#4BCFEE] bg-[linear-gradient(to_right,#7a4e0e33_1px,transparent_1px),linear-gradient(to_bottom,#7a4e0e33_1px,transparent_1px)] bg-[size:44px_78px] bg-grid" />
+      <div className="overflow-visible">
+        <Swiper
+          modules={[FreeMode]}
+          loop={true}
+          freeMode={{ enabled: true }}
+          grabCursor={true}
+          slidesPerView="auto"
+          className="w-full"
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+        >
+          {images.map((item, index) => {
+            const isEven = index % 2 === 0;
+
+            return (
+              <SwiperSlide key={index} className="!w-auto mt-28 overflow-visible">
+                <div
+                  className={`border-2 border-black rounded-2xl p-2 bg-white transition-transform duration-300
+                    ${isEven ? 'rotate-[6deg] -translate-y-6' : '-rotate-[6deg] -translate-y-20'}
+                  `}
+                >
+                  <PrismicNextImage
+                    field={item.image}
+                    className="w-[400px] h-[300px] object-cover rounded-2xl"
+                  />
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
+
+      {/* CTA Buttons */}
+      <div className="flex justify-center mt-12 pb-20">
+        <div onClick={() => swiperRef.current?.slidePrev()} className="cursor-pointer">
+          <CTABtn variant="arrow-only" direction="left" />
+        </div>
+        <div onClick={() => swiperRef.current?.slideNext()} className="cursor-pointer">
+          <CTABtn variant="arrow-only" direction="right" />
+        </div>
+      </div>
+    </section>
+
+    
+
     );
   }
 
