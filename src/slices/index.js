@@ -34,6 +34,7 @@ export const components = {
   impact_hero: dynamic(() => import("./ImpactHero")),
   impact_key_stage: dynamic(() => import("./ImpactKeyStage")),
   impact_marquee: dynamic(() => import("./ImpactMarquee")),
+  impact_numbers2_afa: dynamic(() => import("./ImpactNumbers2Afa")),
   impact_numbers_afa: dynamic(() => import("./ImpactNumbersAfa")),
   impact_point2: dynamic(() => import("./ImpactPoint2")),
   impact_points: dynamic(() => import("./ImpactPoints")),
