@@ -202,6 +202,77 @@ const Testimonial = ({ slice, context }) => {
     );
   }
 
+  if (slice.variation === "testimonialMultipleAfa") {
+    return (
+      <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className={`${addPadding ? "universal-padding" : ""}   relative mt-32`}
+      >
+      
+      <div className="curves curve-mask -mt-20" />
+       
+
+        <div className="absolute inset-0 -mt-20 -z-10 w-full bg-[#F4456E] bg-[linear-gradient(to_right,#7a4e0e33_1px,transparent_1px),linear-gradient(to_bottom,#7a4e0e33_1px,transparent_1px)] bg-[size:44px_78px] bg-grid" />
+        <h1 className="text-5xl md:text-7xl text-left md:text-center text-white font-ambit-regular  md:mx-auto mt-12">
+          {slice.primary.title}
+        </h1>
+        <div className="min-h-[600px] md:min-h-[800px] relative flex flex-col items-center justify-center">
+       
+          
+          <div className="bg-black  py-4 px-4 scale-75 lg:scale-100 lg:px-8 rounded-[20px] min-h-[28rem] w-[350px] lg:max-w-[24rem] relative bottom-24 -left-12 sm:-left-24 lg:-left-52 -rotate-[2deg] z-20">
+          <div className="absolute bottom-2 left-1 bg-white w-full h-full rounded-[20px] border-2 border-black -z-10 "></div>
+            <PrismicNextImage
+              field={testimonials[activeIndex].asset}
+              alt=""
+              height={80}
+              width={80}
+              className="absolute bottom-[22%] left-1/2 transform -translate-x-1/2 w-full"
+            />
+
+            <div className="min-h-[28rem] flex flex-col justify-between">
+              <div>
+                <Image src="/quotes-new.png" alt="" height={80} width={80} />
+                <p className="font-ambit-regular text-2xl text-black mt-12">
+                  {testimonials[activeIndex].quote}
+                </p>
+              </div>
+              <p className="flex sm:w-full">
+                <span className="text-black font-ambit-regular text-lg w-[72%]">
+                  {testimonials[activeIndex].name}
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div className="scale-50 sm:scale-75 lg:scale-100 w-[350px] lg:max-w-[24rem] h-[32rem] absolute left-[50%] -translate-x-1/4 top-[30%]  z-20">
+            <PrismicNextImage
+              field={testimonials[activeIndex].image}
+              alt=""
+              className="h-full w-full object-cover rounded-[20px] "
+            />
+          </div>
+        </div>
+
+        {length > 1 && (
+          <div className="flex gap-2 items-center justify-center mt-4">
+            <SwiperArrow
+              strokeColor="#37473C"
+              className="rotate-180"
+              onClick={prevTestimonial}
+              isDisabled={activeIndex === 0}
+            />
+            <SwiperArrow
+              strokeColor="#37473C"
+              onClick={nextTestimonial}
+              isDisabled={activeIndex === testimonials.length - 1}
+            />
+          </div>
+        )}
+      </section>
+    );
+  }
+
   return (
     <section
       data-slice-type={slice.slice_type}
