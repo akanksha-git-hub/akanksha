@@ -139,6 +139,7 @@ export type AnnualReportsDocument<Lang extends string = string> =
   >;
 
 type ArtForAkankshaDocumentDataSlicesSlice =
+  | TestimonialSlice
   | ProductAfaSlice
   | ImpactNumbers2AfaSlice
   | ImpactNumbersAfaSlice
@@ -17077,6 +17078,41 @@ export interface TestimonialSliceTestimonialMultiplePrimaryContentItem {
 }
 
 /**
+ * Item in *Testimonial → TestimonialMultipleAfa → Primary → content*
+ */
+export interface TestimonialSliceTestimonialMultipleAfaPrimaryContentItem {
+  /**
+   * image field in *Testimonial → TestimonialMultipleAfa → Primary → content*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.testimonialMultipleAfa.primary.content[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * quote field in *Testimonial → TestimonialMultipleAfa → Primary → content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.testimonialMultipleAfa.primary.content[].quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField;
+
+  /**
+   * name field in *Testimonial → TestimonialMultipleAfa → Primary → content*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.testimonialMultipleAfa.primary.content[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+}
+
+/**
  * Default variation for Testimonial Slice
  *
  * - **API ID**: `default`
@@ -17388,6 +17424,47 @@ export type TestimonialSliceTestimonialMultiple = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Testimonial → TestimonialMultipleAfa → Primary*
+ */
+export interface TestimonialSliceTestimonialMultipleAfaPrimary {
+  /**
+   * title field in *Testimonial → TestimonialMultipleAfa → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.testimonialMultipleAfa.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * content field in *Testimonial → TestimonialMultipleAfa → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.testimonialMultipleAfa.primary.content[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  content: prismic.GroupField<
+    Simplify<TestimonialSliceTestimonialMultipleAfaPrimaryContentItem>
+  >;
+}
+
+/**
+ * TestimonialMultipleAfa variation for Testimonial Slice
+ *
+ * - **API ID**: `testimonialMultipleAfa`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestimonialSliceTestimonialMultipleAfa =
+  prismic.SharedSliceVariation<
+    "testimonialMultipleAfa",
+    Simplify<TestimonialSliceTestimonialMultipleAfaPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *Testimonial*
  */
 type TestimonialSliceVariation =
@@ -17395,7 +17472,8 @@ type TestimonialSliceVariation =
   | TestimonialSliceSingle
   | TestimonialSliceOptionC
   | TestimonialSliceOptionD
-  | TestimonialSliceTestimonialMultiple;
+  | TestimonialSliceTestimonialMultiple
+  | TestimonialSliceTestimonialMultipleAfa;
 
 /**
  * Testimonial Shared Slice
@@ -18614,12 +18692,15 @@ declare module "@prismicio/client" {
       TestimonialSliceOptionDPrimary,
       TestimonialSliceTestimonialMultiplePrimaryContentItem,
       TestimonialSliceTestimonialMultiplePrimary,
+      TestimonialSliceTestimonialMultipleAfaPrimaryContentItem,
+      TestimonialSliceTestimonialMultipleAfaPrimary,
       TestimonialSliceVariation,
       TestimonialSliceDefault,
       TestimonialSliceSingle,
       TestimonialSliceOptionC,
       TestimonialSliceOptionD,
       TestimonialSliceTestimonialMultiple,
+      TestimonialSliceTestimonialMultipleAfa,
       TextShowcaseSlice,
       TextShowcaseSliceDefaultPrimary,
       TextShowcaseSliceVariation,
