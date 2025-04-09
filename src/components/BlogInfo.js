@@ -78,7 +78,7 @@ export default function BlogInfo({ data }) {
     <div className="flex items-start">
         <div className="sticky top-12 left-0">
             {/* Sticky component */}    
-            <div className="relative hidden xl:block rounded-[10px] bg-white overflow-hidden max-w-[300px]">
+            <div className="relative hidden xl:block rounded-[10px] bg-white overflow-hidden max-w-[300px] mt-10">
                 <div className="p-4">
                     <p className="font-ambit-semibold text-black">CONTENTS</p>
                     <ul className="px-4 space-y-3 mt-2">
@@ -103,15 +103,15 @@ export default function BlogInfo({ data }) {
                     <p className="font-ambit-regular text-black">
                         Volunteer program open
                     </p>
-                    <div className="flex items-center justify-between mt-2">
+                    <div className="flex items-center gap-2 justify-between mt-2">
                         {/* <PrimaryCTA 
                             className='!p-2 !w-[100px] flex items-center justify-center'
                             text='Know more'
                         /> */}
-                        <Button className="!p-2 !w-[130px] ">
+                        <Button className="!p-2 !text-xs !w-[130px] ">
                             Know More
                         </Button>
-                        <Button className="!p-2 !w-[100px] ">
+                        <Button className="!p-2 !text-xs !w-[100px] ">
                            Donate
                         </Button>
                         {/* <PrimaryCTA
@@ -141,7 +141,7 @@ export default function BlogInfo({ data }) {
                                 identifier = `b${index}`;
 
                                 return(
-                                    <div id={heading && (identifier)} key={i}>
+                                    <div id={heading && (identifier)} key={i} className="mt-10" >
                                         <RichText 
                                             className='text-3xl sm:text-4xl font-ambit-semibold text-left md:text-center flex items-center justify-center w-[90%] 2xl:w-[32ch] md:mx-auto'
                                             text={heading && (text.text)}
@@ -154,9 +154,9 @@ export default function BlogInfo({ data }) {
                                 )
                             })}
                             {hasImage && (
-                                <div className={`w-full overflow-hidden`}>
+                                <div className={`w-full h-full`}>
                                     <PrismicNextImage 
-                                        className="h-[250px] xl:h-[500px] w-full object-cover mx-auto"
+                                        className="h-[250px] xl:h-[500px] w-full  object-contain mx-auto"
                                         field={item.image}
                                     />
                                 </div>
