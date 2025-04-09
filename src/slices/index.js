@@ -51,6 +51,7 @@ export const components = {
   page_title: dynamic(() => import("./PageTitle")),
   partners_showcase: dynamic(() => import("./PartnersShowcase")),
   picture_tab_slice: dynamic(() => import("./PictureTabSlice")),
+  product_afa: dynamic(() => import("./ProductAfa")),
   program_showcase: dynamic(() => import("./ProgramShowcase")),
   quote: dynamic(() => import("./Quote")),
   retention: dynamic(() => import("./Retention")),

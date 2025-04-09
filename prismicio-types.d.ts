@@ -139,6 +139,7 @@ export type AnnualReportsDocument<Lang extends string = string> =
   >;
 
 type ArtForAkankshaDocumentDataSlicesSlice =
+  | ProductAfaSlice
   | ImpactNumbers2AfaSlice
   | ImpactNumbersAfaSlice
   | InceptionAfaSlice
@@ -13871,6 +13872,136 @@ export type PictureTabSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *ProductAfa → Default → Primary → Items*
+ */
+export interface ProductAfaSliceDefaultPrimaryItemsItem {
+  /**
+   * Product Image field in *ProductAfa → Default → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_afa.default.primary.items[].product_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  product_image: prismic.ImageField<never>;
+
+  /**
+   * Cta Text field in *ProductAfa → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_afa.default.primary.items[].cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
+  /**
+   * Cta Link field in *ProductAfa → Default → Primary → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_afa.default.primary.items[].cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *ProductAfa → Default → Primary*
+ */
+export interface ProductAfaSliceDefaultPrimary {
+  /**
+   * Title field in *ProductAfa → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_afa.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Insta Image field in *ProductAfa → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_afa.default.primary.insta_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  insta_image: prismic.ImageField<never>;
+
+  /**
+   * Insta Asset field in *ProductAfa → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_afa.default.primary.insta_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  insta_asset: prismic.ImageField<never>;
+
+  /**
+   * Main Asset field in *ProductAfa → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_afa.default.primary.main_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  main_asset: prismic.ImageField<never>;
+
+  /**
+   * Description field in *ProductAfa → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_afa.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Items field in *ProductAfa → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_afa.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<Simplify<ProductAfaSliceDefaultPrimaryItemsItem>>;
+}
+
+/**
+ * Default variation for ProductAfa Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProductAfaSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProductAfaSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProductAfa*
+ */
+type ProductAfaSliceVariation = ProductAfaSliceDefault;
+
+/**
+ * ProductAfa Shared Slice
+ *
+ * - **API ID**: `product_afa`
+ * - **Description**: ProductAfa
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProductAfaSlice = prismic.SharedSlice<
+  "product_afa",
+  ProductAfaSliceVariation
+>;
+
+/**
  * Item in *ProgramShowcase → Default → Primary → Program Showcase Content*
  */
 export interface ProgramShowcaseSliceDefaultPrimaryProgramShowcaseContentItem {
@@ -18368,6 +18499,11 @@ declare module "@prismicio/client" {
       PictureTabSliceSliceDefaultPrimary,
       PictureTabSliceSliceVariation,
       PictureTabSliceSliceDefault,
+      ProductAfaSlice,
+      ProductAfaSliceDefaultPrimaryItemsItem,
+      ProductAfaSliceDefaultPrimary,
+      ProductAfaSliceVariation,
+      ProductAfaSliceDefault,
       ProgramShowcaseSlice,
       ProgramShowcaseSliceDefaultPrimaryProgramShowcaseContentItem,
       ProgramShowcaseSliceDefaultPrimary,
