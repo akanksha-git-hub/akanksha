@@ -1,0 +1,108 @@
+{
+  "id": "impact_numbers_afa",
+  "type": "SharedSlice",
+  "name": "ImpactNumbersAfa",
+  "description": "ImpactNumbersAfa",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "border_color": {
+          "type": "Color",
+          "config": {
+            "label": "Border Color",
+            "placeholder": ""
+          }
+        },
+        "card_1_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card 1 Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "card_2_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Title",
+            "placeholder": ""
+          }
+        },
+        "card_2_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 2 Description",
+            "placeholder": ""
+          }
+        },
+        "card_2_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card 2 Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_3_title": {
+          "type": "Text",
+          "config": {
+            "label": "Card 3 Title",
+            "placeholder": ""
+          }
+        },
+        "card_3_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 3 Description",
+            "placeholder": ""
+          }
+        },
+        "card_3_image": {
+          "type": "Image",
+          "config": {
+            "label": " Card 3 Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "card_4_title": {
+          "type": "Text",
+          "config": {
+            "label": " Card 4 Title",
+            "placeholder": ""
+          }
+        },
+        "card_4_description": {
+          "type": "Text",
+          "config": {
+            "label": "Card 4 Description",
+            "placeholder": ""
+          }
+        },
+        "card_4_image": {
+          "type": "Image",
+          "config": {
+            "label": "Card 4 Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
