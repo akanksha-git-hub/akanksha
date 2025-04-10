@@ -51,6 +51,22 @@
               }
             }
           }
+        },
+        "top_asset": {
+          "type": "Image",
+          "config": {
+            "label": "Top Asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "w_image": {
+          "type": "Image",
+          "config": {
+            "label": "W Image",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}

@@ -43,7 +43,13 @@ const InceptionAfa = ({ slice }) => {
       // 3️⃣ Infinite rotating animation for box_asset
       gsap.to(".rotating-box", {
         rotate: 360,
-        duration: 8,
+        duration: 10,
+        repeat: -1,
+        ease: "none",
+      });
+      gsap.to(".rotating-box-1", {
+        rotate: -360,
+        duration: 12,
         repeat: -1,
         ease: "none",
       });
@@ -60,9 +66,9 @@ const InceptionAfa = ({ slice }) => {
       {/* 🔳 Background Grid */}
       <div className="absolute inset-0 -z-10 w-full bg-[#F6AC27] bg-[linear-gradient(to_right,#7a4e0e33_1px,transparent_1px),linear-gradient(to_bottom,#7a4e0e33_1px,transparent_1px)] bg-[size:44px_78px] bg-grid" />
 
-      {/* 📦 Content Row */}
+      {/* Content Row */}
       <div className="flex flex-row gap-6 mt-56">
-        {/* 🖼️ Left Image */}
+        {/*  Left Image */}
         <div className="flex w-[50%] justify-center items-center image-block">
           <PrismicImage field={slice.primary.asset} className="h-[500px] w-[500px]" />
         </div>
@@ -75,6 +81,10 @@ const InceptionAfa = ({ slice }) => {
           <PrismicImage
             field={slice.primary.box_asset}
             className="absolute bottom-12 right-12 w-20 rotating-box"
+          />
+           <PrismicImage
+            field={slice.primary.box_asset_small}
+            className="absolute bottom-[130px] right-6 w-10 rotating-box-1"
           />
         </div>
       </div>

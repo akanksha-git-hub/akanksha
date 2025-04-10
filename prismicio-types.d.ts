@@ -5342,6 +5342,36 @@ export interface ArtHeroSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   bottom_single: prismic.ImageField<never>;
+
+  /**
+   * Sticker Image 1 field in *ArtHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: art_hero_section.default.primary.sticker_image_1
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  sticker_image_1: prismic.ImageField<never>;
+
+  /**
+   * Sticker Image 2 field in *ArtHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: art_hero_section.default.primary.sticker_image_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  sticker_image_2: prismic.ImageField<never>;
+
+  /**
+   * Sticker Image 3 field in *ArtHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: art_hero_section.default.primary.sticker_image_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  sticker_image_3: prismic.ImageField<never>;
 }
 
 /**
@@ -7872,6 +7902,26 @@ export interface ChildrenQuoteSliceDefaultPrimary {
   quotes: prismic.GroupField<
     Simplify<ChildrenQuoteSliceDefaultPrimaryQuotesItem>
   >;
+
+  /**
+   * Top Asset field in *ChildrenQuote → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: children_quote.default.primary.top_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  top_asset: prismic.ImageField<never>;
+
+  /**
+   * W Image field in *ChildrenQuote → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: children_quote.default.primary.w_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  w_image: prismic.ImageField<never>;
 }
 
 /**
@@ -10887,6 +10937,26 @@ export interface ImpactNumbers2AfaSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   card_5_description: prismic.RichTextField;
+
+  /**
+   * Bottom Left Asset field in *ImpactNumbers2Afa → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers2_afa.default.primary.bottom_left_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bottom_left_asset: prismic.ImageField<never>;
+
+  /**
+   * Top Asset field in *ImpactNumbers2Afa → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers2_afa.default.primary.top_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  top_asset: prismic.ImageField<never>;
 }
 
 /**
@@ -11042,6 +11112,16 @@ export interface ImpactNumbersAfaSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   card_4_image: prismic.ImageField<never>;
+
+  /**
+   * Asset Right field in *ImpactNumbersAfa → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_numbers_afa.default.primary.asset_right
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  asset_right: prismic.ImageField<never>;
 }
 
 /**
@@ -11571,6 +11651,16 @@ export interface InceptionAfaSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   box_asset: prismic.ImageField<never>;
+
+  /**
+   * Box Asset Small field in *InceptionAfa → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: inception_afa.default.primary.box_asset_small
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  box_asset_small: prismic.ImageField<never>;
 }
 
 /**
@@ -16548,6 +16638,36 @@ export interface StudentVisionSliceGalleryAfaPrimary {
   images: prismic.GroupField<
     Simplify<StudentVisionSliceGalleryAfaPrimaryImagesItem>
   >;
+
+  /**
+   * Top Asset field in *StudentVision → GalleryAfa → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.galleryAfa.primary.top_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  top_asset: prismic.ImageField<never>;
+
+  /**
+   * Bottom Left Asset field in *StudentVision → GalleryAfa → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.galleryAfa.primary.bottom_left_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bottom_left_asset: prismic.ImageField<never>;
+
+  /**
+   * Bottom Right Asset field in *StudentVision → GalleryAfa → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.galleryAfa.primary.bottom_right_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  bottom_right_asset: prismic.ImageField<never>;
 }
 
 /**
