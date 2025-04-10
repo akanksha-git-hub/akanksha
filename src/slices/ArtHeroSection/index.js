@@ -44,9 +44,10 @@ const ArtHeroSection = ({ slice }) => {
       {/* ✅ Desktop & Tablet layout */}
       <div className="hidden md:block relative max-w-screen-xl mx-auto mt-8 mb-48">
         {/* Floating Product Card Left */}
-        <div className="absolute left-12 -bottom-72 z-10 product-card">
+        <div className="absolute -left-0 -bottom-[380px] z-10 product-card">
           <ProductCard
-            image="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=600&q=80"
+             image={slice.primary.sticker_image_3?.url ||
+              "https://via.placeholder.com/300x300?text=No+Image"}
             tagPosition="top-left"
             tagRotation={-20}
             tagScale={0.9}
@@ -79,9 +80,10 @@ const ArtHeroSection = ({ slice }) => {
         <PrismicImage field={slice.primary.left_image} className="absolute top-72 left-52 w-8 z-10 image-top" />
 
         {/* Floating Product Card Right */}
-        <div className="absolute right-0 -bottom-[580px] z-10 product-card">
+        <div className="absolute right-0 -bottom-[470px] z-10 product-card">
           <ProductCard
-            image="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=600&q=80"
+            image={slice.primary.sticker_image_1?.url ||
+              "https://via.placeholder.com/300x300?text=No+Image"}
             tagPosition="top-left"
             tagRotation={-20}
             tagScale={0.8}
@@ -95,7 +97,8 @@ const ArtHeroSection = ({ slice }) => {
         {/* Floating Product Card Left Top */}
         <div className="absolute -left-48 -top-12 z-10 product-card">
           <ProductCard
-            image="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=600&q=80"
+             image={slice.primary.sticker_image_2?.url ||
+              "https://via.placeholder.com/300x300?text=No+Image"}
             tagPosition="top-left"
             tagRotation={-20}
             tagScale={0.8}

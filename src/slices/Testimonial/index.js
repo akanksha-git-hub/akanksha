@@ -209,14 +209,25 @@ const Testimonial = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className={`${addPadding ? "universal-padding" : ""}   relative mt-32`}
       >
-          {/* <PrismicNextImage
-              field={slice.primary.left_asset}
-              alt=""
-              height={20}
-              width={20}
-              className="absolute z-20 transform w-full"
-            />
-       */}
+        {slice.primary.left_asset?.url && (
+  <div className="absolute left-0 bottom-[40%]  h-[220px] w-[220px]">
+    <PrismicNextImage
+      field={slice.primary.left_asset}
+      className="h-full w-full object-contain"
+      alt=""
+    />
+  </div>
+)}
+ {slice.primary.left_asset?.url && (
+  <div className="absolute right-10 top-0  h-[120px] w-[120px]">
+    <PrismicNextImage
+      field={slice.primary.right_asset}
+      className="h-full w-full object-contain"
+      alt=""
+    />
+  </div>
+)}
+
       <div className="curves curve-mask -mt-20" />
        
 

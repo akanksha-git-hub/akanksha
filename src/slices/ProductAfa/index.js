@@ -87,7 +87,8 @@ import { PrismicNextImage } from "@prismicio/next";
               tagScale={0.8}
               tagOffset={{ top: "-32px", left: "-55px" }}
               cardScale={0.8}
-              className="product-card wiggle"
+              className="product-card wiggle
+"
             />
           ))}
         </div>

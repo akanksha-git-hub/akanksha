@@ -73,6 +73,30 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "sticker_image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Sticker Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "sticker_image_2": {
+          "type": "Image",
+          "config": {
+            "label": "Sticker Image 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "sticker_image_3": {
+          "type": "Image",
+          "config": {
+            "label": "Sticker Image 3",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}

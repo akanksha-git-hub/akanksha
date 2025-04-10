@@ -42,8 +42,29 @@ const ImpactNumbers2Afa = ({ slice }) => {
       ref={sectionRef}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full px-6 bg-white text-black"
+      className="w-full px-6 bg-white text-black relative " 
     >
+
+{slice.primary.bottom_left_asset?.url && (
+  <div className="absolute  transform bottom-12 left-32 h-[160px] w-[160px]">
+    <PrismicNextImage
+      field={slice.primary.bottom_left_asset}
+      className="h-full w-full object-contain"
+      alt=""
+    />
+
+    
+  </div>)}
+  {slice.primary.top_asset?.url && (
+  <div className="absolute  transform right-[400px] -top-64 h-[280px] w-[280px] -z-9">
+    <PrismicNextImage
+      field={slice.primary.top_asset}
+      className="h-full w-full object-contain"
+      alt=""
+    />
+
+    
+  </div>)}
       {/* 🔠 Title */}
       <div className="max-w-4xl mx-auto text-center mb-20">
         <h1 className="text-5xl md:text-7xl font-ambit-regular">{slice.primary.title}</h1>

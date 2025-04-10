@@ -237,6 +237,34 @@ const StudentVision = ({ slice, context }) => {
       data-slice-variation={slice.variation}
       className="relative mt-14 pt-10 cursor-grab active:cursor-grabbing overflow-visible"
     >
+
+{slice.primary.top_asset?.url && (
+  <div className="absolute trasnform left-[20%] top-0  h-[120px] w-[120px]">
+    <PrismicNextImage
+      field={slice.primary.top_asset}
+      className="h-full w-full object-contain"
+      alt=""
+    />
+  </div>)}
+  
+{slice.primary.bottom_left_asset?.url && (
+  <div className="absolute trasnform -left-[1%] bottom-12    h-[80px] w-[80px]">
+    <PrismicNextImage
+      field={slice.primary.bottom_left_asset}
+      className="h-full w-full object-contain"
+      alt=""
+    />
+  </div>)}
+
+  {slice.primary.bottom_right_asset?.url && (
+  <div className="absolute trasnform right-[30%] bottom-28   h-[40px] w-[40px]">
+    <PrismicNextImage
+      field={slice.primary.bottom_right_asset}
+      className="h-full w-full object-contain"
+      alt=""
+    />
+  </div>)}
+
         
         <div className="curves curve-mask -mt-14" />
        

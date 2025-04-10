@@ -5,7 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { PrismicRichText } from "@prismicio/react";
 import "swiper/css";
 import ProductCard from "@/components/afa/ProductCard";
-import CTABtn from "@/components/afa/CTABtn"; // ✅ Import your custom CTA button
+import CTABtn from "@/components/afa/CTABtn"; 
+import { PrismicNextImage } from "@prismicio/next";
+
 
 /**
  * @typedef {import("@prismicio/client").Content.ChildrenQuoteSlice} ChildrenQuoteSlice
@@ -19,11 +21,19 @@ const ChildrenQuote = ({ slice }) => {
 
   return (
     <section className="w-full px-4 py-20">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto relative">
         {/* Title */}
         <h2 className="text-6xl font-ambit-regular mb-12">
           {slice.primary.title}
         </h2>
+        {slice.primary.top_asset?.url && (
+  <div className="absolute  right-0 -top-10   h-[120px] w-[120px]">
+    <PrismicNextImage
+      field={slice.primary.top_asset}
+      className="h-full w-full object-contain"
+      alt=""
+    />
+  </div>)}
 
         {/* Two-column layout */}
         <div className="flex flex-col md:flex-row gap-12 items-start pt-12">
@@ -75,7 +85,7 @@ const ChildrenQuote = ({ slice }) => {
           </div>
 
           {/* Right: ProductCard - 40% */}
-          <div className="w-full md:w-[40%] flex justify-center">
+          <div className="w-full md:w-[40%] flex justify-center relative">
             <ProductCard
               image={quotes[activeIndex]?.image?.url}
               tagPosition="top-left"
@@ -86,6 +96,14 @@ const ChildrenQuote = ({ slice }) => {
               cardRotation={3}
               cardScale={1.2}
             />
+            {slice.primary.w_image?.url && (
+  <div className="absolute  left-0 -bottom-20  h-[80px] w-[80px]">
+    <PrismicNextImage
+      field={slice.primary.w_image}
+      className="h-full w-full object-contain"
+      alt=""
+    />
+  </div>)}
           </div>
         </div>
       </div>

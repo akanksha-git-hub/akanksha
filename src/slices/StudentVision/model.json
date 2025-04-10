@@ -283,6 +283,30 @@
               }
             }
           }
+        },
+        "top_asset": {
+          "type": "Image",
+          "config": {
+            "label": "Top Asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "bottom_left_asset": {
+          "type": "Image",
+          "config": {
+            "label": "Bottom Left Asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "bottom_right_asset": {
+          "type": "Image",
+          "config": {
+            "label": "Bottom Right Asset",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}

@@ -43,6 +43,14 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "box_asset_small": {
+          "type": "Image",
+          "config": {
+            "label": "Box Asset Small",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}

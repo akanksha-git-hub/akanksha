@@ -43,8 +43,20 @@ const ImpactNumbersAfa = ({ slice }) => {
       ref={sectionRef}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full py-32 px-6 bg-white text-black"
+      className="w-full py-32 px-6 bg-white text-black relative"
+      
     >
+
+{slice.primary.asset_right?.url && (
+  <div className="absolute  transform right-48 top-12 h-[140px] w-[140px] ">
+    <PrismicNextImage
+      field={slice.primary.asset_right}
+      className="h-full w-full object-contain"
+      alt=""
+    />
+
+    
+  </div>)}
       {/* 🔠 Title */}
       <div className="max-w-4xl mx-auto text-center mb-20">
         <h1 className="text-5xl md:text-7xl font-ambit-regular">{slice.primary.title}</h1>
