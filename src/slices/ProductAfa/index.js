@@ -80,6 +80,7 @@ import { PrismicNextImage } from "@prismicio/next";
           {slice.primary.items.map((item, index) => (
             <ProductCard
               key={index}
+              ctaLink={item.cta_link.url}
               image={item.product_image.url}
               title={item.cta_text}
               tagPosition="top-left"
