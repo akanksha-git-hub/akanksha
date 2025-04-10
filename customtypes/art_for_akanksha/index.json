@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "children_quote": {
+              "type": "SharedSlice"
+            },
             "student_vision": {
               "type": "SharedSlice"
             },

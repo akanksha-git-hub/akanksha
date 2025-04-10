@@ -14,6 +14,7 @@ export const components = {
   card_showcase: dynamic(() => import("./CardShowcase")),
   card_shuffle: dynamic(() => import("./CardShuffle")),
   cards: dynamic(() => import("./Cards")),
+  children_quote: dynamic(() => import("./ChildrenQuote")),
   donation_slice: dynamic(() => import("./DonationSlice")),
   donor_hero: dynamic(() => import("./DonorHero")),
   flagship_hero: dynamic(() => import("./FlagshipHero")),
