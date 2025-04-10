@@ -46,8 +46,7 @@ const ArtHeroSection = ({ slice }) => {
         {/* Floating Product Card Left */}
         <div className="absolute -left-0 -bottom-[380px] z-10 product-card">
           <ProductCard
-             image={slice.primary.sticker_image_3?.url ||
-              "https://via.placeholder.com/300x300?text=No+Image"}
+             image={slice.primary.sticker_image_3?.url}
             tagPosition="top-left"
             tagRotation={-20}
             tagScale={0.9}
@@ -82,8 +81,8 @@ const ArtHeroSection = ({ slice }) => {
         {/* Floating Product Card Right */}
         <div className="absolute right-0 -bottom-[470px] z-10 product-card">
           <ProductCard
-            image={slice.primary.sticker_image_1?.url ||
-              "https://via.placeholder.com/300x300?text=No+Image"}
+            image={
+              slice.primary.sticker_image_1?.url }
             tagPosition="top-left"
             tagRotation={-20}
             tagScale={0.8}
@@ -97,8 +96,8 @@ const ArtHeroSection = ({ slice }) => {
         {/* Floating Product Card Left Top */}
         <div className="absolute -left-48 -top-12 z-10 product-card">
           <ProductCard
-             image={slice.primary.sticker_image_2?.url ||
-              "https://via.placeholder.com/300x300?text=No+Image"}
+             image={
+              slice.primary.sticker_image_2?.url}
             tagPosition="top-left"
             tagRotation={-20}
             tagScale={0.8}
