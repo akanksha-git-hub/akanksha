@@ -3,6 +3,7 @@ import TapeTag from "./TapeTag";
 
 export default function ProductCard({
   image,
+  ctaLink,
   title,
   tagRotation = 12,
   tagPosition = "top-left",
@@ -38,7 +39,7 @@ export default function ProductCard({
       {variant === "default" && (
         <div className=" pt-4 space-y-2 ">
           <h3 className="text-3xl font-ambit-regular">{title}</h3>
-          <CTABtn text="get it now" variant="text" />
+          <CTABtn text="get it now" variant="text" href={ctaLink} />
         </div>
       )}
     </div>
