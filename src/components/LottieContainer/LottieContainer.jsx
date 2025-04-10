@@ -3,41 +3,43 @@ import Lottie from "lottie-react"
 import { useEffect, useRef, useState } from "react";
 
 export default function LottieContainer({ lottieData, className }) {
-
     const [onMount, setOnMount] = useState(false);
     const root = useRef();
     const lRef = useRef();
 
     let LottieData = null;
-    if(lottieData) LottieData = JSON.parse(lottieData);
+    if (lottieData) LottieData = JSON.parse(lottieData);
 
     useEffect(() => {
+        // Ensure this code only runs on the client side
+        if (typeof window !== "undefined") {
+            if (!onMount) {
+                setOnMount(true);
+                return;
+            }
 
-        if(!onMount) {
-            setOnMount(() => true);
-            return;
+            lRef.current.stop();
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        lRef.current.play();
+                        observer.disconnect(root.current);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(root.current);
         }
-        lRef.current.stop();
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    lRef.current.play();
-                    observer.disconnect(root.current);
-                }
-            })
-        }, { threshold: 0.5 });
-        observer.observe(root.current);
-
     }, [onMount]);
 
-  return (
+    return (
         <div ref={root}>
-            <Lottie 
+            <Lottie
                 lottieRef={lRef}
                 className={className}
                 animationData={LottieData}
                 loop={false}
             />
         </div>
-  )
+    );
 }
