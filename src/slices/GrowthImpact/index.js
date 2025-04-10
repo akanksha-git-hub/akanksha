@@ -19,7 +19,7 @@ const GrowthImpact = ({ slice }) => {
       className=" mt-0"
     >
      <RenderIdentifier />
-      <h1 className="font-ambit-regular text-3xl md:text-6xl text-left md:ext-center mt-14 ">
+      <h1 className="font-ambit-regular text-3xl md:text-6xl text-left md:text-center mt-14 ">
         {slice.primary.title}
       </h1>
       <div className="flex flex-col lg:flex-row bg-[#ECF0F1]  rounded-lg   pt-2  mt-14 h-full lg:max-h-[300px] xl:max-h-max  w-full ">

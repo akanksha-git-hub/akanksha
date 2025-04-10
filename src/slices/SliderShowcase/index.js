@@ -582,7 +582,7 @@ const SliderShowcase = ({ slice, context }) => {
                         className="w-full  h-full "
                         image={item.image}
                       />
-                      <div className="w-full   xl:h-[33rem] xl:max-w-[50%] rounded-lg md:rounded-none bg-[#58BCD4] p-8   flex flex-col items-center justify-center relative">
+                      <div className="w-full   xl:h-[33.5rem] xl:max-w-[50%] rounded-lg md:rounded-none bg-[#58BCD4] p-8   flex flex-col items-center justify-center relative">
                         <div className="absolute top-0 right-0 w-full h-[1.25rem]">
                           <div className="relative h-full w-full">
                             <Image
