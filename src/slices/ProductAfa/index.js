@@ -48,16 +48,21 @@ import { PrismicNextImage } from "@prismicio/next";
           </h2>
            <PrismicNextImage field={slice.primary.insta_asset} className="  w-36 h-10 " />
         
-           <div className="absolute right-32 -top-6 rotate-6 border pr-4 pl-2 pb-4 bg-black border-black rounded-xl z-0 ">
+           <a
+  href="https://www.instagram.com/artforakanksha/?next=%2F&hl=en"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="absolute right-32 -top-6 rotate-6 border pr-4 pl-2 pb-4 bg-black border-black rounded-xl z-0"
+>
   {/* Bottom background card layer */}
   <div className="absolute bottom-1 right-1 bg-white w-full h-full rounded-xl border-2 border-black z-10"></div>
 
- 
   <div className="relative z-20 flex flex-col justify-center items-center">
-    <PrismicNextImage field={slice.primary.insta_image} className=" -rotate-12 w-16" />
-    <p className="text-xs font-ambit-regular" >See more here</p>
+    <PrismicNextImage field={slice.primary.insta_image} className="-rotate-12 w-16" />
+    <p className="text-xs font-ambit-regular text-black z-10">See more here</p>
   </div>
-</div>
+</a>
+
 
         </div>
         <div className="flex flex-row justify-end items-start relative  " >
