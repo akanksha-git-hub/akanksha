@@ -31,8 +31,24 @@ body {
 /* Prevent background scrolling when modal is open */
 body.modal-open {
   position: fixed !important;
-
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
+  scrollbar-width: none;
   top: var(--scroll-y);
+}
+
+
+body.modal-open::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 /* Ensure modal description scrolls properly */
 .modal-description {
