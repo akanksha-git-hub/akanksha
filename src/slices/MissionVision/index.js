@@ -211,17 +211,17 @@ const MissionVision = ({ slice, context }) => {
     >
       {slice.variation !== "doubleCtaComponent" && <RenderIdentifier />}
       <div
-        className={`flex flex-col items-center gap-12 mt-12 ${
+        className={`flex flex-col items-center gap-12 mt-12  ${
           slice.variation === "reverseVideoComponet"
             ? "lg:flex-row-reverse"
             : "lg:flex-row"
         }`}
       >
         <VideoModal className="hidden lg:flex" slice={slice} />
-        <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal ">
+        <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-[85%] xl:w-2/4 ">
           <RichText
             text={slice.primary.title}
-            className="text-black font-ambit-regular text-center w-full sm:w-3/4 justify-center lg:text-left lg:items-start lg:justify-normal md:w-full text-3xl md:text-6xl lg:w-[99%] xl:w-[46%] 3xl:w-[48rem] 3xl:mt-2"
+            className="text-black font-ambit-regular text-center w-full sm:w-3/4 justify-center lg:text-left lg:items-start lg:justify-normal md:w-full text-3xl md:text-6xl  3xl:mt-2"
           />
           <VideoModal className="flex w-full mt-8 lg:hidden" slice={slice} />
           <RichText
