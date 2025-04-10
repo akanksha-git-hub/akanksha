@@ -218,7 +218,7 @@ const MissionVision = ({ slice, context }) => {
         }`}
       >
         <VideoModal className="hidden lg:flex" slice={slice} />
-        <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-[85%] xl:w-2/4">
+        <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal ">
           <RichText
             text={slice.primary.title}
             className="text-black font-ambit-regular text-center w-full sm:w-3/4 justify-center lg:text-left lg:items-start lg:justify-normal md:w-full text-3xl md:text-6xl lg:w-[99%] xl:w-[46%] 3xl:w-[48rem] 3xl:mt-2"
