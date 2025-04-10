@@ -8,7 +8,6 @@ import ProductCard from "@/components/afa/ProductCard";
 import CTABtn from "@/components/afa/CTABtn"; 
 import { PrismicNextImage } from "@prismicio/next";
 
-
 /**
  * @typedef {import("@prismicio/client").Content.ChildrenQuoteSlice} ChildrenQuoteSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<ChildrenQuoteSlice>} ChildrenQuoteProps
@@ -26,14 +25,17 @@ const ChildrenQuote = ({ slice }) => {
         <h2 className="text-6xl font-ambit-regular mb-12">
           {slice.primary.title}
         </h2>
+
+        {/* Top Asset */}
         {slice.primary.top_asset?.url && (
-  <div className="absolute  right-0 -top-10   h-[120px] w-[120px]">
-    <PrismicNextImage
-      field={slice.primary.top_asset}
-      className="h-full w-full object-contain"
-      alt=""
-    />
-  </div>)}
+          <div className="absolute right-0 -top-10 h-[120px] w-[120px]">
+            <PrismicNextImage
+              field={slice.primary.top_asset}
+              className="h-full w-full object-contain"
+              alt=""
+            />
+          </div>
+        )}
 
         {/* Two-column layout */}
         <div className="flex flex-col md:flex-row gap-12 items-start pt-12">
@@ -45,7 +47,7 @@ const ChildrenQuote = ({ slice }) => {
             {/* Blur Bottom */}
             <div className="pointer-events-none absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white to-transparent z-20" />
 
-            {/* Arrow Buttons using CTABtn */}
+            {/* Arrow Buttons */}
             <div className="absolute -bottom-10 left-4 z-30 flex flex-row">
               <div onClick={() => swiperRef.current?.slidePrev()} className="cursor-pointer">
                 <CTABtn variant="arrow-only" direction="left" />
@@ -70,11 +72,14 @@ const ChildrenQuote = ({ slice }) => {
                 <SwiperSlide key={index}>
                   <div className="relative flex justify-center w-full">
                     <div className="relative w-[85%] md:w-[70%] mx-auto z-0">
-                      <div className="absolute top-2 right-2 w-full h-full bg-[#FBDA1D] rounded-xl border-2 border-black -z-10" />
-                      <div className="bg-white p-6 border-2 border-black rounded-xl w-full flex items-center justify-center">
-                        <div className="text-xl font-ambit-regular text-black flex flex-col justify-center items-start text-left w-full">
+                      {/* Yellow background layer */}
+                      <div className="absolute top-2 right-2 w-full h-[300px] bg-[#FBDA1D] rounded-xl border-2 border-black -z-10" />
+                      
+                      {/* Quote Card */}
+                      <div className="bg-white p-6 border-2 border-black rounded-xl w-full h-[300px] flex items-center justify-center">
+                        <div className="text-xl font-ambit-regular text-black flex flex-col justify-center items-start text-left w-full max-w-md">
                           <PrismicRichText field={item.quote} />
-                          <p className="mt-2 text-sm font-ambit-regular">{item.authur}</p>
+                          <p className="mt-4 text-sm font-ambit-regular">{item.authur}</p>
                         </div>
                       </div>
                     </div>
@@ -96,14 +101,17 @@ const ChildrenQuote = ({ slice }) => {
               cardRotation={3}
               cardScale={1.2}
             />
+
+            {/* W Asset */}
             {slice.primary.w_image?.url && (
-  <div className="absolute  left-0 -bottom-20  h-[80px] w-[80px]">
-    <PrismicNextImage
-      field={slice.primary.w_image}
-      className="h-full w-full object-contain"
-      alt=""
-    />
-  </div>)}
+              <div className="absolute left-0 -bottom-20 h-[80px] w-[80px]">
+                <PrismicNextImage
+                  field={slice.primary.w_image}
+                  className="h-full w-full object-contain"
+                  alt=""
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
