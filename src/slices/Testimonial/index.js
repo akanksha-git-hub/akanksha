@@ -113,6 +113,9 @@ const Testimonial = ({ slice, context }) => {
                 <p className="font-ambit-regular text-2xl text-black mt-12">
                   {testimonials[activeIndex].quote}
                 </p>
+                <p className="font-ambit-regular text-2xl text-black mt-12">
+                  {testimonials[activeIndex].name}
+                </p>
               </div>
             </div>
           </div>
