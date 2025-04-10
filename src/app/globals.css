@@ -42,7 +42,7 @@ body.modal-open {
   touch-action: auto !important; /* Fixes scrolling issues on mobile */
 }
 
-/* Custom Scrollbar for Modal Description */
+
 .modal-description::-webkit-scrollbar {
   width: 4px !important; /* Adjust scrollbar width */
 }
