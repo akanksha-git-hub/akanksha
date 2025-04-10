@@ -6,7 +6,6 @@ import { useHamburgerContext } from "./Hamburger";
 import RichText from "../Texts/RichText";
 import { PrismicNextLink } from "@prismicio/next";
 import { usePathname } from "next/navigation";
-import TextCTA from "../UI/Button/TextCTA";
 
 export default function HamburgerContent({
   uniqueIdentifier,
@@ -25,15 +24,22 @@ export default function HamburgerContent({
     setOpenAccord((prevState) => (prevState === index ? null : index));
   }
 
+  // ✅ Fix: Avoid `document is not defined` in SSR
   useEffect(() => {
-    if (isOpen) {
-      stopScroll();
-      document.body.style.overflow = "hidden";
-    } else {
-      if (lenisRef) startScroll();
-      document.body.style.overflow = "none";
+    if (typeof document !== "undefined") {
+      if (isOpen) {
+        stopScroll?.();
+        document.body.style.overflow = "hidden";
+      } else {
+        startScroll?.();
+        document.body.style.overflow = "";
+      }
+
+      return () => {
+        document.body.style.overflow = "";
+      };
     }
-  }, [isOpen]);
+  }, [isOpen, stopScroll, startScroll]);
 
   return (
     <div
@@ -43,43 +49,26 @@ export default function HamburgerContent({
       {isOpen && (
         <div className={`transition-all h-auto overflow-y-scroll`}>
           {header_link_items.length > 0 && (
-            <ul className="  lg:hidden flex items-end w-full flex-col space-y-4 h-auto overflow-y-scroll px-6 py-10">
+            <ul className="lg:hidden flex items-end w-full flex-col space-y-4 h-auto overflow-y-scroll px-6 py-10">
               {uniqueIdentifier &&
                 uniqueIdentifier.map((item, i) => {
                   const upper = item.split(" ");
-                  const upperCaseValue = upper.map((item, i) => {
-                    const firstLetter = item[0].toUpperCase();
-                    const otherLetters = item.substring(1);
-                    const finalWord = `${firstLetter}${otherLetters}`;
-                    return finalWord;
+                  const upperCaseValue = upper.map((word) => {
+                    return word[0].toUpperCase() + word.slice(1);
                   });
 
-                  let finalWord;
+                  const finalWord = upperCaseValue.join(" ");
 
-                  if (upperCaseValue.length > 1) {
-                    finalWord = upperCaseValue.join(" ");
-                  } else {
-                    finalWord = upperCaseValue;
-                  }
                   return header_link_items
-                    .filter((filtered_item, _) => {
-                      const lowerCaseText =
-                        filtered_item.cta_text.toLowerCase();
-                      const matchData = lowerCaseText === item;
-                      return matchData;
+                    .filter((filtered_item) => {
+                      return filtered_item.cta_text.toLowerCase() === item;
                     })
                     .map((_, index) => {
-                      let accordSymbolClassName = "accordion-plus";
-                      let heightClassName = "in-active-height pb-0";
-
-                      if (openAccord === i) {
-                        accordSymbolClassName = "accordion-plus-rotate";
-                        heightClassName = "active-height pb-4";
-                      }
+                      const isExpanded = openAccord === i;
 
                       return (
                         <li key={index} className="relative w-full">
-                          <div className="">
+                          <div>
                             <div
                               onClick={() => toggleAccordion(i)}
                               className="flex items-center justify-end pb-2 cursor-pointer"
@@ -89,37 +78,38 @@ export default function HamburgerContent({
                                 className="text-deep-green text-xl font-ambit-semibold relative"
                               />
                               <span
-                                className={`${accordSymbolClassName} relative bottom-[2px]`}
+                                className={`${
+                                  isExpanded
+                                    ? "accordion-plus-rotate"
+                                    : "accordion-plus"
+                                } relative bottom-[2px]`}
                               />
                             </div>
+
                             <div
-                              className={`z-20 bg-cream flex flex-col items-end border-b border-[#E9E8DB] transition-all overflow-hidden ${heightClassName} pr-6`}
+                              className={`z-20 bg-cream flex flex-col items-end border-b border-[#E9E8DB] transition-all overflow-hidden ${
+                                isExpanded ? "active-height pb-4" : "in-active-height pb-0"
+                              } pr-6`}
                             >
                               {drop_down_items
                                 .filter((data) => {
-                                  const lowerCaseValue = item.toLowerCase();
-                                  const matchData =
-                                    lowerCaseValue ===
-                                    data.identifier.toLowerCase();
-                                  return matchData;
+                                  return data.identifier.toLowerCase() === item.toLowerCase();
                                 })
                                 .map((drop_down, i) => {
                                   const slug = drop_down.cta_link.slug;
-                                  const isActive =
-                                    slug.localeCompare(currentPath);
+                                  const isActive = slug === currentPath;
 
-                                  function handleCloseMenu() {
+                                  const handleCloseMenu = () => {
                                     if (isActive) toggleMenu();
-                                  }
+                                  };
 
                                   return (
                                     <p
                                       onClick={handleCloseMenu}
                                       key={i}
-                                      className={`
-                                                                mx-2 text-xl rounded-[10px] transition-all active:scale-95 hover:bg-white text-right flex items-end justify-end w-fit place-self-end
-                                                                ${isActive === 0 && "bg-white"}
-                                                            `}
+                                      className={`mx-2 text-xl rounded-[10px] transition-all active:scale-95 hover:bg-white text-right flex items-end justify-end w-fit place-self-end ${
+                                        isActive && "bg-white"
+                                      }`}
                                     >
                                       <PrismicNextLink
                                         className="p-2"
@@ -138,7 +128,8 @@ export default function HamburgerContent({
                       );
                     });
                 })}
-              {/* No Drop-down */}
+
+              {/* No Drop-down Items */}
               <div className="w-full flex flex-col items-end space-y-4">
                 {header_link_items
                   .filter((item) => !item.dropdown)

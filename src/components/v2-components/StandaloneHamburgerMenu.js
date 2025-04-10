@@ -11,25 +11,24 @@ export default function StandaloneHamburgerMenu({
   header_link_items = [],
   uniqueIdentifier = [],
   drop_down_items = [],
- 
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prevState) => !prevState);
-
-  // Close the menu
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"; // Disable scroll when the menu is open
-    } else {
-      document.body.style.overflow = ""; // Re-enable scroll
-    }
+    if (typeof document !== "undefined") {
+      if (isOpen) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
 
-    return () => {
-      document.body.style.overflow = "";
-    };
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }
   }, [isOpen]);
 
   return (
@@ -59,29 +58,25 @@ export default function StandaloneHamburgerMenu({
           isOpen ? "translate-y-0" : "-translate-y-full"
         } overflow-hidden z-40 flex flex-col`}
       >
-        {/* White Bar (Contains Logo & Close Button) */}
+        {/* Top Bar */}
         <div className="w-full bg-white h-[5rem] flex items-center justify-between px-6 shadow-md fixed top-0 left-0 z-50">
-       
           <Link
-          href="/"
-          className="relative h-[5rem] w-[8rem] lg:hidden block  z-100 "
-        >
-          <PrismicNextImage
-            field={header.logo_image}
-            alt=""
-            className="h-full w-full"
-            fill
-          />
-        </Link>
-
-          {/* Close Button (Right Side) */}
-         
+            href="/"
+            className="relative h-[5rem] w-[8rem] lg:hidden block z-100"
+          >
+            <PrismicNextImage
+              field={header.logo_image}
+              alt=""
+              className="h-full w-full"
+              fill
+            />
+          </Link>
         </div>
 
         {/* Top Asset (Band) */}
         <div className="absolute top-[5rem] left-0 w-full">
           <Image
-            src="/nav-top.svg" // Replace with actual asset
+            src="/nav-top.svg"
             alt="Top Band"
             width={500}
             height={100}
@@ -100,17 +95,6 @@ export default function StandaloneHamburgerMenu({
             />
           </div>
         )}
-
-        {/* Bottom Asset (Band) */}
-        {/* <div className="absolute bottom-0 left-0 w-full">
-          <Image
-            src="/nav-top.svg" // Replace with actual asset
-            alt="Bottom Band"
-            width={500}
-            height={100}
-            className="w-full object-cover"
-          />
-        </div> */}
       </div>
     </div>
   );
