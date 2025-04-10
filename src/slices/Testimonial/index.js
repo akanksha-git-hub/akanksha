@@ -33,24 +33,25 @@ const Testimonial = ({ slice, context }) => {
     }
   };
 
-  // ✅ Stop Lenis + body scroll on modal open
   useEffect(() => {
-    if (isModalOpen) {
-      const scrollY = window.scrollY;
-      document.documentElement.style.setProperty("--scroll-y", `-${scrollY}px`);
-      document.body.classList.add("modal-open");
-      stopScroll();
-    } else {
-      const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
-      document.body.classList.remove("modal-open");
-      window.scrollTo(0, -parseInt(scrollY || "0"));
-      startScroll();
-    }
+    if (typeof window !== "undefined" && typeof document !== "undefined") {
+      if (isModalOpen) {
+        const scrollY = window.scrollY;
+        document.documentElement.style.setProperty("--scroll-y", `-${scrollY}px`);
+        document.body.classList.add("modal-open");
+        stopScroll();
+      } else {
+        const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
+        document.body.classList.remove("modal-open");
+        window.scrollTo(0, -parseInt(scrollY || "0"));
+        startScroll();
+      }
 
-    return () => {
-      startScroll();
-      document.body.classList.remove("modal-open");
-    };
+      return () => {
+        startScroll();
+        document.body.classList.remove("modal-open");
+      };
+    }
   }, [isModalOpen, stopScroll, startScroll]);
 
   if (slice.variation === "testimonialMultipleAfa") {
@@ -145,18 +146,13 @@ const Testimonial = ({ slice, context }) => {
               data-lenis-prevent
               onClick={(e) => e.stopPropagation()}
             >
-              {/* White background layer */}
               <div className="absolute bottom-2 left-2 bg-white w-full h-full rounded-[20px] border-2 border-black -z-10" />
-
-              {/* Close */}
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-4 right-4 text-black text-xl font-bold z-50"
               >
                 ✕
               </button>
-
-              {/* Scrollable Content */}
               <div className="relative z-10 overflow-y-auto max-h-[70vh] pr-2 no-scrollbar">
                 <h2 className="font-ambit-regular text-4xl text-black mb-6">
                   {`${testimonials[activeIndex].name}'s Story`}

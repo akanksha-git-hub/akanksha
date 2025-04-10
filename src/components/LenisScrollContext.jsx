@@ -1,5 +1,6 @@
-'use client'
-import { useEffect, useState, createContext, useContext } from "react"
+"use client";
+
+import { useEffect, useState, createContext, useContext } from "react";
 import Lenis from "lenis";
 
 const SmoothScrollerContext = createContext();
@@ -7,76 +8,84 @@ const SmoothScrollerContext = createContext();
 export const useSmoothScroller = () => useContext(SmoothScrollerContext);
 
 export default function LenisScrollContext({ children }) {
-    const [lenisRef, setLenisRef] = useState(null);
-    const [rafState, setRafState] = useState(null);
-    const [storeTarget, setStoreTarget] = useState('recent');
+  const [lenisRef, setLenisRef] = useState(null);
+  const [rafState, setRafState] = useState(null);
+  const [storeTarget, setStoreTarget] = useState("recent");
 
-    useEffect(() => {
-        const scroller = new Lenis({ 
-            syncTouch: true,
-            direction: 'vertical' 
-        });
-        
-        let rf;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
-        function raf(time) {
-            scroller.raf(time);
-            requestAnimationFrame(raf);
-        }
+    const scroller = new Lenis({
+      syncTouch: true,
+      direction: "vertical",
+    });
 
-        rf = requestAnimationFrame(raf);
-        setRafState(rf);
-        setLenisRef(scroller);
+    let rf;
 
-        // ✅ Prevent horizontal scrolling
-        document.documentElement.style.overflowX = "hidden";
-        document.body.style.overflowX = "hidden";
-
-        return () => {
-            if (scroller) {
-                cancelAnimationFrame(rf);
-                scroller.destroy();
-            }
-            // Restore default styles
-            document.documentElement.style.overflowX = "";
-            document.body.style.overflowX = "";
-        };
-    }, []);
-
-    const stopScroll = () => lenisRef?.stop();
-    const startScroll = () => lenisRef?.start();
-
-    const scrollToOptions = { offset: -50, duration: 1.86 };
-
-    const lenisScrollTo = (id) => {
-        setStoreTarget(() => id);
-        setTimeout(() => {
-            lenisRef?.scrollTo(`#${id}`, scrollToOptions);
-        }, 200);
-    }
-    
-    const viewAllScroll = () => {
-        const elem = document.querySelector(`#${storeTarget}`);
-        if (elem) {
-            const targetElemRange = (elem.getBoundingClientRect().bottom / 100) * 95;
-            lenisRef?.scrollTo(`#${storeTarget}`, { offset: targetElemRange });
-        }
+    function raf(time) {
+      scroller.raf(time);
+      requestAnimationFrame(raf);
     }
 
-    const paginationScrollTo = () => lenisRef?.scrollTo(`#${storeTarget}`, { offset: -50 });
+    rf = requestAnimationFrame(raf);
+    setRafState(rf);
+    setLenisRef(scroller);
 
-    const ctxValues = {
-        lenisRef,
-        stopScroll,
-        startScroll,
-        lenisScrollTo,
-        paginationScrollTo,
-        viewAllScroll
+    // ✅ Prevent horizontal scrolling safely
+    document.documentElement.style.overflowX = "hidden";
+    document.body.style.overflowX = "hidden";
+
+    return () => {
+      if (scroller) {
+        cancelAnimationFrame(rf);
+        scroller.destroy();
+      }
+      // Restore default styles
+      document.documentElement.style.overflowX = "";
+      document.body.style.overflowX = "";
+    };
+  }, []);
+
+  const stopScroll = () => lenisRef?.stop?.();
+  const startScroll = () => lenisRef?.start?.();
+
+  const scrollToOptions = { offset: -50, duration: 1.86 };
+
+  const lenisScrollTo = (id) => {
+    setStoreTarget(() => id);
+    if (typeof window !== "undefined") {
+      setTimeout(() => {
+        lenisRef?.scrollTo(`#${id}`, scrollToOptions);
+      }, 200);
     }
+  };
 
-    return (
-        <SmoothScrollerContext.Provider value={ctxValues}>
-            {children}
-        </SmoothScrollerContext.Provider>
-    )
+  const viewAllScroll = () => {
+    if (typeof window !== "undefined") {
+      const elem = document.querySelector(`#${storeTarget}`);
+      if (elem) {
+        const targetElemRange = (elem.getBoundingClientRect().bottom / 100) * 95;
+        lenisRef?.scrollTo(`#${storeTarget}`, { offset: targetElemRange });
+      }
+    }
+  };
+
+  const paginationScrollTo = () =>
+    typeof window !== "undefined" &&
+    lenisRef?.scrollTo(`#${storeTarget}`, { offset: -50 });
+
+  const ctxValues = {
+    lenisRef,
+    stopScroll,
+    startScroll,
+    lenisScrollTo,
+    paginationScrollTo,
+    viewAllScroll,
+  };
+
+  return (
+    <SmoothScrollerContext.Provider value={ctxValues}>
+      {children}
+    </SmoothScrollerContext.Provider>
+  );
 }
