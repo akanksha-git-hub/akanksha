@@ -73,7 +73,7 @@ const InceptionAfa = ({ slice }) => {
           <PrismicImage field={slice.primary.asset} className="h-[500px] w-[500px]" />
         </div>
 
-        {/* 💬 Right Text Box */}
+        
         <div className="flex w-[50%] justify-start p-10 max-h-[375px] max-w-[500px] items-start rotate-6 bg-white font-ambit-regular relative border-black border-2 rounded-xl text-box">
           <div className="w-[70%] text-lg">
             <PrismicRichText field={slice.primary.info_description} />
