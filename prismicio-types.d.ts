@@ -17588,6 +17588,26 @@ export interface TestimonialSliceTestimonialMultipleAfaPrimary {
   content: prismic.GroupField<
     Simplify<TestimonialSliceTestimonialMultipleAfaPrimaryContentItem>
   >;
+
+  /**
+   * Left Asset field in *Testimonial → TestimonialMultipleAfa → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.testimonialMultipleAfa.primary.left_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_asset: prismic.ImageField<never>;
+
+  /**
+   * Right Asset field in *Testimonial → TestimonialMultipleAfa → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.testimonialMultipleAfa.primary.right_asset
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_asset: prismic.ImageField<never>;
 }
 
 /**
