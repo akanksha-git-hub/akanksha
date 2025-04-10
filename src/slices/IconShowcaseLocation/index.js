@@ -17,9 +17,9 @@ const IconShowcaseLocation = ({ slice }) => {
 
   // Define alternating colors for each city
   const cityColors = {
-    "Mumbai": ["bg-v2-yellow", "bg-white"],  // Keep existing
-    "Pune": ["bg-[#55BBD3]", "bg-white"],    // Light blue
-    "Nagpur": ["bg-[#F4456E]", "bg-white"]   // Reddish-pink
+    "Mumbai": ["bg-v2-yellow", "bg-white"], 
+    "Pune": ["bg-[#55BBD3]", "bg-white"],    
+    "Nagpur": ["bg-[#F4456E]", "bg-white"]   
   };
 
   return (
@@ -27,7 +27,7 @@ const IconShowcaseLocation = ({ slice }) => {
      
 
 {/* City Selection Tabs */}
-<div className="flex space-x-6 mb-6 flex-row items-center justify-around"> 
+<div className="flex max-w-[800px] mx-auto mb-6 flex-row items-center justify-around "> 
   {uniqueCities.map(city => (
     <button 
       key={city} 

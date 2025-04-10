@@ -203,11 +203,12 @@ const IconShowcase = ({ slice, context }) => {
         data-slice-variation={slice.variation}
         className="relative"
       >
-        <div className="md:space-y-10 space-y-8">
-          <RenderIdentifier />
+        <RenderIdentifier />
+        <div className="  font-ambit-regular text-black text-3xl md:text-6xl text-left md:text-center  pt-8">
+          
           <RichText
             text={slice.primary.title}
-            className="font-ambit-regular text-black text-3xl md:text-6xl text-left xl:text-center flex xl:items-left xl:justify-left md:w-[15ch] xl:mx-auto pt-8"
+            className=""
           />
         </div>
         {slice.primary.data && (
