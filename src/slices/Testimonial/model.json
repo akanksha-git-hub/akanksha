@@ -301,6 +301,22 @@
               }
             }
           }
+        },
+        "left_asset": {
+          "type": "Image",
+          "config": {
+            "label": "Left Asset",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "right_asset": {
+          "type": "Image",
+          "config": {
+            "label": "Right Asset",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}
