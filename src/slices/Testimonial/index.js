@@ -163,8 +163,7 @@ const Testimonial = ({ slice, context }) => {
                 <div className="text-black font-ambit-regular text-lg whitespace-pre-line">
                   <PrismicRichText
                     field={
-                      testimonials[activeIndex].full_story ||
-                      testimonials[activeIndex].quote
+                      testimonials[activeIndex].full_story 
                     }
                   />
                 </div>

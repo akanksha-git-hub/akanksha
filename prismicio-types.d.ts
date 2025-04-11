@@ -17370,6 +17370,16 @@ export interface TestimonialSliceTestimonialMultipleAfaPrimaryContentItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   name: prismic.KeyTextField;
+
+  /**
+   * Full Story field in *Testimonial → TestimonialMultipleAfa → Primary → content*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.testimonialMultipleAfa.primary.content[].full_story
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  full_story: prismic.RichTextField;
 }
 
 /**
