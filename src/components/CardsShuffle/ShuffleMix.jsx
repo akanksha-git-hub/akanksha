@@ -9,19 +9,20 @@ export default function ShuffleMix({ slice, uniquePrefix = "shuffle-default" }) 
   return (
     <CardsShuffle slice={slice} uniquePrefix={uniquePrefix}>
       <CardsShuffle.ItemContainer
-        itemsContainerClassName="card-container mx-auto"
+        itemsContainerClassName="card-container mx-auto "
         itemClassName="pers-cards"
         itemKeyFn={(item, index) => index}
         uniquePrefix={uniquePrefix}
       >
         {(item) => {
           switch (item.type) {
-            case "impactcardshuffleone":
-              return <CardA item={item} />;
+            case "thirdcard10th": 
+              return <ThirdCard item={item} />;
+            
             case "impactcardshuffletwo":
               return <CardB item={item} />;
-            case "thirdcard10th": // ✅ Add case for thirdCard
-              return <ThirdCard item={item} />;
+              case "impactcardshuffleone":
+                return <CardA item={item} />;
             default:
               return null;
           }

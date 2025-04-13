@@ -27,13 +27,13 @@ const ImpactShuffle = async ({ slice }) => {
 
   switch (slice.variation) {
     case "impactShuffle1":
-      data = [cardC, cardD, thirdCard12th];
+      data = [thirdCard12th, cardD,cardC ];
       uniquePrefix = "shuffle-2";
       RenderComponent = ShuffleMixVariation; // ✅ Use variation component
       break;
     case "default":
     default:
-      data = [cardA, cardB, thirdCard];
+      data = [ thirdCard, cardB,cardA];
       uniquePrefix = "shuffle-1";
       RenderComponent = ShuffleMix;
       break;
