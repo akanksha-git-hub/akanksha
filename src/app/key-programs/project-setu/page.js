@@ -19,7 +19,7 @@ export default async function Page() {
       <SliceZone slices={page.data.slices} components={components} />
       
       
-      <FloatingButton pdfUrl={pdfUrl} text={text} />
+      {/* <FloatingButton pdfUrl={pdfUrl} text={text} /> */}
     </main>
   );
 }

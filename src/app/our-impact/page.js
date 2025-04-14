@@ -19,7 +19,7 @@ export default async function Page() {
         context={context}
       />
       
-           <FloatingButton pdfUrl={pdfUrl} text={text} />
+           {/* <FloatingButton pdfUrl={pdfUrl} text={text} /> */}
     </main>
   );
 }

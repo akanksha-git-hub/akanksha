@@ -206,7 +206,7 @@ const MissionVision = ({ slice, context }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={`relative universal-padding mt-0 ${
-        slice.variation === "doubleCtaComponent" && ""
+        slice.variation === "doubleCtaComponent" && "reverseVideoComponent"
       }`}
     >
       {slice.variation !== "doubleCtaComponent" && <RenderIdentifier />}
@@ -225,7 +225,7 @@ const MissionVision = ({ slice, context }) => {
           />
           <VideoModal className="flex w-full mt-8 lg:hidden" slice={slice} />
           <RichText
-            className="text-black text-left w-[90%] mt-8 font-ambit-regular opacity-anim font-normal text-base leading-[20.2px] sm:text-xl lg:mt-8 md:w-5/6 xl:w-[40%] 2xl:w-[34rem] 3xl:text-2xl"
+            className="text-black text-left w-[90%] mt-8 font-ambit-regular opacity-anim font-normal text-base leading-[20.2px] sm:text-xl lg:mt-8 md:w-5/6  3xl:text-2xl"
             text={slice.primary.description}
           />
           <div className="flex flex-wrap gap-4 w-full mt-6 xl:mt-10 3xl:mt-14">

@@ -12282,14 +12282,14 @@ export interface MissionVisionSliceReverseVideoComponetPrimary {
   show_identifier: prismic.BooleanField;
 
   /**
-   * Video Link field in *MissionVision → ReverseVideoComponet → Primary*
+   * video_link field in *MissionVision → ReverseVideoComponet → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
    * - **API ID Path**: mission_vision.reverseVideoComponet.primary.video_link
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  video_link: prismic.KeyTextField;
+  video_link: prismic.LinkField;
 }
 
 /**
