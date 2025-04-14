@@ -129,14 +129,16 @@
 				"value": "unknown",
 				"type": "Text"
 			},
-			"video_link": {
-				"__TYPE__": "FieldContent",
-				"value": "planning",
-				"type": "Text"
-			},
 			"show_identifier": {
 				"__TYPE__": "BooleanContent",
 				"value": false
+			},
+			"video_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
 			}
 		},
 		"items": [

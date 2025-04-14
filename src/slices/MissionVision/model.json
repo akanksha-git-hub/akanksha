@@ -151,10 +151,11 @@
           }
         },
         "video_link": {
-          "type": "Text",
+          "type": "Link",
           "config": {
-            "label": "Video Link",
-            "placeholder": ""
+            "label": "video_link",
+            "placeholder": "",
+            "select": null
           }
         }
       },

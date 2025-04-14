@@ -9,10 +9,10 @@ export default async function Donation() {
 
   return (
     <>
-        <SliceIdentifier 
+        {/* <SliceIdentifier 
             text={data.slice_identifier}
-        />
-        <div className="flex flex-col-reverse xl:flex-row items-center justify-between mt-12 md:mt-24 universal-padding">
+        /> */}
+        <div className="flex flex-col-reverse xl:flex-row items-center justify-between mt-12 md:-mt-44 universal-padding">
             {/* <div className="relative mt-4 xl:mt-0 w-full xl:w-2/4 2xl:w-[60%]">
                 <PrismicNextImage 
                     field={data.image}
