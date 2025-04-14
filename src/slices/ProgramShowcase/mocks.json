@@ -76,14 +76,6 @@
 								}
 							],
 							[
-								"read_story_link",
-								{
-									"__TYPE__": "FieldContent",
-									"value": "fewer",
-									"type": "Text"
-								}
-							],
-							[
 								"stat_a_description",
 								{
 									"__TYPE__": "FieldContent",
@@ -113,6 +105,16 @@
 									"__TYPE__": "FieldContent",
 									"value": "hat",
 									"type": "Text"
+								}
+							],
+							[
+								"read_story_link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev"
+									}
 								}
 							]
 						]

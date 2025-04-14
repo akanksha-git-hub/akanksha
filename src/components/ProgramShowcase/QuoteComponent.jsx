@@ -28,6 +28,7 @@ export default function QuoteComponent({ quote, quote_by, storyLink }) {
           text="Read More"
           bgColor="bg-black"
           textColor="text-black"
+          link ={storyLink}
         />
         {/* <TextCTA
           hasUnderLine

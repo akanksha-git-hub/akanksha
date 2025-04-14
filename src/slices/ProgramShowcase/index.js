@@ -653,7 +653,7 @@ const ProgramShowcase = ({ slice }) => {
                     className="w-full xl:w-[42%]"
                     image={item.image}
                   />
-                  <QuoteComponent quote={item.quote} quote_by={item.quote_by} />
+                  <QuoteComponent storyLink={item.read_story_link} quote={item.quote} quote_by={item.quote_by} />
                 </div>
                 <div className="flex items-start gap-2 xl:gap-0 justify-between w-full xl:flex-col xl:mt-0 xl:w-[40%]  ">
                   <StatsComponent
