@@ -33,30 +33,7 @@ const ImpactMarquee = ({ slice }) => {
   </div>
 </div>
 
-<div className="flex flex-col p-8 xl:w-[45%] w-full relative border-[0.15rem] border-black md:hover:bg-v2-yellow mt-4 xl:mt-0 space-y-4">
-  
-  
-<div className="flex flex-col justify-start items-start h-full w-full ">
-  {/* Image container aligned to left */}
-  <PrismicNextImage
-                                field={slice.primary.card_2_image}
-                                className=" h-full w-full object-cover"
-                            />
 
-  {/* Paragraph aligned to left edge */}
-  <div className="w-full  mt-4 ">
-    <p className="font-ambit-regular text-black  text-lg md:text-[1.35rem] text-left">
-      {slice.primary.card_2_description}
-    </p>
-  </div>
-</div>
-
-  
-              
-                  
-                  
-                  
-                  </div>
 </div>
 
     </section>
