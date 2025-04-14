@@ -14211,14 +14211,14 @@ export interface ProgramShowcaseSliceDefaultPrimaryProgramShowcaseContentItem {
   quote_by: prismic.KeyTextField;
 
   /**
-   * Read Story Link field in *ProgramShowcase → Default → Primary → Program Showcase Content*
+   * read_story_link field in *ProgramShowcase → Default → Primary → Program Showcase Content*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
    * - **API ID Path**: program_showcase.default.primary.program_showcase_content[].read_story_link
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  read_story_link: prismic.KeyTextField;
+  read_story_link: prismic.LinkField;
 
   /**
    * Stat A Description field in *ProgramShowcase → Default → Primary → Program Showcase Content*

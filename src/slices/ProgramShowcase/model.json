@@ -62,10 +62,11 @@
                 }
               },
               "read_story_link": {
-                "type": "Text",
+                "type": "Link",
                 "config": {
-                  "label": "Read Story Link",
-                  "placeholder": ""
+                  "label": "read_story_link",
+                  "placeholder": "",
+                  "select": null
                 }
               },
               "stat_a_description": {
