@@ -34,7 +34,7 @@ export default function HorizontalScrollCardC({ item }) {
             {item.data.year_performance[hoveredIndex]?.descrip_percentage || "N/A"}
           </p>
           <p className="text-lg md:text-xl lg:text-2xl w-[36ch] text-black transition-opacity duration-300">
-            {item.data.year_performance[hoveredIndex]?.description || "No description available"}
+            {item.data.year_performance[hoveredIndex]?.description || ""}
           </p>
         </div>
       </div>

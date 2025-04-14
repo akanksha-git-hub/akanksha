@@ -44,33 +44,7 @@ const AluminiGrid = ({ slice }) => {
                   </div>
                 
                 </div>
-                <div className="flex flex-col p-8 md:w-[50%]  xl:w-[45%] w-full relative border-[0.15rem] border-black md:hover:bg-v2-yellow mt-4 lg:mt-0 space-y-4">
-  
-  <div className="flex  flex-col xl:flex-row   xl:justify-between xl:items-center ">
-    {/* Left: Percentage and Total */}
-    <div className="flex flex-col">
-      <span className=" text-5xl md:text-6xl lg:text-8xl font-ambit-regular text-black">{slice.primary.card_2_percentage_1}</span>
-    
-    </div>
-    {/* Right: Description */}
-    <div className="xl:w-1/2 text-left font-ambit-regular text-[1.35rem]">
-     {slice.primary.card_2_description_1}
-    </div>
-  </div>
-
-  
-  <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center">
-    {/* Left: Percentage and Total */}
-    <div className="flex flex-col">
-      <span className="text-5xl md:text-6xl lg:text-8xl  font-ambit-regular">{slice.primary.card_2_percentage_2}</span>
-      
-    </div>
-    {/* Right: Description */}
-    <div className="xl:w-1/2 text-left text-black font-ambit-regular text-[1.35rem]">
-    {slice.primary.card_2_description_2}
-    </div>
-  </div>
-</div>
+   
 
               </div>
               {/* //Row 2 */}
