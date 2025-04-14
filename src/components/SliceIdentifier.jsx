@@ -36,7 +36,7 @@ export default function SliceIdentifier({
     <div ref={containerRef} className="relative">
       {/* Text & Dot */}
       <div
-        className={`pb-3 ${className} flex flex-wrap gap-[4px] font-inter font-bold items-center uppercase text-2xl text-black tracking-[-0.5px]`}
+        className={`pb-3 ${className} flex flex-wrap gap-[4px] font-inter font-bold items-center uppercase text-lg md:text-2xl text-black tracking-[-0.5px]`}
       >
         <span className="h-[12px] w-[12px] rounded-full bg-black" />
         {safeText.split("").map((letter, index) => (

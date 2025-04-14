@@ -100,8 +100,8 @@ const Alumini2 = ({ slice }) => {
           {/* <!-- Section 1: Charts --> */}
           <div className="2xl:w-1/2 flex  justify-center items-center    px-4 relative ">
          <PrismicNextImage
-                 height={800}
-                 width={800}
+                 height={1200}
+                 width={1200}
                  field={slice.primary.chart_image}
                  className={`w-full h-full  object-contain `}
                  alt=""
