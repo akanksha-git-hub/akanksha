@@ -4840,54 +4840,14 @@ export interface Alumini2SliceSecondVariationPrimary {
   heading: prismic.KeyTextField;
 
   /**
-   * akanksha_average field in *Alumini2 → SecondVariation → Primary*
+   * Chart Image field in *Alumini2 → SecondVariation → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: alumini2.secondVariation.primary.akanksha_average
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: alumini2.secondVariation.primary.chart_image
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  akanksha_average: prismic.KeyTextField;
-
-  /**
-   * Akanksha Average Text field in *Alumini2 → SecondVariation → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini2.secondVariation.primary.akanksha_average_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  akanksha_average_text: prismic.KeyTextField;
-
-  /**
-   * national_average field in *Alumini2 → SecondVariation → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini2.secondVariation.primary.national_average
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  national_average: prismic.KeyTextField;
-
-  /**
-   * national_average_text field in *Alumini2 → SecondVariation → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini2.secondVariation.primary.national_average_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  national_average_text: prismic.KeyTextField;
-
-  /**
-   * stats field in *Alumini2 → SecondVariation → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: alumini2.secondVariation.primary.stats
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  stats: prismic.KeyTextField;
+  chart_image: prismic.ImageField<never>;
 
   /**
    * heading 1 field in *Alumini2 → SecondVariation → Primary*

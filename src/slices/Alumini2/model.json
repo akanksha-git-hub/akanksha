@@ -239,39 +239,12 @@
             "placeholder": ""
           }
         },
-        "akanksha_average": {
-          "type": "Text",
+        "chart_image": {
+          "type": "Image",
           "config": {
-            "label": "akanksha_average",
-            "placeholder": ""
-          }
-        },
-        "akanksha_average_text": {
-          "type": "Text",
-          "config": {
-            "label": "Akanksha Average Text",
-            "placeholder": ""
-          }
-        },
-        "national_average": {
-          "type": "Text",
-          "config": {
-            "label": "national_average",
-            "placeholder": ""
-          }
-        },
-        "national_average_text": {
-          "type": "Text",
-          "config": {
-            "label": "national_average_text",
-            "placeholder": ""
-          }
-        },
-        "stats": {
-          "type": "Text",
-          "config": {
-            "label": "stats",
-            "placeholder": ""
+            "label": "Chart Image",
+            "constraint": {},
+            "thumbnails": []
           }
         },
         "heading_1": {
