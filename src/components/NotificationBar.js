@@ -13,8 +13,8 @@ export default async function NotificationBar() {
     {!hide_banner && (
       <NotificationBarWrapper 
         notification_text={notification_text}
-        cta_link={cta_link}
-        cta_text={cta_text}
+        // cta_link={cta_link}
+        // cta_text={cta_text}
       />
     )}
     </>
