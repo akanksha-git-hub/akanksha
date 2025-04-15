@@ -42,17 +42,17 @@ import { PrismicNextImage } from "@prismicio/next";
       <section ref={sectionRef} className="w-full py-32 px-6 bg-white text-black">
         
         <div className="flex flex-col " >
-        <div className="flex flex-row justify-around relative " >
+        <div className="flex  flex-row justify-around relative " >
         <h2 className="text-5xl md:text-7xl font-ambit-regular ">
             {slice.primary.title}
           </h2>
-           <PrismicNextImage field={slice.primary.insta_asset} className="  w-36 h-10 " />
+           <PrismicNextImage field={slice.primary.insta_asset} className=" md:block w-36 h-10 " />
         
            <a
   href="https://www.instagram.com/artforakanksha/?next=%2F&hl=en"
   target="_blank"
   rel="noopener noreferrer"
-  className="absolute right-32 -top-6 rotate-6 border pr-4 pl-2 pb-4 bg-black border-black rounded-xl z-0"
+  className="absolute right-0 md:right-32 -top-6 rotate-6 border pr-4 pl-2 pb-4 bg-black border-black rounded-xl z-0"
 >
   {/* Bottom background card layer */}
   <div className="absolute bottom-1 right-1 bg-white w-full h-full rounded-xl border-2 border-black z-10"></div>
@@ -65,11 +65,11 @@ import { PrismicNextImage } from "@prismicio/next";
 
 
         </div>
-        <div className="flex flex-row justify-end items-start relative  " >
+        <div className="flex flex-col md:flex-row justify-end items-start relative  " >
         
-        <PrismicNextImage field={slice.primary.main_asset} className="  absolute -left-8 -top-48 w-[400px]  " />
+        <PrismicNextImage field={slice.primary.main_asset} className=" hidden md:block absolute -left-8 -top-48 w-[400px]  " />
           
-          <div className="w-[75%]  p-10" >
+          <div className="w-full md:w-[75%]  p-10" >
           <p className="text-sm md:text-lg font-ambit-regular">
             {slice.primary.description}
           </p>
