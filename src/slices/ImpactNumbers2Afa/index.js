@@ -56,7 +56,7 @@ const ImpactNumbers2Afa = ({ slice }) => {
     
   </div>)}
   {slice.primary.top_asset?.url && (
-  <div className="absolute  transform right-[400px] -top-64 h-[280px] w-[280px] -z-9">
+  <div className="absolute hidden md:block  transform right-[400px] -top-64 h-[280px] w-[280px] -z-9">
     <PrismicNextImage
       field={slice.primary.top_asset}
       className="h-full w-full object-contain"
@@ -71,8 +71,8 @@ const ImpactNumbers2Afa = ({ slice }) => {
       </div>
 
       {/* Row 1 */}
-      <div className="flex flex-row mx-auto justify-center items-center gap-8">
-        <div className="impact-card flex justify-center relative min-w-[400px] max-w-[500px] max-h-[300px] -rotate-3">
+      <div className="flex flex-col md:flex-row mx-auto justify-center items-center gap-8">
+        <div className="impact-card flex justify-center relative md:min-w-[400px] md:max-w-[500px] md:max-h-[300px] -rotate-3">
           <div className="absolute top-2 right-2 bg-[#F4456E] w-full h-full rounded-xl border-2 border-black z-0" />
           <div className="relative bg-white p-10 border-2 border-black rounded-xl w-full h-full shadow-xl font-ambit-regular text-lg z-10">
             <div className="flex flex-row justify-between">
@@ -86,7 +86,7 @@ const ImpactNumbers2Afa = ({ slice }) => {
           </div>
         </div>
 
-        <div className="impact-card flex justify-center relative min-w-[400px] max-w-[500px] max-h-[300px] rotate-3">
+        <div className="impact-card flex justify-center relative md:min-w-[400px] md:max-w-[500px] md:max-h-[300px] rotate-3">
           <div className="absolute top-2 right-2 bg-[#F4456E] w-full h-full rounded-xl border-2 border-black z-0" />
           <div className="relative bg-white p-10 border-2 border-black rounded-xl w-full h-full shadow-xl font-ambit-regular text-lg z-10">
             <div className="flex flex-row">
@@ -103,8 +103,8 @@ const ImpactNumbers2Afa = ({ slice }) => {
       </div>
 
       {/* Row 2 */}
-      <div className="flex flex-row mx-auto justify-center items-center mt-12 gap-8">
-        <div className="impact-card flex justify-center relative min-w-[400px] max-w-[500px] max-h-[300px] rotate-3">
+      <div className="flex flex-col md:flex-row mx-auto justify-center items-center mt-12 gap-8">
+        <div className="impact-card flex justify-center relative md:min-w-[400px] md:max-w-[500px] md:max-h-[300px] rotate-3">
           <div className="absolute top-2 right-2 bg-[#F4456E] w-full h-full rounded-xl border-2 border-black z-0" />
           <div className="relative bg-white p-10 border-2 border-black rounded-xl w-full h-full shadow-xl font-ambit-regular text-lg z-10">
             <div className="flex flex-col">
@@ -114,7 +114,7 @@ const ImpactNumbers2Afa = ({ slice }) => {
           </div>
         </div>
 
-        <div className="impact-card flex justify-center relative min-w-[400px] max-w-[500px] max-h-[300px] -mt-24 -rotate-3">
+        <div className="impact-card flex justify-center relative md:min-w-[400px] md:max-w-[500px] md:max-h-[300px] md:-mt-24 -rotate-3">
           <div className="absolute top-2 right-2 bg-[#F4456E] w-full h-full rounded-xl border-2 border-black z-0" />
           <div className="relative bg-white p-10 border-2 border-black rounded-xl w-full h-full shadow-xl font-ambit-regular text-lg z-10">
             <div className="flex flex-row justify-between">
@@ -130,7 +130,7 @@ const ImpactNumbers2Afa = ({ slice }) => {
 
       {/* Row 3 */}
       <div className="flex flex-row mx-auto justify-center items-center mt-20">
-        <div className="impact-card flex justify-center relative min-w-[400px] max-w-[500px] max-h-[300px] -mt-24">
+        <div className="impact-card flex justify-center relative md:min-w-[400px] md:max-w-[500px] md:max-h-[300px] -mt-10 md:-mt-24">
           <div className="absolute top-2 right-2 bg-[#F4456E] w-full h-full rounded-xl border-2 border-black z-0" />
           <div className="relative bg-white p-10 border-2 border-black rounded-xl w-full h-full shadow-xl font-ambit-regular text-lg z-10">
             <PrismicRichText field={slice.primary.card_5_description} />
