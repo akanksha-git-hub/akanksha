@@ -21,21 +21,6 @@
           "placeholder": ""
         }
       },
-      "terms_and_condition_page_cta_link": {
-        "type": "Link",
-        "config": {
-          "label": "Terms and Condition Page CTA Link",
-          "placeholder": "",
-          "select": null
-        }
-      },
-      "terms_and_condition_page_cta_text": {
-        "type": "Text",
-        "config": {
-          "label": "Terms and Condition Page CTA Text",
-          "placeholder": ""
-        }
-      },
       "akanksha_tag": {
         "type": "Text",
         "config": {

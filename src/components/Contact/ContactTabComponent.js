@@ -21,7 +21,6 @@ export default function ContactTabComponent({ data }) {
   const normalizedActiveValue = activeValue.toLowerCase().replace(/\./g, "");
   const currentBgImage = backgroundImages[normalizedActiveValue] || "/default-bg.jpg";
 
-
   const uniqueSet = [
     ...new Set(
       data.map((item) => {
@@ -36,9 +35,28 @@ export default function ContactTabComponent({ data }) {
     (item) => item.location.toLowerCase().replace(/\./g, "") === normalizedActiveValue
   );
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = new FormData(e.target);
+
+    const firstName = form.get("firstName");
+    const lastName = form.get("lastName");
+    const email = form.get("email");
+    const phone = form.get("phone");
+    const message = form.get("message");
+    const to = tabContent[0]?.email || "default@example.com";
+
+    const subject = encodeURIComponent("New Contact Message");
+    const body = encodeURIComponent(
+      `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
+    );
+
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+  };
+
   return (
     <div className="relative w-full min-h-screen">
-     
       <div className=" lg:block hidden absolute top-80 left-4 w-[500px] h-[500px] opacity-80 -z-10">
         <Image
           src={currentBgImage}
@@ -71,11 +89,7 @@ export default function ContactTabComponent({ data }) {
               className="space-y-4 flex items-start justify-between xl:justify-normal xl:items-baseline flex-col"
               key={item.location}
             >
-              <Link
-                className="flex flex-col xl:flex-row xl:items-center gap-4"
-                href="https://google.com/"
-                target="_blank"
-              >
+             
                 <span className="bg-deep-green h-12 w-12 rounded-full flex items-center justify-center p-2">
                   <Image
                     src="/location-vector.svg"
@@ -88,15 +102,10 @@ export default function ContactTabComponent({ data }) {
                 <span className="w-[80%] xl:w-[28ch] font-ambit-regular text-deep-green leading-5">
                   {item.address}
                 </span>
-              </Link>
+              
 
               {item.number && (
-                <Link
-                  className="flex flex-col xl:flex-row xl:items-center gap-4"
-                  href="https://google.com/"
-                  target="_blank"
-                >
-                  <span className="bg-deep-green h-12 w-12 rounded-full flex items-center justify-center p-2">
+                <>                  <span className="bg-deep-green h-12 w-12 rounded-full flex items-center justify-center p-2">
                     <Image
                       src="/phone-vector.svg"
                       height={12}
@@ -108,14 +117,11 @@ export default function ContactTabComponent({ data }) {
                   <span className="w-[28ch] font-ambit-regular text-deep-green leading-5">
                     {item.number}
                   </span>
-                </Link>
+                  </>
+
               )}
 
-              <Link
-                className="flex flex-col xl:flex-row xl:items-center gap-4"
-                href="https://google.com/"
-                target="_blank"
-              >
+            
                 <span className="bg-deep-green h-12 w-12 rounded-full flex items-center justify-center p-2">
                   <Image
                     src="/mail-vector.svg"
@@ -128,7 +134,7 @@ export default function ContactTabComponent({ data }) {
                 <span className="w-[28ch] font-ambit-regular text-deep-green leading-5">
                   {item.email}
                 </span>
-              </Link>
+              
             </li>
           ))}
 
@@ -148,22 +154,31 @@ export default function ContactTabComponent({ data }) {
           </div>
         </ul>
 
-        <form className="bg-white w-full xl:w-[56%] 2xl:w-[62%] 3xl:w-[62%] rounded-[10px] overflow-hidden py-4 px-12 relative drop-shadow-xl">
+        <form
+          className="bg-white w-full xl:w-[56%] 2xl:w-[62%] 3xl:w-[62%] rounded-[10px] overflow-hidden py-4 px-12 relative drop-shadow-xl"
+          onSubmit={handleSubmit}
+        >
           <RichText
             className="flex items-center justify-start text-black text-6xl font-ambit-regular mt-16"
             text="Talk With us"
           />
           <div className="flex flex-col md:flex-row justify-between w-full mt-12 space-y-12 md:space-y-0">
-            <ContactInput label="First Name" className="w-full  md:w-[45%]" placeholder="John" />
-            <ContactInput label="Last Name" className="w-full md:w-[45%]" placeholder="Doe" />
+            <ContactInput label="First Name" name="firstName" className="w-full  md:w-[45%]" placeholder="John" />
+            <ContactInput label="Last Name" name="lastName" className="w-full md:w-[45%]" placeholder="Doe" />
           </div>
           <div className="flex flex-col md:flex-row justify-between w-full mt-12 space-y-12 md:space-y-0">
-            <ContactInput label="Email Id" className="w-full md:w-[45%]" placeholder="johndoe@gmail.com" />
-            <ContactInput label="Phone" className="w-full md:w-[45%]" placeholder="+911203901" />
+            <ContactInput label="Email Id" name="email" className="w-full md:w-[45%]" placeholder="johndoe@gmail.com" />
+            <ContactInput label="Phone" name="phone" className="w-full md:w-[45%]" placeholder="+911203901" />
           </div>
-          <ContactInput label="Message" className="w-full mt-12 z-10" variant="message" placeholder="Write your message..." />
+          <ContactInput
+            label="Message"
+            name="message"
+            className="w-full mt-12 z-10"
+            variant="message"
+            placeholder="Write your message..."
+          />
           <div className="mt-12 mb-60 z-10">
-            <Button>Send Message</Button>
+            <Button type="submit">Send Message</Button>
           </div>
           <div className="absolute bottom-0 right-0 -z-0">
             <Image
