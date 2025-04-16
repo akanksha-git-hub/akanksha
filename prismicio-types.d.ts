@@ -1392,28 +1392,6 @@ interface FooterBottomTextsDocumentData {
   privacy_page_cta_text: prismic.KeyTextField;
 
   /**
-   * Terms and Condition Page CTA Link field in *Footer Bottom Texts*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer_bottom_texts.terms_and_condition_page_cta_link
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  terms_and_condition_page_cta_link: prismic.LinkField;
-
-  /**
-   * Terms and Condition Page CTA Text field in *Footer Bottom Texts*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer_bottom_texts.terms_and_condition_page_cta_text
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  terms_and_condition_page_cta_text: prismic.KeyTextField;
-
-  /**
    * Akanksha Tag field in *Footer Bottom Texts*
    *
    * - **Field Type**: Text

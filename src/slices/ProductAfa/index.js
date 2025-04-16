@@ -59,7 +59,7 @@ import { PrismicNextImage } from "@prismicio/next";
 
   <div className="relative z-20 flex flex-col justify-center items-center">
     <PrismicNextImage field={slice.primary.insta_image} className="-rotate-12 w-16" />
-    <p className="text-xs font-ambit-regular text-black z-10">See more here</p>
+    <p className="text-xs font-ambit-regular text-black z-10">see more</p>
   </div>
 </a>
 
