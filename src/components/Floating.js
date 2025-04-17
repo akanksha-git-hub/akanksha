@@ -14,7 +14,7 @@ export default function Floating({ floatData }) {
     }
 
   return (
-    <div onClick={handleToggle} className={`fixed bottom-36 right-2 md:right-12 flex items-center custom-shadow custom-bezier ${active ? 'w-[320px] bg-white justify-end h-[100px]' : 'w-[80px] h-[120px] justify-center bg-bright-yellow'} rounded-md cursor-pointer overflow-hidden active:scale-95 z-20`}>
+    <div onClick={handleToggle} className={`fixed bottom-10 md:bottom-36 right-2 md:right-12 flex items-center custom-shadow custom-bezier ${active ? 'w-[320px] bg-white justify-end h-[100px]' : 'w-[80px] h-[120px] justify-center bg-bright-yellow'} rounded-md cursor-pointer overflow-hidden active:scale-95 z-20`}>
         {
             active ? 
             <>
