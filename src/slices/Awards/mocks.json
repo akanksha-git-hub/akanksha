@@ -1,0 +1,43 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"awards": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"award_name",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Excepteur laborum dolor aliqua irure elit velit ipsum Lorem aliqua occaecat commodo officia anim. Lorem deserunt id aliqua tempor cupidatat. Dolor nisi elit ipsum proident eu magna voluptate."
+											}
+										}
+									]
+								}
+							],
+							[
+								"award_link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
