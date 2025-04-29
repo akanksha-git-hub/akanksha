@@ -284,6 +284,100 @@ interface AseDocumentData {
 export type AseDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<AseDocumentData>, "ase", Lang>;
 
+type AwardDocumentDataSlicesSlice = AwardsSlice;
+
+/**
+ * Content for award documents
+ */
+interface AwardDocumentData {
+  /**
+   * Heading field in *award*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: award.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Left Asset field in *award*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: award.left_asset
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  left_asset: prismic.ImageField<never>;
+
+  /**
+   * Right Asset field in *award*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: award.right_asset
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  right_asset: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *award*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: award.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AwardDocumentDataSlicesSlice> /**
+   * Meta Title field in *award*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: award.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *award*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: award.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *award*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: award.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * award document from Prismic
+ *
+ * - **API ID**: `award`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AwardDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<AwardDocumentData>, "award", Lang>;
+
 /**
  * Item in *Blog Child Page → Items*
  */
@@ -4318,6 +4412,7 @@ export type AllDocumentTypes =
   | AnnualReportsDocument
   | ArtForAkankshaDocument
   | AseDocument
+  | AwardDocument
   | BlogChildPageDocument
   | BlogShowcasePageDocument
   | ContactDocument
@@ -5341,6 +5436,73 @@ export type ArtHeroSectionSlice = prismic.SharedSlice<
   "art_hero_section",
   ArtHeroSectionSliceVariation
 >;
+
+/**
+ * Item in *Awards → Default → Primary → Awards*
+ */
+export interface AwardsSliceDefaultPrimaryAwardsItem {
+  /**
+   * Award Name field in *Awards → Default → Primary → Awards*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: awards.default.primary.awards[].award_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  award_name: prismic.RichTextField;
+
+  /**
+   * Award Link field in *Awards → Default → Primary → Awards*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: awards.default.primary.awards[].award_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  award_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *Awards → Default → Primary*
+ */
+export interface AwardsSliceDefaultPrimary {
+  /**
+   * Awards field in *Awards → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: awards.default.primary.awards[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  awards: prismic.GroupField<Simplify<AwardsSliceDefaultPrimaryAwardsItem>>;
+}
+
+/**
+ * Default variation for Awards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AwardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AwardsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Awards*
+ */
+type AwardsSliceVariation = AwardsSliceDefault;
+
+/**
+ * Awards Shared Slice
+ *
+ * - **API ID**: `awards`
+ * - **Description**: Awards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AwardsSlice = prismic.SharedSlice<"awards", AwardsSliceVariation>;
 
 /**
  * Item in *ResourcesCategoryItems → Default → Primary → Card Items*
@@ -18371,6 +18533,9 @@ declare module "@prismicio/client" {
       AseDocument,
       AseDocumentData,
       AseDocumentDataSlicesSlice,
+      AwardDocument,
+      AwardDocumentData,
+      AwardDocumentDataSlicesSlice,
       BlogChildPageDocument,
       BlogChildPageDocumentData,
       BlogChildPageDocumentDataItemsItem,
@@ -18524,6 +18689,11 @@ declare module "@prismicio/client" {
       ArtHeroSectionSliceDefaultPrimary,
       ArtHeroSectionSliceVariation,
       ArtHeroSectionSliceDefault,
+      AwardsSlice,
+      AwardsSliceDefaultPrimaryAwardsItem,
+      AwardsSliceDefaultPrimary,
+      AwardsSliceVariation,
+      AwardsSliceDefault,
       BlogCategoryItemsSlice,
       BlogCategoryItemsSliceDefaultPrimaryCardItemsItem,
       BlogCategoryItemsSliceDefaultPrimary,
