@@ -131,6 +131,10 @@ const routes = [
     type: "art_for_akanksha",
     path: "/art-for-akanksha",
   },
+  {
+    type: "award",
+    path: "/awards",
+  },
 ];
 
 /**
