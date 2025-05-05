@@ -53,15 +53,38 @@ export default function StepC({
     !formData.pin_code.trim() ||
     !formData.pan_number.trim();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    setErrors((prevState) => ({ ...prevState, ...validationErrors }));
-    setTimeout(() => {
-      setErrors(ERRORS);
-    }, 5000);
-    handleStepProgression(formData);
-  };
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      const validationErrors = validate();
+      setErrors((prevState) => ({ ...prevState, ...validationErrors }));
+      setTimeout(() => {
+        setErrors(ERRORS);
+      }, 5000);
+    
+      if (Object.values(validationErrors).some((val) => val !== null)) return;
+    
+      try {
+        const res = await fetch("/api/billdesk", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+    
+        const result = await res.json();
+    
+        // 👇 Optional: Log or redirect to payment link
+        console.log("BillDesk Response:", result);
+    
+        if (result.redirect_url) {
+          window.location.href = result.redirect_url;
+        }
+      } catch (err) {
+        console.error("Failed to call BillDesk API", err);
+      }
+    };
+    
 
   const handleChange = useCallback(
     (e) => {

@@ -1975,82 +1975,6 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 /**
- * Content for Horizontal Scroll Card A documents
- */
-interface HorizontalScrollCardADocumentData {
-  /**
-   * Title field in *Horizontal Scroll Card A*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: horizontal_scroll_card_a.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * subtitle field in *Horizontal Scroll Card A*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: horizontal_scroll_card_a.subtitle
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  subtitle: prismic.KeyTextField;
-
-  /**
-   * description field in *Horizontal Scroll Card A*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: horizontal_scroll_card_a.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  description: prismic.KeyTextField;
-
-  /**
-   * ellipse field in *Horizontal Scroll Card A*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: horizontal_scroll_card_a.ellipse
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  ellipse: prismic.ImageField<never>;
-
-  /**
-   * book field in *Horizontal Scroll Card A*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: horizontal_scroll_card_a.book
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  book: prismic.ImageField<never>;
-}
-
-/**
- * Horizontal Scroll Card A document from Prismic
- *
- * - **API ID**: `horizontal_scroll_card_a`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type HorizontalScrollCardADocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<HorizontalScrollCardADocumentData>,
-    "horizontal_scroll_card_a",
-    Lang
-  >;
-
-/**
  * Item in *Horizontal Scroll Card B → year_data*
  */
 export interface HorizontalScrollCardBDocumentDataYearDataItem {
@@ -4430,7 +4354,6 @@ export type AllDocumentTypes =
   | FooterQualityEducationLogoDocument
   | HeaderDocument
   | HomeDocument
-  | HorizontalScrollCardADocument
   | HorizontalScrollCardBDocument
   | HorizontalScrollCardCDocument
   | HorizontalcarddDocument
@@ -18589,8 +18512,6 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
-      HorizontalScrollCardADocument,
-      HorizontalScrollCardADocumentData,
       HorizontalScrollCardBDocument,
       HorizontalScrollCardBDocumentData,
       HorizontalScrollCardBDocumentDataYearDataItem,
