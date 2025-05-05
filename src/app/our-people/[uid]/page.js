@@ -8,6 +8,8 @@ import RichText from "@/components/Texts/RichText";
 import Image from "next/image";
 import { PrismicNextImage } from "@prismicio/next";
 
+export const revalidate = 60; // ✅ Auto-refresh the page content every 60 seconds if accessed
+
 export default async function Page({ params }) {
   const client = createClient();
   const page = await client
@@ -52,6 +54,7 @@ export default async function Page({ params }) {
   );
 }
 
+// Optional: Uncomment this if you want dynamic meta tags per UID
 // export async function generateMetadata({ params }) {
 //   const client = createClient();
 //   const page = await client
