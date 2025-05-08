@@ -9,48 +9,32 @@ export default function StepB({
   currentStep,
   totalSteps,
 }) {
-  /* ──────────────────────────────────────────────
-     1. Local form state
-  ────────────────────────────────────────────── */
   const [form, setForm] = useState({
     donate_to: "",
     heard_from: "",
   });
 
-  /* ──────────────────────────────────────────────
-     2. Change handler
-  ────────────────────────────────────────────── */
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   }, []);
 
-  /* ──────────────────────────────────────────────
-     3. Submit -> lift state to parent
-  ────────────────────────────────────────────── */
   const onProceed = useCallback(
     (e) => {
-      e.preventDefault(); // stop full‑page reload
-      handleStepProgression({ ...form }); // send Step B data up
+      e.preventDefault();
+      handleStepProgression({ ...form });
     },
     [form, handleStepProgression]
   );
 
-  /* ──────────────────────────────────────────────
-     4. Constants / helpers
-  ────────────────────────────────────────────── */
   const heardData = ["Social Media", "Website", "Friends", "Other"];
   const progress = Math.round((currentStep / totalSteps) * 100);
 
-  /* ──────────────────────────────────────────────
-     5. Render
-  ────────────────────────────────────────────── */
   return (
     <form
       onSubmit={onProceed}
       className="flex flex-col items-center w-full justify-center space-y-6 mt-52"
     >
-      {/* Header + Back button */}
       <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-baseline items-center mt-96 sm:mt-0">
         <div className="md:w-[30%] w-full md:p-10">
           <button
@@ -77,12 +61,10 @@ export default function StepB({
         </div>
       </div>
 
-      {/* Form fields */}
       <div className="flex flex-col space-y-6 pb-6 w-[60%]">
-        {/* Donate To */}
         <label className="input-parent-state flex flex-col space-y-1 w-full">
           <span className="font-ambit-regular text-lg label-state">
-            We’d love to know who you are donating to
+            We&rsquo;d love to know who you are donating to
           </span>
           <select
             name="donate_to"
@@ -92,13 +74,12 @@ export default function StepB({
             className="input-state"
           >
             <option value="" disabled>
-              I'm donating to…
+              I&rsquo;m donating to&hellip;
             </option>
             <option>Uninterrupted learning for students and alumni</option>
           </select>
         </label>
 
-        {/* Heard From */}
         <label className="input-parent-state flex flex-col space-y-1 w-full mt-4">
           <span className="font-ambit-regular text-lg label-state">
             How did you hear about Akanksha?
@@ -111,7 +92,7 @@ export default function StepB({
             className="input-state"
           >
             <option value="" disabled>
-              Others…
+              Others&hellip;
             </option>
             {heardData.map((item) => (
               <option key={item}>{item}</option>
@@ -119,7 +100,6 @@ export default function StepB({
           </select>
         </label>
 
-        {/* Proceed */}
         <Button
           type="submit"
           className="bg-deep-green text-black border-black transition-all
@@ -128,7 +108,6 @@ export default function StepB({
           Proceed
         </Button>
 
-        {/* Info copy (unchanged) */}
         <p className="text-black font-ambit-regular text-lg w-full sm:w-[90%] text-left md:text-center">
           Akanksha provides an Online Payment Gateway through BillDesk to make
           your donation to us easy, secure and efficient. The BillDesk Payment
@@ -138,7 +117,7 @@ export default function StepB({
         </p>
         <p className="text-black font-ambit-regular text-lg w-full sm:w-[90%] text-left md:text-center">
           By sharing your details, you agree to receive stories and updates from
-          Akanksha via mobile, Whatsapp, landline, email and post. If you’d like
+          Akanksha via mobile,&nbsp;Whatsapp, landline, email and post. If you&rsquo;d like
           to change this, please send us an email on&nbsp;
           <a
             className="underline transition-all hover:opacity-40"
