@@ -186,7 +186,7 @@ export default function DonationSelectors({ data }) {
 
           {/* WhatsApp */}
           <a
-            href="https://wa.me/9446442831?text=I'm%20interested"
+            href="https://wa.me/9324947989?text=I'm%20interested"
             target="_blank"
             rel="noopener noreferrer"
           >
