@@ -9,27 +9,42 @@ export default function StepB({
   currentStep,
   totalSteps,
 }) {
+  /* ──────────────────────────────────────────────
+     1. Local form state
+  ────────────────────────────────────────────── */
   const [form, setForm] = useState({
     donate_to: "",
     heard_from: "",
   });
 
+  /* ──────────────────────────────────────────────
+     2. Change handler
+  ────────────────────────────────────────────── */
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   }, []);
 
+  /* ──────────────────────────────────────────────
+     3. Submit -> lift state to parent
+  ────────────────────────────────────────────── */
   const onProceed = useCallback(
     (e) => {
-      e.preventDefault();
-      handleStepProgression({ ...form });
+      e.preventDefault(); // stop full‑page reload
+      handleStepProgression({ ...form }); // send Step B data up
     },
     [form, handleStepProgression]
   );
 
+  /* ──────────────────────────────────────────────
+     4. Constants / helpers
+  ────────────────────────────────────────────── */
   const heardData = ["Social Media", "Website", "Friends", "Other"];
   const progress = Math.round((currentStep / totalSteps) * 100);
 
+  /* ──────────────────────────────────────────────
+     5. Render
+  ────────────────────────────────────────────── */
   return (
     <form
       onSubmit={onProceed}
@@ -67,7 +82,7 @@ export default function StepB({
         {/* Donate To */}
         <label className="input-parent-state flex flex-col space-y-1 w-full">
           <span className="font-ambit-regular text-lg label-state">
-            We&rsquo;d love to know who you are donating to
+            We’d love to know who you are donating to
           </span>
           <select
             name="donate_to"
@@ -77,7 +92,7 @@ export default function StepB({
             className="input-state"
           >
             <option value="" disabled>
-              I&rsquo;m donating to…
+              I'm donating to…
             </option>
             <option>Uninterrupted learning for students and alumni</option>
           </select>
@@ -113,7 +128,7 @@ export default function StepB({
           Proceed
         </Button>
 
-        {/* Info copy */}
+        {/* Info copy (unchanged) */}
         <p className="text-black font-ambit-regular text-lg w-full sm:w-[90%] text-left md:text-center">
           Akanksha provides an Online Payment Gateway through BillDesk to make
           your donation to us easy, secure and efficient. The BillDesk Payment
@@ -123,7 +138,7 @@ export default function StepB({
         </p>
         <p className="text-black font-ambit-regular text-lg w-full sm:w-[90%] text-left md:text-center">
           By sharing your details, you agree to receive stories and updates from
-          Akanksha via mobile, Whatsapp, landline, email and post. If you&rsquo;d like
+          Akanksha via mobile, Whatsapp, landline, email and post. If you’d like
           to change this, please send us an email on&nbsp;
           <a
             className="underline transition-all hover:opacity-40"
