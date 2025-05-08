@@ -5,51 +5,57 @@ import Arrow from "@/assets/button-arrow.svg";
 import Image from "next/image";
 
 export default function StepB({
-  handleStepProgression,
-  data,
+  handleStepProgression, // (data, "back"?) -> void
   currentStep,
   totalSteps,
 }) {
-  const choices = ["Social Media", "Website", "Friends", "Others"];
-  const heardData = ["Social Media", "Website", "Friends", "Other"];
-
-  const [selected, setSelected] = useState({
-    values: [],
+  /* ──────────────────────────────────────────────
+     1. Local form state
+  ────────────────────────────────────────────── */
+  const [form, setForm] = useState({
+    donate_to: "",
+    heard_from: "",
   });
 
+  /* ──────────────────────────────────────────────
+     2. Change handler
+  ────────────────────────────────────────────── */
   const handleChange = useCallback((e) => {
-    let name = e.target.name;
-    let value = e.target.value;
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   }, []);
 
-  const handleSelect = useCallback((value) => {
-    setSelected((prevState) => {
-      const foundValue = prevState.values.includes(value);
-      if (foundValue) {
-        const filteredData = prevState.values.filter((item) => item !== value);
-        handleStepProgression([...filteredData]);
-        return {
-          ...prevState,
-          values: [...filteredData],
-        };
-      }
-      handleStepProgression([...prevState.values, value]);
-      return {
-        ...prevState,
-        values: [...prevState.values, value],
-      };
-    });
-  }, []);
+  /* ──────────────────────────────────────────────
+     3. Submit -> lift state to parent
+  ────────────────────────────────────────────── */
+  const onProceed = useCallback(
+    (e) => {
+      e.preventDefault(); // stop full‑page reload
+      handleStepProgression({ ...form }); // send Step B data up
+    },
+    [form, handleStepProgression]
+  );
 
-  // Calculate progress percentage
+  /* ──────────────────────────────────────────────
+     4. Constants / helpers
+  ────────────────────────────────────────────── */
+  const heardData = ["Social Media", "Website", "Friends", "Other"];
   const progress = Math.round((currentStep / totalSteps) * 100);
 
+  /* ──────────────────────────────────────────────
+     5. Render
+  ────────────────────────────────────────────── */
   return (
-    <div className="flex flex-col items-center   w-full justify-center space-y-6  mt-52 ">
-      <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-baseline items-center mt-96 sm:mt-0    ">
-        <div className="md:w-[30%]  w-full md:p-10  mt-0  ">
+    <form
+      onSubmit={onProceed}
+      className="flex flex-col items-center w-full justify-center space-y-6 mt-52"
+    >
+      {/* Header + Back button */}
+      <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-baseline items-center mt-96 sm:mt-0">
+        <div className="md:w-[30%] w-full md:p-10">
           <button
-            className="bg-gray-400 text-black border-black transition-all 
+            type="button"
+            className="bg-gray-400 text-black border-black transition-all
                        text-xl rounded-full !py-6 !px-8 flex items-center gap-2"
             onClick={() => handleStepProgression(null, "back")}
           >
@@ -63,52 +69,66 @@ export default function StepB({
             Back
           </button>
         </div>
-        <div className="md:w-[50%] w-full mt-8 ">
+        <div className="md:w-[50%] w-full mt-8">
           <RichText
             text="Final Question"
-            className="font-ambit-regular text-black text-3xl lg:text-7xl  text-center  "
+            className="font-ambit-regular text-black text-3xl lg:text-7xl text-center"
           />
         </div>
       </div>
-      <div className="flex flex-col space-y-6 pb-6 w-[60%] justify-center items-center ">
-        <p className="input-parent-state flex flex-col space-y-1 w-full mt-2">
-          <label className="font-ambit-regular text-lg label-state">
-            {`We'd love to know who you are donating to`}
-          </label>
-          <select className="input-state" name="donate_to">
-            <option disabled selected value className="!text-[#A9AEB6]">
-              {`I'm donating to..`}
+
+      {/* Form fields */}
+      <div className="flex flex-col space-y-6 pb-6 w-[60%]">
+        {/* Donate To */}
+        <label className="input-parent-state flex flex-col space-y-1 w-full">
+          <span className="font-ambit-regular text-lg label-state">
+            We’d love to know who you are donating to
+          </span>
+          <select
+            name="donate_to"
+            value={form.donate_to}
+            onChange={handleChange}
+            required
+            className="input-state"
+          >
+            <option value="" disabled>
+              I'm donating to…
             </option>
             <option>Uninterrupted learning for students and alumni</option>
           </select>
-        </p>
-        <p className="input-parent-state flex flex-col space-y-1 w-full mt-4">
-          <label className="font-ambit-regular text-lg label-state">
-            {`How did you hear about Akanksha?`}
-          </label>
+        </label>
 
+        {/* Heard From */}
+        <label className="input-parent-state flex flex-col space-y-1 w-full mt-4">
+          <span className="font-ambit-regular text-lg label-state">
+            How did you hear about Akanksha?
+          </span>
           <select
-            onChange={handleChange}
-            className="input-state w-full"
             name="heard_from"
+            value={form.heard_from}
+            onChange={handleChange}
+            required
+            className="input-state"
           >
-            <option disabled selected value className="!text-[#A9AEB6]">
-              {`Others..`}
+            <option value="" disabled>
+              Others…
             </option>
             {heardData.map((item) => (
               <option key={item}>{item}</option>
             ))}
           </select>
-        </p>
+        </label>
+
+        {/* Proceed */}
         <Button
           type="submit"
-          className=" bg-deep-green text-black  border-black transition-all 
-                                     md:!text-3xl rounded-full !py-6 !px-24 
-                                     
-                                      "
+          className="bg-deep-green text-black border-black transition-all
+                     md:!text-3xl rounded-full !py-6 !px-24"
         >
           Proceed
         </Button>
+
+        {/* Info copy (unchanged) */}
         <p className="text-black font-ambit-regular text-lg w-full sm:w-[90%] text-left md:text-center">
           Akanksha provides an Online Payment Gateway through BillDesk to make
           your donation to us easy, secure and efficient. The BillDesk Payment
@@ -118,8 +138,8 @@ export default function StepB({
         </p>
         <p className="text-black font-ambit-regular text-lg w-full sm:w-[90%] text-left md:text-center">
           By sharing your details, you agree to receive stories and updates from
-          Akanksha via mobile,  Whatsapp, landline, email and post. If you’d
-          like to change this, please send us an email on &nbsp;
+          Akanksha via mobile, Whatsapp, landline, email and post. If you’d like
+          to change this, please send us an email on&nbsp;
           <a
             className="underline transition-all hover:opacity-40"
             href="mailto:fundraise@akanksha.org"
@@ -128,6 +148,6 @@ export default function StepB({
           </a>
         </p>
       </div>
-    </div>
+    </form>
   );
 }
