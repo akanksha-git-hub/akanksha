@@ -51,7 +51,7 @@ const BoxArrowSection = ({ slice }) => {
 
                   {/* ➡️ Arrow (only between boxes) */}
                   {itemIndex !== row.length - 1 && (
-                   <>+</>
+                   <p className='bold text-5xl' >+</p>
                   )}
                 </>
               ))}
@@ -85,7 +85,7 @@ const BoxArrowSection = ({ slice }) => {
 
 
       {index !== slice.primary.box.length - 1 && (
-    <>+</>
+    <p className='bold text-5xl -mb-4 ' >+</p>
       )}
     </div>
   ))}
