@@ -51,12 +51,7 @@ const BoxArrowSection = ({ slice }) => {
 
                   {/* ➡️ Arrow (only between boxes) */}
                   {itemIndex !== row.length - 1 && (
-                    <Image
-                      src="/arrow.png"
-                      alt="arrow"
-                      width={44}
-                      height={44}
-                    />
+                   <p className='bold text-5xl' >+</p>
                   )}
                 </>
               ))}
@@ -90,13 +85,7 @@ const BoxArrowSection = ({ slice }) => {
 
 
       {index !== slice.primary.box.length - 1 && (
-        <Image
-          src="/arrow.png"
-          alt="arrow"
-          width={44}
-          height={44}
-          className=" block md:hidden mt-10 transform rotate-90"
-        />
+    <p className='bold text-5xl -mb-4 ' >+</p>
       )}
     </div>
   ))}
