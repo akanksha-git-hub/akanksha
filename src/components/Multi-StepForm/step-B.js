@@ -100,17 +100,17 @@ export default function StepB({
           </select>
         </label>
 
-        {/* <Button
+        <Button
           type="submit"
           className="bg-deep-green text-black border-black transition-all
                      md:!text-3xl rounded-full !py-6 !px-24"
         >
           Proceed
 
-        </Button> */}
-        <Button disabled className="opacity-60 cursor-not-allowed">
+        </Button>
+        {/* <Button disabled className="opacity-60 cursor-not-allowed">
   Payment temporarily unavailable
-</Button>
+</Button> */}
 
         <p className="text-black font-ambit-regular text-lg w-full sm:w-[90%] text-left md:text-center">
           Akanksha provides an Online Payment Gateway through BillDesk to make
