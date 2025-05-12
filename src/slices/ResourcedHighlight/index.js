@@ -2,12 +2,13 @@
 import RichText from "@/components/Texts/RichText";
 import PrimaryCTA from "@/components/UI/Button/PrimaryCTA";
 import StoryCircle from "@/components/UI/Story/StoryCircle";
-import { PrismicNextImage } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import { months } from "@/utils/months";
 import Button from "@/components/v2-components/buttons/button";
+
 
 
 /**
@@ -115,18 +116,24 @@ const BlogHighlight = ({ slice }) => {
                 text={slice.primary.items[activeIndex].title}
                 className='font-ambit-semibold text-4xl text-black'
               />
-              <RichText 
+              {/* <RichText 
                 text={slice.primary.items[activeIndex].description}
                 className='font-ambit-regular text-black'
-              />
+              /> */}
+              <p    className='font-ambit-regular line-clamp-5 ... text-black'>
+                {slice.primary.items[activeIndex].description}
+              </p>
             </div>
             {/* <PrimaryCTA 
               link={slice.primary.items[activeIndex].cta_link}
               text={slice.primary.cta_text}
             /> */}
-            <Button prismicLinks={slice.primary.items[activeIndex].cta_link}>
-            {slice.primary.cta_text}
-            </Button>
+           <PrismicNextLink field={slice.primary.items[activeIndex].cta_link}>
+  <Button>
+    {slice.primary.cta_text}
+  </Button>
+</PrismicNextLink>
+
           </div>
         </div>
       </div>
