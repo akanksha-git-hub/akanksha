@@ -1,4 +1,3 @@
-// /src/app/logs/page.jsx
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -10,10 +9,10 @@ export default function LogsPage() {
   useEffect(() => {
     const fetchLog = async () => {
       try {
-        const res = await fetch('/api/deploy-log');
+        const res = await fetch('/api/deploy-status');
         const data = await res.json();
         if (res.ok) {
-          const lines = data.log.split('\n').slice(-50); // Limit to last 50 lines
+          const lines = data.log.split('\n'); // or .slice(-50) if needed
           setLog(lines.join('\n'));
           setIsError(false);
         } else {
@@ -22,7 +21,7 @@ export default function LogsPage() {
         }
       } catch {
         setIsError(true);
-        setLog('Error fetching deploy log.');
+        setLog('Error fetching deploy status log.');
       }
     };
 
@@ -31,7 +30,6 @@ export default function LogsPage() {
     return () => clearInterval(interval);
   }, []);
 
-  // Utility: Add color for emojis like ✅ ❌ etc.
   const renderWithHighlight = (text) => {
     return text.split('\n').map((line, i) => {
       let color = 'text-green-400';
