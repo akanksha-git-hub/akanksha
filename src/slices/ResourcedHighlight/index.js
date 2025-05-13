@@ -41,11 +41,11 @@ const BlogHighlight = ({ slice }) => {
       <div 
         className="flex flex-col xl:flex-row justify-center "
       >
-        <div className="relative h-[520px] xl:h-auto xl:w-[60%] flex items-center justify-center ">
+        <div className="relative h-[520px]   xl:w-[60%] flex items-center justify-center  ">
             
             <div
               key={slice.primary.items[activeIndex].image}
-              className="opacity-anim transition-all h-[78%] w-[78%] lg:h-[85%] lg:w-[85%]"
+              className="opacity-anim transition-all  h-[78%] w-[78%] lg:h-[85%] lg:w-[85%]"
             >
               <PrismicNextImage
                 height={1200}
@@ -63,7 +63,7 @@ const BlogHighlight = ({ slice }) => {
             field={slice.primary.items[activeIndex].image}
           />
         </div> */}
-        <div className="bg-white  xl:pl-12 xl:pr-1  md:py-8 w-full xl:w-[40%] ">
+        <div className="bg-white   xl:pl-12 xl:pr-1  md:py-8 w-full xl:w-[40%] ">
           {/* Selectors */}
           <ul>
             <Swiper  
@@ -106,7 +106,7 @@ const BlogHighlight = ({ slice }) => {
             </Swiper>
           </ul>
           {/* Selectors End */}
-          <div className="flex flex-col space-y-6 mt-12">
+          <div className="flex flex-col space-y-6 mt-12 ">
             <div className="space-y-4">
               <RichText 
                 text={`${month}-${year}`}
