@@ -1,20 +1,20 @@
 import { NextResponse } from 'next/server';
 import { exec } from 'child_process';
+import { writeFileSync } from 'fs';
 
 export async function POST() {
   try {
-    // ✅ Run the deploy script in the background
-   exec('/bin/bash /var/www/next-prismic/akanksha/deploy.sh >> /var/www/next-prismic/akanksha/deploy-status.txt 2>&1 &');
+    // Log that webhook was hit
+    writeFileSync('/var/www/next-prismic/akanksha/webhook-hit.txt', new Date().toISOString());
 
-
-    console.log("🚀 Deploy triggered in background via webhook");
+    // Trigger deploy
+    exec('/bin/bash /var/www/next-prismic/akanksha/deploy.sh >> /var/www/next-prismic/akanksha/deploy-status.txt 2>&1 &');
 
     return NextResponse.json({
       success: true,
-      message: "Deploy triggered. Check deploy.log for output.",
+      message: 'Deploy triggered successfully via webhook.',
     });
   } catch (error) {
-    console.error("❌ Error triggering deploy:", error);
     return NextResponse.json({
       success: false,
       message: error.message,
