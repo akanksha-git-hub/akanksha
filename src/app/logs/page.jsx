@@ -1,6 +1,25 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+const convertToIST = (raw) => {
+  const match = raw.match(/^(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/);
+  if (!match) return raw;
+
+  const utcDate = new Date(match[1] + ' UTC'); // Force parse as UTC
+  const istString = utcDate.toLocaleString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  });
+
+  return `${istString} — ${raw.split('—')[1]?.trim() || ''}`;
+};
+
 
 export default function LogsPage() {
   const [status, setStatus] = useState('');
@@ -49,7 +68,18 @@ export default function LogsPage() {
       <div
         className={`text-base whitespace-pre-wrap px-4 py-2 rounded-lg border border-white/20 bg-white/5 shadow-inner min-w-[300px] min-h-[3rem] ${getColorClass()}`}
       >
-        {isLoading ? '⌛ Loading status...' : isError ? '❌ ' + status : status}
+         {isLoading ? (
+    '⌛ Loading status...'
+  ) : isError ? (
+    '❌ ' + status
+  ) : (
+    <>
+      <p className="mb-1">
+        <span className="text-white/70">🕒 IST: </span>
+        <span className={getColorClass()}>{convertToIST(status)}</span>
+      </p>
+    </>
+  )}
       </div>
     </div>
   );
