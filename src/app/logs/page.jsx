@@ -3,56 +3,47 @@
 import { useEffect, useState } from 'react';
 
 export default function LogsPage() {
-  const [log, setLog] = useState('');
+  const [status, setStatus] = useState('');
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    const fetchLog = async () => {
+    const fetchStatus = async () => {
       try {
-        const res = await fetch('/api/deploy-status');
+        const res = await fetch('/api/deploy-status', { cache: 'no-store' });
         const data = await res.json();
         if (res.ok) {
-          const lines = data.log.split('\n'); // or .slice(-50) if needed
-          setLog(lines.join('\n'));
+          setStatus(data.status || '');
           setIsError(false);
         } else {
-          setLog(data.error || 'Failed to load log.');
+          setStatus(data.error || 'Failed to load status.');
           setIsError(true);
         }
       } catch {
         setIsError(true);
-        setLog('Error fetching deploy status log.');
+        setStatus('❌ Error fetching deploy status.');
       }
     };
 
-    fetchLog();
-    const interval = setInterval(fetchLog, 5000);
+    fetchStatus();
+    const interval = setInterval(fetchStatus, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  const renderWithHighlight = (text) => {
-    return text.split('\n').map((line, i) => {
-      let color = 'text-green-400';
-      if (line.includes('❌') || line.includes('ERROR')) color = 'text-red-400';
-      else if (line.includes('🟡') || line.includes('🔄')) color = 'text-yellow-400';
-      else if (line.includes('🛠️') || line.includes('📦')) color = 'text-blue-400';
-
-      return (
-        <p key={i} className={`whitespace-pre-wrap ${color}`}>
-          {line}
-        </p>
-      );
-    });
+  const getColorClass = () => {
+    if (status.includes('✅')) return 'text-green-400';
+    if (status.includes('❌') || status.includes('ERROR')) return 'text-red-400';
+    if (status.includes('🟡') || status.includes('Deploy started')) return 'text-yellow-400';
+    return 'text-white';
   };
 
   return (
-    <div className="bg-black text-sm font-mono p-4 h-screen overflow-y-auto">
-      <h1 className="text-green-300 mb-4 text-lg">🚀 Deploy Log Viewer</h1>
-      {isError ? (
-        <p className="text-red-500">{log}</p>
-      ) : (
-        <div>{renderWithHighlight(log)}</div>
-      )}
+    <div className="bg-black text-sm font-mono p-6 h-screen text-white flex flex-col items-start">
+      <h1 className="text-green-300 mb-4 text-lg flex items-center gap-2">
+        🚀 Deploy Status
+      </h1>
+      <div className={`text-base whitespace-pre-wrap px-4 py-2 rounded-lg border ${getColorClass()} border-white/20 bg-white/5 shadow-inner`}>
+        {isError ? '❌ ' + status : status}
+      </div>
     </div>
   );
 }
