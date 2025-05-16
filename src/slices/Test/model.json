@@ -1,0 +1,34 @@
+{
+  "id": "test",
+  "type": "SharedSlice",
+  "name": "Test",
+  "description": "Test",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "testing_field": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Testing Field",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "location": {
+          "type": "GeoPoint",
+          "config": {
+            "label": "Location"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
