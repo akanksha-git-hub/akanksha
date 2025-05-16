@@ -73,11 +73,15 @@ export default function MultiStepForm({ closeModal }) {
           const json = await res.json();
           console.log("[BillDesk] response:", json);
 
-          if (json?.data?.redirect_url) {
-            window.location.href = json.data.redirect_url; // → BillDesk page
-          } else {
-            alert("BillDesk did not return a redirect URL. Check console.");
-          }
+          const redirectURL = json?.billdesk_response?.redirect_url;
+
+if (redirectURL) {
+  console.log("Redirecting to BillDesk:", redirectURL);
+  window.location.href = redirectURL;
+} else {
+  alert("BillDesk did not return a redirect URL. Check console.");
+}
+
         } catch (err) {
           console.error("❌ BillDesk request failed:", err);
           alert("Something went wrong while creating the payment order.");
