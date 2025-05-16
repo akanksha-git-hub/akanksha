@@ -4153,6 +4153,7 @@ export type VisionMissionDocument<Lang extends string = string> =
   >;
 
 type VolunteerWithUsDocumentDataSlicesSlice =
+  | TestSlice
   | MissionVisionSlice
   | IconScrollShowcaseSlice;
 
@@ -17286,6 +17287,58 @@ export type TabSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Test → Default → Primary*
+ */
+export interface TestSliceDefaultPrimary {
+  /**
+   * Testing Field field in *Test → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test.default.primary.testing_field
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  testing_field: prismic.RichTextField;
+
+  /**
+   * Location field in *Test → Default → Primary*
+   *
+   * - **Field Type**: GeoPoint
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test.default.primary.location
+   * - **Documentation**: https://prismic.io/docs/field#geopoint
+   */
+  location: prismic.GeoPointField;
+}
+
+/**
+ * Default variation for Test Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Test*
+ */
+type TestSliceVariation = TestSliceDefault;
+
+/**
+ * Test Shared Slice
+ *
+ * - **API ID**: `test`
+ * - **Description**: Test
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestSlice = prismic.SharedSlice<"test", TestSliceVariation>;
+
+/**
  * Default variation for TestSlice Slice
  *
  * - **API ID**: `default`
@@ -19010,6 +19063,10 @@ declare module "@prismicio/client" {
       TabSliceSliceDefaultPrimary,
       TabSliceSliceVariation,
       TabSliceSliceDefault,
+      TestSlice,
+      TestSliceDefaultPrimary,
+      TestSliceVariation,
+      TestSliceDefault,
       TestSliceSlice,
       TestSliceSliceVariation,
       TestSliceSliceDefault,
