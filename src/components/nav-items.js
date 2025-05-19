@@ -72,7 +72,7 @@ export default function NavItems({
               <li key={item.cta_text} className="relative group">
                 <NavItemDropDownText
                   text={capitalizeWords(item.cta_text)}
-                  className="text-deep-green text-lg font-inter cursor-pointer hover:opacity-75"
+                  className="text-black text-lg font-inter cursor-pointer hover:opacity-75"
                   onClick={() => toggleDropdown(item.cta_text)}
                 />
                 {/* Dropdown Menu */}
