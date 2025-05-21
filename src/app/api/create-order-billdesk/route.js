@@ -44,7 +44,9 @@ export async function POST(req) {
     const orderId = `AKANKSHA-${uuidv4().slice(0, 12).toUpperCase()}`;
     const bdTimestamp = generateEpochTimestampString();
     const bdTraceid = generateTraceId();
-    const orderDate = new Date().toISOString();
+    
+    const orderDate = new Date().toISOString().split('.')[0] + 'Z';
+
 
     const jwsPayloadObject = {
       mercid: MERC_ID,
