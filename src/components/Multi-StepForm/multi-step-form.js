@@ -23,7 +23,6 @@ const INITIAL_STATE = {
     pan_number: "",
   },
   stepB: { donate_to: "", heard_from: "" },
-  // Consider adding amount here if it can change per donation
   // amount: "299.00", // Default or could be set by user
 };
 
@@ -37,56 +36,51 @@ export default function MultiStepForm({ closeModal }) {
     async (value, action = "next") => {
       if (action === "back") {
         setStep((s) => Math.max(0, s - 1));
-        setError(false); // Clear error when going back
+        setError(false);
         return;
       }
 
-      // Step 0 — Indian?
       if (step === 0) {
-        if (value === null || typeof value === 'undefined') { // Check if a choice was made
-          // Optionally, you could show an inline error here instead of blocking
+        if (value === null || typeof value === 'undefined') {
           console.warn("Step 0: No selection made for 'Are you an Indian Passport Holder?'");
           return;
         }
-        if (value === false) { // If 'No' (not Indian)
+        if (value === false) {
           setError(true);
           return;
         }
         setStepData((prev) => ({ ...prev, stepA: { isIndian: value } }));
-        setError(false); // Clear error if they were Indian
+        setError(false);
         setStep(1);
         return;
       }
 
-      // Step 1 — Contact Details (from StepC)
       if (step === 1) {
         setStepData((prev) => ({ ...prev, stepC: value }));
         setStep(2);
         return;
       }
 
-      // Step 2 — Final Questions (from StepB) + Submit to BillDesk
       if (step === 2) {
         const finalStepBData = value;
         setStepData((prev) => ({ ...prev, stepB: finalStepBData }));
 
-        // Construct the payload to send to your backend API
         const payloadToYourBackend = {
-          stepA: stepData.stepA, // Data from Step A
-          stepC: stepData.stepC, // Data from Step C
-          stepB: finalStepBData, // Data from Step B (current step)
-          // You can get amount dynamically if needed, or it's defaulted in backend
-          // amount: stepData.amount || '299.00', // If amount is part of stepData
-          user_agent: navigator.userAgent, // Send user agent
+          stepA: stepData.stepA,
+          stepC: stepData.stepC,
+          stepB: finalStepBData,
+          // Assuming 'amount' is fixed for now as per your backend default
+          // If amount is dynamic, get it from state:
+          // amount: stepData.amount || '299.00',
+          user_agent: navigator.userAgent,
         };
         
         console.log("[Frontend] Payload to be sent to /api/create-order-billdesk:", payloadToYourBackend);
 
-
         try {
           setLoading(true);
 
-          const res = await fetch("/api/create-order-billdesk", {
+          const res = await fetch("/api/create-order-billdesk", { // Your backend API
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payloadToYourBackend),
@@ -103,7 +97,7 @@ export default function MultiStepForm({ closeModal }) {
           }
           
           const originalRequestJwt = serverResponseJson?.jwt; // The JWS your server created
-          const billdeskOrderData = serverResponseJson?.billdesk_response; // Decoded BillDesk response
+          const billdeskOrderData = serverResponseJson?.billdesk_response; // The decoded payload from BillDesk's response
 
           if (originalRequestJwt && billdeskOrderData && billdeskOrderData.next_step === 'redirect' && billdeskOrderData.links) {
             const redirectLinkInfo = billdeskOrderData.links.find(
@@ -111,38 +105,60 @@ export default function MultiStepForm({ closeModal }) {
             );
 
             if (redirectLinkInfo && redirectLinkInfo.href) {
-              // ✅ Auto-redirect to BillDesk
+              console.log("[Frontend] Preparing to POST to BillDesk embeddedsdk.");
+              console.log("[Frontend] Redirect Link Info from BillDesk:", redirectLinkInfo);
+
               const form = document.createElement("form");
               form.method = redirectLinkInfo.method; // Should be 'POST'
-              form.action = redirectLinkInfo.href;   // BillDesk redirect URL from their response
+              form.action = redirectLinkInfo.href;   // BillDesk redirect URL
               form.style.display = 'none';           // Hide the form
 
+              // 1. Add the primary JWS token (original request JWS)
               const jwtInput = document.createElement("input");
               jwtInput.type = "hidden";
-              // ***** CRITICAL: VERIFY THIS PARAMETER NAME WITH BILLDESK DOCS *****
-              jwtInput.name = "bdpg_request_jwt"; // Common for U2 Web / Embedded SDK
-              jwtInput.value = originalRequestJwt;    // The JWS token your server initially created
-
+              // Parameter name for the JWS token itself, usually 'bdpg_request_jwt'
+              // VERIFY THIS NAME if issues persist. The BillDesk sample or docs might clarify.
+              jwtInput.name = "bdpg_request_jwt";
+              jwtInput.value = originalRequestJwt;
               form.appendChild(jwtInput);
-              
-              // If redirectLinkInfo.parameters was not empty and BillDesk expected
-              // other parameters from their response to be POSTed, add them here.
-              // Example:
-              // if (redirectLinkInfo.parameters && Object.keys(redirectLinkInfo.parameters).length > 0) {
-              //   for (const key in redirectLinkInfo.parameters) {
-              //     if (Object.hasOwnProperty.call(redirectLinkInfo.parameters, key)) {
-              //       const paramInput = document.createElement('input');
-              //       paramInput.type = 'hidden';
-              //       paramInput.name = key;
-              //       paramInput.value = redirectLinkInfo.parameters[key];
-              //       form.appendChild(paramInput);
-              //     }
-              //   }
-              // }
+              console.log(`[Frontend] Added to form: name=bdpg_request_jwt, value=${originalRequestJwt.substring(0,30)}...`);
+
+
+              // 2. Add any additional parameters provided by BillDesk in redirectLinkInfo.parameters
+              if (redirectLinkInfo.parameters && typeof redirectLinkInfo.parameters === 'object' && Object.keys(redirectLinkInfo.parameters).length > 0) {
+                console.log("[Frontend] Adding additional parameters to form from BillDesk response:", redirectLinkInfo.parameters);
+                for (const key in redirectLinkInfo.parameters) {
+                  if (Object.hasOwnProperty.call(redirectLinkInfo.parameters, key)) {
+                    const paramInput = document.createElement('input');
+                    paramInput.type = 'hidden';
+                    paramInput.name = key; // Use the key from BillDesk's parameters object
+                    paramInput.value = redirectLinkInfo.parameters[key];
+                    form.appendChild(paramInput);
+                    console.log(`[Frontend] Added to form: name=${key}, value=${redirectLinkInfo.parameters[key]}`);
+                  }
+                }
+              } else {
+                console.log("[Frontend] No additional parameters received from BillDesk for the embeddedsdk POST.");
+              }
 
               document.body.appendChild(form);
+
+              // 3. Handle potential custom headers suggested by BillDesk
+              // Standard HTML form submissions (form.submit()) CANNOT send custom HTTP headers.
+              // If BillDesk *requires* custom headers for this POST to embeddedsdk,
+              // this `form.submit()` approach will fail to send them.
+              if (redirectLinkInfo.headers && typeof redirectLinkInfo.headers === 'object' && Object.keys(redirectLinkInfo.headers).length > 0) {
+                console.warn("[Frontend] BillDesk response suggests custom headers for the embeddedsdk POST:", redirectLinkInfo.headers);
+                console.warn("[Frontend] Standard HTML form submission cannot set these custom headers. If the redirect fails or the BillDesk page errors, this could be the reason. You might need to switch to an AJAX (fetch) POST if these headers are mandatory, which would require further clarification from BillDesk on how their SDK should be initialized after an AJAX call.");
+                // For now, we will proceed with form.submit() and see if BillDesk handles it gracefully or if these headers were optional/informational.
+              } else {
+                 console.log("[Frontend] No custom headers suggested by BillDesk for the embeddedsdk POST.");
+              }
+              
+              console.log("[Frontend] Submitting form to BillDesk:", form.action);
               form.submit();
-              // setLoading(false) might not be reached if submit is successful and page unloads
+              // setLoading(false) might not be reached if submit is successful and page unloads.
+              // This is usually fine for a redirect.
             } else {
               console.error("BillDesk redirect link (POST) or href not found in server response:", billdeskOrderData);
               alert("Could not process BillDesk redirect. Information missing. Please try again.");
@@ -150,8 +166,8 @@ export default function MultiStepForm({ closeModal }) {
             }
           } else {
             let alertMessage = "Payment initiation failed. ";
-            if (!originalRequestJwt) alertMessage += "Required token missing from server response. ";
-            if (!billdeskOrderData) alertMessage += "BillDesk order data missing. ";
+            if (!originalRequestJwt) alertMessage += "Required token (originalRequestJwt) missing from server response. ";
+            if (!billdeskOrderData) alertMessage += "BillDesk order data (billdesk_response) missing. ";
             else if (billdeskOrderData.next_step !== 'redirect') alertMessage += "BillDesk did not indicate a redirect. ";
             else if (!billdeskOrderData.links) alertMessage += "BillDesk redirect links missing. ";
             
@@ -165,15 +181,13 @@ export default function MultiStepForm({ closeModal }) {
           alert("Something went wrong while creating the payment order. Please check your connection and try again.");
           setLoading(false);
         }
-        // setLoading is handled within try/catch/finally for async operations
-        // No need to set it here unless there's a path that doesn't go through the async block.
         return;
       }
     },
-    [step, stepData] // stepData is important here for constructing the final payload
+    [step, stepData]
   );
 
-  const totalSteps = 3; // Step 0, 1, 2
+  const totalSteps = 3;
   const progressPercentage = (step / (totalSteps - 1)) * 100;
 
   let componentToRender = null;
@@ -181,21 +195,21 @@ export default function MultiStepForm({ closeModal }) {
     componentToRender = (
       <StepA
         handleStepProgression={handleStepProgression}
-        currentStepData={stepData.stepA} // Pass current data for potential pre-fill
+        currentStepData={stepData.stepA}
       />
     );
   } else if (step === 1) {
     componentToRender = (
       <StepC
         handleStepProgression={handleStepProgression}
-        currentStepData={stepData.stepC} // Pass current data for potential pre-fill
+        currentStepData={stepData.stepC}
       />
     );
   } else if (step === 2) {
     componentToRender = (
       <StepB
         handleStepProgression={handleStepProgression}
-        currentStepData={stepData.stepB} // Pass current data for potential pre-fill
+        currentStepData={stepData.stepB}
       />
     );
   }
@@ -207,25 +221,25 @@ export default function MultiStepForm({ closeModal }) {
           data-lenis-prevent
           className="opacity-anim h-full w-full bg-white flex flex-col items-center justify-between z-50 relative"
         >
-          <div className="w-[90%] sm:w-[70%] md:w-[60%] flex flex-col items-center p-6 mt-16 sm:mt-24"> {/* Adjusted mt and width */}
+          <div className="w-[90%] sm:w-[70%] md:w-[60%] flex flex-col items-center p-6 mt-16 sm:mt-24">
             <div className="relative w-full bg-gray-300 h-1 rounded-full">
               <div
                 className="absolute top-0 left-0 bg-black h-1 rounded-full transition-all duration-500 ease-in-out"
                 style={{ width: `${progressPercentage}%` }}
               />
               <div className="absolute top-1/2 -translate-y-1/2 flex justify-between w-full">
-                {["Indian?", "Contact Details", "Final Question"].map( // Adjusted label
+                {["Indian?", "Contact Details", "Final Question"].map(
                   (label, idx) => (
                     <div key={idx} className="relative flex flex-col items-center">
                       <span
-                        className={`absolute -top-12 sm:-top-16 text-sm sm:text-lg md:text-xl text-center transition-colors duration-300 ${ // Adjusted text size and top
+                        className={`absolute -top-12 sm:-top-16 text-sm sm:text-lg md:text-xl text-center transition-colors duration-300 ${
                           step >= idx ? "text-black font-semibold" : "text-gray-400"
                         }`}
                       >
                         {label}
                       </span>
                       <div
-                        className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-colors duration-300 ${ // Adjusted dot size
+                        className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-colors duration-300 ${
                           step >= idx ? "bg-black" : "bg-gray-300"
                         }`}
                       />
@@ -239,13 +253,13 @@ export default function MultiStepForm({ closeModal }) {
           <Image
             onClick={closeModal}
             className="absolute top-6 right-6 sm:top-12 sm:right-12 cursor-pointer z-50 transition-all hover:opacity-55 active:scale-90"
-            src="/close.svg" // Ensure this path is correct
+            src="/close.svg"
             height={30}
             width={30}
             alt="Close"
           />
 
-          <div className="opacity-anim h-full w-full flex items-center justify-center overflow-y-auto green-scroll-bar px-4 sm:px-0"> {/* Added some padding for small screens */}
+          <div className="opacity-anim h-full w-full flex items-center justify-center overflow-y-auto green-scroll-bar px-4 sm:px-0">
             {loading ? (
               <div className="flex flex-col items-center justify-center text-center">
                 <svg className="animate-spin h-12 w-12 text-deep-green mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -264,20 +278,20 @@ export default function MultiStepForm({ closeModal }) {
         </div>
       )}
 
-      {error && ( // This is the "Not an Indian Citizen" error screen
+      {error && (
         <div
           data-lenis-prevent
           className="opacity-anim h-full w-full bg-white flex flex-col items-center justify-center z-50 relative p-6"
         >
           <Image
-            onClick={closeModal} // Or a specific handler to reset if needed
+            onClick={closeModal}
             className="absolute top-6 right-6 cursor-pointer z-50 transition-all hover:opacity-55 active:scale-90"
-            src="/close.svg" // Ensure this path is correct
+            src="/close.svg"
             height={20}
             width={20}
             alt="Close"
           />
-          <p className="text-black font-ambit-semibold text-2xl sm:text-3xl md:text-4xl text-center max-w-xl sm:max-w-2xl"> {/* Adjusted text size and max-width */}
+          <p className="text-black font-ambit-semibold text-2xl sm:text-3xl md:text-4xl text-center max-w-xl sm:max-w-2xl">
             Non-Indian passport holders, please write to
             <a
               href="mailto:fundraise@akanksha.org"
@@ -290,8 +304,8 @@ export default function MultiStepForm({ closeModal }) {
            <Button 
             onClick={() => {
                 setError(false); 
-                // setStep(0); // Optionally reset to first step
-                // setStepData(INITIAL_STATE); // Optionally reset all data
+                // setStep(0); // Optionally reset
+                // setStepData(INITIAL_STATE); // Optionally reset
             }}
             className="mt-8 bg-gray-200 text-black"
             >
