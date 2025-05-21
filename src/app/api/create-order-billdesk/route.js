@@ -99,10 +99,13 @@ export async function POST(req) {
 
     const responseText = await billdeskResponse.text();
     if (!billdeskResponse.ok) {
-     let errorData;
+let errorData;
 try {
-  errorData = responseText.startsWith('{') ? JSON.parse(responseText) : { message: responseText };
-} catch {
+  
+  errorData = responseText.trim().startsWith('{')
+    ? JSON.parse(responseText)
+    : { message: responseText };
+} catch (e) {
   errorData = { message: responseText };
 }
 
