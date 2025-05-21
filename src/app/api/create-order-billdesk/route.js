@@ -156,7 +156,11 @@ export async function POST(req) {
       }
 
       // The actual data from BillDesk is in the 'payload' object
-      return NextResponse.json({ billdesk_response: payload });
+    return NextResponse.json({
+  billdesk_response: payload,
+  jwt: jwtToken,  
+});
+
 
     } catch (verificationError) {
       console.error('Error verifying or decoding BillDesk JWS response:', verificationError);

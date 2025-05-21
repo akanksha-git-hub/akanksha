@@ -24,14 +24,11 @@ const INITIAL_STATE = {
 };
 
 export default function MultiStepForm({ closeModal }) {
-  const [step, setStep] = useState(0);               // 0‑A  1‑C  2‑B
+  const [step, setStep] = useState(0);
   const [stepData, setStepData] = useState(INITIAL_STATE);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  /* ──────────────────────────────────────────────
-     1. Handle NEXT / BACK
-  ────────────────────────────────────────────── */
   const handleStepProgression = useCallback(
     async (value, action = "next") => {
       if (action === "back") {
@@ -39,7 +36,7 @@ export default function MultiStepForm({ closeModal }) {
         return;
       }
 
-      /* Step 0  (Indian / Non‑Indian) */
+      // Step 0 — Indian?
       if (step === 0) {
         if (!value) {
           setError(true);
@@ -50,37 +47,50 @@ export default function MultiStepForm({ closeModal }) {
         return;
       }
 
-      /* Step 1  (contact details) */
+      // Step 1 — Contact Details
       if (step === 1) {
         setStepData((prev) => ({ ...prev, stepC: value }));
         setStep(2);
         return;
       }
 
-      /* Step 2  (final question)  ->  SEND TO BACKEND */
+      // Step 2 — Final Questions + Submit
       if (step === 2) {
         setStepData((prev) => ({ ...prev, stepB: value }));
 
-        // assemble final payload
         const payload = { ...stepData, stepB: value };
+
         try {
           setLoading(true);
+
           const res = await fetch("/api/create-order-billdesk", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload),
           });
+
           const json = await res.json();
           console.log("[BillDesk] response:", json);
 
-          const redirectURL = json?.billdesk_response?.redirect_url;
+          const jwt = json?.jwt;
 
-if (redirectURL) {
-  console.log("Redirecting to BillDesk:", redirectURL);
-  window.location.href = redirectURL;
-} else {
-  alert("BillDesk did not return a redirect URL. Check console.");
-}
+          if (jwt) {
+            // ✅ Auto-redirect to BillDesk using JWT
+            const form = document.createElement("form");
+            form.method = "POST";
+            form.action = "https://uat1.billdesk.com/u2/web/v1.2/embeddedsdk";
+
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "msg";
+            input.value = jwt;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+          } else {
+            alert("BillDesk did not return a JWT token. Check console.");
+          }
 
         } catch (err) {
           console.error("❌ BillDesk request failed:", err);
@@ -94,15 +104,9 @@ if (redirectURL) {
     [step, stepData]
   );
 
-  /* ──────────────────────────────────────────────
-     2. Progress bar helpers
-  ────────────────────────────────────────────── */
   const totalSteps = 3;
   const progressPercentage = (step / (totalSteps - 1)) * 100;
 
-  /* ──────────────────────────────────────────────
-     3. Pick step component
-  ────────────────────────────────────────────── */
   let component = null;
   if (step === 0) {
     component = (
@@ -130,9 +134,6 @@ if (redirectURL) {
     );
   }
 
-  /* ──────────────────────────────────────────────
-     4. Render
-  ────────────────────────────────────────────── */
   return (
     <>
       {!error && (
@@ -140,7 +141,6 @@ if (redirectURL) {
           data-lenis-prevent
           className="opacity-anim h-full w-full bg-white flex flex-col items-center justify-between z-50 relative"
         >
-          {/* progress bar */}
           <div className="w-[60%] flex flex-col items-center p-6 mt-24">
             <div className="relative w-full bg-gray-300 h-1 rounded-full">
               <div
@@ -170,7 +170,6 @@ if (redirectURL) {
             </div>
           </div>
 
-          {/* close button */}
           <Image
             onClick={closeModal}
             className="absolute top-12 right-12 cursor-pointer z-50 transition-all hover:opacity-55 active:scale-90"
@@ -180,7 +179,6 @@ if (redirectURL) {
             alt="Close"
           />
 
-          {/* step component */}
           <div className="opacity-anim h-full w-full flex items-center justify-center overflow-y-auto green-scroll-bar">
             {loading ? (
               <p className="text-black text-2xl">Creating order…</p>
