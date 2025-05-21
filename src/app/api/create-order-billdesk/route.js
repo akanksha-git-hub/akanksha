@@ -99,12 +99,13 @@ export async function POST(req) {
 
     const responseText = await billdeskResponse.text();
     if (!billdeskResponse.ok) {
-      let errorData;
-      try {
-        errorData = JSON.parse(responseText);
-      } catch {
-        errorData = { message: responseText };
-      }
+     let errorData;
+try {
+  errorData = responseText.startsWith('{') ? JSON.parse(responseText) : { message: responseText };
+} catch {
+  errorData = { message: responseText };
+}
+
       return NextResponse.json(
         {
           error: 'BillDesk API Error',
