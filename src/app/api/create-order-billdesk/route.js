@@ -28,6 +28,12 @@ function generateTraceId() {
 
 export async function POST(req) {
   try {
+    console.log("🧪 ENV DEBUG", {
+  CLIENT_ID,
+  MERC_ID,
+  RAW_SECRET: typeof RAW_SECRET,
+  BILLDESK_ENDPOINT,
+}); 
     console.log('Reading request body from frontend');
     const body = await req.json();
     const { amount = '299.00', user_agent = 'Unknown Browser' } = body;
