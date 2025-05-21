@@ -2,10 +2,12 @@ import { SignJWT, importJWK } from 'jose';
 import { NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 
-const CLIENT_ID = 'bdskuaty';
-const MERC_ID = 'BDSKUATY';
-const RAW_SECRET = 'G3eAmyVkAzKp8jFq0fqPEqxF4agynvtJ';
-const BILLDESK_ENDPOINT = 'https://uat1.billdesk.com/u2/payments/ve1_2/orders/create';
+
+
+const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
+const MERC_ID = process.env.BILLDESK_MERC_ID;
+const RAW_SECRET = process.env.BILLDESK_SECRET;
+const BILLDESK_ENDPOINT = process.env.BILLDESK_ENDPOINT;
 
 function generateEpochTimestampString() {
   return Math.floor(Date.now() / 1000).toString();
