@@ -73,10 +73,11 @@ export async function POST(req) {
       order_date: orderDate,
       currency: '356',
       ru: 'https://akanksha.org/',
-      additional_info: {
-        additional_info1: 'Details1',
-        additional_info2: 'Details2',
-      },
+    additional_info: {
+  additional_info1: body?.stepB?.donating_to || 'General Donation',
+  additional_info2: body?.stepB?.heard_from || 'Website',
+},
+
       itemcode: 'DIRECT',
       device: {
         init_channel: 'internet',
