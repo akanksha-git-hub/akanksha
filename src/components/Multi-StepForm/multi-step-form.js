@@ -1,7 +1,7 @@
 // --- START OF FILE multi-step-form.js ---
 
 import { useCallback, useState } from "react";
-import Arrow from "../Arrow"; // Assuming this path is correct (e.g., ../assets/Arrow.svg or similar)
+import Arrow from "../Arrow"; // Assuming this path is correct
 import StepA from "./step-A";
 import StepC from "./step-C";
 import StepB from "./step-B";
@@ -23,211 +23,118 @@ const INITIAL_STATE = {
     pan_number: "",
   },
   stepB: { donate_to: "", heard_from: "" },
-  // Consider adding amount here if it can change per donation.
-  // If you add it here, make sure to include it in `payloadToYourBackend`.
-  // amount: "299.00",
 };
 
 export default function MultiStepForm({ closeModal }) {
   const [step, setStep] = useState(0);
   const [stepData, setStepData] = useState(INITIAL_STATE);
-  const [error, setError] = useState(false); // For "Non-Indian citizen" error
+  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleStepProgression = useCallback(
     async (value, action = "next") => {
       if (action === "back") {
         setStep((s) => Math.max(0, s - 1));
-        setError(false); // Clear error when going back
+        setError(false);
         return;
       }
 
-      // Step 0 — Indian?
       if (step === 0) {
-        if (value === null || typeof value === 'undefined') {
-          console.warn("[Frontend] Step 0: No selection made for 'Are you an Indian Passport Holder?'");
-          // You might want to show a message to the user here
+        if (value === null || typeof value === "undefined") {
+          console.warn("Step 0: No selection made for 'Are you an Indian Passport Holder?'");
           return;
         }
-        if (value === false) { // If 'No' (not Indian)
+        if (value === false) {
           setError(true);
           return;
         }
         setStepData((prev) => ({ ...prev, stepA: { isIndian: value } }));
-        setError(false); // Clear error if they were Indian
+        setError(false);
         setStep(1);
         return;
       }
 
-      // Step 1 — Contact Details (from StepC)
       if (step === 1) {
         setStepData((prev) => ({ ...prev, stepC: value }));
         setStep(2);
         return;
       }
 
-      // Step 2 — Final Questions (from StepB) + Submit to BillDesk
       if (step === 2) {
-        const finalStepBData = value; // Data from StepB component
-        // Update stepData with the latest from StepB
+        const finalStepBData = value;
         const currentStepData = { ...stepData, stepB: finalStepBData };
         setStepData(currentStepData);
 
-
-        // Construct the payload to send to your backend API
         const payloadToYourBackend = {
           stepA: currentStepData.stepA,
           stepC: currentStepData.stepC,
-          stepB: currentStepData.stepB, // This now includes the latest finalStepBData
-          // Amount is currently defaulted in your backend. If it should be dynamic:
-          // amount: currentStepData.amount || '299.00', // Get from state if available
+          stepB: currentStepData.stepB,
           user_agent: navigator.userAgent,
         };
-        
-        console.log("[Frontend] Payload to be sent to /api/create-order-billdesk:", payloadToYourBackend);
 
         try {
           setLoading(true);
-
-          const res = await fetch("/api/create-order-billdesk", { // Your backend API endpoint
+          const res = await fetch("/api/create-order-billdesk", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payloadToYourBackend),
           });
 
-          const serverResponseJson = await res.json(); // Response from your backend
-          console.log("[Frontend] Response from our server (/api/create-order-billdesk):", serverResponseJson);
+          const serverResponseJson = await res.json();
 
           if (!res.ok) {
-            console.error("[Frontend] Error from our server:", serverResponseJson);
-            alert(`Error from our server: ${serverResponseJson.error} - ${serverResponseJson.details?.message || serverResponseJson.details || 'Unknown error'}`);
+            alert(`Error from server: ${serverResponseJson.error}`);
             setLoading(false);
             return;
           }
-          
-          const originalRequestJwt = serverResponseJson?.jwt; // The JWS your server created and sent to BillDesk
-          const billdeskOrderData = serverResponseJson?.billdesk_response; // The decoded payload from BillDesk's response to your server
 
-          if (originalRequestJwt && billdeskOrderData && billdeskOrderData.next_step === 'redirect' && billdeskOrderData.links) {
-            const redirectLinkInfo = billdeskOrderData.links.find(
-              (link) => link.rel === 'redirect' && link.method === 'POST'
-            );
+          const redirectUrl = serverResponseJson?.redirect_url;
+          const redirectParams = serverResponseJson?.parameters;
 
-            if (redirectLinkInfo && redirectLinkInfo.href) {
-              console.log("[Frontend] Preparing to POST to BillDesk embeddedsdk.");
-              console.log("[Frontend] Full Redirect Link Info from BillDesk:", JSON.stringify(redirectLinkInfo, null, 2));
+          if (redirectUrl && redirectParams) {
+            const form = document.createElement("form");
+            form.method = "POST";
+            form.action = redirectUrl;
+            form.style.display = "none";
 
-
-              const form = document.createElement("form");
-              form.method = redirectLinkInfo.method; // Should be 'POST'
-              form.action = redirectLinkInfo.href;   // BillDesk redirect URL from their response
-              form.style.display = 'none';           // Hide the form
-
-              // 1. Add the primary JWS token (original request JWS)
-              const jwtInput = document.createElement("input");
-              jwtInput.type = "hidden";
-              // Parameter name for the JWS token itself.
-              // 'bdpg_request_jwt' is common. VERIFY if issues persist.
-              jwtInput.name = "bdpg_request_jwt";
-              jwtInput.value = originalRequestJwt;
-              form.appendChild(jwtInput);
-              console.log(`[Frontend] Added to form: name=bdpg_request_jwt, value (first 30 chars)=${originalRequestJwt.substring(0,30)}...`);
-
-
-              // 2. Add any additional parameters provided by BillDesk in redirectLinkInfo.parameters
-              if (redirectLinkInfo.parameters && typeof redirectLinkInfo.parameters === 'object' && Object.keys(redirectLinkInfo.parameters).length > 0) {
-                console.log("[Frontend] Adding additional parameters to form from BillDesk response:", redirectLinkInfo.parameters);
-                for (const key in redirectLinkInfo.parameters) {
-                  if (Object.hasOwnProperty.call(redirectLinkInfo.parameters, key)) {
-                    const paramInput = document.createElement('input');
-                    paramInput.type = 'hidden';
-                    paramInput.name = key; // Use the key from BillDesk's parameters object
-                    paramInput.value = redirectLinkInfo.parameters[key];
-                    form.appendChild(paramInput);
-                    console.log(`[Frontend] Added to form: name=${key}, value=${redirectLinkInfo.parameters[key]}`);
-                  }
-                }
-              } else {
-                console.log("[Frontend] No additional parameters received from BillDesk for the embeddedsdk POST.");
-              }
-
-              document.body.appendChild(form);
-
-              // 3. Handle potential custom headers suggested by BillDesk
-              // Standard HTML form submissions (form.submit()) CANNOT send custom HTTP headers.
-              if (redirectLinkInfo.headers && typeof redirectLinkInfo.headers === 'object' && Object.keys(redirectLinkInfo.headers).length > 0) {
-                console.warn("[Frontend] BillDesk response suggests custom headers for the embeddedsdk POST:", redirectLinkInfo.headers);
-                console.warn("[Frontend] Standard HTML form submission cannot set these custom headers. If the redirect fails or the BillDesk page errors, this could be the reason. You might need to switch to an AJAX (fetch) POST if these headers are mandatory, requiring clarification from BillDesk on SDK initialization after an AJAX call.");
-              } else {
-                 console.log("[Frontend] No custom headers suggested by BillDesk for the embeddedsdk POST.");
-              }
-              
-              console.log("[Frontend] Submitting form to BillDesk. Action URL:", form.action);
-              form.submit();
-              // setLoading(false) might not be reached if submit is successful and page unloads.
-            } else {
-              console.error("[Frontend] BillDesk redirect link (POST) or href not found in server response:", billdeskOrderData);
-              alert("Could not process BillDesk redirect. Information missing. Please try again.");
-              setLoading(false);
+            for (const key in redirectParams) {
+              const input = document.createElement("input");
+              input.type = "hidden";
+              input.name = key;
+              input.value = redirectParams[key];
+              form.appendChild(input);
             }
+
+            document.body.appendChild(form);
+            form.submit();
           } else {
-            let alertMessage = "Payment initiation failed. ";
-            if (!originalRequestJwt) alertMessage += "Required token (originalRequestJwt) missing from server response. ";
-            if (!billdeskOrderData) alertMessage += "BillDesk order data (billdesk_response) missing. ";
-            else if (billdeskOrderData.next_step !== 'redirect') alertMessage += "BillDesk did not indicate a redirect. ";
-            else if (!billdeskOrderData.links) alertMessage += "BillDesk redirect links missing. ";
-            
-            alert(alertMessage + "Check console for details.");
-            console.error("[Frontend] Problem with data for BillDesk redirect. Server Response:", serverResponseJson);
+            console.error("Redirect URL or parameters missing:", serverResponseJson);
+            alert("Could not proceed to payment. Please try again.");
             setLoading(false);
           }
-
         } catch (err) {
-          console.error("❌ [Frontend] Request to /api/create-order-billdesk failed:", err);
-          alert("Something went wrong while creating the payment order. Please check your connection and try again.");
+          console.error("Request to /api/create-order-billdesk failed:", err);
+          alert("Something went wrong. Please try again.");
           setLoading(false);
         }
         return;
       }
     },
-    [step, stepData] // Include stepData dependency because payloadToYourBackend uses it
+    [step, stepData]
   );
 
-  const totalSteps = 3; // Steps are 0, 1, 2
+  const totalSteps = 3;
   const progressPercentage = (step / (totalSteps - 1)) * 100;
 
   let componentToRender = null;
-  if (step === 0) {
-    componentToRender = (
-      <StepA
-        handleStepProgression={handleStepProgression}
-        currentStepData={stepData.stepA}
-      />
-    );
-  } else if (step === 1) {
-    componentToRender = (
-      <StepC
-        handleStepProgression={handleStepProgression}
-        currentStepData={stepData.stepC}
-      />
-    );
-  } else if (step === 2) {
-    componentToRender = (
-      <StepB
-        handleStepProgression={handleStepProgression}
-        currentStepData={stepData.stepB}
-      />
-    );
-  }
+  if (step === 0) componentToRender = <StepA handleStepProgression={handleStepProgression} />;
+  else if (step === 1) componentToRender = <StepC handleStepProgression={handleStepProgression} />;
+  else if (step === 2) componentToRender = <StepB handleStepProgression={handleStepProgression} />;
 
   return (
     <>
       {!error && (
-        <div
-          data-lenis-prevent
-          className="opacity-anim h-full w-full bg-white flex flex-col items-center justify-between z-50 relative"
-        >
-          {/* Progress Bar and Close Button */}
+        <div className="opacity-anim h-full w-full bg-white flex flex-col items-center justify-between z-50 relative">
           <div className="w-[90%] sm:w-[70%] md:w-[60%] flex flex-col items-center p-6 mt-16 sm:mt-24">
             <div className="relative w-full bg-gray-300 h-1 rounded-full">
               <div
@@ -235,24 +142,22 @@ export default function MultiStepForm({ closeModal }) {
                 style={{ width: `${progressPercentage}%` }}
               />
               <div className="absolute top-1/2 -translate-y-1/2 flex justify-between w-full">
-                {["Indian?", "Contact Details", "Final Question"].map(
-                  (label, idx) => (
-                    <div key={idx} className="relative flex flex-col items-center">
-                      <span
-                        className={`absolute -top-12 sm:-top-16 text-sm sm:text-lg md:text-xl text-center transition-colors duration-300 ${
-                          step >= idx ? "text-black font-semibold" : "text-gray-400"
-                        }`}
-                      >
-                        {label}
-                      </span>
-                      <div
-                        className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-colors duration-300 ${
-                          step >= idx ? "bg-black" : "bg-gray-300"
-                        }`}
-                      />
-                    </div>
-                  )
-                )}
+                {["Indian?", "Contact Details", "Final Question"].map((label, idx) => (
+                  <div key={idx} className="relative flex flex-col items-center">
+                    <span
+                      className={`absolute -top-12 sm:-top-16 text-sm sm:text-lg md:text-xl text-center transition-colors duration-300 ${
+                        step >= idx ? "text-black font-semibold" : "text-gray-400"
+                      }`}
+                    >
+                      {label}
+                    </span>
+                    <div
+                      className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-colors duration-300 ${
+                        step >= idx ? "bg-black" : "bg-gray-300"
+                      }`}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -260,23 +165,20 @@ export default function MultiStepForm({ closeModal }) {
           <Image
             onClick={closeModal}
             className="absolute top-6 right-6 sm:top-12 sm:right-12 cursor-pointer z-50 transition-all hover:opacity-55 active:scale-90"
-            src="/close.svg" // Ensure this path is correct
+            src="/close.svg"
             height={30}
             width={30}
             alt="Close"
           />
 
-          {/* Main Content Area */}
           <div className="opacity-anim h-full w-full flex items-center justify-center overflow-y-auto green-scroll-bar px-4 sm:px-0">
             {loading ? (
               <div className="flex flex-col items-center justify-center text-center">
                 <svg className="animate-spin h-12 w-12 text-deep-green mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                <p className="text-black text-xl sm:text-2xl">
-                  Connecting to payment gateway…
-                </p>
+                <p className="text-black text-xl sm:text-2xl">Connecting to payment gateway…</p>
                 <p className="text-gray-600 text-sm mt-2">Please wait, do not refresh or press back.</p>
               </div>
             ) : (
@@ -286,41 +188,26 @@ export default function MultiStepForm({ closeModal }) {
         </div>
       )}
 
-      {/* Error screen for non-Indian citizens */}
       {error && (
-        <div
-          data-lenis-prevent
-          className="opacity-anim h-full w-full bg-white flex flex-col items-center justify-center z-50 relative p-6"
-        >
+        <div className="opacity-anim h-full w-full bg-white flex flex-col items-center justify-center z-50 relative p-6">
           <Image
             onClick={closeModal}
             className="absolute top-6 right-6 cursor-pointer z-50 transition-all hover:opacity-55 active:scale-90"
-            src="/close.svg" // Ensure this path is correct
+            src="/close.svg"
             height={20}
             width={20}
             alt="Close"
           />
           <p className="text-black font-ambit-semibold text-2xl sm:text-3xl md:text-4xl text-center max-w-xl sm:max-w-2xl">
             Non-Indian passport holders, please write to
-            <a
-              href="mailto:fundraise@akanksha.org"
-              className="text-deep-green underline ml-1"
-            >
+            <a href="mailto:fundraise@akanksha.org" className="text-deep-green underline ml-1">
               fundraise@akanksha.org
             </a>
              for donation inquiries.
           </p>
-           <Button 
-            onClick={() => {
-                setError(false); 
-                // Optionally reset step and data if needed
-                // setStep(0); 
-                // setStepData(INITIAL_STATE); 
-            }}
-            className="mt-8 bg-gray-200 text-black" // Example styling
-            >
+          <Button onClick={() => setError(false)} className="mt-8 bg-gray-200 text-black">
             Go Back
-           </Button>
+          </Button>
         </div>
       )}
     </>
