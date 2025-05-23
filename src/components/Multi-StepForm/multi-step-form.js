@@ -1,12 +1,12 @@
 // --- START OF FILE multi-step-form.js ---
 
 import { useCallback, useState } from "react";
-import Arrow from "../Arrow"; // Assuming this path is correct
+import Arrow from "../Arrow";
 import StepA from "./step-A";
 import StepC from "./step-C";
 import StepB from "./step-B";
 import Image from "next/image";
-import Button from "../v2-components/buttons/button"; // Assuming this path is correct
+import Button from "../v2-components/buttons/button";
 
 const INITIAL_STATE = {
   stepA: { isIndian: null },
@@ -137,25 +137,12 @@ export default function MultiStepForm({ closeModal }) {
         <div className="opacity-anim h-full w-full bg-white flex flex-col items-center justify-between z-50 relative">
           <div className="w-[90%] sm:w-[70%] md:w-[60%] flex flex-col items-center p-6 mt-16 sm:mt-24">
             <div className="relative w-full bg-gray-300 h-1 rounded-full">
-              <div
-                className="absolute top-0 left-0 bg-black h-1 rounded-full transition-all duration-500 ease-in-out"
-                style={{ width: `${progressPercentage}%` }}
-              />
+              <div className="absolute top-0 left-0 bg-black h-1 rounded-full transition-all duration-500 ease-in-out" style={{ width: `${progressPercentage}%` }} />
               <div className="absolute top-1/2 -translate-y-1/2 flex justify-between w-full">
                 {["Indian?", "Contact Details", "Final Question"].map((label, idx) => (
                   <div key={idx} className="relative flex flex-col items-center">
-                    <span
-                      className={`absolute -top-12 sm:-top-16 text-sm sm:text-lg md:text-xl text-center transition-colors duration-300 ${
-                        step >= idx ? "text-black font-semibold" : "text-gray-400"
-                      }`}
-                    >
-                      {label}
-                    </span>
-                    <div
-                      className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-colors duration-300 ${
-                        step >= idx ? "bg-black" : "bg-gray-300"
-                      }`}
-                    />
+                    <span className={`absolute -top-12 sm:-top-16 text-sm sm:text-lg md:text-xl text-center transition-colors duration-300 ${step >= idx ? "text-black font-semibold" : "text-gray-400"}`}>{label}</span>
+                    <div className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-colors duration-300 ${step >= idx ? "bg-black" : "bg-gray-300"}`} />
                   </div>
                 ))}
               </div>
@@ -200,14 +187,10 @@ export default function MultiStepForm({ closeModal }) {
           />
           <p className="text-black font-ambit-semibold text-2xl sm:text-3xl md:text-4xl text-center max-w-xl sm:max-w-2xl">
             Non-Indian passport holders, please write to
-            <a href="mailto:fundraise@akanksha.org" className="text-deep-green underline ml-1">
-              fundraise@akanksha.org
-            </a>
-             for donation inquiries.
+            <a href="mailto:fundraise@akanksha.org" className="text-deep-green underline ml-1">fundraise@akanksha.org</a>
+            for donation inquiries.
           </p>
-          <Button onClick={() => setError(false)} className="mt-8 bg-gray-200 text-black">
-            Go Back
-          </Button>
+          <Button onClick={() => setError(false)} className="mt-8 bg-gray-200 text-black">Go Back</Button>
         </div>
       )}
     </>
