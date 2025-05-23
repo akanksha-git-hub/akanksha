@@ -1,5 +1,4 @@
-
-import { SignJWT, importJWK, jwtVerify } from 'jose'; // Added jwtVerify
+import { SignJWT, importJWK, jwtVerify } from 'jose';
 import { NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -30,7 +29,7 @@ export async function POST(req) {
     const body = await req.json();
     const { stepC = {}, stepB = {}, amount = '299.00', user_agent = 'Unknown Browser' } = body;
 
-    // Fetch Public IP
+    // Get IP Address
     let ipAddress = '127.0.0.1';
     try {
       const ipRes = await fetch('https://api.ipify.org/?format=json');
@@ -38,16 +37,14 @@ export async function POST(req) {
         const ipData = await ipRes.json();
         ipAddress = ipData.ip;
       }
-    } catch (ipError) { // Catch specific error
-      console.warn('Failed to fetch public IP, using fallback IP. Error:', ipError.message);
+    } catch (err) {
+      console.warn('Failed to fetch IP, using fallback:', err.message);
     }
 
     const orderId = `AKANKSHA-${uuidv4().slice(0, 12).toUpperCase()}`;
     const bdTimestamp = generateEpochTimestampString();
     const bdTraceid = generateTraceId();
-    
     const orderDate = new Date().toISOString().split('.')[0] + 'Z';
-
 
     const jwsPayloadObject = {
       mercid: MERC_ID,
@@ -55,9 +52,9 @@ export async function POST(req) {
       amount: amount.toString(),
       order_date: orderDate,
       currency: '356',
-      ru: 'https://akanksha.org/', // Make sure this is your actual return URL
+      ru: 'https://akanksha.org/',
       additional_info: {
-        additional_info1: stepB?.donating_to || 'General Donation',
+        additional_info1: stepB?.donate_to || 'General Donation',
         additional_info2: stepB?.heard_from || 'Website',
       },
       customer: {
@@ -74,13 +71,9 @@ export async function POST(req) {
       },
     };
 
-    // Optional: Log final payload
-    console.log('🔍 Final JWS Payload Sent to BillDesk:\n', JSON.stringify(jwsPayloadObject, null, 2));
+    console.log('🔐 Payload to BillDesk:', JSON.stringify(jwsPayloadObject, null, 2));
 
-    const jwk = {
-      kty: 'oct',
-      k: Buffer.from(RAW_SECRET).toString('base64url'),
-    };
+    const jwk = { kty: 'oct', k: Buffer.from(RAW_SECRET).toString('base64url') };
     const secretKey = await importJWK(jwk, 'HS256');
 
     const jwtToken = await new SignJWT(jwsPayloadObject)
@@ -91,95 +84,82 @@ export async function POST(req) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/jose',
-        Accept: 'application/jose', // We are expecting a JWS response
+        Accept: 'application/jose',
         'BD-Traceid': bdTraceid,
         'BD-Timestamp': bdTimestamp,
       },
       body: jwtToken,
     });
 
-    const responseText = await billdeskResponse.text(); // This will be a JWS string or error JSON/text
+    const responseText = await billdeskResponse.text();
 
     if (!billdeskResponse.ok) {
       let errorData;
       try {
-        // Attempt to parse as JSON if it looks like it, otherwise treat as text
-        errorData = responseText.trim().startsWith('{') && responseText.trim().endsWith('}')
+        errorData = responseText.trim().startsWith('{')
           ? JSON.parse(responseText)
           : { message: responseText };
       } catch (e) {
-        errorData = { message: responseText }; // Fallback if JSON parsing fails
+        errorData = { message: responseText };
       }
 
-      console.error('BillDesk API Error Response:', {
+      console.error('❌ BillDesk Error:', {
         status: billdeskResponse.status,
-        headers: Object.fromEntries(billdeskResponse.headers.entries()), // Log response headers
+        headers: Object.fromEntries(billdeskResponse.headers.entries()),
         body: responseText,
         parsedErrorData: errorData,
       });
 
-      return NextResponse.json(
-        {
-          error: 'BillDesk API Error',
-          status: billdeskResponse.status,
-          details: errorData,
-          raw_response: responseText, // Include raw response for debugging
-        },
-        { status: billdeskResponse.status }
-      );
+      return NextResponse.json({
+        error: 'BillDesk API Error',
+        status: billdeskResponse.status,
+        details: errorData,
+        raw_response: responseText,
+      }, { status: billdeskResponse.status });
     }
 
-    // If response is OK, it's expected to be a JWS
     try {
-      // The secretKey used for signing should be the same for verifying BillDesk's response
-      // BillDesk typically includes 'clientid' in the protected header of their response JWS.
-      const { payload, protectedHeader } = await jwtVerify(
-        responseText, // The JWS string from BillDesk
-        secretKey,    // The same secretKey used for signing
-        {
-          algorithms: ['HS256'], // Specify expected algorithm for security
-          // You might also need to specify an audience or issuer if BillDesk uses them
-        }
+      const { payload, protectedHeader } = await jwtVerify(responseText, secretKey, {
+        algorithms: ['HS256'],
+      });
+
+      console.log('🛡️ BillDesk JWS Protected Header:', protectedHeader);
+      console.log('📨 Decoded Payload:', JSON.stringify(payload, null, 2));
+
+      const redirectLink = payload?.links?.find(
+        (link) => link.rel === 'redirect' && link.method === 'POST'
       );
 
-      // Log the decoded payload and header for inspection
-      console.log('🔍 BillDesk Decoded Response Protected Header:', protectedHeader);
-      console.log('🔍 BillDesk Decoded Response Payload:', payload);
-
-      // Optional: Verify clientid in response header matches your clientid
-      if (protectedHeader && protectedHeader.clientid && protectedHeader.clientid !== CLIENT_ID) {
-        console.warn(
-          `Warning: ClientID in BillDesk response header ('${protectedHeader.clientid}') does not match expected CLIENT_ID ('${CLIENT_ID}').`
-        );
-        // Depending on strictness, you might want to throw an error here
-        // For now, we'll proceed but log a warning.
+      if (!redirectLink || !redirectLink.href || !redirectLink.parameters) {
+        console.warn('⚠️ Missing redirect link or parameters in BillDesk payload.');
+        return NextResponse.json({
+          error: 'Missing redirect info',
+          details: payload,
+        }, { status: 500 });
       }
 
-      // The actual data from BillDesk is in the 'payload' object
-    return NextResponse.json({
-  billdesk_response: payload,
-  jwt: jwtToken,  
-});
+      console.log('🔗 Redirect URL:', redirectLink.href);
+      console.log('📦 Redirect Parameters:', JSON.stringify(redirectLink.parameters, null, 2));
 
+      return NextResponse.json({
+        redirect_url: redirectLink.href,
+        parameters: redirectLink.parameters,
+      });
 
     } catch (verificationError) {
-      console.error('Error verifying or decoding BillDesk JWS response:', verificationError);
-      console.error('Raw JWS response from BillDesk that failed verification:', responseText);
-      return NextResponse.json(
-        {
-          error: 'Failed to process BillDesk response',
-          details: verificationError.message,
-          raw_response: responseText, // Include raw response for debugging
-        },
-        { status: 500 } // Internal server error because we couldn't process a successful response
-      );
+      console.error('❌ Verification Failed:', verificationError.message);
+      return NextResponse.json({
+        error: 'Verification Failed',
+        details: verificationError.message,
+        raw_response: responseText,
+      }, { status: 500 });
     }
 
-  } catch (error) {
-    console.error('Internal Server Error in POST handler:', error);
-    return NextResponse.json(
-      { error: 'Internal Server Error', details: error.message },
-      { status: 500 }
-    );
+  } catch (err) {
+    console.error('🚨 Internal Error:', err);
+    return NextResponse.json({
+      error: 'Internal Server Error',
+      details: err.message,
+    }, { status: 500 });
   }
 }
