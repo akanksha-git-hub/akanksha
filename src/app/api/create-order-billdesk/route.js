@@ -52,7 +52,7 @@ export async function POST(req) {
       amount: amount.toString(),
       order_date: orderDate,
       currency: '356',
-      ru: 'https://dev.akanksha.org/thank-you',
+      ru: `${process.env.APP_BASE_URL}/api/billdesk-payment-return`,
       additional_info: {
         additional_info1: stepB?.donate_to || 'General Donation',
         additional_info2: stepB?.heard_from || 'Website',
