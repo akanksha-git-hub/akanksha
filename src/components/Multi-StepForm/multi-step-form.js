@@ -177,7 +177,7 @@ export default function MultiStepForm({ closeModal }) {
             alt="Close"
           />
 
-          <div className="opacity-anim h-full w-full flex items-center justify-center overflow-y-auto green-scroll-bar px-4 sm:px-0">
+          <div  data-lenis-prevent className="opacity-anim h-full w-full flex items-center justify-center overflow-y-auto green-scroll-bar px-4 sm:px-0">
             {loading ? (
               <div className="flex flex-col items-center justify-center text-center">
                 <svg className="animate-spin h-12 w-12 text-deep-green mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -195,7 +195,7 @@ export default function MultiStepForm({ closeModal }) {
       )}
 
       {error && (
-        <div className="opacity-anim h-full w-full bg-white flex flex-col items-center justify-center z-50 relative p-6">
+        <div  data-lenis-prevent className="opacity-anim h-full w-full bg-white flex flex-col items-center justify-center z-50 relative p-6">
           <Image
             onClick={closeModal}
             className="absolute top-6 right-6 cursor-pointer z-50 transition-all hover:opacity-55 active:scale-90"
