@@ -41,7 +41,7 @@ export default function MultiStepForm({ closeModal }) {
 
       if (step === 0) {
         if (value === null || typeof value === "undefined") {
-          console.warn("Step 0: No selection made for 'Are you an Indian Passport Holder?'");
+          console.warn("No selection made for 'Are you an Indian Passport Holder?'");
           return;
         }
         if (value === false) {
@@ -92,15 +92,21 @@ export default function MultiStepForm({ closeModal }) {
           const redirectParams = serverResponseJson?.parameters;
 
           if (redirectUrl && redirectParams) {
+            const fieldMap = {
+              mercid: "merchantid",
+              bdorderid: "bdorderid",
+              rdata: "rdata"
+            };
+
             const form = document.createElement("form");
             form.method = "POST";
             form.action = redirectUrl;
             form.style.display = "none";
 
-            for (const key in redirectParams) {
+            for (const key in fieldMap) {
               const input = document.createElement("input");
               input.type = "hidden";
-              input.name = key;
+              input.name = fieldMap[key];
               input.value = redirectParams[key];
               form.appendChild(input);
             }
@@ -108,7 +114,7 @@ export default function MultiStepForm({ closeModal }) {
             document.body.appendChild(form);
             form.submit();
           } else {
-            console.error("Redirect URL or parameters missing:", serverResponseJson);
+            console.error("Missing redirect info from BillDesk response", serverResponseJson);
             alert("Could not proceed to payment. Please try again.");
             setLoading(false);
           }
@@ -137,12 +143,25 @@ export default function MultiStepForm({ closeModal }) {
         <div className="opacity-anim h-full w-full bg-white flex flex-col items-center justify-between z-50 relative">
           <div className="w-[90%] sm:w-[70%] md:w-[60%] flex flex-col items-center p-6 mt-16 sm:mt-24">
             <div className="relative w-full bg-gray-300 h-1 rounded-full">
-              <div className="absolute top-0 left-0 bg-black h-1 rounded-full transition-all duration-500 ease-in-out" style={{ width: `${progressPercentage}%` }} />
+              <div
+                className="absolute top-0 left-0 bg-black h-1 rounded-full transition-all duration-500 ease-in-out"
+                style={{ width: `${progressPercentage}%` }}
+              />
               <div className="absolute top-1/2 -translate-y-1/2 flex justify-between w-full">
                 {["Indian?", "Contact Details", "Final Question"].map((label, idx) => (
                   <div key={idx} className="relative flex flex-col items-center">
-                    <span className={`absolute -top-12 sm:-top-16 text-sm sm:text-lg md:text-xl text-center transition-colors duration-300 ${step >= idx ? "text-black font-semibold" : "text-gray-400"}`}>{label}</span>
-                    <div className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-colors duration-300 ${step >= idx ? "bg-black" : "bg-gray-300"}`} />
+                    <span
+                      className={`absolute -top-12 sm:-top-16 text-sm sm:text-lg md:text-xl text-center transition-colors duration-300 ${
+                        step >= idx ? "text-black font-semibold" : "text-gray-400"
+                      }`}
+                    >
+                      {label}
+                    </span>
+                    <div
+                      className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-colors duration-300 ${
+                        step >= idx ? "bg-black" : "bg-gray-300"
+                      }`}
+                    />
                   </div>
                 ))}
               </div>
@@ -187,13 +206,18 @@ export default function MultiStepForm({ closeModal }) {
           />
           <p className="text-black font-ambit-semibold text-2xl sm:text-3xl md:text-4xl text-center max-w-xl sm:max-w-2xl">
             Non-Indian passport holders, please write to
-            <a href="mailto:fundraise@akanksha.org" className="text-deep-green underline ml-1">fundraise@akanksha.org</a>
+            <a href="mailto:fundraise@akanksha.org" className="text-deep-green underline ml-1">
+              fundraise@akanksha.org
+            </a>{" "}
             for donation inquiries.
           </p>
-          <Button onClick={() => setError(false)} className="mt-8 bg-gray-200 text-black">Go Back</Button>
+          <Button onClick={() => setError(false)} className="mt-8 bg-gray-200 text-black">
+            Go Back
+          </Button>
         </div>
       )}
     </>
   );
 }
+
 // --- END OF FILE multi-step-form.js ---
