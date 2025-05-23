@@ -1,79 +1,105 @@
 // app/thank-you/route.js
 import { NextResponse } from 'next/server';
 
+// Placeholder for BillDesk decryption utility - you'll need to implement this
+// or use a library provided by BillDesk.
+async function decryptBillDeskResponse(encryptedString) {
+    // --- THIS IS WHERE YOUR ACTUAL DECRYPTION LOGIC GOES ---
+    // This will involve secret keys and specific crypto algorithms from BillDesk.
+    console.log("Attempting to decrypt (placeholder):", encryptedString);
+    // Example: If BillDesk uses a simple pipe-separated format after decryption
+    // const decrypted = actualDecryptFunction(encryptedString, process.env.BILLDESK_SECRET_KEY);
+    // const parts = decrypted.split('|');
+    // return {
+    //   bdorderid: parts[0], // Fictional mapping
+    //   status_code: parts[1],
+    //   message: parts[2],
+    // };
+
+    // For now, as a placeholder until decryption is implemented:
+    // If you can get ANY unencrypted field from BillDesk (e.g., if they also send an unencrypted order ID)
+    // use it. Otherwise, you'll have to pass placeholders.
+    // The log ONLY shows transaction_response, so decryption is key.
+    return {
+        status_message: 'DECRYPTION_PENDING',
+        bdorderid: 'FROM_ENCRYPTED_DATA', // This needs to come from decrypted data
+        // BillDesk might return a status code like '0300' for success
+        payment_status_code: 'UNKNOWN', // e.g., '0300' for success, '0399' for failure
+    };
+}
+
 export async function POST(request) {
   try {
-    // BillDesk usually sends data as 'application/x-www-form-urlencoded'
     const formData = await request.formData();
+    const encryptedResponse = formData.get('transaction_response')?.toString();
 
-    // --- IMPORTANT: Get the EXACT field names BillDesk uses ---
-    // These are common examples, replace with actuals from BillDesk docs or test POSTs
-    const status = formData.get('status') || formData.get('payment_status') || formData.get('resp_code');
-    const bdorderid = formData.get('bdorderid') || formData.get('order_id') || formData.get('merchant_ref_no');
-    const message = formData.get('message') || formData.get('resp_message');
-    // Add any other parameters you need from BillDesk (e.g., transaction ID, checksum)
+    console.log('[BillDesk POST Callback] Received form data keys:', Array.from(formData.keys()));
+    console.log('[BillDesk POST Callback] Received encrypted transaction_response:', encryptedResponse);
 
-    console.log('[BillDesk POST Callback] Received data:', Object.fromEntries(formData));
+    if (!encryptedResponse) {
+      console.error('[BillDesk POST Callback] No transaction_response received.');
+      const errorPageUrl = new URL('/thank-you', process.env.APP_BASE_URL || 'https://dev.akanksha.org');
+      errorPageUrl.searchParams.set('status', 'MISSING_CALLBACK_DATA');
+      return NextResponse.redirect(errorPageUrl.toString(), { status: 303 });
+    }
 
-    // --- TODO: SECURITY VALIDATION ---
-    // If BillDesk provides a checksum/signature, YOU MUST verify it here
-    // to ensure the request is authentic and data hasn't been tampered with.
-    // Example (conceptual - replace with BillDesk's actual mechanism):
-    // const receivedChecksum = formData.get('checksum');
-    // const calculatedChecksum = calculateBillDeskChecksum(formData); // Implement this function
-    // if (receivedChecksum !== calculatedChecksum) {
-    //   console.error('[BillDesk POST Callback] Checksum validation failed!');
-    //   // Handle invalid request - perhaps redirect to an error page or generic thank you
-    //   const errorUrl = new URL('/thank-you', request.nextUrl.origin);
-    //   errorUrl.searchParams.set('status', 'INVALID_DATA');
-    //   return NextResponse.redirect(errorUrl.toString(), 303);
-    // }
-
-    // Construct the redirect URL for the thank-you page (which uses GET)
-    // request.nextUrl.origin will give you https://dev.akanksha.org
-    const thankYouPageUrl = new URL('/thank-you', request.nextUrl.origin);
-
-    if (status) {
-      // You might want to normalize the status value
-      // e.g., BillDesk might send "0300" for success, "0399" for failure
-      // Map these to your "SUCCESS", "FAILURE" convention
-      let appStatus = 'UNKNOWN';
-      if (status.toString().toUpperCase() === 'SUCCESS' || status === '0300' /* example success code */) {
-        appStatus = 'SUCCESS';
-      } else if (status.toString().toUpperCase() === 'FAILURE' || status === '0399' /* example fail code */) {
-        appStatus = 'FAILURE';
-      } else {
-        appStatus = status.toString().toUpperCase(); // Or keep original if not matched
+    // --- DECRYPTION AND VALIDATION ---
+    let decryptedData;
+    try {
+      decryptedData = await decryptBillDeskResponse(encryptedResponse);
+      console.log('[BillDesk POST Callback] Decrypted Data (placeholder):', decryptedData);
+      // TODO: Add checksum validation here if BillDesk uses it, based on decrypted or raw data.
+    } catch (decryptionError) {
+      console.error('[BillDesk POST Callback] Decryption/Validation failed:', decryptionError);
+      const errorPageUrl = new URL('/thank-you', process.env.APP_BASE_URL || 'https://dev.akanksha.org');
+      errorPageUrl.searchParams.set('status', 'CALLBACK_PROCESSING_ERROR');
+      if (decryptionError instanceof Error) {
+        errorPageUrl.searchParams.set('error_detail', decryptionError.message);
       }
-      thankYouPageUrl.searchParams.set('status', appStatus);
-    }
-    if (bdorderid) {
-      thankYouPageUrl.searchParams.set('bdorderid', bdorderid.toString());
-    }
-    if (message) {
-      thankYouPageUrl.searchParams.set('message_from_gateway', message.toString());
+      return NextResponse.redirect(errorPageUrl.toString(), { status: 303 });
     }
 
-    console.log('[BillDesk POST Callback] Redirecting to:', thankYouPageUrl.toString());
+    // Construct the redirect URL
+    const appBaseUrl = process.env.APP_BASE_URL;
+    if (!appBaseUrl) {
+        console.error("CRITICAL: APP_BASE_URL environment variable is not set!");
+        const errorPageUrl = new URL('/thank-you', 'https://dev.akanksha.org');
+        errorPageUrl.searchParams.set('status', 'SERVER_CONFIG_ERROR');
+        return NextResponse.redirect(errorPageUrl.toString(), { status: 303 });
+    }
+    const thankYouPageUrl = new URL('/thank-you', appBaseUrl);
 
-    // Redirect to the GET-based thank-you page
-    // 303 See Other is the appropriate status code for changing POST to GET after processing
+    // Map BillDesk status to your application's status
+    let appStatus = 'UNKNOWN';
+    // This mapping depends on the fields in `decryptedData` from BillDesk
+    const billdeskStatusCode = decryptedData.payment_status_code; // Example field name
+    if (billdeskStatusCode === '0300') { // Common BillDesk success code
+      appStatus = 'SUCCESS';
+    } else if (billdeskStatusCode) { // Any other code might be a failure or pending
+      appStatus = 'FAILURE'; // Or more specific based on the code
+    } else {
+      appStatus = 'UNKNOWN_STATUS_FROM_GATEWAY';
+    }
+    thankYouPageUrl.searchParams.set('status', appStatus);
+
+    if (decryptedData.bdorderid) {
+      thankYouPageUrl.searchParams.set('bdorderid', decryptedData.bdorderid.toString());
+    }
+    if (decryptedData.status_message) { // Or whatever field contains a human-readable message
+      thankYouPageUrl.searchParams.set('gateway_message', decryptedData.status_message.toString());
+    }
+
+    console.log('[BillDesk POST Callback] Correctly Redirecting To:', thankYouPageUrl.toString());
     return NextResponse.redirect(thankYouPageUrl.toString(), { status: 303 });
 
   } catch (error) {
-    console.error('[BillDesk POST Callback] Error processing POST:', error);
-    // Redirect to a generic error page or the thank-you page with an error status
-    const errorPageUrl = new URL('/thank-you', request.nextUrl.origin);
-    errorPageUrl.searchParams.set('status', 'SERVER_ERROR');
+    console.error('[BillDesk POST Callback] Outer error processing POST:', error);
+    const appBaseUrl = process.env.APP_BASE_URL || 'https://dev.akanksha.org';
+    const errorPageUrl = new URL('/thank-you', appBaseUrl);
+    errorPageUrl.searchParams.set('status', 'GENERAL_SERVER_ERROR');
     if (error instanceof Error) {
-        errorPageUrl.searchParams.set('error_message', error.message);
-    } else {
-        errorPageUrl.searchParams.set('error_message', 'Error processing payment confirmation.');
+        errorPageUrl.searchParams.set('error_detail', error.message);
     }
     return NextResponse.redirect(errorPageUrl.toString(), { status: 303 });
   }
 }
-
-// Your app/thank-you/page.js will handle GET requests to /thank-you.
-// Next.js automatically routes GET requests to /thank-you to page.js
-// and POST requests to /thank-you to this route.js's POST handler.
