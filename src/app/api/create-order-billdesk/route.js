@@ -52,7 +52,7 @@ export async function POST(req) {
       amount: amount.toString(),
       order_date: orderDate,
       currency: '356',
-      ru: 'https://akanksha.org/',
+      ru: 'https://dev.akanksha.org/thank-you',
       additional_info: {
         additional_info1: stepB?.donate_to || 'General Donation',
         additional_info2: stepB?.heard_from || 'Website',
