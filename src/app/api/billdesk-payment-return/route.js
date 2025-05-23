@@ -52,7 +52,7 @@ export async function POST(request) {
 
     // ✅ Redirect URL to Thank You
     const thankYouPageUrl = new URL('/thank-you', APP_BASE_URL);
-    let appStatus = decryptedData?.payment_status_code === '0300' ? 'SUCCESS' : 'FAILURE';
+    let appStatus = decryptedData?.auth_status === '0300' ? 'SUCCESS' : 'FAILURE';
 
     thankYouPageUrl.searchParams.set('status', appStatus);
     if (decryptedData?.bdorderid) {
