@@ -71,6 +71,7 @@ export default function MultiStepForm({ closeModal }) {
           stepB: currentStepData.stepB,
           user_agent: navigator.userAgent,
         };
+         console.log("🧾 Final Payload Sent to Backend:", payloadToYourBackend);
 
         try {
           setLoading(true);
