@@ -209,7 +209,8 @@ export default function DonationSelectors({ data }) {
 
       {/* Modal */}
       <Modal open={open}>
-        <MultiStepForm closeModal={closeModal} />
+        <MultiStepForm closeModal={closeModal}
+        donationAmount={active.amountSelector.amount} />
       </Modal>
     </>
   );
