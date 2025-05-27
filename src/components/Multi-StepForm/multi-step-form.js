@@ -25,7 +25,7 @@ const INITIAL_STATE = {
   stepB: { donate_to: "", heard_from: "" },
 };
 
-export default function MultiStepForm({ closeModal }) {
+export default function MultiStepForm({ closeModal ,donationAmount}) {
   const [step, setStep] = useState(0);
   const [stepData, setStepData] = useState(INITIAL_STATE);
   const [error, setError] = useState(false);
@@ -69,9 +69,10 @@ export default function MultiStepForm({ closeModal }) {
           stepA: currentStepData.stepA,
           stepC: currentStepData.stepC,
           stepB: currentStepData.stepB,
+          amount: donationAmount,
           user_agent: navigator.userAgent,
         };
-         console.log("🧾 Final Payload Sent to Backend:", payloadToYourBackend);
+         
 
         try {
           setLoading(true);
@@ -127,7 +128,7 @@ export default function MultiStepForm({ closeModal }) {
         return;
       }
     },
-    [step, stepData]
+    [step, stepData,donationAmount]
   );
 
   const totalSteps = 3;

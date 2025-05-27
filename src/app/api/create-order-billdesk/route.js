@@ -27,7 +27,7 @@ function generateTraceId() {
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { stepC = {}, stepB = {}, amount = '299.00', user_agent = 'Unknown Browser' } = body;
+    const { stepC = {}, stepB = {}, amount , user_agent = 'Unknown Browser' } = body;
 
     // Get IP Address
     let ipAddress = '127.0.0.1';
