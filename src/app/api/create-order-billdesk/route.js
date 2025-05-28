@@ -56,6 +56,13 @@ export async function POST(req) {
       additional_info: {
         additional_info1: stepB?.donate_to || 'General Donation',
         additional_info2: stepB?.heard_from || 'Website',
+        additional_info3: stepC.first_name || 'N/A',
+additional_info4: stepC.last_name || 'N/A',
+additional_info5: stepC.city || 'N/A',
+additional_info6: stepC.address || 'N/A',
+additional_info7: stepC.pin_code || 'N/A',
+additional_info8: stepC.pan_number || 'N/A',
+additional_info9: stepC.state || 'N/A',
       },
       customer: {
         email: stepC?.email || 'test@example.com',
@@ -71,7 +78,7 @@ export async function POST(req) {
       },
     };
 
-    console.log('🔐 Payload to BillDesk:', JSON.stringify(jwsPayloadObject, null, 2));
+    console.log(' Payload to BillDesk:', JSON.stringify(jwsPayloadObject, null, 2));
 
     const jwk = { kty: 'oct', k: Buffer.from(RAW_SECRET).toString('base64url') };
     const secretKey = await importJWK(jwk, 'HS256');
