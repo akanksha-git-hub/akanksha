@@ -8,7 +8,7 @@ const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
 const MERC_ID = process.env.BILLDESK_MERC_ID;
 const RAW_SECRET = process.env.BILLDESK_SECRET;
 const BILLDESK_ENDPOINT = process.env.BILLDESK_ENDPOINT;
-const APP_BASE_URL = process.env.APP_URL || 'https://www.akanksha.org'; 
+
 
 function generateEpochTimestampString() {
   return Math.floor(Date.now() / 1000).toString();
