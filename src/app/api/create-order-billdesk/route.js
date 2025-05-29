@@ -8,6 +8,7 @@ const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
 const MERC_ID = process.env.BILLDESK_MERC_ID;
 const RAW_SECRET = process.env.BILLDESK_SECRET;
 const BILLDESK_ENDPOINT = process.env.BILLDESK_ENDPOINT;
+const APP_BASE_URL = process.env.APP_URL || 'https://www.akanksha.org'; 
 
 function generateEpochTimestampString() {
   return Math.floor(Date.now() / 1000).toString();
@@ -27,6 +28,7 @@ function generateTraceId() {
 }
 
 export async function POST(req) { 
+  
   try {
     const body = await req.json();
     const { stepC = {}, stepB = {}, amount , user_agent = 'Unknown Browser' } = body;
@@ -60,7 +62,7 @@ export async function POST(req) {
       amount: amount.toString(),
       order_date: orderDate,
       currency: '356',
-      ru: 'https://dev.akanksha.org/api/billdesk-payment-return', 
+      ru: `${process.env.APP_URL}/api/billdesk-payment-return`, 
       additional_info: {
         additional_info1: stepB?.donate_to || 'General Donation',
         additional_info2: stepB?.heard_from || 'Website',
