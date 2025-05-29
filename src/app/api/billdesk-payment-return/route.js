@@ -1,20 +1,18 @@
+// --- START OF FILE route.js (for /api/billdesk-payment-return) ---
+
 import { NextResponse } from 'next/server';
 import { jwtVerify, importJWK } from 'jose';
 
-const APP_BASE_URL = 'https://dev.akanksha.org'; // 🔒 Hardcoded fallback base URL
+// Ensure this uses process.env.APP_URL
+const APP_BASE_URL = process.env.APP_URL || 'https://www.akanksha.org'; // Fallback to prod URL for safety
 
 export async function POST(request) {
   console.log('------------------------------------------------------');
-  console.log('[BillDesk Return URL] Received POST request at:', new Date().toISOString());
+  console.log('[BillDesk Return Handler] Received POST request at:', new Date().toISOString());
 
   try {
-    // console.log('[BillDesk Return URL] Request Headers:', JSON.stringify(Object.fromEntries(request.headers), null, 2));
-
     const formData = await request.formData();
-    // console.log('[BillDesk Return Handler] FormData keys received:', Array.from(formData.keys()));
-
     const encryptedResponse = formData.get('transaction_response')?.toString();
-    // console.log('[BillDesk Return Handler] Raw Encrypted Response from BillDesk:', encryptedResponse ? encryptedResponse.substring(0, 100) + "..." : "NOT FOUND or EMPTY");
 
     if (!encryptedResponse) {
       console.error('[BillDesk Return Handler] Error: No transaction_response field received in POST body.');
@@ -25,22 +23,16 @@ export async function POST(request) {
       return NextResponse.redirect(errorUrl.toString(), { status: 303 });
     }
 
-    // ✅ Decrypt and verify JWS
     let decryptedData;
     try {
-      // console.log('[Decrypt Function] Attempting JWS verification...');
       const jwk = {
         kty: 'oct',
         k: Buffer.from(process.env.BILLDESK_SECRET).toString('base64url'),
       };
       const secretKey = await importJWK(jwk, 'HS256');
-
-      const { payload, protectedHeader } = await jwtVerify(encryptedResponse, secretKey, {
+      const { payload } = await jwtVerify(encryptedResponse, secretKey, {
         algorithms: ['HS256'],
       });
-
-      // console.log('[Decrypt Function] JWS verified. Header:', protectedHeader);
-      // console.log('[Decrypt Function] Decoded Payload:', payload);
       decryptedData = payload;
     } catch (err) {
       console.error('[Decrypt Function] ERROR: Failed to verify JWS:', err);
@@ -50,17 +42,26 @@ export async function POST(request) {
       return NextResponse.redirect(failUrl.toString(), { status: 303 });
     }
 
-    // ✅ Redirect URL to Thank You
     const thankYouPageUrl = new URL('/thank-you', APP_BASE_URL);
     let appStatus = decryptedData?.auth_status === '0300' ? 'SUCCESS' : 'FAILURE';
 
     thankYouPageUrl.searchParams.set('status', appStatus);
-    if (decryptedData?.bdorderid) {
+    if (decryptedData?.orderid) { // This is YOUR order ID
+      thankYouPageUrl.searchParams.set('order_id', decryptedData.orderid.toString());
+    }
+    if (decryptedData?.bdorderid) { // BillDesk's Order ID for your order
       thankYouPageUrl.searchParams.set('bdorderid', decryptedData.bdorderid.toString());
     }
-    if (decryptedData?.status_message) {
+    // Check your decryptedData payload structure.
+    // Based on S2S logs, it's likely `transactionid` (lowercase).
+    if (decryptedData?.transactionid) { // BillDesk's Transaction ID
+      thankYouPageUrl.searchParams.set('transactionid', decryptedData.transactionid.toString());
+    }
+    if (decryptedData?.status_message) { // This is often the same as transaction_error_desc
       thankYouPageUrl.searchParams.set('gateway_message', decryptedData.status_message.toString());
     }
+    // You might also want your own order ID if it's in decryptedData.orderid
+    // Usually, decryptedData.orderid IS your original order ID.
 
     console.log('[BillDesk Return Handler] Redirecting to:', thankYouPageUrl.toString());
     console.log('------------------------------------------------------');
@@ -74,3 +75,4 @@ export async function POST(request) {
     return NextResponse.redirect(fallbackUrl.toString(), { status: 303 });
   }
 }
+// --- END OF FILE route.js ---
