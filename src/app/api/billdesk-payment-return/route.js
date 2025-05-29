@@ -5,16 +5,16 @@ const APP_BASE_URL = 'https://dev.akanksha.org'; // 🔒 Hardcoded fallback base
 
 export async function POST(request) {
   console.log('------------------------------------------------------');
-  console.log('[BillDesk Return Handler] Received POST request at:', new Date().toISOString());
+  console.log('[BillDesk Return URL] Received POST request at:', new Date().toISOString());
 
   try {
-    console.log('[BillDesk Return Handler] Request Headers:', JSON.stringify(Object.fromEntries(request.headers), null, 2));
+    // console.log('[BillDesk Return URL] Request Headers:', JSON.stringify(Object.fromEntries(request.headers), null, 2));
 
     const formData = await request.formData();
-    console.log('[BillDesk Return Handler] FormData keys received:', Array.from(formData.keys()));
+    // console.log('[BillDesk Return Handler] FormData keys received:', Array.from(formData.keys()));
 
     const encryptedResponse = formData.get('transaction_response')?.toString();
-    console.log('[BillDesk Return Handler] Raw Encrypted Response from BillDesk:', encryptedResponse ? encryptedResponse.substring(0, 100) + "..." : "NOT FOUND or EMPTY");
+    // console.log('[BillDesk Return Handler] Raw Encrypted Response from BillDesk:', encryptedResponse ? encryptedResponse.substring(0, 100) + "..." : "NOT FOUND or EMPTY");
 
     if (!encryptedResponse) {
       console.error('[BillDesk Return Handler] Error: No transaction_response field received in POST body.');
@@ -28,7 +28,7 @@ export async function POST(request) {
     // ✅ Decrypt and verify JWS
     let decryptedData;
     try {
-      console.log('[Decrypt Function] Attempting JWS verification...');
+      // console.log('[Decrypt Function] Attempting JWS verification...');
       const jwk = {
         kty: 'oct',
         k: Buffer.from(process.env.BILLDESK_SECRET).toString('base64url'),
@@ -39,8 +39,8 @@ export async function POST(request) {
         algorithms: ['HS256'],
       });
 
-      console.log('[Decrypt Function] JWS verified. Header:', protectedHeader);
-      console.log('[Decrypt Function] Decoded Payload:', payload);
+      // console.log('[Decrypt Function] JWS verified. Header:', protectedHeader);
+      // console.log('[Decrypt Function] Decoded Payload:', payload);
       decryptedData = payload;
     } catch (err) {
       console.error('[Decrypt Function] ERROR: Failed to verify JWS:', err);
