@@ -1,3 +1,7 @@
+import Button from "@/components/v2-components/buttons/button";
+import Image from "next/image";
+import Link from "next/link";
+
 export const dynamic = "force-dynamic";
 
 export default function ThankYouPage({ searchParams }) {
@@ -34,13 +38,13 @@ export default function ThankYouPage({ searchParams }) {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-8">
+    <div className=" flex items-center justify-center  mt-10">
       <div className="text-center">
         {!status ? (
           <div>
             <h1 className="text-2xl font-medium">Processing Payment...</h1>
             <p className="text-gray-500 mt-2">Awaiting final payment status...</p>
-            {/* You might want a spinner here */}
+            
           </div>
         ) : status === "SUCCESS" ? (
           <div>
@@ -50,13 +54,59 @@ export default function ThankYouPage({ searchParams }) {
             {gatewayMessage && <p className="text-gray-500 mt-1">Message: {gatewayMessage}</p>}
           </div>
         ) : ( // Covers "FAILURE" and any other non-success, non-specific error statuses
-          <div>
-            <h1 className="text-3xl font-bold text-red-600">Payment Failed ❌</h1>
-            <p className="mt-4 text-lg">Something went wrong with your payment, or it was not approved.</p>
-            {bdorderid && <p className="text-gray-600 mt-2">Order ID: {bdorderid}</p>}
-            {gatewayMessage && <p className="text-gray-500 mt-1">Message: {gatewayMessage}</p>}
-            <p className="mt-2">Please try again or contact support.</p>
-          </div>
+          
+            <div className="flex flex-col items-center   ">
+              <div className="flex flex-row items-start justify-center  w-full">
+                    <div className="flex"> {/* pt-5 to roughly align with text baseline if needed, adjust */}
+                <Image
+                  src="/left-rain.png" // Replace with your actual image path
+                  alt="Decorative icon left"
+                  width={250} // Adjusted size for example
+                  height={250}
+                  className="object-contain"
+                />
+              </div>
+                    <div className="relative flex flex-col  items-center justify-center ">
+                      <div className="mt-10  w-[60%]">
+                         <Image
+                  src="/left-sad-face.svg" // Replace with your actual image path
+                  alt="Decorative icon right"
+                  width={100} // Adjusted size for example
+                  height={100}
+                  className="ml-auto object-contain"
+                />
+                        <h1 className=" mt-2 text-7xl  text-black mx-auto   font-ambit-regular">Something went wrong </h1>
+           {bdorderid && <p className="text-gray-600 mt-4 text-2xl font-ambit-regular">Order ID: {bdorderid}</p>}
+            {gatewayMessage && <p className="text-gray-500 mt-4 text-2xl font-ambit-regular">Message: {gatewayMessage}</p>}
+           <Image
+                  src="/top-sad-face.svg" // Replace with your actual image path
+                  alt="Decorative icon right"
+                  width={100} // Adjusted size for example
+                  height={100}
+                  className="mr-auto object-contain"
+                />
+            </div>
+             <div className="mt-20">
+              <Link href="/donate  ">
+            <Button>Retry Again</Button>
+            </Link>
+            </div>
+            </div>
+                  <div className="flex"> {/* pt-5 to roughly align with text baseline if needed, adjust */}
+                <Image
+                  src="/right-rain.svg" // Replace with your actual image path
+                  alt="Decorative icon right"
+                  width={250} // Adjusted size for example
+                  height={250}
+                  className="object-contain"
+                />
+              </div>
+                </div>
+                </div>
+        
+            
+           
+          
         )}
       </div>
     </div>

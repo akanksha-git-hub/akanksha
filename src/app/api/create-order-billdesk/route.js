@@ -1,3 +1,5 @@
+// --- START OF FILE route.js (e.g., app/api/create-order-billdesk/route.js) ---
+
 import { SignJWT, importJWK, jwtVerify } from 'jose';
 import { NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
@@ -24,22 +26,49 @@ function generateTraceId() {
   return `${dateTimePart}${uuidv4().slice(0, 8).toUpperCase()}`;
 }
 
-export async function POST(req) {
+export async function POST(req) { // 'req' is the NextRequest object from next/server
   try {
     const body = await req.json();
     const { stepC = {}, stepB = {}, amount , user_agent = 'Unknown Browser' } = body;
 
-    // Get IP Address
-    let ipAddress = '127.0.0.1';
-    try {
-      const ipRes = await fetch('https://api.ipify.org/?format=json');
-      if (ipRes.ok) {
-        const ipData = await ipRes.json();
-        ipAddress = ipData.ip;
-      }
-    } catch (err) {
-      console.warn('Failed to fetch IP, using fallback:', err.message);
+    // Get CLIENT IP Address from request headers
+    const forwarded = req.headers.get('x-forwarded-for');
+    const realIp = req.headers.get('x-real-ip');
+    let clientIpAddress = '127.0.0.1'; // Default fallback
+
+    if (forwarded) {
+      // 'x-forwarded-for' can be a comma-separated list (client, proxy1, proxy2)
+      // The first one is usually the client IP
+      clientIpAddress = forwarded.split(',')[0].trim();
+    } else if (realIp) {
+      clientIpAddress = realIp.trim();
+    } else {
+        // For Next.js App Router with Node.js adapter, req.ip might be available if configured.
+        // Fallback to req.socket.remoteAddress if direct connection or not behind trusted proxy.
+        // Note: req.socket is not directly available on NextRequest in Edge runtime.
+        // If deploying to Edge, x-forwarded-for is the primary reliable source.
+        // If on Node.js runtime, the underlying request object might be accessible
+        // or platform specific headers like Vercel's 'x-vercel-forwarded-for'.
+        // For DigitalOcean, 'x-forwarded-for' or 'x-real-ip' (if Nginx is configured) are common.
+        // Let's assume 'x-forwarded-for' is the most likely candidate.
+        // A more robust solution might involve checking `req.ip` if available on the specific runtime.
+        // For now, relying on x-forwarded-for and x-real-ip is a good start for most proxy setups.
+        // If `req.ip` is available and configured to trust proxies, it can be simpler:
+        // clientIpAddress = req.ip || '127.0.0.1';
+        // However, `req.ip` isn't a standard part of the NextRequest object from 'next/server'.
+        // A common pattern is to check `req.socket.remoteAddress` as a last resort for Node.js runtime
+        // but this part is tricky without knowing the exact deployment specifics and runtime.
+        // The previous `req.socket?.remoteAddress` access might not work directly on `NextRequest`.
+        // If you're on Node.js runtime (default for DigitalOcean unless specified):
+        // One way to access the underlying Node request might be needed if `x-forwarded-for` is not set.
+        // However, for DigitalOcean with a standard setup (like Nginx as reverse proxy),
+        // `x-forwarded-for` or `x-real-ip` should be populated by the proxy.
     }
+     // If clientIpAddress is an IPv6-mapped IPv4 address (e.g., ::ffff:192.0.2.1), strip the prefix
+    if (clientIpAddress && clientIpAddress.startsWith('::ffff:')) {
+        clientIpAddress = clientIpAddress.substring(7);
+    }
+    // --- End of IP Address Change ---
 
     const orderId = `AKANKSHA-${uuidv4().slice(0, 12).toUpperCase()}`;
     const bdTimestamp = generateEpochTimestampString();
@@ -52,17 +81,17 @@ export async function POST(req) {
       amount: amount.toString(),
       order_date: orderDate,
       currency: '356',
-      ru: 'https://dev.akanksha.org/api/billdesk-payment-return',
+      ru: 'https://dev.akanksha.org/api/billdesk-payment-return', // Consider making this dynamic via process.env
       additional_info: {
         additional_info1: stepB?.donate_to || 'General Donation',
         additional_info2: stepB?.heard_from || 'Website',
         additional_info3: stepC.first_name || 'N/A',
-additional_info4: stepC.last_name || 'N/A',
-additional_info5: stepC.city || 'N/A',
-additional_info6: stepC.address || 'N/A',
-additional_info7: stepC.pin_code || 'N/A',
-additional_info8: stepC.pan_number || 'N/A',
-additional_info9: stepC.state || 'N/A',
+        additional_info4: stepC.last_name || 'N/A',
+        additional_info5: stepC.city || 'N/A',
+        additional_info6: stepC.address || 'N/A',
+        additional_info7: stepC.pin_code || 'N/A',
+        additional_info8: stepC.pan_number || 'N/A',
+        additional_info9: stepC.state || 'N/A',
       },
       customer: {
         email: stepC?.email || 'test@example.com',
@@ -72,13 +101,14 @@ additional_info9: stepC.state || 'N/A',
       itemcode: 'DIRECT',
       device: {
         init_channel: 'internet',
-        ip: ipAddress,
-        user_agent,
-        accept_header: 'text/html',
+        ip: clientIpAddress, // <<< USES THE CORRECTED clientIpAddress
+        user_agent, // This comes from the frontend request body
+        accept_header: 'text/html', // This is a fixed value you're sending
       },
     };
 
-    console.log(' Payload to BillDesk:', JSON.stringify(jwsPayloadObject, null, 2));
+    console.log('Client IP Address being sent to BillDesk:', clientIpAddress);
+    console.log('Payload to BillDesk:', JSON.stringify(jwsPayloadObject, null, 2));
 
     const jwk = { kty: 'oct', k: Buffer.from(RAW_SECRET).toString('base64url') };
     const secretKey = await importJWK(jwk, 'HS256');
@@ -170,3 +200,4 @@ additional_info9: stepC.state || 'N/A',
     }, { status: 500 });
   }
 }
+// --- END OF FILE route.js ---
