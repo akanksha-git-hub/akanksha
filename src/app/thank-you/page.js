@@ -53,11 +53,41 @@ export default function ThankYouPage({ searchParams }) {
           </div>
         ) : status === "SUCCESS" ? (
           <div>
-            <h1 className="text-3xl font-bold text-green-600">Payment Successful 🎉</h1>
-            <p className="mt-4 text-lg">Thank you for your donation.</p>
+             <div className="flex">
+                  <Image
+                    src="/b-left.png"
+                    alt="Decorative icon left"
+                    width={250}
+                    height={250}
+                    className="object-contain"
+                  />
+                   <div className="flex">
+                  <Image
+                    src="/r-right.png"
+                    alt="Decorative icon right"
+                    width={250}
+                    height={250}
+                    className="object-contain"
+                  />
+                </div>
+                </div>
+            <h1 className="text-8xl  text-black font-ambit-regular ">Thank You</h1>
+            <p className="mt-4 text-4xl font-ambit-regular">for your donation.</p>
             {order_id && <p className="text-gray-600 mt-2">Your Order ID: {order_id}</p>}
             {transactionid && <p className="text-gray-600 mt-1">Payment Transaction ID: {transactionid}</p>}
             {gatewayMessage && <p className="text-gray-500 mt-1">Message: {gatewayMessage}</p>}
+            
+            <Image
+                        src="/children.png"
+                        alt="Decorative icon sad face left"
+                        width={800}
+                        height={800}
+                        className="object-contain mx-auto" 
+                      />
+             <Link href="/">
+                      <button className="border border-b-2 border-black rounded-full py-2 px-4 mt-4" >Back to home</button>
+                    </Link>
+                   
           </div>
         ) : ( // Covers "FAILURE" and any other non-success, non-specific error statuses
             <div className="flex flex-col items-center   ">
@@ -73,13 +103,13 @@ export default function ThankYouPage({ searchParams }) {
                 </div>
                 <div className="relative flex flex-col  items-center justify-center ">
                   <div className="mt-10  w-[60%] text-center"> {/* Added text-center here */}
-                    <div className="flex justify-center"> {/* Centering the sad face */}
+                    <div className="flex justify-center"> 
                       <Image
                         src="/left-sad-face.svg"
                         alt="Decorative icon sad face left"
                         width={100}
                         height={100}
-                        className="object-contain" // Removed ml-auto
+                        className="object-contain ml-auto" 
                       />
                     </div>
                     <h1 className=" mt-2 text-7xl  text-black mx-auto font-ambit-regular">Something went wrong </h1>
@@ -93,7 +123,7 @@ export default function ThankYouPage({ searchParams }) {
                         alt="Decorative icon sad face top"
                         width={100}
                         height={100}
-                        className="object-contain" // Removed mr-auto
+                        className="object-contain mr-auto" 
                       />
                     </div>
                   </div>
