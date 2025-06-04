@@ -254,5 +254,5 @@ const formatNumber = (num) => {
   const parsedNum = Number(num);
   return isNaN(parsedNum)
     ? ""
-    : parsedNum.toLocaleString("en-IN"); // e.g., 15,000 not 15000
+    : parsedNum.toLocaleString("en-IN"); 
 };
