@@ -35,8 +35,8 @@ export default function StepB({
       onSubmit={onProceed}
       className="flex flex-col items-center w-full justify-center space-y-6 mt-52"
     >
-      <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-baseline items-center mt-96 sm:mt-0">
-        <div className="md:w-[30%] w-full md:p-10">
+      <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-center items-center mt-96 sm:mt-0">
+        <div className="md:w-[40%] w-full md:p-10 md:-ml-24">
           <button
             type="button"
             className="bg-gray-400 text-black border-black transition-all
