@@ -170,7 +170,7 @@ export default function MultiStepForm({ closeModal, donationAmount }) {
             {loading ? (
               <div className="flex flex-col items-center justify-center text-center">
                 {/* ... (loading spinner) ... */}
-                 <svg className="animate-spin h-12 w-12 text-deep-green mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                 <svg className="animate-spin h-12 w-12 text-black mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
@@ -201,7 +201,7 @@ export default function MultiStepForm({ closeModal, donationAmount }) {
 
       {error && ( // This 'error' is for the non-Indian message
         <div data-lenis-prevent className="opacity-anim h-full w-full bg-white flex flex-col items-center justify-center z-50 relative p-6">
-          {/* ... (non-Indian error message) ... */}
+         
            <Image
             onClick={closeModal}
             className="absolute top-6 right-6 cursor-pointer z-50 transition-all hover:opacity-55 active:scale-90"
@@ -212,14 +212,12 @@ export default function MultiStepForm({ closeModal, donationAmount }) {
           />
           <p className="text-black font-ambit-semibold text-2xl sm:text-3xl md:text-4xl text-center max-w-xl sm:max-w-2xl">
             Non-Indian passport holders, please write to
-            <a href="mailto:fundraise@akanksha.org" className="text-deep-green underline ml-1">
+            <a href="mailto:fundraise@akanksha.org" className="text-black underline ml-1">
               fundraise@akanksha.org
             </a>{" "}
             for donation inquiries.
           </p>
-          <Button onClick={() => setError(false)} className="mt-8 bg-gray-200 text-black">
-            Go Back
-          </Button>
+      
         </div>
       )}
     </>

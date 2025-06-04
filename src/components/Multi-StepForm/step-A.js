@@ -17,7 +17,7 @@ export default function StepA({
           className="font-ambit-regular text-black text-4xl lg:text-7xl max-w-[90%] text-center"
         />
         <div className="flex flex-col items-center justify-center space-y-4">
-          <ul className="flex items-center justify-center flex-wrap gap-8">
+          <ul className="flex items-center justify-center flex-wrap gap-8 ">
             {dataA.map((item) => {
               let value;
               if (item.value === "No") {

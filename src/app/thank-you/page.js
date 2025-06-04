@@ -52,43 +52,46 @@ export default function ThankYouPage({ searchParams }) {
             {order_id && <p className="text-gray-400 mt-1 text-sm">Tracking Order: {order_id}</p>}
           </div>
         ) : status === "SUCCESS" ? (
-          <div>
-             <div className="flex">
-                  <Image
-                    src="/b-left.png"
-                    alt="Decorative icon left"
-                    width={250}
-                    height={250}
-                    className="object-contain"
-                  />
-                   <div className="flex">
-                  <Image
-                    src="/r-right.png"
-                    alt="Decorative icon right"
-                    width={250}
-                    height={250}
-                    className="object-contain"
-                  />
-                </div>
-                </div>
-            <h1 className="text-8xl  text-black font-ambit-regular ">Thank You</h1>
-            <p className="mt-4 text-4xl font-ambit-regular">for your donation.</p>
-            {order_id && <p className="text-gray-600 mt-2">Your Order ID: {order_id}</p>}
-            {transactionid && <p className="text-gray-600 mt-1">Payment Transaction ID: {transactionid}</p>}
-            {gatewayMessage && <p className="text-gray-500 mt-1">Message: {gatewayMessage}</p>}
-            
-            <Image
-                        src="/children.png"
-                        alt="Decorative icon sad face left"
-                        width={800}
-                        height={800}
-                        className="object-contain mx-auto" 
-                      />
-             <Link href="/">
-                      <button className="border border-b-2 border-black rounded-full py-2 px-4 mt-4" >Back to home</button>
-                    </Link>
-                   
-          </div>
+          <div className="flex flex-col items-center justify-center px-4 text-center">
+  {/* Top Decorative Images + Thank You in one row */}
+  <div className="flex items-center justify-center gap-4 mb-4">
+    <Image
+      src="/b-left.png"
+      alt="Decorative icon left"
+      width={150}
+      height={150}
+      className="object-contain"
+    />
+    <h1 className="text-8xl text-black font-ambit-regular">Thank You</h1>
+    <Image
+      src="/r-right.png"
+      alt="Decorative icon right"
+      width={150}
+      height={150}
+      className="object-contain"
+    />
+  </div>
+
+  {/* Don't touch anything from here on */}
+  <p className="mt-4 text-4xl font-ambit-regular">for your donation.</p>
+  {order_id && <p className="text-gray-600 mt-2">Your Order ID: {order_id}</p>}
+  {transactionid && <p className="text-gray-600 mt-1">Payment Transaction ID: {transactionid}</p>}
+  {gatewayMessage && <p className="text-gray-500 mt-1">Message: {gatewayMessage}</p>}
+
+  <Image
+    src="/children.png"
+    alt="Decorative icon sad face left"
+    width={800}
+    height={800}
+    className="object-contain mx-auto"
+  />
+  <Link href="/">
+    <Button className="border border-b-2 border-black rounded-full py-2 px-4 mt-8">
+      Back to home
+    </Button>
+  </Link>
+</div>
+
         ) : ( // Covers "FAILURE" and any other non-success, non-specific error statuses
             <div className="flex flex-col items-center   ">
               <div className="flex flex-row items-start justify-center  w-full">
