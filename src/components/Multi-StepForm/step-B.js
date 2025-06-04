@@ -61,7 +61,7 @@ export default function StepB({
         </div>
       </div>
 
-      <div className="flex flex-col space-y-6 pb-6 w-[60%]">
+      <div className="flex flex-col justify-center items-center space-y-6 pb-6 w-[60%]">
         <label className="input-parent-state flex flex-col space-y-1 w-full">
           <span className="font-ambit-regular text-lg label-state">
             We&rsquo;d love to know who you are donating to
