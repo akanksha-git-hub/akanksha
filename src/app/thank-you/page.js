@@ -52,101 +52,154 @@ export default function ThankYouPage({ searchParams }) {
             {order_id && <p className="text-gray-400 mt-1 text-sm">Tracking Order: {order_id}</p>}
           </div>
         ) : status === "SUCCESS" ? (
-          <div className="flex flex-col items-center justify-center px-4 text-center">
-  {/* Top Decorative Images + Thank You in one row */}
-  <div className="flex items-center justify-center gap-4 mb-4">
-    <Image
-      src="/b-left.png"
-      alt="Decorative icon left"
-      width={150}
-      height={150}
-      className="object-contain"
-    />
-    <h1 className="text-8xl text-black font-ambit-regular">Thank You</h1>
-    <Image
-      src="/r-right.png"
-      alt="Decorative icon right"
-      width={150}
-      height={150}
-      className="object-contain"
-    />
+        <div className="flex flex-col items-center justify-center px-4 text-left sm:text-center">
+  {/* Top Decorative Images + Thank You */}
+  <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+    {/* Left image – visible only on desktop */}
+    <div className="hidden sm:block">
+      <Image
+        src="/b-left.png"
+        alt="Decorative icon left"
+        width={150}
+        height={150}
+        className="object-contain"
+      />
+    </div>
+
+    <h1 className="text-6xl sm:text-8xl text-black font-ambit-regular">Thank You</h1>
+
+    {/* Right image – visible only on desktop */}
+    <div className="hidden sm:block">
+      <Image
+        src="/r-right.png"
+        alt="Decorative icon right"
+        width={150}
+        height={150}
+        className="object-contain"
+      />
+    </div>
   </div>
 
-  {/* Don't touch anything from here on */}
   <p className="mt-4 text-4xl font-ambit-regular">for your donation.</p>
-  {order_id && <p className="text-gray-600 mt-2">Your Order ID: {order_id}</p>}
-  {transactionid && <p className="text-gray-600 mt-1">Payment Transaction ID: {transactionid}</p>}
-  {gatewayMessage && <p className="text-gray-500 mt-1">Message: {gatewayMessage}</p>}
+
+  {order_id && (
+    <p className="text-gray-600 mt-2 text-base sm:text-lg">
+      Your Order ID: {order_id}
+    </p>
+  )}
+  {transactionid && (
+    <p className="text-gray-600 mt-1 text-base sm:text-lg">
+      Payment Transaction ID: {transactionid}
+    </p>
+  )}
+  {gatewayMessage && (
+    <p className="text-gray-500 mt-1 text-base sm:text-lg">
+      Message: {gatewayMessage}
+    </p>
+  )}
 
   <Image
     src="/children.png"
-    alt="Decorative icon sad face left"
+    alt="Children image"
     width={800}
     height={800}
-    className="object-contain mx-auto"
+    className="object-contain mx-auto w-full max-w-[400px] sm:max-w-[800px] mt-6"
   />
-  <Link href="/">
-    <Button className="border border-b-2 border-black rounded-full py-2 px-4 mt-8">
-      Back to home
-    </Button>
-  </Link>
+
+  <div className="w-full flex justify-center">
+    <Link href="/">
+      <Button className="border border-b-2 border-black rounded-full py-2 px-4 mt-8">
+        Back to home
+      </Button>
+    </Link>
+  </div>
 </div>
 
+
         ) : ( // Covers "FAILURE" and any other non-success, non-specific error statuses
-            <div className="flex flex-col items-center   ">
-              <div className="flex flex-row items-start justify-center  w-full">
-                <div className="flex">
-                  <Image
-                    src="/left-rain.png"
-                    alt="Decorative icon left"
-                    width={250}
-                    height={250}
-                    className="object-contain"
-                  />
-                </div>
-                <div className="relative flex flex-col  items-center justify-center ">
-                  <div className="mt-10  w-[60%] text-center"> {/* Added text-center here */}
-                    <div className="flex justify-center"> 
-                      <Image
-                        src="/left-sad-face.svg"
-                        alt="Decorative icon sad face left"
-                        width={100}
-                        height={100}
-                        className="object-contain ml-auto" 
-                      />
-                    </div>
-                    <h1 className=" mt-2 text-7xl  text-black mx-auto font-ambit-regular">Something went wrong </h1>
-                    {/* Displaying IDs below the main message and above the button */}
-                    {gatewayMessage && <p className="text-gray-500 mt-4 text-2xl font-ambit-regular">Message: {gatewayMessage}</p>}
-                    {order_id && <p className="text-gray-600 mt-2 text-xl font-ambit-regular">Your Order ID: {order_id}</p>}
-                    {transactionid && <p className="text-gray-500 mt-1 text-xl font-ambit-regular">Payment Transaction ID: {transactionid}</p>}
-                    <div className="flex justify-center mt-2"> {/* Centering the sad face */}
-                       <Image
-                        src="/top-sad-face.svg"
-                        alt="Decorative icon sad face top"
-                        width={100}
-                        height={100}
-                        className="object-contain mr-auto" 
-                      />
-                    </div>
-                  </div>
-                  <div className="mt-12 mb-8"> {/* Adjusted margins for spacing */}
-                    <Link href="/donate">
-                      <Button>Try Again</Button>
-                    </Link>
-                  </div>
-                </div>
-                <div className="flex">
-                  <Image
-                    src="/right-rain.svg"
-                    alt="Decorative icon right"
-                    width={250}
-                    height={250}
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-            </div>
+           <div className="flex flex-col items-center">
+  <div className="flex flex-row items-start justify-center w-full flex-wrap sm:flex-nowrap">
+
+    {/* Left rain image – only on desktop */}
+    <div className="hidden sm:flex">
+      <Image
+        src="/left-rain.png"
+        alt="Decorative icon left"
+        width={250}
+        height={250}
+        className="object-contain"
+      />
+    </div>
+
+    {/* Center content */}
+    <div className="relative flex flex-col items-center justify-center">
+      <div className="mt-10 w-[90%] sm:w-[60%] text-left sm:text-center">
+
+        {/* Left sad face – always visible */}
+        <div className="flex justify-center">
+          <Image
+            src="/left-sad-face.svg"
+            alt="Decorative icon sad face left"
+            width={100}
+            height={100}
+            className="object-contain ml-auto"
+          />
+        </div>
+
+        <h1 className="mt-2 text-4xl sm:text-7xl text-black mx-auto font-ambit-regular">
+          Something went wrong
+        </h1>
+
+        {gatewayMessage && (
+          <p className="text-gray-500 mt-4 text-lg sm:text-2xl font-ambit-regular">
+            Message: {gatewayMessage}
+          </p>
+        )}
+        {order_id && (
+          <p className="text-gray-600 mt-2 text-base sm:text-xl font-ambit-regular">
+            Your Order ID: {order_id}
+          </p>
+        )}
+        {transactionid && (
+          <p className="text-gray-500 mt-1 text-base sm:text-xl font-ambit-regular">
+            Payment Transaction ID: {transactionid}
+          </p>
+        )}
+
+        {/* Top sad face – always visible */}
+        <div className="flex justify-center mt-2">
+          <Image
+            src="/top-sad-face.svg"
+            alt="Decorative icon sad face top"
+            width={100}
+            height={100}
+            className="object-contain mr-auto"
+          />
+        </div>
+      </div>
+
+      <div className="mt-12 mb-8 w-full flex justify-start sm:justify-center px-4">
+
+        <Link href="/donate">
+          <Button>Try Again</Button>
+        </Link>
+      </div>
+    </div>
+
+    {/* Right rain image – only on desktop */}
+    <div className="hidden sm:flex">
+      <Image
+        src="/right-rain.svg"
+        alt="Decorative icon right"
+        width={250}
+        height={250}
+        className="object-contain"
+      />
+    </div>
+  </div>
+</div>
+
+
         )}
       </div>
     </div>
