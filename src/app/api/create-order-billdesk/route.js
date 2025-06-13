@@ -98,7 +98,7 @@ mandate_required: type ? undefined : 'Y',
     start_date: new Date().toISOString().split('T')[0],
     end_date: "2030-12-31",
     frequency: "mnth",
-    amount_type: "maximum",
+    amount_type: "fixed",
     debit_day: "1",
     mandate_auth_mode: "AADHAAR_OTP",
     
