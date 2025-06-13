@@ -100,7 +100,9 @@ mandate_required: type ? undefined : 'Y',
     frequency: "mnth",
     amount_type: "fixed",
     debit_day: "1",
-    mandate_auth_mode: "AADHAAR_OTP",
+   
+    mandate_auth_mode: "UPI",
+
     
     subscription_desc: "Monthly Akanksha Donation",
     subscription_refid: `SUB-${orderId}`,
