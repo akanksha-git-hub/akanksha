@@ -137,30 +137,32 @@ mandate_required: type ? undefined : 'Y',
     const responseText = await billdeskResponse.text();
 
     if (!billdeskResponse.ok) {
-      let errorData;
-      try {
-        errorData = responseText.trim().startsWith('{')
-          ? JSON.parse(responseText)
-          : { message: responseText };
-      } catch (e) {
-        errorData = { message: responseText };
-      }
+   let errorData;
+try {
+  errorData = responseText.trim().startsWith('{')
+    ? JSON.parse(responseText)
+    : { message: responseText };
+} catch (e) {
+  errorData = { message: responseText };
+}
 
-      console.error('❌ BillDesk Error:', {
-        status: billdeskResponse.status,
-        headers: Object.fromEntries(billdeskResponse.headers.entries()),
-        body: responseText,
-        parsedErrorData: errorData,
-        
-      });
-      try {
-  const decodedError = await jwtVerify(parsedErrorData.message, secretKey, {
+console.error('❌ BillDesk Error:', {
+  status: billdeskResponse.status,
+  headers: Object.fromEntries(billdeskResponse.headers.entries()),
+  body: responseText,
+  parsedErrorData: errorData,
+});
+
+// ✅ Try decoding the error message if it's a JWS
+try {
+  const decodedError = await jwtVerify(errorData.message, secretKey, {
     algorithms: ['HS256'],
   });
   console.error("🪵 Decoded BillDesk Error:", JSON.stringify(decodedError.payload, null, 2));
 } catch (decodeErr) {
   console.warn("Unable to decode BillDesk error JWS:", decodeErr.message);
 }
+
 
 
       return NextResponse.json({
