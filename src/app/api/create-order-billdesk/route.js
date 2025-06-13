@@ -149,7 +149,17 @@ mandate_required: type ? undefined : 'Y',
         headers: Object.fromEntries(billdeskResponse.headers.entries()),
         body: responseText,
         parsedErrorData: errorData,
+        
       });
+      try {
+  const decodedError = await jwtVerify(parsedErrorData.message, secretKey, {
+    algorithms: ['HS256'],
+  });
+  console.error("🪵 Decoded BillDesk Error:", JSON.stringify(decodedError.payload, null, 2));
+} catch (decodeErr) {
+  console.warn("Unable to decode BillDesk error JWS:", decodeErr.message);
+}
+
 
       return NextResponse.json({
         error: 'BillDesk API Error',
