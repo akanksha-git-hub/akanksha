@@ -82,7 +82,7 @@ export default function StepC({
   const validate = () => {
     const error = { ...ERRORS };
     const alphabetRegex = /^[A-Za-z\s]+$/;
-    const indianNumberRegex = /^(?:\+91\s?|91\s?|0\s?)?[6-9]\d{4}\s?\d{5}$/;
+ const indianNumberRegex = /^[6-9]\d{9}$/;
     const pinCodeRegex = /^[1-9][0-9]{2}\s?[0-9]{3}$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const panCardRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
