@@ -25,7 +25,7 @@ const INITIAL_STATE = {
   stepB: { donate_to: "", heard_from: "" },
 };
 
-export default function MultiStepForm({ closeModal, donationAmount }) {
+export default function MultiStepForm({ closeModal, donationAmount ,donationType }) {
   const [step, setStep] = useState(0);
   const [stepData, setStepData] = useState(INITIAL_STATE);
   const [error, setError] = useState(false); // This 'error' state is for the "Non-Indian" message
@@ -75,6 +75,7 @@ export default function MultiStepForm({ closeModal, donationAmount }) {
           stepB: currentStepData.stepB,
           amount: donationAmount,
           user_agent: navigator.userAgent,
+           type: donationType,
         };
 
         try {

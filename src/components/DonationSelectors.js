@@ -66,15 +66,14 @@ export default function DonationSelectors({ data }) {
     }));
     setShowAmountError(amount < 500);
   }, []);
+const handleTypeSelect = useCallback((index, type) => {
+  setActive({
+    type: { index, isOneTime: type === "One Time" },
+    amountSelector: { amount: null, amountIndex: null },
+  });
+  setShowAmountError(false);
+}, []);
 
-  const handleTypeSelect = useCallback((index, type) => {
-    if (type === "Monthly") return;
-    setActive({
-      type: { index, isOneTime: true },
-      amountSelector: { amount: null, amountIndex: null },
-    });
-    setShowAmountError(false);
-  }, []);
 
   const handleAmountInput = (e) => {
     const raw = e.target.value.replace(/[^0-9]/g, "");
@@ -127,14 +126,15 @@ export default function DonationSelectors({ data }) {
             {/* Type Selector */}
             <ul className="flex items-center space-y-4 xl:space-y-0 xl:gap-2 justify-between flex-wrap pb-6 w-full border-b border-gray-300">
               {types.map((type, index) => {
-                const isDisabledType = type === "Monthly";
+               
+                 const isMonthly = type === "Monthly";  
                 return (
                   <li
                     key={type}
-                    onClick={() => !isDisabledType && handleTypeSelect(index, type)}
+                    onClick={() =>  handleTypeSelect(index, type)}
                     className={`flex items-center justify-center w-full xl:w-[48%] gap-2 px-4 py-3 rounded-md ${
                       active.type.index === index ? "bg-bright-yellow" : "border border-black"
-                    } ${isDisabledType ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+                    }  "cursor-pointer"}`}
                   >
                     <div
                       className={`${
@@ -144,7 +144,10 @@ export default function DonationSelectors({ data }) {
                       ₹
                     </div>
                     <RichText text={type} className="font-ambit text-black text-xl" />
+                    
+                    
                   </li>
+            
                 );
               })}
             </ul>
@@ -244,7 +247,7 @@ export default function DonationSelectors({ data }) {
 
       {/* Modal */}
       <Modal open={open}>
-        <MultiStepForm closeModal={closeModal} donationAmount={active.amountSelector.amount} />
+        <MultiStepForm closeModal={closeModal} donationAmount={active.amountSelector.amount} donationType={active.type.isOneTime} />
       </Modal>
     </>
   );
