@@ -186,7 +186,7 @@ export default function StepC({
                 <Input
                   label="Mobile No*"
                   name="number"
-                  placeholder="+91"
+                  placeholder="Enter 10-digit mobile no."
                   className="w-full sm:w-[48%]"
                   onChange={handleChange}
                   error={errors.number}
