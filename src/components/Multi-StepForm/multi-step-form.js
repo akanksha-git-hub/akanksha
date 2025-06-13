@@ -77,6 +77,8 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
           user_agent: navigator.userAgent,
            type: donationType,
         };
+        console.log(" Sending to backend:", payloadToYourBackend);
+
 
         try {
           setLoading(true);
