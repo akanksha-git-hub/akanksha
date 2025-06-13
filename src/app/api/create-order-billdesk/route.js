@@ -59,7 +59,7 @@ export async function POST(req) {
     const jwsPayloadObject = {
       mercid: MERC_ID,
       orderid: orderId,
-     amount: Number(amount).toFixed(2),
+    amount: Number(amount).toFixed(2),
 
       order_date: orderDate,
       currency: '356',
@@ -92,7 +92,8 @@ mandate_required: type ? undefined : 'Y',
       ...(type ? {} : {
   mandate: {
     mercid: MERC_ID,
-    amount: amount.toString(),
+  amount: Number(amount).toFixed(2),
+
     currency: "356",
     start_date: new Date().toISOString().split('T')[0],
     end_date: "2030-12-31",
