@@ -80,7 +80,7 @@ export async function POST(req) {
         mobile: stepC?.number || '9999999999',
         name: `${stepC?.first_name || 'Test'} ${stepC?.last_name || 'User'}`,
       },
-     itemcode: type ? 'DIRECT' : 'SUBSCRIPTION',
+     itemcode:'DIRECT',
 mandate_required: type ? undefined : 'Y',
 
       device: {
@@ -104,7 +104,9 @@ mandate_required: type ? undefined : 'Y',
     mandate_type: "ONETIME",
     subscription_desc: "Monthly Akanksha Donation",
     subscription_refid: `SUB-${orderId}`,
-    customer_refid: stepC?.email || "anonymous@donor.com"
+    customer_refid: stepC?.email || "anonymous@donor.com",
+    recurrence_rule: "after",
+
   }
 })
 
