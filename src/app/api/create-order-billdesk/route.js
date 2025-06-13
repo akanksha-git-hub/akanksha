@@ -31,7 +31,7 @@ export async function POST(req) {
   
   try {
     const body = await req.json();
-    const { stepC = {}, stepB = {}, amount , user_agent = 'Unknown Browser' } = body;
+    const { stepC = {}, stepB = {}, amount , user_agent = 'Unknown Browser', type = true  } = body;
 
     // Get CLIENT IP Address from request headers
     const forwarded = req.headers.get('x-forwarded-for');
@@ -79,17 +79,38 @@ export async function POST(req) {
         mobile: stepC?.number || '9999999999',
         name: `${stepC?.first_name || 'Test'} ${stepC?.last_name || 'User'}`,
       },
-      itemcode: 'DIRECT',
+     itemcode: type ? 'DIRECT' : 'SUBSCRIPTION',
+mandate_required: type ? undefined : 'Y',
+
       device: {
         init_channel: 'internet',
         ip: clientIpAddress, 
         user_agent, 
         accept_header: 'text/html', 
       },
+      ...(type ? {} : {
+  mandate: {
+    mercid: MERC_ID,
+    amount: amount.toString(),
+    currency: "356",
+    start_date: new Date().toISOString().split('T')[0],
+    end_date: "2030-12-31",
+    frequency: "MONTHLY",
+    amount_type: "FIXED",
+    debit_day: "1",
+    mandate_auth_mode: "AADHAAR_OTP",
+    mandate_type: "ONETIME",
+    subscription_desc: "Monthly Akanksha Donation",
+    subscription_refid: `SUB-${orderId}`,
+    customer_refid: stepC?.email || "anonymous@donor.com"
+  }
+})
+
     };
 
     
-    console.log('Payload to BillDesk:', JSON.stringify(jwsPayloadObject, null, 2));
+   console.log(`🧾 Sending ${type ? 'One-Time' : 'Recurring'} Payload to BillDesk:\n`, JSON.stringify(jwsPayloadObject, null, 2));
+
 
     const jwk = { kty: 'oct', k: Buffer.from(RAW_SECRET).toString('base64url') };
     const secretKey = await importJWK(jwk, 'HS256');
