@@ -100,7 +100,7 @@ mandate_required: type ? undefined : 'Y',
     frequency: "mnth",
     amount_type: "maximum",
     debit_day: "1",
-    mandate_auth_mode: "AADHAAR_OTP",
+  
     
 
     
