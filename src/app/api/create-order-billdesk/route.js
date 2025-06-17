@@ -81,7 +81,7 @@ export async function POST(req) {
         name: `${stepC?.first_name || 'Test'} ${stepC?.last_name || 'User'}`,
       },
      itemcode:'DIRECT',
-mandate_required: type ? undefined : 'Y',
+// mandate_required: type ? undefined : 'Y',
 
       device: {
         init_channel: 'internet',
