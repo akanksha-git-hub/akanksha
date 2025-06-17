@@ -92,7 +92,7 @@ export async function POST(req) {
       ...(type ? {} : {
   mandate: {
     mercid: MERC_ID,
-  amount: '1000',
+  amount: '1000.00',
 
     currency: "356",
     start_date: new Date().toISOString().split('T')[0],
