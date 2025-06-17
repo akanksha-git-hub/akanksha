@@ -97,7 +97,7 @@ mandate_required: type ? undefined : 'Y',
     currency: "356",
     start_date: new Date().toISOString().split('T')[0],
     end_date: "2030-12-31",
-    frequency: "mnth",
+    frequency: "adho",
     amount_type: "maximum",
     debit_day: "1",
   
