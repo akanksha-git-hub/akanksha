@@ -137,6 +137,8 @@ export async function POST(req) {
     });
 
     const responseText = await billdeskResponse.text();
+    console.log(' Raw BillDesk Response (JWS):', responseText);
+
 
     if (!billdeskResponse.ok) {
    let errorData;
