@@ -191,7 +191,7 @@ try {
       });
 
     
-      // console.log('📨 Decoded Payload:', JSON.stringify(payload, null, 2));
+      console.log('📨 Decoded Payload:', JSON.stringify(payload, null, 2));
 
       const redirectLink = payload?.links?.find(
         (link) => link.rel === 'redirect' && link.method === 'POST'
