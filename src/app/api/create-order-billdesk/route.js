@@ -33,7 +33,7 @@ export async function POST(req) {
     const body = await req.json();
     const { stepC = {}, stepB = {}, amount , user_agent = 'Unknown Browser', type = true  } = body;
 
-    // Get CLIENT IP Address from request headers
+   
     const forwarded = req.headers.get('x-forwarded-for');
     const realIp = req.headers.get('x-real-ip');
     let clientIpAddress = '127.0.0.1'; // Default fallback
@@ -165,7 +165,7 @@ console.error('❌ BillDesk Error:', {
   parsedErrorData: errorData,
 });
 
-// ✅ Try decoding the error message if it's a JWS
+
 try {
   const decodedError = await jwtVerify(errorData.message, secretKey, {
     algorithms: ['HS256'],
@@ -206,7 +206,7 @@ try {
       }
 
       console.log('🔗 Redirect URL:', redirectLink.href);
-      // console.log('📦 Redirect Parameters:', JSON.stringify(redirectLink.parameters, null, 2));
+      console.log('📦 Redirect Parameters:', JSON.stringify(redirectLink.parameters, null, 2));
 
       return NextResponse.json({
         redirect_url: redirectLink.href,
