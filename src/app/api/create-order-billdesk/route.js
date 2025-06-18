@@ -138,6 +138,14 @@ export async function POST(req) {
 
     const responseText = await billdeskResponse.text();
     console.log(' Raw BillDesk Response (JWS):', responseText);
+try {
+  const decodedSuccess = await jwtVerify(responseText, secretKey, {
+    algorithms: ['HS256'],
+  });
+  console.log("✅ Decoded BillDesk Payload:", JSON.stringify(decodedSuccess.payload, null, 2));
+} catch (decodeErr) {
+  console.warn("❌ Could not decode BillDesk JWS (Success Case):", decodeErr.message);
+}
 
 
     if (!billdeskResponse.ok) {
