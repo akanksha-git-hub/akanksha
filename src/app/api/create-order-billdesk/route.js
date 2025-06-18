@@ -98,7 +98,7 @@ export async function POST(req) {
     start_date: new Date().toISOString().split('T')[0],
     end_date: "2030-12-31",
     frequency: "adho",
-    amount_type: "fixed",
+    amount_type: "maximum",
     debit_day: "1",
   
     
