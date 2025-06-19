@@ -59,7 +59,8 @@ export async function POST(req) {
     const jwsPayloadObject = {
       mercid: MERC_ID,
       orderid: orderId,
-    amount: Number(amount).toFixed(2),
+      amount:"300.00",
+    // amount: Number(amount).toFixed(2),
 
       order_date: orderDate,
       currency: '356',
@@ -81,7 +82,7 @@ export async function POST(req) {
         name: `${stepC?.first_name || 'Test'} ${stepC?.last_name || 'User'}`,
       },
      itemcode:'DIRECT',
-// mandate_required: type ? undefined : 'Y',
+mandate_required: type ? undefined : 'Y',
 
       device: {
         init_channel: 'internet',
@@ -97,10 +98,10 @@ export async function POST(req) {
     currency: "356",
     start_date: new Date().toISOString().split('T')[0],
     end_date: "2030-12-31",
-    frequency: "adho",
-    amount_type: "maximum",
+    frequency: "mnth",
+    amount_type: "max",
     debit_day: "1",
-  
+ 
     
 
     
