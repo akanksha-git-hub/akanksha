@@ -59,8 +59,8 @@ export async function POST(req) {
     const jwsPayloadObject = {
       mercid: MERC_ID,
       orderid: orderId,
-      amount:"300.00",
-    // amount: Number(amount).toFixed(2),
+     
+    amount: Number(amount).toFixed(2),
 
       order_date: orderDate,
       currency: '356',

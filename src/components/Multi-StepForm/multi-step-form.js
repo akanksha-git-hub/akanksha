@@ -22,7 +22,7 @@ const INITIAL_STATE = {
     pin_code: "",
     pan_number: "",
   },
-  stepB: { donate_to: "", heard_from: "" },
+  // stepB: { donate_to: "", heard_from: "" },
 };
 
 export default function MultiStepForm({ closeModal, donationAmount ,donationType }) {
@@ -59,12 +59,9 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
       }
 
       if (step === 1) {
-        setStepData((prev) => ({ ...prev, stepC: value }));
-        setStep(2);
-        return;
-      }
+        
 
-      if (step === 2) {
+   
         const finalStepBData = value;
         const currentStepData = { ...stepData, stepB: finalStepBData };
         setStepData(currentStepData);
@@ -72,7 +69,7 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
         const payloadToYourBackend = {
           stepA: currentStepData.stepA,
           stepC: currentStepData.stepC,
-          stepB: currentStepData.stepB,
+          // stepB: currentStepData.stepB,
           amount: donationAmount,
           user_agent: navigator.userAgent,
            type: donationType,
@@ -147,13 +144,13 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
     [step, stepData, donationAmount]
   );
 
-  const totalSteps = 3;
+  const totalSteps = 2;
   const progressPercentage = (step / (totalSteps - 1)) * 100;
 
   let componentToRender = null;
   if (step === 0) componentToRender = <StepA handleStepProgression={handleStepProgression} />;
   else if (step === 1) componentToRender = <StepC handleStepProgression={handleStepProgression} />;
-  else if (step === 2) componentToRender = <StepB handleStepProgression={handleStepProgression} />;
+  // else if (step === 2) componentToRender = <StepB handleStepProgression={handleStepProgression} />;
 
   return (
     <>
