@@ -265,25 +265,20 @@ export default function StepC({
                 className="w-full sm:w-[48%]"
                 onChange={handleChange}
                 error={errors.pin_code}
+                
               />
                 <Input
     label={
       <span className="flex items-center  gap-1 relative  ">
         Enter your PAN Number*
-        <span className="group relative cursor-pointer text-gray-500">
-          <span className="w-5 h-5 flex items-center justify-center rounded-full border border-gray-400 text-xs font-bold">
-            ?
-          </span>
-          <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 whitespace-nowrap bg-black text-white  px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity text-[11px] uppercase z-10">
-        Enter PAN exactly as on the card (in capital letters)
-          </span>
-        </span>
+      
       </span>
     }
     name="pan_number"
     placeholder="Enter 10 Digit PAN Number"
     className="w-full sm:w-[48%]  "
     onChange={handleChange}
+     style={{ textTransform: "uppercase" }}
     error={errors.pan_number}
   />
             </div>
