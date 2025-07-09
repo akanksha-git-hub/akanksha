@@ -1,10 +1,14 @@
+// src/app/api/billdesk-webhook/route.js
+
 import { NextResponse } from 'next/server';
 import { jwtVerify, importJWK } from 'jose';
+// Import our new database function
+import { saveTransactionToDB } from '../../../lib/database';
 
 export async function POST(req) {
   try {
+    // --- Verification (your existing, working code) ---
     const rawBody = await req.text();
-
     const secretKey = await importJWK(
       {
         kty: "oct",
@@ -12,20 +16,18 @@ export async function POST(req) {
       },
       "HS256"
     );
-
-    const { payload, protectedHeader } = await jwtVerify(rawBody, secretKey, {
-      algorithms: ["HS256"],
-    });
-
+    const { payload } = await jwtVerify(rawBody, secretKey);
     console.log("✅ BillDesk Webhook Verified Payload:", payload);
+    
+    // --- Save to Database (The new part) ---
+    await saveTransactionToDB(payload);
 
-    // TODO: Save this to database or update payment record
-    // Example:
-    // await db.updateOrder(payload.orderid, { status: payload.status, ... });
-
+    // --- Send Success Response ---
     return NextResponse.json({ received: true });
+
   } catch (err) {
-    console.error("❌ Webhook verification failed:", err);
-    return NextResponse.json({ error: 'Invalid signature or malformed request' }, { status: 400 });
+    console.error("❌ Webhook processing or database save failed:", err.message);
+    // It's important to return an error so BillDesk knows it failed
+    return NextResponse.json({ error: 'Processing failed' }, { status: 500 });
   }
 }
