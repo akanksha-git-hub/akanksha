@@ -61,9 +61,8 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
       if (step === 1) {
         
 
-   
-        const finalStepBData = value;
-        const currentStepData = { ...stepData, stepB: finalStepBData };
+ 
+        const currentStepData = { ...stepData, stepC: value  };
         setStepData(currentStepData);
 
         const payloadToYourBackend = {

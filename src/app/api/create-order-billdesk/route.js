@@ -56,6 +56,9 @@ export async function POST(req) {
     const bdTraceid = generateTraceId();
     const orderDate = new Date().toISOString().split('.')[0] + 'Z';
 
+    console.log("🪵 Incoming request body:", JSON.stringify(body, null, 2));
+
+
     const jwsPayloadObject = {
       mercid: MERC_ID,
       orderid: orderId,
@@ -66,8 +69,7 @@ export async function POST(req) {
       currency: '356',
       ru: `${process.env.APP_URL}/api/billdesk-payment-return`, 
       additional_info: {
-        additional_info1: stepB?.donate_to || 'General Donation',
-        additional_info2: stepB?.heard_from || 'Website',
+     
         additional_info3: stepC.first_name || 'N/A',
         additional_info4: stepC.last_name || 'N/A',
         additional_info5: stepC.city || 'N/A',
