@@ -16,6 +16,7 @@
     "@prismicio/next": "^1.6.0",
     "@prismicio/react": "^2.8.0",
     "cashfree-pg": "^4.2.3",
+    "firebase-admin": "^13.4.0",
     "gsap": "^3.12.5",
     "lenis": "^1.1.13",
     "lodash.debounce": "^4.0.8",
