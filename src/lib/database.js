@@ -48,7 +48,7 @@ export async function saveTransactionToDB(verifiedPayload) {
       pan_number: verifiedPayload.additional_info.additional_info8, // "KGNOS5223Q"
       
       // Timestamps and Raw Data for auditing
-      processedAt: new Date()toISOString(),
+      processedAt: new Date().toISOString(),
       raw_webhook_payload: verifiedPayload,
     };
     
