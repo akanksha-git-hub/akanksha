@@ -74,6 +74,9 @@ export default function StepC({
     (e) => {
       let name = e.target.name;
       let value = e.target.value;
+      if (name === "pan_number") {
+    value = value.toUpperCase();
+  }
       setFormData((prevState) => ({ ...prevState, [name]: value }));
     },
     [formData]
