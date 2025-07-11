@@ -36,7 +36,7 @@ export async function saveTransactionToDB(verifiedPayload) {
       amount: parseFloat(verifiedPayload.amount),
       payment_method: verifiedPayload.payment_method_type,
       bank_ref_no: verifiedPayload.bank_ref_no,
-      transaction_date: new Date(verifiedPayload.transaction_date),
+      transaction_date: new Date(verifiedPayload.transaction_date).toISOString(),
 
       // Donor Details from 'additional_info' and 'customer'
       donor_name: verifiedPayload.additional_info.additional_info3, // "Sumesh P"
