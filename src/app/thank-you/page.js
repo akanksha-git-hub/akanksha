@@ -60,8 +60,8 @@ export default function ThankYouPage({ searchParams }) {
       <Image
         src="/b-left.png"
         alt="Decorative icon left"
-        width={150}
-        height={150}
+        width={250}
+        height={250}
         className="object-contain"
       />
     </div>
