@@ -112,10 +112,7 @@ const routes = [
     type: "privacy_policy",
     path: "/privacy-policy",
   },
-   {
-    type: "terms-and-conditions",
-    path: "/terms-and-conditions",
-  },
+   
   {
     type: "impact",
     path: "/our-impact",
