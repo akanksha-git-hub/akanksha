@@ -66,6 +66,7 @@ export const components = {
   success_rate2: dynamic(() => import("./SuccessRate2")),
   swirl_image: dynamic(() => import("./SwirlImage")),
   tab_slice: dynamic(() => import("./TabSlice")),
+  terms_and_condition: dynamic(() => import("./TermsAndCondition")),
   test: dynamic(() => import("./Test")),
   test_slice: dynamic(() => import("./TestSlice")),
   testimonial: dynamic(() => import("./Testimonial")),

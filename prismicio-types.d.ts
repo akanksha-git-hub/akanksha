@@ -3861,6 +3861,71 @@ export type SchoolProjectDocument<Lang extends string = string> =
     Lang
   >;
 
+type TermsAndConditionsDocumentDataSlicesSlice = TermsAndConditionSlice;
+
+/**
+ * Content for Terms and Conditions documents
+ */
+interface TermsAndConditionsDocumentData {
+  /**
+   * Slice Zone field in *Terms and Conditions*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: terms_and_conditions.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<TermsAndConditionsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Terms and Conditions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: terms_and_conditions.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Terms and Conditions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: terms_and_conditions.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Terms and Conditions*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: terms_and_conditions.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Terms and Conditions document from Prismic
+ *
+ * - **API ID**: `terms_and_conditions`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TermsAndConditionsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<TermsAndConditionsDocumentData>,
+    "terms_and_conditions",
+    Lang
+  >;
+
 /**
  * Content for ThirdCard10th documents
  */
@@ -4374,6 +4439,7 @@ export type AllDocumentTypes =
   | ProjectSetuDocument
   | ReportsDocument
   | SchoolProjectDocument
+  | TermsAndConditionsDocument
   | Thirdcard10thDocument
   | Thirdcard12thDocument
   | TimelineDocument
@@ -17287,6 +17353,118 @@ export type TabSliceSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *TermsAndCondition → Default → Primary → terms_section*
+ */
+export interface TermsAndConditionSliceDefaultPrimaryTermsSectionItem {
+  /**
+   * section_id field in *TermsAndCondition → Default → Primary → terms_section*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: terms_and_condition.default.primary.terms_section[].section_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_id: prismic.KeyTextField;
+
+  /**
+   * title field in *TermsAndCondition → Default → Primary → terms_section*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: terms_and_condition.default.primary.terms_section[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * content field in *TermsAndCondition → Default → Primary → terms_section*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: terms_and_condition.default.primary.terms_section[].content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+
+  /**
+   * Content_1 field in *TermsAndCondition → Default → Primary → terms_section*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: terms_and_condition.default.primary.terms_section[].content_1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content_1: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *TermsAndCondition → Default → Primary*
+ */
+export interface TermsAndConditionSliceDefaultPrimary {
+  /**
+   * Heading field in *TermsAndCondition → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: terms_and_condition.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Description field in *TermsAndCondition → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: terms_and_condition.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * terms_section field in *TermsAndCondition → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: terms_and_condition.default.primary.terms_section[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  terms_section: prismic.GroupField<
+    Simplify<TermsAndConditionSliceDefaultPrimaryTermsSectionItem>
+  >;
+}
+
+/**
+ * Default variation for TermsAndCondition Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TermsAndConditionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TermsAndConditionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TermsAndCondition*
+ */
+type TermsAndConditionSliceVariation = TermsAndConditionSliceDefault;
+
+/**
+ * TermsAndCondition Shared Slice
+ *
+ * - **API ID**: `terms_and_condition`
+ * - **Description**: TermsAndCondition
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TermsAndConditionSlice = prismic.SharedSlice<
+  "terms_and_condition",
+  TermsAndConditionSliceVariation
+>;
+
+/**
  * Primary content in *Test → Default → Primary*
  */
 export interface TestSliceDefaultPrimary {
@@ -18625,6 +18803,9 @@ declare module "@prismicio/client" {
       SchoolProjectDocument,
       SchoolProjectDocumentData,
       SchoolProjectDocumentDataSlicesSlice,
+      TermsAndConditionsDocument,
+      TermsAndConditionsDocumentData,
+      TermsAndConditionsDocumentDataSlicesSlice,
       Thirdcard10thDocument,
       Thirdcard10thDocumentData,
       Thirdcard12thDocument,
@@ -19063,6 +19244,11 @@ declare module "@prismicio/client" {
       TabSliceSliceDefaultPrimary,
       TabSliceSliceVariation,
       TabSliceSliceDefault,
+      TermsAndConditionSlice,
+      TermsAndConditionSliceDefaultPrimaryTermsSectionItem,
+      TermsAndConditionSliceDefaultPrimary,
+      TermsAndConditionSliceVariation,
+      TermsAndConditionSliceDefault,
       TestSlice,
       TestSliceDefaultPrimary,
       TestSliceVariation,
