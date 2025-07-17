@@ -1,8 +1,11 @@
 import RichText from "@/components/Texts/RichText"
 import TextCTA from "@/components/UI/Button/TextCTA"
+import { PrismicNextLink } from "@prismicio/next";
 
 
 export default function FooterInfoItems({ footerBottomTextsArray, className }) {
+    
+
 
     return(
         <>
@@ -23,15 +26,17 @@ export default function FooterInfoItems({ footerBottomTextsArray, className }) {
 
                     return(
                         <li key={item.text}>
-                            <TextCTA 
-                                linkClassName="grid place-center"
-                                link={item.link}
-                                text={item.text}
-                                className="text-deep-green  transition-all hover:opacity-100 font-ambit-regular text-sm"
-                            />
+                            <PrismicNextLink field={item.link} className="grid place-center">
+                  <span className="text-black transition-all hover:opacity-100 font-ambit-regular text-sm">
+                    {item.text}
+                  </span>
+                </PrismicNextLink>
+                           
+                             
                         </li>
                     )
                 })}
+                
             </ul>
         )}
         </>
