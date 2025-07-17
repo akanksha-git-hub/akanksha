@@ -21,19 +21,19 @@
           "placeholder": ""
         }
       },
-      "terms_and_conditions_text": {
-        "type": "Text",
-        "config": {
-          "label": "Terms And Conditions Text",
-          "placeholder": ""
-        }
-      },
       "terms_and_conditions_link": {
         "type": "Link",
         "config": {
           "label": "Terms And Conditions Link",
           "placeholder": "",
           "select": null
+        }
+      },
+      "terms_and_conditions_text": {
+        "type": "Text",
+        "config": {
+          "label": "Terms And Conditions Text",
+          "placeholder": ""
         }
       },
       "akanksha_tag": {

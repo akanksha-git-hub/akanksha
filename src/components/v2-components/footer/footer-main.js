@@ -32,7 +32,7 @@ export default async function FooterMain() {
       text: footerBottomTexts.privacy_page_cta_text,
     },
     {
-     link: footerBottomTexts.terms_and_conditions_link,
+    link: footerBottomTexts.terms_and_conditions_link,
     text: footerBottomTexts.terms_and_conditions_text,
     },
     {
