@@ -30,10 +30,10 @@ export default function DonationSelectors({ data }) {
   const [open, setOpen] = useState(false);
   const [showAmountError, setShowAmountError] = useState(false);
 
-  const isDisabled =
-    active.amountSelector.amount === null ||
-    active.amountSelector.amount === 0 ||
-    active.amountSelector.amount < 500;
+  const isDisabled =true;
+    // active.amountSelector.amount === null ||
+    // active.amountSelector.amount === 0 ||
+    // active.amountSelector.amount < 500;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -215,7 +215,8 @@ const handleTypeSelect = useCallback((index, type) => {
           <div className="">
             <Button
               className={`!py-4 !px-4 xl:!px-48 mt-6 !text-base md:!text-xl ${
-                isDisabled &&
+                isDisabled
+                 &&
                 "hover:opacity-60 hover:bg-black hover:text-cream hover:!scale-100 active:scale-95 cursor-not-allowed"
               }`}
               disabled={isDisabled}
