@@ -2,12 +2,13 @@
 import RichText from "@/components/Texts/RichText";
 import PrimaryCTA from "@/components/UI/Button/PrimaryCTA";
 import StoryCircle from "@/components/UI/Story/StoryCircle";
-import { PrismicNextImage } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import { months } from "@/utils/months";
 import Button from "@/components/v2-components/buttons/button";
+
 
 
 /**
@@ -40,11 +41,11 @@ const BlogHighlight = ({ slice }) => {
       <div 
         className="flex flex-col xl:flex-row justify-center "
       >
-        <div className="relative h-[520px] xl:h-auto xl:w-[60%] flex items-center justify-center ">
+        <div className="relative h-[520px]   xl:w-[60%] flex items-center justify-center  ">
             
             <div
               key={slice.primary.items[activeIndex].image}
-              className="opacity-anim transition-all h-[78%] w-[78%] lg:h-[85%] lg:w-[85%]"
+              className="opacity-anim transition-all  h-[78%] w-[78%] lg:h-[85%] lg:w-[85%]"
             >
               <PrismicNextImage
                 height={1200}
@@ -62,7 +63,7 @@ const BlogHighlight = ({ slice }) => {
             field={slice.primary.items[activeIndex].image}
           />
         </div> */}
-        <div className="bg-white  xl:pl-12 xl:pr-1  md:py-8 w-full xl:w-[40%] ">
+        <div className="bg-white   xl:pl-12 xl:pr-1  md:py-8 w-full xl:w-[40%] ">
           {/* Selectors */}
           <ul>
             <Swiper  
@@ -105,7 +106,7 @@ const BlogHighlight = ({ slice }) => {
             </Swiper>
           </ul>
           {/* Selectors End */}
-          <div className="flex flex-col space-y-6 mt-12">
+          <div className="flex flex-col space-y-6 mt-12 ">
             <div className="space-y-4">
               <RichText 
                 text={`${month}-${year}`}
@@ -115,18 +116,24 @@ const BlogHighlight = ({ slice }) => {
                 text={slice.primary.items[activeIndex].title}
                 className='font-ambit-semibold text-4xl text-black'
               />
-              <RichText 
+              {/* <RichText 
                 text={slice.primary.items[activeIndex].description}
                 className='font-ambit-regular text-black'
-              />
+              /> */}
+              <p    className='font-ambit-regular line-clamp-5 ... text-black'>
+                {slice.primary.items[activeIndex].description}
+              </p>
             </div>
             {/* <PrimaryCTA 
               link={slice.primary.items[activeIndex].cta_link}
               text={slice.primary.cta_text}
             /> */}
-            <Button prismicLinks={slice.primary.items[activeIndex].cta_link}>
-            {slice.primary.cta_text}
-            </Button>
+           <PrismicNextLink field={slice.primary.items[activeIndex].cta_link}>
+  <Button>
+    {slice.primary.cta_text}
+  </Button>
+</PrismicNextLink>
+
           </div>
         </div>
       </div>

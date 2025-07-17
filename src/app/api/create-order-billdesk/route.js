@@ -1,22 +1,20 @@
-import { SignJWT, importJWK } from 'jose';
+// --- START OF FILE route.js (e.g., app/api/create-order-billdesk/route.js) ---
+
+import { SignJWT, importJWK, jwtVerify } from 'jose';
 import { NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 
-// Ensure these are EXACTLY what BillDesk UAT provided
-const CLIENT_ID = 'bdskuaty'; // Your Client ID for JWS Header
-const MERC_ID = 'BDSKUATY';   // Your Merchant ID for Payload
-const RAW_SECRET = 'G3eAmyVkAzKp8jFq0fqPEqxF4agynvtJ'; // Your HMAC Secret
+const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
+const MERC_ID = process.env.BILLDESK_MERC_ID;
+const RAW_SECRET = process.env.BILLDESK_SECRET;
+const BILLDESK_ENDPOINT = process.env.BILLDESK_ENDPOINT;
 
-// UAT Endpoint from Docs Page 8
-const BILLDESK_ENDPOINT = 'https://uat1.billdesk.com/u2/payments/ve1_2/orders/create';
-// Production: https://api.billdesk.com/payments/ve1_2/orders/create
 
 function generateEpochTimestampString() {
   return Math.floor(Date.now() / 1000).toString();
 }
 
 function generateTraceId() {
-  // YYYYMMDDHHMMSS + short random string. Max 35 chars.
   const now = new Date();
   const pad = (n) => n.toString().padStart(2, '0');
   const dateTimePart =
@@ -29,133 +27,210 @@ function generateTraceId() {
   return `${dateTimePart}${uuidv4().slice(0, 8).toUpperCase()}`;
 }
 
-
-export async function POST(req) {
+export async function POST(req) { 
+  
   try {
     const body = await req.json();
-    const { amount = '299.00', user_agent = 'Unknown Browser' } = body; // Provide a default if UA is missing
+    const { stepC = {}, stepB = {}, amount , user_agent = 'Unknown Browser', type = true  } = body;
 
-    // It's better to get the IP at the edge or via request headers if possible
-    // but for server-side, this is a common approach.
-    // Ensure your Digital Ocean server can make outbound requests to ipify.
-    let ipAddress = '127.0.0.1'; // Default IP
-    try {
-        const ipRes = await fetch('https://api.ipify.org/?format=json');
-        if (ipRes.ok) {
-            const ipData = await ipRes.json();
-            ipAddress = ipData.ip;
-        } else {
-            console.warn('Failed to fetch IP address from ipify, using default.');
-        }
-    } catch (ipError) {
-        console.error('Error fetching IP address:', ipError);
-        console.warn('Using default IP address.');
+   
+    const forwarded = req.headers.get('x-forwarded-for');
+    const realIp = req.headers.get('x-real-ip');
+    let clientIpAddress = '127.0.0.1'; // Default fallback
+
+    if (forwarded) {
+     
+      clientIpAddress = forwarded.split(',')[0].trim();
+    } else if (realIp) {
+      clientIpAddress = realIp.trim();
+    } else {
+    
     }
-
-
-    const orderId = `AKANKSHA-${uuidv4().slice(0, 12).toUpperCase()}`; // Make it a bit longer for uniqueness
+     
+    if (clientIpAddress && clientIpAddress.startsWith('::ffff:')) {
+        clientIpAddress = clientIpAddress.substring(7);
+    }
+ 
+    const orderId = `AKANKSHA-${uuidv4().slice(0, 12).toUpperCase()}`;
     const bdTimestamp = generateEpochTimestampString();
-    const bdTraceid = generateTraceId(); // Ensure this is unique within the day
-    const orderDate = new Date().toISOString(); // YYYY-MM-DDTHH:mm:ss.sssZ
+    const bdTraceid = generateTraceId();
+    const orderDate = new Date().toISOString().split('.')[0] + 'Z';
 
-    // Payload for JWS
+    console.log("🪵 Incoming request body:", JSON.stringify(body, null, 2));
+
+
     const jwsPayloadObject = {
       mercid: MERC_ID,
       orderid: orderId,
-      amount: amount.toString(), // Ensure amount is a string
-      order_date: orderDate,     // Format: YYYY-MM-DDThh:mm:ssTZD (ISOString is fine)
-      currency: '356',           // INR
-      ru: 'https://akanksha.org/', // Your whitelisted Return URL
-      additional_info: {         // As per example on Page 5
-        additional_info1: 'Details1',
-        additional_info2: 'Details2',
+     
+    amount: Number(amount).toFixed(2),
+
+      order_date: orderDate,
+      currency: '356',
+      ru: `${process.env.APP_URL}/api/billdesk-payment-return`, 
+      additional_info: {
+     
+        additional_info3: stepC.first_name || 'N/A',
+        additional_info4: stepC.last_name || 'N/A',
+        additional_info5: stepC.city || 'N/A',
+        additional_info6: stepC.address || 'N/A',
+        additional_info7: stepC.pin_code || 'N/A',
+        additional_info8: stepC.pan_number || 'N/A',
+        additional_info9: stepC.state || 'N/A',
       },
-      itemcode: 'DIRECT',        // Default as per doc Page 7
+      customer: {
+        email: stepC?.email || 'test@example.com',
+        mobile: stepC?.number || '9999999999',
+        name: `${stepC?.first_name || 'Test'} ${stepC?.last_name || 'User'}`,
+      },
+     itemcode:'DIRECT',
+mandate_required: type ? undefined : 'Y',
+
       device: {
         init_channel: 'internet',
-        ip: ipAddress,
-        user_agent: user_agent,
-        accept_header: 'text/html', // Simpler, as per BillDesk example on Page 5
-        // --- Fields from page 5 example for device object ---
-        // "fingerprintid":"61b12c18b5d0cf901be34a23ca64bb19", // Example value, generate if you can
-        // "browser_tz":"-330", // Example value
-        // "browser_color_depth":"32", // Example value
-        // "browser_java_enabled":"false", // Example value
-        // "browser_screen_height":"601", // Example value
-        // "browser_screen_width":"657", // Example value
-        // "browser_language":"en-US", // Example value
-        // "browser_javascript_enabled":"true" // Example value
+        ip: clientIpAddress, 
+        user_agent, 
+        accept_header: 'text/html', 
       },
+      ...(type ? {} : {
+  mandate: {
+    mercid: MERC_ID,
+  amount: '1000.00',
+
+    currency: "356",
+    start_date: new Date().toISOString().split('T')[0],
+    end_date: "2030-12-31",
+    frequency: "adho",
+    amount_type: "max",
+    debit_day: "1",
+ 
+    
+
+    
+    subscription_desc: "Monthly Akanksha Donation",
+    subscription_refid: `SUB-${orderId}`,
+    customer_refid: stepC?.email || "anonymous@donor.com",
+    recurrence_rule: "after",
+
+  }
+})
+
     };
-    console.log('Constructed JWS Payload:', JSON.stringify(jwsPayloadObject, null, 2));
+
+    
+   console.log(`🧾 Sending ${type ? 'One-Time' : 'Recurring'} Payload to BillDesk:\n`, JSON.stringify(jwsPayloadObject, null, 2));
 
 
-    // HMAC key as JWK
-    const jwk = {
-      kty: 'oct',
-      k: Buffer.from(RAW_SECRET).toString('base64url'), // secret key converted to base64url
-      // alg: 'HS256' // alg in JWK is optional if specified in importJWK or sign function
-    };
+    const jwk = { kty: 'oct', k: Buffer.from(RAW_SECRET).toString('base64url') };
     const secretKey = await importJWK(jwk, 'HS256');
 
-    // Sign using the JWS Payload Object
     const jwtToken = await new SignJWT(jwsPayloadObject)
-      .setProtectedHeader({
-        alg: 'HS256',
-        clientid: CLIENT_ID, // Your clientid from BillDesk
-      })
+      .setProtectedHeader({ alg: 'HS256', clientid: CLIENT_ID })
       .sign(secretKey);
-
-    console.log('Generated JWS Token:', jwtToken);
-    console.log('BD-Traceid:', bdTraceid);
-    console.log('BD-Timestamp:', bdTimestamp);
 
     const billdeskResponse = await fetch(BILLDESK_ENDPOINT, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/jose', // CRITICAL
-        Accept: 'application/jose',         // CRITICAL
+        'Content-Type': 'application/jose',
+        Accept: 'application/jose',
         'BD-Traceid': bdTraceid,
         'BD-Timestamp': bdTimestamp,
-        // NO 'Authorization: EWY ...' header
       },
-      body: jwtToken, // CRITICAL: Send the JWS token string directly
+      body: jwtToken,
     });
 
-    const responseText = await billdeskResponse.text(); // Read as text first for debugging
-    console.log('BillDesk Raw Response Status:', billdeskResponse.status);
-    console.log('BillDesk Raw Response Text:', responseText);
+    const responseText = await billdeskResponse.text();
+    console.log(' Raw BillDesk Response (JWS):', responseText);
+try {
+  const decodedSuccess = await jwtVerify(responseText, secretKey, {
+    algorithms: ['HS256'],
+  });
+  console.log("✅ Decoded BillDesk Payload:", JSON.stringify(decodedSuccess.payload, null, 2));
+} catch (decodeErr) {
+  console.warn("❌ Could not decode BillDesk JWS (Success Case):", decodeErr.message);
+}
+
 
     if (!billdeskResponse.ok) {
-      // Attempt to parse as JSON if it's an error object from BillDesk
-      let errorData;
-      try {
-        errorData = JSON.parse(responseText);
-      } catch (e) {
-        errorData = { message: responseText };
-      }
-      return NextResponse.json(
-        {
-          error: 'BillDesk API Error',
-          status: billdeskResponse.status,
-          details: errorData,
-        },
-        { status: billdeskResponse.status }
-      );
+   let errorData;
+try {
+  errorData = responseText.trim().startsWith('{')
+    ? JSON.parse(responseText)
+    : { message: responseText };
+} catch (e) {
+  errorData = { message: responseText };
+}
+
+console.error('❌ BillDesk Error:', {
+  status: billdeskResponse.status,
+  headers: Object.fromEntries(billdeskResponse.headers.entries()),
+  body: responseText,
+  parsedErrorData: errorData,
+});
+
+
+try {
+  const decodedError = await jwtVerify(errorData.message, secretKey, {
+    algorithms: ['HS256'],
+  });
+  console.error("🪵 Decoded BillDesk Error:", JSON.stringify(decodedError.payload, null, 2));
+} catch (decodeErr) {
+  console.warn("Unable to decode BillDesk error JWS:", decodeErr.message);
+}
+
+
+
+      return NextResponse.json({
+        error: 'BillDesk API Error',
+        status: billdeskResponse.status,
+        details: errorData,
+        raw_response: responseText,
+      }, { status: billdeskResponse.status });
     }
 
-    // If response is OK and expected to be JWS (though for create order it's usually JSON)
-    // The Create Order API *response* is JSON, not JWS, as per doc page 8-10.
-    const result = JSON.parse(responseText);
-    console.log('📥 BillDesk Parsed Response:', JSON.stringify(result, null, 2));
+    try {
+      const { payload, protectedHeader } = await jwtVerify(responseText, secretKey, {
+        algorithms: ['HS256'],
+      });
 
-    return NextResponse.json({ billdesk_response: result });
+    
+      console.log('📨 Decoded Payload:', JSON.stringify(payload, null, 2));
 
-  } catch (error) {
-    console.error('Internal Server Error:', error);
-    return NextResponse.json(
-      { error: 'Internal Server Error', details: error.message },
-      { status: 500 }
-    );
+      const redirectLink = payload?.links?.find(
+        (link) => link.rel === 'redirect' && link.method === 'POST'
+      );
+
+      if (!redirectLink || !redirectLink.href || !redirectLink.parameters) {
+        console.warn('⚠️ Missing redirect link or parameters in BillDesk payload.');
+        return NextResponse.json({
+          error: 'Missing redirect info',
+          details: payload,
+        }, { status: 500 });
+      }
+
+      console.log('🔗 Redirect URL:', redirectLink.href);
+      console.log('📦 Redirect Parameters:', JSON.stringify(redirectLink.parameters, null, 2));
+
+      return NextResponse.json({
+        redirect_url: redirectLink.href,
+        parameters: redirectLink.parameters,
+      });
+
+    } catch (verificationError) {
+      console.error('❌ Verification Failed:', verificationError.message);
+      return NextResponse.json({
+        error: 'Verification Failed',
+        details: verificationError.message,
+        raw_response: responseText,
+      }, { status: 500 });
+    }
+
+  } catch (err) {
+    console.error('🚨 Internal Error:', err);
+    return NextResponse.json({
+      error: 'Internal Server Error',
+      details: err.message,
+    }, { status: 500 });
   }
 }
+// --- END OF FILE route.js ---

@@ -74,6 +74,9 @@ export default function StepC({
     (e) => {
       let name = e.target.name;
       let value = e.target.value;
+      if (name === "pan_number") {
+    value = value.toUpperCase();
+  }
       setFormData((prevState) => ({ ...prevState, [name]: value }));
     },
     [formData]
@@ -82,7 +85,7 @@ export default function StepC({
   const validate = () => {
     const error = { ...ERRORS };
     const alphabetRegex = /^[A-Za-z\s]+$/;
-    const indianNumberRegex = /^(?:\+91\s?|91\s?|0\s?)?[6-9]\d{4}\s?\d{5}$/;
+ const indianNumberRegex = /^[6-9]\d{9}$/;
     const pinCodeRegex = /^[1-9][0-9]{2}\s?[0-9]{3}$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const panCardRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
@@ -186,7 +189,7 @@ export default function StepC({
                 <Input
                   label="Mobile No*"
                   name="number"
-                  placeholder="+91"
+                  placeholder="Enter 10-digit mobile no."
                   className="w-full sm:w-[48%]"
                   onChange={handleChange}
                   error={errors.number}
@@ -265,15 +268,22 @@ export default function StepC({
                 className="w-full sm:w-[48%]"
                 onChange={handleChange}
                 error={errors.pin_code}
+                
               />
-              <Input
-                label="Enter your PAN Number*"
-                name="pan_number"
-                placeholder="XX-XX-XXX"
-                className="w-full sm:w-[48%]"
-                onChange={handleChange}
-                error={errors.pan_number}
-              />
+                <Input
+    label={
+      <span className="flex items-center  gap-1 relative  ">
+        Enter your PAN Number*
+      
+      </span>
+    }
+    name="pan_number"
+    placeholder="Enter 10 Digit PAN Number"
+    className="w-full sm:w-[48%]  "
+    onChange={handleChange}
+     style={{ textTransform: "uppercase" }}
+    error={errors.pan_number}
+  />
             </div>
 
             {/* <div className="space-y-6 border-b-[2px] border-newGray pb-6">

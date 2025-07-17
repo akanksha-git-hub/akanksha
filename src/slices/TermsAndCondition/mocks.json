@@ -1,0 +1,85 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sit commodo cupidatat aute ullamco veniam nisi id nostrud cillum commodo ullamco. Cillum esse reprehenderit anim."
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Commodo ex culpa sint pariatur non duis occaecat labore magna consequat ut reprehenderit."
+						}
+					}
+				]
+			},
+			"terms_section": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"section_id",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "how",
+									"type": "Text"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Aute id velit qui qui non irure cillum excepteur velit nulla eiusmod do commodo velit. Culpa ex laboris consectetur proident est fugiat aliqua incididunt ullamco. Eiusmod cillum fugiat in veniam."
+											}
+										}
+									]
+								}
+							],
+							[
+								"content",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "second",
+									"type": "Text"
+								}
+							],
+							[
+								"content_1",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Est esse consectetur occaecat est."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

@@ -35,8 +35,8 @@ export default function StepB({
       onSubmit={onProceed}
       className="flex flex-col items-center w-full justify-center space-y-6 mt-52"
     >
-      <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-baseline items-center mt-96 sm:mt-0">
-        <div className="md:w-[30%] w-full md:p-10">
+      <div className="flex md:flex-row flex-col justify-center md:justify-start md:items-center items-center mt-96 sm:mt-0">
+        <div className="md:w-[40%] w-full md:p-10 md:-ml-24">
           <button
             type="button"
             className="bg-gray-400 text-black border-black transition-all
@@ -61,7 +61,7 @@ export default function StepB({
         </div>
       </div>
 
-      <div className="flex flex-col space-y-6 pb-6 w-[60%]">
+      <div className="flex flex-col justify-center items-center space-y-6 pb-6 w-[60%]">
         <label className="input-parent-state flex flex-col space-y-1 w-full">
           <span className="font-ambit-regular text-lg label-state">
             We&rsquo;d love to know who you are donating to
@@ -100,17 +100,17 @@ export default function StepB({
           </select>
         </label>
 
-        {/* <Button
+        <Button
           type="submit"
           className="bg-deep-green text-black border-black transition-all
                      md:!text-3xl rounded-full !py-6 !px-24"
         >
           Proceed
 
-        </Button> */}
-        <Button disabled className="opacity-60 cursor-not-allowed">
+        </Button>
+        {/* <Button disabled className="opacity-60 cursor-not-allowed">
   Payment temporarily unavailable
-</Button>
+</Button> */}
 
         <p className="text-black font-ambit-regular text-lg w-full sm:w-[90%] text-left md:text-center">
           Akanksha provides an Online Payment Gateway through BillDesk to make

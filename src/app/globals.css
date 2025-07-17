@@ -25,7 +25,7 @@
 }
 body {
   background: var(--white);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* Prevent background scrolling when modal is open */
