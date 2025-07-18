@@ -14,7 +14,7 @@ export default async function Page() {
     <main className={`${maxwidth}`}>
       {/* 🔔 Donation Disabled Banner */}
       <div className="bg-yellow-100 border border-yellow-400 text-yellow-800 px-4 py-3 rounded mb-6 text-center font-medium">
-        Donations are currently disabled. Please check back later.
+        This page is under construction.
       </div>
 
       <SliceZone
