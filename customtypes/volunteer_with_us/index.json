@@ -41,9 +41,6 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "test": {
-              "type": "SharedSlice"
-            },
             "mission_vision": {
               "type": "SharedSlice"
             },

@@ -4240,7 +4240,6 @@ export type VisionMissionDocument<Lang extends string = string> =
   >;
 
 type VolunteerWithUsDocumentDataSlicesSlice =
-  | TestSlice
   | MissionVisionSlice
   | IconScrollShowcaseSlice;
 
