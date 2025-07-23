@@ -40,7 +40,7 @@ const OurPartners = ({ slice }) => {
           <PrismicNextLink field={slice.primary.title_link}>
             <RichText
               text={slice.primary.title}
-              className="select-none text-black font-ambit-regular text-2xl sm:text-3xl md:text-5xl w-full text-left mt-8"
+              className="select-none text-black font-ambit-regular text-2xl sm:text-3xl md:text-5xl w-full text-left mt-8 hover:underline transition-all"
             />
           </PrismicNextLink>
         </div>
@@ -61,7 +61,7 @@ const OurPartners = ({ slice }) => {
         <PrismicNextLink field={slice.primary.title_link}>
           <RichText
             text={slice.primary.title}
-            className="select-none text-black font-ambit-regular text-2xl sm:text-3xl md:text-5xl w-full text-left mt-8"
+            className="select-none text-black font-ambit-regular text-2xl sm:text-3xl md:text-5xl w-full text-left mt-8 hover:underline transition-all"
           />
         </PrismicNextLink>
       </div>

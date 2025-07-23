@@ -3,11 +3,7 @@ import RichText from "./Texts/RichText";
 
 export default function Tabs({ slice, handleClick, tabState }) {
     const TABS = [
-        {
-            text: slice.primary.tab_a_text,
-            description: slice.primary.tab_a_description,
-            icon: slice.primary.tab_a_icon
-        },
+      
         {
             text: slice.primary.tab_b_text,
             description: slice.primary.tab_b_description,
