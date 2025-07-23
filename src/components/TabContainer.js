@@ -7,8 +7,8 @@ import PartnerLogo from "./PartnerLogo";
 export default function TabContainer({ slice }) {
 
     const INITIAL_STATE = {
-        text: slice.primary.tab_a_text,
-        description: slice.primary.tab_a_description
+        text: slice.primary.tab_b_text,
+        description: slice.primary.tab_b_description
     }
 
     const [tabState, setTabState] = useState(INITIAL_STATE);

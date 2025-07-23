@@ -17243,36 +17243,6 @@ export interface TabSliceSliceDefaultPrimary {
   asset_2: prismic.ImageField<never>;
 
   /**
-   * Tab A Icon field in *TabSlice → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: tab_slice.default.primary.tab_a_icon
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  tab_a_icon: prismic.ImageField<never>;
-
-  /**
-   * Tab A Text field in *TabSlice → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: tab_slice.default.primary.tab_a_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  tab_a_text: prismic.KeyTextField;
-
-  /**
-   * Tab A Description field in *TabSlice → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: tab_slice.default.primary.tab_a_description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  tab_a_description: prismic.RichTextField;
-
-  /**
    * Tab B Icon field in *TabSlice → Default → Primary*
    *
    * - **Field Type**: Image

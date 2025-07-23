@@ -75,11 +75,6 @@
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
-			"tab_a_text": {
-				"__TYPE__": "FieldContent",
-				"value": "according",
-				"type": "Text"
-			},
 			"tab_b_text": {
 				"__TYPE__": "FieldContent",
 				"value": "doing",
@@ -89,29 +84,6 @@
 				"__TYPE__": "FieldContent",
 				"value": "electricity",
 				"type": "Text"
-			},
-			"tab_a_icon": {
-				"origin": {
-					"id": "main",
-					"url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
-					"width": 5000,
-					"height": 4613
-				},
-				"url": "https://images.unsplash.com/photo-1596195689404-24d8a8d1c6ea",
-				"width": 5000,
-				"height": 4613,
-				"edit": {
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 0
-					},
-					"background": "transparent"
-				},
-				"credits": null,
-				"alt": null,
-				"__TYPE__": "ImageContent",
-				"thumbnails": {}
 			},
 			"tab_c_icon": {
 				"origin": {
@@ -135,17 +107,6 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
-			},
-			"tab_a_description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Officia laboris in est aliquip culpa aliqua magna."
-						}
-					}
-				]
 			},
 			"tab_b_description": {
 				"__TYPE__": "StructuredTextContent",

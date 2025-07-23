@@ -35,30 +35,6 @@
             "thumbnails": []
           }
         },
-        "tab_a_icon": {
-          "type": "Image",
-          "config": {
-            "label": "Tab A Icon",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "tab_a_text": {
-          "type": "Text",
-          "config": {
-            "label": "Tab A Text",
-            "placeholder": ""
-          }
-        },
-        "tab_a_description": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Tab A Description",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-          }
-        },
         "tab_b_icon": {
           "type": "Image",
           "config": {
