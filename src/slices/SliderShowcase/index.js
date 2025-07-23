@@ -577,35 +577,41 @@ const SliderShowcase = ({ slice, context }) => {
                       ref={prevRef}
                     />
 
-                    <div className="flex gap-2 xl:gap-0 flex-col xl:flex-row      items-start justify-end">
-                      <ImageComponent
-                        className="w-full  h-full "
-                        image={item.image}
-                      />
-                      <div className="w-full h-[33vh]  xl:h-[33.5rem] xl:max-w-[50%] rounded-lg md:rounded-none bg-[#58BCD4] p-8   flex flex-col items-center justify-center relative">
-                        <div className="absolute top-0 right-0 w-full h-[1.25rem]">
-                          <div className="relative h-full w-full">
-                            <Image
-                              src="/quote-side-up.png"
-                              alt="Top Shading"
-                              fill
-                            />
-                          </div>
-                        </div>
+                    <div className="flex flex-col md:flex-row w-full">
+  {/* IMAGE */}
+  <div className="w-full md:w-1/2">
+    <PrismicNextImage 
+      field={item.image}
+      height={1200}
+      width={1200}
+      quality={100}
+      alt=""
+      className="rounded-lg md:rounded-br-none md:rounded-tr-none md:rounded-bl-lg md:rounded-tl-lg w-full h-full object-cover"
+    />
+  </div>
 
-                        {/* Title and Description Section */}
+  {/* TEXT BLOCK */}
+  <div className="w-full md:w-1/2 h-[33vh] xl:h-[33.5rem] rounded-lg md:rounded-none bg-[#58BCD4] p-8 flex flex-col items-center justify-center relative">
+    {/* Top quote bar */}
+    <div className="absolute top-0 right-0 w-full h-[1.25rem]">
+      <div className="relative h-full w-full">
+        <Image
+          src="/quote-side-up.png"
+          alt="Top Shading"
+          fill
+        />
+      </div>
+    </div>
 
-                        <RichText
-                          className="text-black text-lg md:text-xl font-ambit-regular w-full xl:w-[94%] opacity-reveal p-2"
-                          text={
-                            slice.primary.items &&
-                            slice.primary.items[current]?.description
-                              ? slice.primary.items[current].description
-                              : "No description available"
-                          }
-                        />
-                      </div>
-                    </div>
+    {/* Description */}
+    <p className="text-black text-lg md:text-lg font-ambit-regular w-full opacity-reveal p-2">
+      {slice.primary.items && slice.primary.items[current]?.description
+        ? slice.primary.items[current].description
+        : "No description available"}
+    </p>
+  </div>
+</div>
+
                     {/* <div className="relative h-full w-full">
                   <Image src="/quote-side-up.png" alt="Top Shading" fill />
                 </div> */}
