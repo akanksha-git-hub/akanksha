@@ -9,7 +9,7 @@ export default function ImageComponent({ image, className }) {
         width={1200}
         quality={100}
         alt=""
-        className="object-cover object-top w-full h-full rounded-lg md:rounded-br-none md:rounded-tr-none md:rounded-bl-lg md:rounded-tl-lg"
+        className="object-cover object-left w-full h-full rounded-lg md:rounded-br-none md:rounded-tr-none md:rounded-bl-lg md:rounded-tl-lg"
       />
   </div>  
 )}
