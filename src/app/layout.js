@@ -84,6 +84,7 @@ export default function RootLayout({ children }) {
           ${ambitSemiBold.variable} ${ambitItalic.variable}
         `}
       >
+        
         <LenisScrollContext>
           <HeaderDataLayer />
           {children}
