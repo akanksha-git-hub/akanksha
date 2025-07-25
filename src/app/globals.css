@@ -10,7 +10,7 @@
   --off-white: #fffbf1;
   --deep-green: #37473c;
   --inactive-story: #757575f0;
-  --marquee-timing: 120s;
+  --marquee-timing: 50s;
   --magic-bezier: cubic-bezier(0.83, 0, 0.17, 1);
   --card-height: 420px;
   --card-width: 80%;
