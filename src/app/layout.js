@@ -1,3 +1,6 @@
+
+import Script from 'next/script';
+
 import { Inter, Playfair_Display, Instrument_Sans } from "next/font/google";
 import LocalFont from "next/font/local"
 import "./globals.css";
@@ -73,7 +76,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
-  
+  // ==========================================================
+  // 2. ADD THIS LINE
+  // ==========================================================
+  const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
   return (
     <html lang="en">
       <body 
@@ -85,6 +92,30 @@ export default function RootLayout({ children }) {
         `}
       >
         
+        {/* ========================================================== */}
+        {/* 3. ADD THIS ENTIRE SCRIPT BLOCK */}
+        {/* ========================================================== */}
+        {gaMeasurementId && (
+          <>
+            <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+            />
+            <Script
+              id="google-analytics"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${gaMeasurementId}');
+                `,
+              }}
+            />
+          </>
+        )}
+
         <LenisScrollContext>
           <HeaderDataLayer />
           {children}

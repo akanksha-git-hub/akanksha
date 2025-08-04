@@ -1,3 +1,4 @@
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
 import { PrismicNextImage } from "@prismicio/next";
 
 /**
@@ -17,10 +18,17 @@ const ImpactHero = ({ slice }) => {
           <div className=" flex flex-wrap md:justify-center justify-start w-full gap-4 xl:gap-8 ">
             {slice.primary.stats.map((stat, index) => (
               <div key={index} className="flex flex-col md:items-center  py-2">
-                <p className="text-5xl md:text-6xl font-ambit-regular">{stat.number}</p>
-                <p className="text-xl md:text-2xl font-ambit-regular mt-2 md:w-[10ch] w-[8ch] text-left md:text-center  ">
-                  {stat.field}
-                </p>
+              <RichTextRenderer
+  field={stat.number_new}
+  className="text-5xl md:text-6xl font-ambit-regular"
+/>
+
+                <RichTextRenderer
+  field={stat.field_new
+  }
+  className="text-xl md:text-2xl font-ambit-regular mt-2 md:w-[10ch] w-[8ch] text-left md:text-center"
+/>
+
               </div>
             ))}
           </div>

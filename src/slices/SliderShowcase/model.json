@@ -398,11 +398,29 @@
                   "placeholder": ""
                 }
               },
+              "title_new": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Title New",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
               "description": {
                 "type": "Text",
                 "config": {
                   "label": "Description",
                   "placeholder": ""
+                }
+              },
+              "description_new": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description New",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                 }
               }
             }
@@ -443,6 +461,15 @@
             "placeholder_false": "false"
           }
         },
+        "title_new": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title New",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
         "title": {
           "type": "Text",
           "config": {
@@ -469,6 +496,15 @@
                 "config": {
                   "label": "Description",
                   "placeholder": ""
+                }
+              },
+              "description_new": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description New",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                 }
               }
             }
@@ -522,11 +558,29 @@
                   "placeholder": ""
                 }
               },
+              "title_new": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Title New",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
               "description": {
                 "type": "Text",
                 "config": {
                   "label": "Description",
                   "placeholder": ""
+                }
+              },
+              "description_new": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description New",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                 }
               },
               "image": {

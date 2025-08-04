@@ -133,6 +133,72 @@
 			"show_identifier": {
 				"__TYPE__": "BooleanContent",
 				"value": false
+			},
+			"main_heading_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim laborum fugiat duis velit sit laboris amet veniam incididunt quis ex tempor sunt ex proident. Aute qui reprehenderit Lorem eu velit minim aliquip nostrud qui id eiusmod. Ex qui dolore sint labore dolore ea velit."
+						}
+					}
+				]
+			},
+			"heading_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Consectetur ex laboris sunt ullamco et laboris."
+						}
+					}
+				]
+			},
+			"card_1_heading_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laboris ad eu cupidatat veniam aliquip irure cupidatat esse cupidatat laborum quis sunt enim deserunt. Voluptate amet veniam minim aliqua enim ad culpa dolor officia labore est officia adipisicing laboris. Magna ea deserunt consectetur consequat voluptate culpa adipisicing ad sint excepteur."
+						}
+					}
+				]
+			},
+			"card_1_description_1_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Incididunt culpa enim proident."
+						}
+					}
+				]
+			},
+			"card_2_title_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Officia Lorem enim nostrud ea incididunt anim deserunt cillum duis mollit exercitation non cillum nulla. Sint eu dolor tempor amet veniam cillum est duis Lorem deserunt id et quis amet anim. Commodo magna amet duis labore pariatur."
+						}
+					}
+				]
+			},
+			"card_2_description_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Veniam pariatur nostrud labore eiusmod laboris commodo deserunt nostrud cillum deserunt et laboris Lorem duis."
+						}
+					}
+				]
 			}
 		},
 		"items": []

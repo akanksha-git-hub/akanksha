@@ -175,6 +175,17 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"title_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nulla consectetur reprehenderit amet duis officia aliqua cillum voluptate et aliquip aute. Nostrud ad ullamco ad aliqua elit officia amet excepteur amet. Consectetur proident anim ipsum quis fugiat non consequat eiusmod tempor laborum ad."
+						}
+					}
+				]
 			}
 		},
 		"items": []

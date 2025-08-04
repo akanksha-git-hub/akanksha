@@ -113,6 +113,34 @@
 									"value": "available",
 									"type": "Text"
 								}
+							],
+							[
+								"number_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Nulla sit pariatur aute incididunt aliqua non."
+											}
+										}
+									]
+								}
+							],
+							[
+								"field_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Ex excepteur sit quis id aliqua. Exercitation veniam elit dolore culpa sunt sit deserunt reprehenderit ad."
+											}
+										}
+									]
+								}
 							]
 						]
 					}

@@ -3379,6 +3379,17 @@ interface OurdonorsDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * Title New field in *Our Donors*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ourdonors.title_new
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
+
+  /**
    * Asset 1 field in *Our Donors*
    *
    * - **Field Type**: Image
@@ -4094,6 +4105,17 @@ interface TimelineDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * Title New field in *Timeline*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.title_new
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
 
   /**
    * Descriptions field in *Timeline*
@@ -6679,6 +6701,16 @@ export interface CardShuffleSliceDefaultPrimaryItemsItem {
   main_title: prismic.KeyTextField;
 
   /**
+   * Main Title New field in *CardShuffle → Default → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.default.primary.items[].main_title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_title_new: prismic.RichTextField;
+
+  /**
    * Description field in *CardShuffle → Default → Primary → Items*
    *
    * - **Field Type**: Text
@@ -6687,6 +6719,16 @@ export interface CardShuffleSliceDefaultPrimaryItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Description New field in *CardShuffle → Default → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_shuffle.default.primary.items[].description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_new: prismic.RichTextField;
 
   /**
    * CTA Link field in *CardShuffle → Default → Primary → Items*
@@ -8329,6 +8371,16 @@ export interface FlagshipHeroSliceSectionHeroPrimary {
   main_title: prismic.KeyTextField;
 
   /**
+   * Main Title New field in *FlagshipHero → SectionHero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.sectionHero.primary.main_title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_title_new: prismic.RichTextField;
+
+  /**
    * Description1 field in *FlagshipHero → SectionHero → Primary*
    *
    * - **Field Type**: Text
@@ -8339,6 +8391,16 @@ export interface FlagshipHeroSliceSectionHeroPrimary {
   description1: prismic.KeyTextField;
 
   /**
+   * Description1 New field in *FlagshipHero → SectionHero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.sectionHero.primary.description1_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description1_new: prismic.RichTextField;
+
+  /**
    * Description2 field in *FlagshipHero → SectionHero → Primary*
    *
    * - **Field Type**: Text
@@ -8347,6 +8409,16 @@ export interface FlagshipHeroSliceSectionHeroPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description2: prismic.KeyTextField;
+
+  /**
+   * Description2 New field in *FlagshipHero → SectionHero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.sectionHero.primary.description2_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description2_new: prismic.RichTextField;
 
   /**
    * Image A field in *FlagshipHero → SectionHero → Primary*
@@ -8397,6 +8469,16 @@ export interface FlagshipHeroSliceSmallDescriptionPrimary {
   main_title: prismic.KeyTextField;
 
   /**
+   * Main Title New field in *FlagshipHero → small description → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.smallDescription.primary.main_title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_title_new: prismic.RichTextField;
+
+  /**
    * Description1 field in *FlagshipHero → small description → Primary*
    *
    * - **Field Type**: Text
@@ -8405,6 +8487,16 @@ export interface FlagshipHeroSliceSmallDescriptionPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description1: prismic.KeyTextField;
+
+  /**
+   * Description1 New field in *FlagshipHero → small description → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: flagship_hero.smallDescription.primary.description1_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description1_new: prismic.RichTextField;
 
   /**
    * Image A field in *FlagshipHero → small description → Primary*
@@ -9733,6 +9825,16 @@ export interface IconShowcaseSliceDefaultPrimaryDataItem {
   title: prismic.KeyTextField;
 
   /**
+   * Title New field in *IconShowcase → Default → Primary → Data*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.default.primary.data[].title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
+
+  /**
    * Description field in *IconShowcase → Default → Primary → Data*
    *
    * - **Field Type**: Text
@@ -9741,6 +9843,16 @@ export interface IconShowcaseSliceDefaultPrimaryDataItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Description New field in *IconShowcase → Default → Primary → Data*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.default.primary.data[].description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_new: prismic.RichTextField;
 
   /**
    * isAnimatedIcon field in *IconShowcase → Default → Primary → Data*
@@ -9901,6 +10013,16 @@ export interface IconShowcaseSliceWithTitleDefaultPrimaryDataItem {
   title: prismic.KeyTextField;
 
   /**
+   * Title New field in *IconShowcase → With Title Default → Primary → Data*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.withTitleDefault.primary.data[].title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
+
+  /**
    * Description field in *IconShowcase → With Title Default → Primary → Data*
    *
    * - **Field Type**: Text
@@ -9909,6 +10031,16 @@ export interface IconShowcaseSliceWithTitleDefaultPrimaryDataItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Description New field in *IconShowcase → With Title Default → Primary → Data*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.withTitleDefault.primary.data[].description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_new: prismic.RichTextField;
 
   /**
    * isAnimatedIcon field in *IconShowcase → With Title Default → Primary → Data*
@@ -9957,6 +10089,16 @@ export interface IconShowcaseSliceIconShowcaseV2PrimaryDataItem {
   title: prismic.KeyTextField;
 
   /**
+   * Title New field in *IconShowcase → IconShowcaseV2 → Primary → Data*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.data[].title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
+
+  /**
    * Description field in *IconShowcase → IconShowcaseV2 → Primary → Data*
    *
    * - **Field Type**: Text
@@ -9965,6 +10107,16 @@ export interface IconShowcaseSliceIconShowcaseV2PrimaryDataItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Description New field in *IconShowcase → IconShowcaseV2 → Primary → Data*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.data[].description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_new: prismic.RichTextField;
 
   /**
    * isAnimatedIcon field in *IconShowcase → IconShowcaseV2 → Primary → Data*
@@ -10233,6 +10385,16 @@ export interface IconShowcaseSliceWithTitleDefaultPrimary {
   title: prismic.KeyTextField;
 
   /**
+   * Title New field in *IconShowcase → With Title Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.withTitleDefault.primary.title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
+
+  /**
    * Data field in *IconShowcase → With Title Default → Primary*
    *
    * - **Field Type**: Group
@@ -10294,6 +10456,16 @@ export interface IconShowcaseSliceIconShowcaseV2Primary {
   title: prismic.KeyTextField;
 
   /**
+   * Title New field in *IconShowcase → IconShowcaseV2 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
+
+  /**
    * Description field in *IconShowcase → IconShowcaseV2 → Primary*
    *
    * - **Field Type**: Text
@@ -10302,6 +10474,16 @@ export interface IconShowcaseSliceIconShowcaseV2Primary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Description New field in *IconShowcase → IconShowcaseV2 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_showcase.iconShowcaseV2.primary.description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_new: prismic.RichTextField;
 
   /**
    * Image field in *IconShowcase → IconShowcaseV2 → Primary*
@@ -10605,6 +10787,16 @@ export interface ImpactHeroSliceStatsPrimaryStatsItem {
   number: prismic.KeyTextField;
 
   /**
+   * number_new field in *ImpactHero → Stats → Primary → Stats*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_hero.stats.primary.stats[].number_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  number_new: prismic.RichTextField;
+
+  /**
    * field field in *ImpactHero → Stats → Primary → Stats*
    *
    * - **Field Type**: Text
@@ -10613,6 +10805,16 @@ export interface ImpactHeroSliceStatsPrimaryStatsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   field: prismic.KeyTextField;
+
+  /**
+   * field new field in *ImpactHero → Stats → Primary → Stats*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: impact_hero.stats.primary.stats[].field_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  field_new: prismic.RichTextField;
 }
 
 /**
@@ -13170,6 +13372,16 @@ export interface MissionVisionShowcaseSliceDefaultPrimary {
   mission_description: prismic.KeyTextField;
 
   /**
+   * Mission Description New field in *MissionVisionShowcase → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision_showcase.default.primary.mission_description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  mission_description_new: prismic.RichTextField;
+
+  /**
    * Vision Description field in *MissionVisionShowcase → Default → Primary*
    *
    * - **Field Type**: Text
@@ -13178,6 +13390,16 @@ export interface MissionVisionShowcaseSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   vision_description: prismic.KeyTextField;
+
+  /**
+   * Vision Description New field in *MissionVisionShowcase → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision_showcase.default.primary.vision_description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  vision_description_new: prismic.RichTextField;
 }
 
 /**
@@ -13713,6 +13935,16 @@ export interface PageTitleSliceSparklePrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * Title New field in *PageTitle → Sparkle → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_title.sparkle.primary.title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
 
   /**
    * Description field in *PageTitle → Sparkle → Primary*
@@ -15729,6 +15961,16 @@ export interface SliderShowcaseSliceSliderFPrimaryItemsItem {
   title: prismic.KeyTextField;
 
   /**
+   * Title New field in *SliderShowcase → sliderF → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderF.primary.items[].title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
+
+  /**
    * Description field in *SliderShowcase → sliderF → Primary → Items*
    *
    * - **Field Type**: Text
@@ -15737,6 +15979,16 @@ export interface SliderShowcaseSliceSliderFPrimaryItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Description New field in *SliderShowcase → sliderF → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderF.primary.items[].description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_new: prismic.RichTextField;
 }
 
 /**
@@ -15762,6 +16014,16 @@ export interface SliderShowcaseSliceSliderFvariationPrimaryItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Description New field in *SliderShowcase → sliderFvariation → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderFvariation.primary.items[].description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_new: prismic.RichTextField;
 }
 
 /**
@@ -15779,6 +16041,16 @@ export interface SliderShowcaseSliceSliderFv2PrimaryItemsItem {
   title: prismic.KeyTextField;
 
   /**
+   * Title New field in *SliderShowcase → sliderFV2 → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderFv2.primary.items[].title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
+
+  /**
    * Description field in *SliderShowcase → sliderFV2 → Primary → Items*
    *
    * - **Field Type**: Text
@@ -15787,6 +16059,16 @@ export interface SliderShowcaseSliceSliderFv2PrimaryItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Description New field in *SliderShowcase → sliderFV2 → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderFv2.primary.items[].description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_new: prismic.RichTextField;
 
   /**
    * Image field in *SliderShowcase → sliderFV2 → Primary → Items*
@@ -16211,6 +16493,16 @@ export interface SliderShowcaseSliceSliderFvariationPrimary {
   show_identifier: prismic.BooleanField;
 
   /**
+   * Title New field in *SliderShowcase → sliderFvariation → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider_showcase.sliderFvariation.primary.title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
+
+  /**
    * title field in *SliderShowcase → sliderFvariation → Primary*
    *
    * - **Field Type**: Text
@@ -16367,6 +16659,16 @@ export interface StudentVisionSliceDefaultPrimaryDescriptionItem {
   desc: prismic.KeyTextField;
 
   /**
+   * desc new field in *StudentVision → Default → Primary → description*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.default.primary.description[].desc_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  desc_new: prismic.RichTextField;
+
+  /**
    * BG Color field in *StudentVision → Default → Primary → description*
    *
    * - **Field Type**: Text
@@ -16466,6 +16768,16 @@ export interface StudentVisionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * title new field in *StudentVision → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: student_vision.default.primary.title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
 
   /**
    * image field in *StudentVision → Default → Primary*
@@ -16842,6 +17154,16 @@ export interface SuccessRate1SliceDefaultPrimary {
   show_identifier: prismic.BooleanField;
 
   /**
+   * Main Heading New field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.main_heading_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_heading_new: prismic.RichTextField;
+
+  /**
    * Main Heading field in *SuccessRate1 → Default → Primary*
    *
    * - **Field Type**: Text
@@ -16850,6 +17172,16 @@ export interface SuccessRate1SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   main_heading: prismic.KeyTextField;
+
+  /**
+   * Heading New field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.heading_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading_new: prismic.RichTextField;
 
   /**
    * Heading field in *SuccessRate1 → Default → Primary*
@@ -16862,6 +17194,16 @@ export interface SuccessRate1SliceDefaultPrimary {
   heading: prismic.KeyTextField;
 
   /**
+   * Card 1 Heading New field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.card_1_heading_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_1_heading_new: prismic.RichTextField;
+
+  /**
    * Card 1 Heading field in *SuccessRate1 → Default → Primary*
    *
    * - **Field Type**: Text
@@ -16870,6 +17212,16 @@ export interface SuccessRate1SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   card_1_heading: prismic.KeyTextField;
+
+  /**
+   * Card 1 Description 1 New field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.card_1_description_1_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_1_description_1_new: prismic.RichTextField;
 
   /**
    * Card 1 Description 1 field in *SuccessRate1 → Default → Primary*
@@ -16902,6 +17254,16 @@ export interface SuccessRate1SliceDefaultPrimary {
   asset_1: prismic.ImageField<never>;
 
   /**
+   * Card 2 Title New field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.card_2_title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_2_title_new: prismic.RichTextField;
+
+  /**
    * Card 2 Title field in *SuccessRate1 → Default → Primary*
    *
    * - **Field Type**: Text
@@ -16910,6 +17272,16 @@ export interface SuccessRate1SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   card_2_title: prismic.KeyTextField;
+
+  /**
+   * Card 2 Description New field in *SuccessRate1 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate1.default.primary.card_2_description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_2_description_new: prismic.RichTextField;
 
   /**
    * Card 2 Description field in *SuccessRate1 → Default → Primary*
@@ -16987,6 +17359,16 @@ export interface SuccessRate2SliceDefaultPrimary {
   card_1_title: prismic.KeyTextField;
 
   /**
+   * Card 1 Title New field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.card_1_title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_1_title_new: prismic.RichTextField;
+
+  /**
    * Card 1 Description field in *SuccessRate2 → Default → Primary*
    *
    * - **Field Type**: Text
@@ -16995,6 +17377,16 @@ export interface SuccessRate2SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   card_1_description: prismic.KeyTextField;
+
+  /**
+   * Card 1 Description New field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.card_1_description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_1_description_new: prismic.RichTextField;
 
   /**
    * Card 1 Icon field in *SuccessRate2 → Default → Primary*
@@ -17017,6 +17409,16 @@ export interface SuccessRate2SliceDefaultPrimary {
   box_number: prismic.KeyTextField;
 
   /**
+   * Box Number New field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.box_number_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  box_number_new: prismic.RichTextField;
+
+  /**
    * Card 2 Description field in *SuccessRate2 → Default → Primary*
    *
    * - **Field Type**: Text
@@ -17025,6 +17427,16 @@ export interface SuccessRate2SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   card_2_description: prismic.KeyTextField;
+
+  /**
+   * Card 2 Description New field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.card_2_description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_2_description_new: prismic.RichTextField;
 
   /**
    * Card 2 Icon field in *SuccessRate2 → Default → Primary*
@@ -17057,6 +17469,16 @@ export interface SuccessRate2SliceDefaultPrimary {
   card_3_title: prismic.KeyTextField;
 
   /**
+   * Card 3 Title New field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.card_3_title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_3_title_new: prismic.RichTextField;
+
+  /**
    * Card 3 Description field in *SuccessRate2 → Default → Primary*
    *
    * - **Field Type**: Text
@@ -17065,6 +17487,16 @@ export interface SuccessRate2SliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   card_3_description: prismic.KeyTextField;
+
+  /**
+   * Card 3 Description New field in *SuccessRate2 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: success_rate2.default.primary.card_3_description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  card_3_description_new: prismic.RichTextField;
 
   /**
    * Card 3 Icon field in *SuccessRate2 → Default → Primary*
@@ -17221,6 +17653,16 @@ export interface TabSliceSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * Title New field in *TabSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tab_slice.default.primary.title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
 
   /**
    * Asset 1 field in *TabSlice → Default → Primary*
@@ -17562,6 +18004,16 @@ export interface TestimonialSliceTestimonialMultiplePrimaryContentItem {
   quote: prismic.KeyTextField;
 
   /**
+   * Quote New field in *Testimonial → TestimonialMultiple → Primary → content*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.testimonialMultiple.primary.content[].quote_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  quote_new: prismic.RichTextField;
+
+  /**
    * name field in *Testimonial → TestimonialMultiple → Primary → content*
    *
    * - **Field Type**: Text
@@ -17570,6 +18022,16 @@ export interface TestimonialSliceTestimonialMultiplePrimaryContentItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   name: prismic.KeyTextField;
+
+  /**
+   * Name New field in *Testimonial → TestimonialMultiple → Primary → content*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.testimonialMultiple.primary.content[].name_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name_new: prismic.RichTextField;
 
   /**
    * asset field in *Testimonial → TestimonialMultiple → Primary → content*
@@ -17911,6 +18373,16 @@ export interface TestimonialSliceTestimonialMultiplePrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * Title New field in *Testimonial → TestimonialMultiple → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testimonial.testimonialMultiple.primary.title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
 
   /**
    * content field in *Testimonial → TestimonialMultiple → Primary*
@@ -18560,6 +19032,16 @@ export interface TimelineScrollerSliceDefaultPrimaryItemsItem {
   image: prismic.ImageField<never>;
 
   /**
+   * Year New field in *TimelineScroller → Default → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_scroller.default.primary.items[].year_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  year_new: prismic.RichTextField;
+
+  /**
    * Year field in *TimelineScroller → Default → Primary → Items*
    *
    * - **Field Type**: Text
@@ -18578,6 +19060,16 @@ export interface TimelineScrollerSliceDefaultPrimaryItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Description New field in *TimelineScroller → Default → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline_scroller.default.primary.items[].description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_new: prismic.RichTextField;
 
   /**
    * Milestone field in *TimelineScroller → Default → Primary → Items*

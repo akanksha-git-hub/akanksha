@@ -68,6 +68,28 @@
 				"__TYPE__": "FieldContent",
 				"value": "born",
 				"type": "Text"
+			},
+			"mission_description_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ipsum excepteur do anim. Elit esse minim ea et sit aliquip ex enim duis. Mollit ut exercitation aliqua aliqua laboris ex nulla pariatur occaecat."
+						}
+					}
+				]
+			},
+			"vision_description_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Consequat laborum nulla id et occaecat elit qui quis veniam. Enim anim in aute qui dolor pariatur sit incididunt non excepteur esse occaecat fugiat incididunt. Sint in ex sint in fugiat commodo non."
+						}
+					}
+				]
 			}
 		},
 		"items": []

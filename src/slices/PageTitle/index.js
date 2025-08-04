@@ -7,6 +7,7 @@ import { PrismicRichText } from "@prismicio/react";
 import Image from "next/image";
 import PinkHeart from "@/assets/pink-heart.svg";
 import SparkleMedium from "@/components/Sparkles/sparkle-medium";
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
 
 /**
  * @typedef {import("@prismicio/client").Content.PageTitleSlice} PageTitleSlice
@@ -89,10 +90,13 @@ const PageTitle = ({ slice }) => {
         >
           <div className="space-y-2 w-full flex flex-col md:items-center relative">
           <Image src={PinkHeart} height={100} width={100} alt="heart" />
-            <RichText
-              text={slice.primary.title}
-              className={`text-black xl:text-7xl sm:text-6xl font-ambit-regular text-5xl ${slice.variation === "sparkle" ? "text-left" : "text-center"} md:text-center w-full sm:w-[70%]`}
-            />
+          <RichTextRenderer
+  field={slice.primary.title_new}
+  className={`text-black xl:text-7xl sm:text-6xl font-ambit-regular text-5xl 
+              ${slice.variation === "sparkle" ? "text-left" : "text-center"} 
+              md:text-center w-full sm:w-[70%]`}
+/>
+
             {/* <SparkleMedium 
             className="absolute -z-10 -top-[70%] md:-top-32 -left-1/4 w-full h-full scale-[0.2] md:scale-[0.4]"
           />
@@ -105,12 +109,16 @@ const PageTitle = ({ slice }) => {
             {/* TODO Change Heart Image to prismic later */}
            
           </div>
-          <div
-            className={`relative text-black sm:text-xl 3xl:text-2xl font-ambit-regular text-lg text-left md:text-center ${slice.variation === "default" ? "w-full lg:w-[70%] xl:w-[70ch]" : "w-full lg:w-[80%] 3xl:w-[110ch]"}`}
-          >
-            {/* <div className="orange-gradient absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 -z-20 h-full w-full"></div> */}
-            <PrismicRichText field={slice.primary.description} />
-          </div>
+           {/* <div className="orange-gradient absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 -z-20 h-full w-full"></div> */}
+ 
+        <RichTextRenderer
+  field={slice.primary.description}
+  className={`relative text-black sm:text-xl 3xl:text-2xl font-ambit-regular text-lg text-left md:text-center 
+              ${slice.variation === "default" 
+                ? "w-full lg:w-[70%] xl:w-[70ch]" 
+                : "w-full lg:w-[80%] 3xl:w-[110ch]"}`}
+/>
+
         </div>
       </section>
     </>

@@ -4,6 +4,7 @@ import TextCTA from "../UI/Button/TextCTA";
 import { cardProps } from "@/utils/helperClasses";
 import Button from "../v2-components/buttons/button";
 import Image from "next/image";
+import RichTextRenderer from "../v2-components/RichTextRenderer";
 
 export default function CardShuffleA({ item, index }) {
   let trackIndex = index;
@@ -29,16 +30,16 @@ export default function CardShuffleA({ item, index }) {
            
               text={item.small_title}
             />
-            <RichText
-              className="leading-3 text-2xl text-black lg:text-5xl"
-           
-              text={item.main_title}
-            />
-            <RichText
-              className="font-ambit-regular text-black text-sm lg:text-xl max-w-full"
-            
-              text={item.description}
-            />
+         <RichTextRenderer
+  className="leading-3 text-2xl text-black lg:text-5xl"
+  field={item.main_title_new}
+/>
+
+            <RichTextRenderer
+  className="font-ambit-regular text-black text-sm lg:text-xl max-w-full"
+  field={item.description_new}
+/>
+
           </div>
           {/* <div className="flex flex-col mt-4 lg:mt-0 space-y-2">
             <Button  link={item.cta_link}

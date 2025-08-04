@@ -14,6 +14,7 @@ import { FreeMode } from 'swiper/modules'
 import FinancialsAccordion from "@/components/financials-accordion";
 import RichText from "@/components/Texts/RichText";
 import CTABtn from "@/components/afa/CTABtn";
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
 
 /** ✅ Moved outside to avoid re-renders */
 const RenderIdentifier = ({ show, text }) => {
@@ -318,7 +319,8 @@ const StudentVision = ({ slice, context }) => {
       </section>
     );
   }
-  
+  console.log("title_new field value:", slice.primary.title_new);
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -328,9 +330,11 @@ const StudentVision = ({ slice, context }) => {
       <RenderIdentifier show={show_identifier} text={slice_identifier} />
 
       <div className="flex flex-col justify-center items-center">
-        <h1 className="mt-8 text-5xl md:text-7xl font-ambit-regular">
-          {slice.primary.title}
-        </h1>
+       <RichTextRenderer
+  field={slice.primary.title_new}
+  className="mt-8 text-5xl md:text-7xl font-ambit-regular text-center"
+/>
+
 
         <PrismicNextImage
           height={800}
@@ -339,15 +343,15 @@ const StudentVision = ({ slice, context }) => {
           alt=""
         />
 
-        <div
-          className={`text-center w-[80%] md:w-[50%] font-ambit-regular mt-4 p-4 rounded-lg transition-all duration-300`}
-          style={{
-            backgroundColor:
-              slice.primary.description[trackIndex]?.bg_color || "transparent",
-          }}
-        >
-          {slice.primary.description[trackIndex].desc}
-        </div>
+     <RichTextRenderer
+  field={slice.primary.description[trackIndex]?.desc_new}
+  className="text-center w-[80%] md:w-[50%] font-ambit-regular mt-4 p-4 rounded-lg transition-all duration-300"
+  style={{
+    backgroundColor:
+      slice.primary.description[trackIndex]?.bg_color || 'transparent',
+  }}
+/>
+
 
         <div className="flex gap-2 mt-4">
           <SwiperArrow

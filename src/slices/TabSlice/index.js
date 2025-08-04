@@ -1,5 +1,6 @@
 import TabContainer from "@/components/TabContainer";
 import RichText from "@/components/Texts/RichText";
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
 import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
 
@@ -17,10 +18,11 @@ const TabSlice = ({ slice }) => {
       <div className=" relative flex flex-row md:items-center items-end justify-center space-x-2 md:space-x-10 ">
          
                                  <div className="flex flex-col">
-                                 <RichText 
-          text={slice.primary.title}
-          className='text-black font-ambit-regular text-5xl md:text-7xl text-center mt-2'
-        />
+                         <RichTextRenderer
+  field={slice.primary.title_new}
+  className="text-black font-ambit-regular text-5xl md:text-7xl text-center mt-2"
+/>
+
         </div>
         
         

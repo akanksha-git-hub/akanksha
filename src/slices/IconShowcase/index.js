@@ -6,6 +6,7 @@ import DUMMYLOTTIE from "../../../public/lotties/dummyTestLottie.json";
 import SliceIdentifier from "@/components/SliceIdentifier";
 import Image from "next/image";
 import PencilShading from "@/assets/shading-side.svg";
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
 
 /**
  * @typedef {import("@prismicio/client").Content.IconShowcaseSlice} IconShowcaseSlice
@@ -125,14 +126,16 @@ const IconShowcase = ({ slice, context }) => {
       </div>
         <RenderIdentifier />
         <div className="mb-12 space-y-8 mt-12">
-          <RichText
-            text={slice.primary.title}
-            className="font-ambit-regular  text-black text-5xl md:text-7xl md:text-center flex md:items-center md:justify-center md:w-[15ch] mx-auto "
-          />
-          <RichText
-            text={slice.primary.description}
-            className="font-ambit-regular text-black text-xl md:text-2xl md:text-center flex md:items-center md:justify-center lg:w-[65%] mx-auto"
-          />
+        <RichTextRenderer
+  field={slice.primary.title_new}
+  className="font-ambit-regular text-black text-5xl md:text-7xl md:text-center flex md:items-center md:justify-center md:w-[15ch] mx-auto"
+/>
+
+         <RichTextRenderer
+  field={slice.primary.description_new}
+  className="font-ambit-regular text-black text-xl md:text-2xl md:text-center flex md:items-center md:justify-center lg:w-[65%] mx-auto"
+/>
+
         </div>
         <div className="mt-16">
           <PrismicNextImage
@@ -177,14 +180,16 @@ const IconShowcase = ({ slice, context }) => {
                     )}
                   </div>
                   <div className="space-y-6 p-4">
-                    <RichText
-                      text={item.title}
-                      className="text-black font-ambit-semibold text-3xl md:text-4xl w-[13ch]"
-                    />
-                    <RichText
-                      text={item.description}
-                      className="text-black font-ambit-regular text-md md:text-lg"
-                    />
+                  <RichTextRenderer
+  field={item.title_new}
+  className="text-black font-ambit-semibold text-3xl md:text-4xl w-[13ch]"
+/>
+
+                  <RichTextRenderer
+  field={item.description_new}
+  className="text-black font-ambit-regular text-md md:text-lg"
+/>
+
                   </div>
                 </li>
               );
@@ -280,10 +285,11 @@ const IconShowcase = ({ slice, context }) => {
         } my-12 pt-12`}
       >
         <RenderIdentifier />
-        <RichText
-          text={slice.primary.title}
-          className="font-ambit-regular text-black md:text-6xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto text-3xl sm:text-5xl xl:w-[46%] text-left xl:text-5xl 3xl:w-[48rem] 3xl:text-6xl mt-14"
-        />
+      <RichTextRenderer
+  field={slice.primary.title_new}
+  className="font-ambit-regular text-black md:text-6xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto text-3xl sm:text-5xl xl:w-[46%] text-left xl:text-5xl 3xl:w-[48rem] 3xl:text-6xl mt-14"
+/>
+
         {slice.primary.data && (
           <ul className="grid md:grid-cols-2 xl:grid-cols-3 mt-14 gap-4">
             {slice.primary.data.map((item, index) => {
@@ -323,14 +329,16 @@ const IconShowcase = ({ slice, context }) => {
                     )}
                   </div>
                   <div className="space-y-2">
-                    <RichText
-                      text={item.title}
-                      className="text-black font-ambit-semibold text-2xl"
-                    />
-                    <RichText
-                      text={item.description}
-                      className="text-black font-ambit-regular text-lg"
-                    />
+                   <RichTextRenderer
+  field={item.title_new}
+  className="text-black font-ambit-semibold text-2xl"
+/>
+
+                   <RichTextRenderer
+  field={item.description_new}
+  className="text-black font-ambit-regular text-lg"
+/>
+
                   </div>
                 </li>
               );
@@ -351,10 +359,11 @@ if (slice.variation === "withTitleDefault") {
         } my-12 pt-12`}
       >
         <RenderIdentifier />
-        <RichText
-          text={slice.primary.title}
-          className="font-ambit-regular text-black md:text-6xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto text-3xl sm:text-5xl xl:w-[46%] text-left xl:text-5xl 3xl:w-[48rem] 3xl:text-6xl mt-14"
-        />
+       <RichTextRenderer
+  field={slice.primary.title_new}
+  className="font-ambit-regular text-black md:text-6xl md:text-left flex md:items-center md:justify-left md:w-[15ch] md:mr-auto text-3xl sm:text-5xl xl:w-[46%] text-left xl:text-5xl 3xl:w-[48rem] 3xl:text-6xl mt-14"
+/>
+
         {slice.primary.data && (
           <ul className="grid md:grid-cols-2 xl:grid-cols-3 mt-14 gap-4">
             {slice.primary.data.map((item, index) => {
@@ -394,14 +403,16 @@ if (slice.variation === "withTitleDefault") {
                     )}
                   </div>
                   <div className="space-y-2">
-                    <RichText
-                      text={item.title}
-                      className="text-black font-ambit-semibold text-2xl"
-                    />
-                    <RichText
-                      text={item.description}
-                      className="text-black font-ambit-regular text-lg"
-                    />
+                   <RichTextRenderer
+  field={item.title_new}
+  className="text-black font-ambit-semibold text-2xl"
+/>
+
+                   <RichTextRenderer
+  field={item.description}
+  className="text-black font-ambit-regular text-lg"
+/>
+
                   </div>
                 </li>
               );
@@ -458,14 +469,16 @@ if (slice.variation === "withTitleDefault") {
                   )}
                 </div>
                 <div className="space-y-2">
-                  <RichText
-                    text={item.title}
-                    className="text-black font-ambit-semibold text-2xl"
-                  />
-                  <RichText
-                    text={item.description}
-                    className="text-black font-ambit-regular text-lg"
-                  />
+                <RichTextRenderer
+  field={item.title_new}
+  className="text-black font-ambit-semibold text-2xl"
+/>
+
+<RichTextRenderer
+  field={item.description_new}
+  className="text-black font-ambit-regular text-lg"
+/>
+
                 </div>
               </li>
             );

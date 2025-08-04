@@ -1,4 +1,5 @@
 import RichText from "@/components/Texts/RichText";
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
 import { fetchPrismicSingleDocument } from "@/lib/prismicDb";
 import { components } from "@/slices";
 import { maxwidth } from "@/utils/helperClasses";
@@ -20,10 +21,11 @@ export default async function Page() {
             className="w-24 h-auto md:w-60"
           />
         )} */}
-        <RichText
-          className="text-black font-ambit-regular text-5xl md:text-7xl text-center mt-2"
-          text={page.data.title}
-        />
+       <RichTextRenderer
+  className="text-black font-ambit-regular text-5xl md:text-7xl text-center mt-2"
+  field={page.data.title_new}
+/>
+
         {/* {page.data.asset_2?.url && (
           <PrismicNextImage
             field={page.data.asset_2}

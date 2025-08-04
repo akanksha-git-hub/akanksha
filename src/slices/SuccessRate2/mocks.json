@@ -147,6 +147,72 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"card_1_title_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Dolor sint commodo occaecat voluptate mollit do id tempor."
+						}
+					}
+				]
+			},
+			"card_1_description_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Do consequat nulla nostrud minim qui anim labore mollit incididunt amet labore eiusmod aliqua non. Culpa sit sunt nulla."
+						}
+					}
+				]
+			},
+			"box_number_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Pariatur non officia eiusmod dolor elit dolor cillum exercitation velit. Sit non culpa eu et ea Lorem veniam qui."
+						}
+					}
+				]
+			},
+			"card_2_description_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Veniam ad eu officia nostrud officia ad amet. Excepteur cupidatat id tempor sit proident elit ipsum commodo id."
+						}
+					}
+				]
+			},
+			"card_3_title_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eu aliqua et ad mollit anim ad ullamco elit Lorem minim nostrud minim dolor cupidatat. Mollit fugiat fugiat esse cillum magna sunt in quis ad aute cillum id aliquip. Cillum voluptate proident laborum est cupidatat cillum dolore."
+						}
+					}
+				]
+			},
+			"card_3_description_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ea minim enim aliquip consequat ullamco sunt duis velit quis sint reprehenderit quis non eu."
+						}
+					}
+				]
 			}
 		},
 		"items": []

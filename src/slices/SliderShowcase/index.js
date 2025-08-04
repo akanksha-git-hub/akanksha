@@ -8,6 +8,7 @@ import RichText from "@/components/Texts/RichText";
 import PrimaryCTA from "@/components/UI/Button/PrimaryCTA";
 import StoryCircle from "@/components/UI/Story/StoryCircle";
 import SwiperArrow from "@/components/UI/SwiperArrow";
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
 import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
 import { useRef, useState } from "react";
@@ -474,16 +475,18 @@ const SliderShowcase = ({ slice, context }) => {
           <div className="flex flex-col items-start justify-between w-full lg:w-[40%] lg:mt-8 ">
             {/* Title and Description Section */}
             <div className="flex flex-col space-y-4">
-              <RichText
-                className="text-black font-ambit-regular text-3xl opacity-reveal"
-                key={slice.primary.items[current].title}
-                text={slice.primary.items[current].title}
-              />
-              <RichText
-                className="text-black font-ambit-regular text-md md:text-lg w-full lg:w-[94%] opacity-reveal"
-                key={slice.primary.items[current].description}
-                text={slice.primary.items[current].description}
-              />
+         <RichTextRenderer
+  key={slice.primary.items[current].title_new}
+  field={slice.primary.items[current].title_new}
+  className="text-black font-ambit-regular text-3xl opacity-reveal"
+/>
+
+            <RichTextRenderer
+  className="text-black font-ambit-regular text-md md:text-lg w-full lg:w-[94%] opacity-reveal"
+  key={slice.primary.items[current].description_new}
+  field={slice.primary.items[current].description_new}
+/>
+
             </div>
 
             {/* Swiper Arrows at the Bottom */}
@@ -526,10 +529,11 @@ const SliderShowcase = ({ slice, context }) => {
         <div className="flex flex-col xl:flex-row items-start justify-between h-full   w-full md:mt-16 mt-8   ">
           <div className="w-full xl:w-[30%]  flex flex-col justify-evenly  ">
             <div className=" xl:mt-6">
-              <RichText
-                text={slice.primary.title}
-                className="text-black font-ambit-regular text-4xl lg:text-6xl lg:text-left xl:max-w-[5ch] lg:mr-auto xl:mb-0 "
-              />
+           <RichTextRenderer
+  className="text-black font-ambit-regular text-4xl lg:text-6xl lg:text-left xl:max-w-[5ch] lg:mr-auto xl:mb-0"
+  field={slice.primary.title_new}
+/>
+
             </div>
           </div>
           <div className=" h-full w-full xl:w-[70%] mt-8 md:mt-10 xl:mt-0">
@@ -595,15 +599,22 @@ const SliderShowcase = ({ slice, context }) => {
 
                         {/* Title and Description Section */}
 
-                        <RichText
-                          className="text-black text-lg md:text-[1.1rem] font-ambit-regular w-full xl:w-[94%] opacity-reveal p-2"
-                          text={
-                            slice.primary.items &&
-                            slice.primary.items[current]?.description
-                              ? slice.primary.items[current].description
-                              : "No description available"
-                          }
-                        />
+                       <RichTextRenderer
+  className="text-black text-lg md:text-[1.1rem] font-ambit-regular w-full xl:w-[94%] opacity-reveal p-2"
+  field={
+    slice.primary.items &&
+    slice.primary.items[current]?.description_new
+      ? slice.primary.items[current].description_new
+      : [
+          {
+            type: "paragraph",
+            text: "No description available",
+            spans: [],
+          },
+        ]
+  }
+/>
+
                       </div>
                     </div>
                     {/* <div className="relative h-full w-full">
@@ -704,24 +715,26 @@ const SliderShowcase = ({ slice, context }) => {
 
                         {/* Title and Description Section */}
 <div className="flex flex-col mt-2">
-<RichText
-                          className="text-black text-2xl md:text-5xl font-ambit-regular w-full xl:w-[94%] opacity-reveal"
-                          text={
-                            slice.primary.items &&
-                            slice.primary.items[current]?.title
-                              ? slice.primary.items[current].title
-                              : "No description available"
-                          }
-                        />
-                        <RichText
-                          className="text-black text-lg md:text-xl font-ambit-regular w-full xl:w-[94%] opacity-reveal mt-4 xl:mt-4 "
-                          text={
-                            slice.primary.items &&
-                            slice.primary.items[current]?.description
-                              ? slice.primary.items[current].description
-                              : "No description available"
-                          }
-                        />
+<RichTextRenderer
+  className="text-black text-2xl md:text-5xl font-ambit-regular w-full xl:w-[94%] opacity-reveal"
+  field={
+    slice.primary.items &&
+    slice.primary.items[current]?.title_new
+      ? slice.primary.items[current].title_new
+      : []
+  }
+/>
+
+                       <RichTextRenderer
+  className="text-black text-lg md:text-xl font-ambit-regular w-full xl:w-[94%] opacity-reveal mt-4 xl:mt-4"
+  field={
+    slice.primary.items &&
+    slice.primary.items[current]?.description_new
+      ? slice.primary.items[current].description_new
+      : []
+  }
+/>
+
                           <div className="  hidden xl:flex flex-row items-center justify-center  mr-auto  gap-2  mt-6 xl:mt-6">
               <SwiperArrow
                 strokeColor="#37473C"

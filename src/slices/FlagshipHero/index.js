@@ -1,5 +1,6 @@
 "use client";
 import RichText from "@/components/Texts/RichText";
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
 import { PrismicNextImage } from "@prismicio/next";
 import Lottie from "lottie-react";
 
@@ -25,19 +26,21 @@ const FlagshipHero = ({ slice }) => {
         className="relative  "
       >
         <div className="flex flex-col items-start md:items-center justify-center space-y-12 mt-4 md:mt-14 xl:mt-4">
-          <RichText
-            text={slice.primary.main_title}
-            className="font-ambit-regular text-black text-left md:text-center text-3xl md:text-6xl
-              max-w-[15ch]  "
-          />
-          <RichText
-            text={slice.primary.description1}
-            className="font-ambit-regular text-black sm:text-center w-full max-w-[60ch] text-[1.35rem] md:pt-14 xl:pt-0"
-          />
-          <RichText
-            text={slice.primary.description2}
-            className="font-ambit-regular text-black sm:text-center w-full max-w-[60ch] text-[1.35rem]"
-          />
+          <RichTextRenderer
+  field={slice.primary.main_title_new}
+  className="font-ambit-regular text-black text-left md:text-center text-3xl md:text-6xl max-w-[15ch]"
+/>
+
+         <RichTextRenderer
+  field={slice.primary.description1_new}
+  className="font-ambit-regular text-black sm:text-center w-full max-w-[60ch] text-[1.35rem] md:pt-14 xl:pt-0"
+/>
+
+         <RichTextRenderer
+  field={slice.primary.description2_new}
+  className="font-ambit-regular text-black sm:text-center w-full max-w-[60ch] text-[1.35rem]"
+/>
+
         </div>
 
         <div
@@ -75,14 +78,15 @@ const FlagshipHero = ({ slice }) => {
         className="relative universal-padding "
       >
         <div className="flex flex-col items-center justify-center space-y-12 mt-4 lg:mt-4">
-          <RichText
-            text={slice.primary.main_title}
-            className="font-ambit-regular text-black sm:text-center  text-3xl md:text-6xl max-w-[20ch]"
-          />
-          <RichText
-            text={slice.primary.description1}
-            className="font-ambit-regular text-black sm:text-center text-xl w-full max-w-[60ch]"
-          />
+        <RichTextRenderer
+  field={slice.primary.main_title_new}
+  className="font-ambit-regular text-black sm:text-center text-3xl md:text-6xl max-w-[20ch]"
+/>
+<RichTextRenderer
+  field={slice.primary.description1_new}
+  className="font-ambit-regular text-black sm:text-center text-xl w-full max-w-[60ch]"
+/>
+
           {slice.primary.description2?.length > 0 && (
             <RichText
               text={slice.primary.description2}

@@ -82,6 +82,17 @@
 			"show_identifier": {
 				"__TYPE__": "BooleanContent",
 				"value": true
+			},
+			"title_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Culpa occaecat esse Lorem voluptate non nulla duis aliqua fugiat labore ad. Ut non commodo ullamco incididunt velit culpa ea duis consequat."
+						}
+					}
+				]
 			}
 		},
 		"items": [

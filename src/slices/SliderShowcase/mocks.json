@@ -480,6 +480,34 @@
 									"value": "check",
 									"type": "Text"
 								}
+							],
+							[
+								"title_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Consectetur occaecat sit laborum sunt sunt eiusmod quis sunt do sit commodo occaecat consectetur cupidatat. Sint reprehenderit commodo minim tempor adipisicing."
+											}
+										}
+									]
+								}
+							],
+							[
+								"description_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Mollit in magna sit commodo duis. Culpa et sint fugiat dolor ad exercitation."
+											}
+										}
+									]
+								}
 							]
 						]
 					}
@@ -568,6 +596,20 @@
 									"value": "harder",
 									"type": "Text"
 								}
+							],
+							[
+								"description_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Consequat adipisicing irure commodo fugiat quis Lorem mollit. Non pariatur tempor quis proident reprehenderit laborum consectetur consectetur et magna. Laboris sunt ad labore sint et cupidatat eiusmod exercitation voluptate consectetur."
+											}
+										}
+									]
+								}
 							]
 						]
 					}
@@ -604,6 +646,17 @@
 			"show_identifier": {
 				"__TYPE__": "BooleanContent",
 				"value": false
+			},
+			"title_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing proident occaecat elit nostrud aliqua Lorem mollit ea non aliqua deserunt."
+						}
+					}
+				]
 			}
 		},
 		"items": [
@@ -673,13 +726,40 @@
 									"value": "breathing",
 									"type": "Text"
 								}
+							],
+							[
+								"title_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Ut enim ipsum occaecat tempor reprehenderit consectetur sunt proident ut esse amet proident dolore."
+											}
+										}
+									]
+								}
+							],
+							[
+								"description_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Est duis id aute enim qui. Consectetur commodo voluptate ullamco commodo deserunt cillum sit."
+											}
+										}
+									]
+								}
 							]
 						]
 					}
 				]
 			},
 			"asset_1": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1491975474562-1f4e30bc9468",
@@ -697,6 +777,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
 			"asset_2": {

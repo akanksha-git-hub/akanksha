@@ -10,6 +10,7 @@ import ButterflyLineA from "@/assets/butterfly-line-A.svg";
 import ButterflyLineB from "@/assets/butterfly-line-B.svg";
 import ButterFlyA from "@/assets/butterfly-A.svg";
 import ButterFlyB from "@/assets/butterfly-B.svg";
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,16 +76,16 @@ const MissionVisionShowcase = ({ slice }) => {
         </div>
 
         {/* Description */}
-        <div className="description-container mt-8">
-          <RichText
-            className="text-left text-xl text-black font-ambit-regular "
-            text={
-              activeComponent === "mission"
-                ? slice.primary.mission_description
-                : slice.primary.vision_description
-            }
-          />
-        </div>
+       <div className="description-container mt-8">
+  <RichTextRenderer
+    className="text-left text-xl text-black font-ambit-regular"
+    field={
+      activeComponent === "mission"
+        ? slice.primary.mission_description_new
+        : slice.primary.vision_description_new
+    }
+  />
+</div>
         <div className="absolute top-40 -right-36 transform -translate-x-1/2  pointer-events-none">
           <Image
             src={ButterFlyA}
@@ -115,14 +116,15 @@ const MissionVisionShowcase = ({ slice }) => {
 
         {/* Description */}
         <div className="description-container mt-12 space-y-2 flex flex-col 950px:items-center 950px:justify-center">
-          <RichText
-            className="text-left 950px:text-center text-base text-black font-ambit-regular sm:text-xl 950px:text-2xl w-full 950px:w-[80%]"
-            text={
-              activeComponent === "mission"
-                ? slice.primary.mission_description
-                : slice.primary.vision_description
-            }
-          />
+         <RichTextRenderer
+  className="text-left 950px:text-center text-base text-black font-ambit-regular sm:text-xl 950px:text-2xl w-full 950px:w-[80%]"
+  field={
+    activeComponent === "mission"
+      ? slice.primary.mission_description_new
+      : slice.primary.vision_description_new
+  }
+/>
+
         </div>
       </div>
     </section>

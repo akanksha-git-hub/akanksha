@@ -10,6 +10,7 @@ import RichText from "@/components/Texts/RichText";
 import SwiperArrow from "@/components/UI/SwiperArrow";
 import { useSmoothScroller } from "@/components/LenisScrollContext";
 import { PrismicRichText } from "@prismicio/react";
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
 
 /**
  * A small helper component to optionally display the slice identifier
@@ -204,9 +205,11 @@ export default function Testimonial({ slice, context }) {
       >
         <RenderIdentifier show={show_identifier} text={slice_identifier} />
 
-        <h1 className="text-5xl md:text-7xl text-left md:text-center font-ambit-regular md:w-[8ch] md:mx-auto mt-12">
-          {slice.primary.title}
-        </h1>
+     <RichTextRenderer
+  className="text-5xl md:text-7xl text-left md:text-center font-ambit-regular md:w-[8ch] md:mx-auto mt-12"
+  field={slice.primary.title_new}
+/>
+
 
         <div className="min-h-[600px] md:min-h-[800px] relative flex flex-col items-center justify-center">
           {/* Decorative background circle */}
@@ -225,15 +228,17 @@ export default function Testimonial({ slice, context }) {
             <div className="min-h-[28rem] flex flex-col justify-between">
               <div>
                 <Image src="/quotes-new.png" alt="" height={80} width={80} />
-                <p className="font-ambit-regular text-2xl text-black mt-12">
-                  {testimonials[activeIndex].quote}
-                </p>
+              <RichTextRenderer
+  className="font-ambit-regular text-2xl text-black mt-12"
+  field={testimonials[activeIndex].quote_new}
+/>
+
               </div>
-              <p className="flex sm:w-full">
-                <span className="text-black font-ambit-regular text-lg w-[72%]">
-                  {testimonials[activeIndex].name}
-                </span>
-              </p>
+             <RichTextRenderer
+  className="text-black font-ambit-regular text-lg w-[72%]"
+  field={testimonials[activeIndex].name_new}
+/>
+
             </div>
           </div>
 

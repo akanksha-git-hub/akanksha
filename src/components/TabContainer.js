@@ -3,6 +3,7 @@ import { useState } from "react";
 import { PrismicRichText } from "@prismicio/react";
 import Tabs from "./Tabs";
 import PartnerLogo from "./PartnerLogo";
+import RichTextRenderer from "./v2-components/RichTextRenderer";
 
 export default function TabContainer({ slice }) {
 
@@ -34,9 +35,10 @@ export default function TabContainer({ slice }) {
             <div 
                 className="text-black font-ambit-regular text-xl mt-16 w-full lg:w-[70%] "
             >
-                <PrismicRichText 
-                    field={tabState.description}
-                />
+              <RichTextRenderer
+  field={tabState.description}
+/>
+
             </div>
             {FILTERED_IMAGES && (
                 <ul className="mt-12 flex flex-wrap w-full">

@@ -7,6 +7,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useDebouncedResize from "@/hooks/useDebouncedResize";
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 /**
  * @typedef {import("@prismicio/client").Content.TimelineScrollerSlice} TimelineScrollerSlice
@@ -309,7 +310,7 @@ const TimelineScroller = ({ slice }) => {
               slice.primary.items.map((item, i) => {
                 return (
                   <SwiperSlide
-                    key={item.year}
+                    key={item.year_new}
                     className="rotate-0 950px:rotate-[-20deg] !flex !items-center !justify-center py-24"
                   >
                     <div
@@ -333,14 +334,16 @@ const TimelineScroller = ({ slice }) => {
                     >
                       {slideIndex.current === i && (
                         <div className="h-full p-6 flex flex-col justify-end gap-2 z-20 opacity-reveal">
-                          <RichText
-                            text={item.year}
-                            className="font-ambit-regular text-[#FFFBF1] text-5xl xl:text-7xl z-20"
-                          />
-                          <RichText
-                            text={item.description}
-                            className="font-ambit-regular text-[#FFFBF1] xl:text-2xl z-20"
-                          />
+                         <RichTextRenderer
+  field={item.year_new}
+  className="font-ambit-regular text-[#FFFBF1] text-5xl xl:text-7xl z-20"
+/>
+
+                         <RichTextRenderer
+  field={item.description_new}
+  className="font-ambit-regular text-[#FFFBF1] xl:text-2xl z-20"
+/>
+
                         </div>
                       )}
                       <PrismicNextImage
@@ -454,7 +457,7 @@ const TimelineScroller = ({ slice }) => {
               slice.primary.items.map((item, i) => {
                 return (
                   <SwiperSlide
-                    key={item.year}
+                    key={item.year_new}
                     className="!flex !items-center !justify-center"
                   >
                     <div
@@ -462,14 +465,15 @@ const TimelineScroller = ({ slice }) => {
                     >
                       {slideIndex.current === i && (
                         <div className="h-full p-6 flex flex-col justify-end gap-2 z-20">
-                          <RichText
-                            text={item.year}
-                            className="font-ambit-regular text-[#FFFBF1] text-5xl z-20"
-                          />
-                          <RichText
-                            text={item.description}
-                            className="font-ambit-regular text-[#FFFBF1] z-20"
-                          />
+                       <RichTextRenderer
+  field={item.year_new}
+  className="font-ambit-regular text-[#FFFBF1] text-5xl z-20"
+/>
+
+                    <RichTextRenderer
+  field={item.description_new}
+  className="font-ambit-regular text-[#FFFBF1] z-20"
+/>
                         </div>
                       )}
                       <PrismicNextImage

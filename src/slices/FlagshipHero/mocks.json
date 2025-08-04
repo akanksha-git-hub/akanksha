@@ -155,6 +155,39 @@
 				"__TYPE__": "FieldContent",
 				"value": "right",
 				"type": "Text"
+			},
+			"main_title_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Qui velit elit eiusmod nostrud mollit minim quis excepteur consectetur veniam. Commodo sit velit laborum qui adipisicing incididunt culpa aliqua est eu reprehenderit aliqua qui quis."
+						}
+					}
+				]
+			},
+			"description1_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Veniam id minim nisi nisi Lorem magna ullamco nulla ipsum ipsum laborum."
+						}
+					}
+				]
+			},
+			"description2_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Amet dolor sit esse consectetur proident laborum quis ullamco quis veniam nostrud magna magna reprehenderit incididunt. Elit et est irure et sunt qui sit fugiat exercitation irure quis non excepteur dolor."
+						}
+					}
+				]
 			}
 		},
 		"items": [
@@ -223,6 +256,28 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"main_title_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Culpa deserunt adipisicing aliqua aliqua deserunt elit velit aute anim ex dolor dolore ad tempor id. Minim est enim amet velit nostrud ad eiusmod id."
+						}
+					}
+				]
+			},
+			"description1_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Fugiat quis ullamco ipsum voluptate velit excepteur id sunt ipsum esse eu reprehenderit do. Esse velit est sint culpa voluptate velit pariatur enim. Veniam labore ipsum cupidatat elit."
+						}
+					}
+				]
 			}
 		},
 		"items": [

@@ -49,11 +49,29 @@
             "placeholder": ""
           }
         },
+        "mission_description_new": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Mission Description New",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
         "vision_description": {
           "type": "Text",
           "config": {
             "label": "Vision Description",
             "placeholder": ""
+          }
+        },
+        "vision_description_new": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Vision Description New",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         }
       },

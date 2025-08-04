@@ -287,6 +287,34 @@
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
+							],
+							[
+								"quote_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Laborum nulla incididunt amet exercitation sunt adipisicing ad cupidatat deserunt nisi est dolor quis Lorem. Ullamco aliquip est non tempor consequat proident exercitation esse consequat eu nostrud. Sunt ea occaecat id nisi incididunt ullamco aute exercitation magna."
+											}
+										}
+									]
+								}
+							],
+							[
+								"name_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Tempor nisi pariatur proident et. Tempor velit minim sit id esse irure consequat. Cupidatat culpa adipisicing dolor aliqua ad nisi."
+											}
+										}
+									]
+								}
 							]
 						]
 					}
@@ -295,6 +323,17 @@
 			"show_identifier": {
 				"__TYPE__": "BooleanContent",
 				"value": false
+			},
+			"title_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis deserunt quis labore aute qui. Labore nostrud esse duis minim officia magna laborum enim aute proident deserunt."
+						}
+					}
+				]
 			}
 		},
 		"items": [

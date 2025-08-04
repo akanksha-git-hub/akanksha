@@ -35,6 +35,15 @@
             "placeholder": ""
           }
         },
+        "title_new": {
+          "type": "StructuredText",
+          "config": {
+            "label": "title new",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
         "image": {
           "type": "Image",
           "config": {
@@ -54,6 +63,15 @@
                 "config": {
                   "label": "desc",
                   "placeholder": ""
+                }
+              },
+              "desc_new": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "desc new",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                 }
               },
               "bg_color": {

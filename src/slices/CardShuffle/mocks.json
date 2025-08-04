@@ -68,6 +68,34 @@
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
+							],
+							[
+								"main_title_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Sunt duis quis sunt. Nisi aliqua ut cupidatat in. Do sunt culpa sint aute duis commodo ipsum duis amet sit."
+											}
+										}
+									]
+								}
+							],
+							[
+								"description_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Velit nostrud cupidatat labore velit exercitation eu occaecat veniam qui qui ea duis est. Ullamco et et ipsum magna consectetur ex excepteur. Veniam id laboris nostrud eiusmod adipisicing sint excepteur est aliquip culpa dolore officia ullamco."
+											}
+										}
+									]
+								}
 							]
 						]
 					}

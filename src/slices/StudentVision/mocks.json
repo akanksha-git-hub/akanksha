@@ -57,6 +57,20 @@
 									"value": "has",
 									"type": "Text"
 								}
+							],
+							[
+								"desc_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Quis sint aliquip irure ipsum laboris officia nulla elit sint consequat consectetur ut enim sint velit."
+											}
+										}
+									]
+								}
 							]
 						]
 					}
@@ -65,6 +79,17 @@
 			"show_identifier": {
 				"__TYPE__": "BooleanContent",
 				"value": true
+			},
+			"title_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nisi culpa magna excepteur consequat sunt est id esse minim. Exercitation in occaecat nulla ullamco et aliquip. Exercitation exercitation anim do culpa et nisi enim."
+						}
+					}
+				]
 			}
 		},
 		"items": []
@@ -418,7 +443,6 @@
 				"thumbnails": {}
 			},
 			"bottom_right_asset": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
@@ -436,6 +460,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			}
 		},

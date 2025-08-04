@@ -57,6 +57,34 @@
 									"__TYPE__": "BooleanContent",
 									"value": false
 								}
+							],
+							[
+								"year_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Cillum incididunt do aute do id sint fugiat do eiusmod aliqua. Velit aliquip non exercitation consectetur ex esse et."
+											}
+										}
+									]
+								}
+							],
+							[
+								"description_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Tempor voluptate ad commodo mollit pariatur eu fugiat ea deserunt aliquip do do deserunt est exercitation. Culpa mollit quis magna cupidatat nostrud ea est reprehenderit Lorem amet ad officia aliquip."
+											}
+										}
+									]
+								}
 							]
 						]
 					}
