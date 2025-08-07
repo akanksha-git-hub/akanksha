@@ -30,10 +30,10 @@ export default function DonationSelectors({ data }) {
   const [open, setOpen] = useState(false);
   const [showAmountError, setShowAmountError] = useState(false);
 
-  const isDisabled =true;
-    // active.amountSelector.amount === null ||
-    // active.amountSelector.amount === 0 ||
-    // active.amountSelector.amount < 500;
+  const isDisabled =
+    active.amountSelector.amount === null ||
+   active.amountSelector.amount === 0 ||
+     active.amountSelector.amount < 500;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
