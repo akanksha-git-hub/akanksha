@@ -3,7 +3,7 @@ import TextCTA from "@/components/UI/Button/TextCTA"
 import { PrismicNextLink } from "@prismicio/next"
 
 export default function FooterInfoItems({ footerBottomTextsArray, className }) {
-  console.log("footerBottomTextsArray:", footerBottomTextsArray)
+
 
   return (
     <>
