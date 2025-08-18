@@ -20,46 +20,25 @@ export default function FinancialsAccordion({ item }) {
 
     if(!onMount) return <Skeleton count={5} itemClassName='h-24' />
 
-    const dataLength = item.year_groups.length - 1;
+    // --- FIX #1: Correctly calculate lengths to avoid dropping the last item ---
+    const dataLength = item.year_groups.length;
     if(dataLength > 1) {
 
-        const halfDataLength = dataLength / 2;
+        const halfDataLength = Math.ceil(dataLength / 2); // Use Math.ceil for odd numbers
         const firstHalfDataSet = item.year_groups.slice(0, halfDataLength);
-        const secondHalfDataSet = item.year_groups.slice(halfDataLength, dataLength);
+        const secondHalfDataSet = item.year_groups.slice(halfDataLength); // Slicing from midpoint to the end
 
         return(
             <div className="grid grid-cols-1 place-content-center gap-x-12 md:grid-cols-2 w-full lg:w-[880px] 3xl:w-[1000px] lg:mx-auto">
                 <Accordion className='flex flex-wrap items-start justify-start h-fit'>
                     {firstHalfDataSet.map((year, index) => {
             
-                        const categorizedYearsData = item.fcra_document_link.filter((item) => {
-            
-                            const items = year.year.split(" ");
-                            const itemsLength = items.length;
-            
-                            let targetItem;
-                            let itemLength;
-                            let yearCategory;
-            
-                            if(itemsLength > 2) {
-                                targetItem = items[2];
-                            } else {
-                                targetItem = items[1];
-                            }
-            
-                            if(targetItem) {
-                                itemLength = targetItem.split("").length;
-                                if(itemLength > 4) {
-                                    yearCategory = targetItem.split("").splice(1, itemLength).join("");
-                                } else {
-                                    yearCategory = targetItem.split(" ").join(" ");
-                                }
-                            }
-            
-                            const matchData = yearCategory === item.year_identifier;
-            
-                            return matchData;
-                            
+                        // --- FIX #2 (Part 1): Replaced the entire buggy filtering logic with a simple, correct version ---
+                        const categorizedYearsData = item.fcra_document_link.filter((doc) => {
+                            // Get the start year, e.g., "2015" from "2015 - 2016"
+                            const startYear = year.year.split(" ")[0];
+                            // Match if the document's identifier is the same as the starting year.
+                            return doc.year_identifier === startYear;
                         });
             
                         const isFcraFinancials = categorizedYearsData.filter(item => {
@@ -67,7 +46,7 @@ export default function FinancialsAccordion({ item }) {
                             return isFcraFinancials;
                         }).map(item => {
                             return(
-                                <div key={item.year_identifier}>
+                                <div key={item.title}> {/* Using item.title for key as identifier might not be unique in the filtered list */}
                                     {
                                         item ? 
                                         <AccordionLink
@@ -91,7 +70,7 @@ export default function FinancialsAccordion({ item }) {
                             return isFcraQuarterlyReports;
                         }).map(item => {
                             return(
-                                <div key={item.year_identifier}>
+                                <div key={item.title}> {/* Using item.title for key as identifier might not be unique in the filtered list */}
                                     {
                                         item ? 
                                         <AccordionLink
@@ -121,17 +100,17 @@ export default function FinancialsAccordion({ item }) {
                                     />
                                 </Accordion.Title>
                                 <Accordion.Content className="space-y-2">
-                                    <div className="border-t border-[#DCDCDC]">
+                                    <div className="border-t border-[#DCDCDC] pt-4 mt-4">
                                         <RichText 
                                             text='FCRA Quarterly Reports'
-                                            className='font-ambit-semibold text-deep-green text-lg pt-2'
+                                            className='font-ambit-semibold text-deep-green text-lg pb-2'
                                         />
                                         {hasItems && (<div className="space-y-2">{isFcraQuarterlyReports}</div>)}
                                     </div>
-                                    <div className="border-t border-[#DCDCDC]">
+                                    <div className="border-t border-[#DCDCDC] pt-4 mt-4">
                                         <RichText 
                                             text='FCRA Financials'
-                                            className='font-ambit-semibold text-deep-green text-lg pt-2'
+                                            className='font-ambit-semibold text-deep-green text-lg pb-2'
                                         />
                                         {hasItems && (<div className="space-y-2">{isFcraFinancials}</div>)}
                                     </div>
@@ -143,34 +122,12 @@ export default function FinancialsAccordion({ item }) {
                 <Accordion className='flex flex-wrap items-start justify-start h-fit'>
                     {secondHalfDataSet.map((year, index) => {
             
-                        const categorizedYearsData = item.fcra_document_link.filter((item) => {
-            
-                            const items = year.year.split(" ");
-                            const itemsLength = items.length;
-            
-                            let targetItem;
-                            let itemLength;
-                            let yearCategory;
-            
-                            if(itemsLength > 2) {
-                                targetItem = items[2];
-                            } else {
-                                targetItem = items[1];
-                            }
-            
-                            if(targetItem) {
-                                itemLength = targetItem.split("").length;
-                                if(itemLength > 4) {
-                                    yearCategory = targetItem.split("").splice(1, itemLength).join("");
-                                } else {
-                                    yearCategory = targetItem.split(" ").join(" ");
-                                }
-                            }
-            
-                            const matchData = yearCategory === item.year_identifier;
-            
-                            return matchData;
-                            
+                        // --- FIX #2 (Part 2): Applied the same fix to the second column's logic ---
+                        const categorizedYearsData = item.fcra_document_link.filter((doc) => {
+                            // Get the start year, e.g., "2015" from "2015 - 2016"
+                            const startYear = year.year.split(" ")[0];
+                            // Match if the document's identifier is the same as the starting year.
+                            return doc.year_identifier === startYear;
                         });
             
                         const isFcraFinancials = categorizedYearsData.filter(item => {
@@ -178,7 +135,7 @@ export default function FinancialsAccordion({ item }) {
                             return isFcraFinancials;
                         }).map(item => {
                             return(
-                                <div key={item.year_identifier}>
+                                <div key={item.title}> {/* Using item.title for key as identifier might not be unique in the filtered list */}
                                     {
                                         item ? 
                                         <AccordionLink
@@ -202,7 +159,7 @@ export default function FinancialsAccordion({ item }) {
                             return isFcraQuarterlyReports;
                         }).map(item => {
                             return(
-                                <div key={item.year_identifier}>
+                                <div key={item.title}> {/* Using item.title for key as identifier might not be unique in the filtered list */}
                                     {
                                         item ? 
                                         <AccordionLink
@@ -232,17 +189,17 @@ export default function FinancialsAccordion({ item }) {
                                     />
                                 </Accordion.Title>
                                 <Accordion.Content className="space-y-2">
-                                    <div className="border-t border-[#DCDCDC]">
+                                    <div className="border-t border-[#DCDCDC] pt-4 mt-4">
                                         <RichText 
                                             text='FCRA Quarterly Reports'
-                                            className='font-ambit-semibold text-deep-green text-lg pt-2'
+                                            className='font-ambit-semibold text-deep-green text-lg pb-2'
                                         />
                                         {hasItems && (<div className="space-y-2">{isFcraQuarterlyReports}</div>)}
                                     </div>
-                                    <div className="border-t border-[#DCDCDC]">
+                                    <div className="border-t border-[#DCDCDC] pt-4 mt-4">
                                         <RichText 
                                             text='FCRA Financials'
-                                            className='font-ambit-semibold text-deep-green text-lg pt-2'
+                                            className='font-ambit-semibold text-deep-green text-lg pb-2'
                                         />
                                         {hasItems && (<div className="space-y-2">{isFcraFinancials}</div>)}
                                     </div>
@@ -255,6 +212,8 @@ export default function FinancialsAccordion({ item }) {
         )
     }
 
+    // Fallback for when there's only one column of data needed
+    return null; // Or render a single-column layout if desired
 }
 
 function AccordionLink({ children, className, ...props }) { return <PrismicLink {...props} target="_blank" className={className}>{children}</PrismicLink> }
