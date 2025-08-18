@@ -108,10 +108,10 @@ export default function FinancialsAccordion({ item }) {
                                         {hasItems && (<div className="space-y-2">{isFcraQuarterlyReports}</div>)}
                                     </div>
                                     <div className="border-t border-[#DCDCDC] pt-4 mt-4">
-                                        <RichText 
+                                        {/* <RichText 
                                             text='FCRA Financials'
                                             className='font-ambit-semibold text-deep-green text-lg pb-2'
-                                        />
+                                        /> */}
                                         {hasItems && (<div className="space-y-2">{isFcraFinancials}</div>)}
                                     </div>
                                 </Accordion.Content>
@@ -190,10 +190,10 @@ export default function FinancialsAccordion({ item }) {
                                 </Accordion.Title>
                                 <Accordion.Content className="space-y-2">
                                     <div className="border-t border-[#DCDCDC] pt-4 mt-4">
-                                        <RichText 
+                                        {/* <RichText 
                                             text='FCRA Quarterly Reports'
                                             className='font-ambit-semibold text-deep-green text-lg pb-2'
-                                        />
+                                        /> */}
                                         {hasItems && (<div className="space-y-2">{isFcraQuarterlyReports}</div>)}
                                     </div>
                                     <div className="border-t border-[#DCDCDC] pt-4 mt-4">
@@ -212,8 +212,7 @@ export default function FinancialsAccordion({ item }) {
         )
     }
 
-    // Fallback for when there's only one column of data needed
-    return null; // Or render a single-column layout if desired
+    return null;
 }
 
 function AccordionLink({ children, className, ...props }) { return <PrismicLink {...props} target="_blank" className={className}>{children}</PrismicLink> }
