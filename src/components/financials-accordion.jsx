@@ -101,10 +101,10 @@ export default function FinancialsAccordion({ item }) {
                                 </Accordion.Title>
                                 <Accordion.Content className="space-y-2">
                                     <div className="border-t border-[#DCDCDC] pt-4 mt-4">
-                                        {/* <RichText 
-                                            text='FCRA Quarterly Reports'
-                                            className='font-ambit-semibold text-deep-green text-lg pb-2'
-                                        /> */}
+                                            <RichText 
+                                                text='FCRA Quarterly Reports'
+                                                className='font-ambit-semibold text-deep-green text-lg pb-2'
+                                            />
                                         {hasItems && (<div className="space-y-2">{isFcraQuarterlyReports}</div>)}
                                     </div>
                                     <div className=" pt-4 mt-4">
@@ -190,10 +190,10 @@ export default function FinancialsAccordion({ item }) {
                                 </Accordion.Title>
                                 <Accordion.Content className="space-y-2">
                                     <div className="border-t border-[#DCDCDC] pt-4 mt-4">
-                                        {/* <RichText 
+                                        <RichText 
                                             text='FCRA Quarterly Reports'
                                             className='font-ambit-semibold text-deep-green text-lg pb-2'
-                                        /> */}
+                                        />
                                         {hasItems && (<div className="space-y-2">{isFcraQuarterlyReports}</div>)}
                                     </div>
                                     <div className="border-t border-[#DCDCDC] pt-4 mt-4">
