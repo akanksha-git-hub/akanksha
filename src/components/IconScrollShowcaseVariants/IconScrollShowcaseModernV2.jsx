@@ -5,6 +5,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import RichText from "../Texts/RichText";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import RichTextRenderer from "../v2-components/RichTextRenderer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,10 +75,11 @@ export default function IconScrollShowcaseModernV2({ data }) {
                         </div>
 
                         {/* Text */}
-                        <RichText
-                            text={item.text}
-                            className="text-black text-xl font-ambit-regular"
-                        />
+                      <RichTextRenderer
+  field={item.text_new}
+  className="text-black text-xl font-ambit-regular"
+/>
+
                     </div>
                 </li>
             ))}

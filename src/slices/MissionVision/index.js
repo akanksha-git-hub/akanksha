@@ -10,6 +10,7 @@ import Image from "next/image";
 import VideoModalv2 from "@/components/video-modal-v2";
 import TextCTA from "@/components/UI/Button/TextCTA";
 import { PrismicNextImage } from "@prismicio/next";
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
 
 /**
  * @typedef {import("@prismicio/client").Content.MissionVisionSlice} MissionVisionSlice
@@ -219,15 +220,17 @@ const MissionVision = ({ slice, context }) => {
       >
         <VideoModal className="hidden lg:flex" slice={slice} />
         <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-normal lg:w-[85%] xl:w-2/4 ">
-          <RichText
-            text={slice.primary.title}
-            className="text-black font-ambit-regular text-center w-full sm:w-3/4 justify-center lg:text-left lg:items-start lg:justify-normal md:w-full text-3xl md:text-6xl  3xl:mt-2"
-          />
+        <RichTextRenderer
+  field={slice.primary.title_new}
+  className="text-black font-ambit-regular text-center w-full sm:w-3/4 justify-center lg:text-left lg:items-start lg:justify-normal md:w-full text-3xl md:text-6xl 3xl:mt-2"
+/>
+
           <VideoModal className="flex w-full mt-8 lg:hidden" slice={slice} />
-          <RichText
-            className="text-black text-left w-[90%] mt-8 font-ambit-regular opacity-anim font-normal text-base leading-[20.2px] sm:text-xl lg:mt-8 md:w-5/6  3xl:text-2xl"
-            text={slice.primary.description}
-          />
+         <RichTextRenderer
+  field={slice.primary.description_new}
+  className="text-black text-left w-[90%] mt-8 font-ambit-regular opacity-anim font-normal text-base leading-[20.2px] sm:text-xl lg:mt-8 md:w-5/6 3xl:text-2xl"
+/>
+
           <div className="flex flex-wrap gap-4 w-full mt-6 xl:mt-10 3xl:mt-14">
             {slice.variation === "doubleCtaComponent" && (
               <Button prismicLink={slice.primary.cta_b_link}>

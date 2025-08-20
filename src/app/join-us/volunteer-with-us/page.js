@@ -5,6 +5,7 @@ import { maxwidth } from "@/utils/helperClasses";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceZone } from "@prismicio/react";
 import { components } from "@/slices";
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
 
 export default async function Page() {
   const page = await fetchPrismicSingleDocument("volunteer_with_us");
@@ -23,16 +24,16 @@ export default async function Page() {
 
         {/* Title */}
         <div className="flex flex-col ">
-          <RichText
-            text={page.data.title}
-            className="flex items-center justify-center text-black  text-center   text-3xl md:text-6xl  !mb-12
-                
-                "
-          />{" "}
-          <RichText
-            text={page.data.sub_title}
-            className="flex items-center justify-center text-black text-center  text-lg md:text-3xl  !mb-12  "
-          />
+        <RichTextRenderer
+  field={page.data.title_new}
+  className="flex items-center justify-center text-black text-center text-3xl md:text-6xl !mb-12"
+/>
+{" "}
+         <RichTextRenderer
+  field={page.data.sub_title_new}
+  className="flex items-center justify-center text-black text-center text-lg md:text-3xl !mb-12"
+/>
+
         </div>
         {/* Right Side Image */}
         {page.data.right_image?.url && (

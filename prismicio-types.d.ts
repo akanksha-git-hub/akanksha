@@ -715,6 +715,17 @@ interface ContactDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * Title New field in *Contact*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.title_new
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
+
+  /**
    * Sub Title field in *Contact*
    *
    * - **Field Type**: Text
@@ -724,6 +735,17 @@ interface ContactDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   sub_title: prismic.KeyTextField;
+
+  /**
+   * Sub title New field in *Contact*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.sub_title_new
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_title_new: prismic.RichTextField;
 
   /**
    * Left Image field in *Contact*
@@ -4281,6 +4303,17 @@ interface VolunteerWithUsDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * Title New field in *Volunteer with us*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: volunteer_with_us.title_new
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
+
+  /**
    * Sub Title field in *Volunteer with us*
    *
    * - **Field Type**: Text
@@ -4290,6 +4323,17 @@ interface VolunteerWithUsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   sub_title: prismic.KeyTextField;
+
+  /**
+   * Sub Title New field in *Volunteer with us*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: volunteer_with_us.sub_title_new
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sub_title_new: prismic.RichTextField;
 
   /**
    * Left Image field in *Volunteer with us*
@@ -8160,6 +8204,16 @@ export interface DonorHeroSliceDefaultPrimaryPointsItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   points_image: prismic.ImageField<never>;
+
+  /**
+   * Point New field in *DonorHero → Default → Primary → Points*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: donor_hero.default.primary.points[].point_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  point_new: prismic.RichTextField;
 }
 
 /**
@@ -8175,6 +8229,16 @@ export interface DonorHeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * Title New field in *DonorHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: donor_hero.default.primary.title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
 
   /**
    * Asset 1 field in *DonorHero → Default → Primary*
@@ -9521,6 +9585,16 @@ export interface IconScrollShowcaseSliceModernWithButtonPrimaryItemsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   text: prismic.KeyTextField;
+
+  /**
+   * text new field in *IconScrollShowcase → ModernWithButton → Primary → items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icon_scroll_showcase.modernWithButton.primary.items[].text_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text_new: prismic.RichTextField;
 }
 
 /**
@@ -12544,6 +12618,16 @@ export interface MissionVisionSliceReverseVideoComponetPrimary {
   title: prismic.KeyTextField;
 
   /**
+   * Title New field in *MissionVision → ReverseVideoComponet → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.reverseVideoComponet.primary.title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
+
+  /**
    * Description field in *MissionVision → ReverseVideoComponet → Primary*
    *
    * - **Field Type**: Text
@@ -12552,6 +12636,16 @@ export interface MissionVisionSliceReverseVideoComponetPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Description New field in *MissionVision → ReverseVideoComponet → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.reverseVideoComponet.primary.description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_new: prismic.RichTextField;
 
   /**
    * CTA Link field in *MissionVision → ReverseVideoComponet → Primary*
@@ -12654,6 +12748,16 @@ export interface MissionVisionSliceDoubleCtaComponentPrimary {
   title: prismic.KeyTextField;
 
   /**
+   * Title New field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.title_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_new: prismic.RichTextField;
+
+  /**
    * Description field in *MissionVision → Double CTA Component → Primary*
    *
    * - **Field Type**: Text
@@ -12662,6 +12766,16 @@ export interface MissionVisionSliceDoubleCtaComponentPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
+
+  /**
+   * Description New field in *MissionVision → Double CTA Component → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: mission_vision.doubleCtaComponent.primary.description_new
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_new: prismic.RichTextField;
 
   /**
    * CTA B Text field in *MissionVision → Double CTA Component → Primary*

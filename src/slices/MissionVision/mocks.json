@@ -139,6 +139,28 @@
 					"__TYPE__": "ExternalLink",
 					"url": "http://google.com"
 				}
+			},
+			"title_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Quis proident veniam eiusmod. Veniam ad laboris ut exercitation dolore laborum labore reprehenderit duis fugiat exercitation fugiat dolore nisi. Excepteur sunt aliquip laborum minim laborum laborum commodo sunt ipsum exercitation consequat anim Lorem culpa consequat."
+						}
+					}
+				]
+			},
+			"description_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim quis sit culpa amet fugiat. Sunt aliquip tempor nulla culpa aliquip anim irure ex anim."
+						}
+					}
+				]
 			}
 		},
 		"items": [
@@ -240,6 +262,28 @@
 			"show_identifier": {
 				"__TYPE__": "BooleanContent",
 				"value": false
+			},
+			"title_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Velit elit aute do id ipsum aliqua ea anim occaecat est. Minim laboris Lorem nisi minim ea reprehenderit do."
+						}
+					}
+				]
+			},
+			"description_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ex in aliquip ut commodo pariatur laborum laborum pariatur enim laboris dolore adipisicing. Amet ad proident reprehenderit excepteur. Labore non enim veniam."
+						}
+					}
+				]
 			}
 		},
 		"items": [

@@ -6,6 +6,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { PrismicNextImage } from "@prismicio/next";
 import Skeleton from "./Skeleton";
+import RichTextRenderer from "./v2-components/RichTextRenderer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -113,9 +114,11 @@ export default function ScrollText({ title, prismicTexts, asset_2, asset_1 }) {
                 alt=""
               />
             </div>
-            <p className="text-black flex items-center justify-center flex-wrap text-left md:text-center text-4xl lg:text-7xl w-full lg:w-[20ch]">
-              {title}
-            </p>
+          <RichTextRenderer
+  field={title}
+  className="text-black flex items-center justify-center flex-wrap text-left md:text-center text-4xl lg:text-7xl w-full lg:w-[20ch]"
+/>
+
             <div className="hidden lg:block">
               <PrismicNextImage
                 field={asset_2}

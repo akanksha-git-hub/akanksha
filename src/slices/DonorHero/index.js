@@ -18,7 +18,7 @@ const DonorHero = ({ slice }) => {
       <ScrollText 
       asset_1 = {slice.primary.asset_1}
       asset_2 = {slice.primary.asset_2}
-        title={slice.primary.title}
+        title={slice.primary.title_new}
         prismicTexts={texts}
         
       />

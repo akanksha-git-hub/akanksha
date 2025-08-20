@@ -47,6 +47,20 @@
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
+							],
+							[
+								"point_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Proident cupidatat do irure ut exercitation excepteur."
+											}
+										}
+									]
+								}
 							]
 						]
 					}
@@ -97,6 +111,17 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"title_new": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliqua in et veniam aute nisi velit nostrud fugiat est voluptate ex."
+						}
+					}
+				]
 			}
 		},
 		"items": []

@@ -247,6 +247,20 @@
 									"value": "production",
 									"type": "Text"
 								}
+							],
+							[
+								"text_new",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Eu commodo proident cillum officia sint Lorem. Nostrud consectetur labore deserunt id qui fugiat mollit ullamco sint qui culpa et. Veniam minim sit fugiat magna et sit consequat ad eiusmod est duis enim officia."
+											}
+										}
+									]
+								}
 							]
 						]
 					}
