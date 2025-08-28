@@ -131,9 +131,8 @@ const handleTypeSelect = useCallback((index, type) => {
                 return (
                   <li
                     key={type}
-                  onClick={() => {
-  if (type !== "Monthly") handleTypeSelect(index, type);
-}}
+              onClick={() => handleTypeSelect(index, type)}
+
 
                     className={`flex items-center justify-center w-full xl:w-[48%] gap-2 px-4 py-3 rounded-md ${
                       active.type.index === index ? "bg-bright-yellow" : "border border-black"
