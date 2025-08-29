@@ -18,9 +18,18 @@ export async function POST(req) {
     );
     const { payload } = await jwtVerify(rawBody, secretKey);
     console.log("✅ BillDesk Webhook Verified Payload:", payload);
+      if (payload.mandate_id) {
+      console.log("🎯 Mandate ID received:", payload.mandate_id);
+      console.log("📌 Subscription Ref:", payload.subscription_refid);
+      console.log("📌 Mandate Status:", payload.mandate_status);
+    } else {
+      console.log("ℹ️ No mandate_id in this payload (likely one-time).");
+    }
     
-    // --- Save to Database (The new part) ---
-    await saveTransactionToDB(payload);
+    // --- Save to Database  ---
+
+
+    // await saveTransactionToDB(payload);
 
     // --- Send Success Response ---
     return NextResponse.json({ received: true });
