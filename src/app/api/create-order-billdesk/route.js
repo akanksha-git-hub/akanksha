@@ -95,12 +95,12 @@ mandate_required: type ? undefined : 'Y',
       ...(type ? {} : {
   mandate: {
     mercid: MERC_ID,
-  amount: '1000.00',
+  amount: Number(amount).toFixed(2),
 
     currency: "356",
     start_date: new Date().toISOString().split('T')[0],
     end_date: "2030-12-31",
-    frequency: "adho",
+    frequency: "mnth",
     amount_type: "max",
     debit_day: "1",
  
