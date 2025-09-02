@@ -158,7 +158,7 @@ export default function DonationSelectors({ data }) {
                       <RichText text={type} className="font-ambit text-black text-xl" />
                       {isMonthly && (
                         <span className="ml-2 px-2 py-0.5 bg-gray-300 text-gray-700 text-xs font-bold rounded-full">
-                          SOON
+                          Coming Soon
                         </span>
                       )}
                     </div>
