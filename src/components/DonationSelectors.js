@@ -32,8 +32,8 @@ export default function DonationSelectors({ data }) {
 
   const isDisabled =
     active.amountSelector.amount === null ||
-   active.amountSelector.amount === 0 ||
-     active.amountSelector.amount < 500;
+    active.amountSelector.amount === 0 ||
+    active.amountSelector.amount < 500;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -66,14 +66,14 @@ export default function DonationSelectors({ data }) {
     }));
     setShowAmountError(amount < 500);
   }, []);
-const handleTypeSelect = useCallback((index, type) => {
-  setActive({
-    type: { index, isOneTime: type === "One Time" },
-    amountSelector: { amount: null, amountIndex: null },
-  });
-  setShowAmountError(false);
-}, []);
 
+  const handleTypeSelect = useCallback((index, type) => {
+    setActive({
+      type: { index, isOneTime: type === "One Time" },
+      amountSelector: { amount: null, amountIndex: null },
+    });
+    setShowAmountError(false);
+  }, []);
 
   const handleAmountInput = (e) => {
     const raw = e.target.value.replace(/[^0-9]/g, "");
@@ -126,31 +126,44 @@ const handleTypeSelect = useCallback((index, type) => {
             {/* Type Selector */}
             <ul className="flex items-center space-y-4 xl:space-y-0 xl:gap-2 justify-between flex-wrap pb-6 w-full border-b border-gray-300">
               {types.map((type, index) => {
-               
-                 const isMonthly = type === "Monthly";  
+                const isMonthly = type === "Monthly";
+
                 return (
                   <li
                     key={type}
-                  onClick={() => {
-  if (type !== "Monthly") handleTypeSelect(index, type);
-}}
-
+                    onClick={() => {
+                      if (!isMonthly) handleTypeSelect(index, type);
+                    }}
+                    // --- MODIFICATION START ---
+                    // Added conditional styling for the "Monthly" tab
                     className={`flex items-center justify-center w-full xl:w-[48%] gap-2 px-4 py-3 rounded-md ${
-                      active.type.index === index ? "bg-bright-yellow" : "border border-black"
-                    }  "cursor-pointer"}`}
+                      isMonthly
+                        ? "border border-black opacity-60 cursor-not-allowed" // Disabled style
+                        : active.type.index === index
+                        ? "bg-bright-yellow cursor-pointer" // Active style
+                        : "border border-black cursor-pointer" // Inactive style
+                    }`}
+                    // --- MODIFICATION END ---
                   >
                     <div
                       className={`${
-                        active.type.index === index ? "bg-white" : "bg-[#D9D9D9]"
+                        active.type.index === index && !isMonthly ? "bg-white" : "bg-[#D9D9D9]"
                       } h-10 w-10 rounded-full grid place-items-center text-3xl`}
                     >
                       ₹
                     </div>
-                    <RichText text={type} className="font-ambit text-black text-xl" />
-                    
-                    
+                  
+                    {/* Wrapped text and added a "SOON" badge for the Monthly tab */}
+                    <div className="flex items-center justify-center">
+                      <RichText text={type} className="font-ambit text-black text-xl" />
+                      {isMonthly && (
+                        <span className="ml-2 px-2 py-0.5 bg-gray-300 text-gray-700 text-xs font-bold rounded-full">
+                          SOON
+                        </span>
+                      )}
+                    </div>
+                  
                   </li>
-            
                 );
               })}
             </ul>
@@ -215,8 +228,7 @@ const handleTypeSelect = useCallback((index, type) => {
           <div className="">
             <Button
               className={`!py-4 !px-4 xl:!px-48 mt-6 !text-base md:!text-xl ${
-                isDisabled
-                 &&
+                isDisabled &&
                 "hover:opacity-60 hover:bg-black hover:text-cream hover:!scale-100 active:scale-95 cursor-not-allowed"
               }`}
               disabled={isDisabled}
@@ -261,5 +273,5 @@ const formatNumber = (num) => {
   const parsedNum = Number(num);
   return isNaN(parsedNum)
     ? ""
-    : parsedNum.toLocaleString("en-IN"); 
+    : parsedNum.toLocaleString("en-IN");
 };
