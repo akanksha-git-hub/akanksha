@@ -63,17 +63,17 @@ export async function saveTransactionToDB(verifiedPayload) {
       const mandate = verifiedPayload.mandate;
 
       const mandateRecord = {
-        mandate_id: mandate.mandate_id,
-        subscription_refid: mandate.subscription_refid,
-        customer_refid: mandate.customer_refid,
-        donor_email: verifiedPayload.customer?.email,
-        donor_mobile: verifiedPayload.customer?.mobile,
-        donor_name: verifiedPayload.additional_info?.additional_info3,
-        amount: parseFloat(verifiedPayload.amount),
-        frequency: mandate.frequency,
-        status: mandate.status,
-        start_date: mandate.start_date,
-        end_date: mandate.end_date,
+        mandate_id: mandate.mandateid || null,
+        subscription_refid: mandate.subscription_refid || null,
+        customer_refid: mandate.customer_refid || null,
+        donor_email: verifiedPayload.customer?.email || null,
+        donor_mobile: verifiedPayload.customer?.mobile || null,
+        donor_name: verifiedPayload.additional_info?.additional_info3 || null,
+        amount: parseFloat(verifiedPayload.amount) || null,
+        frequency: mandate.frequency || null,
+        status: mandate.status || null,
+        start_date: mandate.start_date || null,
+        end_date: mandate.end_date || null,
         first_payment_id: docRef.id, // link to donation doc
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
