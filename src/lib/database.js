@@ -74,13 +74,13 @@ export async function saveTransactionToDB(verifiedPayload) {
         status: mandate.status,
         start_date: mandate.start_date,
         end_date: mandate.end_date,
-        first_payment_id: donationRef.id, // link to donation doc
+        first_payment_id: docRef.id, // link to donation doc
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
         raw_payload: verifiedPayload,
       };
 
-      await db.collection("mandates").add(mandateRecord);
+      await db.collection("dev_mandates").add(mandateRecord);
       console.log(`✅ Saved mandate to Firestore for mandate_id=${mandate.mandate_id}`);
     }
     
