@@ -81,7 +81,7 @@ export async function saveTransactionToDB(verifiedPayload) {
       };
 
       await db.collection("dev_mandates").add(mandateRecord);
-      console.log(`✅ Saved mandate to Firestore for mandate_id=${mandate.mandate_id}`);
+      console.log(`✅ Saved mandate to Firestore for mandate_id=${mandate.mandateid}`);
     }
     
   } catch (error) {
