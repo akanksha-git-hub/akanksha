@@ -11,25 +11,38 @@ export async function POST(req) {
     const rawBody = await req.text();
     const secretKey = await importJWK(
       {
-        kty: "oct",
+        kty: "oct", 
         k: Buffer.from(process.env.BILLDESK_SECRET).toString("base64url"),
       },
       "HS256"
     );
     const { payload } = await jwtVerify(rawBody, secretKey);
     console.log("✅ BillDesk Webhook Verified Payload:", payload);
-      if (payload.mandate_id) {
-      console.log("🎯 Mandate ID received:", payload.mandate_id);
-      console.log("📌 Subscription Ref:", payload.subscription_refid);
-      console.log("📌 Mandate Status:", payload.mandate_status);
-    } else {
+    if (payload.mandate) {
+  await db.collection("mandates").add({
+    mandate_id: payload.mandate.mandate_id,
+    subscription_refid: payload.mandate.subscription_refid,
+    customer_refid: payload.mandate.customer_refid,
+    donor_email: payload.customer?.email,
+    donor_mobile: payload.customer?.mobile,
+    donor_name: payload.additional_info?.additional_info3,
+    amount: Number(payload.amount),
+    frequency: payload.mandate.frequency,
+    status: payload.mandate.status,
+    start_date: payload.mandate.start_date,
+    end_date: payload.mandate.end_date,
+    createdAt: new Date().toISOString(),
+    raw_payload: payload
+  });
+}
+else {
       console.log("ℹ️ No mandate_id in this payload (likely one-time).");
     }
     
     // --- Save to Database  ---
 
 
-    // await saveTransactionToDB(payload);
+    await saveTransactionToDB(payload);
 
     // --- Send Success Response ---
     return NextResponse.json({ received: true });

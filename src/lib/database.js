@@ -27,7 +27,7 @@ export async function saveTransactionToDB(verifiedPayload) {
   try {
     console.log("Preparing to save final transaction to Firestore...");
 
-    // 1. Map the fields from the payload to a clean database record
+    // 1. Map the fields from the payload to a  database record
     const donationRecord = {
       // Transaction Details
       transaction_id: verifiedPayload.transactionid,
@@ -53,9 +53,36 @@ export async function saveTransactionToDB(verifiedPayload) {
     };
     
     // 2. Add the new document to the 'donations' collection
-    const docRef = await db.collection('donations').add(donationRecord);
+    const docRef = await db.collection('dev_donations').add(donationRecord);
 
     console.log(`✅ Successfully saved donation to Firestore. Document ID: ${docRef.id}`);
+
+
+
+    if (verifiedPayload.mandate) {
+      const mandate = verifiedPayload.mandate;
+
+      const mandateRecord = {
+        mandate_id: mandate.mandate_id,
+        subscription_refid: mandate.subscription_refid,
+        customer_refid: mandate.customer_refid,
+        donor_email: verifiedPayload.customer?.email,
+        donor_mobile: verifiedPayload.customer?.mobile,
+        donor_name: verifiedPayload.additional_info?.additional_info3,
+        amount: parseFloat(verifiedPayload.amount),
+        frequency: mandate.frequency,
+        status: mandate.status,
+        start_date: mandate.start_date,
+        end_date: mandate.end_date,
+        first_payment_id: donationRef.id, // link to donation doc
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        raw_payload: verifiedPayload,
+      };
+
+      await db.collection("mandates").add(mandateRecord);
+      console.log(`✅ Saved mandate to Firestore for mandate_id=${mandate.mandate_id}`);
+    }
     
   } catch (error) {
     console.error('❌ Error saving transaction to Firestore:', error);
