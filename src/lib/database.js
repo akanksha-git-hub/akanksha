@@ -74,7 +74,7 @@ export async function saveTransactionToDB(verifiedPayload) {
         status: mandate.status || null,
         start_date: mandate.start_date || null,
         end_date: mandate.end_date || null,
-        first_payment_id: docRef.id, // link to donation doc
+        first_transaction_id: verifiedPayload.transactionid || null,  // link to donation doc
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
         raw_payload: verifiedPayload,
