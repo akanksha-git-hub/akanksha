@@ -25,7 +25,9 @@ const db = getFirestore();
 const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
 const MERC_ID = process.env.BILLDESK_MERC_ID;
 const RAW_SECRET = process.env.BILLDESK_SECRET;
-const BILLDESK_ENDPOINT = 'https://uat1.billdesk.com/u2/pgsi/ve1_2/invoice/create';
+const BILLDESK_ENDPOINT = 'https://uat.billdesk.com/u2/pgsi/ve1_2/invoice/create';
+
+
 
 // Utils
 function generateEpochTimestampString() {
