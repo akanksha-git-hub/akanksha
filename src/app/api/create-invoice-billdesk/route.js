@@ -96,6 +96,10 @@ export async function POST(req) {
     const bdTimestamp = generateEpochTimestampString();
     const bdTraceid = generateTraceId();
 
+    console.log("➡️ BillDesk request headers:", {
+  TraceID: bdTraceid,
+  Timestamp: bdTimestamp,
+});
     // Call BillDesk
     const res = await fetch(BILLDESK_ENDPOINT, {
       method: "POST",
