@@ -95,8 +95,8 @@ export async function POST(req) {
       const invoice_display_number = generateDisplayNumber();
       const payloadObj = {
         mercid: MERC_ID,
-        customer_refid: mandate.customer_refid,
-        subscription_refid: mandate.subscription_refid,
+        customer_refid: mandate.customer_refid|| "UNKNOWN",
+        subscription_refid: mandate.subscription_refid || "UNKNOWN",
         invoice_number,
         invoice_display_number,
         invoice_date,
@@ -105,7 +105,7 @@ export async function POST(req) {
         amount: Number(mandate.amount).toFixed(2),
         net_amount: Number(mandate.amount).toFixed(2),
         currency: "356",
-        mandateid: mandate.mandateid,
+        mandateid: mandate.mandateid || "UNKNOWN",
         description: `Donation for ${cycleKey}`,
       };
 
