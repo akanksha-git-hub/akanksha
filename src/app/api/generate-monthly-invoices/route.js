@@ -64,7 +64,7 @@ export async function POST(req) {
     }
 
     // 🔄 Get all active mandates
-    const mandatesSnap = await db.collection('mandates').where('status', '==', 'active').get();
+    const mandatesSnap = await db.collection('dev_mandates').where('status', '==', 'active').get();
     if (mandatesSnap.empty) {
       return NextResponse.json({ success: true, message: 'No active mandates found' });
     }
