@@ -1,6 +1,9 @@
 name: Monthly Invoices
 
 on:
+  push:
+    branches:
+      - dev
   schedule:
     # Run 4 times on 3rd IST (for redundancy)
     - cron: "5 18 2 * *"   # 3rd 00:05 IST
