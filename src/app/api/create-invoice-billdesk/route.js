@@ -1,3 +1,6 @@
+//manual / admin use only.
+
+
 import { NextResponse } from 'next/server';
 import { SignJWT, importJWK, jwtVerify } from 'jose';
 import { v4 as uuidv4 } from 'uuid';
@@ -5,6 +8,9 @@ import { getFirestore } from 'firebase-admin/firestore';
 import { initializeApp, getApps, cert } from 'firebase-admin/app';
 import { readFileSync } from 'fs';
 import path from 'path';
+
+// 🔹 Import our date helper
+import { buildFixedInvoiceDates } from '@/lib/invoiceUtils';
 
 // Firebase init
 if (!getApps().length) {
@@ -27,13 +33,10 @@ const MERC_ID = process.env.BILLDESK_MERC_ID;
 const RAW_SECRET = process.env.BILLDESK_SECRET;
 const BILLDESK_ENDPOINT = 'https://uat1.billdesk.com/u2/pgsi/ve1_2/invoices/create';
 
-
-
 // Utils
 function generateEpochTimestampString() {
   return Math.floor(Date.now() / 1000).toString();
 }
-
 function generateTraceId() {
   const now = new Date();
   const pad = (n) => n.toString().padStart(2, '0');
@@ -46,11 +49,9 @@ function generateTraceId() {
     pad(now.getSeconds());
   return `${dateTimePart}${uuidv4().slice(0, 8).toUpperCase()}`;
 }
-
 function generateInvoiceNumber() {
   return `INV-${uuidv4().slice(0, 12).toUpperCase()}`;
 }
-
 function generateDisplayNumber() {
   return `DISP-${Math.floor(1000 + Math.random() * 9000)}`;
 }
@@ -58,13 +59,14 @@ function generateDisplayNumber() {
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { mandateid, subscription_refid, customer_refid, amount, description, debit_date, duedate } = body;
+    const { mandateid, subscription_refid, customer_refid, amount, description } = body;
+
+    // 🔹 Always use helper for safe dates (ignores Postman dates)
+    const { invoice_date, duedate, debit_date } = buildFixedInvoiceDates();
 
     // Build payload
     const invoice_number = generateInvoiceNumber();
     const invoice_display_number = generateDisplayNumber();
-    const invoice_date = new Date().toISOString().split("T")[0];
-    const due_date = duedate || debit_date;
 
     const payloadObj = {
       mercid: MERC_ID,
@@ -73,7 +75,7 @@ export async function POST(req) {
       invoice_number,
       invoice_display_number,
       invoice_date,
-      duedate: due_date,
+      duedate,
       debit_date,
       amount: Number(amount).toFixed(2),
       net_amount: Number(amount).toFixed(2),
@@ -96,10 +98,8 @@ export async function POST(req) {
     const bdTimestamp = generateEpochTimestampString();
     const bdTraceid = generateTraceId();
 
-    console.log("➡️ BillDesk request headers:", {
-  TraceID: bdTraceid,
-  Timestamp: bdTimestamp,
-});
+    console.log("➡️ BillDesk request headers:", { TraceID: bdTraceid, Timestamp: bdTimestamp });
+
     // Call BillDesk
     const res = await fetch(BILLDESK_ENDPOINT, {
       method: "POST",
@@ -123,7 +123,7 @@ export async function POST(req) {
       throw err;
     }
 
-    // Firestore record with null fallbacks
+    // Firestore record
     const invoiceRecord = {
       ...payloadObj,
       status: decoded?.status || "unknown",
