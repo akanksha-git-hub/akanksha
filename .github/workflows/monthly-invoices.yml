@@ -17,3 +17,4 @@ jobs:
         run: |
           curl -X POST https://dev.akanksha.org/api/generate-monthly-invoices \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}"
+# Adding this comment to force a refresh
