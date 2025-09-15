@@ -76,17 +76,26 @@ export async function POST(req) {
     const results = [];
     for (const doc of mandatesSnap.docs) {
       const mandate = doc.data();
+
+      // ✅ FIX: Use mandate_id (with underscore) to match Firestore data
+      if (!mandate.mandate_id) {
+        console.warn(`⚠️ Skipping mandate with document ID ${doc.id} because it is missing a 'mandate_id'.`);
+        continue; // Skip to the next mandate
+      }
+
       const { invoice_date, duedate, debit_date } = buildFixedInvoiceDates();
       const cycleKey = invoice_date.slice(0, 7); // "YYYY-MM"
 
       // 🔎 Check if invoice already exists for this cycle
+      // ✅ FIX: Query using 'mandateid' in the dev_invoices collection, but use mandate.mandate_id as the value from the current document.
+      // Assuming your dev_invoices collection uses 'mandateid' (no underscore). If it uses 'mandate_id' there too, change it below.
       const existing = await db.collection('dev_invoices')
-        .where('mandateid', '==', mandate.mandateid)
+        .where('mandateid', '==', mandate.mandate_id)
         .where('cycleKey', '==', cycleKey)
         .get();
 
       if (!existing.empty) {
-        console.log(`⚠️ Invoice already exists for ${mandate.mandateid} in ${cycleKey}`);
+        console.log(`⚠️ Invoice already exists for ${mandate.mandate_id} in ${cycleKey}`);
         continue;
       }
 
@@ -105,7 +114,8 @@ export async function POST(req) {
         amount: Number(mandate.amount).toFixed(2),
         net_amount: Number(mandate.amount).toFixed(2),
         currency: "356",
-        mandateid: mandate.mandateid || "UNKNOWN",
+        // ✅ FIX: Use mandate_id from the source data, but the key for the API payload is 'mandateid'
+        mandateid: mandate.mandate_id,
         description: `Donation for ${cycleKey}`,
       };
 
@@ -148,12 +158,15 @@ export async function POST(req) {
         verification_error_code: decoded?.verification_error_code || null,
         verification_error_desc: decoded?.verification_error_desc || null,
         raw_response: decoded,
-        createdAt: new Date().toISOString(),
+        createdAt: new
+ 
+Date().toISOString(),
       };
 
       await db.collection('dev_invoices').doc(invoice_number).set(invoiceRecord);
 
-      results.push({ mandateid: mandate.mandateid, invoice_number, status: invoiceRecord.status });
+      // ✅ FIX: Use mandate_id here for consistent reporting
+      results.push({ mandateid: mandate.mandate_id, invoice_number, status: invoiceRecord.status });
     }
 
     return NextResponse.json({ success: true, results });
