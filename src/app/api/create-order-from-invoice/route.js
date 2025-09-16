@@ -39,7 +39,7 @@ export async function POST(req) {
 
     if (!mandateid || !customer_refid || !amount) {
       return NextResponse.json(
-        { error: 'Request body must contain mandateid, customer_refid, and amount' },
+        { error: 'Request body must contain mandateid,subscription_refid, customer_refid, and amount' },
         { status: 400 }
       );
     }
