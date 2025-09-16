@@ -37,7 +37,7 @@ export async function POST(req) {
     // 🔹 Step 1: Get the required IDs for a recurring debit from the request body.
     const { mandateid, customer_refid, amount } = body;
 
-    if (!mandateid || !customer_refid || !amount) {
+    if (!mandateid || !customer_refid || !subscription_refid ||!amount) {
       return NextResponse.json(
         { error: 'Request body must contain mandateid,subscription_refid, customer_refid, and amount' },
         { status: 400 }
