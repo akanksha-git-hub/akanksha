@@ -63,6 +63,7 @@ export async function POST(req) {
       mercid: MERC_ID,
       orderid: orderId,
       amount: Number(body?.amount || invoice.amount).toFixed(2),
+      itemcode: 'DIRECT', 
       invoice_number, // 🔑 Instead of amount / mandate
       order_date: orderDate,
       currency: '356',
