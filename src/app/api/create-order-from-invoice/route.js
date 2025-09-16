@@ -69,6 +69,7 @@ export async function POST(req) {
       customer: {
         email: body?.email || 'invoice@test.com',
         mobile: body?.mobile || '9999999999',
+         amount: Number(body?.amount || invoice.amount).toFixed(2),
         name: body?.name || 'Invoice Debit Test',
       },
       device: {
