@@ -69,9 +69,18 @@ export async function POST(req) {
       currency: '356',
       ru: `${process.env.APP_URL}/api/billdesk-webhook`, // Webhook for final status
       description: `Test debit for mandate ${mandateid}`,
+
+
+        device: {
+        init_channel: 'internet',
+        ip: '127.0.0.1', // A generic IP for a server-side call
+        user_agent: 'Server-to-Server-Cron', // A descriptive user agent
+        accept_header: 'application/json',
+      },
       // ❗ NOTE: We have intentionally REMOVED the 'device' and 'customer' objects
       // because there is no user present for a server-to-server call.
     };
+    
 
     console.log('🧾 Sending RECURRING DEBIT Payload to BillDesk:\n', JSON.stringify(jwsPayloadObject, null, 2));
 
