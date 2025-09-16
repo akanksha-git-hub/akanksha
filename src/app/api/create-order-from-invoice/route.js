@@ -64,6 +64,8 @@ export async function POST(req) {
       // --- End of important fields ---
 
       amount: Number(amount).toFixed(2),
+    itemcode: 'DIRECT',
+
       currency: '356',
       ru: `${process.env.APP_URL}/api/billdesk-webhook`, // Webhook for final status
       description: `Test debit for mandate ${mandateid}`,
