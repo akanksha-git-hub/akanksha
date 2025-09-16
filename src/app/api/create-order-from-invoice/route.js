@@ -59,6 +59,8 @@ export async function POST(req) {
       // --- The most important fields for a recurring debit ---
       mandate: {
         mandateid: mandateid,
+         customer_refid: customer_refid,
+        
       },
       customer_refid: customer_refid,
       // --- End of important fields ---
