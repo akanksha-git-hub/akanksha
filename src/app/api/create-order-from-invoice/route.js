@@ -9,10 +9,9 @@ const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
 const MERC_ID = process.env.BILLDESK_MERC_ID;
 const RAW_SECRET = process.env.BILLDESK_SECRET;
 
-// ✅ We are using the main Create Order endpoint, as it's likely the universal one.
 const BILLDESK_ENDPOINT = process.env.BILLDESK_ENDPOINT;
 
-// --- Helper Functions (no changes needed) ---
+// --- Helper Functions ---
 function generateEpochTimestampString() {
   return Math.floor(Date.now() / 1000).toString();
 }
@@ -34,12 +33,14 @@ function generateTraceId() {
 export async function POST(req) {
   try {
     const body = await req.json();
-    // 🔹 Step 1: Get the required IDs for a recurring debit from the request body.
-    const { mandateid, customer_refid, amount } = body;
+    
+    // ✅ FIX #1: Read all four required variables from the request body.
+    const { mandateid, customer_refid, subscription_refid, amount } = body;
 
-    if (!mandateid || !customer_refid || !subscription_refid ||!amount) {
+    // ✅ FIX #2: The 'if' check now works because the variable is defined.
+    if (!mandateid || !customer_refid || !subscription_refid || !amount) {
       return NextResponse.json(
-        { error: 'Request body must contain mandateid,subscription_refid, customer_refid, and amount' },
+        { error: 'Request body must contain mandateid, customer_refid, subscription_refid, and amount' },
         { status: 400 }
       );
     }
@@ -49,47 +50,38 @@ export async function POST(req) {
 
     console.log('🪵 Incoming server-to-server debit request:', JSON.stringify(body, null, 2));
 
-    // 🔹 Step 2: Build the payload for a RECURRING DEBIT.
-    // This is different from a new order. It references existing IDs and has no user info.
     const jwsPayloadObject = {
       mercid: MERC_ID,
       orderid: orderId,
       order_date: orderDate,
       
-      // --- The most important fields for a recurring debit ---
       mandate: {
         mandateid: mandateid,
-         customer_refid: customer_refid,
-          subscription_refid: subscription_refid,
-        
+        customer_refid: customer_refid,
+        subscription_refid: subscription_refid,
       },
-      customer_refid: customer_refid,
-      // --- End of important fields ---
-
+      
+      // ✅ FIX #3: Removed the duplicate 'customer_refid' from the top level.
+      
       amount: Number(amount).toFixed(2),
-    itemcode: 'DIRECT',
-
+      itemcode: 'DIRECT',
       currency: '356',
-      ru: `${process.env.APP_URL}/api/billdesk-webhook`, // Webhook for final status
+      ru: `${process.env.APP_URL}/api/billdesk-webhook`,
       description: `Test debit for mandate ${mandateid}`,
-
-
-        device: {
+      
+      device: {
         init_channel: 'internet',
-        ip: '127.0.0.1', // A generic IP for a server-side call
-        user_agent: 'Server-to-Server-Cron', // A descriptive user agent
+        ip: '127.0.0.1',
+        user_agent: 'Server-to-Server-Cron',
         accept_header: 'application/json',
       },
-      // ❗ NOTE: We have intentionally REMOVED the 'device' and 'customer' objects
-      // because there is no user present for a server-to-server call.
     };
     
-
     console.log('🧾 Sending RECURRING DEBIT Payload to BillDesk:\n', JSON.stringify(jwsPayloadObject, null, 2));
 
-    // 🔹 Step 3: Sign and send the request (same as before)
+    // ✅ FIX #4: Corrected algorithm to HS256
     const jwk = { kty: 'oct', k: Buffer.from(RAW_SECRET).toString('base64url') };
-    const secretKey = await importJWK(jwk, 'HS265');
+    const secretKey = await importJWK(jwk, 'HS256');
 
     const jwtToken = await new SignJWT(jwsPayloadObject)
       .setProtectedHeader({ alg: 'HS256', clientid: CLIENT_ID })
@@ -112,9 +104,7 @@ export async function POST(req) {
     const responseText = await billdeskResponse.text();
     console.log(' Raw BillDesk Response (JWS):', responseText);
 
-    // Error handling (same as before)
     if (!billdeskResponse.ok) {
-        // ... (This error handling block is good, no changes needed)
         console.error('❌ BillDesk API returned an error.');
          try {
             const { payload: decodedError } = await jwtVerify(responseText, secretKey);
@@ -126,10 +116,7 @@ export async function POST(req) {
          }
     }
 
-    // 🔹 Step 4: Handle the SUCCESS response.
-    // We expect a status object, NOT a redirect link.
     const { payload } = await jwtVerify(responseText, secretKey);
-
     console.log('✅ SUCCESS! Decoded BillDesk Debit Response:', JSON.stringify(payload, null, 2));
 
     if (payload.next_step === 'redirect') {
@@ -140,7 +127,6 @@ export async function POST(req) {
         }, { status: 200 });
     }
 
-    // This is the ideal successful response
     return NextResponse.json({
       success: true,
       status: 'DEBIT_INITIATED',
@@ -155,5 +141,3 @@ export async function POST(req) {
     );
   }
 }
-
-// --- END OF FILE route.js ---
