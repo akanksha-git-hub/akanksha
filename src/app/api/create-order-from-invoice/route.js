@@ -60,6 +60,7 @@ export async function POST(req) {
       mandate: {
         mandateid: mandateid,
          customer_refid: customer_refid,
+          subscription_refid: subscription_refid,
         
       },
       customer_refid: customer_refid,
