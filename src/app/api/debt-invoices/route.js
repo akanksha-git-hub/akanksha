@@ -35,7 +35,7 @@ export async function POST(req) {
     const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
     const invoicesSnap = await db.collection('dev_invoices')
       .where('status', '==', 'unpaid')
-      .where('debit_date', '==', today)
+    //   .where('debit_date', '==', today)
       .get();
 
     if (invoicesSnap.empty) {
