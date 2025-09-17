@@ -93,8 +93,8 @@ export async function POST(req) {
         'Accept': 'application/jose',
         'BD-Traceid': bdTraceid,
         'BD-Timestamp': bdTimestamp,
-        'Authorization': `Bearer ${jwtToken}`,  // 🔑 Signed JWT
       },
+      body: jwtToken, // ✅ send the signed JWT as the body
     });
 
     const responseText = await res.text();
