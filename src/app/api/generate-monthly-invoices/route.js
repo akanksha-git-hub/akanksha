@@ -149,6 +149,7 @@ export async function POST(req) {
       }
 
       // Save to Firestore with cycleKey
+        const docId = decoded?.invoice_id || invoice_number;
       const invoiceRecord = {
         ...payloadObj,
         cycleKey,
@@ -163,10 +164,10 @@ export async function POST(req) {
 Date().toISOString(),
       };
 
-      await db.collection('dev_invoices').doc(invoice_number).set(invoiceRecord);
+      await db.collection('dev_invoices').doc(docId).set(invoiceRecord);
 
       // ✅ FIX: Use mandate_id here for consistent reporting
-      results.push({ mandateid: mandate.mandate_id, invoice_number, status: invoiceRecord.status });
+      results.push({ mandateid: mandate.mandate_id,invoice_id:docId, invoice_number, status: invoiceRecord.status });
     }
 
     return NextResponse.json({ success: true, results });
