@@ -6,14 +6,16 @@ import { readFileSync } from 'fs';
 import path from 'path';
 
 // --- Firebase Initialization ---
-// This handles both your production server and local development
 if (!getApps().length) {
   let serviceAccount;
   if (process.env.NODE_ENV === 'production') {
-    // The path you use on your secure production server
-    serviceAccount = JSON.parse(readFileSync("/var/www/next-prismic/akanksha-dev/secrets/firebaseServiceAccount.json", "utf8"));
+    serviceAccount = JSON.parse(
+      readFileSync(
+        "/var/www/next-prismic/akanksha-dev/secrets/firebaseServiceAccount.json",
+        "utf8"
+      )
+    );
   } else {
-    // A path for local development (assumes 'secrets' folder is in your project root)
     const devPath = path.resolve(process.cwd(), 'secrets', 'firebaseServiceAccount.json');
     serviceAccount = JSON.parse(readFileSync(devPath, "utf8"));
   }
@@ -22,43 +24,58 @@ if (!getApps().length) {
 
 const db = getFirestore();
 
-// --- The function that SAVES the final transaction data ---
+// --- Save transaction to Firestore ---
 export async function saveTransactionToDB(verifiedPayload) {
   try {
     console.log("Preparing to save final transaction to Firestore...");
 
-    // 1. Map the fields from the payload to a  database record
+    // Decide how to handle status
+    let status = verifiedPayload.transaction_error_desc || null; // default for one-time
+    let status_message = null;
+
+    if (verifiedPayload.txn_process_type === "si") {
+      // Normalize for recurring debit
+      const statusCode = verifiedPayload.auth_status || verifiedPayload.transaction_error_code;
+      status = statusCode === "0300" ? "paid" : "failed";
+      status_message = verifiedPayload.transaction_error_desc || null;
+    }
+
     const donationRecord = {
       // Transaction Details
       transaction_id: verifiedPayload.transactionid,
-      order_id: verifiedPayload.orderid,
-      status: verifiedPayload.transaction_error_desc, // "Transaction Successful"
-      amount: parseFloat(verifiedPayload.amount),
-      payment_method: verifiedPayload.payment_method_type,
-      bank_ref_no: verifiedPayload.bank_ref_no,
-      transaction_date: new Date(verifiedPayload.transaction_date).toISOString(),
+      order_id: verifiedPayload.orderid || null,
+      invoice_id: verifiedPayload.invoiceid || null,
+      mandate_id: verifiedPayload.mandateid || null,
+      subscription_refid: verifiedPayload.subscription_refid || null,
 
-      // Donor Details from 'additional_info' and 'customer'
-      donor_name: verifiedPayload.additional_info.additional_info3, // "Sumesh P"
-      email: verifiedPayload.customer.email,
-      mobile: verifiedPayload.customer.mobile,
-      city: verifiedPayload.additional_info.additional_info5, // "Bengaluru"
-      state: verifiedPayload.additional_info.additional_info9, // "Haryana"
-      pincode: verifiedPayload.additional_info.additional_info7, // "695008"
-      pan_number: verifiedPayload.additional_info.additional_info8, // "KGNOS5223Q"
-      
-      // Timestamps and Raw Data for auditing
+      status, // one-time = BillDesk message, recurring = paid/failed
+      status_message, // only set for recurring
+
+      amount: verifiedPayload.amount ? parseFloat(verifiedPayload.amount) : null,
+      payment_method: verifiedPayload.payment_method_type || null,
+      bank_ref_no: verifiedPayload.bank_ref_no || null,
+      transaction_date: verifiedPayload.transaction_date
+        ? new Date(verifiedPayload.transaction_date).toISOString()
+        : null,
+
+      // Donor Details
+      donor_name: verifiedPayload?.additional_info?.additional_info3 || null,
+      email: verifiedPayload?.customer?.email || null,
+      mobile: verifiedPayload?.customer?.mobile || null,
+      city: verifiedPayload?.additional_info?.additional_info5 || null,
+      state: verifiedPayload?.additional_info?.additional_info9 || null,
+      pincode: verifiedPayload?.additional_info?.additional_info7 || null,
+      pan_number: verifiedPayload?.additional_info?.additional_info8 || null,
+
+      // Meta
       processedAt: new Date().toISOString(),
       raw_webhook_payload: verifiedPayload,
     };
-    
-    // 2. Add the new document to the 'donations' collection
+
     const docRef = await db.collection('dev_donations').add(donationRecord);
+    console.log(`✅ Saved donation to Firestore. Document ID: ${docRef.id}`);
 
-    console.log(`✅ Successfully saved donation to Firestore. Document ID: ${docRef.id}`);
-
-
-
+    // Save mandate details if present
     if (verifiedPayload.mandate) {
       const mandate = verifiedPayload.mandate;
 
@@ -66,15 +83,15 @@ export async function saveTransactionToDB(verifiedPayload) {
         mandate_id: mandate.mandateid || null,
         subscription_refid: mandate.subscription_refid || null,
         customer_refid: mandate.customer_refid || null,
-        donor_email: verifiedPayload.customer?.email || null,
-        donor_mobile: verifiedPayload.customer?.mobile || null,
-        donor_name: verifiedPayload.additional_info?.additional_info3 || null,
-        amount: parseFloat(verifiedPayload.amount) || null,
+        donor_email: verifiedPayload?.customer?.email || null,
+        donor_mobile: verifiedPayload?.customer?.mobile || null,
+        donor_name: verifiedPayload?.additional_info?.additional_info3 || null,
+        amount: verifiedPayload.amount ? parseFloat(verifiedPayload.amount) : null,
         frequency: mandate.frequency || null,
         status: mandate.status || null,
         start_date: mandate.start_date || null,
         end_date: mandate.end_date || null,
-        first_transaction_id: verifiedPayload.transactionid || null,  // link to donation doc
+        first_transaction_id: verifiedPayload.transactionid || null,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
         raw_payload: verifiedPayload,
@@ -83,10 +100,8 @@ export async function saveTransactionToDB(verifiedPayload) {
       await db.collection("dev_mandates").add(mandateRecord);
       console.log(`✅ Saved mandate to Firestore for mandate_id=${mandate.mandateid}`);
     }
-    
   } catch (error) {
-    console.error('❌ Error saving transaction to Firestore:', error);
-    // Re-throw the error so the main webhook function knows something went wrong
+    console.error("❌ Error saving transaction to Firestore:", error);
     throw error;
   }
 }
