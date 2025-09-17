@@ -9,8 +9,8 @@ const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
 const MERC_ID = process.env.BILLDESK_MERC_ID;
 const RAW_SECRET = process.env.BILLDESK_SECRET;
 
-// ✅ Endpoint confirmed by BillDesk support
-const BILLDESK_ENDPOINT = 'https://uat1.billdesk.com/u2/payments/ve1_2/transactions/create';
+// Endpoint for debt transactions
+const BILLDESK_RECURRING_DEBIT_URL = process.env.BILLDESK_RECURRING_DEBIT_URL;
 
 // --- Helper Functions ---
 function generateEpochTimestampString() {
@@ -97,7 +97,7 @@ export async function POST(req) {
     const bdTimestamp = generateEpochTimestampString();
     const bdTraceid = generateTraceId();
 
-    const billdeskResponse = await fetch(BILLDESK_ENDPOINT, {
+    const billdeskResponse = await fetch(BILLDESK_RECURRING_DEBIT_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/jose',
