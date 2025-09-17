@@ -17,7 +17,9 @@ export async function POST(req) {
       "HS256"
     );
     const { payload } = await jwtVerify(rawBody, secretKey);
-    console.log("✅ BillDesk Webhook Verified Payload:", payload);
+    console.log("✅ BillDesk Webhook Verified Payload:");
+      console.log(JSON.stringify(payload, null, 2));
+
     
 
     // --- Save to Database  ---
