@@ -153,7 +153,8 @@ export async function POST(req) {
       const invoiceRecord = {
         ...payloadObj,
         cycleKey,
-        status: decoded?.status || 'unknown',
+        invoice_initial_status: decoded?.status || "unknown", // BillDesk’s status at creation
+        status: "unpaid",  
         invoice_id: decoded?.invoice_id || null,
         createdon: decoded?.createdon || null,
         verification_error_code: decoded?.verification_error_code || null,
