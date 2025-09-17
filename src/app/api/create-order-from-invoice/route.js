@@ -4,6 +4,26 @@
 import { SignJWT, importJWK, jwtVerify } from 'jose';
 import { NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
+import { getFirestore } from 'firebase-admin/firestore';
+import { initializeApp, getApps, cert } from 'firebase-admin/app';
+import { readFileSync } from 'fs';
+import path from 'path';
+
+
+if (!getApps().length) {
+  let serviceAccount;
+  if (process.env.NODE_ENV === 'production') {
+    serviceAccount = JSON.parse(
+      readFileSync("/var/www/next-prismic/akanksha-dev/secrets/firebaseServiceAccount.json", "utf8")
+    );
+  } else {
+    const devPath = path.resolve(process.cwd(), 'secrets', 'firebaseServiceAccount.json');
+    serviceAccount = JSON.parse(readFileSync(devPath, "utf8"));
+  }
+  initializeApp({ credential: cert(serviceAccount) });
+}
+const db = getFirestore();
+
 
 const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
 const MERC_ID = process.env.BILLDESK_MERC_ID;
@@ -46,6 +66,31 @@ export async function POST(req) {
         { status: 400 }
       );
     }
+const invoiceRef = db.collection('dev_invoices').doc(invoiceid);
+    const invoiceSnap = await invoiceRef.get();
+
+    if (!invoiceSnap.exists) {
+      return NextResponse.json({ error: 'Invoice not found in Firestore' }, { status: 404 });
+    }
+
+    const invoiceData = invoiceSnap.data();
+
+    // Safeguard: Skip if already attempted or paid
+    if (invoiceData.debit_attempted) {
+      return NextResponse.json({ error: 'Debit already attempted for this invoice' }, { status: 409 });
+    }
+    if (invoiceData.status === 'paid') {
+      return NextResponse.json({ error: 'Invoice already paid' }, { status: 409 });
+    }
+
+    // Mark as debit_attempted before API call
+    await invoiceRef.set(
+      {
+        debit_attempted: true,
+        debit_attempted_at: new Date().toISOString(),
+      },
+      { merge: true }
+    );
 
     const orderId = `AK-DEBIT-${uuidv4().slice(0, 12).toUpperCase()}`;
     const orderDate = new Date().toISOString().split('.')[0] + 'Z';
