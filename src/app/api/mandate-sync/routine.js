@@ -86,21 +86,34 @@ export async function POST(req) {
       });
 
       const resJson = await res.json();
+      const newStatus = resJson?.status?.toLowerCase();
 
-      // Update Firestore
-      await db.collection('dev_mandates').doc(doc.id).set(
-        {
-          status: resJson?.status || 'unknown',
-          last_synced: new Date().toISOString(),
-          raw_retrieve_response: resJson,
-        },
-        { merge: true }
-      );
+      if (newStatus === 'deleted' || newStatus === 'cancelled') {
+        // 🗑️ Delete the mandate doc
+        await db.collection('dev_mandates').doc(doc.id).delete();
 
-      results.push({
-        mandate_id: mandate.mandate_id,
-        status: resJson?.status,
-      });
+        results.push({
+          mandate_id: mandate.mandate_id,
+          status: newStatus,
+          action: 'deleted_from_firestore',
+        });
+      } else {
+        // 🔄 Update Firestore with latest status
+        await db.collection('dev_mandates').doc(doc.id).set(
+          {
+            status: resJson?.status || 'unknown',
+            last_synced: new Date().toISOString(),
+            raw_retrieve_response: resJson,
+          },
+          { merge: true }
+        );
+
+        results.push({
+          mandate_id: mandate.mandate_id,
+          status: resJson?.status,
+          action: 'updated',
+        });
+      }
     }
 
     return NextResponse.json({ success: true, results });
