@@ -86,7 +86,16 @@ export async function POST(req) {
       });
 
       const resJson = await res.json();
-      const newStatus = resJson?.status?.toLowerCase();
+      console.log("📡 BillDesk response for mandate:", mandate.mandate_id, resJson);
+
+      // Safely parse status
+      let newStatus = '';
+      if (typeof resJson?.status === 'string') {
+        newStatus = resJson.status.toLowerCase();
+      } else {
+        console.warn("⚠️ Unexpected status type from BillDesk:", resJson?.status);
+        newStatus = String(resJson?.status || '').toLowerCase();
+      }
 
       if (newStatus === 'deleted' || newStatus === 'cancelled') {
         // 🗑️ Delete the mandate doc
