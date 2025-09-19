@@ -71,7 +71,7 @@ export async function POST(req) {
     }
 
     const mandateData = mandateSnap.docs[0].data();
-    const paymentMethodType = mandateData.payment_method_type;
+    const paymentMethodType = mandateData.raw_payload?.payment_method_type;
 
     if (!paymentMethodType) {
       console.error("❌ No payment_method_type found in mandate doc:", mandateid);
