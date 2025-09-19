@@ -1,6 +1,4 @@
 // --- START OF FILE (app/api/cancel-mandate/route.js) ---
-// Cancel a mandate in BillDesk UAT (for testing purposes only)
-
 import { NextResponse } from 'next/server';
 import { SignJWT, importJWK, jwtVerify } from 'jose';
 import { v4 as uuidv4 } from 'uuid';
@@ -9,7 +7,6 @@ import { initializeApp, getApps, cert } from 'firebase-admin/app';
 import { readFileSync } from 'fs';
 import path from 'path';
 
-// --- Firebase Init ---
 if (!getApps().length) {
   let serviceAccount;
   if (process.env.NODE_ENV === 'production') {
@@ -24,16 +21,13 @@ if (!getApps().length) {
 }
 const db = getFirestore();
 
-// --- Config ---
 const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
 const MERC_ID = process.env.BILLDESK_MERC_ID;
 const RAW_SECRET = process.env.BILLDESK_SECRET;
 const CRON_SECRET = process.env.CRON_SECRET;
 
-// Endpoint (UAT for testing)
 const BILLDESK_CANCEL_MANDATE_URL = 'https://uat1.billdesk.com/u2/pgsi/ve1_2/mandates/delete';
 
-// --- Helper Functions ---
 function generateEpochTimestampString() {
   return Math.floor(Date.now() / 1000).toString();
 }
@@ -52,7 +46,6 @@ function generateTraceId() {
 
 export async function POST(req) {
   try {
-    // 🔐 Auth check
     const authHeader = req.headers.get('authorization');
     if (!authHeader || authHeader !== `Bearer ${CRON_SECRET}`) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -67,7 +60,7 @@ export async function POST(req) {
 
     console.log(`➡️ Cancelling mandate: ${mandateid}`);
 
-    // 🔎 Look up mandate in Firestore to fetch payment_method_type
+    // 🔎 Fetch mandate from Firestore
     const mandateSnap = await db.collection("dev_mandates")
       .where("mandate_id", "==", mandateid)
       .limit(1)
@@ -78,17 +71,22 @@ export async function POST(req) {
     }
 
     const mandateData = mandateSnap.docs[0].data();
-    const paymentMethodType = mandateData.payment_method_type || "upi"; // default fallback
+    const paymentMethodType = mandateData.payment_method_type;
 
-    // Build payload
+    if (!paymentMethodType) {
+      console.error("❌ No payment_method_type found in mandate doc:", mandateid);
+      return NextResponse.json({ error: "Missing payment_method_type in Firestore" }, { status: 500 });
+    }
+
+    console.log(`✅ Using payment_method_type: ${paymentMethodType}`);
+
     const payloadObj = {
       mercid: MERC_ID,
       mandateid,
-      payment_method_type: paymentMethodType, // ✅ required
+      payment_method_type: paymentMethodType,
       reason_code
     };
 
-    // Sign with BillDesk secret
     const jwk = { kty: 'oct', k: Buffer.from(RAW_SECRET).toString('base64url') };
     const secretKey = await importJWK(jwk, 'HS256');
 
@@ -99,7 +97,6 @@ export async function POST(req) {
     const bdTimestamp = generateEpochTimestampString();
     const bdTraceid = generateTraceId();
 
-    // Call BillDesk Cancel Mandate API
     const res = await fetch(BILLDESK_CANCEL_MANDATE_URL, {
       method: 'POST',
       headers: {
@@ -108,7 +105,7 @@ export async function POST(req) {
         'BD-Traceid': bdTraceid,
         'BD-Timestamp': bdTimestamp,
       },
-      body: jwtToken, // ✅ send the signed JWT as the body
+      body: jwtToken,
     });
 
     const responseText = await res.text();
@@ -122,7 +119,6 @@ export async function POST(req) {
       return NextResponse.json({ error: "Failed to decode response", raw: responseText }, { status: 500 });
     }
 
-    // Update Firestore mandate
     await mandateSnap.docs[0].ref.set({
       status: decoded?.status || "cancelled",
       cancelled_at: new Date().toISOString(),
