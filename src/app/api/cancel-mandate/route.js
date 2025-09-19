@@ -9,7 +9,7 @@ import { initializeApp, getApps, cert } from 'firebase-admin/app';
 import { readFileSync } from 'fs';
 import path from 'path';
 
-// --- Firebase Init (optional, only if you want to update Firestore after cancel) ---
+// --- Firebase Init ---
 if (!getApps().length) {
   let serviceAccount;
   if (process.env.NODE_ENV === 'production') {
@@ -52,7 +52,7 @@ function generateTraceId() {
 
 export async function POST(req) {
   try {
-    // 🔐 Auth check (only allow with CRON_SECRET)
+    // 🔐 Auth check
     const authHeader = req.headers.get('authorization');
     if (!authHeader || authHeader !== `Bearer ${CRON_SECRET}`) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -67,10 +67,24 @@ export async function POST(req) {
 
     console.log(`➡️ Cancelling mandate: ${mandateid}`);
 
+    // 🔎 Look up mandate in Firestore to fetch payment_method_type
+    const mandateSnap = await db.collection("dev_mandates")
+      .where("mandate_id", "==", mandateid)
+      .limit(1)
+      .get();
+
+    if (mandateSnap.empty) {
+      return NextResponse.json({ error: "Mandate not found in Firestore" }, { status: 404 });
+    }
+
+    const mandateData = mandateSnap.docs[0].data();
+    const paymentMethodType = mandateData.payment_method_type || "upi"; // default fallback
+
     // Build payload
     const payloadObj = {
       mercid: MERC_ID,
       mandateid,
+      payment_method_type: paymentMethodType, // ✅ required
       reason_code
     };
 
@@ -108,16 +122,12 @@ export async function POST(req) {
       return NextResponse.json({ error: "Failed to decode response", raw: responseText }, { status: 500 });
     }
 
-    // Optional: update Firestore mandate status immediately
-    await db.collection("dev_mandates").where("mandate_id", "==", mandateid).get().then(snapshot => {
-      snapshot.forEach(doc => {
-        doc.ref.set({
-          status: decoded?.status || "cancelled",
-          cancelled_at: new Date().toISOString(),
-          raw_cancel_response: decoded
-        }, { merge: true });
-      });
-    });
+    // Update Firestore mandate
+    await mandateSnap.docs[0].ref.set({
+      status: decoded?.status || "cancelled",
+      cancelled_at: new Date().toISOString(),
+      raw_cancel_response: decoded
+    }, { merge: true });
 
     return NextResponse.json({
       success: true,
