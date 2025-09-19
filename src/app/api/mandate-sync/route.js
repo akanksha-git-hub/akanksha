@@ -4,6 +4,7 @@ import { getFirestore } from 'firebase-admin/firestore';
 import { initializeApp, getApps, cert } from 'firebase-admin/app';
 import { readFileSync } from 'fs';
 import path from 'path';
+import { SignJWT, importJWK, jwtVerify } from 'jose';
 
 // --- Firebase Init ---
 if (!getApps().length) {
@@ -21,7 +22,9 @@ if (!getApps().length) {
 const db = getFirestore();
 
 // --- Config ---
+const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
 const MERC_ID = process.env.BILLDESK_MERC_ID;
+const RAW_SECRET = process.env.BILLDESK_SECRET;
 const CRON_SECRET = process.env.CRON_SECRET;
 const BILLDESK_RETRIEVE_MANDATE_URL = 'https://uat1.billdesk.com/u2/pgsi/ve1_2/mandates/get';
 
@@ -44,7 +47,7 @@ function generateTraceId() {
 
 export async function POST(req) {
   try {
-    // 🔐 Auth check
+    // 🔐 Protect API with CRON_SECRET
     const authHeader = req.headers.get('authorization');
     if (!authHeader || authHeader !== `Bearer ${CRON_SECRET}`) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -58,6 +61,10 @@ export async function POST(req) {
 
     const results = [];
 
+    // Prepare HS256 key
+    const jwk = { kty: 'oct', k: Buffer.from(RAW_SECRET).toString('base64url') };
+    const secretKey = await importJWK(jwk, 'HS256');
+
     for (const doc of mandatesSnap.docs) {
       const mandate = doc.data();
       if (!mandate.mandate_id) {
@@ -68,25 +75,43 @@ export async function POST(req) {
       const bdTimestamp = generateEpochTimestampString();
       const bdTraceid = generateTraceId();
 
-      // Build request
+      // 🔑 Payload
       const payload = {
         mercid: MERC_ID,
         mandateid: mandate.mandate_id,
       };
 
+      // 🔐 Sign JWS
+      const jwtToken = await new SignJWT(payload)
+        .setProtectedHeader({ alg: 'HS256', clientid: CLIENT_ID })
+        .sign(secretKey);
+
+      // 📡 Call BillDesk
       const res = await fetch(BILLDESK_RETRIEVE_MANDATE_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
+          'Content-Type': 'application/jose',
+          Accept: 'application/jose',
           'BD-Traceid': bdTraceid,
           'BD-Timestamp': bdTimestamp,
         },
-        body: JSON.stringify(payload),
+        body: jwtToken,
       });
 
-      const resJson = await res.json();
-      console.log("📡 BillDesk response for mandate:", mandate.mandate_id, resJson);
+      const responseText = await res.text();
+      console.log('📡 Raw BillDesk response (JWS):', responseText);
+
+      let resJson;
+      try {
+        const { payload: verified } = await jwtVerify(responseText, secretKey, {
+          algorithms: ['HS256'],
+        });
+        resJson = verified;
+        console.log("✅ Decoded BillDesk response:", JSON.stringify(resJson, null, 2));
+      } catch (err) {
+        console.warn("❌ Could not decode BillDesk response:", err.message);
+        resJson = { status: 'unknown', raw: responseText };
+      }
 
       // Safely parse status
       let newStatus = '';
@@ -98,16 +123,15 @@ export async function POST(req) {
       }
 
       if (newStatus === 'deleted' || newStatus === 'cancelled') {
-        // 🗑️ Delete the mandate doc
+        // 🗑️ Delete mandate doc
         await db.collection('dev_mandates').doc(doc.id).delete();
-
         results.push({
           mandate_id: mandate.mandate_id,
           status: newStatus,
           action: 'deleted_from_firestore',
         });
       } else {
-        // 🔄 Update Firestore with latest status
+        // 🔄 Update mandate doc
         await db.collection('dev_mandates').doc(doc.id).set(
           {
             status: resJson?.status || 'unknown',
@@ -116,7 +140,6 @@ export async function POST(req) {
           },
           { merge: true }
         );
-
         results.push({
           mandate_id: mandate.mandate_id,
           status: resJson?.status,
@@ -132,3 +155,4 @@ export async function POST(req) {
   }
 }
 // --- END OF FILE ---
+
