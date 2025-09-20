@@ -2,8 +2,10 @@ name: Debit Invoices
 
 on:
   schedule:
-    # Run at 06:00 IST (00:30 UTC) on the 5th of every month
-    - cron: "30 0 5 * *"
+    
+    # Run daily at 18:00 IST (12:30 UTC)
+    - cron: "30 12 * * *"
+
   workflow_dispatch: # Allow manual trigger for testing
 
 jobs:

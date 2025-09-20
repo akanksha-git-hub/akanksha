@@ -2,8 +2,8 @@ name: Mandate Sync
 
 on:
   schedule:
-    # Run daily at 06:00 IST (00:30 UTC)
-    - cron: "30 0 * * *"
+    # Run daily at 12:00 PM IST (06:30 UTC)
+    - cron: "30 6 * * *"
   workflow_dispatch: # allow manual trigger for testing
 
 jobs:

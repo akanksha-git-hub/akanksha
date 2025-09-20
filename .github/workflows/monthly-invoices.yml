@@ -2,20 +2,8 @@ name: Monthly Invoices
 
 on:
   schedule:
-    # Runing 4 times on the 3rd of the month (IST) for redundancy.
-    # Cron times are in UTC so we are doing for IST.
-
-    # 1st attempt: 3rd of the month at 01:00 IST
-    - cron: "30 19 2 * *"   # This is 19:30 UTC on the 2nd day of the month
-
-    # 2nd attempt: 3rd of the month at 06:00 IST
-    - cron: "30 0 3 * *"    # This is 00:30 UTC on the 3rd day of the month
-
-    # 3rd attempt: 3rd of the month at 12:00 IST
-    - cron: "30 6 3 * *"    # This is 06:30 UTC on the 3rd day of the month
-
-    # 4th attempt: 3rd of the month at 18:00 IST
-    - cron: "30 12 3 * *"   # This is 12:30 UTC on the 3rd day of the month
+   
+     - cron: "30 0 * * *"
 
   workflow_dispatch:        # Allows manual runs
     
