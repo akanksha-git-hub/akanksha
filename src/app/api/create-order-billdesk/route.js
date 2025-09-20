@@ -98,7 +98,11 @@ mandate_required: type ? undefined : 'Y',
   amount: Number(amount).toFixed(2),
 
     currency: "356",
-    start_date: new Date().toISOString().split('T')[0],
+     start_date: (() => {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      return tomorrow.toISOString().split('T')[0];
+    })(),
     end_date: "2030-12-31",
     frequency: "adho",
     amount_type: "max",
