@@ -31,11 +31,13 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // 🔎 Find invoices due today & unpaid
+    // 📅 Today
     const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+
+    // 🔎 Find unpaid invoices due today
     const invoicesSnap = await db.collection('dev_invoices')
       .where('status', '==', 'unpaid')
-    //   .where('debit_date', '==', today)
+      .where('debit_date', '==', today)
       .get();
 
     if (invoicesSnap.empty) {
@@ -46,12 +48,35 @@ export async function POST(req) {
 
     for (const doc of invoicesSnap.docs) {
       const invoice = doc.data();
+      const invoiceId = doc.id;
 
-      // Build request payload for /api/create-order-from-invoice
+      // 🚫 Skip if already attempted
+      if (invoice.debit_attempted) {
+        console.log(`⏩ Skipping ${invoiceId} — debit already attempted`);
+        continue;
+      }
+
+      // 🚫 Check mandate status before debit
+      if (invoice.mandateid) {
+        const mandateSnap = await db.collection('dev_mandates')
+          .where('mandate_id', '==', invoice.mandateid)
+          .limit(1)
+          .get();
+
+        if (!mandateSnap.empty) {
+          const mandateData = mandateSnap.docs[0].data();
+          if (mandateData.status !== 'active') {
+            console.log(`⏩ Skipping ${invoiceId} — mandate ${invoice.mandateid} is ${mandateData.status}`);
+            continue;
+          }
+        }
+      }
+
+      // 🏗 Build request payload for /api/create-order-from-invoice
       const payload = {
         mandateid: invoice.mandateid,
         subscription_refid: invoice.subscription_refid,
-        invoiceid: doc.id, // Firestore doc ID = invoice_id
+        invoiceid: invoiceId,
         amount: invoice.amount,
       };
 
@@ -68,8 +93,15 @@ export async function POST(req) {
 
       const resJson = await res.json();
 
+      // 📝 Mark as attempted (regardless of success/failure, avoids re-run)
+      await db.collection('dev_invoices').doc(invoiceId).set({
+        debit_attempted: true,
+        debit_attempted_at: new Date().toISOString(),
+        last_debit_response: resJson,
+      }, { merge: true });
+
       results.push({
-        invoiceid: payload.invoiceid,
+        invoiceid: invoiceId,
         status: res.status,
         response: resJson,
       });
