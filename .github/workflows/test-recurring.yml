@@ -8,8 +8,8 @@ on:
     # Mandate Sync → 21 Sept 21:00 IST (15:30 UTC)
     - cron: "30 15 21 9 *"
 
-    # Debit Invoices → 21 Sept 22:35 IST (17:05 UTC)
-    - cron: "5 17 21 9 *"
+    # Debit Invoices → 21 Sept 23:00 IST (17:30 UTC)
+    - cron: "30 17 21 9 *"
 
   workflow_dispatch: # allow manual run for testing
 
