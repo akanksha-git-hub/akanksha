@@ -132,27 +132,58 @@ export default function BlogInfo({ data }) {
 
                     return(
                         <div className="blog-child-title text-black space-y-4 mb-12" key={index}>
-                            {item.rich_text.map((text, i) => {
+                           {item.rich_text.map((block, i) => {
 
-                                const heading = text.type !== 'paragraph';
+    // --- RENDER A HEADING ---
+    // This correctly identifies 'heading1', 'heading2', etc.
+    if (block.type.startsWith('heading')) {
+        return (
+            // The id for the table of contents is now correctly placed only on headings
+            <div id={`b${index}`} key={i} className="mt-10">
+                <h2 className='text-3xl sm:text-4xl font-ambit-semibold text-left md:text-center w-[90%] 2xl:w-[32ch] md:mx-auto'>
+                    {block.text}
+                </h2>
+            </div>
+        );
+    }
 
-                                let identifier;
+    // --- RENDER A PARAGRAPH ---
+    if (block.type === 'paragraph') {
+        return (
+            <p key={i} className='font-ambit-regular text-base sm:text-lg text-justify mt-4'>
+                {block.text}
+            </p>
+        );
+    }
 
-                                identifier = `b${index}`;
+    // --- RENDER A BULLETED LIST ITEM ---
+    if (block.type === 'list-item') {
+        return (
+            <div key={i} className="flex items-start text-left ml-4 sm:ml-8 mt-2">
+                <span className="mr-3 text-lg font-bold text-black">•</span>
+                <p className='font-ambit-regular text-base sm:text-lg text-justify flex-1'>
+                    {block.text}
+                </p>
+            </div>
+        );
+    }
+    
+    // --- RENDER A NUMBERED LIST ITEM ---
+    if (block.type === 'o-list-item') {
+         return (
+            <div key={i} className="flex items-start text-left ml-4 sm:ml-8 mt-2">
+                {/* We use a consistent marker for simplicity */}
+                <span className="mr-3 text-lg text-black">*</span>
+                <p className='font-ambit-regular text-base sm:text-lg text-justify flex-1'>
+                    {block.text}
+                </p>
+            </div>
+        );
+    }
 
-                                return(
-                                    <div id={heading && (identifier)} key={i} className="mt-10" >
-                                        <RichText 
-                                            className='text-3xl sm:text-4xl font-ambit-semibold text-left md:text-center flex items-center justify-center w-[90%] 2xl:w-[32ch] md:mx-auto'
-                                            text={heading && (text.text)}
-                                        />
-                                        <RichText 
-                                            className='font-ambit-regular text-base sm:text-lg text-justify'
-                                            text={!heading && (text.text)}
-                                        />
-                                    </div>
-                                )
-                            })}
+    // Ignore any other block types from Prismic
+    return null;
+})}
                             {hasImage && (
                                 <div className={`w-full h-full`}>
                                     <PrismicNextImage 

@@ -70,13 +70,13 @@ export async function POST(req) {
       ru: `${process.env.APP_URL}/api/billdesk-payment-return`, 
       additional_info: {
      
-        additional_info3: stepC.first_name || 'N/A',
-        additional_info4: stepC.last_name || 'N/A',
-        additional_info5: stepC.city || 'N/A',
-        additional_info6: stepC.address || 'N/A',
-        additional_info7: stepC.pin_code || 'N/A',
-        additional_info8: stepC.pan_number || 'N/A',
-        additional_info9: stepC.state || 'N/A',
+      additional_info1: stepC.first_name || 'N/A',
+        additional_info2: stepC.last_name || 'N/A',
+        additional_info3: stepC.city || 'N/A',
+        additional_info4: stepC.address || 'N/A',
+        additional_info5: stepC.pin_code || 'N/A',
+        additional_info6: stepC.pan_number || 'N/A',
+        additional_info7: stepC.state || 'N/A',
       },
       customer: {
         email: stepC?.email || 'test@example.com',
