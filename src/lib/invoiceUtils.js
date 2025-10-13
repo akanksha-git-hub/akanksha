@@ -2,9 +2,11 @@
 export function buildFixedInvoiceDates() {
   const today = new Date();
 
-  // Decide invoice month: this month if before or on 3rd, else next month
-  let invoiceDate = new Date(today.getFullYear(), today.getMonth(), 3);
-  if (today.getDate() > 3) {
+  // Use this month if today <= 3rd, else next month
+  let invoiceDate;
+  if (today.getDate() <= 3) {
+    invoiceDate = new Date(today.getFullYear(), today.getMonth(), 3);
+  } else {
     invoiceDate = new Date(today.getFullYear(), today.getMonth() + 1, 3);
   }
 

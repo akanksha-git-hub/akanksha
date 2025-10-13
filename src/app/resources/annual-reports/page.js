@@ -12,6 +12,8 @@ export default async function Page() {
 
   const pageData = page.data.items;
 
+   console.log("Annual Reports Data Received:", pageData);
+
   const totalLength = pageData.length - 1;
 
   return (

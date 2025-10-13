@@ -3,7 +3,8 @@ name: Monthly Invoices
 on:
   schedule:
    
-     - cron: "30 0 * * *"
+       # Run at 00:30 UTC (6:00 AM IST) on the 3rd day of every month
+    - cron: "30 0 3 * *"
 
   workflow_dispatch:        # Allows manual runs
     
