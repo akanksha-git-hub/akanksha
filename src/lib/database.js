@@ -39,13 +39,12 @@ export async function saveTransactionToDB(verifiedPayload) {
       transaction_date: new Date(verifiedPayload.transaction_date).toISOString(),
 
       // Donor Details from 'additional_info' and 'customer'
-      donor_name: verifiedPayload.additional_info.additional_info3, // "Sumesh P"
-      email: verifiedPayload.customer.email,
-      mobile: verifiedPayload.customer.mobile,
-      city: verifiedPayload.additional_info.additional_info5, // "Bengaluru"
-      state: verifiedPayload.additional_info.additional_info9, // "Haryana"
-      pincode: verifiedPayload.additional_info.additional_info7, // "695008"
-      pan_number: verifiedPayload.additional_info.additional_info8, // "KGNOS5223Q"
+      donor_name: verifiedPayload.additional_info.additional_info1, // "Sumesh P"
+      email: verifiedPayload.additional_info.additional_info3,
+      mobile: verifiedPayload.additional_info.additional_info4,
+    address: verifiedPayload.additional_info.additional_info5,
+    state: verifiedPayload.additional_info.additional_info6,
+      pan_number: verifiedPayload.additional_info.additional_info2, // "KGNOS5223Q"
       
       // Timestamps and Raw Data for auditing
       processedAt: new Date().toISOString(),
