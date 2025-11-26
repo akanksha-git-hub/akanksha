@@ -78,11 +78,18 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
 
         try {
           setLoading(true);
-          const res = await fetch("/api/create-order-billdesk", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payloadToYourBackend),
-          });
+         let endpoint = donationType
+  ? "/api/create-order-billdesk"      
+  : "/api/create-mandate";            
+
+console.log(" Sending to endpoint:", endpoint);
+
+const res = await fetch(endpoint, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(payloadToYourBackend),
+});
+
 
           const serverResponseJson = await res.json();
 
