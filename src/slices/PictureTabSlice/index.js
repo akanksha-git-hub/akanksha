@@ -2,6 +2,8 @@
 
 import CardFlip from "@/components/card-flip";
 import TabContainer from "@/components/Tab/tab-container";
+import RichTextRenderer from "@/components/v2-components/RichTextRenderer";
+import { PrismicRichText } from "@prismicio/react";
 
 /**
  * @typedef {import("@prismicio/client").Content.PictureTabSliceSlice} PictureTabSliceSlice
@@ -39,8 +41,12 @@ const PictureTabSlice = ({ slice, context }) => {
           RenderElement={(props) => <CardFlip {...props} isSchoolLeaders={isSchoolLeaders} />} 
           className="flex flex-wrap gap-12 items-center justify-center mt-12"
         />
-      ) : (
+      ) : (<>
+           {slice?.primary?.heading?.length > 0 && (
+  <RichTextRenderer field={slice.primary.heading} className="flex items-center justify-center text-black   text-3xl md:text-6xl   !mt-24 !mb-12 " />
+)}
         <ul className="flex flex-wrap gap-12 items-center justify-center">
+    
           {slice.primary.tab_content.map((item, index) => (
             <CardFlip 
               key={index} 
@@ -51,6 +57,7 @@ const PictureTabSlice = ({ slice, context }) => {
             />
           ))}
         </ul>
+        </>
       )}
     </section>
   );

@@ -14448,6 +14448,16 @@ export interface PictureTabSliceSliceDefaultPrimaryTabContentItem {
  */
 export interface PictureTabSliceSliceDefaultPrimary {
   /**
+   * Heading field in *PictureTabSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: picture_tab_slice.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
    * Enable Tabs field in *PictureTabSlice → Default → Primary*
    *
    * - **Field Type**: Boolean

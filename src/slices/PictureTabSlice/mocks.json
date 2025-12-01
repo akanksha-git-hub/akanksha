@@ -98,6 +98,17 @@
 			"enable_tabs": {
 				"__TYPE__": "BooleanContent",
 				"value": true
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Fugiat commodo exercitation consectetur excepteur voluptate aliquip laboris aliqua."
+						}
+					}
+				]
 			}
 		},
 		"items": []
