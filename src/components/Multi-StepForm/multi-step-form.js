@@ -34,6 +34,12 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
 
   const handleStepProgression = useCallback(
     async (value, action = "next") => {
+      console.log("🚨 donationType prop received:", donationType);
+console.log("🚨 typeof donationType:", typeof donationType);
+
+const normalizedType = donationType ? donationType.toString().toLowerCase().trim() : null;
+console.log("🚨 normalized donationType:", normalizedType);
+
       setPaymentError(null); // Clear previous payment errors on new action
 
       if (action === "back") {
