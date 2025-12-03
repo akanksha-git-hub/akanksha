@@ -129,13 +129,8 @@ const fiveYearsLater = (() => {
   mercid: MERC_ID,
   amount: Number(amount).toFixed(2),
   currency: "356",
-  start_date: start_date || (() => {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-   return tomorrow.toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" });
-
-  })(),
-  end_date: end_date || fiveYearsLater,   // ← Updated here
+  start_date: "2025-12-06",
+  end_date: "2030-12-06",
   frequency: frequency || "adho",
   amount_type: amount_type || "max",
   debit_day: debit_day || "1",
