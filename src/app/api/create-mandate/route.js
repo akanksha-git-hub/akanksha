@@ -52,8 +52,9 @@ export async function POST(req) {
 const fiveYearsLater = (() => {
   const d = new Date();
   d.setFullYear(d.getFullYear() + 5);
-  return d.toISOString().split("T")[0];
+  return d.toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" });
 })();
+
 
   try {
     const body = await req.json();
@@ -131,7 +132,8 @@ const fiveYearsLater = (() => {
   start_date: start_date || (() => {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    return tomorrow.toISOString().split("T")[0];
+   return tomorrow.toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" });
+
   })(),
   end_date: end_date || fiveYearsLater,   // ← Updated here
   frequency: frequency || "adho",
