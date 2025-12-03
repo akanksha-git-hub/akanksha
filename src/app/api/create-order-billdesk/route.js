@@ -103,7 +103,7 @@ mandate_required: type ? undefined : 'Y',
       tomorrow.setDate(tomorrow.getDate() + 1);
       return tomorrow.toISOString().split('T')[0];
     })(),
-    end_date: "2030-12-31",
+    end_date: "2030-12-28",
     frequency: "adho",
     amount_type: "max",
     debit_day: "1",
