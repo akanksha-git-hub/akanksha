@@ -11,7 +11,7 @@ import path from 'path';
 const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
 const MERC_ID = process.env.BILLDESK_MERC_ID;
 const RAW_SECRET = process.env.BILLDESK_SECRET;
-const BILLDESK_MANDATE_ENDPOINT  = process.env.BILLDESK_MANDATE_ENDPOINT ;
+const BILLDESK_MANDATE_ENDPOINT = process.env.BILLDESK_MANDATE_ENDPOINT;
 const APP_URL = process.env.APP_URL;
 
 // Firebase init (same pattern as your other routes)
@@ -29,7 +29,7 @@ if (!getApps().length) {
 }
 const db = getFirestore();
 
-// helpers (copied style)
+// helpers
 function generateEpochTimestampString() {
   return Math.floor(Date.now() / 1000).toString();
 }
@@ -45,20 +45,17 @@ function generateTraceId() {
     pad(now.getSeconds());
   return `${dateTimePart}${uuidv4().slice(0, 8).toUpperCase()}`;
 }
+function toENCA(d) {
+  // d is Date object
+  return d.toISOString().split('T')[0];
+}
 
 export async function POST(req) {
 
-  // --- Calculate 5-year mandate end date ---
-const fiveYearsLater = (() => {
-  const d = new Date();
-  d.setFullYear(d.getFullYear() + 5);
-  return d.toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" });
-})();
-
-
   try {
     const body = await req.json();
-    // Expect similar payload shape: stepC, amount, payment_method_type optional, start_date, end_date, frequency
+
+    // Accept overrides but we'll compute safe defaults
     const {
       stepC = {},
       amount,
@@ -66,7 +63,7 @@ const fiveYearsLater = (() => {
       payment_method_type = null,
       start_date = null,
       end_date = null,
-      frequency = 'adho',
+      frequency = 'ADHO', // default uppercase
       subscription_refid = null,
       debit_day = '1',
       amount_type = 'max'
@@ -77,7 +74,7 @@ const fiveYearsLater = (() => {
       return NextResponse.json({ error: 'amount is required' }, { status: 400 });
     }
 
-    // ip detection (copy style)
+    // ip detection
     const forwarded = req.headers.get('x-forwarded-for');
     const realIp = req.headers.get('x-real-ip');
     let clientIpAddress = '127.0.0.1';
@@ -87,7 +84,7 @@ const fiveYearsLater = (() => {
       clientIpAddress = clientIpAddress.substring(7);
     }
 
-    // Create an orderId to tie the pending mandate record with this request (same pattern)
+    // create ids/timestamps
     const orderId = `AKANKSHA-MANDATE-${uuidv4().slice(0, 12).toUpperCase()}`;
     const bdTimestamp = generateEpochTimestampString();
     const bdTraceid = generateTraceId();
@@ -95,7 +92,33 @@ const fiveYearsLater = (() => {
 
     console.log("🪵 Incoming create-mandate request body:", JSON.stringify(body, null, 2));
 
-    // Build payload mirroring the one-time style but with mandate block and mandate_required = 'Y'
+    // --- Compute safe start_date and end_date ---
+    // BillDesk often requires start_date >= today + 2 days for mandates. We'll default to that.
+    const now = new Date();
+    const safeStart = (() => {
+      if (start_date) {
+        // assume incoming string YYYY-MM-DD or similar — use as-is
+        return start_date;
+      }
+      const d = new Date(now);
+      d.setDate(d.getDate() + 2); // today + 2 days
+      return toENCA(d);
+    })();
+
+    const safeEnd = (() => {
+      if (end_date) return end_date;
+      // add 5 years to safeStart
+      const parts = safeStart.split('-').map((s) => parseInt(s, 10));
+      const year = parts[0] + 5;
+      const month = parts[1].toString().padStart(2, '0');
+      const day = parts[2].toString().padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    })();
+
+    // Force frequency uppercase (BillDesk tends to be strict)
+    const safeFrequency = (frequency || 'ADHO').toString().toUpperCase();
+
+    // Build payload with mandate block
     const jwsPayloadObject = {
       mercid: MERC_ID,
       orderid: orderId,
@@ -118,33 +141,32 @@ const fiveYearsLater = (() => {
         name: `${stepC?.first_name || 'Test'} ${stepC?.last_name || 'User'}`,
       },
       itemcode: 'DIRECT',
-      mandate_required: 'Y', // force mandate
+      mandate_required: 'Y',
       device: {
         init_channel: 'internet',
         ip: clientIpAddress,
         user_agent,
         accept_header: 'text/html',
       },
-   mandate: {
-  mercid: MERC_ID,
-  amount: Number(amount).toFixed(2),
-  currency: "356",
-  start_date: "2025-12-06",
-  end_date: "2030-12-06",
-  frequency: frequency || "adho",
-  amount_type: amount_type || "max",
-  debit_day: debit_day || "1",
-  subscription_desc: "Akanksha Mandate",
-  subscription_refid: subscription_refid || `SUB-${orderId}`,
-  customer_refid: stepC?.email || `anon-${orderId}`,
-  recurrence_rule: "after"
-}
-
+      mandate: {
+        mercid: MERC_ID,
+        amount: Number(amount).toFixed(2),
+        currency: "356",
+        start_date: safeStart,
+        end_date: safeEnd,
+        frequency: safeFrequency,
+        amount_type: amount_type || "max",
+        debit_day: debit_day || "1",
+        subscription_desc: "Akanksha Mandate",
+        subscription_refid: subscription_refid || `SUB-${orderId}`,
+        customer_refid: stepC?.email || `anon-${orderId}`,
+        recurrence_rule: "after"
+      }
     };
 
     console.log('🧾 Sending Mandate Payload to BillDesk:\n', JSON.stringify(jwsPayloadObject, null, 2));
 
-    // Save pending mandate record in Firestore BEFORE redirect (so we have a local record)
+    // Save pending mandate record in Firestore BEFORE redirect
     const pendingMandate = {
       status: 'pending',
       creation_flow: 'pending',
@@ -163,10 +185,9 @@ const fiveYearsLater = (() => {
       is_test: process.env.TEST_MODE === 'true' ? true : false
     };
 
-    // Use doc id = orderId for easy lookup
     await db.collection('dev_mandates').doc(orderId).set(pendingMandate);
 
-    // Sign payload (same pattern)
+    // Sign payload
     const jwk = { kty: 'oct', k: Buffer.from(RAW_SECRET).toString('base64url') };
     const secretKey = await importJWK(jwk, 'HS256');
 
@@ -188,6 +209,7 @@ const fiveYearsLater = (() => {
     const responseText = await billdeskResponse.text();
     console.log(' Raw BillDesk Response (JWS):', responseText);
 
+    // If BillDesk returns non-2xx, try to decode the JWS error payload (very helpful)
     if (!billdeskResponse.ok) {
       // store failure response on pending mandate
       await db.collection('dev_mandates').doc(orderId).set({
@@ -196,24 +218,25 @@ const fiveYearsLater = (() => {
         last_error: `BillDesk returned status ${billdeskResponse.status}`
       }, { merge: true });
 
-      // attempt to parse for debugging, then return same style error
-      let errorData;
+      // Try to decode responseText as JWS for error details
+      let decodedError = null;
       try {
-        errorData = responseText.trim().startsWith('{') ? JSON.parse(responseText) : { message: responseText };
-      } catch (e) {
-        errorData = { message: responseText };
+        const decoded = await jwtVerify(responseText, secretKey, { algorithms: ['HS256'] });
+        decodedError = decoded.payload;
+        console.error('❌ BillDesk Mandate ERROR DECODED:', JSON.stringify(decodedError, null, 2));
+      } catch (decodeErr) {
+        console.warn('⚠ Could not decode BillDesk error JWS:', decodeErr.message);
       }
 
-      console.error('❌ BillDesk Error (mandate create):', { status: billdeskResponse.status, body: responseText });
       return NextResponse.json({
-        error: 'BillDesk API Error',
+        error: 'BillDesk API Error (mandate create)',
         status: billdeskResponse.status,
-        details: errorData,
-        raw_response: responseText,
+        decoded_error: decodedError || null,
+        raw_response: responseText
       }, { status: billdeskResponse.status });
     }
 
-    // decode response and find redirect link (exact same flow as one-time)
+    // decode success response and get redirect link
     try {
       const { payload } = await jwtVerify(responseText, secretKey, { algorithms: ['HS256'] });
       console.log('📨 Decoded Mandate Payload:', JSON.stringify(payload, null, 2));
@@ -221,7 +244,6 @@ const fiveYearsLater = (() => {
 
       if (!redirectLink || !redirectLink.href || !redirectLink.parameters) {
         console.warn('⚠️ Missing redirect link or parameters in BillDesk payload (mandate).');
-        // update pending doc to failed-to-parse
         await db.collection('dev_mandates').doc(orderId).set({
           creation_flow: 'failed',
           raw_response_payload: payload
@@ -233,7 +255,7 @@ const fiveYearsLater = (() => {
         }, { status: 500 });
       }
 
-      // success: leave pending mandate as pending; webhook will complete
+      // success: keep pending -> webhook will complete
       return NextResponse.json({
         redirect_url: redirectLink.href,
         parameters: redirectLink.parameters,
