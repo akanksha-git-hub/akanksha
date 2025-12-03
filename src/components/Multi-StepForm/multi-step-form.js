@@ -87,14 +87,17 @@ let endpoint =
     : "/api/create-order-billdesk";
 
       
-
-console.log(" Sending to endpoint:", endpoint);
+  console.log("🚨 FRONTEND CALLING:", endpoint);
 
 const res = await fetch(endpoint, {
   method: "POST",
+
+
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(payloadToYourBackend),
-});
+  
+}
+);
 
 
           const serverResponseJson = await res.json();

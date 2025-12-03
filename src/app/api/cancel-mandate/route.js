@@ -45,6 +45,7 @@ function generateTraceId() {
 }
 
 export async function POST(req) {
+   console.log("🔥🔥🔥 HIT /api/create-mandate 🔥🔥🔥");
   try {
     const authHeader = req.headers.get('authorization');
     if (!authHeader || authHeader !== `Bearer ${CRON_SECRET}`) {

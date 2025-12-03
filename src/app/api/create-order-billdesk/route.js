@@ -28,6 +28,7 @@ function generateTraceId() {
 }
 
 export async function POST(req) { 
+    console.log("💳 HIT /api/create-order-billdesk");
   
   try {
     const body = await req.json();
