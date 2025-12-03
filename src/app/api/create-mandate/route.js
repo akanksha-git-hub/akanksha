@@ -19,29 +19,19 @@ if (!getApps().length) {
   let serviceAccount;
   if (process.env.NODE_ENV === "production") {
     serviceAccount = JSON.parse(
-      readFileSync(
-        "/var/www/next-prismic/akanksha-dev/secrets/firebaseServiceAccount.json",
-        "utf8"
-      )
+      readFileSync("/var/www/next-prismic/akanksha-dev/secrets/firebaseServiceAccount.json", "utf8")
     );
   } else {
-    const devPath = path.resolve(
-      process.cwd(),
-      "secrets",
-      "firebaseServiceAccount.json"
-    );
+    const devPath = path.resolve(process.cwd(), "secrets", "firebaseServiceAccount.json");
     serviceAccount = JSON.parse(readFileSync(devPath, "utf8"));
   }
   initializeApp({ credential: cert(serviceAccount) });
 }
 const db = getFirestore();
 
-// Helper for IST date
 function getISTDate(offsetYears = 0) {
   const now = new Date();
-  const ist = new Date(
-    now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
-  );
+  const ist = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
   ist.setFullYear(ist.getFullYear() + offsetYears);
   return ist.toISOString().split("T")[0];
 }
@@ -51,42 +41,26 @@ export async function POST(req) {
     const body = await req.json();
     const { stepC = {}, amount, user_agent = "Unknown Browser" } = body;
 
-    // Validate
     if (!amount) {
-      return NextResponse.json(
-        { error: "Amount is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Amount is required" }, { status: 400 });
     }
 
-    // IDs
-    const orderId = `AKANKSHA-MANDATE-${uuidv4()
-      .replace(/-/g, "")
-      .slice(0, 12)
-      .toUpperCase()}`;
+    const orderId = `AKANKSHA-MANDATE-${uuidv4().replace(/-/g, "").slice(0, 12).toUpperCase()}`;
     const customerRefid = stepC.email || `cust-${orderId}`;
     const subscriptionRefid = `SUB-${orderId}`;
 
-    // Dates
     const start_date = getISTDate(0);
     const end_date = getISTDate(5);
     const order_date = new Date().toISOString().split(".")[0] + "Z";
 
-    // IP
     const forwarded = req.headers.get("x-forwarded-for");
     const realIp = req.headers.get("x-real-ip");
-    let clientIpAddress =
-      forwarded?.split(",")[0]?.trim() || realIp || "127.0.0.1";
-    if (clientIpAddress.startsWith("::ffff:"))
-      clientIpAddress = clientIpAddress.slice(7);
+    let clientIpAddress = forwarded?.split(",")[0]?.trim() || realIp || "127.0.0.1";
+    if (clientIpAddress.startsWith("::ffff:")) clientIpAddress = clientIpAddress.slice(7);
 
-    // BillDesk headers
     const BD_Timestamp = Math.floor(Date.now() / 1000).toString();
-    const BD_Traceid = `${Date.now()}-${uuidv4()
-      .slice(0, 8)
-      .toUpperCase()}`;
+    const BD_Traceid = `${Date.now()}-${uuidv4().slice(0, 8).toUpperCase()}`;
 
-    // PGSI Payload
     const jwsPayloadObject = {
       mercid: MERC_ID,
       orderid: orderId,
@@ -94,18 +68,14 @@ export async function POST(req) {
       customer_refid: customerRefid,
       subscription_refid: subscriptionRefid,
       subscription_desc: "Akanksha Mandate",
-
       frequency: "adho",
       amount_type: "max",
       recurrence_rule: "after",
       debit_day: "6",
-
       start_date,
       end_date,
-
       currency: "356",
       amount: Number(amount).toFixed(2),
-
       customer: {
         first_name: stepC.first_name || "N/A",
         last_name: stepC.last_name || "N/A",
@@ -114,20 +84,15 @@ export async function POST(req) {
         email: stepC.email || "test@example.com",
         email_alt: stepC.email || "test@example.com",
       },
-
       device: {
         init_channel: "internet",
         ip: clientIpAddress,
         user_agent,
         accept_header: "text/html",
       },
-
       ru: `${APP_URL}/api/billdesk-payment-return`,
     };
 
-    console.log("🧾 Mandate Payload:", jwsPayloadObject);
-
-    // Save pending mandate in DB
     await db.collection("dev_mandates").doc(orderId).set({
       orderid: orderId,
       subscription_refid: subscriptionRefid,
@@ -142,15 +107,12 @@ export async function POST(req) {
       createdAt: new Date().toISOString(),
     });
 
-    // JWS Signing
     const jwk = { kty: "oct", k: Buffer.from(RAW_SECRET).toString("base64url") };
     const secretKey = await importJWK(jwk, "HS256");
-
     const jwtToken = await new SignJWT(jwsPayloadObject)
       .setProtectedHeader({ alg: "HS256", clientid: CLIENT_ID })
       .sign(secretKey);
 
-    // Send to BillDesk
     const bdRes = await fetch(BILLDESK_MANDATE_ENDPOINT, {
       method: "POST",
       headers: {
@@ -163,44 +125,25 @@ export async function POST(req) {
     });
 
     const responseText = await bdRes.text();
-    console.log("📩 Raw BillDesk Response:", responseText);
-
-    // Decode JWS
     const { payload } = await jwtVerify(responseText, secretKey);
-    console.log(
-      "📨 Decoded Mandate Response:",
-      JSON.stringify(payload, null, 2)
-    );
 
-    // Find redirect URL
     const redirectLink = payload?.links?.find(
       (l) => l.rel === "redirect" && l.method === "POST"
     );
 
-    // SAFETY CHECK — MUST HAVE THIS
-    if (
-      !redirectLink ||
-      !redirectLink.href ||
-      !redirectLink.parameters
-    ) {
-      console.error("❌ BillDesk returned NO redirect link");
+    if (!redirectLink || !redirectLink.href || !redirectLink.parameters) {
       return NextResponse.json(
         { error: "Missing redirect info", response: payload },
         { status: 400 }
       );
     }
 
-    // SUCCESS
     return NextResponse.json({
       redirect_url: redirectLink.href,
       parameters: redirectLink.parameters,
       mandate_order_id: orderId,
     });
   } catch (err) {
-    console.error("🔥 Mandate Error:", err);
-    return NextResponse.json(
-      { error: "Internal Error", details: err.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Internal Error", details: err.message }, { status: 500 });
   }
 }
