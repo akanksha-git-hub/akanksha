@@ -250,7 +250,8 @@ const handleTypeSelect = useCallback((index, type) => {
 
       {/* Modal */}
       <Modal open={open}>
-        <MultiStepForm closeModal={closeModal} donationAmount={active.amountSelector.amount} donationType={active.type.isOneTime} />
+        <MultiStepForm closeModal={closeModal} donationAmount={active.amountSelector.amount} donationType={active.type.isOneTime ? "once" : "monthly"}
+ />
       </Modal>
     </>
   );
