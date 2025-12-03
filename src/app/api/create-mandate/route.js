@@ -47,6 +47,14 @@ function generateTraceId() {
 }
 
 export async function POST(req) {
+
+  // --- Calculate 5-year mandate end date ---
+const fiveYearsLater = (() => {
+  const d = new Date();
+  d.setFullYear(d.getFullYear() + 5);
+  return d.toISOString().split("T")[0];
+})();
+
   try {
     const body = await req.json();
     // Expect similar payload shape: stepC, amount, payment_method_type optional, start_date, end_date, frequency
@@ -116,25 +124,25 @@ export async function POST(req) {
         user_agent,
         accept_header: 'text/html',
       },
-      mandate: {
-        mercid: MERC_ID,
-        amount: Number(amount).toFixed(2),
-        currency: "356",
-        // start_date/end_date: prefer request value, fallback to tomorrow start_date
-        start_date: start_date || (() => {
-          const tomorrow = new Date();
-          tomorrow.setDate(tomorrow.getDate() + 1);
-          return tomorrow.toISOString().split('T')[0];
-        })(),
-        end_date: end_date || "2030-12-31",
-        frequency: frequency || "adho",
-        amount_type: amount_type || "max",
-        debit_day: debit_day || "1",
-        subscription_desc: "Akanksha Mandate",
-        subscription_refid: subscription_refid || `SUB-${orderId}`,
-        customer_refid: stepC?.email || `anon-${orderId}`,
-        recurrence_rule: "after"
-      }
+   mandate: {
+  mercid: MERC_ID,
+  amount: Number(amount).toFixed(2),
+  currency: "356",
+  start_date: start_date || (() => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    return tomorrow.toISOString().split("T")[0];
+  })(),
+  end_date: end_date || fiveYearsLater,   // ← Updated here
+  frequency: frequency || "adho",
+  amount_type: amount_type || "max",
+  debit_day: debit_day || "1",
+  subscription_desc: "Akanksha Mandate",
+  subscription_refid: subscription_refid || `SUB-${orderId}`,
+  customer_refid: stepC?.email || `anon-${orderId}`,
+  recurrence_rule: "after"
+}
+
     };
 
     console.log('🧾 Sending Mandate Payload to BillDesk:\n', JSON.stringify(jwsPayloadObject, null, 2));
