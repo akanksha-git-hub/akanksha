@@ -78,9 +78,12 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
 
         try {
           setLoading(true);
-         let endpoint = donationType
-  ? "/api/create-order-billdesk"      
-  : "/api/create-mandate";            
+let endpoint =
+  donationType === "monthly"
+    ? "/api/create-mandate"     
+    : "/api/create-order-billdesk"; 
+
+      
 
 console.log(" Sending to endpoint:", endpoint);
 
