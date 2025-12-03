@@ -71,7 +71,8 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
           // stepB: currentStepData.stepB,
           amount: donationAmount,
           user_agent: navigator.userAgent,
-           type: donationType,
+           type: donationType === "once",
+
         };
         console.log(" Sending to backend:", payloadToYourBackend);
 
@@ -80,8 +81,8 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
           setLoading(true);
 let endpoint =
   donationType === "monthly"
-    ? "/api/create-mandate"     
-    : "/api/create-order-billdesk"; 
+    ? "/api/create-mandate"
+    : "/api/create-order-billdesk";
 
       
 
