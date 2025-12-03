@@ -119,37 +119,28 @@ const res = await fetch(endpoint, {
 
           const redirectUrl = serverResponseJson?.redirect_url;
           const redirectParams = serverResponseJson?.parameters;
+if (redirectUrl && redirectParams) {
+  console.log("BillDesk Redirect URL:", redirectUrl);
+  console.log("BillDesk Redirect Params:", redirectParams);
 
-          if (redirectUrl && redirectParams) {
-            // ... (existing form creation logic for redirect) ...
-            const fieldMap = {
-              mercid: "merchantid",
-              bdorderid: "bdorderid",
-              rdata: "rdata"
-            };
+  const form = document.createElement("form");
+  form.method = "POST";
+  form.action = redirectUrl;
+  form.style.display = "none";
 
-            const form = document.createElement("form");
-            form.method = "POST";
-            form.action = redirectUrl;
-            form.style.display = "none";
+  for (const key in redirectParams) {
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;               // ← Use EXACT KEY BillDesk provides
+    input.value = redirectParams[key];
+    form.appendChild(input);
+  }
 
-            for (const key in fieldMap) {
-              if (redirectParams[key]) { // Check if param exists
-                const input = document.createElement("input");
-                input.type = "hidden";
-                input.name = fieldMap[key];
-                input.value = redirectParams[key];
-                form.appendChild(input);
-              } else {
-                console.warn(`Missing expected parameter '${key}' for BillDesk redirect.`);
-                // Optionally handle this more gracefully, though BillDesk should always send required params
-              }
-            }
-            document.body.appendChild(form);
-            form.submit();
-            // setLoading(false) is not strictly needed here as the page will navigate away
-            // but if submit fails for some browser reason, it might be good to have a timeout to reset it.
-          } else {
+  document.body.appendChild(form);
+  form.submit();
+  return;
+}
+else {
             console.error("Missing redirect info from BillDesk response", serverResponseJson);
             setPaymentError("Could not prepare payment. Required information was missing. Please try again or contact support.");
             setLoading(false);
