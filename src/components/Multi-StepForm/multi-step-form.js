@@ -80,6 +80,7 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
 
         try {
           setLoading(true);
+          
 let endpoint =
   donationType === "monthly"
     ? "/api/create-mandate"
