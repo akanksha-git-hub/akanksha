@@ -11,9 +11,8 @@ import path from "path";
 const MERC_ID = process.env.BILLDESK_MERC_ID;
 const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
 const RAW_SECRET = process.env.BILLDESK_SECRET;
-
-// IMPORTANT — PG-SI Mandate Endpoint
 const BILLDESK_MANDATE_ENDPOINT = process.env.BILLDESK_MANDATE_ENDPOINT;
+const APP_URL = process.env.APP_URL;
 
 // Firebase init
 if (!getApps().length) {
@@ -31,7 +30,7 @@ if (!getApps().length) {
 const db = getFirestore();
 
 // ------------------------
-// Date Helpers (IST)
+// IST Date Helper
 // ------------------------
 function getISTDate(offsetYears = 0) {
   const date = new Date();
@@ -40,52 +39,57 @@ function getISTDate(offsetYears = 0) {
   return ist.toISOString().split("T")[0];
 }
 
+// ------------------------
+// POST Handler
+// ------------------------
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { stepC = {}, amount } = body;
+    const { stepC = {}, amount, user_agent = "Unknown" } = body;
 
     if (!amount) {
-      return NextResponse.json({ error: "amount is required" }, { status: 400 });
+      return NextResponse.json({ error: "Amount is required" }, { status: 400 });
     }
 
-    const orderId = `AKANKSHA-MANDATE-${uuidv4().slice(0, 12).toUpperCase()}`;
+    // ------------------------
+    // Generate IDs
+    // ------------------------
+    const orderId = `AKANKSHA-MANDATE-${uuidv4().slice(0, 10).toUpperCase()}`;
+    const customerRefid = stepC.email || `cust-${orderId}`;
+    const subscriptionRefid = `SUB-${orderId}`;
 
-    // Required IDs
-    const customerRef = stepC.email || `anon-${orderId}`;
-    const subscriptionRef = `SUB-${orderId}`;
+    // ------------------------
+    // Dates (PG-SI Spec)
+    // ------------------------
+    const start_date = getISTDate(0); // Today (IST)
+    const end_date = getISTDate(5);  // +5 years
 
-    // Dates
-    const startDate = getISTDate(0); // today IST
-    const endDate = getISTDate(5);  // +5 years
-
-    // Client IP
+    // ------------------------
+    // Detect Client IP
+    // ------------------------
     const forwarded = req.headers.get("x-forwarded-for");
     const realIp = req.headers.get("x-real-ip");
     let clientIpAddress = forwarded ? forwarded.split(",")[0].trim() : realIp || "127.0.0.1";
     if (clientIpAddress.startsWith("::ffff:")) clientIpAddress = clientIpAddress.slice(7);
 
     // ------------------------
-    // Build Payload (PG-SI Format)
+    // Build EXACT PG-SI Payload (matches your cURL)
     // ------------------------
     const jwsPayloadObject = {
       mercid: MERC_ID,
-
-      // REQUIRED ROOT FIELDS — must match BillDesk sample
-      customer_refid: customerRef,
-      subscription_refid: subscriptionRef,
+      customer_refid: customerRefid,
+      subscription_refid: subscriptionRefid,
       subscription_desc: "Akanksha Mandate",
-
-      currency: "356",
-      amount: Number(amount).toFixed(2),
 
       frequency: "adho",
       amount_type: "max",
-      debit_day: "2", // ignored for adho, but required by API
+      currency: "356",
+      amount: Number(amount).toFixed(2),
+      debit_day: "6",               // BD requires even if adho
       recurrence_rule: "after",
 
-      start_date: startDate,
-      end_date: endDate,
+      start_date,
+      end_date,
 
       customer: {
         first_name: stepC.first_name || "N/A",
@@ -99,33 +103,33 @@ export async function POST(req) {
       device: {
         init_channel: "internet",
         ip: clientIpAddress,
-        user_agent: body.user_agent || "Unknown",
+        user_agent,
         accept_header: "text/html",
       },
 
-      ru: `${process.env.APP_URL}/api/billdesk-payment-return`,
+      ru: `${APP_URL}/api/billdesk-payment-return`,
     };
 
-    console.log("🧾 Sending Mandate Payload:\n", JSON.stringify(jwsPayloadObject, null, 2));
-
-    // Save pending Firestore entry
-    await db.collection("dev_mandates")
-      .doc(orderId)
-      .set({
-        status: "pending",
-        orderid: orderId,
-        subscription_refid: subscriptionRef,
-        customer_refid: customerRef,
-        amount: jwsPayloadObject.amount,
-        start_date: startDate,
-        end_date: endDate,
-        raw_request: body,
-        raw_payload_sent: jwsPayloadObject,
-        createdAt: new Date().toISOString(),
-      });
+    console.log("🧾 PG-SI Mandate Payload:", JSON.stringify(jwsPayloadObject, null, 2));
 
     // ------------------------
-    // Sign JWS
+    // Save Pending Mandate in Firestore
+    // ------------------------
+    await db.collection("dev_mandates").doc(orderId).set({
+      orderid: orderId,
+      subscription_refid: subscriptionRefid,
+      customer_refid: customerRefid,
+      amount: jwsPayloadObject.amount,
+      start_date,
+      end_date,
+      status: "pending",
+      raw_request: body,
+      raw_payload_sent: jwsPayloadObject,
+      createdAt: new Date().toISOString(),
+    });
+
+    // ------------------------
+    // JWS Sign
     // ------------------------
     const jwk = { kty: "oct", k: Buffer.from(RAW_SECRET).toString("base64url") };
     const secretKey = await importJWK(jwk, "HS256");
@@ -135,33 +139,32 @@ export async function POST(req) {
       .sign(secretKey);
 
     // ------------------------
-    // POST to BillDesk Mandate API
+    // POST to BillDesk PG-SI
     // ------------------------
-    const billdeskResponse = await fetch(BILLDESK_MANDATE_ENDPOINT, {
+    const bdRes = await fetch(BILLDESK_MANDATE_ENDPOINT, {
       method: "POST",
       headers: {
-        "Content-Type": "application/jose",
         Accept: "application/jose",
+        "Content-Type": "application/jose",
       },
       body: jwtToken,
     });
 
-    const responseText = await billdeskResponse.text();
+    const responseText = await bdRes.text();
     console.log("📩 Raw BillDesk Response:", responseText);
 
-    if (!billdeskResponse.ok) {
-      console.log("❌ BillDesk Error:", responseText);
+    if (!bdRes.ok) {
       return NextResponse.json(
-        {
-          error: "BillDesk Mandate Error",
-          status: billdeskResponse.status,
-          raw: responseText,
-        },
+        { error: "BillDesk Mandate Error", raw: responseText },
         { status: 400 }
       );
     }
 
+    // ------------------------
+    // Decode BillDesk Response
+    // ------------------------
     const { payload } = await jwtVerify(responseText, secretKey);
+
     console.log("📨 Decoded Mandate Response:", JSON.stringify(payload, null, 2));
 
     const redirectLink = payload?.links?.find(
@@ -182,10 +185,7 @@ export async function POST(req) {
     });
 
   } catch (err) {
-    console.error("🔥 Internal Error (mandate):", err);
-    return NextResponse.json(
-      { error: "Internal Error", details: err.message },
-      { status: 500 }
-    );
+    console.error("🔥 Internal Error:", err);
+    return NextResponse.json({ error: "Internal Error", details: err.message }, { status: 500 });
   }
 }
