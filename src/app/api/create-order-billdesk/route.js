@@ -92,32 +92,7 @@ mandate_required: type ? undefined : 'Y',
         user_agent, 
         accept_header: 'text/html', 
       },
-      ...(type ? {} : {
-  mandate: {
-    mercid: MERC_ID,
-  amount: Number(amount).toFixed(2),
-
-    currency: "356",
-     start_date: (() => {
-      const tomorrow = new Date();
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      return tomorrow.toISOString().split('T')[0];
-    })(),
-    end_date: "2030-12-28",
-    frequency: "adho",
-    amount_type: "max",
-    debit_day: "1",
- 
-    
-
-    
-    subscription_desc: "Monthly Akanksha Donation",
-    subscription_refid: `SUB-${orderId}`,
-    customer_refid: stepC?.email || "anonymous@donor.com",
-    recurrence_rule: "after",
-
-  }
-})
+     
 
     };
 
