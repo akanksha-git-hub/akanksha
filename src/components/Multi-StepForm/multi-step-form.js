@@ -32,138 +32,114 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
   const [loading, setLoading] = useState(false);
   const [paymentError, setPaymentError] = useState(null); 
 
-  const handleStepProgression = useCallback(
-    async (value, action = "next") => {
-      console.log("🚨 donationType prop received:", donationType);
-console.log("🚨 typeof donationType:", typeof donationType);
+  // Inside src/components/multi-step-form.js
 
-const normalizedType = donationType ? donationType.toString().toLowerCase().trim() : null;
-console.log("🚨 normalized donationType:", normalizedType);
+const handleStepProgression = useCallback(
+  async (value, action = "next") => {
+    // ... (keep your existing back button logic and step 0 logic) ...
 
-      setPaymentError(null); // Clear previous payment errors on new action
+    setPaymentError(null);
 
-      if (action === "back") {
-        setStep((s) => Math.max(0, s - 1));
-        setError(false);
+    if (action === "back") {
+      setStep((s) => Math.max(0, s - 1));
+      setError(false);
+      return;
+    }
+
+    if (step === 0) {
+      if (value === null || typeof value === "undefined") return;
+      if (value === false) {
+        setError(true);
         return;
       }
+      setStepData((prev) => ({ ...prev, stepA: { isIndian: value } }));
+      setError(false);
+      setStep(1);
+      return;
+    }
 
-      if (step === 0) {
-        // ... (existing logic for step 0)
-        if (value === null || typeof value === "undefined") {
-          console.warn("No selection made for 'Are you an Indian Passport Holder?'");
+    if (step === 1) {
+      const currentStepData = { ...stepData, stepC: value };
+      setStepData(currentStepData);
+
+      const payloadToYourBackend = {
+        stepA: currentStepData.stepA,
+        stepC: currentStepData.stepC,
+        amount: donationAmount,
+        user_agent: navigator.userAgent,
+        type: donationType === "once" ? true : false,
+      };
+
+      try {
+        setLoading(true);
+
+        // Determine Endpoint
+        let endpoint =
+          donationType === "monthly"
+            ? "/api/create-mandate"
+            : "/api/create-order-billdesk";
+
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payloadToYourBackend),
+        });
+
+        const serverResponseJson = await res.json();
+
+        if (!res.ok) {
+          const errorMessage =
+            serverResponseJson.error || "Payment gateway error.";
+          const detailMessage =
+            serverResponseJson.details?.message ||
+            serverResponseJson.details ||
+            "";
+          setPaymentError(
+            `${errorMessage}${detailMessage ? ": " + detailMessage : ""}`
+          );
+          setLoading(false);
           return;
         }
-        if (value === false) {
-          setError(true); // This sets the non-Indian error message
-          return;
-        }
-        setStepData((prev) => ({ ...prev, stepA: { isIndian: value } }));
-        setError(false);
-        setStep(1);
-        return;
-      }
 
-      if (step === 1) {
-        
+        const redirectUrl = serverResponseJson?.redirect_url;
+        const redirectParams = serverResponseJson?.parameters;
 
- 
-        const currentStepData = { ...stepData, stepC: value  };
-        setStepData(currentStepData);
-
-        const payloadToYourBackend = {
-          stepA: currentStepData.stepA,
-          stepC: currentStepData.stepC,
-          // stepB: currentStepData.stepB,
-          amount: donationAmount,
-          user_agent: navigator.userAgent,
-         type: donationType === "once" ? true : false
-
-
-        };
-        console.log(" Sending to backend:", payloadToYourBackend);
-
-
-        try {
-          setLoading(true);
+        if (redirectUrl && redirectParams) {
+          // --- 🔴 CRITICAL FIX HERE ---
+          // Instead of a hardcoded map, we loop through the keys provided by BillDesk.
+          // This works for both One-Time and Mandate because we trust the backend's response keys.
           
-let endpoint =
-  donationType === "monthly"
-    ? "/api/create-mandate"
-    : "/api/create-order-billdesk";
+          const form = document.createElement("form");
+          form.method = "POST";
+          form.action = redirectUrl;
+          form.style.display = "none";
 
-      
-  console.log("🚨 FRONTEND CALLING:", endpoint);
+          // Loop over every key in redirectParams (mercid, bdorderid, rdata, etc.)
+          Object.keys(redirectParams).forEach((key) => {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = key; // Use the exact key name from BillDesk (e.g., "mercid")
+            input.value = redirectParams[key];
+            form.appendChild(input);
+          });
 
-const res = await fetch(endpoint, {
-  method: "POST",
-
-
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(payloadToYourBackend),
-  
-}
-);
-
-
-          const serverResponseJson = await res.json();
-
-          if (!res.ok) {
-            // Use serverResponseJson.details?.message for more specific BillDesk errors if available
-            const errorMessage = serverResponseJson.error || "An error occurred with the payment gateway.";
-            const detailMessage = serverResponseJson.details?.message || serverResponseJson.details || "";
-            setPaymentError(`${errorMessage}${detailMessage ? " Details: " + detailMessage : ""}`);
-            setLoading(false);
-            return;
-          }
-
-          const redirectUrl = serverResponseJson?.redirect_url;
-          const redirectParams = serverResponseJson?.parameters;
-
-          if (redirectUrl && redirectParams) {
-            // ... (existing form creation logic for redirect) ...
-            const fieldMap = {
-              mercid: "merchantid",
-              bdorderid: "bdorderid",
-              rdata: "rdata"
-            };
-
-            const form = document.createElement("form");
-            form.method = "POST";
-            form.action = redirectUrl;
-            form.style.display = "none";
-
-            for (const key in fieldMap) {
-              if (redirectParams[key]) { // Check if param exists
-                const input = document.createElement("input");
-                input.type = "hidden";
-                input.name = fieldMap[key];
-                input.value = redirectParams[key];
-                form.appendChild(input);
-              } else {
-                console.warn(`Missing expected parameter '${key}' for BillDesk redirect.`);
-                // Optionally handle this more gracefully, though BillDesk should always send required params
-              }
-            }
-            document.body.appendChild(form);
-            form.submit();
-            // setLoading(false) is not strictly needed here as the page will navigate away
-            // but if submit fails for some browser reason, it might be good to have a timeout to reset it.
-          } else {
-            console.error("Missing redirect info from BillDesk response", serverResponseJson);
-            setPaymentError("Could not prepare payment. Required information was missing. Please try again or contact support.");
-            setLoading(false);
-          }
-        } catch (err) {
-          console.error("Request to /api/create-order-billdesk failed:", err);
-          setPaymentError("A network error occurred while trying to initiate payment. Please check your connection and try again.");
+          document.body.appendChild(form);
+          form.submit();
+        } else {
+          console.error("Missing redirect info", serverResponseJson);
+          setPaymentError("Could not initiate payment. Missing redirect info.");
           setLoading(false);
         }
-        return;
+      } catch (err) {
+        console.error("Payment initiation failed:", err);
+        setPaymentError("Network error. Please try again.");
+        setLoading(false);
       }
-    },
-    [step, stepData, donationAmount]
-  );
+      return;
+    }
+  },
+  [step, stepData, donationAmount, donationType]
+);
 
   const totalSteps = 2;
   const progressPercentage = (step / (totalSteps - 1)) * 100;
