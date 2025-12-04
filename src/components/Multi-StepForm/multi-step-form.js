@@ -34,10 +34,10 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
 
   // Inside src/components/multi-step-form.js
 
+// Inside src/components/multi-step-form.js
+
 const handleStepProgression = useCallback(
   async (value, action = "next") => {
-    // ... (keep your existing back button logic and step 0 logic) ...
-
     setPaymentError(null);
 
     if (action === "back") {
@@ -73,7 +73,6 @@ const handleStepProgression = useCallback(
       try {
         setLoading(true);
 
-        // Determine Endpoint
         let endpoint =
           donationType === "monthly"
             ? "/api/create-mandate"
@@ -105,20 +104,29 @@ const handleStepProgression = useCallback(
         const redirectParams = serverResponseJson?.parameters;
 
         if (redirectUrl && redirectParams) {
-          // --- 🔴 CRITICAL FIX HERE ---
-          // Instead of a hardcoded map, we loop through the keys provided by BillDesk.
-          // This works for both One-Time and Mandate because we trust the backend's response keys.
-          
           const form = document.createElement("form");
           form.method = "POST";
           form.action = redirectUrl;
           form.style.display = "none";
 
-          // Loop over every key in redirectParams (mercid, bdorderid, rdata, etc.)
+          // --- 🔴 KEY MAPPING FIX ---
+          // Determine if we need to rename keys based on the flow type
+          const isMandateFlow = redirectParams.hasOwnProperty("mandate_tokenid");
+
           Object.keys(redirectParams).forEach((key) => {
             const input = document.createElement("input");
             input.type = "hidden";
-            input.name = key; // Use the exact key name from BillDesk (e.g., "mercid")
+            
+            // Default name is the key itself
+            let inputName = key;
+
+            // Apply specific mapping for Mandates as per BillDesk Docs
+            if (isMandateFlow) {
+              if (key === "mercid") inputName = "merchantId"; 
+              if (key === "mandate_tokenid") inputName = "mandateTokenId";
+            }
+            
+            input.name = inputName;
             input.value = redirectParams[key];
             form.appendChild(input);
           });
