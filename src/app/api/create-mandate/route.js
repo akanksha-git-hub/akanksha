@@ -53,7 +53,12 @@ function getISTDate(offsetYears = 0) {
   ist.setFullYear(ist.getFullYear() + offsetYears);
   return ist.toISOString().split("T")[0];
 }
-
+// Helper to remove spaces and special characters
+const cleanName = (str) => {
+  if (!str) return "NA";
+  // Remove everything that is NOT a letter or number
+  return str.replace(/[^a-zA-Z0-9]/g, ""); 
+};
 // ------------------------
 // POST Handler
 // ------------------------
@@ -127,8 +132,8 @@ export async function POST(req) {
       amount: Number(amount).toFixed(2),
 
       customer: {
-        first_name: stepC.first_name || "N/A",
-        last_name: stepC.last_name || "N/A",
+        first_name: cleanName(stepC.first_name).slice(0, 50) || "N/A",
+        last_name: cleanName(stepC.last_name).slice(0, 50) || "N/A",
         mobile: stepC.number || "9999999999",
         mobile_alt: stepC.number || "9999999999",
         email: stepC.email || "test@example.com",
