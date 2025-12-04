@@ -155,22 +155,7 @@ export async function POST(req) {
       JSON.stringify(jwsPayloadObject, null, 2)
     );
 
-    // ------------------------
-    // Save Pending Mandate
-    // ------------------------
-    await db.collection("dev_mandates").doc(orderId).set({
-      orderid: orderId,
-      subscription_refid: subscriptionRefid,
-      customer_refid: customerRefid,
-      amount: jwsPayloadObject.amount,
-      start_date,
-      end_date,
-      order_date,
-      status: "pending",
-      raw_request: body,
-      raw_payload_sent: jwsPayloadObject,
-      createdAt: new Date().toISOString(),
-    });
+
 
     // ------------------------
     // JWS Signing
