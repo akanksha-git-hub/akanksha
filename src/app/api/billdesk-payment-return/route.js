@@ -1,78 +1,70 @@
-// --- START OF FILE route.js (for /api/billdesk-payment-return) ---
+import { NextResponse } from "next/server";
+import { jwtVerify, importJWK } from "jose";
 
-import { NextResponse } from 'next/server';
-import { jwtVerify, importJWK } from 'jose';
+const SECRET_KEY_STRING = process.env.BILLDESK_SECRET;
+const APP_URL = process.env.APP_URL || "http://localhost:3000";
 
-// Ensure this uses process.env.APP_URL
-const APP_BASE_URL = process.env.APP_URL || 'https://www.akanksha.org'; // Fallback to prod URL for safety
-
-export async function POST(request) {
-  console.log('------------------------------------------------------');
-  console.log('[BillDesk Return Handler] Received POST request at:', new Date().toISOString());
-
+export async function POST(req) {
   try {
-    const formData = await request.formData();
-    const encryptedResponse = formData.get('transaction_response')?.toString();
+    const formData = await req.formData();
+    
+    // Check for Mandate Response vs Transaction Response
+    const transactionResponse = formData.get("transaction_response");
+    const mandateResponse = formData.get("mandate_response");
+    const rawResponse = transactionResponse || mandateResponse;
 
-    if (!encryptedResponse) {
-      console.error('[BillDesk Return Handler] Error: No transaction_response field received in POST body.');
-      const errorUrl = new URL('/thank-you', APP_BASE_URL);
-      errorUrl.searchParams.set('status', 'MISSING_CALLBACK_DATA');
-      errorUrl.searchParams.set('error_detail', 'Transaction response field was empty or not found.');
-      console.log('[BillDesk Return Handler] Redirecting due to missing data:', errorUrl.toString());
-      return NextResponse.redirect(errorUrl.toString(), { status: 303 });
+    if (!rawResponse) {
+      console.error("❌ Return Handler: No payload found.");
+      return NextResponse.redirect(`${APP_URL}/?status=error&reason=no_payload`, 303);
     }
 
-    let decryptedData;
-    try {
-      const jwk = {
-        kty: 'oct',
-        k: Buffer.from(process.env.BILLDESK_SECRET).toString('base64url'),
-      };
-      const secretKey = await importJWK(jwk, 'HS256');
-      const { payload } = await jwtVerify(encryptedResponse, secretKey, {
-        algorithms: ['HS256'],
-      });
-      decryptedData = payload;
-    } catch (err) {
-      console.error('[Decrypt Function] ERROR: Failed to verify JWS:', err);
-      const failUrl = new URL('/thank-you', APP_BASE_URL);
-      failUrl.searchParams.set('status', 'CALLBACK_PROCESSING_ERROR');
-      failUrl.searchParams.set('error_detail', 'JWS decryption or validation failed.');
-      return NextResponse.redirect(failUrl.toString(), { status: 303 });
+    // --- Decode & Verify JWS ---
+    // We still verify to ensure a hacker isn't faking a success redirect
+    const secretKey = await importJWK(
+      { kty: "oct", k: Buffer.from(SECRET_KEY_STRING).toString("base64url") },
+      "HS256"
+    );
+    const { payload } = await jwtVerify(rawResponse, secretKey);
+    console.log("✅ Verified BillDesk Return Payload");
+
+    const { status, auth_status, orderid } = payload;
+
+    // --- Identify Flow Type & Success ---
+    let success = false;
+    let redirectParams = new URLSearchParams();
+
+    // 1. IS MANDATE? (Recurring)
+    if (payload.mandateid || payload.objectid === "mandate") {
+      
+      // Mandate Success Criteria
+      success = status === "active" || status === "success" || payload.verification_error_type === "success";
+
+      // Set Params for UI
+      redirectParams.set("type", "mandate");
+      redirectParams.set("sub_id", payload.subscription_refid || "NA");
+      redirectParams.set("mandate_id", payload.mandateid || "NA");
+
+    } else {
+      // 2. IS ONE-TIME? (Donation)
+      
+      // Payment Success Criteria
+      success = auth_status === "0300";
+
+      // Set Params for UI
+      redirectParams.set("type", "onetime");
+      redirectParams.set("order_id", orderid || "NA");
+      redirectParams.set("txn_id", payload.transactionid || "NA");
     }
 
-    const thankYouPageUrl = new URL('/thank-you', APP_BASE_URL);
-    let appStatus = decryptedData?.auth_status === '0300' ? 'SUCCESS' : 'FAILURE';
+    // --- Redirect to Frontend ---
+    redirectParams.set("status", success ? "success" : "failed");
+    
+    // URL will look like: 
+    // https://site.com/?status=success&type=mandate&sub_id=...&mandate_id=...
+    return NextResponse.redirect(`${APP_URL}/?${redirectParams.toString()}`, 303);
 
-    thankYouPageUrl.searchParams.set('status', appStatus);
-    if (decryptedData?.orderid) { // This is YOUR order ID
-      thankYouPageUrl.searchParams.set('order_id', decryptedData.orderid.toString());
-    }
-    if (decryptedData?.bdorderid) { // BillDesk's Order ID for your order
-      thankYouPageUrl.searchParams.set('bdorderid', decryptedData.bdorderid.toString());
-    }
-    // Check your decryptedData payload structure.
-    // Based on S2S logs, it's likely `transactionid` (lowercase).
-    if (decryptedData?.transactionid) { // BillDesk's Transaction ID
-      thankYouPageUrl.searchParams.set('transactionid', decryptedData.transactionid.toString());
-    }
-    if (decryptedData?.status_message) { // This is often the same as transaction_error_desc
-      thankYouPageUrl.searchParams.set('gateway_message', decryptedData.status_message.toString());
-    }
-    // You might also want your own order ID if it's in decryptedData.orderid
-    // Usually, decryptedData.orderid IS your original order ID.
-
-    console.log('[BillDesk Return Handler] Redirecting to:', thankYouPageUrl.toString());
-    console.log('------------------------------------------------------');
-    return NextResponse.redirect(thankYouPageUrl.toString(), { status: 303 });
-
-  } catch (error) {
-    console.error('[BillDesk Return Handler] ❌ UNHANDLED ERROR:', error);
-    const fallbackUrl = new URL('/thank-you', APP_BASE_URL);
-    fallbackUrl.searchParams.set('status', 'HANDLER_CRASH');
-    fallbackUrl.searchParams.set('error_detail', error.message?.substring(0, 150) || 'Unknown error');
-    return NextResponse.redirect(fallbackUrl.toString(), { status: 303 });
+  } catch (err) {
+    console.error("🔥 Return Handler Error:", err.message);
+    return NextResponse.redirect(`${APP_URL}/?status=error&reason=exception`, 303);
   }
 }
-// --- END OF FILE route.js ---
