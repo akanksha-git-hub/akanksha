@@ -36,6 +36,8 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
 
 // Inside src/components/multi-step-form.js
 
+// Inside src/components/multi-step-form.js
+
 const handleStepProgression = useCallback(
   async (value, action = "next") => {
     setPaymentError(null);
@@ -109,21 +111,28 @@ const handleStepProgression = useCallback(
           form.action = redirectUrl;
           form.style.display = "none";
 
-          // --- 🔴 KEY MAPPING FIX ---
-          // Determine if we need to rename keys based on the flow type
+          // --- 🔴 FIXED MAPPING FOR BOTH FLOWS ---
+          // Determine if this is a Mandate flow based on the token presence
           const isMandateFlow = redirectParams.hasOwnProperty("mandate_tokenid");
 
           Object.keys(redirectParams).forEach((key) => {
             const input = document.createElement("input");
             input.type = "hidden";
             
-            // Default name is the key itself
-            let inputName = key;
+            let inputName = key; // Default fallback
 
-            // Apply specific mapping for Mandates as per BillDesk Docs
             if (isMandateFlow) {
+              // === MONTHLY (Mandate) MAPPINGS ===
+              // SDK documentation requires CamelCase "merchantId"
               if (key === "mercid") inputName = "merchantId"; 
               if (key === "mandate_tokenid") inputName = "mandateTokenId";
+            } else {
+              // === ONE-TIME (Standard) MAPPINGS ===
+              // Standard Checkout usually requires lowercase "merchantid"
+              // Restoring your original working mapping logic here.
+              if (key === "mercid") inputName = "merchantid";
+              // 'bdorderid' usually stays 'bdorderid'
+              // 'rdata' usually stays 'rdata'
             }
             
             input.name = inputName;
