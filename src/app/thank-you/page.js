@@ -154,7 +154,7 @@ export default function ThankYouPage({ searchParams }) {
                      </p>
                   ) : (
                     <p className="text-gray-500 mt-4 text-lg sm:text-xl font-ambit-regular">
-                       We couldn't process your request.
+                       We couldn&apos;t process your request.
                     </p>
                   )}
 
