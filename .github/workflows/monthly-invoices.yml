@@ -4,7 +4,7 @@ on:
   schedule:
    
        # Run at 00:30 UTC (6:00 AM IST) on the 3rd day of every month
-    - cron: "30 0 3 * *"
+    - cron: "45 12 * * *"
 
   workflow_dispatch:        # Allows manual runs
     
