@@ -27,10 +27,6 @@ const db = getFirestore();
 
 // --- Save transaction to Firestore ---
 export async function saveTransactionToDB(verifiedPayload) {
-    if (verifiedPayload.objectid === "mandate") {
-    console.log("⏩ Skipping donation save — this is a mandate webhook.");
-    return;
-  }
   const isMandate = verifiedPayload.objectid === "mandate";
   const isDebit = verifiedPayload.txn_process_type === "si"; // recurring debit
 
@@ -102,8 +98,13 @@ export async function saveTransactionToDB(verifiedPayload) {
       (key) => donationRecord[key] === undefined && (donationRecord[key] = null)
     );
 
-    const docRef = await db.collection("dev_donations").add(donationRecord);
-    console.log(`✅ Saved donation to Firestore. Document ID: ${docRef.id}`);
+  if (!isMandate) {
+  const docRef = await db.collection("dev_donations").add(donationRecord);
+  console.log(`✅ Saved donation to Firestore. Document ID: ${docRef.id}`);
+} else {
+  console.log("⏭ Skipping donation save — mandate webhook.");
+}
+
 
     // -----------------------------------
     // SAVE MANDATE DETAILS (Mandate Flow Only)
