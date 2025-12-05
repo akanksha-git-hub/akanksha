@@ -4,7 +4,7 @@ on:
   schedule:
    
        # Run at 4:20 PM IST (10:50 UTC)
-    - cron: "50 10 * * *"
+    -  cron: "15 11 * * *"
 
   workflow_dispatch:        # Allows manual runs
     
