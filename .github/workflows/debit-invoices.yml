@@ -2,8 +2,8 @@ name: Debit Invoices
 
 on:
   schedule:
-        # Run today at 12:05 PM IST (06:35 UTC)
-    - cron: "45 10 * * *"
+      # Run at 4:30 PM IST (11:00 UTC)
+    - cron: "0 11 * * *"
 
   workflow_dispatch: # Allow manual trigger for testing
 
