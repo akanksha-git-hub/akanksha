@@ -27,6 +27,10 @@ const db = getFirestore();
 
 // --- Save transaction to Firestore ---
 export async function saveTransactionToDB(verifiedPayload) {
+    if (verifiedPayload.objectid === "mandate") {
+    console.log("⏩ Skipping donation save — this is a mandate webhook.");
+    return;
+  }
   const isMandate = verifiedPayload.objectid === "mandate";
   const isDebit = verifiedPayload.txn_process_type === "si"; // recurring debit
 
@@ -59,6 +63,40 @@ export async function saveTransactionToDB(verifiedPayload) {
     // -----------------------------------
     // DONATION RECORD (Firestore-safe)
     // -----------------------------------
+    // -----------------------------------
+// DONOR INFO (Webhook → Fallback to Mandate)
+// -----------------------------------
+let donor_name = verifiedPayload?.additional_info?.additional_info3 ?? null;
+let email = verifiedPayload?.customer?.email ?? null;
+let mobile = verifiedPayload?.customer?.mobile ?? null;
+
+let city = verifiedPayload?.additional_info?.additional_info5 ?? null;
+let state = verifiedPayload?.additional_info?.additional_info9 ?? null;
+let pincode = verifiedPayload?.additional_info?.additional_info7 ?? null;
+let pan_number = verifiedPayload?.additional_info?.additional_info8 ?? null;
+
+// If missing → fallback to mandate record (SI Debit never sends customer info)
+if (!donor_name || !email || !mobile) {
+  const snap = await db
+    .collection("dev_mandates")
+    .where("mandate_id", "==", verifiedPayload.mandateid)
+    .limit(1)
+    .get();
+
+  if (!snap.empty) {
+    const md = snap.docs[0].data();
+
+    donor_name = donor_name || md.donor_name || null;
+    email = email || md.donor_email || null;
+    mobile = mobile || md.donor_mobile || null;
+
+    city = city || md.city || null;
+    state = state || md.state || null;
+    pincode = pincode || md.pincode || null;
+    pan_number = pan_number || md.pan_number || null;
+  }
+}
+
     const donationRecord = {
       // Transaction Details
       transaction_id: isMandate ? null : verifiedPayload.transactionid ?? null,
@@ -80,13 +118,13 @@ export async function saveTransactionToDB(verifiedPayload) {
         : null,
 
       // Donor Details (only exist for one-time payments)
-      donor_name: verifiedPayload?.additional_info?.additional_info3 ?? null,
-      email: verifiedPayload?.customer?.email ?? null,
-      mobile: verifiedPayload?.customer?.mobile ?? null,
-      city: verifiedPayload?.additional_info?.additional_info5 ?? null,
-      state: verifiedPayload?.additional_info?.additional_info9 ?? null,
-      pincode: verifiedPayload?.additional_info?.additional_info7 ?? null,
-      pan_number: verifiedPayload?.additional_info?.additional_info8 ?? null,
+donor_name,
+email,
+mobile,
+city,
+state,
+pincode,
+pan_number,
 
       // Meta
       processedAt: new Date().toISOString(),
@@ -98,13 +136,8 @@ export async function saveTransactionToDB(verifiedPayload) {
       (key) => donationRecord[key] === undefined && (donationRecord[key] = null)
     );
 
-  if (!isMandate) {
-  const docRef = await db.collection("dev_donations").add(donationRecord);
-  console.log(`✅ Saved donation to Firestore. Document ID: ${docRef.id}`);
-} else {
-  console.log("⏭ Skipping donation save — mandate webhook.");
-}
-
+    const docRef = await db.collection("dev_donations").add(donationRecord);
+    console.log(`✅ Saved donation to Firestore. Document ID: ${docRef.id}`);
 
     // -----------------------------------
     // SAVE MANDATE DETAILS (Mandate Flow Only)
