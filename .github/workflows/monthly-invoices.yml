@@ -3,7 +3,7 @@ name: Monthly Invoices
 on:
   schedule:
    
-     - cron: "30 6 * * *"
+     - cron: "45 7 * * *"
 
   workflow_dispatch:        # Allows manual runs
     

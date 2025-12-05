@@ -27,6 +27,10 @@ const db = getFirestore();
 
 // --- Save transaction to Firestore ---
 export async function saveTransactionToDB(verifiedPayload) {
+    if (verifiedPayload.objectid === "mandate") {
+    console.log("⏩ Skipping donation save — this is a mandate webhook.");
+    return;
+  }
   const isMandate = verifiedPayload.objectid === "mandate";
   const isDebit = verifiedPayload.txn_process_type === "si"; // recurring debit
 

@@ -77,13 +77,21 @@ export async function POST(req) {
     for (const doc of mandatesSnap.docs) {
       const mandate = doc.data();
 
+      // ⚠️ TEST MODE — FORCE TODAY'S DATES
+const today = new Date().toISOString().slice(0, 10);
+const invoice_date = today;
+const duedate = today;
+const debit_date = today;
+
+console.log("🔥 TEST MODE ACTIVE — Using Today's Date:", today);
+
       // ✅ FIX: Use mandate_id (with underscore) to match Firestore data
       if (!mandate.mandate_id) {
         console.warn(`⚠️ Skipping mandate with document ID ${doc.id} because it is missing a 'mandate_id'.`);
         continue; // Skip to the next mandate
       }
 
-      const { invoice_date, duedate, debit_date } = buildFixedInvoiceDates();
+      // const { invoice_date, duedate, debit_date } = buildFixedInvoiceDates(); Enable for productin
       const cycleKey = invoice_date.slice(0, 7); // "YYYY-MM"
 
       // 🔎 Check if invoice already exists for this cycle
