@@ -34,6 +34,11 @@ export async function POST(request) {
         algorithms: ['HS256'],
       });
       decryptedData = payload;
+      console.log(
+  '[BillDesk Return Payload]',
+  JSON.stringify(decryptedData, null, 2)
+);
+
     } catch (err) {
       console.error('[Decrypt Function] ERROR: Failed to verify JWS:', err);
       const failUrl = new URL('/thank-you', APP_BASE_URL);
