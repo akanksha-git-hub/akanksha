@@ -22,7 +22,7 @@ const INITIAL_STATE = {
   loading: false,
 };
 
-const types = ["One Time"];
+const types = ["One Time","Monthly"];
 
 export default function DonationSelectors({ data }) {
   const { stopScroll, startScroll } = useSmoothScroller();
@@ -131,18 +131,15 @@ export default function DonationSelectors({ data }) {
                 return (
                   <li
                     key={type}
-                    onClick={() => {
-                      if (!isMonthly) handleTypeSelect(index, type);
-                    }}
+                  onClick={() => handleTypeSelect(index, type)}
                     // --- MODIFICATION START ---
                     // Added conditional styling for the "Monthly" tab
-                    className={`flex items-center justify-center w-full xl:w-[48%] gap-2 px-4 py-3 rounded-md ${
-                      isMonthly
-                        ? "border border-black opacity-60 cursor-not-allowed" // Disabled style
-                        : active.type.index === index
-                        ? "bg-bright-yellow cursor-pointer" // Active style
-                        : "border border-black cursor-pointer" // Inactive style
-                    }`}
+              className={`flex items-center justify-center w-full xl:w-[48%] gap-2 px-4 py-3 rounded-md cursor-pointer ${
+  active.type.index === index
+    ? "bg-bright-yellow"
+    : "border border-black"
+}`}
+
                     // --- MODIFICATION END ---
                   >
                     <div
@@ -156,11 +153,7 @@ export default function DonationSelectors({ data }) {
                     {/* Wrapped text and added a "SOON" badge for the Monthly tab */}
                     <div className="flex items-center justify-center">
                       <RichText text={type} className="font-ambit text-black text-xl" />
-                      {isMonthly && (
-                        <span className="ml-2 px-2 py-0.5 bg-gray-300 text-gray-700 text-xs font-bold rounded-full">
-                          Coming Soon
-                        </span>
-                      )}
+                   
                     </div>
                   
                   </li>
