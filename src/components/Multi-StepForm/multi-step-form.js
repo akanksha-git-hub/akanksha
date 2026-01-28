@@ -104,6 +104,8 @@ const payloadToYourBackend = {
 
           if (redirectUrl && redirectParams) {
             // ... (existing form creation logic for redirect) ...
+            console.log("BillDesk redirectParams:", redirectParams);
+
            const form = document.createElement("form");
 form.method = "POST";
 form.action = redirectUrl;
