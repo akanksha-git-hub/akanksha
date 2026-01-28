@@ -133,7 +133,7 @@ if (donationType === true) {
   const mandateFieldMap = {
     mercid: "merchantId",
     mandate_tokenid: "mandateTokenId",
-    data: "rdata",
+    rdata: "rdata",
   };
 
   for (const key in mandateFieldMap) {
