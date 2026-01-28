@@ -204,11 +204,18 @@ console.log(
   JSON.stringify(redirectLink.parameters, null, 2)
 );
 
-    return NextResponse.json({
-      redirect_url: redirectLink.href,
-      parameters: redirectLink.parameters,
-      mandate_order_id: orderId,
-    });
+   const { mercid, mandate_tokenid, rdata } = redirectLink.parameters;
+
+return NextResponse.json({
+  redirect_url: redirectLink.href,
+  parameters: {
+    mercid,
+    mandate_tokenid,
+    rdata,
+  },
+  mandate_order_id: orderId,
+});
+
   } catch (err) {
     console.error("🔥 Internal Error:", err);
     return NextResponse.json(
