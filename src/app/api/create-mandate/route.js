@@ -119,7 +119,7 @@ const order_date = getISTDateTime(0, 0, true);
     const jwsPayloadObject = {
       mercid: MERC_ID,
       orderid: orderId,
-      order_date,
+   
       customer_refid: customerRefid,
       subscription_refid: subscriptionRefid,
       subscription_desc: "Akanksha Mandate",
