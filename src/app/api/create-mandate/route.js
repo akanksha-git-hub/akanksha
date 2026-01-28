@@ -183,6 +183,11 @@ export async function POST(req) {
     }
 
     const { payload } = await jwtVerify(responseText, secretKey);
+    console.log(
+  "🔓 DECODED BILLDESK RESPONSE (MANDATE):",
+  JSON.stringify(payload, null, 2)
+);
+
 
     const redirectLink = payload?.links?.find(
       (l) => l.rel === "redirect" && l.method === "POST"
