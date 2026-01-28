@@ -46,15 +46,21 @@ const db = getFirestore();
 // IST Date Helper
 // ------------------------
 
-function getISTDateTime(daysOffset = 0, includeTime = false) {
+function getISTDateTime(daysOffset = 0, yearsOffset = 0, includeTime = false) {
   const now = new Date();
-  // Offset by 5.5 hours for IST
-  const istTime = new Date(now.getTime() + (5.5 * 60 * 60 * 1000));
+  // 1. Force IST offset (UTC + 5:30)
+  const istOffset = 5.5 * 60 * 60 * 1000;
+  const istTime = new Date(now.getTime() + istOffset);
+  
+  // 2. Apply Offsets
   istTime.setDate(istTime.getDate() + daysOffset);
+  istTime.setFullYear(istTime.getFullYear() + yearsOffset);
   
   if (includeTime) {
+    // Returns YYYY-MM-DDTHH:mm:ssZ (for order_date)
     return istTime.toISOString().split(".")[0] + "Z";
   }
+  // Returns YYYY-MM-DD (for start_date and end_date)
   return istTime.toISOString().split("T")[0];
 }
 
@@ -89,10 +95,9 @@ export async function POST(req) {
     const subscriptionRefid = `SUB-${orderId}`;
 
     // Dates
-   const start_date = getISTDateTime(1, false);
-    const end_date = getISTDateTime(0, false);
-const order_date = getISTDateTime(0, true);
-
+  const start_date = getISTDateTime(1, 0, false);
+   const end_date = getISTDateTime(0, 5, false);
+const order_date = getISTDateTime(0, 0, true);
     // Client IP
     const forwarded = req.headers.get("x-forwarded-for");
     const realIp = req.headers.get("x-real-ip");
