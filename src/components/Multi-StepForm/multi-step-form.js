@@ -104,31 +104,54 @@ const payloadToYourBackend = {
 
           if (redirectUrl && redirectParams) {
             // ... (existing form creation logic for redirect) ...
-            const fieldMap = {
-              mercid: "merchantid",
-              bdorderid: "bdorderid",
-              rdata: "rdata"
-            };
+           const form = document.createElement("form");
+form.method = "POST";
+form.action = redirectUrl;
+form.style.display = "none";
 
-            const form = document.createElement("form");
-            form.method = "POST";
-            form.action = redirectUrl;
-            form.style.display = "none";
+if (donationType === true) {
+  // ✅ ONE-TIME PAYMENT (keep existing behaviour)
+  const fieldMap = {
+    mercid: "merchantid",
+    bdorderid: "bdorderid",
+    rdata: "rdata",
+  };
 
-            for (const key in fieldMap) {
-              if (redirectParams[key]) { // Check if param exists
-                const input = document.createElement("input");
-                input.type = "hidden";
-                input.name = fieldMap[key];
-                input.value = redirectParams[key];
-                form.appendChild(input);
-              } else {
-                console.warn(`Missing expected parameter '${key}' for BillDesk redirect.`);
-                // Optionally handle this more gracefully, though BillDesk should always send required params
-              }
-            }
-            document.body.appendChild(form);
-            form.submit();
+  for (const key in fieldMap) {
+    if (redirectParams[key]) {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = fieldMap[key];
+      input.value = redirectParams[key];
+      form.appendChild(input);
+    }
+  }
+} else {
+  // ✅ MANDATE (BillDesk Neo – Full Redirect spec)
+  const mandateFieldMap = {
+    mercid: "merchantId",
+    mandate_tokenid: "mandateTokenId",
+    data: "rdata",
+  };
+
+  for (const key in mandateFieldMap) {
+    const value = redirectParams[key];
+    if (!value) {
+      console.error(`Missing mandate redirect param: ${key}`);
+      continue;
+    }
+
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = mandateFieldMap[key];
+    input.value = value;
+    form.appendChild(input);
+  }
+}
+
+document.body.appendChild(form);
+form.submit();
+
             // setLoading(false) is not strictly needed here as the page will navigate away
             // but if submit fails for some browser reason, it might be good to have a timeout to reset it.
           } else {
