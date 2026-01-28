@@ -121,7 +121,7 @@ export async function POST(req) {
       start_date,
       end_date,
       currency: "356",
-      amount: Number(amount).toFixed(2),
+    //   amount: Number(amount).toFixed(2),
 
       customer: {
         first_name: cleanName(stepC.first_name).slice(0, 50) || "N/A",
