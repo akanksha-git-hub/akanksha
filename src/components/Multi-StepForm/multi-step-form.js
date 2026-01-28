@@ -65,20 +65,24 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
         const currentStepData = { ...stepData, stepC: value  };
         setStepData(currentStepData);
 
-        const payloadToYourBackend = {
-          stepA: currentStepData.stepA,
-          stepC: currentStepData.stepC,
-          // stepB: currentStepData.stepB,
-          amount: donationAmount,
-          user_agent: navigator.userAgent,
-           type: donationType,
-        };
+      const endpoint =
+  donationType === false
+    ? "/api/create-mandate"          // Monthly
+    : "/api/create-order-billdesk";  // One-time
+
+const payloadToYourBackend = {
+  stepA: currentStepData.stepA,
+  stepC: currentStepData.stepC,
+  amount: donationAmount,
+  user_agent: navigator.userAgent,
+};
+
         console.log(" Sending to backend:", payloadToYourBackend);
 
 
         try {
           setLoading(true);
-          const res = await fetch("/api/create-order-billdesk", {
+          const res = await fetch(endpoint, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payloadToYourBackend),
@@ -133,14 +137,14 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
             setLoading(false);
           }
         } catch (err) {
-          console.error("Request to /api/create-order-billdesk failed:", err);
+          console.error(`Request to ${endpoint} failed:`, err);
           setPaymentError("A network error occurred while trying to initiate payment. Please check your connection and try again.");
           setLoading(false);
         }
         return;
       }
     },
-    [step, stepData, donationAmount]
+    [step, stepData, donationAmount,donationType]
   );
 
   const totalSteps = 2;
