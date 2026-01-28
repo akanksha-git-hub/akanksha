@@ -12,6 +12,21 @@ export async function POST(request) {
 
   try {
     const formData = await request.formData();
+    // 🔹 FIRST: detect mandate return (no transaction_response in mandate flow)
+const mandateTokenId =
+  formData.get('mandateTokenId') || formData.get('mandate_tokenid');
+
+if (mandateTokenId) {
+  console.log('[BillDesk Mandate Return] Mandate authorized:', mandateTokenId);
+
+  const mandateUrl = new URL('/thank-you', APP_BASE_URL);
+  mandateUrl.searchParams.set('type', 'mandate');
+  mandateUrl.searchParams.set('status', 'AUTHORIZED');
+  mandateUrl.searchParams.set('mandate_tokenid', mandateTokenId.toString());
+
+  console.log('[BillDesk Mandate Return] Redirecting to:', mandateUrl.toString());
+  return NextResponse.redirect(mandateUrl.toString(), { status: 303 });
+}
     const encryptedResponse = formData.get('transaction_response')?.toString();
 
     if (!encryptedResponse) {
