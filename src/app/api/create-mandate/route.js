@@ -45,13 +45,17 @@ const db = getFirestore();
 // ------------------------
 // IST Date Helper
 // ------------------------
-function getISTDate(offsetYears = 0) {
+
+function getISTDateTime(daysOffset = 0, includeTime = false) {
   const now = new Date();
-  const ist = new Date(
-    now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
-  );
-  ist.setFullYear(ist.getFullYear() + offsetYears);
-  return ist.toISOString().split("T")[0];
+  // Offset by 5.5 hours for IST
+  const istTime = new Date(now.getTime() + (5.5 * 60 * 60 * 1000));
+  istTime.setDate(istTime.getDate() + daysOffset);
+  
+  if (includeTime) {
+    return istTime.toISOString().split(".")[0] + "Z";
+  }
+  return istTime.toISOString().split("T")[0];
 }
 
 // Helper to clean name
@@ -85,9 +89,9 @@ export async function POST(req) {
     const subscriptionRefid = `SUB-${orderId}`;
 
     // Dates
-    const start_date = getISTDate(0);
-    const end_date = getISTDate(5);
-    const order_date = new Date().toISOString().split(".")[0] + "Z";
+   const start_date = getISTDateTime(1, false);
+    const end_date = getISTDateTime(0, false);
+const order_date = getISTDateTime(0, true);
 
     // Client IP
     const forwarded = req.headers.get("x-forwarded-for");
@@ -117,7 +121,7 @@ export async function POST(req) {
       frequency: "adho",
       amount_type: "max",
       recurrence_rule: "after",
-    //   debit_day: "6",
+      debit_day: "6",
       start_date,
       end_date,
       currency: "356",
