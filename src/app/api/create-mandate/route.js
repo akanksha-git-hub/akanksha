@@ -115,7 +115,7 @@ export async function POST(req) {
       subscription_refid: subscriptionRefid,
       subscription_desc: "Akanksha Mandate",
       frequency: "adho",
-      amount_type: "max",
+      amount_type: "fixed",
       recurrence_rule: "after",
       debit_day: "6",
       start_date,
