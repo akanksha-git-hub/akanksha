@@ -125,7 +125,8 @@ const order_date = getISTDateTime(0, 0, true);
       subscription_desc: "Akanksha Mandate",
       frequency: "adho",
       amount_type: "max",
-   
+       recurrence_rule: "after",
+      debit_day: "6",
       start_date,
       end_date,
       currency: "356",
