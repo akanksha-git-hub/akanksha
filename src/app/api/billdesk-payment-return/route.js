@@ -12,6 +12,11 @@ export async function POST(request) {
 
   try {
     const formData = await request.formData();
+    for (const [key, value] of formData.entries()) {
+  rawForm[key] = value.toString();
+}
+
+console.log("📩 RAW BILLDESK return url:", JSON.stringify(rawForm, null, 2));
     // 🔹 FIRST: detect mandate return (no transaction_response in mandate flow)
 const mandateTokenId =
   formData.get('mandateTokenId') || formData.get('mandate_tokenid');
