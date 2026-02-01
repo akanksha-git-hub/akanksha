@@ -8,6 +8,9 @@ import { getFirestore } from "firebase-admin/firestore";
 import { readFileSync } from "fs";
 import path from "path";
 
+// ✅ ADD THIS IMPORT
+import { createPendingMandate } from "@/lib/database";
+
 // ENV
 const MERC_ID = process.env.BILLDESK_MERC_ID;
 const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
@@ -45,26 +48,20 @@ const db = getFirestore();
 // ------------------------
 // IST Date Helper
 // ------------------------
-
 function getISTDateTime(daysOffset = 0, yearsOffset = 0, includeTime = false) {
   const now = new Date();
-  // 1. Force IST offset (UTC + 5:30)
   const istOffset = 5.5 * 60 * 60 * 1000;
   const istTime = new Date(now.getTime() + istOffset);
-  
-  // 2. Apply Offsets
+
   istTime.setDate(istTime.getDate() + daysOffset);
   istTime.setFullYear(istTime.getFullYear() + yearsOffset);
-  
+
   if (includeTime) {
-    // Returns YYYY-MM-DDTHH:mm:ssZ (for order_date)
     return istTime.toISOString().split(".")[0] + "Z";
   }
-  // Returns YYYY-MM-DD (for start_date and end_date)
   return istTime.toISOString().split("T")[0];
 }
 
-// Helper to clean name
 const cleanName = (str) => {
   if (!str) return "NA";
   return str.replace(/[^a-zA-Z0-9]/g, "");
@@ -94,10 +91,26 @@ export async function POST(req) {
     const customerRefid = stepC.email || `cust-${orderId}`;
     const subscriptionRefid = `SUB-${orderId}`;
 
+    // ------------------------
+    // ✅ CREATE PENDING MANDATE (THIS WAS MISSING)
+    // ------------------------
+    await createPendingMandate({
+      subscription_refid: subscriptionRefid,
+      name: `${stepC.first_name || ""} ${stepC.last_name || ""}`.trim(),
+      email: stepC.email,
+      phone: stepC.number,
+      pan: stepC.pan_number,
+      address: stepC.address,
+      state: stepC.state,
+      amount,
+      frequency: "adho",
+    });
+
     // Dates
-  const start_date = getISTDateTime(1, 0, false);
-   const end_date = getISTDateTime(0, 5, false);
-const order_date = getISTDateTime(0, 0, true);
+    const start_date = getISTDateTime(1, 0, false);
+    const end_date = getISTDateTime(0, 5, false);
+    const order_date = getISTDateTime(0, 0, true);
+
     // Client IP
     const forwarded = req.headers.get("x-forwarded-for");
     const realIp = req.headers.get("x-real-ip");
@@ -125,7 +138,7 @@ const order_date = getISTDateTime(0, 0, true);
       subscription_desc: "Akanksha Mandate",
       frequency: "adho",
       amount_type: "max",
-       recurrence_rule: "after",
+      recurrence_rule: "after",
       debit_day: "6",
       start_date,
       end_date,
@@ -150,11 +163,6 @@ const order_date = getISTDateTime(0, 0, true);
 
       ru: `${APP_URL}/api/billdesk-payment-return`,
     };
-
-    console.log(
-      "🧾 PG-SI Mandate Payload:",
-      JSON.stringify(jwsPayloadObject, null, 2)
-    );
 
     // Sign JWS
     const jwk = {
@@ -182,7 +190,6 @@ const order_date = getISTDateTime(0, 0, true);
     });
 
     const responseText = await bdRes.text();
-    console.log("📩 Raw BillDesk Response:", responseText);
 
     if (!bdRes.ok) {
       return NextResponse.json(
@@ -192,11 +199,6 @@ const order_date = getISTDateTime(0, 0, true);
     }
 
     const { payload } = await jwtVerify(responseText, secretKey);
-    console.log(
-  "🔓 DECODED BILLDESK RESPONSE (MANDATE):",
-  JSON.stringify(payload, null, 2)
-);
-
 
     const redirectLink = payload?.links?.find(
       (l) => l.rel === "redirect" && l.method === "POST"
@@ -208,22 +210,18 @@ const order_date = getISTDateTime(0, 0, true);
         { status: 500 }
       );
     }
-console.log(
-  "🧪 REDIRECT LINK PARAMETERS FROM BILLDESK:",
-  JSON.stringify(redirectLink.parameters, null, 2)
-);
 
-   const { mercid, mandate_tokenid, rdata } = redirectLink.parameters;
+    const { mercid, mandate_tokenid, rdata } = redirectLink.parameters;
 
-return NextResponse.json({
-  redirect_url: redirectLink.href,
-  parameters: {
-    mercid,
-    mandate_tokenid,
-    rdata,
-  },
-  mandate_order_id: orderId,
-});
+    return NextResponse.json({
+      redirect_url: redirectLink.href,
+      parameters: {
+        mercid,
+        mandate_tokenid,
+        rdata,
+      },
+      mandate_order_id: orderId,
+    });
 
   } catch (err) {
     console.error("🔥 Internal Error:", err);
