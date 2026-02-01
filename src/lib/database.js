@@ -115,7 +115,8 @@ export async function createPendingMandate({
 
     const docRef = await db
       .collection("dev_mandates")
-      .add(mandateRecord);
+  .doc(subscription_refid)
+  .set(mandateRecord);
 
     console.log("✅ Pending mandate created:", docRef.id);
 
