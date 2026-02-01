@@ -77,6 +77,7 @@ export async function saveTransactionToDB(verifiedPayload) {
 
 // 1️⃣ Create PENDING mandate (before redirect to BillDesk)
 export async function createPendingMandate({
+  subscription_refid,
   name,
   email,
   phone,
@@ -90,7 +91,7 @@ export async function createPendingMandate({
     const now = new Date().toISOString();
 
     const mandateRecord = {
-      status: "pending", // pending | active | failed | cancelled
+      status: "pending",
 
       donor: {
         name,
@@ -106,22 +107,21 @@ export async function createPendingMandate({
 
       billdesk: {
         mandate_id: null,
-        subscription_refid: null,
+        subscription_refid, // ✅ store it
       },
 
       created_at: now,
       updated_at: now,
     };
 
-    const docRef = await db
+    await db
       .collection("dev_mandates")
-  .doc(subscription_refid)
-  .set(mandateRecord);
+      .doc(subscription_refid) // ✅ single source of truth
+      .set(mandateRecord);
 
-    console.log("✅ Pending mandate created:", docRef.id);
+    console.log("✅ Pending mandate created:", subscription_refid);
 
-    // IMPORTANT: use this as subscription_refid
-    return docRef.id;
+    return subscription_refid;
   } catch (error) {
     console.error("❌ Failed to create pending mandate:", error);
     throw error;
