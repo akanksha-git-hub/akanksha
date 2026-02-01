@@ -18,7 +18,7 @@ export async function POST(request) {
     console.log('🔹 HEADERS ↓↓↓');
     console.log(Object.fromEntries(request.headers.entries()));
 
-    // Clone request so body can be read twice safely
+    // Clone request so body can be read safely
     const clonedRequest = request.clone();
 
     const rawBody = await clonedRequest.text();
@@ -29,12 +29,11 @@ export async function POST(request) {
      * 2️⃣ PARSE FORM DATA (if possible)
      * -------------------------------------------------- */
 
-    let formData;
+    let formData = null;
     try {
       formData = await request.formData();
     } catch (e) {
       console.error('❌ Failed to parse formData:', e.message);
-      formData = null;
     }
 
     if (formData) {
@@ -43,10 +42,35 @@ export async function POST(request) {
         console.log(`➡️ ${key}:`, value);
       }
       console.log('🧾 END formData dump');
+
+      /* ------------------------------------------------
+       * 2️⃣a Decode mandate_response (visibility only)
+       * ---------------------------------------------- */
+
+      const mandateResponse = formData.get('mandate_response')?.toString();
+
+      if (mandateResponse) {
+        try {
+          const jwk = {
+            kty: 'oct',
+            k: Buffer.from(process.env.BILLDESK_SECRET).toString('base64url'),
+          };
+          const secretKey = await importJWK(jwk, 'HS256');
+
+          const { payload } = await jwtVerify(mandateResponse, secretKey, {
+            algorithms: ['HS256'],
+          });
+
+          console.log('🔐 DECODED mandate_response ↓↓↓');
+          console.log(JSON.stringify(payload, null, 2));
+        } catch (e) {
+          console.error('❌ Failed to decode mandate_response:', e.message);
+        }
+      }
     }
 
     /* ----------------------------------------------------
-     * 3️⃣ YOUR EXISTING LOGIC — UNCHANGED
+     * 3️⃣ EXISTING LOGIC — UNCHANGED
      * -------------------------------------------------- */
 
     if (!formData) {
@@ -55,7 +79,7 @@ export async function POST(request) {
       return NextResponse.redirect(errorUrl.toString(), { status: 303 });
     }
 
-    // Try to detect anything named like mandate token (no assumption)
+    // Detect mandate token (no assumptions beyond field presence)
     const mandateTokenId =
       formData.get('mandateTokenId') ||
       formData.get('mandate_tokenid');
@@ -72,6 +96,7 @@ export async function POST(request) {
       return NextResponse.redirect(mandateUrl.toString(), { status: 303 });
     }
 
+    // One-time payment flow
     const encryptedResponse =
       formData.get('transaction_response')?.toString();
 
@@ -99,10 +124,10 @@ export async function POST(request) {
 
       decryptedData = payload;
 
-      console.log('🔐 DECRYPTED PAYLOAD ↓↓↓');
+      console.log('🔐 DECODED transaction_response ↓↓↓');
       console.log(JSON.stringify(decryptedData, null, 2));
     } catch (err) {
-      console.error('❌ Failed to verify JWS:', err);
+      console.error('❌ Failed to verify transaction_response JWS:', err);
 
       const failUrl = new URL('/thank-you', APP_BASE_URL);
       failUrl.searchParams.set('status', 'CALLBACK_PROCESSING_ERROR');
