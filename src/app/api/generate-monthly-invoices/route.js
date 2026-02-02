@@ -132,6 +132,8 @@ export async function POST(req) {
         .get();
 
       if (!existing.empty) continue;
+      const invoice_display_number = `DISP-${Date.now()}`;
+
 
       const invoice_number = `INV-${uuidv4()
         .slice(0, 12)
@@ -143,6 +145,7 @@ export async function POST(req) {
         subscription_refid,
         mandateid: mandate_id,
         invoice_number,
+         invoice_display_number,
         invoice_date,
         duedate,
         debit_date,
