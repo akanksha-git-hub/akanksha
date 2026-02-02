@@ -13,6 +13,7 @@ export async function POST(req) {
     // --------------------------------------------------
     // 1️⃣ Verify BillDesk webhook signature
     // --------------------------------------------------
+     console.log("🚨 RAW WEBHOOK HITTTT (before verify)");
     const rawBody = await req.text();
 
     const secretKey = await importJWK(
@@ -24,7 +25,7 @@ export async function POST(req) {
     );
 
     const { payload } = await jwtVerify(rawBody, secretKey);
-
+  
     console.log(
       '✅ BillDesk Webhook Verified Payload:\n',
       JSON.stringify(payload, null, 2)
@@ -46,6 +47,7 @@ export async function POST(req) {
       console.log('💰 Detected ONE-TIME PAYMENT');
       await saveTransactionToDB(payload);
     }
+
 
     /**
      * ✅ MANDATE ACTIVATION (Permission approved)
@@ -69,6 +71,8 @@ export async function POST(req) {
      * ℹ️ Everything else (SI debits, retries, status pings, etc.)
      */
     else {
+   
+
        console.log(
     '🔁  DEBIT Invoice WEBHOOK RECEIVED',
     JSON.stringify(payload, null, 2)
