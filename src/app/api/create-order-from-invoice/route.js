@@ -88,6 +88,8 @@ export async function POST(req) {
 
     // 🔓 Verify BillDesk response
     const { payload: decoded } = await jwtVerify(resText, secretKey);
+    console.log("SI_DECODED:", JSON.stringify(decoded, null, 2));
+
 
     // ✅ Return clean JSON to cron
     return NextResponse.json({
