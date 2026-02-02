@@ -44,7 +44,6 @@ const CRON_SECRET = process.env.CRON_SECRET;
 
 const BILLDESK_INVOICE_ENDPOINT =
   'https://uat1.billdesk.com/u2/pgsi/ve1_2/invoices/create';
-  
 
 // --------------------
 // Helpers
@@ -81,10 +80,11 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // 🛑 Safety guard — only run on 3rd
+    // 🛑 Safety guard — only run on 3rd (FORCE ONLY FOR TESTING)
     const today = new Date().getDate();
-    const FORCE_TODAY = true;
-    if (!FORCE_TODAY &&today !== 3) {
+    const FORCE_TODAY = true; // ⚠️ SET FALSE AFTER TESTING
+
+    if (!FORCE_TODAY && today !== 3) {
       return NextResponse.json({
         success: true,
         message: 'Not invoice creation day',
@@ -132,20 +132,21 @@ export async function POST(req) {
         .get();
 
       if (!existing.empty) continue;
+
+      // 🔢 Invoice numbers
+      const invoice_number = `INV-${uuidv4().slice(0, 12).toUpperCase()}`;
       const invoice_display_number = `DISP-${Date.now()}`;
 
-
-      const invoice_number = `INV-${uuidv4()
-        .slice(0, 12)
-        .toUpperCase()}`;
-
+      // 🧾 BillDesk payload
       const payload = {
         mercid: MERC_ID,
         customer_refid: mandate.donor?.email || 'UNKNOWN',
         subscription_refid,
         mandateid: mandate_id,
+
         invoice_number,
-         invoice_display_number,
+        invoice_display_number, // ✅ REQUIRED BY BILLDESK
+
         invoice_date,
         duedate,
         debit_date,
@@ -155,10 +156,12 @@ export async function POST(req) {
         description: `Donation for ${cycleKey}`,
       };
 
+      // 🔐 Sign JWS
       const jwtToken = await new SignJWT(payload)
         .setProtectedHeader({ alg: 'HS256', clientid: CLIENT_ID })
         .sign(secretKey);
 
+      // 📡 Call BillDesk
       const res = await fetch(BILLDESK_INVOICE_ENDPOINT, {
         method: 'POST',
         headers: {
@@ -173,17 +176,26 @@ export async function POST(req) {
       const resText = await res.text();
       const { payload: decoded } = await jwtVerify(resText, secretKey);
 
-      // 💾 Save invoice
+      // ✅ Extract REAL BillDesk invoice ID
+      const billdesk_invoice_id = decoded?.invoice_id || null;
+
+      // 💾 Save invoice (single source of truth)
       await db.collection('dev_invoices').doc(invoice_number).set({
         subscription_refid,
         mandateid: mandate_id,
+
         invoice_number,
+        invoice_display_number,
+        billdesk_invoice_id, // ✅ REAL invoice identifier
+
         amount: payload.amount,
         cycleKey,
         invoice_date,
         duedate,
         debit_date,
-        status: 'unpaid',
+
+        status: billdesk_invoice_id ? 'unpaid' : 'invalid',
+
         raw_response: decoded,
         createdAt: new Date().toISOString(),
       });
@@ -191,6 +203,7 @@ export async function POST(req) {
       results.push({
         subscription_refid,
         invoice_number,
+        billdesk_invoice_id,
         cycleKey,
       });
     }
