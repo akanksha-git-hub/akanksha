@@ -1,0 +1,19 @@
+name: Debit Invoices
+
+on:
+  # Automatic run every day (API decides what to debit)
+  schedule:
+    - cron: "30 0 * * *"   # 06:00 IST
+
+  # Manual trigger (for testing)
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call debit invoices API
+        run: |
+          curl -X POST https://dev.akanksha.org/api/cron/debit-invoices \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}"

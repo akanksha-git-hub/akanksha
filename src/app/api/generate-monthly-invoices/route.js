@@ -44,6 +44,8 @@ const CRON_SECRET = process.env.CRON_SECRET;
 
 const BILLDESK_INVOICE_ENDPOINT =
   'https://uat1.billdesk.com/u2/pgsi/ve1_2/invoices/create';
+ 
+
 
 // --------------------
 // Helpers
@@ -114,6 +116,14 @@ export async function POST(req) {
 
     for (const doc of mandatesSnap.docs) {
       const mandate = doc.data();
+       const donorSnapshot = {
+  name: mandate.donor?.name || null,
+  email: mandate.donor?.email || null,
+  phone: mandate.donor?.phone || null,
+  pan: mandate.donor?.pan || null,
+  address: mandate.donor?.address || null,
+  state: mandate.donor?.state || null,
+};
 
       const subscription_refid = mandate.billdesk?.subscription_refid;
       const mandate_id = mandate.billdesk?.mandate_id;
@@ -187,7 +197,7 @@ export async function POST(req) {
         invoice_number,
         invoice_display_number,
         billdesk_invoice_id, // ✅ REAL invoice identifier
-
+ donor: donorSnapshot,
         amount: payload.amount,
         cycleKey,
         invoice_date,
