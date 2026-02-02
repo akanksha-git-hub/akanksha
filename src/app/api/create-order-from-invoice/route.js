@@ -9,6 +9,7 @@ const MERC_ID = process.env.BILLDESK_MERC_ID;
 const RAW_SECRET = process.env.BILLDESK_SECRET;
 const APP_URL = process.env.APP_URL;
 
+// Using the PGSI endpoint for invoice-based debits
 const BILLDESK_SI_ENDPOINT = "https://uat1.billdesk.com/u2/pgsi/ve1_2/transactions/create";
 
 // ---------------- Helpers ----------------
@@ -27,32 +28,66 @@ function generateOrderId() {
 }
 
 function generateTraceId() {
-  return `${Date.now()}${Math.floor(Math.random() * 1000)}`;
+  return `${Date.now()}-${Math.floor(Math.random() * 1000)}`;
 }
 
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { invoiceid, mandateid, subscription_refid, amount } = body;
+    
+    // donor object should contain: { name, email, phone }
+    const { invoiceid, mandateid, subscription_refid, amount, donor } = body;
 
     if (!invoiceid || !mandateid || !amount) {
-      return NextResponse.json({ success: false, error: "Missing required fields" }, { status: 400 });
+      return NextResponse.json(
+        { success: false, error: "Missing required fields (invoiceid, mandateid, or amount)" },
+        { status: 400 }
+      );
     }
 
-    // 🏗️ Build strict BillDesk SI payload
+    const orderDate = new Date().toISOString().split('.')[0] + 'Z';
+
+    // 🏗️ Build payload based on BillDesk "Subsequent Charge" requirements
     const payload = {
       mercid: MERC_ID,
-      orderid: generateOrderId(), // NOW UNDER 20 CHARS
-      invoice_id: invoiceid,
-      mandateid: mandateid,
-      subscription_refid: subscription_refid,
+      orderid: generateOrderId(),
+      order_date: orderDate,
       amount: Number(amount).toFixed(2),
       currency: "356",
-      itemcode: "DIRECT", // ✅ OFTEN REQUIRED
       ru: `${APP_URL}/api/billdesk-webhook`,
+      itemcode: "DIRECT",
+
+      // 💳 SI Process Type Fields (REQUIRED)
+      txn_process_type: "si",
+      authentication_type: "3ds2",
+      "3ds_parameter": "merchant",
+      payment_method_type: "card",
+
+      // 📜 Mandate & Invoice Linkage
+      // Note: Documentation specifically uses 'invoice_id' with underscore
+      invoice_id: invoiceid, 
+      mandateid: mandateid,
+      subscription_refid: subscription_refid,
+
+      // 👤 Full Customer Object (REQUIRED)
+      customer: {
+        first_name: donor?.name?.split(' ')[0] || "Donor",
+        last_name: donor?.name?.split(' ').slice(1).join(' ') || "User",
+        mobile: donor?.phone || "9999999999",
+        email: donor?.email || "test@example.com",
+      },
+
+      // 📱 Device block from your documentation screenshot
+      device: {
+        init_channel: "internet",
+        ip: "127.0.0.1",
+        user_agent: "AkankshaServer/1.0",
+        browser_javascript_enabled: "true",
+        accept_header: "text/html"
+      }
     };
 
-    console.log("🚀 Sending SI Debit Payload:", JSON.stringify(payload, null, 2));
+    console.log("🚀 Sending SI Debit Payload to BillDesk:\n", JSON.stringify(payload, null, 2));
 
     const jwk = {
       kty: "oct",
@@ -73,27 +108,31 @@ export async function POST(req) {
         "BD-Traceid": generateTraceId(),
       },
       body: jwtToken,
+      cache: 'no-store'
     });
 
     const resText = await res.text();
 
-    // If BillDesk returns a non-JWS error (rare but happens on 500s)
+    // Check if response is JWS or plain text error
     if (!resText.includes('.')) {
-        console.error("❌ BillDesk Raw Error (Not JWS):", resText);
-        return NextResponse.json({ success: false, raw: resText }, { status: 500 });
+        console.error("❌ BillDesk Non-JWS Error:", resText);
+        return NextResponse.json({ success: false, error: "BillDesk Gateway Error", raw: resText }, { status: 500 });
     }
 
     const { payload: decoded } = await jwtVerify(resText, secretKey);
-    console.log("✅ SI_DECODED SUCCESS:", JSON.stringify(decoded, null, 2));
+    
+    console.log("✅ BillDesk SI Response Decoded:", JSON.stringify(decoded, null, 2));
 
+    // Even if success, check the auth_status
+    // 0300 = Success, 0399 = Pending/Initiated, 0398 = Authorization Failed
     return NextResponse.json({
       success: true,
-      status: "DEBIT_INITIATED",
+      auth_status: decoded.auth_status,
       details: decoded,
     });
 
   } catch (err) {
-    console.error("❌ create-order-from-invoice failed:", err);
+    console.error("🚨 SI Debit Exception:", err);
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
 }
