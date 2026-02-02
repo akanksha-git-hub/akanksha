@@ -19,6 +19,10 @@ const BILLDESK_SI_ENDPOINT =
 function generateEpochTimestamp() {
   return Math.floor(Date.now() / 1000).toString();
 }
+function generateOrderId() {
+  return `AK-SI-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+}
+
 
 function generateTraceId() {
   return `${Date.now()}-${uuidv4().slice(0, 8).toUpperCase()}`;
@@ -47,6 +51,7 @@ export async function POST(req) {
     // 🧾 Build BillDesk debit payload
     const payload = {
       mercid: MERC_ID,
+       orderid: generateOrderId(),
       invoiceid,
       mandateid,
       subscription_refid,
