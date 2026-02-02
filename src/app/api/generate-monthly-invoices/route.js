@@ -83,7 +83,8 @@ export async function POST(req) {
 
     // 🛑 Safety guard — only run on 3rd
     const today = new Date().getDate();
-    if (today !== 3) {
+    const FORCE_TODAY = true;
+    if (!FORCE_TODAY &&today !== 3) {
       return NextResponse.json({
         success: true,
         message: 'Not invoice creation day',
