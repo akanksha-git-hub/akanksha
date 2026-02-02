@@ -9,7 +9,7 @@ const MERC_ID = process.env.BILLDESK_MERC_ID;
 const RAW_SECRET = process.env.BILLDESK_SECRET;
 const APP_URL = process.env.APP_URL;
 
-// Using the PGSI endpoint for invoice-based debits
+// SI Debit Endpoint for Invoice-based flows
 const BILLDESK_SI_ENDPOINT = "https://uat1.billdesk.com/u2/pgsi/ve1_2/transactions/create";
 
 // ---------------- Helpers ----------------
@@ -19,7 +19,6 @@ function generateEpochTimestamp() {
 
 /**
  * BillDesk Order IDs MUST be <= 20 characters.
- * 'S' (1) + 10 digits timestamp + 4 digits random = 15 chars (Safe)
  */
 function generateOrderId() {
   const ts = Date.now().toString().slice(-10);
@@ -35,19 +34,23 @@ export async function POST(req) {
   try {
     const body = await req.json();
     
-    // donor object should contain: { name, email, phone }
+    // donor should contain: { name, email, phone }
     const { invoiceid, mandateid, subscription_refid, amount, donor } = body;
 
-    if (!invoiceid || !mandateid || !amount) {
+    // Validate minimum required fields
+    if (!invoiceid || !mandateid || !subscription_refid) {
       return NextResponse.json(
-        { success: false, error: "Missing required fields (invoiceid, mandateid, or amount)" },
+        { success: false, error: "Missing required linkage fields (invoiceid, mandateid, or sub_refid)" },
         { status: 400 }
       );
     }
 
     const orderDate = new Date().toISOString().split('.')[0] + 'Z';
+    
+    // We must use the email that was originally used to create the mandate
+    const customerEmail = donor?.email || "anonymous@donor.com";
 
-    // 🏗️ Build payload based on BillDesk "Subsequent Charge" requirements
+    // 🏗️ Build exact payload from BillDesk "Subsequent Charge" Documentation
     const payload = {
       mercid: MERC_ID,
       orderid: generateOrderId(),
@@ -57,27 +60,28 @@ export async function POST(req) {
       ru: `${APP_URL}/api/billdesk-webhook`,
       itemcode: "DIRECT",
 
-      // 💳 SI Process Type Fields (REQUIRED)
+      // 💳 SI Process Flags (Mandatory for Recurring)
       txn_process_type: "si",
       authentication_type: "3ds2",
       "3ds_parameter": "merchant",
       payment_method_type: "card",
 
-      // 📜 Mandate & Invoice Linkage
-      // Note: Documentation specifically uses 'invoice_id' with underscore
+      // 🔗 Linkage IDs
+      // Note: 'invoice_id' with underscore is standard for this specific SI endpoint
       invoice_id: invoiceid, 
       mandateid: mandateid,
       subscription_refid: subscription_refid,
+      customer_refid: customerEmail, // Some environments require this at root level too
 
-      // 👤 Full Customer Object (REQUIRED)
+      // 👤 Customer Details (Must match Mandate record)
       customer: {
         first_name: donor?.name?.split(' ')[0] || "Donor",
         last_name: donor?.name?.split(' ').slice(1).join(' ') || "User",
         mobile: donor?.phone || "9999999999",
-        email: donor?.email || "test@example.com",
+        email: customerEmail,
       },
 
-      // 📱 Device block from your documentation screenshot
+      // 📱 Device block (Required for Fraud/Audit)
       device: {
         init_channel: "internet",
         ip: "127.0.0.1",
@@ -87,8 +91,10 @@ export async function POST(req) {
       }
     };
 
-    console.log("🚀 Sending SI Debit Payload to BillDesk:\n", JSON.stringify(payload, null, 2));
+    console.log(`➡️ Attempting SI Debit for: ${customerEmail} | Amt: ${payload.amount}`);
+    console.log("📦 Payload:", JSON.stringify(payload, null, 2));
 
+    // 🔐 JWS Signing
     const jwk = {
       kty: "oct",
       k: Buffer.from(RAW_SECRET).toString("base64url"),
@@ -99,6 +105,7 @@ export async function POST(req) {
       .setProtectedHeader({ alg: "HS256", clientid: CLIENT_ID })
       .sign(secretKey);
 
+    // 📡 Call BillDesk
     const res = await fetch(BILLDESK_SI_ENDPOINT, {
       method: "POST",
       headers: {
@@ -113,26 +120,31 @@ export async function POST(req) {
 
     const resText = await res.text();
 
-    // Check if response is JWS or plain text error
+    // Error handling for non-JWS responses (500 errors)
     if (!resText.includes('.')) {
-        console.error("❌ BillDesk Non-JWS Error:", resText);
-        return NextResponse.json({ success: false, error: "BillDesk Gateway Error", raw: resText }, { status: 500 });
+        console.error("❌ BillDesk API rejected request with raw error:", resText);
+        return NextResponse.json({ 
+            success: false, 
+            error: "GNAPE0001 - BillDesk Server Error", 
+            raw: resText 
+        }, { status: 500 });
     }
 
+    // 🔓 Verify & Decode BillDesk response
     const { payload: decoded } = await jwtVerify(resText, secretKey);
     
-    console.log("✅ BillDesk SI Response Decoded:", JSON.stringify(decoded, null, 2));
+    console.log("✅ BillDesk Response Decoded:", JSON.stringify(decoded, null, 2));
 
-    // Even if success, check the auth_status
-    // 0300 = Success, 0399 = Pending/Initiated, 0398 = Authorization Failed
+    // Return the response to the cron runner
     return NextResponse.json({
-      success: true,
-      auth_status: decoded.auth_status,
+      success: decoded.status !== 500,
+      auth_status: decoded.auth_status, // 0300 = Success
+      billdesk_order_id: decoded.orderid,
       details: decoded,
     });
 
   } catch (err) {
-    console.error("🚨 SI Debit Exception:", err);
+    console.error("🚨 SI Debit Internal Failure:", err.message);
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
 }
