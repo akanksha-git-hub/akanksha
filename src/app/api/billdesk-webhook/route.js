@@ -69,11 +69,10 @@ export async function POST(req) {
      * ℹ️ Everything else (SI debits, retries, status pings, etc.)
      */
     else {
-      console.log(
-        'ℹ️ Webhook received but ignored (not a final donation or mandate)',
-        payload.objectid,
-        payload.txn_process_type
-      );
+       console.log(
+    '🔁  DEBIT Invoice WEBHOOK RECEIVED',
+    JSON.stringify(payload, null, 2)
+  );
     }
 
     // --------------------------------------------------
