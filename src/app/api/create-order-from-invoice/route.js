@@ -43,7 +43,7 @@ export async function POST(req) {
     const payload = {
       mercid: MERC_ID,
       orderid: generateOrderId(), // NOW UNDER 20 CHARS
-      invoiceid: invoiceid,
+      invoice_id: invoiceid,
       mandateid: mandateid,
       subscription_refid: subscription_refid,
       amount: Number(amount).toFixed(2),
