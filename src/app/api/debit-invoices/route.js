@@ -94,7 +94,7 @@ export async function POST(req) {
 
       // 🏗 Build debit payload
       const payload = {
-        invoiceid: invoiceId,
+        invoiceid: invoice.billdesk_invoice_id,
         mandateid: invoice.mandateid,
         subscription_refid: invoice.subscription_refid,
         amount: invoice.amount,
