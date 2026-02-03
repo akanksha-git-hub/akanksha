@@ -41,17 +41,38 @@ export async function POST(req) {
 
     // 🏗️ Build strict BillDesk SI payload
     const payload = {
-      mercid: MERC_ID,
-      orderid: generateOrderId(), // NOW UNDER 20 CHARS
-      invoiceid: invoiceid,
-      mandateid: mandateid,
-      subscription_refid: subscription_refid,
-      amount: Number(amount).toFixed(2),
-      currency: "356",
+    const payload = {
+  mercid: MERC_ID,
+  orderid: generateOrderId(),
+  amount: Number(amount).toFixed(2),
+  currency: "356",
   itemcode: "DIRECT",
-   txn_process_type: "3ds",
-      ru: `${APP_URL}/api/billdesk-webhook`,
-    };
+  txn_process_type: "si",
+
+  authentication_type: "3ds2",
+  "3ds_parameter": "merchant",
+
+  payment_method_type: "card",
+
+  device: {
+    init_channel: "internet",
+    browser_javascript_enabled: "true"
+  },
+
+  customer: {
+    first_name: donor.first_name,
+    last_name: donor.last_name,
+    mobile: donor.phone,
+    email: donor.email
+  },
+
+  mandateid,
+  invoiceid,
+  subscription_refid,
+
+  ru: `${APP_URL}/api/billdesk-webhook`
+};
+
 
     console.log("🚀 Sending SI Debit Payload:", JSON.stringify(payload, null, 2));
 
