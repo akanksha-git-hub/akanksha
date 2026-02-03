@@ -60,20 +60,19 @@ export async function POST(req) {
 
   payment_method_type: "card",
 customer,
- device: {
+device: {
   init_channel: "internet",
   browser_javascript_enabled: "true",
-  ip:
-    req.headers.get("x-forwarded-for")?.split(",")[0] ||
-    req.headers.get("x-real-ip") ||
-    "127.0.0.1",
-  user_agent:
-    req.headers.get("user-agent") ||
-    "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 Chrome/120.0.0.0 Mobile Safari/537.36",
-  accept_header:
-    req.headers.get("accept") || "text/html,application/xhtml+xml"
-}
-,
+  ip: req.headers.get("x-forwarded-for")?.split(",")[0] || "127.0.0.1",
+  
+  // FIX: Provide a fallback to a standard Chrome browser string if header is missing
+  user_agent: req.headers.get("user-agent") && !req.headers.get("user-agent").includes("node")
+    ? req.headers.get("user-agent") 
+    : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    
+  accept_header: req.headers.get("accept") || "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8"
+},
+
 
  
   mandateid,
