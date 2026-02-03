@@ -49,6 +49,7 @@ export async function POST(req) {
       amount: Number(amount).toFixed(2),
       currency: "356",
   itemcode: "DIRECT",
+   txn_process_type: "si",
       ru: `${APP_URL}/api/billdesk-webhook`,
     };
 
