@@ -62,7 +62,10 @@ export async function POST(req) {
 customer,
   device: {
     init_channel: "internet",
-    browser_javascript_enabled: "true"
+    browser_javascript_enabled: "true",
+    ip: req.headers.get("x-forwarded-for")?.split(",")[0] 
+      || req.headers.get("x-real-ip") 
+      || "127.0.0.1"
   },
 
  
