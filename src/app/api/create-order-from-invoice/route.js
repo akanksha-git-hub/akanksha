@@ -41,7 +41,6 @@ export async function POST(req) {
 
     // 🏗️ Build strict BillDesk SI payload
     const payload = {
-    const payload = {
   mercid: MERC_ID,
   orderid: generateOrderId(),
   amount: Number(amount).toFixed(2),
