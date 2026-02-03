@@ -65,7 +65,10 @@ customer,
     browser_javascript_enabled: "true",
     ip: req.headers.get("x-forwarded-for")?.split(",")[0] 
       || req.headers.get("x-real-ip") 
-      || "127.0.0.1"
+      || "127.0.0.1",
+       user_agent:
+    req.headers.get("user-agent") ||
+    "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 Chrome/120.0.0.0 Mobile Safari/537.36"
   },
 
  
