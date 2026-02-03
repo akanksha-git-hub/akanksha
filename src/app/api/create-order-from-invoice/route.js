@@ -33,11 +33,18 @@ function generateTraceId() {
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { invoiceid, mandateid, subscription_refid, amount } = body;
+    const { invoiceid, mandateid, subscription_refid, amount, donor = {} } = body;
 
     if (!invoiceid || !mandateid || !amount) {
       return NextResponse.json({ success: false, error: "Missing required fields" }, { status: 400 });
     }
+    const customer = {
+  first_name: donor.name?.split(" ")[0] || "Donor",
+  last_name: donor.name?.split(" ").slice(1).join(" ") || "User",
+  mobile: donor.phone || "9999999999",
+  email: donor.email || "test@example.com",
+};
+
 
     // 🏗️ Build strict BillDesk SI payload
     const payload = {
@@ -52,19 +59,13 @@ export async function POST(req) {
   "3ds_parameter": "merchant",
 
   payment_method_type: "card",
-
+customer,
   device: {
     init_channel: "internet",
     browser_javascript_enabled: "true"
   },
 
-  customer: {
-    first_name: donor.first_name,
-    last_name: donor.last_name,
-    mobile: donor.phone,
-    email: donor.email
-  },
-
+ 
   mandateid,
   invoiceid,
   subscription_refid,
