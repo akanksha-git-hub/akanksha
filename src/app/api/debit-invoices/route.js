@@ -46,7 +46,7 @@
 
       // 📅 Today (YYYY-MM-DD)
       // const today = new Date().toISOString().slice(0, 10); change this for production
-       const today = "2026-02-05";
+       const today = "2026-02-04";
 
       // 🔎 Find unpaid invoices due today
       const invoicesSnap = await db
