@@ -104,16 +104,29 @@ if (payment.payment_method_type === "card") {
       .setProtectedHeader({ alg: "HS256", clientid: CLIENT_ID })
       .sign(secretKey);
 
-    const res = await fetch(BILLDESK_SI_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/jose",
-        "Accept": "application/jose",
-        "BD-Timestamp": generateEpochTimestamp(),
-        "BD-Traceid": generateTraceId(),
-      },
-      body: jwtToken,
-    });
+      const bdTimestamp = generateEpochTimestamp();
+const bdTraceid = generateTraceId();
+
+
+console.log("Debit invoice Details", {
+  bdTraceid,
+  bdTimestamp,
+  invoiceid,
+  mandateid,
+  subscription_refid,
+});
+
+   const res = await fetch(BILLDESK_SI_ENDPOINT, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/jose",
+    "Accept": "application/jose",
+    "BD-Timestamp": bdTimestamp,
+    "BD-Traceid": bdTraceid,
+  },
+  body: jwtToken,
+});
+    
 
     const resText = await res.text();
 
