@@ -33,7 +33,7 @@ function generateTraceId() {
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { invoiceid, mandateid, subscription_refid, amount, donor = {} } = body;
+    const { invoiceid, mandateid, subscription_refid, amount, donor,payment = {} } = body;
 
     if (!invoiceid || !mandateid || !amount) {
       return NextResponse.json({ success: false, error: "Missing required fields" }, { status: 400 });
@@ -58,7 +58,8 @@ export async function POST(req) {
   // authentication_type: "3ds2",
   // "3ds_parameter": "merchant",
 
-  payment_method_type: "card",
+    payment_method_type: payment.payment_method_type,
+
 // customer,
 // device: {
 //   init_channel: "internet",
@@ -73,10 +74,8 @@ export async function POST(req) {
 //   accept_header: req.headers.get("accept") || "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8"
 // },
 
- card: {
-    cardaccountid: payment.card.cardaccountid,
-    card_end:payement.card.card_end,
-  },
+
+ 
  
   mandateid,
   invoiceid,
@@ -85,7 +84,12 @@ export async function POST(req) {
   // ru: `${APP_URL}/api/billdesk-webhook`
 };
 
-
+if (payment.payment_method_type === "card") {
+  payload.card = {
+    cardaccountid: payment.card.cardaccountid,
+     card_end:payment.card.card_end,
+  };
+}
 
 
     console.log("🚀 Sending SI Debit Payload:", JSON.stringify(payload, null, 2));

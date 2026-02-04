@@ -99,6 +99,8 @@ export async function POST(req) {
         subscription_refid: invoice.subscription_refid,
         amount: invoice.amount,
         donor: invoice.donor,
+          payment: invoice.payment,
+
       };
 
       console.log("➡️ Triggering debit:", payload);
