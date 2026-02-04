@@ -73,7 +73,10 @@ export async function POST(req) {
 //   accept_header: req.headers.get("accept") || "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8"
 // },
 
-
+ card: {
+    cardaccountid: payment.card.cardaccountid,
+    card_end:payement.card.card_end,
+  },
  
   mandateid,
   invoiceid,
@@ -81,6 +84,8 @@ export async function POST(req) {
 
   // ru: `${APP_URL}/api/billdesk-webhook`
 };
+
+
 
 
     console.log("🚀 Sending SI Debit Payload:", JSON.stringify(payload, null, 2));
