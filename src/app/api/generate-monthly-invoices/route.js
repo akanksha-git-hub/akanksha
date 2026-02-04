@@ -116,6 +116,32 @@ export async function POST(req) {
 
     for (const doc of mandatesSnap.docs) {
       const mandate = doc.data();
+      const paymentMethod = mandate.raw_payload?.payment_method_type || null;
+
+let paymentSnapshot = {
+  payment_method_type: paymentMethod,
+};
+
+// 1. CARD: Absolutely need the cardaccountid
+if (paymentMethod === "card") {
+  paymentSnapshot.card = {
+    cardaccountid: mandate.raw_payload?.card?.cardaccountid || null,
+     card_end: mandate.raw_payload?.card?.masked_value?.slice(-4) || null,
+  };
+}
+
+// 2. BANK / eNACH: Include the UMRN
+// BillDesk doesn't require UMRN in the *request*, 
+// but it's vital for reconciliation if a payment fails.
+if (paymentMethod === "bankaccount") {
+  paymentSnapshot.bank_umrn = mandate.raw_payload?.bank_umrn || null;
+}
+
+// 3. UPI: Nothing extra is required for the API call
+// But for your own dashboard, it's nice to store the VPA
+if (paymentMethod === "upi") {
+  paymentSnapshot.vpa = mandate.raw_payload?.upi?.vpa || null;
+}
        const donorSnapshot = {
   name: mandate.donor?.name || null,
   email: mandate.donor?.email || null,
@@ -203,7 +229,7 @@ export async function POST(req) {
         invoice_date,
         duedate,
         debit_date,
-
+  payment: paymentSnapshot,
         status: billdesk_invoice_id ? 'unpaid' : 'invalid',
 
         raw_response: decoded,
