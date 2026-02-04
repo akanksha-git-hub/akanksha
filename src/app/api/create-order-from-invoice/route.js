@@ -46,7 +46,7 @@ export async function POST(req) {
 };
 
 
-    // 🏗️ Build strict BillDesk SI payload
+    //  Build strict BillDesk SI payload
     const payload = {
   mercid: MERC_ID,
   orderid: generateOrderId(),
@@ -92,7 +92,7 @@ if (payment.payment_method_type === "card") {
 }
 
 
-    console.log("🚀 Sending SI Debit Payload:", JSON.stringify(payload, null, 2));
+    console.log(" Sending SI Debit Payload:", JSON.stringify(payload, null, 2));
 
     const jwk = {
       kty: "oct",
@@ -137,7 +137,7 @@ console.log("Debit invoice Details", {
     }
 
     const { payload: decoded } = await jwtVerify(resText, secretKey);
-    console.log("✅ SI_DECODED SUCCESS:", JSON.stringify(decoded, null, 2));
+    console.log(" SI_DECODED SUCCESS:", JSON.stringify(decoded, null, 2));
 
     return NextResponse.json({
       success: true,
