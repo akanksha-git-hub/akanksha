@@ -93,16 +93,47 @@
           }
         }
 
-        // 🏗 Build debit payload
-        const payload = {
-          invoiceid: invoice.billdesk_invoice_id,
-          mandateid: invoice.mandateid,
-          subscription_refid: invoice.subscription_refid,
-          amount: invoice.amount,
-          donor: invoice.donor,
-            payment: invoice.payment,
+        //  payload
+      const payload = {
 
-        };
+  invoiceid: invoice.billdesk_invoice_id,
+  mandateid: invoice.mandateid,
+  subscription_refid: invoice.subscription_refid,
+
+  
+  amount: invoice.amount,
+
+
+  customer_refid: invoice.donor?.email || "UNKNOWN",
+
+  
+  additional_info: {
+    additional_info1: invoice.donor?.address || "",
+    additional_info2: invoice.donor?.pan || "",
+    additional_info3: invoice.donor?.email || "",
+    additional_info4: invoice.donor?.phone || "",
+  },
+
+
+  device: {
+    init_channel: "internet",
+    ip: "127.0.0.1",
+    user_agent:
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+  },
+
+  
+  payment: {
+    payment_method_type: invoice.payment?.payment_method_type,
+    ...(invoice.payment?.payment_method_type === "card" && {
+      card: {
+        cardaccountid: invoice.payment?.card?.cardaccountid,
+        card_end: invoice.payment?.card?.card_end,
+      },
+    }),
+  },
+};
+
 
         console.log("➡️ Triggering debit:", payload);
 
