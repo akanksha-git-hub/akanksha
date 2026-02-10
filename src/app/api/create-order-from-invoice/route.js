@@ -33,55 +33,53 @@ function generateTraceId() {
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { invoiceid, mandateid, subscription_refid, amount, donor,payment = {} } = body;
+    const { invoiceid, mandateid, subscription_refid,customer_refid, amount, additional_info={} ,payment = {}, device = {} } = body;
 
-    if (!invoiceid || !mandateid || !amount) {
+  if (
+  !invoiceid ||
+  !mandateid ||
+  !subscription_refid ||
+  !customer_refid ||
+  !amount
+)  {
       return NextResponse.json({ success: false, error: "Missing required fields" }, { status: 400 });
     }
-    const customer = {
-  first_name: donor.name?.split(" ")[0] || "Donor",
-  last_name: donor.name?.split(" ").slice(1).join(" ") || "User",
-  mobile: donor.phone || "9999999999",
-  email: donor.email || "test@example.com",
-};
+
 
 
     //  Build strict BillDesk SI payload
     const payload = {
   mercid: MERC_ID,
   orderid: generateOrderId(),
+
+  subscription_refid,
+  customer_refid,
+  mandateid,
+  invoiceid,
+
   amount: Number(amount).toFixed(2),
   currency: "356",
   itemcode: "DIRECT",
   txn_process_type: "si",
 
-  // authentication_type: "3ds2",
-  // "3ds_parameter": "merchant",
+  additional_info: {
+    additional_info1: additional_info.additional_info1 || "",
+    additional_info2: additional_info.additional_info2 || "",
+    additional_info3: additional_info.additional_info3 || "",
+    additional_info4: additional_info.additional_info4 || "",
+    additional_info5: additional_info.additional_info5 || "",
+  },
 
-    payment_method_type: payment.payment_method_type,
+  device: {
+    init_channel: device.init_channel || "internet",
+    ip: device.ip || "127.0.0.1",
+    user_agent:
+      device.user_agent ||
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
+  },
 
-// customer,
-// device: {
-//   init_channel: "internet",
-//   browser_javascript_enabled: "true",
-//   ip: req.headers.get("x-forwarded-for")?.split(",")[0] || "127.0.0.1",
-  
-//   // FIX: Provide a fallback to a standard Chrome browser string if header is missing
-//   user_agent: req.headers.get("user-agent") && !req.headers.get("user-agent").includes("node")
-//     ? req.headers.get("user-agent") 
-//     : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    
-//   accept_header: req.headers.get("accept") || "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8"
-// },
-
-
- 
- 
-  mandateid,
-  invoiceid,
-  subscription_refid,
-
-  // ru: `${APP_URL}/api/billdesk-webhook`
+  // force card for now
+  payment_method_type: "card",
 };
 
 if (payment.payment_method_type === "card") {
