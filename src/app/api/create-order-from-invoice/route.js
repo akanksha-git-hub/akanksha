@@ -82,12 +82,12 @@ export async function POST(req) {
   payment_method_type: "card",
 };
 
-// if (payment.payment_method_type === "card") {
-//   payload.card = {
-//     cardaccountid: payment.card.cardaccountid,
-//      card_end:payment.card.card_end,
-//   };
-// }
+if (payment.payment_method_type === "card") {
+  payload.card = {
+    cardaccountid: payment.card.cardaccountid,
+     card_end:payment.card.card_end,
+  };
+}
 
 
     console.log(" Sending SI Debit Payload:", JSON.stringify(payload, null, 2));
