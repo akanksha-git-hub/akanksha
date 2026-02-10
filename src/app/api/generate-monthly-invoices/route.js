@@ -49,7 +49,7 @@ const BILLDESK_INVOICE_ENDPOINT =
 
 // --------------------
 // Helpers
-// --------------------
+// -------------------- 
 function generateEpochTimestamp() {
   return Math.floor(Date.now() / 1000).toString();
 }

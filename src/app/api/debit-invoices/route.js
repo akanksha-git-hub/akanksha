@@ -112,6 +112,7 @@
     additional_info2: invoice.donor?.pan || "",
     additional_info3: invoice.donor?.email || "",
     additional_info4: invoice.donor?.phone || "",
+     additional_info5: invoice.donor?.name || "",
   },
 
 
