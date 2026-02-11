@@ -44,13 +44,17 @@
         return Response.json({ error: "Unauthorized" }, { status: 401 });
       }
 
-      // 📅 Today (YYYY-MM-DD)
-      // const today = new Date().toISOString().slice(0, 10); change this for production
-       const today = "2026-02-12";
+     
+   const nowIST = new Date(
+  new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
+);
+
+const today = nowIST.toISOString().slice(0, 10);
+
 
       // 🔎 Find unpaid invoices due today
       const invoicesSnap = await db
-        .collection("dev_invoices")
+        .collection("invoices")
         .where("status", "==", "unpaid")
         .where("debit_date", "==", today)
         .get();
@@ -77,7 +81,7 @@
         // 🚫 Validate mandate status
         if (invoice.mandateid) {
           const mandateSnap = await db
-            .collection("dev_mandates")
+            .collection("mandates")
             .where("mandate_id", "==", invoice.mandateid)
             .limit(1)
             .get();
@@ -154,7 +158,7 @@
 
         // 📝 Mark invoice as attempted (IMPORTANT)
         await db
-          .collection("dev_invoices")
+          .collection("invoices")
           .doc(invoiceId)
           .set(
             {

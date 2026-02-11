@@ -15,5 +15,5 @@ jobs:
     steps:
       - name: Call debit invoices API
         run: |
-          curl -X POST https://dev.akanksha.org/api/debit-invoices \
+          curl -X POST https://www.akanksha.org/api/debit-invoices \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}"

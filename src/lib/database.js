@@ -54,7 +54,7 @@ export async function saveTransactionToDB(verifiedPayload) {
       raw_webhook_payload: verifiedPayload,
     };
 
-    await db.collection('dev_donations').add(donationRecord);
+    await db.collection('donations').add(donationRecord);
 
   } catch (error) {
     console.error('❌ Error saving transaction:', error);
@@ -95,7 +95,7 @@ export async function createPendingMandate({
     };
 
     await db
-      .collection("dev_mandates")
+      .collection("mandates")
       .doc(subscription_refid)
       .set(mandateRecord);
 
@@ -115,7 +115,7 @@ export async function activateMandate({
     const now = new Date().toISOString();
 
     await db
-      .collection("dev_mandates")
+      .collection("mandates")
       .doc(subscription_refid)
       .set(
         {
@@ -144,7 +144,7 @@ export async function updateMandateStatus({
     const now = new Date().toISOString();
 
     await db
-      .collection("dev_mandates")
+      .collection("mandates")
       .doc(subscription_refid)
       .set(
         {
@@ -176,7 +176,7 @@ export async function markInvoicePaidFromWebhook(payload) {
 
     // 2️⃣ Fetch invoice
     const invoiceSnap = await db
-      .collection('dev_invoices')
+      .collection('invoices')
       .where('billdesk_invoice_id', '==', payload.invoiceid)
       .limit(1)
       .get();
@@ -189,7 +189,7 @@ export async function markInvoicePaidFromWebhook(payload) {
 
     // 3️⃣ Mark invoice as paid if needed
     if (invoiceData.status !== 'paid') {
-      await db.collection('dev_invoices').doc(invoiceId).set(
+      await db.collection('invoices').doc(invoiceId).set(
         {
           status: 'paid',
           paid_at: payload.transaction_date,
@@ -207,7 +207,7 @@ export async function markInvoicePaidFromWebhook(payload) {
 
     // 4️⃣ Check if donation with same transaction_id already exists
     const existingDonation = await db
-      .collection('dev_donations')
+      .collection('donations')
       .where('transaction_id', '==', payload.transactionid)
       .limit(1)
       .get();
@@ -239,10 +239,10 @@ export async function markInvoicePaidFromWebhook(payload) {
       raw_webhook_payload: payload,
     };
 
-    await db.collection('dev_donations').add(donationRecord);
+    await db.collection('donations').add(donationRecord);
 
     // 6️⃣ Mark invoice as donation_created
-    await db.collection('dev_invoices').doc(invoiceId).set(
+    await db.collection('invoices').doc(invoiceId).set(
       {
         donation_created: true,
         updatedAt: new Date().toISOString(),

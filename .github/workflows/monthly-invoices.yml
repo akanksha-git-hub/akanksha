@@ -11,5 +11,5 @@ jobs:
     steps:
       - name: Call invoice generation API
         run: |
-          curl -X POST https://dev.akanksha.org/api/generate-monthly-invoices \
+          curl -X POST https://www.akanksha.org/api/generate-monthly-invoices \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}"

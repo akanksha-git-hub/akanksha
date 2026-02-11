@@ -59,7 +59,10 @@ function generateTraceId() {
 }
 
 function getInvoiceDates() {
-  const now = new Date();
+  const now = new Date(
+    new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
+  );
+
   const yyyy = now.getFullYear();
   const mm = String(now.getMonth() + 1).padStart(2, '0');
 
@@ -83,10 +86,15 @@ export async function POST(req) {
     }
 
     // 🛑 Safety guard — only run on 3rd (FORCE ONLY FOR TESTING)
-    const today = new Date().getDate();
-    const FORCE_TODAY = true; // ⚠️ SET FALSE AFTER TESTING
+    const nowIST = new Date(
+  new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
+);
 
-    if (!FORCE_TODAY && today !== 3) {
+const today = nowIST.getDate();
+
+    
+
+    if ( today !== 3) {
       return NextResponse.json({
         success: true,
         message: 'Not invoice creation day',
@@ -95,7 +103,7 @@ export async function POST(req) {
 
     // 🔎 Fetch active mandates
     const mandatesSnap = await db
-      .collection('dev_mandates')
+      .collection('mandates')
       .where('status', '==', 'active')
       .get();
 
@@ -172,7 +180,7 @@ if (paymentMethod === "upi") {
 
       // 🛑 Idempotency: one invoice per mandate per month
       const existing = await db
-        .collection('dev_invoices')
+        .collection('invoices')
         .where('subscription_refid', '==', subscription_refid)
         .where('cycleKey', '==', cycleKey)
         .limit(1)
@@ -227,7 +235,7 @@ if (paymentMethod === "upi") {
       const billdesk_invoice_id = decoded?.invoice_id || null;
 
       // 💾 Save invoice (single source of truth)
-      await db.collection('dev_invoices').doc(invoice_number).set({
+      await db.collection('invoices').doc(invoice_number).set({
         subscription_refid,
         mandateid: mandate_id,
 
