@@ -7,6 +7,7 @@ import {
   saveTransactionToDB,
   activateMandate,
   markInvoicePaidFromWebhook,
+  updateMandateStatus,
 } from '@/lib/database';
 
 export async function POST(req) {
@@ -61,12 +62,20 @@ export async function POST(req) {
     ) {
       console.log('📜 Detected MANDATE ACTIVATION');
        const isMandateSuccess =
-    payload.verification_error_type === 'success' ||
+    payload.status  === 'success' ||
     payload.verification_error_code === 'MNNNN0000';
-      if (!isMandateSuccess) {
-    console.log('❌ Mandate rejected. Not activating.');
-    return NextResponse.json({ received: true });
-  }
+if (!isMandateSuccess) {
+  console.log('❌ Mandate rejected. Updating status.');
+
+  await updateMandateStatus({
+    subscription_refid: payload.subscription_refid,
+    status: "rejected",
+    raw_payload: payload,
+  });
+
+  return NextResponse.json({ received: true });
+}
+
 
 
       await activateMandate({

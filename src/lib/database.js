@@ -132,6 +132,35 @@ export async function activateMandate({
   }
 }
 
+// ======================================================
+// ✅ UPDATE MANDATE STATUS (rejected / failed / expired)
+// ======================================================
+export async function updateMandateStatus({
+  subscription_refid,
+  status,
+  raw_payload = null,
+}) {
+  try {
+    const now = new Date().toISOString();
+
+    await db
+      .collection("dev_mandates")
+      .doc(subscription_refid)
+      .set(
+        {
+          status,
+          raw_payload,
+          updated_at: now,
+        },
+        { merge: true }
+      );
+
+    console.log(`✅ Mandate status updated to ${status}`);
+  } catch (error) {
+    console.error("❌ Failed to update mandate status:", error);
+    throw error;
+  }
+}
 
 // ======================================================
 // ✅ MARK INVOICE AS PAID (SI SUCCESS) + SAFE DONATION CREATE
