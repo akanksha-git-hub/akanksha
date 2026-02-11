@@ -191,6 +191,21 @@ export async function POST(req) {
 
     const responseText = await bdRes.text();
 console.log("BillDesk Mandate Raw Response Mandate creation:", responseText);
+try {
+  const parts = responseText.split(".");
+  if (parts.length === 3) {
+    const decodedPayload = JSON.parse(
+      Buffer.from(parts[1], "base64url").toString("utf8")
+    );
+    console.log("🔎 Decoded (no verify):");
+    console.log(JSON.stringify(decodedPayload, null, 2));
+  } else {
+    console.log("⚠ Not a valid JWT format");
+  }
+} catch (err) {
+  console.error("Decode error:", err.message);
+}
+
 
     if (!bdRes.ok) {
       return NextResponse.json(
