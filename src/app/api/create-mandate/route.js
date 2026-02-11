@@ -108,7 +108,7 @@ export async function POST(req) {
     });
 
     // Dates
-    const start_date = getISTDateTime(1, 0, false);
+    const start_date = getISTDateTime(0, 0, false);
     const end_date = getISTDateTime(0, 5, false);
     const order_date = getISTDateTime(0, 0, true);
 
