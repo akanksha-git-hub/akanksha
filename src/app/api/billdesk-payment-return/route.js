@@ -85,9 +85,8 @@ export async function POST(request) {
 if (decodedMandatePayload?.mandateid) {
 
   const isMandateSuccess =
-    decodedMandatePayload?.verification_error_type === 'success'
-    // ⚠️ Confirm correct success code from BillDesk docs
-    // If unsure, temporarily check only verification_error_type === 'success'
+    decodedMandatePayload?.verification_error_type === 'success' ||
+    decodedMandatePayload?.verification_error_code === 'MNNNN0000';
 
   const mandateUrl = new URL('/thank-you', APP_BASE_URL);
 
@@ -105,10 +104,6 @@ if (decodedMandatePayload?.mandateid) {
   mandateUrl.searchParams.set(
     'subscription_refid',
     decodedMandatePayload.subscription_refid
-  );
-
-  console.log(
-    `[Return Handler] Redirecting (MANDATE): ${isMandateSuccess ? 'SUCCESS' : 'FAILURE'}`
   );
 
   return NextResponse.redirect(mandateUrl.toString(), { status: 303 });

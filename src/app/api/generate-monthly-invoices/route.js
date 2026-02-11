@@ -116,6 +116,17 @@ export async function POST(req) {
 
     for (const doc of mandatesSnap.docs) {
       const mandate = doc.data();
+      // 🚨 Safety check — ensure BillDesk actually approved mandate
+if (
+  mandate.status !== 'active' ||
+  mandate.raw_payload?.verification_error_type !== 'success'
+) {
+  console.log(
+    `⏩ Skipping ${mandate.billdesk?.subscription_refid} — mandate not approved by BillDesk`
+  );
+  continue;
+}
+
       const paymentMethod = mandate.raw_payload?.payment_method_type || null;
 
 let paymentSnapshot = {
