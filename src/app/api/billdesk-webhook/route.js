@@ -6,6 +6,7 @@ import { jwtVerify, importJWK } from 'jose';
 import {
   saveTransactionToDB,
   activateMandate,
+  markInvoicePaidFromWebhook,
 } from '@/lib/database';
 
 export async function POST(req) {
@@ -36,7 +37,7 @@ export async function POST(req) {
     // --------------------------------------------------
 
     /**
-     * ✅ ONE-TIME PAYMENT (Money already received)
+     *  ONE-TIME PAYMENT (Money already received)
      * objectid = transaction
      * txn_process_type !== si
      */
@@ -66,6 +67,16 @@ export async function POST(req) {
         raw_payload: payload,
       });
     }
+
+
+       else if (
+      payload.objectid === 'transaction' &&
+      payload.txn_process_type === 'si'
+    ) {
+      console.log('🔁 Detected SI INVOICE DEBIT');
+      await markInvoicePaidFromWebhook(payload);
+    }
+
 
     /**
      * ℹ️ Everything else (SI debits, retries, status pings, etc.)

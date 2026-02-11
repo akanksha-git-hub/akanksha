@@ -34,8 +34,6 @@ const db = getFirestore();
 // ======================================================
 export async function saveTransactionToDB(verifiedPayload) {
   try {
-    console.log("Preparing to save final transaction to Firestore...");
-
     const donationRecord = {
       transaction_id: verifiedPayload.transactionid,
       order_id: verifiedPayload.orderid,
@@ -44,7 +42,6 @@ export async function saveTransactionToDB(verifiedPayload) {
       payment_method: verifiedPayload.payment_method_type,
       bank_ref_no: verifiedPayload.bank_ref_no,
       transaction_date: verifiedPayload.transaction_date || null,
-
 
       donor_name: verifiedPayload.additional_info.additional_info1,
       email: verifiedPayload.additional_info.additional_info3,
@@ -57,13 +54,8 @@ export async function saveTransactionToDB(verifiedPayload) {
       raw_webhook_payload: verifiedPayload,
     };
 
-    const docRef = await db
-      .collection('dev_donations')
-      .add(donationRecord);
+    await db.collection('dev_donations').add(donationRecord);
 
-    console.log(
-      `✅ Successfully saved donation. Document ID: ${docRef.id}`
-    );
   } catch (error) {
     console.error('❌ Error saving transaction:', error);
     throw error;
@@ -75,7 +67,6 @@ export async function saveTransactionToDB(verifiedPayload) {
 // ✅ MANDATES → dev_mandates
 // ======================================================
 
-// 1️⃣ Create PENDING mandate (before redirect to BillDesk)
 export async function createPendingMandate({
   subscription_refid,
   name,
@@ -92,34 +83,21 @@ export async function createPendingMandate({
 
     const mandateRecord = {
       status: "pending",
-
-      donor: {
-        name,
-        email,
-        phone,
-        pan,
-        address,
-        state,
-      },
-
+      donor: { name, email, phone, pan, address, state },
       amount,
       frequency,
-
       billdesk: {
         mandate_id: null,
-        subscription_refid, // ✅ store it
+        subscription_refid,
       },
-
       created_at: now,
       updated_at: now,
     };
 
     await db
       .collection("dev_mandates")
-      .doc(subscription_refid) // ✅ single source of truth
+      .doc(subscription_refid)
       .set(mandateRecord);
-
-    console.log("✅ Pending mandate created:", subscription_refid);
 
     return subscription_refid;
   } catch (error) {
@@ -128,8 +106,6 @@ export async function createPendingMandate({
   }
 }
 
-
-// 2️⃣ Activate mandate (Return URL / webhook)
 export async function activateMandate({
   subscription_refid,
   mandate_id,
@@ -144,19 +120,109 @@ export async function activateMandate({
       .set(
         {
           status: "active",
-          billdesk: {
-            mandate_id,
-            subscription_refid,
-          },
+          billdesk: { mandate_id, subscription_refid },
           raw_payload,
           updated_at: now,
         },
         { merge: true }
       );
-
-    console.log("✅ Mandate activated:", mandate_id);
   } catch (error) {
     console.error("❌ Failed to activate mandate:", error);
+    throw error;
+  }
+}
+
+
+// ======================================================
+// ✅ MARK INVOICE AS PAID (SI SUCCESS) + SAFE DONATION CREATE
+// ======================================================
+export async function markInvoicePaidFromWebhook(payload) {
+  try {
+    // 1️⃣ Validate success
+    const isSuccess =
+      payload.auth_status === '0300' &&
+      payload.transaction_error_code === 'TRS0000';
+
+    if (!isSuccess) return;
+
+    // 2️⃣ Fetch invoice
+    const invoiceSnap = await db
+      .collection('dev_invoices')
+      .where('billdesk_invoice_id', '==', payload.invoiceid)
+      .limit(1)
+      .get();
+
+    if (invoiceSnap.empty) return;
+
+    const invoiceDoc = invoiceSnap.docs[0];
+    const invoiceId = invoiceDoc.id;
+    const invoiceData = invoiceDoc.data();
+
+    // 3️⃣ Mark invoice as paid if needed
+    if (invoiceData.status !== 'paid') {
+      await db.collection('dev_invoices').doc(invoiceId).set(
+        {
+          status: 'paid',
+          paid_at: payload.transaction_date,
+          transactionid: payload.transactionid,
+          auth_status: payload.auth_status,
+          bank_ref_no: payload.bank_ref_no || null,
+          payment_method_type: payload.payment_method_type || null,
+          webhook_received_at: new Date().toISOString(),
+          last_webhook_payload: payload,
+          updatedAt: new Date().toISOString(),
+        },
+        { merge: true }
+      );
+    }
+
+    // 4️⃣ Check if donation with same transaction_id already exists
+    const existingDonation = await db
+      .collection('dev_donations')
+      .where('transaction_id', '==', payload.transactionid)
+      .limit(1)
+      .get();
+
+    if (!existingDonation.empty) {
+      console.log(`ℹ️ Donation already exists for transaction ${payload.transactionid}`);
+      return;
+    }
+
+    // 5️⃣ Create donation record
+    const donationRecord = {
+      source: 'recurring',
+      invoice_id: invoiceId,
+      subscription_refid: invoiceData.subscription_refid,
+      transaction_id: payload.transactionid,
+      order_id: payload.orderid,
+      amount: parseFloat(payload.amount),
+      payment_method: payload.payment_method_type || null,
+      bank_ref_no: payload.bank_ref_no || null,
+      transaction_date: payload.transaction_date,
+      donor_name: invoiceData.donor?.name || null,
+      email: invoiceData.donor?.email || null,
+      mobile: invoiceData.donor?.phone || null,
+      address: invoiceData.donor?.address || null,
+      state: invoiceData.donor?.state || null,
+      pan_number: invoiceData.donor?.pan || null,
+      cycleKey: invoiceData.cycleKey,
+      processedAt: new Date().toISOString(),
+      raw_webhook_payload: payload,
+    };
+
+    await db.collection('dev_donations').add(donationRecord);
+
+    // 6️⃣ Mark invoice as donation_created
+    await db.collection('dev_invoices').doc(invoiceId).set(
+      {
+        donation_created: true,
+        updatedAt: new Date().toISOString(),
+      },
+      { merge: true }
+    );
+
+  } catch (error) {
+    console.error('❌ Error processing recurring payment:', error);
     throw error;
   }
 }
