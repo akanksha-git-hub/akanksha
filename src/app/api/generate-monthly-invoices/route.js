@@ -43,7 +43,7 @@ const RAW_SECRET = process.env.BILLDESK_SECRET;
 const CRON_SECRET = process.env.CRON_SECRET;
 
 const BILLDESK_INVOICE_ENDPOINT =
-  'https://uat1.billdesk.com/u2/pgsi/ve1_2/invoices/create';
+  'https://api.billdesk.com/pgsi/ve1_2/invoices/create';
  
 
 
