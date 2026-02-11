@@ -63,7 +63,8 @@ export async function POST(req) {
       console.log('📜 Detected MANDATE ACTIVATION');
        const isMandateSuccess =
     payload.status  === 'active' ||
-    payload.verification_error_code === 'MNNNN0000';
+      payload.verification_error_desc === 'Mandate Successful';
+
 if (!isMandateSuccess) {
   console.log('❌ Mandate rejected. Updating status.');
 
