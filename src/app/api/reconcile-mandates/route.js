@@ -37,7 +37,7 @@ const RAW_SECRET = process.env.BILLDESK_SECRET;
 const CRON_SECRET = process.env.CRON_SECRET;
 
 const BILLDESK_MANDATE_STATUS_ENDPOINT =
-  "https://uat1.billdesk.com/u2/pgsi/ve1_2/mandates/get";
+  "https://api.billdesk.com/pgsi/ve1_2/mandates/get";
 
 // ---------------- Helpers ----------------
 function generateEpochTimestamp() {

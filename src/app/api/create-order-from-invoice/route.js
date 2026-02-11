@@ -10,7 +10,7 @@ const RAW_SECRET = process.env.BILLDESK_SECRET;
 const APP_URL = process.env.APP_URL;
 
 
-const BILLDESK_SI_ENDPOINT = "https://uat1.billdesk.com/u2/payments/ve1_2/transactions/create";
+const BILLDESK_SI_ENDPOINT = "https://api.billdesk.com/payments/ve1_2/transactions/create";
 
 // ---------------- Helpers ----------------
 function generateEpochTimestamp() {
