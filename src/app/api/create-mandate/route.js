@@ -190,6 +190,7 @@ export async function POST(req) {
     });
 
     const responseText = await bdRes.text();
+console.log("BillDesk Mandate Raw Response Mandate creation:", responseText);
 
     if (!bdRes.ok) {
       return NextResponse.json(
