@@ -78,29 +78,41 @@ export async function POST(request) {
     /* ----------------------------------------------------
      * 4️⃣ MANDATE FLOW → THANK YOU PAGE (SUCCESS)
      * -------------------------------------------------- */
+/* ----------------------------------------------------
+ * 4️⃣ MANDATE FLOW → THANK YOU PAGE (SUCCESS / FAILURE)
+ * -------------------------------------------------- */
 
-    if (
-      decodedMandatePayload?.mandateid &&
-      decodedMandatePayload?.subscription_refid
-    ) {
-      const mandateUrl = new URL('/thank-you', APP_BASE_URL);
+if (decodedMandatePayload?.mandateid) {
 
-      mandateUrl.searchParams.set('type', 'mandate');
-      mandateUrl.searchParams.set('status', 'SUCCESS');
+  const isMandateSuccess =
+    decodedMandatePayload?.verification_error_type === 'success'
+    // ⚠️ Confirm correct success code from BillDesk docs
+    // If unsure, temporarily check only verification_error_type === 'success'
 
-      mandateUrl.searchParams.set(
-        'mandate_id',
-        decodedMandatePayload.mandateid
-      );
+  const mandateUrl = new URL('/thank-you', APP_BASE_URL);
 
-      mandateUrl.searchParams.set(
-        'subscription_refid',
-        decodedMandatePayload.subscription_refid
-      );
+  mandateUrl.searchParams.set('type', 'mandate');
+  mandateUrl.searchParams.set(
+    'status',
+    isMandateSuccess ? 'SUCCESS' : 'FAILURE'
+  );
 
-      console.log('[Return Handler] Redirecting (MANDATE):', mandateUrl.toString());
-      return NextResponse.redirect(mandateUrl.toString(), { status: 303 });
-    }
+  mandateUrl.searchParams.set(
+    'mandate_id',
+    decodedMandatePayload.mandateid
+  );
+
+  mandateUrl.searchParams.set(
+    'subscription_refid',
+    decodedMandatePayload.subscription_refid
+  );
+
+  console.log(
+    `[Return Handler] Redirecting (MANDATE): ${isMandateSuccess ? 'SUCCESS' : 'FAILURE'}`
+  );
+
+  return NextResponse.redirect(mandateUrl.toString(), { status: 303 });
+}
 
     /* ----------------------------------------------------
      * 5️⃣ ONE-TIME PAYMENT FLOW (UNCHANGED)

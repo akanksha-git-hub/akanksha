@@ -60,6 +60,14 @@ export async function POST(req) {
       payload.subscription_refid
     ) {
       console.log('📜 Detected MANDATE ACTIVATION');
+       const isMandateSuccess =
+    payload.verification_error_type === 'success' ||
+    payload.verification_error_code === 'MNNNN0000';
+      if (!isMandateSuccess) {
+    console.log('❌ Mandate rejected. Not activating.');
+    return NextResponse.json({ received: true });
+  }
+
 
       await activateMandate({
         subscription_refid: payload.subscription_refid,
