@@ -1,0 +1,19 @@
+name: Reconcile Mandates
+
+on:
+  # Automatic run every day (status sync)
+  schedule:
+    - cron: "0 1 * * *"   # 06:30 IST (01:00 UTC)
+
+  # Manual trigger (for testing)
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call reconcile mandates API
+        run: |
+          curl -X POST https://www.akanksha.org/api/reconcile-mandates \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}"

@@ -1,0 +1,15 @@
+name: Monthly Invoices
+
+on:
+  schedule:
+    - cron: "30 6 * * *"   # runs daily at 12:00 IST
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call invoice generation API
+        run: |
+          curl -X POST https://www.akanksha.org/api/generate-monthly-invoices \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}"

@@ -1,0 +1,233 @@
+// app/api/create-mandate/route.js
+
+import { SignJWT, importJWK, jwtVerify } from "jose";
+import { NextResponse } from "next/server";
+import { v4 as uuidv4 } from "uuid";
+import { initializeApp, getApps, cert } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
+import { readFileSync } from "fs";
+import path from "path";
+
+// ✅ ADD THIS IMPORT
+import { createPendingMandate } from "@/lib/database";
+
+// ENV
+const MERC_ID = process.env.BILLDESK_MERC_ID;
+const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
+const RAW_SECRET = process.env.BILLDESK_SECRET;
+const BILLDESK_MANDATE_ENDPOINT = process.env.BILLDESK_MANDATE_ENDPOINT;
+const APP_URL = process.env.APP_URL;
+
+// Firebase init
+if (!getApps().length) {
+  let serviceAccount;
+
+  if (process.env.NODE_ENV === "production") {
+    serviceAccount = JSON.parse(
+      readFileSync(
+        "/var/www/next-prismic/akanksha-dev/secrets/firebaseServiceAccount.json",
+        "utf8"
+      )
+    );
+  } else {
+    const devPath = path.resolve(
+      process.cwd(),
+      "secrets",
+      "firebaseServiceAccount.json"
+    );
+    serviceAccount = JSON.parse(readFileSync(devPath, "utf8"));
+  }
+
+  initializeApp({
+    credential: cert(serviceAccount),
+  });
+}
+
+const db = getFirestore();
+
+// ------------------------
+// IST Date Helper
+// ------------------------
+function getISTDateTime(daysOffset = 0, yearsOffset = 0, includeTime = false) {
+  const now = new Date();
+  const istOffset = 5.5 * 60 * 60 * 1000;
+  const istTime = new Date(now.getTime() + istOffset);
+
+  istTime.setDate(istTime.getDate() + daysOffset);
+  istTime.setFullYear(istTime.getFullYear() + yearsOffset);
+
+  if (includeTime) {
+    return istTime.toISOString().split(".")[0] + "Z";
+  }
+  return istTime.toISOString().split("T")[0];
+}
+
+const cleanName = (str) => {
+  if (!str) return "NA";
+  return str.replace(/[^a-zA-Z0-9]/g, "");
+};
+
+// ------------------------
+// POST Handler
+// ------------------------
+export async function POST(req) {
+  try {
+    const body = await req.json();
+    const { stepC = {}, amount, user_agent = "Unknown Browser" } = body;
+
+    if (!amount) {
+      return NextResponse.json(
+        { error: "Amount is required" },
+        { status: 400 }
+      );
+    }
+
+    // IDs
+    const orderId = `AKANKSHA-MANDATE-${uuidv4()
+      .replace(/-/g, "")
+      .slice(0, 12)
+      .toUpperCase()}`;
+
+    const customerRefid = stepC.email || `cust-${orderId}`;
+    const subscriptionRefid = `SUB-${orderId}`;
+
+    // ------------------------
+    // ✅ CREATE PENDING MANDATE (THIS WAS MISSING)
+    // ------------------------
+    await createPendingMandate({
+      subscription_refid: subscriptionRefid,
+      name: `${stepC.first_name || ""} ${stepC.last_name || ""}`.trim(),
+      email: stepC.email,
+      phone: stepC.number,
+      pan: stepC.pan_number,
+      address: stepC.address,
+      state: stepC.state,
+      amount,
+      frequency: "adho",
+    });
+
+    // Dates
+    const start_date = getISTDateTime(1, 0, false);
+    const end_date = getISTDateTime(0, 5, false);
+    const order_date = getISTDateTime(0, 0, true);
+
+    // Client IP
+    const forwarded = req.headers.get("x-forwarded-for");
+    const realIp = req.headers.get("x-real-ip");
+
+    let clientIpAddress =
+      forwarded?.split(",")[0]?.trim() || realIp || "127.0.0.1";
+
+    if (clientIpAddress.startsWith("::ffff:")) {
+      clientIpAddress = clientIpAddress.slice(7);
+    }
+
+    // BillDesk headers
+    const BD_Timestamp = Math.floor(Date.now() / 1000).toString();
+    const BD_Traceid = `${Date.now()}-${uuidv4()
+      .slice(0, 8)
+      .toUpperCase()}`;
+
+    // Mandate payload
+    const jwsPayloadObject = {
+      mercid: MERC_ID,
+      orderid: orderId,
+      order_date,
+      customer_refid: customerRefid,
+      subscription_refid: subscriptionRefid,
+      subscription_desc: "Akanksha Mandate",
+      frequency: "adho",
+      amount_type: "max",
+      recurrence_rule: "after",
+      debit_day: "6",
+      start_date,
+      end_date,
+      currency: "356",
+      amount: Number(amount).toFixed(2),
+
+      customer: {
+        first_name: cleanName(stepC.first_name).slice(0, 50) || "N/A",
+        last_name: cleanName(stepC.last_name).slice(0, 50) || "N/A",
+        mobile: stepC.number || "9999999999",
+        mobile_alt: stepC.number || "9999999999",
+        email: stepC.email || "test@example.com",
+        email_alt: stepC.email || "test@example.com",
+      },
+
+      device: {
+        init_channel: "internet",
+        ip: clientIpAddress,
+        user_agent,
+        accept_header: "text/html",
+      },
+
+      ru: `${APP_URL}/api/billdesk-payment-return`,
+    };
+
+    // Sign JWS
+    const jwk = {
+      kty: "oct",
+      k: Buffer.from(RAW_SECRET).toString("base64url"),
+    };
+
+    const secretKey = await importJWK(jwk, "HS256");
+
+    const jwtToken = await new SignJWT(jwsPayloadObject)
+      .setProtectedHeader({ alg: "HS256", clientid: CLIENT_ID })
+      .sign(secretKey);
+
+    // Call BillDesk
+    const bdRes = await fetch(BILLDESK_MANDATE_ENDPOINT, {
+      method: "POST",
+      headers: {
+        Accept: "application/jose",
+        "Content-Type": "application/jose",
+        "BD-Traceid": BD_Traceid,
+        "BD-Timestamp": BD_Timestamp,
+      },
+      body: jwtToken,
+      cache: "no-store",
+    });
+
+    const responseText = await bdRes.text();
+
+    if (!bdRes.ok) {
+      return NextResponse.json(
+        { error: "BillDesk Mandate Error", raw: responseText },
+        { status: 400 }
+      );
+    }
+
+    const { payload } = await jwtVerify(responseText, secretKey);
+
+    const redirectLink = payload?.links?.find(
+      (l) => l.rel === "redirect" && l.method === "POST"
+    );
+
+    if (!redirectLink) {
+      return NextResponse.json(
+        { error: "Missing redirect info", response: payload },
+        { status: 500 }
+      );
+    }
+
+    const { mercid, mandate_tokenid, rdata } = redirectLink.parameters;
+
+    return NextResponse.json({
+      redirect_url: redirectLink.href,
+      parameters: {
+        mercid,
+        mandate_tokenid,
+        rdata,
+      },
+      mandate_order_id: orderId,
+    });
+
+  } catch (err) {
+    console.error("🔥 Internal Error:", err);
+    return NextResponse.json(
+      { error: "Internal Error", details: err.message },
+      { status: 500 }
+    );
+  }
+}

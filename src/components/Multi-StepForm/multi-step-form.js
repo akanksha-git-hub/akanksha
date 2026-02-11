@@ -65,20 +65,24 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
         const currentStepData = { ...stepData, stepC: value  };
         setStepData(currentStepData);
 
-        const payloadToYourBackend = {
-          stepA: currentStepData.stepA,
-          stepC: currentStepData.stepC,
-          // stepB: currentStepData.stepB,
-          amount: donationAmount,
-          user_agent: navigator.userAgent,
-           type: donationType,
-        };
+      const endpoint =
+  donationType === false
+    ? "/api/create-mandate"          // Monthly
+    : "/api/create-order-billdesk";  // One-time
+
+const payloadToYourBackend = {
+  stepA: currentStepData.stepA,
+  stepC: currentStepData.stepC,
+  amount: donationAmount,
+  user_agent: navigator.userAgent,
+};
+
         console.log(" Sending to backend:", payloadToYourBackend);
 
 
         try {
           setLoading(true);
-          const res = await fetch("/api/create-order-billdesk", {
+          const res = await fetch(endpoint, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payloadToYourBackend),
@@ -100,31 +104,56 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
 
           if (redirectUrl && redirectParams) {
             // ... (existing form creation logic for redirect) ...
-            const fieldMap = {
-              mercid: "merchantid",
-              bdorderid: "bdorderid",
-              rdata: "rdata"
-            };
+            console.log("BillDesk redirectParams:", redirectParams);
 
-            const form = document.createElement("form");
-            form.method = "POST";
-            form.action = redirectUrl;
-            form.style.display = "none";
+           const form = document.createElement("form");
+form.method = "POST";
+form.action = redirectUrl;
+form.style.display = "none";
 
-            for (const key in fieldMap) {
-              if (redirectParams[key]) { // Check if param exists
-                const input = document.createElement("input");
-                input.type = "hidden";
-                input.name = fieldMap[key];
-                input.value = redirectParams[key];
-                form.appendChild(input);
-              } else {
-                console.warn(`Missing expected parameter '${key}' for BillDesk redirect.`);
-                // Optionally handle this more gracefully, though BillDesk should always send required params
-              }
-            }
-            document.body.appendChild(form);
-            form.submit();
+if (donationType === true) {
+  // ✅ ONE-TIME PAYMENT (keep existing behaviour)
+  const fieldMap = {
+    mercid: "merchantid",
+    bdorderid: "bdorderid",
+    rdata: "rdata",
+  };
+
+  for (const key in fieldMap) {
+    if (redirectParams[key]) {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = fieldMap[key];
+      input.value = redirectParams[key];
+      form.appendChild(input);
+    }
+  }
+} else {
+  // ✅ MANDATE (BillDesk Neo – Full Redirect spec)
+  const mandateFieldMap = {
+    mercid: "merchantId",
+    mandate_tokenid: "mandateTokenId",
+    rdata: "rdata",
+  };
+
+  for (const key in mandateFieldMap) {
+    const value = redirectParams[key];
+    if (!value) {
+      console.error(`Missing mandate redirect param: ${key}`);
+      continue;
+    }
+
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = mandateFieldMap[key];
+    input.value = value;
+    form.appendChild(input);
+  }
+}
+
+document.body.appendChild(form);
+form.submit();
+
             // setLoading(false) is not strictly needed here as the page will navigate away
             // but if submit fails for some browser reason, it might be good to have a timeout to reset it.
           } else {
@@ -133,14 +162,14 @@ export default function MultiStepForm({ closeModal, donationAmount ,donationType
             setLoading(false);
           }
         } catch (err) {
-          console.error("Request to /api/create-order-billdesk failed:", err);
+          console.error(`Request to ${endpoint} failed:`, err);
           setPaymentError("A network error occurred while trying to initiate payment. Please check your connection and try again.");
           setLoading(false);
         }
         return;
       }
     },
-    [step, stepData, donationAmount]
+    [step, stepData, donationAmount,donationType]
   );
 
   const totalSteps = 2;
