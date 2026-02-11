@@ -88,7 +88,8 @@ export async function POST(req) {
       .slice(0, 12)
       .toUpperCase()}`;
 
-    const customerRefid = stepC.email || `cust-${orderId}`;
+   const customerRefid = `AK${Date.now()}${Math.floor(Math.random() * 1000)}`;
+
     const subscriptionRefid = `SUB-${orderId}`;
 
     // ------------------------
