@@ -86,62 +86,110 @@ export async function POST(req) {
 
       if (!mandate_id) continue;
 
-      const payload = {
-        mercid: MERC_ID,
-        mandateid: mandate_id,
-      };
+      try {
+        const payload = {
+          mercid: MERC_ID,
+          mandateid: mandate_id,
+        };
 
-      const jwtToken = await new SignJWT(payload)
-        .setProtectedHeader({ alg: "HS256", clientid: CLIENT_ID })
-        .sign(secretKey);
+        const jwtToken = await new SignJWT(payload)
+          .setProtectedHeader({ alg: "HS256", clientid: CLIENT_ID })
+          .sign(secretKey);
 
-      const res = await fetch(BILLDESK_MANDATE_STATUS_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/jose",
-          Accept: "application/jose",
-          "BD-Timestamp": generateEpochTimestamp(),
-          "BD-Traceid": generateTraceId(),
-        },
-        body: jwtToken,
-      });
+        const res = await fetch(BILLDESK_MANDATE_STATUS_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/jose",
+            Accept: "application/jose",
+            "BD-Timestamp": generateEpochTimestamp(),
+            "BD-Traceid": generateTraceId(),
+          },
+          body: jwtToken,
+        });
 
-      const resText = await res.text();
+        const resText = await res.text();
 
-      if (!resText.includes(".")) {
-        console.error("Invalid JWS response:", resText);
-        continue;
-      }
+        // 🔴 Handle HTTP error or non-JWS response
+        if (!res.ok || !resText.includes(".")) {
+          console.error(
+            "BillDesk error response:",
+            res.status,
+            resText
+          );
 
-      const { payload: decoded } = await jwtVerify(resText, secretKey);
+          await db.collection("dev_mandates").doc(subscription_refid).set(
+            {
+              status: "invalid", // internal lifecycle status
+              billdesk_status: res.status, // store HTTP code
+              reconciliation_checked_at: new Date().toISOString(),
+              last_status_payload: {
+                status: res.status,
+                raw_response: resText,
+              },
+            },
+            { merge: true }
+          );
 
-      const billdeskStatus = decoded.status;
+          results.push({
+            subscription_refid,
+            mandate_id,
+            billdesk_status: res.status,
+          });
 
-      // 🧠 Decide internal status
-      let internalStatus = "active";
+          continue;
+        }
 
-      if (billdeskStatus !== "active") {
-        internalStatus = billdeskStatus; // cancelled, deleted, etc.
-      }
+        // 🟢 Valid JWS response
+        const { payload: decoded } = await jwtVerify(
+          resText,
+          secretKey
+        );
 
-      // 💾 Update mandate
-      await db.collection("dev_mandates").doc(subscription_refid).set(
-        {
-          status: internalStatus,
+        const billdeskStatus = decoded.status;
+
+        await db.collection("dev_mandates").doc(subscription_refid).set(
+          {
+            status: billdeskStatus, // active / cancelled / suspended etc.
+            billdesk_status: billdeskStatus,
+            reconciliation_checked_at: new Date().toISOString(),
+            last_status_payload: decoded,
+          },
+          { merge: true }
+        );
+
+        results.push({
+          subscription_refid,
+          mandate_id,
           billdesk_status: billdeskStatus,
-          reconciliation_checked_at: new Date().toISOString(),
-          last_status_payload: decoded,
-        },
-        { merge: true }
-      );
+        });
 
-      results.push({
-        subscription_refid,
-        mandate_id,
-        billdesk_status: billdeskStatus,
-      });
+      } catch (mandateError) {
+        console.error(
+          `Error reconciling mandate ${mandate_id}:`,
+          mandateError
+        );
+
+        await db.collection("dev_mandates").doc(subscription_refid).set(
+          {
+            status: "error",
+            billdesk_status: 500,
+            reconciliation_checked_at: new Date().toISOString(),
+            last_status_payload: {
+              error: mandateError.message,
+            },
+          },
+          { merge: true }
+        );
+
+        results.push({
+          subscription_refid,
+          mandate_id,
+          billdesk_status: 500,
+        });
+      }
     }
 
+    // ✅ Return AFTER processing all mandates
     return NextResponse.json({ success: true, results });
 
   } catch (err) {
