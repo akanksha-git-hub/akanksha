@@ -199,7 +199,34 @@ console.log("BillDesk Mandate Raw Response Mandate creation:", responseText);
       );
     }
 
-    const { payload } = await jwtVerify(responseText, secretKey);
+let payload;
+
+try {
+  const decoded = await jwtVerify(responseText, secretKey, {
+    algorithms: ["HS256"],
+  });
+
+  payload = decoded.payload;
+
+  console.log("✅ Mandate Decoded Payload:");
+  console.log(JSON.stringify(payload, null, 2));
+
+} catch (verifyError) {
+  console.error("❌ JWT VERIFY FAILED");
+  console.error("Error Message:", verifyError.message);
+  console.error("Secret length:", RAW_SECRET?.length);
+  console.error("Endpoint:", BILLDESK_MANDATE_ENDPOINT);
+  console.error("Raw response:", responseText);
+
+  return NextResponse.json(
+    {
+      error: "JWT verification failed",
+      details: verifyError.message,
+    },
+    { status: 500 }
+  );
+}
+
 
     const redirectLink = payload?.links?.find(
       (l) => l.rel === "redirect" && l.method === "POST"
