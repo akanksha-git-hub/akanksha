@@ -32,8 +32,9 @@ export default function DonationSelectors({ data }) {
 
   const isDisabled =
     active.amountSelector.amount === null ||
-    active.amountSelector.amount === 0 ||
-    active.amountSelector.amount < 500;
+      active.amountSelector.amount <= 0;
+    // active.amountSelector.amount === 0 ||
+    // active.amountSelector.amount < 500;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
