@@ -15,5 +15,5 @@ jobs:
     steps:
       - name: Call reconcile mandates API
         run: |
-          curl -X POST https://www.akanksha.org/api/reconcile-mandates \
+          curl -X POST https://akanksha.org/api/reconcile-mandates \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}"
