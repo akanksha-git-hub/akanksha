@@ -34,7 +34,10 @@ const db = getFirestore();
 const CLIENT_ID = process.env.BILLDESK_CLIENT_ID;
 const MERC_ID = process.env.BILLDESK_MERC_ID;
 const RAW_SECRET = process.env.BILLDESK_SECRET;
-const CRON_SECRET = process.env.CRON_SECRET;
+const CRON_SECRET = readFileSync(
+  "/var/www/next-prismic/akanksha-dev/secrets/cronSecret.txt",
+  "utf8"
+).trim();
 
 const BILLDESK_MANDATE_STATUS_ENDPOINT =
   "https://api.billdesk.com/pgsi/ve1_2/mandates/get";
@@ -59,7 +62,7 @@ export async function POST(req) {
 
     // 🔎 Fetch active mandates
     const mandatesSnap = await db
-      .collection("dev_mandates")
+      .collection("mandates")
       .where("status", "==", "active")
       .get();
 
@@ -117,7 +120,7 @@ export async function POST(req) {
             resText
           );
 
-          await db.collection("dev_mandates").doc(subscription_refid).set(
+          await db.collection("mandates").doc(subscription_refid).set(
             {
               status: "invalid", // internal lifecycle status
               billdesk_status: res.status, // store HTTP code
@@ -147,7 +150,7 @@ export async function POST(req) {
 
         const billdeskStatus = decoded.status;
 
-        await db.collection("dev_mandates").doc(subscription_refid).set(
+        await db.collection("mandates").doc(subscription_refid).set(
           {
             status: billdeskStatus, // active / cancelled / suspended etc.
             billdesk_status: billdeskStatus,
@@ -169,7 +172,7 @@ export async function POST(req) {
           mandateError
         );
 
-        await db.collection("dev_mandates").doc(subscription_refid).set(
+        await db.collection("mandates").doc(subscription_refid).set(
           {
             status: "error",
             billdesk_status: 500,
