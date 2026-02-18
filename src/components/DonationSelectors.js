@@ -220,9 +220,9 @@ export default function DonationSelectors({ data }) {
           </div>
 
           {/* CTA */}
-          <div className="">
+          <div className=" w-[90%] [&>div]:!w-full">
             <Button
-              className={`!py-4 !px-4 xl:!px-48 mt-6 !text-base md:!text-xl ${
+              className={`!w-full !flex !justify-center !px-4 !py-8 mt-6 !text-base md:!text-xl  ${
                 isDisabled &&
                 "hover:opacity-60 hover:bg-black hover:text-cream hover:!scale-100 active:scale-95 cursor-not-allowed"
               }`}

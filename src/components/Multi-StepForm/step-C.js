@@ -320,6 +320,46 @@ export default function StepC({
                 </select>
               </p>
             </div> */}
+<label className="flex items-start gap-3 mt-8 cursor-pointer">
+  <input
+    type="checkbox"
+    required
+    className="w-4 h-4  md:w-7 md:h-7  mt-1 accent-green-600 shrink-0"
+  />
+  <span className="text-sm md:text-base text-black">
+    I hereby declare that I am a citizen of India, making this donation out of
+    my own funds. The information provided above is correct to the best of my
+    knowledge. I know that all further communications will be done on contact
+    details provided above.
+  </span>
+</label>
+
+<label className="flex items-start gap-3 mt-4 cursor-pointer">
+  <input
+    type="checkbox"
+    required
+    className=" w-4 h-4  md:w-7 md:h-7 mt-1 accent-green-600 shrink-0"
+  />
+  <span className="text-sm md:text-base text-black">
+    Information is being collected to comply with government regulations and
+    shall be treated as confidential. These details shall not be divulged for
+    any other purpose. By sharing your details, you agree to receive stories
+    and updates from us via mobile, Whatsapp, landline, email and post. If
+    you'd like to change this, please send us an email on
+    <a href="mailto:writetous@akanksha.org" className="underline ml-1">
+      writetous@akanksha.org
+    </a>.
+  </span>
+</label>
+  <p className="text-sm md:text-base text-black font-medium mt-4">
+    All donations to The Akanksha Foundation get tax benefits under Section 80G
+    of the Income Tax Act.
+  </p>
+
+   
+
+
+
             <div className="flex flex-col items-center space-y-8 mt-16 pb-24">
               <Button
                 type="submit"
