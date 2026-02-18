@@ -345,7 +345,8 @@ export default function StepC({
     shall be treated as confidential. These details shall not be divulged for
     any other purpose. By sharing your details, you agree to receive stories
     and updates from us via mobile, Whatsapp, landline, email and post. If
-    you'd like to change this, please send us an email on
+    you&apos;
+d like to change this, please send us an email on
     <a href="mailto:writetous@akanksha.org" className="underline ml-1">
       writetous@akanksha.org
     </a>.
