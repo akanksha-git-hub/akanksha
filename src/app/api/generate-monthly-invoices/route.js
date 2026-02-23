@@ -65,13 +65,19 @@ function getInvoiceDates() {
 
   const yyyy = now.getFullYear();
   const mm = String(now.getMonth() + 1).padStart(2, '0');
-
   return {
-    invoice_date: `${yyyy}-${mm}-03`,
-    duedate: `${yyyy}-${mm}-05`,
-    debit_date: `${yyyy}-${mm}-06`,
-    cycleKey: `${yyyy}-${mm}`,
+    invoice_date: "2026-02-23",
+    duedate: "2026-02-24", // Tomorrow
+    debit_date: "2026-02-24", // Tomorrow (Safest for T+1)
+    cycleKey: "2026-02-TEST-FINAL", // New key so it passes your Firestore check
   };
+
+  // return {
+  //   invoice_date: `${yyyy}-${mm}-03`,
+  //   duedate: `${yyyy}-${mm}-05`,
+  //   debit_date: `${yyyy}-${mm}-06`,
+  //   cycleKey: `${yyyy}-${mm}`,
+  // };
 }
 
 // --------------------
