@@ -108,9 +108,7 @@ const today ="2026-02-23";
   
   amount: invoice.amount,
 
-
-  customer_refid: invoice.donor?.email || "UNKNOWN",
-
+customer_refid: invoice.raw_response?.customer_refid,
   
   additional_info: {
     additional_info1: invoice.donor?.address || "",
