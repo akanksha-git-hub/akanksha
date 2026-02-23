@@ -49,7 +49,8 @@
   new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
 );
 
-const today = nowIST.toISOString().slice(0, 10);
+// const today = nowIST.toISOString().slice(0, 10);
+const today ="2026-02-23";
 
 
       // 🔎 Find unpaid invoices due today

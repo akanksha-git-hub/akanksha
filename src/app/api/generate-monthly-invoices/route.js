@@ -94,7 +94,7 @@ const today = nowIST.getDate();
 
     
 
-    if ( today !== 3) {
+    if ( today !== today) {
       return NextResponse.json({
         success: true,
         message: 'Not invoice creation day',
