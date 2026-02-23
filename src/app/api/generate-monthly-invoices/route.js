@@ -195,7 +195,7 @@ if (paymentMethod === "upi") {
       // 🧾 BillDesk payload
       const payload = {
         mercid: MERC_ID,
-        customer_refid: mandate.donor?.email || 'UNKNOWN',
+        customer_refid: mandate.raw_payload?.customer_refid,
         subscription_refid,
         mandateid: mandate_id,
 
