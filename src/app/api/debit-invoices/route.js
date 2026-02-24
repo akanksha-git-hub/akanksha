@@ -50,7 +50,7 @@
 );
 
 // const today = nowIST.toISOString().slice(0, 10);
-const today ="2026-02-23";
+const today ="2026-02-24";
 
 
       // 🔎 Find unpaid invoices due today
