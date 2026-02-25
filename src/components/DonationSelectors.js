@@ -22,7 +22,7 @@ const INITIAL_STATE = {
   loading: false,
 };
 
-const types = ["One Time"];
+const types = ["One Time","Monthly"];
 
 export default function DonationSelectors({ data }) {
   const { stopScroll, startScroll } = useSmoothScroller();

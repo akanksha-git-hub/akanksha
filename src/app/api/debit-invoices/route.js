@@ -48,9 +48,18 @@
    const nowIST = new Date(
   new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
 );
+if (nowIST.getDate() !== 5) {
+  return Response.json({
+    success: true,
+    message: "Not debit day",
+  });
+}
 
-// const today = nowIST.toISOString().slice(0, 10);
-const today ="2026-02-24";
+const year = nowIST.getFullYear();
+const month = String(nowIST.getMonth() + 1).padStart(2, "0");
+const day = String(nowIST.getDate()).padStart(2, "0");
+
+const today = `${year}-${month}-${day}`;
 
 
       // 🔎 Find unpaid invoices due today

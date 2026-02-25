@@ -58,26 +58,36 @@ function generateTraceId() {
   return `${Date.now()}-${uuidv4().slice(0, 8).toUpperCase()}`;
 }
 
-function getInvoiceDates() {
+function getInvoiceDates(mandateCreatedAt) {
   const now = new Date(
     new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
   );
 
-  const yyyy = now.getFullYear();
-  const mm = String(now.getMonth() + 1).padStart(2, '0');
-  return {
-    invoice_date: "2026-02-23",
-    duedate: "2026-02-24", // Tomorrow
-    debit_date: "2026-02-24", // Tomorrow (Safest for T+1)
-    cycleKey: "2026-02-TEST-FINAL", // New key so it passes your Firestore check
-  };
+  let year = now.getFullYear();
+  let month = now.getMonth(); 
+   const mandateDateIST = new Date(
+    new Date(mandateCreatedAt).toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
+  );
 
-  // return {
-  //   invoice_date: `${yyyy}-${mm}-03`,
-  //   duedate: `${yyyy}-${mm}-05`,
-  //   debit_date: `${yyyy}-${mm}-06`,
-  //   cycleKey: `${yyyy}-${mm}`,
-  // };
+  const mandateDay = mandateDateIST.getDate();
+
+  // If today is 3rd or later, move to next month, same with year
+  if (mandateDay >= 3) {
+    month += 1;
+    if (month > 11) {
+      month = 0;
+      year += 1;  
+    }
+  }
+
+  const mm = String(month + 1).padStart(2, "0");
+
+  return {
+    invoice_date: `${year}-${mm}-03`,  // 48 hrs before debit
+    duedate: `${year}-${mm}-04`,
+    debit_date: `${year}-${mm}-05`,    // Debit always on 5th
+    cycleKey: `${year}-${mm}`,
+  };
 }
 
 // --------------------
@@ -100,7 +110,7 @@ const today = nowIST.getDate();
 
     
 
-    if ( today !== today) {
+    if ( today !== 3) {
       return NextResponse.json({
         success: true,
         message: 'Not invoice creation day',
@@ -182,7 +192,7 @@ if (paymentMethod === "upi") {
       if (!subscription_refid || !mandate_id) continue;
 
       const { invoice_date, duedate, debit_date, cycleKey } =
-        getInvoiceDates();
+        getInvoiceDates(mandate.created_at);
 
       // 🛑 Idempotency: one invoice per mandate per month
       const existing = await db
