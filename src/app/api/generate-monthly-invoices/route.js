@@ -64,28 +64,36 @@ function getInvoiceDates(mandateCreatedAt) {
   );
 
   let year = now.getFullYear();
-  let month = now.getMonth(); 
-   const mandateDateIST = new Date(
+  let month = now.getMonth(); // current month (0–11)
+
+  const mandateDateIST = new Date(
     new Date(mandateCreatedAt).toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
   );
 
+  const mandateYear = mandateDateIST.getFullYear();
+  const mandateMonth = mandateDateIST.getMonth();
   const mandateDay = mandateDateIST.getDate();
 
-  // If today is 3rd or later, move to next month, same with year
-  if (mandateDay >= 3) {
+  // Skip ONLY if mandate created THIS month after the 3rd
+  if (
+    mandateYear === year &&
+    mandateMonth === month &&
+    mandateDay > 3
+  ) {
     month += 1;
+
     if (month > 11) {
       month = 0;
-      year += 1;  
+      year += 1;
     }
   }
 
   const mm = String(month + 1).padStart(2, "0");
 
   return {
-    invoice_date: `${year}-${mm}-03`,  // 48 hrs before debit
+    invoice_date: `${year}-${mm}-03`,
     duedate: `${year}-${mm}-04`,
-    debit_date: `${year}-${mm}-05`,    // Debit always on 5th
+    debit_date: `${year}-${mm}-05`,
     cycleKey: `${year}-${mm}`,
   };
 }
@@ -110,7 +118,7 @@ const today = nowIST.getDate();
 
     
 
-    if ( today !== 3) {
+    if (today < 3 || today > 4) {
       return NextResponse.json({
         success: true,
         message: 'Not invoice creation day',
