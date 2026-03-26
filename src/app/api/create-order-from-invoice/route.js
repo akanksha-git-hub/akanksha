@@ -69,6 +69,7 @@ export async function POST(req) {
     additional_info3: additional_info.additional_info3 || "",
     additional_info4: additional_info.additional_info4 || "",
     additional_info5: additional_info.additional_info5 || "",
+    additional_info6: "Recurring",
   },
 
   device: {
