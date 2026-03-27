@@ -7,15 +7,13 @@ export default function CancelMandatePage() {
   const [mandateId, setMandateId] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("upi");
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState(null); // success | pending | error
-  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState(null); // actual billdesk status
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setLoading(true);
     setStatus(null);
-    setMessage("");
 
     try {
       const res = await fetch("/api/cancel-mandate", {
@@ -32,28 +30,22 @@ export default function CancelMandatePage() {
       const data = await res.json();
       console.log("Response:", data);
 
-      // ✅ Handle response properly
-      if (data.status === "deleted") {
-        setStatus("success");
-        setMessage("Mandate cancelled successfully ✅");
-      } else if (data.status === "pending") {
-        setStatus("pending");
-        setMessage("Mandate cancellation pending approval ⚠️");
+      // ✅ Store exact BillDesk status
+      if (data.status) {
+        setStatus(data.status.toLowerCase());
       } else {
         setStatus("error");
-        setMessage("Something went wrong ❌");
       }
 
     } catch (err) {
       console.error(err);
       setStatus("error");
-      setMessage("Something went wrong ❌");
     } finally {
       setLoading(false);
     }
   };
 
-  // 🎉 SUCCESS / RESULT SCREEN
+  // 🎉 RESULT SCREEN
   if (status) {
     return (
       <div className="flex items-center justify-center mt-20">
@@ -61,19 +53,28 @@ export default function CancelMandatePage() {
 
           {/* Icon */}
           <div className="text-4xl mb-4">
-            {status === "success" && "✅"}
+            {status === "deleted" && "✅"}
             {status === "pending" && "⚠️"}
             {status === "error" && "❌"}
+            {status !== "deleted" && status !== "pending" && status !== "error" && "ℹ️"}
           </div>
 
-          {/* Message */}
+          {/* Title */}
           <h2 className="text-xl font-semibold mb-2">
-            {status === "success" && "Success"}
-            {status === "pending" && "Pending"}
-            {status === "error" && "Error"}
+            Status
           </h2>
 
-          <p className="text-gray-600 mb-6">{message}</p>
+          {/* Actual Status */}
+          <p className="text-gray-700 mb-4 text-lg capitalize">
+            {status}
+          </p>
+
+          {/* Optional Helper Text */}
+          <p className="text-sm text-gray-500 mb-6">
+            {status === "deleted" && "Mandate has been successfully cancelled."}
+            {status === "pending" && "Action required to complete cancellation."}
+            {status === "error" && "Something went wrong. Please try again."}
+          </p>
 
           {/* Back Button */}
           <Button
@@ -89,7 +90,7 @@ export default function CancelMandatePage() {
     );
   }
 
-  // 🧾 FORM
+  // 🧾 FORM SCREEN
   return (
     <div className="flex items-center justify-center mt-20">
       <div className="max-w-md w-full p-8 border rounded-xl shadow-sm">
@@ -124,6 +125,7 @@ export default function CancelMandatePage() {
           <Button type="submit" disabled={loading}>
             {loading ? "Cancelling..." : "Cancel Mandate"}
           </Button>
+
         </form>
       </div>
     </div>
