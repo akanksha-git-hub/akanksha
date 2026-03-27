@@ -52,7 +52,7 @@ export async function POST(req) {
 
 
     /**
-     * ✅ MANDATE ACTIVATION (Permission approved)
+     * ✅ MANDATE ACTIVATION 
      * objectid = mandate
      */
     else if (
@@ -60,7 +60,19 @@ export async function POST(req) {
       payload.mandateid &&
       payload.subscription_refid
     ) {
-      console.log('📜 Detected MANDATE ACTIVATION');
+      console.log('📜  MANDATE Hook Recieved');
+
+      if (payload.status === "deleted") {
+  console.log("🗑️ Mandate DELETED");
+
+  await updateMandateStatus({
+    subscription_refid: payload.subscription_refid,
+    status: "deleted",
+    raw_payload: payload,
+  });
+
+  return NextResponse.json({ received: true });
+}
        const isMandateSuccess =
     payload.status  === 'active' ||
       payload.verification_error_desc === 'Mandate Successful';
