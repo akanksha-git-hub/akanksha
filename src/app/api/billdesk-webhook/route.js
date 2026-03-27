@@ -62,7 +62,9 @@ export async function POST(req) {
     ) {
       console.log('📜  MANDATE Hook Recieved');
 
-      if (payload.status === "deleted") {
+   const status = (payload.status || "").toLowerCase().trim();
+
+if (status === "deleted") {
   console.log("🗑️ Mandate DELETED");
 
   await updateMandateStatus({
