@@ -7,9 +7,8 @@ const MERC_ID = process.env.BILLDESK_MERC_ID;
 const RAW_SECRET = process.env.BILLDESK_SECRET;
 
 const BILLDESK_DELETE_URL =
-  "https://uat1.billdesk.com/u2/pgsi/ve1_2/mandates/delete";
+  "https://api.billdesk.com/pgsi/ve1_2/mandates/delete";
 
-// ✅ Correct timestamp (VERY IMPORTANT)
 function generateTimestamp() {
   const now = new Date();
   const pad = (n) => n.toString().padStart(2, "0");

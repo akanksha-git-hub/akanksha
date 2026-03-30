@@ -7,7 +7,7 @@ export default function CancelMandatePage() {
   const [mandateId, setMandateId] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("upi");
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState(null); // actual billdesk status
+  const [status, setStatus] = useState(null); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
