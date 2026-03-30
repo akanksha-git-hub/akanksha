@@ -72,7 +72,7 @@ export default function CancelMandatePage() {
           {/* Optional Helper Text */}
           <p className="text-sm text-gray-500 mb-6">
             {status === "deleted" && "Mandate has been successfully cancelled."}
-            {status === "pending" && "Action required to complete cancellation."}
+            {status === "pending" && "Your cancellation request is being processed. The final status will appear shortly in the Mandate Status section. If it does not update, please contact support."}
             {status === "error" && "Something went wrong. Please try again."}
           </p>
 
