@@ -109,7 +109,7 @@ export async function POST(req) {
 
     // Dates
     const start_date = getISTDateTime(0, 0, false);
-    const end_date = "2099-12-31";
+    const end_date = "2050-12-31";
     const order_date = getISTDateTime(0, 0, true);
 
     // Client IP
