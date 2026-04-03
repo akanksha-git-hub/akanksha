@@ -35,7 +35,7 @@ export default function DonationSelectors({ data }) {
       //  active.amountSelector.amount <= 0;
    
     active.amountSelector.amount === 0 ||
-    active.amountSelector.amount < 1;
+    active.amountSelector.amount < 500;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
