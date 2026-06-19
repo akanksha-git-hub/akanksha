@@ -8,6 +8,7 @@ export const components = {
   alumini_grid: dynamic(() => import("./AluminiGrid")),
   art_hero_section: dynamic(() => import("./ArtHeroSection")),
   awards: dynamic(() => import("./Awards")),
+  banner: dynamic(() => import("./Banner")),
   blog_category_items: dynamic(() => import("./ResourcesCategoryItems")),
   blog_highlight: dynamic(() => import("./ResourcedHighlight")),
   blog_recents: dynamic(() => import("./ResourcesRecents")),
