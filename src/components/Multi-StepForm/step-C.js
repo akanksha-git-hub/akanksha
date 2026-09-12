@@ -26,10 +26,12 @@ const ERRORS = {
   last_name: null,
   email: null,
   number: null,
+  state: null,
+  city: null,
+  address: null,
   pin_code: null,
   pan_number: null,
 };
-
 export default function StepC({
   handleStepProgression,
   currentStep,
@@ -83,12 +85,32 @@ export default function StepC({
   );
 
   const validate = () => {
+    const specialCharRegex = /[-|]/;
     const error = { ...ERRORS };
     const alphabetRegex = /^[A-Za-z\s]+$/;
  const indianNumberRegex = /^[6-9]\d{9}$/;
     const pinCodeRegex = /^[1-9][0-9]{2}\s?[0-9]{3}$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const panCardRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+    if (specialCharRegex.test(formData.first_name)) {
+  error.first_name = "Special characters are not allowed";
+}
+
+if (specialCharRegex.test(formData.last_name)) {
+  error.last_name = "Special characters are not allowed";
+}
+
+if (specialCharRegex.test(formData.city)) {
+  error.city = "Special characters are not allowed";
+}
+
+if (specialCharRegex.test(formData.address)) {
+  error.address = "Special characters are not allowed";
+}
+
+if (specialCharRegex.test(formData.state)) {
+  error.state = "Special characters are not allowed";
+}
 
     const testNumber = indianNumberRegex.test(formData.number);
     const testNumberIsAlphabet = alphabetRegex.test(formData.number);
