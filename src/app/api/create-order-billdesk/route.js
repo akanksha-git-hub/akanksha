@@ -60,10 +60,10 @@ export async function POST(req) {
 
   const fullName = [stepC.first_name, stepC.last_name]
       .filter(Boolean) 
-      .join('-') || 'N/A';
+      .join('-') || 'NA';
         const fullAddress = [stepC.address, stepC.city, stepC.pin_code]
       .filter(Boolean)
-      .join('-') || 'N/A';
+      .join('-') || 'NA';
 
     const jwsPayloadObject = {
       mercid: MERC_ID,
@@ -77,12 +77,12 @@ export async function POST(req) {
       additional_info: {
      
     additional_info1: fullName,
-        additional_info2: stepC.pan_number || 'N/A',
-        additional_info3: stepC.email || 'N/A',
-        additional_info4: stepC.number || 'N/A',
+        additional_info2: stepC.pan_number || 'NA',
+        additional_info3: stepC.email || 'NA',
+        additional_info4: stepC.number || 'NA',
         additional_info5: fullAddress,
-   additional_info6: stepC.state || 'N/A', 
-        additional_info7: 'N/A',
+   additional_info6: stepC.state || 'NA', 
+        additional_info7: 'NA',
       },
       customer: {
         email: stepC?.email || 'test@example.com',
