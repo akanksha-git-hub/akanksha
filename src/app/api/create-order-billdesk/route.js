@@ -82,7 +82,7 @@ export async function POST(req) {
         additional_info4: stepC.number || 'NA',
         additional_info5: fullAddress,
    additional_info6: stepC.state || 'NA', 
-        additional_info7: 'NA',
+      
       },
       customer: {
         email: stepC?.email || 'test@example.com',
