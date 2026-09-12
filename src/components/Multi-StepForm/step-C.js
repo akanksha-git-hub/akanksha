@@ -280,6 +280,7 @@ if (specialCharRegex.test(formData.state)) {
                 placeholder="Address"
                 className="w-full sm:w-[48%]"
                 onChange={handleChange}
+                error={errors.address}
               />
             </div>
             <div className="flex flex-wrap items-center justify-between space-y-6 sm:space-y-0">
