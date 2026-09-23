@@ -1,0 +1,65 @@
+{
+  "id": "people_of_akanksha_hero",
+  "type": "SharedSlice",
+  "name": "PeopleOfAkankshaHero",
+  "description": "PeopleOfAkankshaHero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "small_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Small Heading",
+            "placeholder": ""
+          }
+        },
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "hero_image": {
+          "type": "Image",
+          "config": {
+            "label": "Hero Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "link_1": {
+          "type": "Link",
+          "config": {
+            "label": "Link 1",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "link_1_text": {
+          "type": "Text",
+          "config": {
+            "label": "Link 1 Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

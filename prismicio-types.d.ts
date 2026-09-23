@@ -3558,6 +3558,154 @@ export type PartnershipsDocument<Lang extends string = string> =
     Lang
   >;
 
+type PeopleOfAkankshaDocumentDataSlicesSlice =
+  | PeopleOfAkankshaHeroSlice
+  | ImpactHeroSlice;
+
+/**
+ * Content for People of Akanksha documents
+ */
+interface PeopleOfAkankshaDocumentData {
+  /**
+   * Slice Zone field in *People of Akanksha*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PeopleOfAkankshaDocumentDataSlicesSlice> /**
+   * Meta Title field in *People of Akanksha*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: people_of_akanksha.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *People of Akanksha*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: people_of_akanksha.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *People of Akanksha*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * People of Akanksha document from Prismic
+ *
+ * - **API ID**: `people_of_akanksha`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PeopleOfAkankshaDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<PeopleOfAkankshaDocumentData>,
+    "people_of_akanksha",
+    Lang
+  >;
+
+type PeopleOfAkankshaStoryDocumentDataSlicesSlice =
+  | StoryQuoteSlice
+  | StoryImageSlice
+  | StoryRichTextSlice;
+
+/**
+ * Content for People of Akanksha Story documents
+ */
+interface PeopleOfAkankshaStoryDocumentData {
+  /**
+   * Title field in *People of Akanksha Story*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_story.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Author name field in *People of Akanksha Story*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_story.author_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  author_name: prismic.KeyTextField;
+
+  /**
+   * Role field in *People of Akanksha Story*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_story.role
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  role: prismic.KeyTextField;
+
+  /**
+   * Hero Image field in *People of Akanksha Story*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_story.hero_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hero_image: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *People of Akanksha Story*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_story.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PeopleOfAkankshaStoryDocumentDataSlicesSlice>;
+}
+
+/**
+ * People of Akanksha Story document from Prismic
+ *
+ * - **API ID**: `people_of_akanksha_story`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PeopleOfAkankshaStoryDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<PeopleOfAkankshaStoryDocumentData>,
+    "people_of_akanksha_story",
+    Lang
+  >;
+
 /**
  * Item in *Privacy Policy → Rich Text Editor*
  */
@@ -4523,6 +4671,8 @@ export type AllDocumentTypes =
   | OurSchoolsDocument
   | OurdonorsDocument
   | PartnershipsDocument
+  | PeopleOfAkankshaDocument
+  | PeopleOfAkankshaStoryDocument
   | PrivacyPolicyDocument
   | ProjectSetuDocument
   | ReportsDocument
@@ -14427,6 +14577,101 @@ export type PartnersShowcaseSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *PeopleOfAkankshaHero → Default → Primary*
+ */
+export interface PeopleOfAkankshaHeroSliceDefaultPrimary {
+  /**
+   * Small Heading field in *PeopleOfAkankshaHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_hero.default.primary.small_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_heading: prismic.KeyTextField;
+
+  /**
+   * Heading field in *PeopleOfAkankshaHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_hero.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *PeopleOfAkankshaHero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_hero.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Hero Image field in *PeopleOfAkankshaHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_hero.default.primary.hero_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hero_image: prismic.ImageField<never>;
+
+  /**
+   * Link 1 field in *PeopleOfAkankshaHero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_hero.default.primary.link_1
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_1: prismic.LinkField;
+
+  /**
+   * Link 1 Text field in *PeopleOfAkankshaHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_hero.default.primary.link_1_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_1_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for PeopleOfAkankshaHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PeopleOfAkankshaHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PeopleOfAkankshaHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PeopleOfAkankshaHero*
+ */
+type PeopleOfAkankshaHeroSliceVariation = PeopleOfAkankshaHeroSliceDefault;
+
+/**
+ * PeopleOfAkankshaHero Shared Slice
+ *
+ * - **API ID**: `people_of_akanksha_hero`
+ * - **Description**: PeopleOfAkankshaHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PeopleOfAkankshaHeroSlice = prismic.SharedSlice<
+  "people_of_akanksha_hero",
+  PeopleOfAkankshaHeroSliceVariation
+>;
+
+/**
  * Item in *PictureTabSlice → Default → Primary → Tab Values*
  */
 export interface PictureTabSliceSliceDefaultPrimaryTabValuesItem {
@@ -16819,6 +17064,141 @@ type SliderShowcaseSliceVariation =
 export type SliderShowcaseSlice = prismic.SharedSlice<
   "slider_showcase",
   SliderShowcaseSliceVariation
+>;
+
+/**
+ * Primary content in *StoryImage → Default → Primary*
+ */
+export interface StoryImageSliceDefaultPrimary {
+  /**
+   * Image field in *StoryImage → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: story_image.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for StoryImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StoryImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<StoryImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *StoryImage*
+ */
+type StoryImageSliceVariation = StoryImageSliceDefault;
+
+/**
+ * StoryImage Shared Slice
+ *
+ * - **API ID**: `story_image`
+ * - **Description**: StoryImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StoryImageSlice = prismic.SharedSlice<
+  "story_image",
+  StoryImageSliceVariation
+>;
+
+/**
+ * Primary content in *StoryQuote → Default → Primary*
+ */
+export interface StoryQuoteSliceDefaultPrimary {
+  /**
+   * Quote field in *StoryQuote → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: story_quote.default.primary.quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  quote: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for StoryQuote Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StoryQuoteSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<StoryQuoteSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *StoryQuote*
+ */
+type StoryQuoteSliceVariation = StoryQuoteSliceDefault;
+
+/**
+ * StoryQuote Shared Slice
+ *
+ * - **API ID**: `story_quote`
+ * - **Description**: StoryQuote
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StoryQuoteSlice = prismic.SharedSlice<
+  "story_quote",
+  StoryQuoteSliceVariation
+>;
+
+/**
+ * Primary content in *StoryRichText → Default → Primary*
+ */
+export interface StoryRichTextSliceDefaultPrimary {
+  /**
+   * Body field in *StoryRichText → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: story_rich_text.default.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+}
+
+/**
+ * Default variation for StoryRichText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StoryRichTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<StoryRichTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *StoryRichText*
+ */
+type StoryRichTextSliceVariation = StoryRichTextSliceDefault;
+
+/**
+ * StoryRichText Shared Slice
+ *
+ * - **API ID**: `story_rich_text`
+ * - **Description**: StoryRichText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StoryRichTextSlice = prismic.SharedSlice<
+  "story_rich_text",
+  StoryRichTextSliceVariation
 >;
 
 /**
@@ -19450,6 +19830,12 @@ declare module "@prismicio/client" {
       PartnershipsDocument,
       PartnershipsDocumentData,
       PartnershipsDocumentDataSlicesSlice,
+      PeopleOfAkankshaDocument,
+      PeopleOfAkankshaDocumentData,
+      PeopleOfAkankshaDocumentDataSlicesSlice,
+      PeopleOfAkankshaStoryDocument,
+      PeopleOfAkankshaStoryDocumentData,
+      PeopleOfAkankshaStoryDocumentDataSlicesSlice,
       PrivacyPolicyDocument,
       PrivacyPolicyDocumentData,
       PrivacyPolicyDocumentDataRichTextEditorItem,
@@ -19793,6 +20179,10 @@ declare module "@prismicio/client" {
       PartnersShowcaseSliceVariation,
       PartnersShowcaseSliceDefault,
       PartnersShowcaseSliceWithOutSliceIdentifier,
+      PeopleOfAkankshaHeroSlice,
+      PeopleOfAkankshaHeroSliceDefaultPrimary,
+      PeopleOfAkankshaHeroSliceVariation,
+      PeopleOfAkankshaHeroSliceDefault,
       PictureTabSliceSlice,
       PictureTabSliceSliceDefaultPrimaryTabValuesItem,
       PictureTabSliceSliceDefaultPrimaryTabContentItem,
@@ -19875,6 +20265,18 @@ declare module "@prismicio/client" {
       SliderShowcaseSliceSliderF,
       SliderShowcaseSliceSliderFvariation,
       SliderShowcaseSliceSliderFv2,
+      StoryImageSlice,
+      StoryImageSliceDefaultPrimary,
+      StoryImageSliceVariation,
+      StoryImageSliceDefault,
+      StoryQuoteSlice,
+      StoryQuoteSliceDefaultPrimary,
+      StoryQuoteSliceVariation,
+      StoryQuoteSliceDefault,
+      StoryRichTextSlice,
+      StoryRichTextSliceDefaultPrimary,
+      StoryRichTextSliceVariation,
+      StoryRichTextSliceDefault,
       StudentVisionSlice,
       StudentVisionSliceDefaultPrimaryDescriptionItem,
       StudentVisionSliceDefaultPrimary,
