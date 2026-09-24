@@ -3559,6 +3559,7 @@ export type PartnershipsDocument<Lang extends string = string> =
   >;
 
 type PeopleOfAkankshaDocumentDataSlicesSlice =
+  | PeopleOfAkankshaMarqueeSlice
   | PeopleOfAkankshaHeroSlice
   | ImpactHeroSlice;
 
@@ -14672,6 +14673,119 @@ export type PeopleOfAkankshaHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *PeopleOfAkankshaMarquee → Default → Primary → Stories*
+ */
+export interface PeopleOfAkankshaMarqueeSliceDefaultPrimaryStoriesItem {
+  /**
+   * Image field in *PeopleOfAkankshaMarquee → Default → Primary → Stories*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_marquee.default.primary.stories[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *PeopleOfAkankshaMarquee → Default → Primary → Stories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_marquee.default.primary.stories[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Content field in *PeopleOfAkankshaMarquee → Default → Primary → Stories*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_marquee.default.primary.stories[].content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+
+  /**
+   * Link field in *PeopleOfAkankshaMarquee → Default → Primary → Stories*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_marquee.default.primary.stories[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *PeopleOfAkankshaMarquee → Default → Primary*
+ */
+export interface PeopleOfAkankshaMarqueeSliceDefaultPrimary {
+  /**
+   * Slice Identifier field in *PeopleOfAkankshaMarquee → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_marquee.default.primary.slice_identifier
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slice_identifier: prismic.KeyTextField;
+
+  /**
+   * Heading field in *PeopleOfAkankshaMarquee → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_marquee.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Stories field in *PeopleOfAkankshaMarquee → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_marquee.default.primary.stories[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  stories: prismic.GroupField<
+    Simplify<PeopleOfAkankshaMarqueeSliceDefaultPrimaryStoriesItem>
+  >;
+}
+
+/**
+ * Default variation for PeopleOfAkankshaMarquee Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PeopleOfAkankshaMarqueeSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PeopleOfAkankshaMarqueeSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PeopleOfAkankshaMarquee*
+ */
+type PeopleOfAkankshaMarqueeSliceVariation =
+  PeopleOfAkankshaMarqueeSliceDefault;
+
+/**
+ * PeopleOfAkankshaMarquee Shared Slice
+ *
+ * - **API ID**: `people_of_akanksha_marquee`
+ * - **Description**: PeopleOfAkankshaMarquee
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PeopleOfAkankshaMarqueeSlice = prismic.SharedSlice<
+  "people_of_akanksha_marquee",
+  PeopleOfAkankshaMarqueeSliceVariation
+>;
+
+/**
  * Item in *PictureTabSlice → Default → Primary → Tab Values*
  */
 export interface PictureTabSliceSliceDefaultPrimaryTabValuesItem {
@@ -20183,6 +20297,11 @@ declare module "@prismicio/client" {
       PeopleOfAkankshaHeroSliceDefaultPrimary,
       PeopleOfAkankshaHeroSliceVariation,
       PeopleOfAkankshaHeroSliceDefault,
+      PeopleOfAkankshaMarqueeSlice,
+      PeopleOfAkankshaMarqueeSliceDefaultPrimaryStoriesItem,
+      PeopleOfAkankshaMarqueeSliceDefaultPrimary,
+      PeopleOfAkankshaMarqueeSliceVariation,
+      PeopleOfAkankshaMarqueeSliceDefault,
       PictureTabSliceSlice,
       PictureTabSliceSliceDefaultPrimaryTabValuesItem,
       PictureTabSliceSliceDefaultPrimaryTabContentItem,
