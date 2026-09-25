@@ -51,7 +51,7 @@ export default async function FooterMain() {
   ];
 
   return (
-    <Footer className="py-8 flex items-center justify-center relative  ">
+    <Footer className="py-8 flex items-center justify-center relative overflow-x-clip ">
       <FooterImage />
       <Footer.Container className="w-[90%] md:w-[56%] z-20 space-y-12 ">
         <Footer.Header className="flex flex-col items-left md:items-center space-y-8 ">

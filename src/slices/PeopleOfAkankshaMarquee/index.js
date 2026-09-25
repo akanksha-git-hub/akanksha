@@ -25,7 +25,7 @@ const PeopleOfAkankshaMarquee = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full overflow-hidden py-16 md:py-20 lg:py-24"
+      className="w-full max-w-full overflow-x-clip py-16 md:py-20 lg:py-24"
     >
       {/* =========================================
           HEADING
@@ -43,7 +43,7 @@ const PeopleOfAkankshaMarquee = ({ slice }) => {
           MARQUEE
           ========================================= */}
 
-      <div className="mt-10 md:mt-14">
+      <div className="mt-10 w-full max-w-full overflow-x-clip md:mt-14">
         <Marquee
           direction="left"
           speed={40}
@@ -112,7 +112,7 @@ function StoryCard({ story }) {
         {story.link && (
           <div className="mt-auto pt-7">
             <PrismicNextLink field={story.link}>
-              <Button >
+              <Button>
                 Read More
               </Button>
             </PrismicNextLink>
