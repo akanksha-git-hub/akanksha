@@ -11,13 +11,13 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "people_of_akanksha_intro": {
+              "type": "SharedSlice"
+            },
             "people_of_akanksha_marquee": {
               "type": "SharedSlice"
             },
             "people_of_akanksha_hero": {
-              "type": "SharedSlice"
-            },
-            "impact_hero": {
               "type": "SharedSlice"
             }
           }

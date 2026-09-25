@@ -54,6 +54,7 @@ export const components = {
   page_title: dynamic(() => import("./PageTitle")),
   partners_showcase: dynamic(() => import("./PartnersShowcase")),
   people_of_akanksha_hero: dynamic(() => import("./PeopleOfAkankshaHero")),
+  people_of_akanksha_intro: dynamic(() => import("./PeopleOfAkankshaIntro")),
   people_of_akanksha_marquee: dynamic(
     () => import("./PeopleOfAkankshaMarquee"),
   ),

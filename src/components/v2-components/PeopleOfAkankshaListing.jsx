@@ -20,6 +20,9 @@ export default function PeopleOfAkankshaListing({
   const pathname = usePathname();
 
   const [searchValue, setSearchValue] = useState(search || "");
+  const [showAllFilters, setShowAllFilters] = useState(false);
+
+  const VISIBLE_TAGS = 2;
 
   // =========================================
   // SEARCH
@@ -44,9 +47,7 @@ export default function PeopleOfAkankshaListing({
       const queryString = params.toString();
 
       router.replace(
-        queryString
-          ? `${pathname}?${queryString}`
-          : pathname,
+        queryString ? `${pathname}?${queryString}` : pathname,
         {
           scroll: false,
         }
@@ -83,52 +84,38 @@ export default function PeopleOfAkankshaListing({
     const queryString = params.toString();
 
     router.replace(
-      queryString
-        ? `${pathname}?${queryString}`
-        : pathname,
+      queryString ? `${pathname}?${queryString}` : pathname,
       {
         scroll: false,
       }
     );
   };
 
+  // =========================================
+  // FILTER DISPLAY
+  // =========================================
+
+  const visibleTags = showAllFilters
+    ? tags
+    : tags.slice(0, VISIBLE_TAGS);
+
+  const hasMoreFilters = tags.length > VISIBLE_TAGS;
+
   return (
     <section className="w-full">
 
-      {/* =========================================
-          LISTING INTRO
-          ========================================= */}
-
-      <div className="mx-auto max-w-[1440px] px-6 pb-16 pt-16 text-center md:px-10 md:pb-20 md:pt-20 lg:px-12">
-        <div className="mx-auto max-w-[900px]">
-
-          <p className="font-ambit-regular text-lg text-black sm:text-xl">
-            Browse our collection
-          </p>
-
-          <h2 className="mt-4 font-ambit-regular text-4xl leading-[1.05] text-black sm:text-5xl lg:text-7xl">
-            All Stories
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-[800px] font-ambit-regular text-base leading-7 text-black sm:text-lg md:w-[80%]">
-            Explore {totalStories} authentic stories from students,
-            parents, teachers, and staff who form the heart of
-            Akanksha Education Fund.
-          </p>
-
-        </div>
-      </div>
 
       {/* =========================================
           SEARCH + FILTERS
           ========================================= */}
 
-      <div>
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-6 px-6 py-8 md:px-10 lg:flex-row lg:items-center lg:px-12">
+      <div className="w-full">
 
-          {/* Search */}
+        <div className="mx-auto max-w-[1440px] px-6 py-8 md:px-10 lg:px-12">
 
-          <div className="relative w-full lg:max-w-[520px]">
+          {/* SEARCH */}
+
+          <div className="relative w-full">
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -164,12 +151,12 @@ export default function PeopleOfAkankshaListing({
 
           </div>
 
-          {/* Filters */}
 
-          <div className="flex flex-wrap items-center gap-3">
+          {/* FILTERS */}
+
+          <div className="mt-8">
 
             <div className="flex items-center gap-2 font-ambit-semibold text-base text-black">
-
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="19"
@@ -204,33 +191,59 @@ export default function PeopleOfAkankshaListing({
                 />
               </svg>
 
-              <span>Filter:</span>
-
+              <span>Filter by:</span>
             </div>
 
-            <FilterButton
-              label={`All (${totalStories})`}
-              active={!selectedTag}
-              onClick={() =>
-                handleTagChange("")
-              }
-            />
 
-            {tags.map(([tag, count]) => (
+            {/* FILTER BUTTONS */}
+
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+
+              {/* ALL */}
+
               <FilterButton
-                key={tag}
-                label={`${tag} (${count})`}
-                active={selectedTag === tag}
-                onClick={() =>
-                  handleTagChange(tag)
-                }
+                label={`All (${totalStories})`}
+                active={!selectedTag}
+                onClick={() => handleTagChange("")}
               />
-            ))}
+
+
+              {/* TAGS */}
+
+              {visibleTags.map(([tag, count]) => (
+                <FilterButton
+                  key={tag}
+                  label={`${tag} (${count})`}
+                  active={selectedTag === tag}
+                  onClick={() => handleTagChange(tag)}
+                />
+              ))}
+
+
+              {/* MORE / LESS */}
+
+              {hasMoreFilters && (
+                <button
+                  type="button"
+                  onClick={() =>
+                    setShowAllFilters((previous) => !previous)
+                  }
+                  className="rounded-full border border-black bg-transparent px-5 py-2 font-ambit-semibold text-sm text-black transition-all hover:bg-black hover:text-white"
+                >
+                  {showAllFilters
+                    ? "Show less −"
+                    : `More filters +${tags.length - VISIBLE_TAGS}`}
+                </button>
+              )}
+
+            </div>
 
           </div>
 
         </div>
+
       </div>
+
 
       {/* =========================================
           STORIES
@@ -250,6 +263,7 @@ export default function PeopleOfAkankshaListing({
 
           </div>
         ) : (
+
           <div className="py-20 text-center">
 
             <p className="font-ambit-regular text-xl">
@@ -257,7 +271,9 @@ export default function PeopleOfAkankshaListing({
             </p>
 
           </div>
+
         )}
+
 
         {/* =========================================
             PAGINATION
@@ -292,10 +308,10 @@ function FilterButton({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full border px-6 py-2 font-ambit-regular text-md transition-all ${
+      className={`rounded-full border px-5 py-2 font-ambit-regular text-sm transition-all ${
         active
           ? "border-black bg-black text-white"
-          : "border-black bg-transparent text-black hover:border-black hover:bg-black hover:text-white"
+          : "border-black bg-transparent text-black hover:bg-black hover:text-white"
       }`}
     >
       {label}
@@ -321,23 +337,14 @@ function Pagination({
     const params = new URLSearchParams();
 
     if (search?.trim()) {
-      params.set(
-        "search",
-        search.trim()
-      );
+      params.set("search", search.trim());
     }
 
     if (selectedTag) {
-      params.set(
-        "tag",
-        selectedTag
-      );
+      params.set("tag", selectedTag);
     }
 
-    params.set(
-      "page",
-      String(page)
-    );
+    params.set("page", String(page));
 
     return `${pathname}?${params.toString()}`;
   };
@@ -358,9 +365,7 @@ function Pagination({
   return (
     <div className="mt-16 flex items-center justify-center gap-4">
 
-      {/* =========================================
-          PREVIOUS
-          ========================================= */}
+      {/* PREVIOUS */}
 
       {currentPage > 1 && (
         <Button
@@ -374,9 +379,8 @@ function Pagination({
         </Button>
       )}
 
-      {/* =========================================
-          NEXT
-          ========================================= */}
+
+      {/* NEXT */}
 
       {currentPage < totalPages && (
         <Button
@@ -404,9 +408,10 @@ function StoryCard({ story }) {
       href={`/people-of-akanksha/${story.uid}`}
       className="group block"
     >
+
       <div className="rounded-[24px] border border-[#C2BFB7] p-4 transition-all duration-300 hover:border-black">
 
-        {/* Image */}
+        {/* IMAGE */}
 
         {story.data.hero_image && (
           <div className="overflow-hidden rounded-[18px]">
@@ -423,11 +428,12 @@ function StoryCard({ story }) {
           </div>
         )}
 
-        {/* Content */}
+
+        {/* CONTENT */}
 
         <div className="pt-5">
 
-          {/* Tag */}
+          {/* TAG */}
 
           {story.tags?.length > 0 && (
             <div className="inline-flex rounded-full border border-black bg-transparent px-5 py-2 font-ambit-regular text-sm text-black">
@@ -435,7 +441,8 @@ function StoryCard({ story }) {
             </div>
           )}
 
-          {/* Title */}
+
+          {/* TITLE */}
 
           {story.data.title && (
             <h2 className="mt-4 font-ambit-semibold text-xl leading-[1.1] text-black sm:text-2xl">
@@ -443,7 +450,8 @@ function StoryCard({ story }) {
             </h2>
           )}
 
-          {/* Author */}
+
+          {/* AUTHOR */}
 
           {story.data.author_name && (
             <p className="mt-4 font-ambit-semibold text-base text-black">
@@ -451,7 +459,8 @@ function StoryCard({ story }) {
             </p>
           )}
 
-          {/* Role */}
+
+          {/* ROLE */}
 
           {story.data.role && (
             <p className="mt-1 font-ambit-regular text-sm leading-5 text-black">
@@ -462,6 +471,7 @@ function StoryCard({ story }) {
         </div>
 
       </div>
+
     </Link>
   );
 }
