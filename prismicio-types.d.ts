@@ -3559,9 +3559,9 @@ export type PartnershipsDocument<Lang extends string = string> =
   >;
 
 type PeopleOfAkankshaDocumentDataSlicesSlice =
+  | PeopleOfAkankshaIntroSlice
   | PeopleOfAkankshaMarqueeSlice
-  | PeopleOfAkankshaHeroSlice
-  | ImpactHeroSlice;
+  | PeopleOfAkankshaHeroSlice;
 
 /**
  * Content for People of Akanksha documents
@@ -14673,6 +14673,71 @@ export type PeopleOfAkankshaHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *PeopleOfAkankshaIntro → Default → Primary*
+ */
+export interface PeopleOfAkankshaIntroSliceDefaultPrimary {
+  /**
+   * Small Heading field in *PeopleOfAkankshaIntro → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_intro.default.primary.small_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_heading: prismic.KeyTextField;
+
+  /**
+   * Heading field in *PeopleOfAkankshaIntro → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_intro.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *PeopleOfAkankshaIntro → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_of_akanksha_intro.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for PeopleOfAkankshaIntro Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PeopleOfAkankshaIntroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PeopleOfAkankshaIntroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PeopleOfAkankshaIntro*
+ */
+type PeopleOfAkankshaIntroSliceVariation = PeopleOfAkankshaIntroSliceDefault;
+
+/**
+ * PeopleOfAkankshaIntro Shared Slice
+ *
+ * - **API ID**: `people_of_akanksha_intro`
+ * - **Description**: PeopleOfAkankshaIntro
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PeopleOfAkankshaIntroSlice = prismic.SharedSlice<
+  "people_of_akanksha_intro",
+  PeopleOfAkankshaIntroSliceVariation
+>;
+
+/**
  * Item in *PeopleOfAkankshaMarquee → Default → Primary → Stories*
  */
 export interface PeopleOfAkankshaMarqueeSliceDefaultPrimaryStoriesItem {
@@ -20297,6 +20362,10 @@ declare module "@prismicio/client" {
       PeopleOfAkankshaHeroSliceDefaultPrimary,
       PeopleOfAkankshaHeroSliceVariation,
       PeopleOfAkankshaHeroSliceDefault,
+      PeopleOfAkankshaIntroSlice,
+      PeopleOfAkankshaIntroSliceDefaultPrimary,
+      PeopleOfAkankshaIntroSliceVariation,
+      PeopleOfAkankshaIntroSliceDefault,
       PeopleOfAkankshaMarqueeSlice,
       PeopleOfAkankshaMarqueeSliceDefaultPrimaryStoriesItem,
       PeopleOfAkankshaMarqueeSliceDefaultPrimary,

@@ -1,0 +1,24 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"small_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "giving",
+				"type": "Text"
+			},
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "cast",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "base",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
