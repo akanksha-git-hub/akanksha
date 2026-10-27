@@ -9,10 +9,10 @@ import Button from "@/components/v2-components/buttons/button";
 
 export default function PeopleOfAkankshaListing({
   stories,
-  tags,
+  
   search,
-  selectedTag,
-  totalStories,
+  
+  
   currentPage,
   totalPages,
 }) {
@@ -20,63 +20,21 @@ export default function PeopleOfAkankshaListing({
   const pathname = usePathname();
 
   const [searchValue, setSearchValue] = useState(search || "");
-  const [showAllFilters, setShowAllFilters] = useState(false);
 
-  const VISIBLE_TAGS = 2;
+
+  
 
   // =========================================
   // SEARCH
   // =========================================
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      const params = new URLSearchParams();
-
-      const trimmedSearch = searchValue.trim();
-
-      if (trimmedSearch) {
-        params.set("search", trimmedSearch);
-      }
-
-      if (selectedTag) {
-        params.set("tag", selectedTag);
-      }
-
-      params.set("page", "1");
-
-      const queryString = params.toString();
-
-      router.replace(
-        queryString ? `${pathname}?${queryString}` : pathname,
-        {
-          scroll: false,
-        }
-      );
-    }, 500);
-
-    return () => clearTimeout(timeout);
-  }, [
-    searchValue,
-    selectedTag,
-    pathname,
-    router,
-  ]);
-
-  // =========================================
-  // TAG FILTER
-  // =========================================
-
-  const handleTagChange = (tag) => {
+useEffect(() => {
+  const timeout = setTimeout(() => {
     const params = new URLSearchParams();
-
     const trimmedSearch = searchValue.trim();
 
     if (trimmedSearch) {
       params.set("search", trimmedSearch);
-    }
-
-    if (tag) {
-      params.set("tag", tag);
     }
 
     params.set("page", "1");
@@ -84,22 +42,25 @@ export default function PeopleOfAkankshaListing({
     const queryString = params.toString();
 
     router.replace(
-      queryString ? `${pathname}?${queryString}` : pathname,
-      {
-        scroll: false,
-      }
+      `${pathname}?${queryString}`,
+      { scroll: false }
     );
-  };
+  }, 500);
+
+  return () => clearTimeout(timeout);
+}, [searchValue, pathname, router]);
+
+  // =========================================
+  // TAG FILTER
+  // =========================================
+
+  
 
   // =========================================
   // FILTER DISPLAY
   // =========================================
 
-  const visibleTags = showAllFilters
-    ? tags
-    : tags.slice(0, VISIBLE_TAGS);
-
-  const hasMoreFilters = tags.length > VISIBLE_TAGS;
+ 
 
   return (
     <section className="w-full">
@@ -154,91 +115,7 @@ export default function PeopleOfAkankshaListing({
 
           {/* FILTERS */}
 
-          <div className="mt-8">
-
-            <div className="flex items-center gap-2 font-ambit-semibold text-base text-black">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="19"
-                height="19"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <line
-                  x1="4"
-                  x2="20"
-                  y1="6"
-                  y2="6"
-                />
-
-                <line
-                  x1="7"
-                  x2="17"
-                  y1="12"
-                  y2="12"
-                />
-
-                <line
-                  x1="10"
-                  x2="14"
-                  y1="18"
-                  y2="18"
-                />
-              </svg>
-
-              <span>Filter by:</span>
-            </div>
-
-
-            {/* FILTER BUTTONS */}
-
-            <div className="mt-4 flex flex-wrap items-center gap-3">
-
-              {/* ALL */}
-
-              <FilterButton
-                label={`All (${totalStories})`}
-                active={!selectedTag}
-                onClick={() => handleTagChange("")}
-              />
-
-
-              {/* TAGS */}
-
-              {visibleTags.map(([tag, count]) => (
-                <FilterButton
-                  key={tag}
-                  label={`${tag} (${count})`}
-                  active={selectedTag === tag}
-                  onClick={() => handleTagChange(tag)}
-                />
-              ))}
-
-
-              {/* MORE / LESS */}
-
-              {hasMoreFilters && (
-                <button
-                  type="button"
-                  onClick={() =>
-                    setShowAllFilters((previous) => !previous)
-                  }
-                  className="rounded-full border border-black bg-transparent px-5 py-2 font-ambit-semibold text-sm text-black transition-all hover:bg-black hover:text-white"
-                >
-                  {showAllFilters
-                    ? "Show less −"
-                    : `More filters +${tags.length - VISIBLE_TAGS}`}
-                </button>
-              )}
-
-            </div>
-
-          </div>
+          
 
         </div>
 
@@ -284,7 +161,7 @@ export default function PeopleOfAkankshaListing({
             currentPage={currentPage}
             totalPages={totalPages}
             search={searchValue}
-            selectedTag={selectedTag}
+            
           />
         )}
 
@@ -299,25 +176,6 @@ export default function PeopleOfAkankshaListing({
 // FILTER BUTTON
 // =============================================
 
-function FilterButton({
-  label,
-  active,
-  onClick,
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`rounded-full border px-5 py-2 font-ambit-regular text-sm transition-all ${
-        active
-          ? "border-black bg-black text-white"
-          : "border-black bg-transparent text-black hover:bg-black hover:text-white"
-      }`}
-    >
-      {label}
-    </button>
-  );
-}
 
 
 // =============================================
@@ -328,7 +186,7 @@ function Pagination({
   currentPage,
   totalPages,
   search,
-  selectedTag,
+  
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -340,9 +198,7 @@ function Pagination({
       params.set("search", search.trim());
     }
 
-    if (selectedTag) {
-      params.set("tag", selectedTag);
-    }
+  
 
     params.set("page", String(page));
 

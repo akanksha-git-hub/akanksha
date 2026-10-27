@@ -7,6 +7,7 @@ import {
 } from "@prismicio/next";
 
 import Button from "@/components/v2-components/buttons/button";
+import SliceIdentifier from "@/components/SliceIdentifier";
 
 /**
  * @typedef {import("@prismicio/client").Content.PeopleOfAkankshaMarqueeSlice} PeopleOfAkankshaMarqueeSlice
@@ -25,25 +26,43 @@ const PeopleOfAkankshaMarquee = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="w-full max-w-full overflow-x-clip py-16 md:py-20 lg:py-24"
+      className="w-full max-w-full overflow-x-clip"
     >
+
+      {/* SLICE IDENTIFIER */}
+{slice.primary.slice_identifier && (
+  <div className="universal-padding">
+    <SliceIdentifier
+      text={slice.primary.slice_identifier}
+    />
+        {slice.primary.heading && (
+        <div className=" mt-8  flex justify-start space-x-6 items-center">
+          <h2 className="font-ambit-regular  text-black text-5xl md:text-6xl tracking-tight  ">
+            {slice.primary.heading}
+          </h2>
+             <div className="[&>div>button>span:first-child]:hidden">
+  <Button 
+    href="/people-of-akanksha"
+  className="!px-3" aria-label="View all stories">
+    {""}
+  </Button>
+</div>
+        </div>
+      )}
+  </div>
+)}
       {/* =========================================
           HEADING
           ========================================= */}
 
-      {slice.primary.heading && (
-        <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-12">
-          <h2 className="font-ambit-regular text-4xl leading-[1.05] tracking-[-0.025em] text-black sm:text-5xl md:text-6xl lg:text-7xl">
-            {slice.primary.heading}
-          </h2>
-        </div>
-      )}
+  
+
 
       {/* =========================================
           MARQUEE
           ========================================= */}
 
-      <div className="mt-10 w-full max-w-full overflow-x-clip md:mt-14">
+      <div className=" w-full max-w-full overflow-x-clip md:mt-14">
         <Marquee
           direction="left"
           speed={40}
