@@ -24,7 +24,7 @@ const IconShowcase = ({ slice, context }) => {
       <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="relative"
+        className="relative universal-padding"
       >
         <div className="hidden md:block absolute -right-80 -bottom-60 xl:top-[150px] xl:-left-[280px] h-[1000px] w-[1000px] -z-10">
           <PrismicNextImage
