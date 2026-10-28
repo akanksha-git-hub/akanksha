@@ -1944,6 +1944,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type HomeDocumentDataSlicesSlice =
+  | PeopleOfAkankshaMarqueeSlice
   | BannerSlice
   | CardShowcaseSlice
   | ShowcaseV2Slice
