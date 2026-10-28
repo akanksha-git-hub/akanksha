@@ -66,15 +66,13 @@ const PeopleOfAkankshaMarquee = ({ slice }) => {
         </Marquee>
       </div>
       {slice.primary.heading && (
-        <div className=" mt-8 universal-padding flex justify-center space-x-6 items-center">
-          <h2 className="font-ambit-regular  text-black text-5xl md:text-6xl tracking-tight  ">
-            {slice.primary.heading}
-          </h2>
+        <div className=" mt-8  flex justify-center items-center">
+         
              <div className="[&>div>button>span:first-child]:hidden">
   <Button 
     href="/people-of-akanksha"
   className="!px-3" aria-label="View all stories">
-    {""}
+        Explore More Stories
   </Button>
 </div>
         </div>
