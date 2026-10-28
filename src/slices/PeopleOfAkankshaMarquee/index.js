@@ -35,20 +35,7 @@ const PeopleOfAkankshaMarquee = ({ slice }) => {
     <SliceIdentifier
       text={slice.primary.slice_identifier}
     />
-        {slice.primary.heading && (
-        <div className=" mt-8  flex justify-start space-x-6 items-center">
-          <h2 className="font-ambit-regular  text-black text-5xl md:text-6xl tracking-tight  ">
-            {slice.primary.heading}
-          </h2>
-             <div className="[&>div>button>span:first-child]:hidden">
-  <Button 
-    href="/people-of-akanksha"
-  className="!px-3" aria-label="View all stories">
-    {""}
-  </Button>
-</div>
-        </div>
-      )}
+        
   </div>
 )}
       {/* =========================================
@@ -78,6 +65,20 @@ const PeopleOfAkankshaMarquee = ({ slice }) => {
           ))}
         </Marquee>
       </div>
+      {slice.primary.heading && (
+        <div className=" mt-8 universal-padding flex justify-center space-x-6 items-center">
+          <h2 className="font-ambit-regular  text-black text-5xl md:text-6xl tracking-tight  ">
+            {slice.primary.heading}
+          </h2>
+             <div className="[&>div>button>span:first-child]:hidden">
+  <Button 
+    href="/people-of-akanksha"
+  className="!px-3" aria-label="View all stories">
+    {""}
+  </Button>
+</div>
+        </div>
+      )}
     </section>
   );
 };
@@ -87,14 +88,15 @@ const PeopleOfAkankshaMarquee = ({ slice }) => {
 // STORY CARD
 // =============================================
 
+// =============================================
+// STORY CARD
+// =============================================
+
 function StoryCard({ story }) {
   return (
-    <article className="mx-3 flex h-[560px] w-[320px] shrink-0 flex-col overflow-hidden rounded-[24px] border border-[#C2BFB7] bg-white sm:w-[380px] lg:h-[600px] lg:w-[420px]">
+    <article className="mx-3 box-border flex h-[560px] w-[320px] shrink-0 flex-col overflow-hidden rounded-[24px] border border-[#C2BFB7] bg-white sm:w-[380px] lg:h-[600px] lg:w-[420px]">
 
-      {/* =========================================
-          IMAGE
-          ========================================= */}
-
+      {/* IMAGE */}
       {story.image && (
         <div className="h-[220px] w-full shrink-0 overflow-hidden sm:h-[250px] lg:h-[270px]">
           <PrismicNextImage
@@ -104,39 +106,31 @@ function StoryCard({ story }) {
         </div>
       )}
 
-      {/* =========================================
-          CONTENT
-          ========================================= */}
+      {/* CONTENT */}
+      <div className="flex min-h-0 flex-1 flex-col p-6 md:p-7">
 
-      <div className="flex flex-1 flex-col p-6 md:p-7">
-
-        {/* Title */}
-
+        {/* TITLE — MAX 2 LINES */}
         {story.title && (
-          <h3 className="line-clamp-2 min-h-[58px] font-ambit-semibold text-2xl leading-[1.05] tracking-[-0.02em] text-black md:text-3xl">
+          <h3 className="line-clamp-2 h-[2.3em] shrink-0 overflow-hidden font-ambit-semibold text-2xl leading-[1.15] tracking-[-0.02em] text-black md:text-3xl">
             {story.title}
           </h3>
         )}
 
-        {/* Content */}
+       {/* DESCRIPTION — MAX 4 LINES */}
+{story.content && (
+  <p className="mt-3 line-clamp-5 md:line-clamp-4 overflow-hidden font-ambit-regular text-base leading-7 text-black md:text-lg md:leading-7">
+    {story.content}
+  </p>
+)}
 
-        {story.content && (
-          <p className="mt-3 line-clamp-5 font-ambit-regular text-base leading-7 text-black md:text-lg md:leading-7">
-            {story.content}
-          </p>
-        )}
-
-        {/* Read More */}
-
-        {story.link && (
-          <div className="mt-auto pt-7">
-            <PrismicNextLink field={story.link}>
-              <Button>
-                Read More
-              </Button>
-            </PrismicNextLink>
-          </div>
-        )}
+{/* READ MORE — ALIGNED AT BOTTOM */}
+{story.link && (
+  <div className="mt-auto shrink-0 pt-5">
+    <PrismicNextLink field={story.link}>
+      <Button>Read More</Button>
+    </PrismicNextLink>
+  </div>
+)}
 
       </div>
     </article>
