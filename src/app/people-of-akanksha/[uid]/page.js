@@ -56,11 +56,7 @@ export default async function Page({ params }) {
             {story.data.author_name && (
               <h2
                 className="text-[28px] leading-none "
-                style={{
-                  fontFamily:
-                    '"Brush Script MT", "Segoe Print", "Comic Sans MS", cursive',
-                  fontStyle: "italic",
-                }}
+            
               >
                 {story.data.author_name}
               </h2>
