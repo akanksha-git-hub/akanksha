@@ -1,18 +1,25 @@
 
 import Script from 'next/script';
 
-import { Inter, Playfair_Display, Instrument_Sans } from "next/font/google";
+import { Inter, Playfair_Display, Instrument_Sans ,  Libre_Franklin,} from "next/font/google";
 import LocalFont from "next/font/local"
 import "./globals.css";
 import LenisScrollContext from "@/components/LenisScrollContext";
 import FooterMain from "@/components/v2-components/footer/footer-main";
 import HeaderDataLayer from "@/components/v2-components/header/header-data-layer";
 
+
 const inter = Inter({ 
   variable: '--font-inter',
   weight: ['400', '500', '600', '700', '800'],
   subsets: ["latin"] 
 })
+
+const libreFranklin = Libre_Franklin({
+  variable: "--font-libre-franklin",
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+});
 
 const playFairDisplay = Playfair_Display({
   variable: '--font-pf-d',
@@ -89,6 +96,8 @@ export default function RootLayout({ children }) {
           ${playFairDisplay.variable} ${ambitRegular.variable}
           ${ambitBlack.variable} ${ambitBold.variable} ${ambitLight.variable}
           ${ambitSemiBold.variable} ${ambitItalic.variable}
+              ${libreFranklin.variable}
+
         `}
       >
         

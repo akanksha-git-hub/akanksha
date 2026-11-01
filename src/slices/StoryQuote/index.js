@@ -19,17 +19,15 @@ const StoryQuote = ({ slice }) => {
 
         {/* Quote */}
 
-        <blockquote
-          className="max-w-[900px] py-2 text-[32px] leading-[1.25] md:text-[38px] "
-          style={{
-            fontFamily:
-              '"Brush Script MT", "Segoe Print", cursive',
-            fontStyle: "italic",
-          }}
-        >
-          {slice.primary.quote}
-        </blockquote>
-
+      <blockquote
+  className="max-w-[900px] py-2 text-[28px] leading-[1.25] md:text-[32px]"
+  style={{
+    fontFamily: "var(--font-libre-franklin), sans-serif",
+    fontStyle: "italic",
+  }}
+>
+  {slice.primary.quote}
+</blockquote>
       </div>
     </section>
   );
