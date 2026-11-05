@@ -138,7 +138,7 @@ export default async function Page({ params }) {
           components={components}
         />
 
- <div className="mt-8">
+ <div className="mt-8 flex  justify-center items-center">
   <Button back rev showArrow>
     Back
   </Button>
