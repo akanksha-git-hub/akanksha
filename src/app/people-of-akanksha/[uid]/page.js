@@ -138,6 +138,12 @@ export default async function Page({ params }) {
           components={components}
         />
 
+ <div className="mt-8">
+  <Button back rev showArrow>
+    Back
+  </Button>
+</div>
+
       </section>
 
     </main>

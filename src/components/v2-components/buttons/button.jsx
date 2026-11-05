@@ -5,15 +5,17 @@ import PlayVector from "@/assets/play-vector.svg";
 import PencilShading from "@/assets/pencil-shading.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { PrismicLink } from "@prismicio/react";
 
 const Button = forwardRef(function Button(
-  { children, isVideo, prismicLink, href,rev = false, className,showArrow = true, ...props },
+  { children, isVideo, prismicLink, href,rev = false, className, onClick, back = false,showArrow = true, ...props },
   ref
 ) {
   const [isTouched, setIsTouched] = useState(false);
   const buttonRef = useRef(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     
@@ -62,7 +64,12 @@ const Button = forwardRef(function Button(
 
   const BaseButton = () => (
     <div className="relative group active:scale-95 w-fit">
-    <button ref={buttonRef} className={`${baseClass}`} {...props}>
+   <button
+  ref={buttonRef}
+  className={`${baseClass}`}
+  onClick={back ? () => router.back() : onClick}
+  {...props}
+>
         {/* Conditionally render arrow + text */}
         {rev ? ( 
   <> 
